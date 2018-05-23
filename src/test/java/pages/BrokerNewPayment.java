@@ -1,5 +1,7 @@
 package pages;
 import java.util.List;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -154,9 +156,12 @@ public class BrokerNewPayment extends TestBase
 	}
 	
 	/*-------schedule payment tab---------*/
-	public void clickShedulePaymenttab()
+	public void clickShedulePaymenttab() throws InterruptedException
 	{
-		tab_shedulepayment.click();
+		Thread.sleep(1000);
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click();", tab_shedulepayment);
+		//tab_shedulepayment.click();
 	}
 	/*-------Search Carrier---------*/
 	public void searchCarrier(String cemail)
