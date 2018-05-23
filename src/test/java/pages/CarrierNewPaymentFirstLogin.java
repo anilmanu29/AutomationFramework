@@ -18,7 +18,7 @@ public class CarrierNewPaymentFirstLogin extends TestBase{
 
 	//Page Factory - OR:
 	@FindBy(id="EIN")
-	WebElement field_ein;
+	private WebElement field_ein;
 	
 	@FindBy(xpath="//input[@value='Next']")
 	WebElement button_next;

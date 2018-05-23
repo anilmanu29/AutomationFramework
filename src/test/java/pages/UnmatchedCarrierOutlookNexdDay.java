@@ -280,7 +280,8 @@ List<WebElement> list = driver.findElements(By.xpath("//*[@class='ms-font-l lvHi
 		Dotnumber.sendKeys(Dot);
 	}
 
-	public void companyname(String Company) {
+	public void companyname(String Company) throws InterruptedException {
+		Thread.sleep(1000);
 		CompanyName.sendKeys(Company);
 	}
 

@@ -60,8 +60,9 @@ public class CarrierCanadaFirstLogin extends TestBase{
 		wait.until(ExpectedConditions.elementToBeClickable(UserName));
 		UserName.sendKeys(CarrierRegisterCanadaTest.cemail);
 		Password.sendKeys(CarrierRegisterCanadaTest.password);
+		Thread.sleep(1000);
 		loginBtn.click();
-		Thread.sleep(3000);
+		
 	}
 
 

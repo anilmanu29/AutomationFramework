@@ -11,11 +11,11 @@
     <classes>
 
  <!--    Script for Jira Tickets LP-5390 LoadPay - Selenium Test - Broker - Register Canada  Shantesh  -->
-<!-- 
+
 			<class name="testcases.BrokerRegisterCanadaTest"></class>
 		 	<class name="testcases.BrokerOutlookCanadaTest"></class>
 			<class name="testcases.AdminBrokerCanadaTest"></class>
-			<class name="testcases.BrokerCanadaFirstLoginTest"></class> -->
+			<class name="testcases.BrokerCanadaFirstLoginTest"></class>
 			
   	<!-- Script for Jira Tickets LP-5409 LoadPay - Selenium Test - Carrier - Register Canada -->
 
@@ -57,17 +57,17 @@
 <!--    Script for Jira Tickets LP-5396  Broker - New Payment Unmatched Carrier     -->
 		 	
 		 	
-		    <class name="testcases.BrokerPaymentforUnmatchedCarrierTest"></class>
+		 
 		    <class name="testcases.UnmatchedCarrierOutlookNewPaymentTest"></class>
 		 	<class name="testcases.UnmatchedNewPaymentCarrierOutlookTest"></class>
 		 	<class name="testcases.UnmatchedNewPaymentAdminCarrierTest"></class>
 		 	<class name="testcases.UnmatchedNewPaymentCarrierTest"></class>
-		 	<class name="testcases.CarrierNewPaymentFirstLoginTest"></class>
 		 	
+		 	 
 		 	
 		 	<!--    Script for Jira Tickets LP-5412  Carrier - PayMeNow_Fuel Card     -->
  
-            <!-- <class name="testcases.BrokerNewPaymentTest"></class> -->
+            
 		 	<class name="testcases.CarrierPayMeNowFuelCardTest"></class>
  
 

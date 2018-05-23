@@ -18,6 +18,8 @@ import base.TestBase;
 import testcases.BrokerPaymentforUnmatchedCarrierTest;
 
 public class UnmatchedCarrierOutlooksameDay extends TestBase {
+	
+	
 
 	// Page Factory - OR:
 	WebDriverWait wait = null;
@@ -188,6 +190,7 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 	}
 
 	public void enterEmail(String email) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(fieldTextbox));
 		fieldTextbox.sendKeys(email);
 		Thread.sleep(1000);
 		try {

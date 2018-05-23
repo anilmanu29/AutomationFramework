@@ -7,34 +7,6 @@
   </listeners>
   <test thread-count="5" name=" Test Cases(failed)">
     <classes>
-      <class name="testcases.UnmatchedCarrierNextDayACHTest">
-        <methods>
-          <include name="carrierPaymenowNextDAYACH"/>
-          <include name="quit"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- testcases.UnmatchedCarrierNextDayACHTest -->
-      <class name="testcases.UnmatchedNewPaymentCarrierOutlookTest">
-        <methods>
-          <include name="quit"/>
-          <include name="outlookloginTest"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- testcases.UnmatchedNewPaymentCarrierOutlookTest -->
-      <class name="testcases.UnmatchedNewPaymentCarrierTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="quit"/>
-          <include name="loginTest"/>
-        </methods>
-      </class> <!-- testcases.UnmatchedNewPaymentCarrierTest -->
-      <class name="testcases.UnmatchedNewPaymentAdminCarrierTest">
-        <methods>
-          <include name="quit"/>
-          <include name="adminLogin" invocation-numbers="0"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- testcases.UnmatchedNewPaymentAdminCarrierTest -->
       <class name="testcases.CarrierNewPaymentFirstLoginTest">
         <methods>
           <include name="quit"/>
@@ -42,21 +14,6 @@
           <include name="setUp"/>
         </methods>
       </class> <!-- testcases.CarrierNewPaymentFirstLoginTest -->
-      <class name="testcases.ShipperAdvancePaymentTest">
-        <methods>
-          <include name="brokernewPayment" invocation-numbers="1"/>
-          <include name="quit"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- testcases.ShipperAdvancePaymentTest -->
-      <class name="testcases.UnmatchedCarrierOutlookNewPaymentTest">
-        <methods>
-          <include name="outlookloginTest"/>
-          <include name="setUp"/>
-          <include name="CarrierRegister" invocation-numbers="0"/>
-          <include name="quit"/>
-        </methods>
-      </class> <!-- testcases.UnmatchedCarrierOutlookNewPaymentTest -->
     </classes>
   </test> <!--  Test Cases(failed) -->
 </suite> <!-- Failed suite [Automation Test Suite] -->

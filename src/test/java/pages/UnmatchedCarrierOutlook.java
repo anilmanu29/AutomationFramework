@@ -188,6 +188,7 @@ public class UnmatchedCarrierOutlook extends TestBase {
 	}
 
 	public void enterEmail(String email) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(fieldTextbox));
 		fieldTextbox.sendKeys(email);
 		Thread.sleep(1000);
 		try {

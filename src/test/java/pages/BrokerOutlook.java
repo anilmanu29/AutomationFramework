@@ -9,6 +9,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import base.TestBase;
@@ -16,6 +18,8 @@ import testcases.BrokerPaymentforUnmatchedCarrierTest;
 import testcases.BrokerRegisterTest;
 
 public class BrokerOutlook extends TestBase {
+	
+	WebDriverWait wait =null;
 
 	// Page Factory - OR:
 	@FindBy(id = "username")
@@ -85,6 +89,7 @@ public class BrokerOutlook extends TestBase {
 	public BrokerOutlook() throws IOException {
 
 		PageFactory.initElements(driver, this);
+		wait = new WebDriverWait(driver, 30);
 
 	}
 
@@ -103,6 +108,7 @@ public class BrokerOutlook extends TestBase {
 	}
 	
 	public void enterEmail(String email) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(fieldTextbox));
 		fieldTextbox.sendKeys(email);
 		Thread.sleep(1000);
 		try {

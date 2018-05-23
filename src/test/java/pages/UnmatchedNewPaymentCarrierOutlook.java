@@ -10,6 +10,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import base.TestBase;
@@ -19,6 +21,7 @@ import testcases.CarrierRegisterTest;
 
 public class UnmatchedNewPaymentCarrierOutlook extends TestBase {
 
+	WebDriverWait wait = null;
 	// Page Factory - OR:
 	@FindBy(id = "username")
 	WebElement UserName;
@@ -90,11 +93,13 @@ public class UnmatchedNewPaymentCarrierOutlook extends TestBase {
 	public UnmatchedNewPaymentCarrierOutlook() throws IOException {
 
 		PageFactory.initElements(driver, this);
+		wait = new WebDriverWait(driver, 30);
 
 	}
 
 	public void clickPopUp() throws InterruptedException {
 		Thread.sleep(4000);
+		wait.until(ExpectedConditions.elementToBeClickable(fieldSearchMail));
 		fieldSearchMail.click();
 		Thread.sleep(1000);
 		haspopup.click();
@@ -108,6 +113,7 @@ public class UnmatchedNewPaymentCarrierOutlook extends TestBase {
 	}
 	
 	public void enterEmail(String email) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(fieldTextbox));
 		fieldTextbox.sendKeys(email);
 		Thread.sleep(1000);
 		try {
