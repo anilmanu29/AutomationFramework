@@ -63,8 +63,9 @@ public class CarrierFirstLoginSameDay extends TestBase{
 		loginBtn.click();
 	}
 
-	public void clickNext(String ein)
+	public void clickNext(String ein) throws InterruptedException
 	{
+		Thread.sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(field_ein));
 		field_ein.sendKeys(ein);
 		JavascriptExecutor js = (JavascriptExecutor)driver;
