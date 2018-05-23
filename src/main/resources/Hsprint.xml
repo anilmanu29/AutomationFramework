@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Automation Test Suite">
+
+  <listeners>
+   <listener class-name = "extentReportListener.ExtentReporterNG"/>
+   <listener class-name = "TestNGCustomReportListener.TestNGCustomReportListener"/>
+   </listeners>
+   
+	<test name=" Test Cases">
+	
+	 
+	
+		<classes>
+	
+	<!-- Broker Register -->
+	
+	        <class name="testcases.BrokerRegisterTest"></class>
+	         <class name="testcases.outlooklogintest"/>
+	        <class name="testcases.BrokerLoginTest"></class>
+			<class name="testcases.BrokerNewPaymentTest"></class>
+			
+			 
+			 
+			 
+	<!-- Carrier Register -->
+	         <class name="testcases.CarrierRegisterTest"></class>
+	         <class name="testcases.CarrierOutlookTest"></class>
+	         <class name="testcases.CarrierLoginTest"></class>
+		    <class name="testcases.CarrierNotificationTest"></class>
+	       
+	        
+	        
+	        
+		</classes>
+	</test>
+</suite>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Automation Test Suite">
+
+  <listeners>
+   <listener class-name = "extentReportListener.ExtentReporterNG"/>
+   <listener class-name = "TestNGCustomReportListener.TestNGCustomReportListener"/>
+   </listeners>
+   
+
+	
+
+    <suite-files>
+    
+     <!--    <suite-file path="src/main/resources/Hsprint.xml"></suite-file>
+        <suite-file path="src/main/resources/Isprint.xml"></suite-file>
+        <suite-file path="src/main/resources/Jsprint.xml"></suite-file> -->
+         
+    </suite-files>
+</suite>
+
+

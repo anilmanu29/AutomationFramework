@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Automation Test Suite" duration-ms="140871" started-at="2018-05-23T04:38:39Z" finished-at="2018-05-23T04:41:00Z">
+    <groups>
+    </groups>
+    <test name=" Test Cases" duration-ms="140871" started-at="2018-05-23T04:38:39Z" finished-at="2018-05-23T04:41:00Z">
+      <class name="testcases.BrokerRegisterTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerRegisterTest@782663d3]" name="setUp" is-config="true" duration-ms="13742" started-at="2018-05-23T04:38:39Z" finished-at="2018-05-23T04:38:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="BrokerRegister(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:testcases.BrokerRegisterTest@782663d3]" name="BrokerRegister" duration-ms="32072" started-at="2018-05-23T04:38:54Z" data-provider="getBrokerRegisterData" finished-at="2018-05-23T04:39:26Z">
+          <params>
+            <param index="0">
+              <value is-null="true"/>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[broker registration ]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Travells]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[brokerregister09@loadpaytest.truckstop.com]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[brokerregister09@loadpaytest.truckstop.com]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[12344-4567]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[alabama]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[alabama]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[istration]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[reg]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[374657342938]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[Password@123]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[Password@123]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[balajiii]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[102101645]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[456456567567]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[456456567567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BrokerRegister -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerRegisterTest@782663d3]" name="quit" is-config="true" duration-ms="752" started-at="2018-05-23T04:39:26Z" finished-at="2018-05-23T04:39:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.BrokerRegisterTest -->
+      <class name="testcases.outlooklogintest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.outlooklogintest@1990a65e]" name="setUp" is-config="true" duration-ms="9792" started-at="2018-05-23T04:39:27Z" finished-at="2018-05-23T04:39:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="loginTest(java.lang.String, java.lang.String)[pri:2, instance:testcases.outlooklogintest@1990a65e]" name="loginTest" duration-ms="15940" started-at="2018-05-23T04:39:36Z" data-provider="getoutlookLoginData" finished-at="2018-05-23T04:39:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[w2k/anilkumar]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Cgihrms@1234]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.outlooklogintest@1990a65e]" name="quit" is-config="true" duration-ms="712" started-at="2018-05-23T04:39:52Z" finished-at="2018-05-23T04:39:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.outlooklogintest -->
+      <class name="testcases.BrokerLoginTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerLoginTest@64485a47]" name="setUp" is-config="true" duration-ms="10281" started-at="2018-05-23T04:39:53Z" finished-at="2018-05-23T04:40:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="loginTest(java.lang.String, java.lang.String)[pri:7, instance:testcases.BrokerLoginTest@64485a47]" name="loginTest" duration-ms="10866" started-at="2018-05-23T04:40:04Z" data-provider="getBrokerLoginData" finished-at="2018-05-23T04:40:14Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[shantesh.hulagabali@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Veeresh@123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerLoginTest@64485a47]" name="quit" is-config="true" duration-ms="773" started-at="2018-05-23T04:40:14Z" finished-at="2018-05-23T04:40:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.BrokerLoginTest -->
+      <class name="testcases.CarrierRegisterTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.CarrierRegisterTest@6ec8211c]" name="setUp" is-config="true" duration-ms="13137" started-at="2018-05-23T04:40:15Z" finished-at="2018-05-23T04:40:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="CarrierRegister(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:8, instance:testcases.CarrierRegisterTest@6ec8211c]" name="CarrierRegister" duration-ms="30774" started-at="2018-05-23T04:40:28Z" data-provider="getCarrierRegisterData" finished-at="2018-05-23T04:40:59Z">
+          <params>
+            <param index="0">
+              <value is-null="true"/>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[carrier]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Travells]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[carrierregister09@loadpaytest.truckstop.com]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[carrierregister09@loadpaytest.truckstop.com]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[12344-4567]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[alabama]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[alabama]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[istration]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[reg]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[374657342938]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[Password@123]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[Password@123]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[balajiii]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[102101645]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[456456567567]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[456456567567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CarrierRegister -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.CarrierRegisterTest@6ec8211c]" name="quit" is-config="true" duration-ms="717" started-at="2018-05-23T04:40:59Z" finished-at="2018-05-23T04:41:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.CarrierRegisterTest -->
+    </test> <!--  Test Cases -->
+  </suite> <!-- Automation Test Suite -->
+</testng-results>
