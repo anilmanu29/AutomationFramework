@@ -7,13 +7,20 @@
   </listeners>
   <test thread-count="5" name=" Test Cases(failed)">
     <classes>
-      <class name="testcases.CarrierNewPaymentFirstLoginTest">
+      <class name="testcases.AdminCarrierCanadaTest">
         <methods>
           <include name="quit"/>
-          <include name="loginTest"/>
+          <include name="Home"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- testcases.CarrierNewPaymentFirstLoginTest -->
+      </class> <!-- testcases.AdminCarrierCanadaTest -->
+      <class name="testcases.CarrierOutlookCanadaTest">
+        <methods>
+          <include name="outlookloginTest"/>
+          <include name="quit"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- testcases.CarrierOutlookCanadaTest -->
     </classes>
   </test> <!--  Test Cases(failed) -->
 </suite> <!-- Failed suite [Automation Test Suite] -->

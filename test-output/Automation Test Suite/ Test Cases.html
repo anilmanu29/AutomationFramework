@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'> Test Cases</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>4/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>39/2/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed May 23 10:08:39 IST 2018</td>
+<td>Started on:</td><td>Wed May 23 16:52:08 IST 2018</td>
 </tr>
-<tr><td>Total time:</td><td>140 seconds (140871 ms)</td>
+<tr><td>Total time:</td><td>1170 seconds (1170879 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,237 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='testcases.AdminCarrierCanadaTest.Home()'><b>Home</b><br>Test class: testcases.AdminCarrierCanadaTest</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: timeout
+  (Session info: chrome=65.0.3325.181)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
+System info: host: &apos;CPN-IT-ANILKUMA&apos;, ip: &apos;10.10.0.206&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_171&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=XP, acceptSslCerts=false, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=XP, setWindowRect=true, unexpectedAlertBehaviour=, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73), userDataDir=C:\Users\ANILKU~1\AppData\Local\Temp\scoped_dir13316_16487}, takesHeapSnapshot=true, pageLoadStrategy=normal, unhandledPromptBehavior=, databaseEnabled=false, handlesAlerts=true, version=65.0.3325.181, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 0de81647a42c321a2a8d6125aa3425e1
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:82)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:703)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:388)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
+	at com.sun.proxy.$Proxy8.getScreenshotAs(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.getScreenshotAs(EventFiringWebDriver.java:288)
+	at util.TestUtil.takeScreenshotAtEndOfTest(TestUtil.java:63)
+	at util.WebEventListener.onException(WebEventListener.java:67)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$1.invoke(EventFiringWebDriver.java:82)
+	at com.sun.proxy.$Proxy7.onException(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:107)
+	at com.sun.proxy.$Proxy8.get(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.get(EventFiringWebDriver.java:164)
+	at pages.AdminHomePage.AdminURL(AdminHomePage.java:18)
+	at testcases.AdminCarrierCanadaTest.Home(AdminCarrierCanadaTest.java:36)
+... Removed 37 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1153933106", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1153933106'><pre>org.openqa.selenium.TimeoutException: timeout
+  (Session info: chrome=65.0.3325.181)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
+System info: host: &apos;CPN-IT-ANILKUMA&apos;, ip: &apos;10.10.0.206&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_171&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=XP, acceptSslCerts=false, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=XP, setWindowRect=true, unexpectedAlertBehaviour=, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73), userDataDir=C:\Users\ANILKU~1\AppData\Local\Temp\scoped_dir13316_16487}, takesHeapSnapshot=true, pageLoadStrategy=normal, unhandledPromptBehavior=, databaseEnabled=false, handlesAlerts=true, version=65.0.3325.181, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 0de81647a42c321a2a8d6125aa3425e1
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:82)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:703)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:388)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
+	at com.sun.proxy.$Proxy8.getScreenshotAs(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.getScreenshotAs(EventFiringWebDriver.java:288)
+	at util.TestUtil.takeScreenshotAtEndOfTest(TestUtil.java:63)
+	at util.WebEventListener.onException(WebEventListener.java:67)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$1.invoke(EventFiringWebDriver.java:82)
+	at com.sun.proxy.$Proxy7.onException(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:107)
+	at com.sun.proxy.$Proxy8.get(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.get(EventFiringWebDriver.java:164)
+	at pages.AdminHomePage.AdminURL(AdminHomePage.java:18)
+	at testcases.AdminCarrierCanadaTest.Home(AdminCarrierCanadaTest.java:36)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>45</td>
+<td>testcases.AdminCarrierCanadaTest@10a035a0</td></tr>
+<tr>
+<td title='testcases.CarrierOutlookCanadaTest.outlookloginTest()'><b>outlookloginTest</b><br>Test class: testcases.CarrierOutlookCanadaTest</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (707a607ab200790f513b4b1bcbd8ad73)] -&gt; xpath: //input[@role=&apos;textbox&apos;]] (tried for 30 second(s) with 500 MILLISECONDS interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:232)
+	at pages.CarrierOutlookCanada.enterEmail(CarrierOutlookCanada.java:111)
+	at testcases.CarrierOutlookCanadaTest.outlookloginTest(CarrierOutlookCanadaTest.java:36)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@role=&apos;textbox&apos;]&quot;}
+  (Session info: chrome=65.0.3325.181)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
+System info: host: &apos;CPN-IT-ANILKUMA&apos;, ip: &apos;10.10.0.206&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_171&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=XP, acceptSslCerts=false, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=XP, setWindowRect=true, unexpectedAlertBehaviour=, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73), userDataDir=C:\Users\ANILKU~1\AppData\Local\Temp\scoped_dir12400_16240}, takesHeapSnapshot=true, pageLoadStrategy=normal, unhandledPromptBehavior=, databaseEnabled=false, handlesAlerts=true, version=65.0.3325.181, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 707a607ab200790f513b4b1bcbd8ad73
+*** Element info: {Using=xpath, value=//input[@role=&apos;textbox&apos;]}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:82)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:416)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:518)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
+	at com.sun.proxy.$Proxy8.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:189)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy12.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	... 27 more
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1111379131", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1111379131'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (707a607ab200790f513b4b1bcbd8ad73)] -&gt; xpath: //input[@role=&apos;textbox&apos;]] (tried for 30 second(s) with 500 MILLISECONDS interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:232)
+	at pages.CarrierOutlookCanada.enterEmail(CarrierOutlookCanada.java:111)
+	at testcases.CarrierOutlookCanadaTest.outlookloginTest(CarrierOutlookCanadaTest.java:36)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@role=&apos;textbox&apos;]&quot;}
+  (Session info: chrome=65.0.3325.181)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
+System info: host: &apos;CPN-IT-ANILKUMA&apos;, ip: &apos;10.10.0.206&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_171&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=XP, acceptSslCerts=false, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=XP, setWindowRect=true, unexpectedAlertBehaviour=, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73), userDataDir=C:\Users\ANILKU~1\AppData\Local\Temp\scoped_dir12400_16240}, takesHeapSnapshot=true, pageLoadStrategy=normal, unhandledPromptBehavior=, databaseEnabled=false, handlesAlerts=true, version=65.0.3325.181, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 707a607ab200790f513b4b1bcbd8ad73
+*** Element info: {Using=xpath, value=//input[@role=&apos;textbox&apos;]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:82)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:416)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:518)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
+	at sun.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
+	at com.sun.proxy.$Proxy8.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:189)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy12.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	... 27 more
+</pre></div></td>
+<td>50</td>
+<td>testcases.CarrierOutlookCanadaTest@6eceb130</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -75,25 +306,200 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='testcases.BrokerRegisterTest.BrokerRegister()'><b>BrokerRegister</b><br>Test class: testcases.BrokerRegisterTest<br>Parameters: null, broker registration , Travells, brokerregister09@loadpaytest.truckstop.com, brokerregister09@loadpaytest.truckstop.com, 12344-4567, alabama, alabama, istration, reg, 374657342938, Password@123, Password@123, balajiii, 102101645, 456456567567, 456456567567</td>
+<td title='testcases.BrokerRegisterCanadaTest.BrokerRegister()'><b>BrokerRegister</b><br>Test class: testcases.BrokerRegisterCanadaTest<br>Parameters: null, broker registration , Travells, brcanada1775@loadpaytest.truckstop.com, brcanada1775@loadpaytest.truckstop.com, Canada, Yukon, A1A1A1, alabama, alabama, Canada, AB, istration, reg, 374657000000, Password@123, Password@123, balajiii, 102101645, 456457000000, 456457000000</td>
 <td></td>
 <td>32</td>
-<td>testcases.BrokerRegisterTest@782663d3</td></tr>
+<td>testcases.BrokerRegisterCanadaTest@43a0cee9</td></tr>
 <tr>
-<td title='testcases.CarrierRegisterTest.CarrierRegister()'><b>CarrierRegister</b><br>Test class: testcases.CarrierRegisterTest<br>Parameters: null, carrier, Travells, carrierregister09@loadpaytest.truckstop.com, carrierregister09@loadpaytest.truckstop.com, 12344-4567, alabama, alabama, istration, reg, 374657342938, Password@123, Password@123, balajiii, 102101645, 456456567567, 456456567567</td>
+<td title='testcases.CarrierRegisterCanadaTest.CarrierRegister()'><b>CarrierRegister</b><br>Test class: testcases.CarrierRegisterCanadaTest<br>Parameters: null, Carrier registration , Travells, crcanada14449@loadpaytest.truckstop.com, crcanada14449@loadpaytest.truckstop.com, Canada, Yukon, A1A1A1, alabama, alabama, Canada, AB, istration, reg, 374657000000, Password@123, Password@123, balajiii, 102101645, 456457000000, 456457000000</td>
 <td></td>
-<td>30</td>
-<td>testcases.CarrierRegisterTest@6ec8211c</td></tr>
+<td>35</td>
+<td>testcases.CarrierRegisterCanadaTest@706a04ae</td></tr>
 <tr>
-<td title='testcases.outlooklogintest.loginTest()'><b>loginTest</b><br>Test class: testcases.outlooklogintest<br>Parameters: w2k/anilkumar, Cgihrms@1234</td>
+<td title='testcases.UnmatchedCarrierOutlookNextDayTest.CarrierRegister()'><b>CarrierRegister</b><br>Test class: testcases.UnmatchedCarrierOutlookNextDayTest<br>Parameters: null, carrier, Travells, carrierregister12@loadpaytest.truckstop.com, carrierregister12@loadpaytest.truckstop.com, 12344-4567, alabama, alabama, istration, reg, 374657342938, Password@123, Password@123, balajiii, 102101645, 456456567567, 456456567567</td>
 <td></td>
-<td>15</td>
-<td>testcases.outlooklogintest@1990a65e</td></tr>
+<td>29</td>
+<td>testcases.UnmatchedCarrierOutlookNextDayTest@149494d8</td></tr>
 <tr>
-<td title='testcases.BrokerLoginTest.loginTest()'><b>loginTest</b><br>Test class: testcases.BrokerLoginTest<br>Parameters: shantesh.hulagabali@gmail.com, Veeresh@123</td>
+<td title='testcases.UnmatchedCarrierOutlookNewPaymentTest.CarrierRegister()'><b>CarrierRegister</b><br>Test class: testcases.UnmatchedCarrierOutlookNewPaymentTest<br>Parameters: null, carrier, Travells, carrierregister12@loadpaytest.truckstop.com, carrierregister12@loadpaytest.truckstop.com, 12344-4567, alabama, alabama, istration, reg, 374657342938, Password@123, Password@123, balajiii, 102101645, 456456567567, 456456567567</td>
 <td></td>
-<td>10</td>
-<td>testcases.BrokerLoginTest@64485a47</td></tr>
+<td>28</td>
+<td>testcases.UnmatchedCarrierOutlookNewPaymentTest@306279ee</td></tr>
+<tr>
+<td title='testcases.AdminBrokerCanadaTest.Home()'><b>Home</b><br>Test class: testcases.AdminBrokerCanadaTest</td>
+<td></td>
+<td>4</td>
+<td>testcases.AdminBrokerCanadaTest@2eda0940</td></tr>
+<tr>
+<td title='testcases.UnmatchedCarrierAdminNextDayTest.Home()'><b>Home</b><br>Test class: testcases.UnmatchedCarrierAdminNextDayTest</td>
+<td></td>
+<td>5</td>
+<td>testcases.UnmatchedCarrierAdminNextDayTest@646007f4</td></tr>
+<tr>
+<td title='testcases.UnmatchedNewPaymentAdminCarrierTest.Home()'><b>Home</b><br>Test class: testcases.UnmatchedNewPaymentAdminCarrierTest</td>
+<td></td>
+<td>5</td>
+<td>testcases.UnmatchedNewPaymentAdminCarrierTest@4cf4d528</td></tr>
+<tr>
+<td title='testcases.AdminBrokerCanadaTest.adminLogin()'><b>adminLogin</b><br>Test class: testcases.AdminBrokerCanadaTest<br>Parameters: jasonglaser@truckstop.com, aaaaaaa</td>
+<td></td>
+<td>14</td>
+<td>testcases.AdminBrokerCanadaTest@2eda0940</td></tr>
+<tr>
+<td title='testcases.AdminCarrierCanadaTest.adminLogin()'><b>adminLogin</b><br>Test class: testcases.AdminCarrierCanadaTest<br>Parameters: jasonglaser@truckstop.com, aaaaaaa</td>
+<td></td>
+<td>17</td>
+<td>testcases.AdminCarrierCanadaTest@10a035a0</td></tr>
+<tr>
+<td title='testcases.UnmatchedCarrierAdminNextDayTest.adminLogin()'><b>adminLogin</b><br>Test class: testcases.UnmatchedCarrierAdminNextDayTest<br>Parameters: jasonglaser@truckstop.com, aaaaaaa</td>
+<td></td>
+<td>14</td>
+<td>testcases.UnmatchedCarrierAdminNextDayTest@646007f4</td></tr>
+<tr>
+<td title='testcases.UnmatchedNewPaymentAdminCarrierTest.adminLogin()'><b>adminLogin</b><br>Test class: testcases.UnmatchedNewPaymentAdminCarrierTest<br>Parameters: jasonglaser@truckstop.com, aaaaaaa</td>
+<td></td>
+<td>13</td>
+<td>testcases.UnmatchedNewPaymentAdminCarrierTest@4cf4d528</td></tr>
+<tr>
+<td title='testcases.ShipperSchedulePaymentTest.brokernewPayment()'><b>brokernewPayment</b><br>Test class: testcases.ShipperSchedulePaymentTest<br>Parameters: avatarqacarrier@mailinator.truckstop.com, 112341.0, 112341.0, 10.0</td>
+<td></td>
+<td>20</td>
+<td>testcases.ShipperSchedulePaymentTest@47db50c5</td></tr>
+<tr>
+<td title='testcases.ShipperAdvancePaymentTest.brokernewPayment()'><b>brokernewPayment</b><br>Test class: testcases.ShipperAdvancePaymentTest<br>Parameters: avatarqacarrier@mailinator.truckstop.com, 112341.0, 112341.0, 10.0</td>
+<td></td>
+<td>19</td>
+<td>testcases.ShipperAdvancePaymentTest@5c072e3f</td></tr>
+<tr>
+<td title='testcases.BrokerPaymentforUnmatchedCarrierTest.brokernewPayment()'><b>brokernewPayment</b><br>Test class: testcases.BrokerPaymentforUnmatchedCarrierTest<br>Parameters: unmatched047@loadpaytest.truckstop.com, 981196.0, 981196.0, 10.0, Carrier, 295676691</td>
+<td></td>
+<td>20</td>
+<td>testcases.BrokerPaymentforUnmatchedCarrierTest@954b04f</td></tr>
+<tr>
+<td title='testcases.BrokerPaymentforUnmatchedCarrierTest.brokernewPayment()'><b>brokernewPayment</b><br>Test class: testcases.BrokerPaymentforUnmatchedCarrierTest<br>Parameters: unmatched048@loadpaytest.truckstop.com, 981197.0, 981197.0, 10.0, Carrier, 295686691</td>
+<td></td>
+<td>19</td>
+<td>testcases.BrokerPaymentforUnmatchedCarrierTest@954b04f</td></tr>
+<tr>
+<td title='testcases.CarrierSchedulePaymentTest.carrierPaymeNow()'><b>carrierPaymeNow</b><br>Test class: testcases.CarrierSchedulePaymentTest</td>
+<td></td>
+<td>17</td>
+<td>testcases.CarrierSchedulePaymentTest@4d1b0d2a</td></tr>
+<tr>
+<td title='testcases.CarrierPayMeNowFuelCardTest.carrierPaymenowFuelCard()'><b>carrierPaymenowFuelCard</b><br>Test class: testcases.CarrierPayMeNowFuelCardTest<br>Parameters: 6542836.0, 6547879.0</td>
+<td></td>
+<td>47</td>
+<td>testcases.CarrierPayMeNowFuelCardTest@548ad73b</td></tr>
+<tr>
+<td title='testcases.UnmatchedCarrierNextDayACHTest.carrierPaymenowNextDAYACH()'><b>carrierPaymenowNextDAYACH</b><br>Test class: testcases.UnmatchedCarrierNextDayACHTest</td>
+<td></td>
+<td>34</td>
+<td>testcases.UnmatchedCarrierNextDayACHTest@78186a70</td></tr>
+<tr>
+<td title='testcases.BrokerOutlookCanadaTest.login()'><b>login</b><br>Test class: testcases.BrokerOutlookCanadaTest<br>Parameters: w2k/anilkumar, Cgihrms@1234</td>
+<td></td>
+<td>8</td>
+<td>testcases.BrokerOutlookCanadaTest@eb21112</td></tr>
+<tr>
+<td title='testcases.CarrierOutlookCanadaTest.login()'><b>login</b><br>Test class: testcases.CarrierOutlookCanadaTest<br>Parameters: w2k/anilkumar, Cgihrms@1234</td>
+<td></td>
+<td>14</td>
+<td>testcases.CarrierOutlookCanadaTest@6eceb130</td></tr>
+<tr>
+<td title='testcases.UnmatchedCarrierOutlookNextDayTest.login()'><b>login</b><br>Test class: testcases.UnmatchedCarrierOutlookNextDayTest<br>Parameters: w2k/anilkumar, Cgihrms@1234</td>
+<td></td>
+<td>16</td>
+<td>testcases.UnmatchedCarrierOutlookNextDayTest@149494d8</td></tr>
+<tr>
+<td title='testcases.UnmatchedCariierEmailVerifyNextDayTest.login()'><b>login</b><br>Test class: testcases.UnmatchedCariierEmailVerifyNextDayTest<br>Parameters: w2k/anilkumar, Cgihrms@1234</td>
+<td></td>
+<td>8</td>
+<td>testcases.UnmatchedCariierEmailVerifyNextDayTest@710726a3</td></tr>
+<tr>
+<td title='testcases.UnmatchedCarrierOutlookNewPaymentTest.login()'><b>login</b><br>Test class: testcases.UnmatchedCarrierOutlookNewPaymentTest<br>Parameters: w2k/anilkumar, Cgihrms@1234</td>
+<td></td>
+<td>9</td>
+<td>testcases.UnmatchedCarrierOutlookNewPaymentTest@306279ee</td></tr>
+<tr>
+<td title='testcases.UnmatchedNewPaymentCarrierOutlookTest.login()'><b>login</b><br>Test class: testcases.UnmatchedNewPaymentCarrierOutlookTest<br>Parameters: w2k/anilkumar, Cgihrms@1234</td>
+<td></td>
+<td>9</td>
+<td>testcases.UnmatchedNewPaymentCarrierOutlookTest@545997b1</td></tr>
+<tr>
+<td title='testcases.ShipperSchedulePaymentTest.loginBroker()'><b>loginBroker</b><br>Test class: testcases.ShipperSchedulePaymentTest<br>Parameters: shantesh.hulagabali@gmail.com, Veeresh@123</td>
+<td></td>
+<td>8</td>
+<td>testcases.ShipperSchedulePaymentTest@47db50c5</td></tr>
+<tr>
+<td title='testcases.ShipperAdvancePaymentTest.loginBroker()'><b>loginBroker</b><br>Test class: testcases.ShipperAdvancePaymentTest<br>Parameters: shantesh.hulagabali@gmail.com, Veeresh@123</td>
+<td></td>
+<td>9</td>
+<td>testcases.ShipperAdvancePaymentTest@5c072e3f</td></tr>
+<tr>
+<td title='testcases.BrokerPaymentforUnmatchedCarrierTest.loginBroker()'><b>loginBroker</b><br>Test class: testcases.BrokerPaymentforUnmatchedCarrierTest<br>Parameters: shantesh.hulagabali@gmail.com, Veeresh@123</td>
+<td></td>
+<td>6</td>
+<td>testcases.BrokerPaymentforUnmatchedCarrierTest@954b04f</td></tr>
+<tr>
+<td title='testcases.CarrierSchedulePaymentTest.loginCarrier()'><b>loginCarrier</b><br>Test class: testcases.CarrierSchedulePaymentTest<br>Parameters: avatarqacarrier@mailinator.truckstop.com, Password@123</td>
+<td></td>
+<td>7</td>
+<td>testcases.CarrierSchedulePaymentTest@4d1b0d2a</td></tr>
+<tr>
+<td title='testcases.BrokerCanadaFirstLoginTest.loginTest()'><b>loginTest</b><br>Test class: testcases.BrokerCanadaFirstLoginTest</td>
+<td></td>
+<td>6</td>
+<td>testcases.BrokerCanadaFirstLoginTest@3578436e</td></tr>
+<tr>
+<td title='testcases.CarrierCanadaFirstLoginTest.loginTest()'><b>loginTest</b><br>Test class: testcases.CarrierCanadaFirstLoginTest</td>
+<td></td>
+<td>4</td>
+<td>testcases.CarrierCanadaFirstLoginTest@67b467e9</td></tr>
+<tr>
+<td title='testcases.ShipperAdvancePaymentTest.loginTest()'><b>loginTest</b><br>Test class: testcases.ShipperAdvancePaymentTest<br>Parameters: avatarqacarrier@mailinator.truckstop.com, Password@123</td>
+<td></td>
+<td>11</td>
+<td>testcases.ShipperAdvancePaymentTest@5c072e3f</td></tr>
+<tr>
+<td title='testcases.CarrierFirstLoginNextDayACHTest.loginTest()'><b>loginTest</b><br>Test class: testcases.CarrierFirstLoginNextDayACHTest</td>
+<td></td>
+<td>8</td>
+<td>testcases.CarrierFirstLoginNextDayACHTest@481a15ff</td></tr>
+<tr>
+<td title='testcases.UnmatchedNewPaymentCarrierTest.loginTest()'><b>loginTest</b><br>Test class: testcases.UnmatchedNewPaymentCarrierTest</td>
+<td></td>
+<td>22</td>
+<td>testcases.UnmatchedNewPaymentCarrierTest@77846d2c</td></tr>
+<tr>
+<td title='testcases.CarrierPayMeNowFuelCardTest.loginTest()'><b>loginTest</b><br>Test class: testcases.CarrierPayMeNowFuelCardTest<br>Parameters: avatarqacarrier@mailinator.truckstop.com, Password@123</td>
+<td></td>
+<td>2</td>
+<td>testcases.CarrierPayMeNowFuelCardTest@548ad73b</td></tr>
+<tr>
+<td title='testcases.BrokerOutlookCanadaTest.outlookloginTest()'><b>outlookloginTest</b><br>Test class: testcases.BrokerOutlookCanadaTest</td>
+<td></td>
+<td>39</td>
+<td>testcases.BrokerOutlookCanadaTest@eb21112</td></tr>
+<tr>
+<td title='testcases.UnmatchedCarrierOutlookNextDayTest.outlookloginTest()'><b>outlookloginTest</b><br>Test class: testcases.UnmatchedCarrierOutlookNextDayTest</td>
+<td></td>
+<td>60</td>
+<td>testcases.UnmatchedCarrierOutlookNextDayTest@149494d8</td></tr>
+<tr>
+<td title='testcases.UnmatchedCariierEmailVerifyNextDayTest.outlookloginTest()'><b>outlookloginTest</b><br>Test class: testcases.UnmatchedCariierEmailVerifyNextDayTest</td>
+<td></td>
+<td>42</td>
+<td>testcases.UnmatchedCariierEmailVerifyNextDayTest@710726a3</td></tr>
+<tr>
+<td title='testcases.UnmatchedCarrierOutlookNewPaymentTest.outlookloginTest()'><b>outlookloginTest</b><br>Test class: testcases.UnmatchedCarrierOutlookNewPaymentTest</td>
+<td></td>
+<td>69</td>
+<td>testcases.UnmatchedCarrierOutlookNewPaymentTest@306279ee</td></tr>
+<tr>
+<td title='testcases.UnmatchedNewPaymentCarrierOutlookTest.outlookloginTest()'><b>outlookloginTest</b><br>Test class: testcases.UnmatchedNewPaymentCarrierOutlookTest</td>
+<td></td>
+<td>39</td>
+<td>testcases.UnmatchedNewPaymentCarrierOutlookTest@545997b1</td></tr>
 </table><p>
 </body>
 </html>
