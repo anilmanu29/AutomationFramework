@@ -15,19 +15,19 @@
 	
 	<!-- Broker Register -->
 	
-	        <class name="testcases.BrokerRegisterTest"></class>
+	      <!--   <class name="testcases.BrokerRegisterTest"></class>
 	         <class name="testcases.outlooklogintest"/>
 	        <class name="testcases.BrokerLoginTest"></class>
-			<class name="testcases.BrokerNewPaymentTest"></class>
+			<class name="testcases.BrokerNewPaymentTest"></class> -->
 			
 			 
 			 
 			 
 	<!-- Carrier Register -->
-	         <class name="testcases.CarrierRegisterTest"></class>
+	       <!--   <class name="testcases.CarrierRegisterTest"></class>
 	         <class name="testcases.CarrierOutlookTest"></class>
 	         <class name="testcases.CarrierLoginTest"></class>
-		    <class name="testcases.CarrierNotificationTest"></class>
+		    <class name="testcases.CarrierNotificationTest"></class> -->
 	       
 	        
 	        
