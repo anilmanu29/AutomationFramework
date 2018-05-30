@@ -15,7 +15,7 @@
 		 	<!--    Script for Jira Tickets LP-5418  Carrier - Carrier Banking     -->
  
             
-		 	<class name="testcases.CarrierBankingTest"></class>
+		 	<!-- <class name="testcases.CarrierBankingTest"></class> -->
  
 
     </classes>

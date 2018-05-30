@@ -1,690 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="2" ignored="0" total="41" passed="39">
+<testng-results skipped="0" failed="0" ignored="0" total="10" passed="10">
   <reporter-output>
   </reporter-output>
-  <suite name="Automation Test Suite" duration-ms="1170879" started-at="2018-05-23T11:22:08Z" finished-at="2018-05-23T11:41:39Z">
+  <suite name="Automation Test Suite" duration-ms="131784" started-at="2018-05-30T12:36:28Z" finished-at="2018-05-30T12:38:40Z">
     <groups>
     </groups>
-    <test name=" Test Cases" duration-ms="1170879" started-at="2018-05-23T11:22:08Z" finished-at="2018-05-23T11:41:39Z">
-      <class name="testcases.CarrierPayMeNowFuelCardTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.CarrierPayMeNowFuelCardTest@548ad73b]" name="setUp" is-config="true" duration-ms="9444" started-at="2018-05-23T11:40:39Z" finished-at="2018-05-23T11:40:48Z">
+    <test name=" Test Cases" duration-ms="131784" started-at="2018-05-30T12:36:28Z" finished-at="2018-05-30T12:38:40Z">
+      <class name="testcases.CarrierBankingTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.CarrierBankingTest@396e2f39]" name="setUp" is-config="true" duration-ms="10956" started-at="2018-05-30T12:36:28Z" finished-at="2018-05-30T12:36:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginTest(java.lang.String, java.lang.String)[pri:43, instance:testcases.CarrierPayMeNowFuelCardTest@548ad73b]" name="loginTest" duration-ms="2915" started-at="2018-05-23T11:40:48Z" data-provider="getCarrierLoginData" finished-at="2018-05-23T11:40:51Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[avatarqacarrier@mailinator.truckstop.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method status="PASS" signature="carrierPaymenowFuelCard(java.lang.String, java.lang.String)[pri:44, instance:testcases.CarrierPayMeNowFuelCardTest@548ad73b]" name="carrierPaymenowFuelCard" duration-ms="47259" started-at="2018-05-23T11:40:51Z" data-provider="getCarrierFuelcardaccountNumbersData" finished-at="2018-05-23T11:41:38Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[6542836.0]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[6547879.0]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- carrierPaymenowFuelCard -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.CarrierPayMeNowFuelCardTest@548ad73b]" name="quit" is-config="true" duration-ms="926" started-at="2018-05-23T11:41:38Z" finished-at="2018-05-23T11:41:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.CarrierPayMeNowFuelCardTest -->
-      <class name="testcases.UnmatchedCarrierAdminNextDayTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.UnmatchedCarrierAdminNextDayTest@646007f4]" name="setUp" is-config="true" duration-ms="14904" started-at="2018-05-23T11:34:49Z" finished-at="2018-05-23T11:35:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="Home()[pri:29, instance:testcases.UnmatchedCarrierAdminNextDayTest@646007f4]" name="Home" duration-ms="5589" started-at="2018-05-23T11:35:04Z" finished-at="2018-05-23T11:35:09Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Home -->
-        <test-method status="PASS" signature="adminLogin(java.lang.String, java.lang.String)[pri:30, instance:testcases.UnmatchedCarrierAdminNextDayTest@646007f4]" name="adminLogin" duration-ms="14671" started-at="2018-05-23T11:35:09Z" data-provider="getAdminLoginData" finished-at="2018-05-23T11:35:24Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[jasonglaser@truckstop.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[aaaaaaa]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- adminLogin -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.UnmatchedCarrierAdminNextDayTest@646007f4]" name="quit" is-config="true" duration-ms="756" started-at="2018-05-23T11:35:24Z" finished-at="2018-05-23T11:35:25Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.UnmatchedCarrierAdminNextDayTest -->
-      <class name="testcases.UnmatchedCarrierNextDayACHTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.UnmatchedCarrierNextDayACHTest@78186a70]" name="setUp" is-config="true" duration-ms="10616" started-at="2018-05-23T11:35:45Z" finished-at="2018-05-23T11:35:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="carrierPaymenowNextDAYACH()[pri:33, instance:testcases.UnmatchedCarrierNextDayACHTest@78186a70]" name="carrierPaymenowNextDAYACH" duration-ms="34302" started-at="2018-05-23T11:35:56Z" finished-at="2018-05-23T11:36:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- carrierPaymenowNextDAYACH -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.UnmatchedCarrierNextDayACHTest@78186a70]" name="quit" is-config="true" duration-ms="766" started-at="2018-05-23T11:36:30Z" finished-at="2018-05-23T11:36:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.UnmatchedCarrierNextDayACHTest -->
-      <class name="testcases.AdminCarrierCanadaTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.AdminCarrierCanadaTest@10a035a0]" name="setUp" is-config="true" duration-ms="15087" started-at="2018-05-23T11:26:52Z" finished-at="2018-05-23T11:27:07Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="Home()[pri:9, instance:testcases.AdminCarrierCanadaTest@10a035a0]" name="Home" duration-ms="45448" started-at="2018-05-23T11:27:07Z" finished-at="2018-05-23T11:27:52Z">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[timeout
-  (Session info: chrome=65.0.3325.181)
-  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 0 milliseconds
-Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
-System info: host: 'CPN-IT-ANILKUMA', ip: '10.10.0.206', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=XP, acceptSslCerts=false, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=XP, setWindowRect=true, unexpectedAlertBehaviour=, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73), userDataDir=C:\Users\ANILKU~1\AppData\Local\Temp\scoped_dir13316_16487}, takesHeapSnapshot=true, pageLoadStrategy=normal, unhandledPromptBehavior=, databaseEnabled=false, handlesAlerts=true, version=65.0.3325.181, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 0de81647a42c321a2a8d6125aa3425e1]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: timeout
-  (Session info: chrome=65.0.3325.181)
-  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 0 milliseconds
-Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
-System info: host: 'CPN-IT-ANILKUMA', ip: '10.10.0.206', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=XP, acceptSslCerts=false, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=XP, setWindowRect=true, unexpectedAlertBehaviour=, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73), userDataDir=C:\Users\ANILKU~1\AppData\Local\Temp\scoped_dir13316_16487}, takesHeapSnapshot=true, pageLoadStrategy=normal, unhandledPromptBehavior=, databaseEnabled=false, handlesAlerts=true, version=65.0.3325.181, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 0de81647a42c321a2a8d6125aa3425e1
-at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-at java.lang.reflect.Constructor.newInstance(Unknown Source)
-at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
-at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
-at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
-at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:82)
-at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:45)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:703)
-at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:388)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
-at com.sun.proxy.$Proxy8.getScreenshotAs(Unknown Source)
-at org.openqa.selenium.support.events.EventFiringWebDriver.getScreenshotAs(EventFiringWebDriver.java:288)
-at util.TestUtil.takeScreenshotAtEndOfTest(TestUtil.java:63)
-at util.WebEventListener.onException(WebEventListener.java:67)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.openqa.selenium.support.events.EventFiringWebDriver$1.invoke(EventFiringWebDriver.java:82)
-at com.sun.proxy.$Proxy7.onException(Unknown Source)
-at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:107)
-at com.sun.proxy.$Proxy8.get(Unknown Source)
-at org.openqa.selenium.support.events.EventFiringWebDriver.get(EventFiringWebDriver.java:164)
-at pages.AdminHomePage.AdminURL(AdminHomePage.java:18)
-at testcases.AdminCarrierCanadaTest.Home(AdminCarrierCanadaTest.java:36)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Home -->
-        <test-method status="PASS" signature="adminLogin(java.lang.String, java.lang.String)[pri:10, instance:testcases.AdminCarrierCanadaTest@10a035a0]" name="adminLogin" duration-ms="17491" started-at="2018-05-23T11:27:53Z" data-provider="getAdminLoginData" finished-at="2018-05-23T11:28:10Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[jasonglaser@truckstop.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[aaaaaaa]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- adminLogin -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.AdminCarrierCanadaTest@10a035a0]" name="quit" is-config="true" duration-ms="748" started-at="2018-05-23T11:28:10Z" finished-at="2018-05-23T11:28:11Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.AdminCarrierCanadaTest -->
-      <class name="testcases.UnmatchedNewPaymentAdminCarrierTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.UnmatchedNewPaymentAdminCarrierTest@4cf4d528]" name="setUp" is-config="true" duration-ms="12038" started-at="2018-05-23T11:39:33Z" finished-at="2018-05-23T11:39:45Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="Home()[pri:39, instance:testcases.UnmatchedNewPaymentAdminCarrierTest@4cf4d528]" name="Home" duration-ms="5199" started-at="2018-05-23T11:39:45Z" finished-at="2018-05-23T11:39:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Home -->
-        <test-method status="PASS" signature="adminLogin(java.lang.String, java.lang.String)[pri:40, instance:testcases.UnmatchedNewPaymentAdminCarrierTest@4cf4d528]" name="adminLogin" duration-ms="13237" started-at="2018-05-23T11:39:50Z" data-provider="getAdminLoginData" finished-at="2018-05-23T11:40:04Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[jasonglaser@truckstop.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[aaaaaaa]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- adminLogin -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.UnmatchedNewPaymentAdminCarrierTest@4cf4d528]" name="quit" is-config="true" duration-ms="751" started-at="2018-05-23T11:40:04Z" finished-at="2018-05-23T11:40:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.UnmatchedNewPaymentAdminCarrierTest -->
-      <class name="testcases.UnmatchedCariierEmailVerifyNextDayTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.UnmatchedCariierEmailVerifyNextDayTest@710726a3]" name="setUp" is-config="true" duration-ms="11615" started-at="2018-05-23T11:33:45Z" finished-at="2018-05-23T11:33:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="login(java.lang.String, java.lang.String)[pri:27, instance:testcases.UnmatchedCariierEmailVerifyNextDayTest@710726a3]" name="login" duration-ms="8661" started-at="2018-05-23T11:33:57Z" data-provider="getoutlookLoginData" finished-at="2018-05-23T11:34:06Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[w2k/anilkumar]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Cgihrms@1234]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method status="PASS" signature="outlookloginTest()[pri:28, instance:testcases.UnmatchedCariierEmailVerifyNextDayTest@710726a3]" name="outlookloginTest" duration-ms="42031" started-at="2018-05-23T11:34:06Z" finished-at="2018-05-23T11:34:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- outlookloginTest -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.UnmatchedCariierEmailVerifyNextDayTest@710726a3]" name="quit" is-config="true" duration-ms="850" started-at="2018-05-23T11:34:48Z" finished-at="2018-05-23T11:34:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.UnmatchedCariierEmailVerifyNextDayTest -->
-      <class name="testcases.UnmatchedNewPaymentCarrierTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.UnmatchedNewPaymentCarrierTest@77846d2c]" name="setUp" is-config="true" duration-ms="11151" started-at="2018-05-23T11:40:04Z" finished-at="2018-05-23T11:40:15Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginTest()[pri:41, instance:testcases.UnmatchedNewPaymentCarrierTest@77846d2c]" name="loginTest" duration-ms="22428" started-at="2018-05-23T11:40:15Z" finished-at="2018-05-23T11:40:38Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.UnmatchedNewPaymentCarrierTest@77846d2c]" name="quit" is-config="true" duration-ms="766" started-at="2018-05-23T11:40:38Z" finished-at="2018-05-23T11:40:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.UnmatchedNewPaymentCarrierTest -->
-      <class name="testcases.CarrierOutlookCanadaTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.CarrierOutlookCanadaTest@6eceb130]" name="setUp" is-config="true" duration-ms="11358" started-at="2018-05-23T11:25:34Z" finished-at="2018-05-23T11:25:45Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="login(java.lang.String, java.lang.String)[pri:7, instance:testcases.CarrierOutlookCanadaTest@6eceb130]" name="login" duration-ms="14768" started-at="2018-05-23T11:25:45Z" data-provider="getoutlookLoginData" finished-at="2018-05-23T11:26:00Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[w2k/anilkumar]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Cgihrms@1234]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method status="FAIL" signature="outlookloginTest()[pri:8, instance:testcases.CarrierOutlookCanadaTest@6eceb130]" name="outlookloginTest" duration-ms="50950" started-at="2018-05-23T11:26:00Z" finished-at="2018-05-23T11:26:51Z">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (707a607ab200790f513b4b1bcbd8ad73)] -> xpath: //input[@role='textbox']] (tried for 30 second(s) with 500 MILLISECONDS interval)]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (707a607ab200790f513b4b1bcbd8ad73)] -> xpath: //input[@role='textbox']] (tried for 30 second(s) with 500 MILLISECONDS interval)
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:232)
-at pages.CarrierOutlookCanada.enterEmail(CarrierOutlookCanada.java:111)
-at testcases.CarrierOutlookCanadaTest.outlookloginTest(CarrierOutlookCanadaTest.java:36)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@role='textbox']"}
-  (Session info: chrome=65.0.3325.181)
-  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 0 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
-System info: host: 'CPN-IT-ANILKUMA', ip: '10.10.0.206', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=XP, acceptSslCerts=false, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=XP, setWindowRect=true, unexpectedAlertBehaviour=, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73), userDataDir=C:\Users\ANILKU~1\AppData\Local\Temp\scoped_dir12400_16240}, takesHeapSnapshot=true, pageLoadStrategy=normal, unhandledPromptBehavior=, databaseEnabled=false, handlesAlerts=true, version=65.0.3325.181, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 707a607ab200790f513b4b1bcbd8ad73
-*** Element info: {Using=xpath, value=//input[@role='textbox']}
-at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-at java.lang.reflect.Constructor.newInstance(Unknown Source)
-at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
-at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
-at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
-at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:82)
-at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:45)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:416)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:518)
-at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
-at sun.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
-at com.sun.proxy.$Proxy8.findElement(Unknown Source)
-at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:189)
-at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-at com.sun.proxy.$Proxy12.isDisplayed(Unknown Source)
-at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
-at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
-... 27 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- outlookloginTest -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.CarrierOutlookCanadaTest@6eceb130]" name="quit" is-config="true" duration-ms="779" started-at="2018-05-23T11:26:51Z" finished-at="2018-05-23T11:26:52Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.CarrierOutlookCanadaTest -->
-      <class name="testcases.AdminBrokerCanadaTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.AdminBrokerCanadaTest@2eda0940]" name="setUp" is-config="true" duration-ms="11949" started-at="2018-05-23T11:23:56Z" finished-at="2018-05-23T11:24:08Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="Home()[pri:4, instance:testcases.AdminBrokerCanadaTest@2eda0940]" name="Home" duration-ms="4884" started-at="2018-05-23T11:24:08Z" finished-at="2018-05-23T11:24:13Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Home -->
-        <test-method status="PASS" signature="adminLogin(java.lang.String, java.lang.String)[pri:5, instance:testcases.AdminBrokerCanadaTest@2eda0940]" name="adminLogin" duration-ms="14704" started-at="2018-05-23T11:24:13Z" data-provider="getAdminLoginData" finished-at="2018-05-23T11:24:27Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[jasonglaser@truckstop.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[aaaaaaa]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- adminLogin -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.AdminBrokerCanadaTest@2eda0940]" name="quit" is-config="true" duration-ms="778" started-at="2018-05-23T11:24:27Z" finished-at="2018-05-23T11:24:28Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.AdminBrokerCanadaTest -->
-      <class name="testcases.ShipperSchedulePaymentTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.ShipperSchedulePaymentTest@47db50c5]" name="setUp" is-config="true" duration-ms="12680" started-at="2018-05-23T11:28:29Z" finished-at="2018-05-23T11:28:42Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginBroker(java.lang.String, java.lang.String)[pri:14, instance:testcases.ShipperSchedulePaymentTest@47db50c5]" name="loginBroker" duration-ms="8252" started-at="2018-05-23T11:28:42Z" data-provider="getBrokerLoginData" finished-at="2018-05-23T11:28:50Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[shantesh.hulagabali@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Veeresh@123]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginBroker -->
-        <test-method status="PASS" signature="brokernewPayment(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:15, instance:testcases.ShipperSchedulePaymentTest@47db50c5]" name="brokernewPayment" duration-ms="20527" started-at="2018-05-23T11:28:50Z" data-provider="getPaymentData" finished-at="2018-05-23T11:29:11Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[avatarqacarrier@mailinator.truckstop.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[112341.0]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[112341.0]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[10.0]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- brokernewPayment -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.ShipperSchedulePaymentTest@47db50c5]" name="quit" is-config="true" duration-ms="733" started-at="2018-05-23T11:29:11Z" finished-at="2018-05-23T11:29:11Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.ShipperSchedulePaymentTest -->
-      <class name="testcases.BrokerOutlookCanadaTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerOutlookCanadaTest@eb21112]" name="setUp" is-config="true" duration-ms="11154" started-at="2018-05-23T11:22:55Z" finished-at="2018-05-23T11:23:06Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="login(java.lang.String, java.lang.String)[pri:2, instance:testcases.BrokerOutlookCanadaTest@eb21112]" name="login" duration-ms="8766" started-at="2018-05-23T11:23:07Z" data-provider="getoutlookLoginData" finished-at="2018-05-23T11:23:15Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[w2k/anilkumar]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Cgihrms@1234]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method status="PASS" signature="outlookloginTest()[pri:3, instance:testcases.BrokerOutlookCanadaTest@eb21112]" name="outlookloginTest" duration-ms="39413" started-at="2018-05-23T11:23:15Z" finished-at="2018-05-23T11:23:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- outlookloginTest -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerOutlookCanadaTest@eb21112]" name="quit" is-config="true" duration-ms="981" started-at="2018-05-23T11:23:55Z" finished-at="2018-05-23T11:23:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.BrokerOutlookCanadaTest -->
-      <class name="testcases.UnmatchedNewPaymentCarrierOutlookTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.UnmatchedNewPaymentCarrierOutlookTest@545997b1]" name="setUp" is-config="true" duration-ms="10648" started-at="2018-05-23T11:38:33Z" finished-at="2018-05-23T11:38:43Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="login(java.lang.String, java.lang.String)[pri:37, instance:testcases.UnmatchedNewPaymentCarrierOutlookTest@545997b1]" name="login" duration-ms="9040" started-at="2018-05-23T11:38:43Z" data-provider="getoutlookLoginData" finished-at="2018-05-23T11:38:53Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[w2k/anilkumar]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Cgihrms@1234]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method status="PASS" signature="outlookloginTest()[pri:38, instance:testcases.UnmatchedNewPaymentCarrierOutlookTest@545997b1]" name="outlookloginTest" duration-ms="39764" started-at="2018-05-23T11:38:53Z" finished-at="2018-05-23T11:39:32Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- outlookloginTest -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.UnmatchedNewPaymentCarrierOutlookTest@545997b1]" name="quit" is-config="true" duration-ms="791" started-at="2018-05-23T11:39:32Z" finished-at="2018-05-23T11:39:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.UnmatchedNewPaymentCarrierOutlookTest -->
-      <class name="testcases.CarrierCanadaFirstLoginTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.CarrierCanadaFirstLoginTest@67b467e9]" name="setUp" is-config="true" duration-ms="12581" started-at="2018-05-23T11:28:11Z" finished-at="2018-05-23T11:28:23Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginTest()[pri:11, instance:testcases.CarrierCanadaFirstLoginTest@67b467e9]" name="loginTest" duration-ms="4956" started-at="2018-05-23T11:28:23Z" finished-at="2018-05-23T11:28:28Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.CarrierCanadaFirstLoginTest@67b467e9]" name="quit" is-config="true" duration-ms="800" started-at="2018-05-23T11:28:28Z" finished-at="2018-05-23T11:28:29Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.CarrierCanadaFirstLoginTest -->
-      <class name="testcases.CarrierFirstLoginNextDayACHTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.CarrierFirstLoginNextDayACHTest@481a15ff]" name="setUp" is-config="true" duration-ms="11857" started-at="2018-05-23T11:35:25Z" finished-at="2018-05-23T11:35:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginTest()[pri:31, instance:testcases.CarrierFirstLoginNextDayACHTest@481a15ff]" name="loginTest" duration-ms="8202" started-at="2018-05-23T11:35:36Z" finished-at="2018-05-23T11:35:45Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.CarrierFirstLoginNextDayACHTest@481a15ff]" name="quit" is-config="true" duration-ms="759" started-at="2018-05-23T11:35:45Z" finished-at="2018-05-23T11:35:45Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.CarrierFirstLoginNextDayACHTest -->
-      <class name="testcases.BrokerRegisterCanadaTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerRegisterCanadaTest@43a0cee9]" name="setUp" is-config="true" duration-ms="12327" started-at="2018-05-23T11:22:08Z" finished-at="2018-05-23T11:22:21Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="BrokerRegister(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:testcases.BrokerRegisterCanadaTest@43a0cee9]" name="BrokerRegister" duration-ms="32827" started-at="2018-05-23T11:22:22Z" data-provider="getBrokerData" finished-at="2018-05-23T11:22:55Z">
-          <params>
-            <param index="0">
-              <value is-null="true"/>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[broker registration ]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Travells]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[brcanada1775@loadpaytest.truckstop.com]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[brcanada1775@loadpaytest.truckstop.com]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Canada]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[Yukon]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[A1A1A1]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[alabama]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[alabama]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[Canada]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[AB]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[istration]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[reg]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[374657000000]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-            <param index="17">
-              <value>
-                <![CDATA[balajiii]]>
-              </value>
-            </param>
-            <param index="18">
-              <value>
-                <![CDATA[102101645]]>
-              </value>
-            </param>
-            <param index="19">
-              <value>
-                <![CDATA[456457000000]]>
-              </value>
-            </param>
-            <param index="20">
-              <value>
-                <![CDATA[456457000000]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BrokerRegister -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerRegisterCanadaTest@43a0cee9]" name="quit" is-config="true" duration-ms="763" started-at="2018-05-23T11:22:55Z" finished-at="2018-05-23T11:22:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.BrokerRegisterCanadaTest -->
-      <class name="testcases.CarrierSchedulePaymentTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.CarrierSchedulePaymentTest@4d1b0d2a]" name="setUp" is-config="true" duration-ms="13653" started-at="2018-05-23T11:30:08Z" finished-at="2018-05-23T11:30:21Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginCarrier(java.lang.String, java.lang.String)[pri:19, instance:testcases.CarrierSchedulePaymentTest@4d1b0d2a]" name="loginCarrier" duration-ms="7295" started-at="2018-05-23T11:30:21Z" data-provider="getCarrierLoginData" finished-at="2018-05-23T11:30:29Z">
+        <test-method status="PASS" signature="loginCarrier(java.lang.String, java.lang.String)[pri:1, instance:testcases.CarrierBankingTest@396e2f39]" name="loginCarrier" duration-ms="5307" started-at="2018-05-30T12:36:40Z" data-provider="getCarrierLoginData" finished-at="2018-05-30T12:36:45Z">
           <params>
             <param index="0">
               <value>
@@ -700,552 +27,113 @@ at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginCarrier -->
-        <test-method status="PASS" signature="carrierPaymeNow()[pri:20, instance:testcases.CarrierSchedulePaymentTest@4d1b0d2a]" name="carrierPaymeNow" duration-ms="17531" started-at="2018-05-23T11:30:29Z" finished-at="2018-05-23T11:30:46Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- carrierPaymeNow -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.CarrierSchedulePaymentTest@4d1b0d2a]" name="quit" is-config="true" duration-ms="781" started-at="2018-05-23T11:30:46Z" finished-at="2018-05-23T11:30:47Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.CarrierSchedulePaymentTest -->
-      <class name="testcases.BrokerCanadaFirstLoginTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerCanadaFirstLoginTest@3578436e]" name="setUp" is-config="true" duration-ms="11416" started-at="2018-05-23T11:24:28Z" finished-at="2018-05-23T11:24:40Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginTest()[pri:6, instance:testcases.BrokerCanadaFirstLoginTest@3578436e]" name="loginTest" duration-ms="6483" started-at="2018-05-23T11:24:40Z" finished-at="2018-05-23T11:24:46Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerCanadaFirstLoginTest@3578436e]" name="quit" is-config="true" duration-ms="969" started-at="2018-05-23T11:24:46Z" finished-at="2018-05-23T11:24:47Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.BrokerCanadaFirstLoginTest -->
-      <class name="testcases.UnmatchedCarrierOutlookNewPaymentTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.UnmatchedCarrierOutlookNewPaymentTest@306279ee]" name="setUp" is-config="true" duration-ms="12540" started-at="2018-05-23T11:36:31Z" finished-at="2018-05-23T11:36:44Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="login(java.lang.String, java.lang.String)[pri:34, instance:testcases.UnmatchedCarrierOutlookNewPaymentTest@306279ee]" name="login" duration-ms="9958" started-at="2018-05-23T11:36:44Z" data-provider="getoutlookLoginData" finished-at="2018-05-23T11:36:54Z">
+        <test-method status="PASS" signature="carrierAddNewBusinessBankAccount(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:testcases.CarrierBankingTest@396e2f39]" name="carrierAddNewBusinessBankAccount" duration-ms="15956" started-at="2018-05-30T12:36:46Z" data-provider="getCarrierBankingData" finished-at="2018-05-30T12:37:02Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[w2k/anilkumar]]>
+                <![CDATA[CarrierBankAccount]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Cgihrms@1234]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method status="PASS" signature="outlookloginTest()[pri:35, instance:testcases.UnmatchedCarrierOutlookNewPaymentTest@306279ee]" name="outlookloginTest" duration-ms="69176" started-at="2018-05-23T11:36:54Z" finished-at="2018-05-23T11:38:03Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- outlookloginTest -->
-        <test-method status="PASS" signature="CarrierRegister(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:36, instance:testcases.UnmatchedCarrierOutlookNewPaymentTest@306279ee]" name="CarrierRegister" duration-ms="28896" started-at="2018-05-23T11:38:03Z" data-provider="getCarrierRegisterData" finished-at="2018-05-23T11:38:32Z">
-          <params>
-            <param index="0">
-              <value is-null="true"/>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[carrier]]>
+                <![CDATA[101000187]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[Travells]]>
+                <![CDATA[123456789]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[carrierregister12@loadpaytest.truckstop.com]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[carrierregister12@loadpaytest.truckstop.com]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[12344-4567]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[alabama]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[alabama]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[istration]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[reg]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[374657342938]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[balajiii]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[102101645]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[456456567567]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[456456567567]]>
+                <![CDATA[123456789]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CarrierRegister -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.UnmatchedCarrierOutlookNewPaymentTest@306279ee]" name="quit" is-config="true" duration-ms="906" started-at="2018-05-23T11:38:32Z" finished-at="2018-05-23T11:38:33Z">
+        </test-method> <!-- carrierAddNewBusinessBankAccount -->
+        <test-method status="PASS" signature="carrierBusinessAccountSetdefault()[pri:3, instance:testcases.CarrierBankingTest@396e2f39]" name="carrierBusinessAccountSetdefault" duration-ms="19369" started-at="2018-05-30T12:37:02Z" finished-at="2018-05-30T12:37:21Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.UnmatchedCarrierOutlookNewPaymentTest -->
-      <class name="testcases.ShipperAdvancePaymentTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.ShipperAdvancePaymentTest@5c072e3f]" name="setUp" is-config="true" duration-ms="14810" started-at="2018-05-23T11:29:11Z" finished-at="2018-05-23T11:29:26Z">
+        </test-method> <!-- carrierBusinessAccountSetdefault -->
+        <test-method status="PASS" signature="carrierBusinessRemoveBankAccount()[pri:4, instance:testcases.CarrierBankingTest@396e2f39]" name="carrierBusinessRemoveBankAccount" duration-ms="5173" started-at="2018-05-30T12:37:21Z" finished-at="2018-05-30T12:37:26Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginBroker(java.lang.String, java.lang.String)[pri:16, instance:testcases.ShipperAdvancePaymentTest@5c072e3f]" name="loginBroker" duration-ms="9324" started-at="2018-05-23T11:29:26Z" data-provider="getBrokerLoginData" finished-at="2018-05-23T11:29:36Z">
+        </test-method> <!-- carrierBusinessRemoveBankAccount -->
+        <test-method status="PASS" signature="carrierAddNewPersonalCheckingBankAccount(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:5, instance:testcases.CarrierBankingTest@396e2f39]" name="carrierAddNewPersonalCheckingBankAccount" duration-ms="12704" started-at="2018-05-30T12:37:26Z" data-provider="getCarrierBankingData" finished-at="2018-05-30T12:37:39Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[shantesh.hulagabali@gmail.com]]>
+                <![CDATA[CarrierBankAccount]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Veeresh@123]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginBroker -->
-        <test-method status="PASS" signature="brokernewPayment(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:17, instance:testcases.ShipperAdvancePaymentTest@5c072e3f]" name="brokernewPayment" duration-ms="19707" started-at="2018-05-23T11:29:36Z" data-provider="getPaymentData" finished-at="2018-05-23T11:29:55Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[avatarqacarrier@mailinator.truckstop.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[112341.0]]>
+                <![CDATA[101000187]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[112341.0]]>
+                <![CDATA[123456789]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[10.0]]>
+                <![CDATA[123456789]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- brokernewPayment -->
-        <test-method status="PASS" signature="loginTest(java.lang.String, java.lang.String)[pri:18, instance:testcases.ShipperAdvancePaymentTest@5c072e3f]" name="loginTest" duration-ms="11346" started-at="2018-05-23T11:29:55Z" data-provider="getCarrierLoginData" finished-at="2018-05-23T11:30:07Z">
+        </test-method> <!-- carrierAddNewPersonalCheckingBankAccount -->
+        <test-method status="PASS" signature="carrierPersonalCheckingAccountSetdefault()[pri:6, instance:testcases.CarrierBankingTest@396e2f39]" name="carrierPersonalCheckingAccountSetdefault" duration-ms="18420" started-at="2018-05-30T12:37:39Z" finished-at="2018-05-30T12:37:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- carrierPersonalCheckingAccountSetdefault -->
+        <test-method status="PASS" signature="carrierPersonalCheckingRemoveBankAccount()[pri:7, instance:testcases.CarrierBankingTest@396e2f39]" name="carrierPersonalCheckingRemoveBankAccount" duration-ms="5260" started-at="2018-05-30T12:37:57Z" finished-at="2018-05-30T12:38:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- carrierPersonalCheckingRemoveBankAccount -->
+        <test-method status="PASS" signature="carrierAddNewPersonalSavingsBankAccount(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:8, instance:testcases.CarrierBankingTest@396e2f39]" name="carrierAddNewPersonalSavingsBankAccount" duration-ms="12606" started-at="2018-05-30T12:38:03Z" data-provider="getCarrierBankingData" finished-at="2018-05-30T12:38:15Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[avatarqacarrier@mailinator.truckstop.com]]>
+                <![CDATA[CarrierBankAccount]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.ShipperAdvancePaymentTest@5c072e3f]" name="quit" is-config="true" duration-ms="771" started-at="2018-05-23T11:30:07Z" finished-at="2018-05-23T11:30:08Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.ShipperAdvancePaymentTest -->
-      <class name="testcases.BrokerPaymentforUnmatchedCarrierTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerPaymentforUnmatchedCarrierTest@954b04f]" name="setUp" is-config="true" duration-ms="12831" started-at="2018-05-23T11:30:47Z" finished-at="2018-05-23T11:31:00Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginBroker(java.lang.String, java.lang.String)[pri:22, instance:testcases.BrokerPaymentforUnmatchedCarrierTest@954b04f]" name="loginBroker" duration-ms="6434" started-at="2018-05-23T11:31:00Z" data-provider="getBrokerLoginData" finished-at="2018-05-23T11:31:06Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[shantesh.hulagabali@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Veeresh@123]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginBroker -->
-        <test-method status="PASS" signature="brokernewPayment(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:23, instance:testcases.BrokerPaymentforUnmatchedCarrierTest@954b04f]" name="brokernewPayment" duration-ms="20179" started-at="2018-05-23T11:31:06Z" data-provider="getPaymentDataforUnmatchcarrier" finished-at="2018-05-23T11:31:26Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[unmatched047@loadpaytest.truckstop.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[981196.0]]>
+                <![CDATA[101000187]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[981196.0]]>
+                <![CDATA[123456789]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[10.0]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Carrier]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[295676691]]>
+                <![CDATA[123456789]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- brokernewPayment -->
-        <test-method status="PASS" signature="brokernewPayment(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:23, instance:testcases.BrokerPaymentforUnmatchedCarrierTest@954b04f]" name="brokernewPayment" duration-ms="19403" started-at="2018-05-23T11:31:26Z" data-provider="getPaymentDataforUnmatchcarrier" finished-at="2018-05-23T11:31:46Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[unmatched048@loadpaytest.truckstop.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[981197.0]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[981197.0]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[10.0]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Carrier]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[295686691]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- carrierAddNewPersonalSavingsBankAccount -->
+        <test-method status="PASS" signature="carrierPersonalSavingsAccountSetdefault()[pri:9, instance:testcases.CarrierBankingTest@396e2f39]" name="carrierPersonalSavingsAccountSetdefault" duration-ms="18649" started-at="2018-05-30T12:38:15Z" finished-at="2018-05-30T12:38:34Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- brokernewPayment -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerPaymentforUnmatchedCarrierTest@954b04f]" name="quit" is-config="true" duration-ms="837" started-at="2018-05-23T11:31:46Z" finished-at="2018-05-23T11:31:47Z">
+        </test-method> <!-- carrierPersonalSavingsAccountSetdefault -->
+        <test-method status="PASS" signature="carrierPersonalSavingsRemoveBankAccount()[pri:10, instance:testcases.CarrierBankingTest@396e2f39]" name="carrierPersonalSavingsRemoveBankAccount" duration-ms="5136" started-at="2018-05-30T12:38:34Z" finished-at="2018-05-30T12:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- carrierPersonalSavingsRemoveBankAccount -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.CarrierBankingTest@396e2f39]" name="quit" is-config="true" duration-ms="866" started-at="2018-05-30T12:38:39Z" finished-at="2018-05-30T12:38:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quit -->
-      </class> <!-- testcases.BrokerPaymentforUnmatchedCarrierTest -->
-      <class name="testcases.CarrierRegisterCanadaTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.CarrierRegisterCanadaTest@706a04ae]" name="setUp" is-config="true" duration-ms="10513" started-at="2018-05-23T11:24:47Z" finished-at="2018-05-23T11:24:58Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="CarrierRegister(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:6, instance:testcases.CarrierRegisterCanadaTest@706a04ae]" name="CarrierRegister" duration-ms="35526" started-at="2018-05-23T11:24:58Z" data-provider="getCarrierData" finished-at="2018-05-23T11:25:33Z">
-          <params>
-            <param index="0">
-              <value is-null="true"/>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Carrier registration ]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Travells]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[crcanada14449@loadpaytest.truckstop.com]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[crcanada14449@loadpaytest.truckstop.com]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Canada]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[Yukon]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[A1A1A1]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[alabama]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[alabama]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[Canada]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[AB]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[istration]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[reg]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[374657000000]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-            <param index="17">
-              <value>
-                <![CDATA[balajiii]]>
-              </value>
-            </param>
-            <param index="18">
-              <value>
-                <![CDATA[102101645]]>
-              </value>
-            </param>
-            <param index="19">
-              <value>
-                <![CDATA[456457000000]]>
-              </value>
-            </param>
-            <param index="20">
-              <value>
-                <![CDATA[456457000000]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CarrierRegister -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.CarrierRegisterCanadaTest@706a04ae]" name="quit" is-config="true" duration-ms="769" started-at="2018-05-23T11:25:33Z" finished-at="2018-05-23T11:25:34Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.CarrierRegisterCanadaTest -->
-      <class name="testcases.UnmatchedCarrierOutlookNextDayTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.UnmatchedCarrierOutlookNextDayTest@149494d8]" name="setUp" is-config="true" duration-ms="11060" started-at="2018-05-23T11:31:47Z" finished-at="2018-05-23T11:31:58Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="login(java.lang.String, java.lang.String)[pri:24, instance:testcases.UnmatchedCarrierOutlookNextDayTest@149494d8]" name="login" duration-ms="16089" started-at="2018-05-23T11:31:58Z" data-provider="getoutlookLoginData" finished-at="2018-05-23T11:32:14Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[w2k/anilkumar]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Cgihrms@1234]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method status="PASS" signature="outlookloginTest()[pri:25, instance:testcases.UnmatchedCarrierOutlookNextDayTest@149494d8]" name="outlookloginTest" duration-ms="60807" started-at="2018-05-23T11:32:14Z" finished-at="2018-05-23T11:33:15Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- outlookloginTest -->
-        <test-method status="PASS" signature="CarrierRegister(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:26, instance:testcases.UnmatchedCarrierOutlookNextDayTest@149494d8]" name="CarrierRegister" duration-ms="29856" started-at="2018-05-23T11:33:15Z" data-provider="getCarrierRegisterData" finished-at="2018-05-23T11:33:45Z">
-          <params>
-            <param index="0">
-              <value is-null="true"/>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[carrier]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Travells]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[carrierregister12@loadpaytest.truckstop.com]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[carrierregister12@loadpaytest.truckstop.com]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[12344-4567]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[alabama]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[alabama]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[istration]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[reg]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[374657342938]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[balajiii]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[102101645]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[456456567567]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[456456567567]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CarrierRegister -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.UnmatchedCarrierOutlookNextDayTest@149494d8]" name="quit" is-config="true" duration-ms="875" started-at="2018-05-23T11:33:45Z" finished-at="2018-05-23T11:33:45Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- testcases.UnmatchedCarrierOutlookNextDayTest -->
+      </class> <!-- testcases.CarrierBankingTest -->
     </test> <!--  Test Cases -->
   </suite> <!-- Automation Test Suite -->
 </testng-results>
