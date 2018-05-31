@@ -156,6 +156,12 @@ public class TestBase {
 	ReadExcel read = new ReadExcel();
 	return read.getCellData(Fileppath, "CarrierBankingData");
 	} 
+	@DataProvider
+	public Object[][] getBrokerBankingData() throws InvalidFormatException, IOException
+	{
+	ReadExcel read = new ReadExcel();
+	return read.getCellData(Fileppath, "BrokerBankingData");
+	}
 	
 	@AfterClass
 	public void quit()

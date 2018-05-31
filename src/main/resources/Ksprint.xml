@@ -12,10 +12,12 @@
 
  
 		 	
-		 	<!--    Script for Jira Tickets LP-5418  Carrier - Carrier Banking     -->
- 
-            
-		 	<class name="testcases.CarrierBankingTest"></class>
+		 <!--    Script for Jira Tickets LP-5418 - Carrier Banking     -->
+		 	<!-- 	<class name="testcases.CarrierBankingTest"></class> -->
+		 		
+		 	
+		 <!--    Script for Jira Tickets LP-LP-5408 - Broker Banking     -->
+		 	<class name="testcases.BrokerBankingTest"></class>
  
 
     </classes>

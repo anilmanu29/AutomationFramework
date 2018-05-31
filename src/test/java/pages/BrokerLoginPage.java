@@ -9,6 +9,8 @@ import base.TestBase;
 
 public class BrokerLoginPage extends TestBase{
 	
+	public static String bemail;
+	
 	//Page Factory - OR:
 	@FindBy(xpath="//input[@id='UserName']")
 	WebElement UserName;
@@ -38,6 +40,7 @@ public class BrokerLoginPage extends TestBase{
 	
 	public void Brokerlogin(String un, String pwd)
 	{
+		bemail=un;
 		UserName.sendKeys(un);
 		Password.sendKeys(pwd);
 		//loginBtn.click();

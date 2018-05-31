@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="10" passed="10">
+<testng-results skipped="0" failed="0" ignored="0" total="23" passed="23">
   <reporter-output>
   </reporter-output>
-  <suite name="Automation Test Suite" duration-ms="131784" started-at="2018-05-30T12:36:28Z" finished-at="2018-05-30T12:38:40Z">
+  <suite name="Automation Test Suite" duration-ms="457137" started-at="2018-05-31T11:58:27Z" finished-at="2018-05-31T12:06:04Z">
     <groups>
     </groups>
-    <test name=" Test Cases" duration-ms="131784" started-at="2018-05-30T12:36:28Z" finished-at="2018-05-30T12:38:40Z">
+    <test name=" Test Cases" duration-ms="457137" started-at="2018-05-31T11:58:27Z" finished-at="2018-05-31T12:06:04Z">
       <class name="testcases.CarrierBankingTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.CarrierBankingTest@396e2f39]" name="setUp" is-config="true" duration-ms="10956" started-at="2018-05-30T12:36:28Z" finished-at="2018-05-30T12:36:39Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.CarrierBankingTest@3891771e]" name="setUp" is-config="true" duration-ms="13473" started-at="2018-05-31T11:58:27Z" finished-at="2018-05-31T11:58:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginCarrier(java.lang.String, java.lang.String)[pri:1, instance:testcases.CarrierBankingTest@396e2f39]" name="loginCarrier" duration-ms="5307" started-at="2018-05-30T12:36:40Z" data-provider="getCarrierLoginData" finished-at="2018-05-30T12:36:45Z">
+        <test-method status="PASS" signature="loginCarrier(java.lang.String, java.lang.String)[pri:1, instance:testcases.CarrierBankingTest@3891771e]" name="loginCarrier" duration-ms="14933" started-at="2018-05-31T11:58:41Z" data-provider="getCarrierLoginData" finished-at="2018-05-31T11:58:56Z">
           <params>
             <param index="0">
               <value>
@@ -27,7 +27,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginCarrier -->
-        <test-method status="PASS" signature="carrierAddNewBusinessBankAccount(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:testcases.CarrierBankingTest@396e2f39]" name="carrierAddNewBusinessBankAccount" duration-ms="15956" started-at="2018-05-30T12:36:46Z" data-provider="getCarrierBankingData" finished-at="2018-05-30T12:37:02Z">
+        <test-method status="PASS" signature="carrierAddNewBusinessBankAccount(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:testcases.CarrierBankingTest@3891771e]" name="carrierAddNewBusinessBankAccount" duration-ms="15428" started-at="2018-05-31T11:58:56Z" data-provider="getCarrierBankingData" finished-at="2018-05-31T11:59:12Z">
           <params>
             <param index="0">
               <value>
@@ -53,15 +53,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- carrierAddNewBusinessBankAccount -->
-        <test-method status="PASS" signature="carrierBusinessAccountSetdefault()[pri:3, instance:testcases.CarrierBankingTest@396e2f39]" name="carrierBusinessAccountSetdefault" duration-ms="19369" started-at="2018-05-30T12:37:02Z" finished-at="2018-05-30T12:37:21Z">
+        <test-method status="PASS" signature="carrierBusinessAccountSetdefault()[pri:3, instance:testcases.CarrierBankingTest@3891771e]" name="carrierBusinessAccountSetdefault" duration-ms="19083" started-at="2018-05-31T11:59:12Z" finished-at="2018-05-31T11:59:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- carrierBusinessAccountSetdefault -->
-        <test-method status="PASS" signature="carrierBusinessRemoveBankAccount()[pri:4, instance:testcases.CarrierBankingTest@396e2f39]" name="carrierBusinessRemoveBankAccount" duration-ms="5173" started-at="2018-05-30T12:37:21Z" finished-at="2018-05-30T12:37:26Z">
+        <test-method status="PASS" signature="carrierBusinessRemoveBankAccount()[pri:4, instance:testcases.CarrierBankingTest@3891771e]" name="carrierBusinessRemoveBankAccount" duration-ms="5164" started-at="2018-05-31T11:59:31Z" finished-at="2018-05-31T11:59:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- carrierBusinessRemoveBankAccount -->
-        <test-method status="PASS" signature="carrierAddNewPersonalCheckingBankAccount(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:5, instance:testcases.CarrierBankingTest@396e2f39]" name="carrierAddNewPersonalCheckingBankAccount" duration-ms="12704" started-at="2018-05-30T12:37:26Z" data-provider="getCarrierBankingData" finished-at="2018-05-30T12:37:39Z">
+        <test-method status="PASS" signature="carrierAddNewPersonalCheckingBankAccount(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:5, instance:testcases.CarrierBankingTest@3891771e]" name="carrierAddNewPersonalCheckingBankAccount" duration-ms="12294" started-at="2018-05-31T11:59:36Z" data-provider="getCarrierBankingData" finished-at="2018-05-31T11:59:48Z">
           <params>
             <param index="0">
               <value>
@@ -87,15 +87,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- carrierAddNewPersonalCheckingBankAccount -->
-        <test-method status="PASS" signature="carrierPersonalCheckingAccountSetdefault()[pri:6, instance:testcases.CarrierBankingTest@396e2f39]" name="carrierPersonalCheckingAccountSetdefault" duration-ms="18420" started-at="2018-05-30T12:37:39Z" finished-at="2018-05-30T12:37:57Z">
+        <test-method status="PASS" signature="carrierPersonalCheckingAccountSetdefault()[pri:6, instance:testcases.CarrierBankingTest@3891771e]" name="carrierPersonalCheckingAccountSetdefault" duration-ms="19290" started-at="2018-05-31T11:59:48Z" finished-at="2018-05-31T12:00:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- carrierPersonalCheckingAccountSetdefault -->
-        <test-method status="PASS" signature="carrierPersonalCheckingRemoveBankAccount()[pri:7, instance:testcases.CarrierBankingTest@396e2f39]" name="carrierPersonalCheckingRemoveBankAccount" duration-ms="5260" started-at="2018-05-30T12:37:57Z" finished-at="2018-05-30T12:38:03Z">
+        <test-method status="PASS" signature="carrierPersonalCheckingRemoveBankAccount()[pri:7, instance:testcases.CarrierBankingTest@3891771e]" name="carrierPersonalCheckingRemoveBankAccount" duration-ms="5148" started-at="2018-05-31T12:00:08Z" finished-at="2018-05-31T12:00:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- carrierPersonalCheckingRemoveBankAccount -->
-        <test-method status="PASS" signature="carrierAddNewPersonalSavingsBankAccount(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:8, instance:testcases.CarrierBankingTest@396e2f39]" name="carrierAddNewPersonalSavingsBankAccount" duration-ms="12606" started-at="2018-05-30T12:38:03Z" data-provider="getCarrierBankingData" finished-at="2018-05-30T12:38:15Z">
+        <test-method status="PASS" signature="carrierAddNewPersonalSavingsBankAccount(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:8, instance:testcases.CarrierBankingTest@3891771e]" name="carrierAddNewPersonalSavingsBankAccount" duration-ms="12267" started-at="2018-05-31T12:00:13Z" data-provider="getCarrierBankingData" finished-at="2018-05-31T12:00:25Z">
           <params>
             <param index="0">
               <value>
@@ -121,19 +121,195 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- carrierAddNewPersonalSavingsBankAccount -->
-        <test-method status="PASS" signature="carrierPersonalSavingsAccountSetdefault()[pri:9, instance:testcases.CarrierBankingTest@396e2f39]" name="carrierPersonalSavingsAccountSetdefault" duration-ms="18649" started-at="2018-05-30T12:38:15Z" finished-at="2018-05-30T12:38:34Z">
+        <test-method status="PASS" signature="carrierPersonalSavingsAccountSetdefault()[pri:9, instance:testcases.CarrierBankingTest@3891771e]" name="carrierPersonalSavingsAccountSetdefault" duration-ms="20608" started-at="2018-05-31T12:00:25Z" finished-at="2018-05-31T12:00:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- carrierPersonalSavingsAccountSetdefault -->
-        <test-method status="PASS" signature="carrierPersonalSavingsRemoveBankAccount()[pri:10, instance:testcases.CarrierBankingTest@396e2f39]" name="carrierPersonalSavingsRemoveBankAccount" duration-ms="5136" started-at="2018-05-30T12:38:34Z" finished-at="2018-05-30T12:38:39Z">
+        <test-method status="PASS" signature="carrierPersonalSavingsRemoveBankAccount()[pri:10, instance:testcases.CarrierBankingTest@3891771e]" name="carrierPersonalSavingsRemoveBankAccount" duration-ms="5147" started-at="2018-05-31T12:00:46Z" finished-at="2018-05-31T12:00:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- carrierPersonalSavingsRemoveBankAccount -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.CarrierBankingTest@396e2f39]" name="quit" is-config="true" duration-ms="866" started-at="2018-05-30T12:38:39Z" finished-at="2018-05-30T12:38:40Z">
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.CarrierBankingTest@3891771e]" name="quit" is-config="true" duration-ms="775" started-at="2018-05-31T12:00:51Z" finished-at="2018-05-31T12:00:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quit -->
       </class> <!-- testcases.CarrierBankingTest -->
+      <class name="testcases.BrokerBankingTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerBankingTest@78ac1102]" name="setUp" is-config="true" duration-ms="13907" started-at="2018-05-31T12:00:52Z" finished-at="2018-05-31T12:01:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="brokerLogin(java.lang.String, java.lang.String)[pri:11, instance:testcases.BrokerBankingTest@78ac1102]" name="brokerLogin" duration-ms="6883" started-at="2018-05-31T12:01:06Z" data-provider="getBrokerLoginData" finished-at="2018-05-31T12:01:13Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[shantesh.hulagabali@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Shantesh@123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- brokerLogin -->
+        <test-method status="PASS" signature="brokerAddNewBusinessBankAccount(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:12, instance:testcases.BrokerBankingTest@78ac1102]" name="brokerAddNewBusinessBankAccount" duration-ms="14455" started-at="2018-05-31T12:01:13Z" data-provider="getBrokerBankingData" finished-at="2018-05-31T12:01:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[BrokerBankAccount]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[101200453]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[123456789]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[123456789]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- brokerAddNewBusinessBankAccount -->
+        <test-method status="PASS" signature="verifyBrokerBusinessBankAccount(java.lang.String, java.lang.String)[pri:13, instance:testcases.BrokerBankingTest@78ac1102]" name="verifyBrokerBusinessBankAccount" duration-ms="44420" started-at="2018-05-31T12:01:27Z" data-provider="getAdminLoginData" finished-at="2018-05-31T12:02:12Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[jasonglaser@truckstop.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[aaaaaaa]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyBrokerBusinessBankAccount -->
+        <test-method status="PASS" signature="brokerBusinessBankAccountSetdefault()[pri:14, instance:testcases.BrokerBankingTest@78ac1102]" name="brokerBusinessBankAccountSetdefault" duration-ms="27808" started-at="2018-05-31T12:02:12Z" finished-at="2018-05-31T12:02:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- brokerBusinessBankAccountSetdefault -->
+        <test-method status="PASS" signature="brokerBusinessRemoveBankAccount()[pri:15, instance:testcases.BrokerBankingTest@78ac1102]" name="brokerBusinessRemoveBankAccount" duration-ms="7142" started-at="2018-05-31T12:02:39Z" finished-at="2018-05-31T12:02:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- brokerBusinessRemoveBankAccount -->
+        <test-method status="PASS" signature="brokerAddNewPersonalCheckingBankAccount(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:16, instance:testcases.BrokerBankingTest@78ac1102]" name="brokerAddNewPersonalCheckingBankAccount" duration-ms="11264" started-at="2018-05-31T12:02:47Z" data-provider="getBrokerBankingData" finished-at="2018-05-31T12:02:58Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[BrokerBankAccount]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[101200453]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[123456789]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[123456789]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- brokerAddNewPersonalCheckingBankAccount -->
+        <test-method status="PASS" signature="verifyBrokerPersonalCheckingBankAccount(java.lang.String, java.lang.String)[pri:17, instance:testcases.BrokerBankingTest@78ac1102]" name="verifyBrokerPersonalCheckingBankAccount" duration-ms="35883" started-at="2018-05-31T12:02:58Z" data-provider="getAdminLoginData" finished-at="2018-05-31T12:03:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[jasonglaser@truckstop.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[aaaaaaa]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyBrokerPersonalCheckingBankAccount -->
+        <test-method status="PASS" signature="brokerPersonalCheckingBankAccountSetdefault()[pri:18, instance:testcases.BrokerBankingTest@78ac1102]" name="brokerPersonalCheckingBankAccountSetdefault" duration-ms="29338" started-at="2018-05-31T12:03:34Z" finished-at="2018-05-31T12:04:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- brokerPersonalCheckingBankAccountSetdefault -->
+        <test-method status="PASS" signature="brokerRemovePersonalCheckingBankAccount()[pri:19, instance:testcases.BrokerBankingTest@78ac1102]" name="brokerRemovePersonalCheckingBankAccount" duration-ms="7144" started-at="2018-05-31T12:04:03Z" finished-at="2018-05-31T12:04:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- brokerRemovePersonalCheckingBankAccount -->
+        <test-method status="PASS" signature="brokerAddNewPersonalSavingsBankAccount(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:20, instance:testcases.BrokerBankingTest@78ac1102]" name="brokerAddNewPersonalSavingsBankAccount" duration-ms="11278" started-at="2018-05-31T12:04:10Z" data-provider="getBrokerBankingData" finished-at="2018-05-31T12:04:22Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[BrokerBankAccount]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[101200453]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[123456789]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[123456789]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- brokerAddNewPersonalSavingsBankAccount -->
+        <test-method status="PASS" signature="verifyBrokerPersonalSavingsBankAccount(java.lang.String, java.lang.String)[pri:21, instance:testcases.BrokerBankingTest@78ac1102]" name="verifyBrokerPersonalSavingsBankAccount" duration-ms="66519" started-at="2018-05-31T12:04:22Z" data-provider="getAdminLoginData" finished-at="2018-05-31T12:05:28Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[jasonglaser@truckstop.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[aaaaaaa]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyBrokerPersonalSavingsBankAccount -->
+        <test-method status="PASS" signature="brokerPersonalSavingsBankAccountSetdefault()[pri:22, instance:testcases.BrokerBankingTest@78ac1102]" name="brokerPersonalSavingsBankAccountSetdefault" duration-ms="28465" started-at="2018-05-31T12:05:28Z" finished-at="2018-05-31T12:05:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- brokerPersonalSavingsBankAccountSetdefault -->
+        <test-method status="PASS" signature="brokerRemovePersonalSavingsBankAccount()[pri:23, instance:testcases.BrokerBankingTest@78ac1102]" name="brokerRemovePersonalSavingsBankAccount" duration-ms="7111" started-at="2018-05-31T12:05:57Z" finished-at="2018-05-31T12:06:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- brokerRemovePersonalSavingsBankAccount -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerBankingTest@78ac1102]" name="quit" is-config="true" duration-ms="752" started-at="2018-05-31T12:06:04Z" finished-at="2018-05-31T12:06:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.BrokerBankingTest -->
     </test> <!--  Test Cases -->
   </suite> <!-- Automation Test Suite -->
 </testng-results>

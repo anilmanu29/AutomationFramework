@@ -24,6 +24,7 @@ public class BrokerLoginTest extends TestBase{
 	@Test(dataProvider="getBrokerLoginData", priority=7)
 	public void loginTest(String user,String pass) throws InterruptedException
 	{
+		
 		loginPage.Brokerlogin(user, pass);
 	
 		Thread.sleep(5000);
