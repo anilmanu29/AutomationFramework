@@ -7,20 +7,49 @@
   </listeners>
   <test thread-count="5" name=" Test Cases(failed)">
     <classes>
-      <class name="testcases.AdminCarrierCanadaTest">
+      <class name="testcases.CarrierBankingTest">
         <methods>
+          <include name="carrierPersonalCheckingAccountSetdefault"/>
+          <include name="carrierBusinessAccountSetdefault"/>
           <include name="quit"/>
-          <include name="Home"/>
+          <include name="carrierBusinessRemoveBankAccount"/>
+          <include name="carrierAddNewPersonalSavingsBankAccount"/>
+          <include name="carrierAddNewPersonalCheckingBankAccount"/>
+          <include name="carrierPersonalSavingsAccountSetdefault"/>
+          <include name="carrierPersonalCheckingRemoveBankAccount"/>
           <include name="setUp"/>
+          <include name="carrierAddNewBusinessBankAccount"/>
+          <include name="carrierPersonalSavingsRemoveBankAccount"/>
         </methods>
-      </class> <!-- testcases.AdminCarrierCanadaTest -->
-      <class name="testcases.CarrierOutlookCanadaTest">
+      </class> <!-- testcases.CarrierBankingTest -->
+      <class name="testcases.BrokerBankAccountUpdateTest">
         <methods>
-          <include name="outlookloginTest"/>
+          <include name="brokerAddNewPersonalCheckingBankAccount"/>
+          <include name="brokerAddNewBusinessBankAccount"/>
           <include name="quit"/>
+          <include name="brokerRemovePersonalCheckingBankAccount"/>
           <include name="setUp"/>
+          <include name="brokerRemoveBusinessBankAccount"/>
         </methods>
-      </class> <!-- testcases.CarrierOutlookCanadaTest -->
+      </class> <!-- testcases.BrokerBankAccountUpdateTest -->
+      <class name="testcases.BrokerBankingTest">
+        <methods>
+          <include name="brokerRemovePersonalSavingsBankAccount"/>
+          <include name="brokerAddNewPersonalSavingsBankAccount"/>
+          <include name="brokerAddNewPersonalCheckingBankAccount"/>
+          <include name="brokerAddNewBusinessBankAccount"/>
+          <include name="verifyBrokerBusinessBankAccount" invocation-numbers="0"/>
+          <include name="verifyBrokerPersonalCheckingBankAccount" invocation-numbers="0"/>
+          <include name="brokerRemovePersonalCheckingBankAccount"/>
+          <include name="verifyBrokerPersonalSavingsBankAccount" invocation-numbers="0"/>
+          <include name="setUp"/>
+          <include name="quit"/>
+          <include name="brokerBusinessBankAccountSetdefault"/>
+          <include name="brokerBusinessRemoveBankAccount"/>
+          <include name="brokerPersonalSavingsBankAccountSetdefault"/>
+          <include name="brokerPersonalCheckingBankAccountSetdefault"/>
+        </methods>
+      </class> <!-- testcases.BrokerBankingTest -->
     </classes>
   </test> <!--  Test Cases(failed) -->
 </suite> <!-- Failed suite [Automation Test Suite] -->
