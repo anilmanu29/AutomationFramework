@@ -31,13 +31,13 @@ public class BrokerBankingTest extends TestBase {
 		al = new AdminLogin();
 	}
 
-	@Test(dataProvider = "getBrokerLoginData", priority = 11)
+	@Test(dataProvider = "getBrokerLoginData", priority = 36)
 	public void brokerLogin(String un, String pwd) throws InterruptedException {
 		bl = new BrokerLoginPage();
 		bl.Brokerlogin(un, pwd);
 	}
 
-	@Test(dataProvider = "getBrokerBankingData", priority = 12)
+	@Test(dataProvider = "getBrokerBankingData", priority = 37)
 	public void brokerAddNewBusinessBankAccount(String accname, String routingnum, String accnum, String confirmaccnum)
 			throws InterruptedException {
 		Thread.sleep(1000);
@@ -63,7 +63,7 @@ public class BrokerBankingTest extends TestBase {
 
 	}
 
-	@Test(dataProvider = "getAdminLoginData", priority = 13)
+	@Test(dataProvider = "getAdminLoginData", priority = 38)
 	public void verifyBrokerBusinessBankAccount(String Username, String pass) throws InterruptedException, AWTException {
 		Thread.sleep(1000);
 		bb.verifyBankAccount();
@@ -96,7 +96,7 @@ public class BrokerBankingTest extends TestBase {
 
 	}
 
-	@Test(priority = 14)
+	@Test(priority = 39)
 	public void brokerBusinessBankAccountSetdefault() throws InterruptedException {
 		Thread.sleep(1000);
 		bb.clickSetDefault();
@@ -104,14 +104,14 @@ public class BrokerBankingTest extends TestBase {
 
 	}
 
-	@Test(priority = 15)
+	@Test(priority = 40)
 	public void brokerBusinessRemoveBankAccount() throws InterruptedException {
 		Thread.sleep(1000);
 		bb.clickRemoveButton();
 		Thread.sleep(2000);
 	}
 	
-	@Test(dataProvider = "getBrokerBankingData", priority = 16)
+	@Test(dataProvider = "getBrokerBankingData", priority = 41)
 	public void brokerAddNewPersonalCheckingBankAccount(String accname, String routingnum, String accnum, String confirmaccnum)
 			throws InterruptedException {
 		Thread.sleep(1000);
@@ -135,7 +135,7 @@ public class BrokerBankingTest extends TestBase {
 
 	}
 
-	@Test(dataProvider = "getAdminLoginData", priority = 17)
+	@Test(dataProvider = "getAdminLoginData", priority = 42)
 	public void verifyBrokerPersonalCheckingBankAccount(String Username, String pass) throws InterruptedException, AWTException {
 		Thread.sleep(1000);
 		bb.verifyBankAccount();
@@ -168,7 +168,7 @@ public class BrokerBankingTest extends TestBase {
 
 	}
 
-	@Test(priority = 18)
+	@Test(priority = 43)
 	public void brokerPersonalCheckingBankAccountSetdefault() throws InterruptedException {
 		Thread.sleep(1000);
 		bb.clickSetDefault();
@@ -176,14 +176,14 @@ public class BrokerBankingTest extends TestBase {
 
 	}
 
-	@Test(priority = 19)
+	@Test(priority = 44)
 	public void brokerRemovePersonalCheckingBankAccount() throws InterruptedException {
 		Thread.sleep(1000);
 		bb.clickRemoveButton();
 		Thread.sleep(2000);
 	}
 	
-	@Test(dataProvider = "getBrokerBankingData", priority = 20)
+	@Test(dataProvider = "getBrokerBankingData", priority = 45)
 	public void brokerAddNewPersonalSavingsBankAccount(String accname, String routingnum, String accnum, String confirmaccnum)
 			throws InterruptedException {
 		Thread.sleep(1000);
@@ -207,7 +207,7 @@ public class BrokerBankingTest extends TestBase {
 
 	}
 
-	@Test(dataProvider = "getAdminLoginData", priority = 21)
+	@Test(dataProvider = "getAdminLoginData", priority = 46)
 	public void verifyBrokerPersonalSavingsBankAccount(String Username, String pass) throws InterruptedException, AWTException {
 		Thread.sleep(1000);
 		bb.verifyBankAccount();
@@ -240,7 +240,7 @@ public class BrokerBankingTest extends TestBase {
 
 	}
 
-	@Test(priority = 22)
+	@Test(priority = 47)
 	public void brokerPersonalSavingsBankAccountSetdefault() throws InterruptedException {
 		Thread.sleep(1000);
 		bb.clickSetDefault();
@@ -248,7 +248,7 @@ public class BrokerBankingTest extends TestBase {
 
 	}
 
-	@Test(priority = 23)
+	@Test(priority = 48)
 	public void brokerRemovePersonalSavingsBankAccount() throws InterruptedException {
 		Thread.sleep(1000);
 		bb.clickRemoveButton();

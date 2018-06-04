@@ -1,4 +1,6 @@
 package testcases;
+import java.util.ArrayList;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -15,6 +17,7 @@ public class BrokerNewPaymentTest extends TestBase
 	BrokerLoginPage bl;
 	String  payment_status = "Verified";
 	 static String invoice;
+	 public static ArrayList<String> al;
 	
 	/*-------Initializing driver---------*/
 	public BrokerNewPaymentTest()
@@ -29,6 +32,7 @@ public class BrokerNewPaymentTest extends TestBase
 		initialization();
 		bl = new BrokerLoginPage();	
 		bp = new BrokerNewPayment();
+		al = new ArrayList<String>();
 	}
 	/*-------Initializing driver---------*/
 	
@@ -56,6 +60,7 @@ public class BrokerNewPaymentTest extends TestBase
 		bp.amount(amt);
 		Thread.sleep(1000);
 		invoice = 	bp.invoiceNumber(invoiceno);
+		al.add(invoice);
 		Thread.sleep(1000);
 		bp.loadId(loadid);
 		Thread.sleep(1000);

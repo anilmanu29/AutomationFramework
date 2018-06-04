@@ -26,13 +26,13 @@ public class CarrierBankingTest extends TestBase {
 		cl = new CarrierLoginPage();
 	}
 
-	@Test(dataProvider = "getCarrierLoginData", priority = 1)
+	@Test(dataProvider = "getCarrierLoginData", priority = 26)
 	public void loginCarrier(String un, String pwd) throws InterruptedException {
 		cl = new CarrierLoginPage();
 		cl.Carrierlogin(un, pwd);
 	}
 
-	@Test(dataProvider = "getCarrierBankingData", priority = 2)
+	@Test(dataProvider = "getCarrierBankingData", priority = 27)
 	public void carrierAddNewBusinessBankAccount(String accname, String routingnum, String accnum, String confirmaccnum)
 			throws InterruptedException {
 		Thread.sleep(1000);
@@ -58,7 +58,7 @@ public class CarrierBankingTest extends TestBase {
 
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 28)
 	public void carrierBusinessAccountSetdefault() throws InterruptedException {
 		Thread.sleep(1000);
 		cb.clickSetDefault();
@@ -66,13 +66,13 @@ public class CarrierBankingTest extends TestBase {
 
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 29)
 	public void carrierBusinessRemoveBankAccount() throws InterruptedException {
 		cb.clickRemoveButton();
 		Thread.sleep(2000);
 	}
 	
-	@Test(dataProvider = "getCarrierBankingData", priority = 5)
+	@Test(dataProvider = "getCarrierBankingData", priority = 30)
 	public void carrierAddNewPersonalCheckingBankAccount(String accname, String routingnum, String accnum, String confirmaccnum)
 			throws InterruptedException {
 		Thread.sleep(1000);
@@ -96,7 +96,7 @@ public class CarrierBankingTest extends TestBase {
 
 	}
 
-	@Test(priority = 6)
+	@Test(priority = 31)
 	public void carrierPersonalCheckingAccountSetdefault() throws InterruptedException {
 		Thread.sleep(1000);
 		cb.clickSetDefault();
@@ -104,13 +104,13 @@ public class CarrierBankingTest extends TestBase {
 
 	}
 
-	@Test(priority = 7)
+	@Test(priority = 32)
 	public void carrierPersonalCheckingRemoveBankAccount() throws InterruptedException {
 		cb.clickRemoveButton();
 		Thread.sleep(2000);
 	}
 	
-	@Test(dataProvider = "getCarrierBankingData", priority = 8)
+	@Test(dataProvider = "getCarrierBankingData", priority = 33)
 	public void carrierAddNewPersonalSavingsBankAccount(String accname, String routingnum, String accnum, String confirmaccnum)
 			throws InterruptedException {
 		Thread.sleep(1000);
@@ -134,7 +134,7 @@ public class CarrierBankingTest extends TestBase {
 
 	}
 
-	@Test(priority = 9)
+	@Test(priority = 34)
 	public void carrierPersonalSavingsAccountSetdefault() throws InterruptedException {
 		Thread.sleep(1000);
 		cb.clickSetDefault();
@@ -142,7 +142,7 @@ public class CarrierBankingTest extends TestBase {
 
 	}
 
-	@Test(priority = 10)
+	@Test(priority = 35)
 	public void carrierPersonalSavingsRemoveBankAccount() throws InterruptedException {
 		cb.clickRemoveButton();
 		Thread.sleep(2000);

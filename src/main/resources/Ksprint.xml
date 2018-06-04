@@ -11,13 +11,27 @@
     <classes>
 
  
+	
+		 			
+		<!-- Script for Jira Tickets   AdminPayByCheck  Anil-->
 		 	
+		    <class name="testcases.BrokerNewPaymentTest"></class>
+		    <class name="testcases.AdminPayByCheckTest"></class>
+		 	<class name="testcases.BrokerPaymentforUnmatchedCarrierTest"></class>
+		 	<class name="testcases.UnmatchedCarrierAdminPayByCheckTest"></class>
+		 	
+		 		 	
 		 <!--    Script for Jira Tickets LP-5418 - Carrier Banking     -->
-		 	<!-- 	<class name="testcases.CarrierBankingTest"></class> -->
+		 		<class name="testcases.CarrierBankingTest"></class>
 		 		
 		 	
 		 <!--    Script for Jira Tickets LP-LP-5408 - Broker Banking     -->
 		 	<class name="testcases.BrokerBankingTest"></class>
+		 	
+		 	<!--    Script for Jira Tickets LP-LP-5391 - BrokerBankAccountUpdate     -->
+		 	
+		 	<class name="testcases.BrokerBankAccountUpdateTest"></class>
+		 	 
  
 
     </classes>

@@ -27,13 +27,13 @@ public class BrokerBankAccountUpdateTest extends TestBase {
 		bl = new BrokerLoginPage();
 	}
 
-	@Test(dataProvider = "getBrokerLoginData", priority = 10)
+	@Test(dataProvider = "getBrokerLoginData", priority = 49)
 	public void brokerLogin(String un, String pwd) throws InterruptedException {
 		bl = new BrokerLoginPage();
 		bl.Brokerlogin(un, pwd);
 	}
 
-	@Test(dataProvider = "getBrokerBankingData", priority = 11)
+	@Test(dataProvider = "getBrokerBankingData", priority = 50)
 	public void brokerAddNewBusinessBankAccount(String accname, String routingnum, String accnum, String confirmaccnum)
 			throws InterruptedException {
 		Thread.sleep(1000);
@@ -58,14 +58,14 @@ public class BrokerBankAccountUpdateTest extends TestBase {
 
 	}
 
-	@Test(priority = 12)
+	@Test(priority = 51)
 	public void brokerRemoveBusinessBankAccount() throws InterruptedException {
 
 		bb.clickRemoveButton();
 		Thread.sleep(1000);
 	}
 
-	@Test(dataProvider = "getBrokerBankingData", priority = 13)
+	@Test(dataProvider = "getBrokerBankingData", priority = 52)
 	public void brokerAddNewPersonalCheckingBankAccount(String accname, String routingnum, String accnum,
 			String confirmaccnum) throws InterruptedException {
 		Thread.sleep(1000);
@@ -92,14 +92,14 @@ public class BrokerBankAccountUpdateTest extends TestBase {
 
 	}
 
-	@Test(priority = 14)
+	@Test(priority = 53)
 	public void brokerRemovePersonalCheckingBankAccount() throws InterruptedException {
 
 		bb.clickRemoveButton();
 		Thread.sleep(1000);
 	}
 
-	@Test(dataProvider = "getBrokerBankingData", priority = 15)
+	@Test(dataProvider = "getBrokerBankingData", priority = 54)
 	public void brokerAddNewPersonalSavingsBankAccount(String accname, String routingnum, String accnum,
 			String confirmaccnum) throws InterruptedException {
 		Thread.sleep(1000);
@@ -128,7 +128,7 @@ public class BrokerBankAccountUpdateTest extends TestBase {
 
 	}
 
-	@Test(priority = 16)
+	@Test(priority = 55)
 	public void brokerRemovePersonalSavingsgBankAccount() throws InterruptedException {
 
 		bb.clickRemoveButton();

@@ -163,6 +163,14 @@ public class TestBase {
 	return read.getCellData(Fileppath, "BrokerBankingData");
 	}
 	
+	@DataProvider
+	public Object[][] getCcarrierMatchedPayByCheckPayMNWData() throws InvalidFormatException, IOException
+	{
+	ReadExcel read = new ReadExcel();
+	return read.getCellData(Fileppath, "CcarrierMatchedPayByCheckPayMNW");
+	}
+	
+	
 	@AfterClass
 	public void quit()
 	{
