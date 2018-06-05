@@ -110,11 +110,12 @@ public class BrokerNewPayment extends TestBase
 	}
 	
 	/*-------Carrier email---------*/
-	public void carrierEmail(String cemail) throws InterruptedException
+	public String  carrierEmail(String cemail) throws InterruptedException
 	{
 		field_carrieremail.click();
 		Thread.sleep(1000);
 		field_carrieremail.sendKeys(cemail);
+		return cemail;
 		//Thread.sleep(1000);
 	}
 	

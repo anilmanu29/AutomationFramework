@@ -18,6 +18,7 @@ public class BrokerNewPaymentTest extends TestBase
 	String  payment_status = "Verified";
 	 static String invoice;
 	 public static ArrayList<String> al;
+	 public static String email;
 	
 	/*-------Initializing driver---------*/
 	public BrokerNewPaymentTest()
@@ -55,7 +56,7 @@ public class BrokerNewPaymentTest extends TestBase
 		bp = new BrokerNewPayment();
 		bp.newPayment();
 		Thread.sleep(1000);
-		bp.carrierEmail(cemail);
+		email= bp.carrierEmail(cemail);
 		Thread.sleep(1000);
 		bp.amount(amt);
 		Thread.sleep(1000);
