@@ -7,29 +7,19 @@
   </listeners>
   <test thread-count="5" name=" Test Cases(failed)">
     <classes>
-      <class name="testcases.AdminPayByCheckTest">
+      <class name="testcases.CarrierPaidTabTest">
         <methods>
-          <include name="setUp"/>
-          <include name="verifyAdminPayByCheckTermPayment" invocation-numbers="0"/>
+          <include name="verifyLoadIdSortTest"/>
+          <include name="verifySearchTest"/>
+          <include name="verifyPaidTabTest"/>
           <include name="quit"/>
-          <include name="carrierTermPaymentPayByCheck" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- testcases.AdminPayByCheckTest -->
-      <class name="testcases.BrokerPaymentforUnmatchedCarrierTest">
-        <methods>
-          <include name="quit"/>
+          <include name="verifyAmountSortTest"/>
+          <include name="verifyPayerSortTest"/>
+          <include name="verifyStatusSortTest"/>
           <include name="setUp"/>
-          <include name="brokernewPayment" invocation-numbers="0 1"/>
+          <include name="loginAsCarrier" invocation-numbers="0"/>
         </methods>
-      </class> <!-- testcases.BrokerPaymentforUnmatchedCarrierTest -->
-      <class name="testcases.UnmatchedCarrierAdminPayByCheckTest">
-        <methods>
-          <include name="quit"/>
-          <include name="verifyAdminPayByCheck" invocation-numbers="0"/>
-          <include name="setUp"/>
-          <include name="carrierPaymenowPayByCheck" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- testcases.UnmatchedCarrierAdminPayByCheckTest -->
+      </class> <!-- testcases.CarrierPaidTabTest -->
     </classes>
   </test> <!--  Test Cases(failed) -->
 </suite> <!-- Failed suite [Automation Test Suite] -->

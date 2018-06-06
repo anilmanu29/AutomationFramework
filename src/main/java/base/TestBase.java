@@ -170,6 +170,13 @@ public class TestBase {
 	return read.getCellData(Fileppath, "CcarrierMatchedPayByCheckPayMNW");
 	}
 	
+	@DataProvider
+	public Object[][] getCarrierPaidTabData() throws InvalidFormatException, IOException
+	{
+	ReadExcel read = new ReadExcel();
+	return read.getCellData(Fileppath, "CarrierPaidTabData");
+	}
+	
 	
 	@AfterClass
 	public void quit()
