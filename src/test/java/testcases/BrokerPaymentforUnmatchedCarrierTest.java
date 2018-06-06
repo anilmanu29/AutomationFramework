@@ -21,6 +21,7 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase
 	public static String umemail;
 	public static String einno;
 	public static ArrayList<String> al;
+	public static ArrayList<String> in;
 	public static String invoiceNum;
 	
 	/*-------Initializing driver---------*/
@@ -37,6 +38,7 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase
 		bl = new BrokerLoginPage();	
 		bp = new BrokerPaymentforUnmatchedCarrier();
 		al = new ArrayList<String>();
+		in = new ArrayList<String>();
 	}
 	/*-------Initializing driver---------*/
 	
@@ -63,7 +65,7 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase
 		bp.amount(amt);
 		Thread.sleep(1000);
 		invoiceNum = bp.invoiceNumber(invoiceno);
-		al.add(invoiceNum);
+		in.add(invoiceNum);
 		Thread.sleep(1000);
 		bp.loadId(loadid);
 		Thread.sleep(1000);

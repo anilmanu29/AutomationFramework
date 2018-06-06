@@ -7,49 +7,29 @@
   </listeners>
   <test thread-count="5" name=" Test Cases(failed)">
     <classes>
-      <class name="testcases.CarrierBankingTest">
+      <class name="testcases.AdminPayByCheckTest">
         <methods>
-          <include name="carrierPersonalCheckingAccountSetdefault"/>
-          <include name="carrierBusinessAccountSetdefault"/>
-          <include name="quit"/>
-          <include name="carrierBusinessRemoveBankAccount"/>
-          <include name="carrierAddNewPersonalSavingsBankAccount"/>
-          <include name="carrierAddNewPersonalCheckingBankAccount"/>
-          <include name="carrierPersonalSavingsAccountSetdefault"/>
-          <include name="carrierPersonalCheckingRemoveBankAccount"/>
           <include name="setUp"/>
-          <include name="carrierAddNewBusinessBankAccount"/>
-          <include name="carrierPersonalSavingsRemoveBankAccount"/>
+          <include name="verifyAdminPayByCheckTermPayment" invocation-numbers="0"/>
+          <include name="quit"/>
+          <include name="carrierTermPaymentPayByCheck" invocation-numbers="0"/>
         </methods>
-      </class> <!-- testcases.CarrierBankingTest -->
-      <class name="testcases.BrokerBankAccountUpdateTest">
+      </class> <!-- testcases.AdminPayByCheckTest -->
+      <class name="testcases.BrokerPaymentforUnmatchedCarrierTest">
         <methods>
-          <include name="brokerAddNewPersonalCheckingBankAccount"/>
-          <include name="brokerAddNewBusinessBankAccount"/>
           <include name="quit"/>
-          <include name="brokerRemovePersonalCheckingBankAccount"/>
           <include name="setUp"/>
-          <include name="brokerRemoveBusinessBankAccount"/>
+          <include name="brokernewPayment" invocation-numbers="0 1"/>
         </methods>
-      </class> <!-- testcases.BrokerBankAccountUpdateTest -->
-      <class name="testcases.BrokerBankingTest">
+      </class> <!-- testcases.BrokerPaymentforUnmatchedCarrierTest -->
+      <class name="testcases.UnmatchedCarrierAdminPayByCheckTest">
         <methods>
-          <include name="brokerRemovePersonalSavingsBankAccount"/>
-          <include name="brokerAddNewPersonalSavingsBankAccount"/>
-          <include name="brokerAddNewPersonalCheckingBankAccount"/>
-          <include name="brokerAddNewBusinessBankAccount"/>
-          <include name="verifyBrokerBusinessBankAccount" invocation-numbers="0"/>
-          <include name="verifyBrokerPersonalCheckingBankAccount" invocation-numbers="0"/>
-          <include name="brokerRemovePersonalCheckingBankAccount"/>
-          <include name="verifyBrokerPersonalSavingsBankAccount" invocation-numbers="0"/>
-          <include name="setUp"/>
           <include name="quit"/>
-          <include name="brokerBusinessBankAccountSetdefault"/>
-          <include name="brokerBusinessRemoveBankAccount"/>
-          <include name="brokerPersonalSavingsBankAccountSetdefault"/>
-          <include name="brokerPersonalCheckingBankAccountSetdefault"/>
+          <include name="verifyAdminPayByCheck" invocation-numbers="0"/>
+          <include name="setUp"/>
+          <include name="carrierPaymenowPayByCheck" invocation-numbers="0"/>
         </methods>
-      </class> <!-- testcases.BrokerBankingTest -->
+      </class> <!-- testcases.UnmatchedCarrierAdminPayByCheckTest -->
     </classes>
   </test> <!--  Test Cases(failed) -->
 </suite> <!-- Failed suite [Automation Test Suite] -->

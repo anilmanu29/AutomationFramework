@@ -57,7 +57,7 @@ public class UnmatchedCarrierAdminPayByCheckTest extends TestBase {
 		Thread.sleep(1000);
 		apbc.clickPayments();
 		Thread.sleep(3000);
-		apbc.ClickOnsearchKeyword(BrokerPaymentforUnmatchedCarrierTest.al.get(0));
+		apbc.ClickOnsearchKeyword(BrokerPaymentforUnmatchedCarrierTest.in.get(0));
 		Thread.sleep(2000);
 		apbc.getPaymentID();
 		Thread.sleep(2000);
