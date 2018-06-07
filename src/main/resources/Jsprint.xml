@@ -12,52 +12,51 @@
 
  <!--    Script for Jira Tickets LP-5390 LoadPay - Selenium Test - Broker - Register Canada  Shantesh  -->
 
-		<!-- 	<class name="testcases.BrokerRegisterCanadaTest"></class>
+			<class name="testcases.BrokerRegisterCanadaTest"></class>
 		 	<class name="testcases.BrokerOutlookCanadaTest"></class>
 			<class name="testcases.AdminBrokerCanadaTest"></class>
-			<class name="testcases.BrokerCanadaFirstLoginTest"></class> -->
+			<class name="testcases.BrokerCanadaFirstLoginTest"></class>
 			
   	<!-- Script for Jira Tickets LP-5409 LoadPay - Selenium Test - Carrier - Register Canada -->
 
-		 	<!--  <class name="testcases.CarrierRegisterCanadaTest"></class>
+		 	 <class name="testcases.CarrierRegisterCanadaTest"></class>
 			<class name="testcases.CarrierOutlookCanadaTest"></class>
 			<class name="testcases.AdminCarrierCanadaTest"></class>
-			<class name="testcases.CarrierCanadaFirstLoginTest"></class> -->
+			<class name="testcases.CarrierCanadaFirstLoginTest"></class>
 
 
 		<!--   Script for Jira Tickets LP-3485 LoadPay - Selenium Test - Shipper- SchedulePaymentTest   -->
 	              
-	             <!--  <class name="testcases.ShipperSchedulePaymentTest"></class>  -->
+	              <class name="testcases.ShipperSchedulePaymentTest"></class> 
 			
 			
 			
 		
 		<!--   Script for Jira Tickets LP-5397 LoadPay - Selenium Test - Shipper - Advance Payment   -->
 		
-	 		<!-- <class name="testcases.ShipperAdvancePaymentTest"></class> -->
+	 		<class name="testcases.ShipperAdvancePaymentTest"></class>
 	 		
 	 		 <!--  Script for Jira Tickets LP-3475 LoadPay - Selenium Test - Carrier - SchedulePayment   -->
 	 		
-			<!-- <class name="testcases.CarrierSchedulePaymentTest"></class> -->
+			<class name="testcases.CarrierSchedulePaymentTest"></class>
 			
 			
 
 	<!-- Script for Jira Tickets LP-5420 LoadPay - Selenium Test - Carrier - PayMeNow_Next Day ACH Unmatched Carrier -->
-<!-- 
+
 			<class name="testcases.BrokerPaymentforUnmatchedCarrierTest"></class>
 			<class name="testcases.UnmatchedCarrierOutlookNextDayTest"></class>
 			<class name="testcases.UnmatchedCariierEmailVerifyNextDayTest"></class>
 			<class name="testcases.UnmatchedCarrierAdminNextDayTest"></class>
 			<class name="testcases.CarrierFirstLoginNextDayACHTest"></class>
-			<class name="testcases.UnmatchedCarrierNextDayACHTest"></class> -->
+			<class name="testcases.UnmatchedCarrierNextDayACHTest"></class>
 
 
 
 
 <!--    Script for Jira Tickets LP-5396  Broker - New Payment Unmatched Carrier     -->
 		 	
-		 	
-		 
+		    
 		    <class name="testcases.UnmatchedCarrierOutlookNewPaymentTest"></class>
 		 	<class name="testcases.UnmatchedNewPaymentCarrierOutlookTest"></class>
 		 	<class name="testcases.UnmatchedNewPaymentAdminCarrierTest"></class>
@@ -68,7 +67,7 @@
 		 	<!--    Script for Jira Tickets LP-5412  Carrier - PayMeNow_Fuel Card     -->
  
             
-		 	<!-- <class name="testcases.CarrierPayMeNowFuelCardTest"></class> -->
+		 	<class name="testcases.CarrierPayMeNowFuelCardTest"></class>
  
 
     </classes>

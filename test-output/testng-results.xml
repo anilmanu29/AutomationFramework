@@ -1,66 +1,1087 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="7" passed="7">
+<testng-results skipped="0" failed="0" ignored="0" total="41" passed="41">
   <reporter-output>
   </reporter-output>
-  <suite name="Automation Test Suite" duration-ms="49770" started-at="2018-06-06T19:15:14Z" finished-at="2018-06-06T19:16:03Z">
+  <suite name="Automation Test Suite" duration-ms="1096519" started-at="2018-06-07T11:24:33Z" finished-at="2018-06-07T11:42:50Z">
     <groups>
     </groups>
-    <test name=" Test Cases" duration-ms="49770" started-at="2018-06-06T19:15:14Z" finished-at="2018-06-06T19:16:03Z">
-      <class name="testcases.CarrierPaidTabTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.CarrierPaidTabTest@2de8284b]" name="setUp" is-config="true" duration-ms="12554" started-at="2018-06-06T19:15:14Z" finished-at="2018-06-06T19:15:26Z">
+    <test name=" Test Cases" duration-ms="1096519" started-at="2018-06-07T11:24:33Z" finished-at="2018-06-07T11:42:50Z">
+      <class name="testcases.CarrierPayMeNowFuelCardTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.CarrierPayMeNowFuelCardTest@548ad73b]" name="setUp" is-config="true" duration-ms="12929" started-at="2018-06-07T11:41:40Z" finished-at="2018-06-07T11:41:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginAsCarrier(java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:testcases.CarrierPaidTabTest@2de8284b]" name="loginAsCarrier" duration-ms="4526" started-at="2018-06-06T19:15:27Z" description="LP-3476 CarrierPaidTabTest_Login" data-provider="getCarrierPaidTabData" finished-at="2018-06-06T19:15:32Z">
+        <test-method status="PASS" signature="loginTest(java.lang.String, java.lang.String)[pri:43, instance:testcases.CarrierPayMeNowFuelCardTest@548ad73b]" name="loginTest" duration-ms="5731" started-at="2018-06-07T11:41:53Z" data-provider="getCarrierLoginData" finished-at="2018-06-07T11:41:58Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[qarunscopecarrier1@loadpaytest.truckstop.com]]>
+                <![CDATA[avatarqacarrier@mailinator.truckstop.com]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Password@1]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Buffalo]]>
+                <![CDATA[Password@123]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginAsCarrier -->
-        <test-method status="PASS" signature="verifyPaidTabTest()[pri:2, instance:testcases.CarrierPaidTabTest@2de8284b]" name="verifyPaidTabTest" duration-ms="3198" started-at="2018-06-06T19:15:32Z" description="LP-3476 CarrierPaidTabTest_VerifyPaidTab" depends-on-methods="testcases.CarrierPaidTabTest.loginAsCarrier" finished-at="2018-06-06T19:15:35Z">
+        </test-method> <!-- loginTest -->
+        <test-method status="PASS" signature="carrierPaymenowFuelCard(java.lang.String, java.lang.String)[pri:44, instance:testcases.CarrierPayMeNowFuelCardTest@548ad73b]" name="carrierPaymenowFuelCard" duration-ms="50642" started-at="2018-06-07T11:41:58Z" data-provider="getCarrierFuelcardaccountNumbersData" finished-at="2018-06-07T11:42:49Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[6542988.0]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[6542989.0]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyPaidTabTest -->
-        <test-method status="PASS" signature="verifyStatusSortTest()[pri:3, instance:testcases.CarrierPaidTabTest@2de8284b]" name="verifyStatusSortTest" duration-ms="6112" started-at="2018-06-06T19:15:35Z" description="LP-3476 CarrierPaidTabTest_VerifyStatusSort" depends-on-methods="testcases.CarrierPaidTabTest.verifyPaidTabTest" finished-at="2018-06-06T19:15:41Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyStatusSortTest -->
-        <test-method status="PASS" signature="verifyAmountSortTest()[pri:4, instance:testcases.CarrierPaidTabTest@2de8284b]" name="verifyAmountSortTest" duration-ms="6169" started-at="2018-06-06T19:15:41Z" description="LP-3476 CarrierPaidTabTest_VerifyAmountSort" depends-on-methods="testcases.CarrierPaidTabTest.verifyPaidTabTest" finished-at="2018-06-06T19:15:47Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyAmountSortTest -->
-        <test-method status="PASS" signature="verifyPayerSortTest()[pri:5, instance:testcases.CarrierPaidTabTest@2de8284b]" name="verifyPayerSortTest" duration-ms="6228" started-at="2018-06-06T19:15:47Z" description="LP-3476 CarrierPaidTabTest_VerifyPayerSort" depends-on-methods="testcases.CarrierPaidTabTest.verifyPaidTabTest" finished-at="2018-06-06T19:15:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyPayerSortTest -->
-        <test-method status="PASS" signature="verifyLoadIdSortTest()[pri:6, instance:testcases.CarrierPaidTabTest@2de8284b]" name="verifyLoadIdSortTest" duration-ms="5879" started-at="2018-06-06T19:15:53Z" description="LP-3476 CarrierPaidTabTest_VerifyLoadIdSort" depends-on-methods="testcases.CarrierPaidTabTest.verifyPaidTabTest" finished-at="2018-06-06T19:15:59Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyLoadIdSortTest -->
-        <test-method status="PASS" signature="verifySearchTest()[pri:7, instance:testcases.CarrierPaidTabTest@2de8284b]" name="verifySearchTest" duration-ms="3329" started-at="2018-06-06T19:15:59Z" description="LP-3476 CarrierPaidTabTest_VerifySearch" depends-on-methods="testcases.CarrierPaidTabTest.verifyPaidTabTest" finished-at="2018-06-06T19:16:03Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifySearchTest -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.CarrierPaidTabTest@2de8284b]" name="quit" is-config="true" duration-ms="737" started-at="2018-06-06T19:16:03Z" finished-at="2018-06-06T19:16:03Z">
+        </test-method> <!-- carrierPaymenowFuelCard -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.CarrierPayMeNowFuelCardTest@548ad73b]" name="quit" is-config="true" duration-ms="818" started-at="2018-06-07T11:42:49Z" finished-at="2018-06-07T11:42:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quit -->
-      </class> <!-- testcases.CarrierPaidTabTest -->
+      </class> <!-- testcases.CarrierPayMeNowFuelCardTest -->
+      <class name="testcases.UnmatchedCarrierAdminNextDayTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.UnmatchedCarrierAdminNextDayTest@646007f4]" name="setUp" is-config="true" duration-ms="12856" started-at="2018-06-07T11:35:48Z" finished-at="2018-06-07T11:36:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="Home()[pri:29, instance:testcases.UnmatchedCarrierAdminNextDayTest@646007f4]" name="Home" duration-ms="8587" started-at="2018-06-07T11:36:01Z" finished-at="2018-06-07T11:36:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Home -->
+        <test-method status="PASS" signature="adminLogin(java.lang.String, java.lang.String)[pri:30, instance:testcases.UnmatchedCarrierAdminNextDayTest@646007f4]" name="adminLogin" duration-ms="13574" started-at="2018-06-07T11:36:10Z" data-provider="getAdminLoginData" finished-at="2018-06-07T11:36:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[jasonglaser@truckstop.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[aaaaaaa]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- adminLogin -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.UnmatchedCarrierAdminNextDayTest@646007f4]" name="quit" is-config="true" duration-ms="783" started-at="2018-06-07T11:36:23Z" finished-at="2018-06-07T11:36:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.UnmatchedCarrierAdminNextDayTest -->
+      <class name="testcases.AdminCarrierCanadaTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.AdminCarrierCanadaTest@10a035a0]" name="setUp" is-config="true" duration-ms="11575" started-at="2018-06-07T11:28:54Z" finished-at="2018-06-07T11:29:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="Home()[pri:9, instance:testcases.AdminCarrierCanadaTest@10a035a0]" name="Home" duration-ms="4611" started-at="2018-06-07T11:29:06Z" finished-at="2018-06-07T11:29:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Home -->
+        <test-method status="PASS" signature="adminLogin(java.lang.String, java.lang.String)[pri:10, instance:testcases.AdminCarrierCanadaTest@10a035a0]" name="adminLogin" duration-ms="14704" started-at="2018-06-07T11:29:10Z" data-provider="getAdminLoginData" finished-at="2018-06-07T11:29:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[jasonglaser@truckstop.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[aaaaaaa]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- adminLogin -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.AdminCarrierCanadaTest@10a035a0]" name="quit" is-config="true" duration-ms="841" started-at="2018-06-07T11:29:25Z" finished-at="2018-06-07T11:29:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.AdminCarrierCanadaTest -->
+      <class name="testcases.UnmatchedCarrierNextDayACHTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.UnmatchedCarrierNextDayACHTest@78186a70]" name="setUp" is-config="true" duration-ms="10729" started-at="2018-06-07T11:36:47Z" finished-at="2018-06-07T11:36:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="carrierPaymenowNextDAYACH()[pri:33, instance:testcases.UnmatchedCarrierNextDayACHTest@78186a70]" name="carrierPaymenowNextDAYACH" duration-ms="34191" started-at="2018-06-07T11:36:57Z" finished-at="2018-06-07T11:37:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- carrierPaymenowNextDAYACH -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.UnmatchedCarrierNextDayACHTest@78186a70]" name="quit" is-config="true" duration-ms="795" started-at="2018-06-07T11:37:32Z" finished-at="2018-06-07T11:37:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.UnmatchedCarrierNextDayACHTest -->
+      <class name="testcases.UnmatchedNewPaymentAdminCarrierTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.UnmatchedNewPaymentAdminCarrierTest@4cf4d528]" name="setUp" is-config="true" duration-ms="11799" started-at="2018-06-07T11:40:30Z" finished-at="2018-06-07T11:40:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="Home()[pri:39, instance:testcases.UnmatchedNewPaymentAdminCarrierTest@4cf4d528]" name="Home" duration-ms="4136" started-at="2018-06-07T11:40:42Z" finished-at="2018-06-07T11:40:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Home -->
+        <test-method status="PASS" signature="adminLogin(java.lang.String, java.lang.String)[pri:40, instance:testcases.UnmatchedNewPaymentAdminCarrierTest@4cf4d528]" name="adminLogin" duration-ms="13302" started-at="2018-06-07T11:40:46Z" data-provider="getAdminLoginData" finished-at="2018-06-07T11:41:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[jasonglaser@truckstop.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[aaaaaaa]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- adminLogin -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.UnmatchedNewPaymentAdminCarrierTest@4cf4d528]" name="quit" is-config="true" duration-ms="742" started-at="2018-06-07T11:41:00Z" finished-at="2018-06-07T11:41:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.UnmatchedNewPaymentAdminCarrierTest -->
+      <class name="testcases.UnmatchedNewPaymentCarrierTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.UnmatchedNewPaymentCarrierTest@77846d2c]" name="setUp" is-config="true" duration-ms="12680" started-at="2018-06-07T11:41:00Z" finished-at="2018-06-07T11:41:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="loginTest()[pri:41, instance:testcases.UnmatchedNewPaymentCarrierTest@77846d2c]" name="loginTest" duration-ms="25749" started-at="2018-06-07T11:41:13Z" finished-at="2018-06-07T11:41:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.UnmatchedNewPaymentCarrierTest@77846d2c]" name="quit" is-config="true" duration-ms="886" started-at="2018-06-07T11:41:39Z" finished-at="2018-06-07T11:41:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.UnmatchedNewPaymentCarrierTest -->
+      <class name="testcases.UnmatchedCariierEmailVerifyNextDayTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.UnmatchedCariierEmailVerifyNextDayTest@710726a3]" name="setUp" is-config="true" duration-ms="12666" started-at="2018-06-07T11:34:36Z" finished-at="2018-06-07T11:34:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="login(java.lang.String, java.lang.String)[pri:27, instance:testcases.UnmatchedCariierEmailVerifyNextDayTest@710726a3]" name="login" duration-ms="8741" started-at="2018-06-07T11:34:49Z" data-provider="getoutlookLoginData" finished-at="2018-06-07T11:34:58Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[w2k/anilkumar]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Cgihrms@1234]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="outlookloginTest()[pri:28, instance:testcases.UnmatchedCariierEmailVerifyNextDayTest@710726a3]" name="outlookloginTest" duration-ms="49612" started-at="2018-06-07T11:34:58Z" finished-at="2018-06-07T11:35:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- outlookloginTest -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.UnmatchedCariierEmailVerifyNextDayTest@710726a3]" name="quit" is-config="true" duration-ms="803" started-at="2018-06-07T11:35:47Z" finished-at="2018-06-07T11:35:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.UnmatchedCariierEmailVerifyNextDayTest -->
+      <class name="testcases.CarrierOutlookCanadaTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.CarrierOutlookCanadaTest@6eceb130]" name="setUp" is-config="true" duration-ms="11339" started-at="2018-06-07T11:27:55Z" finished-at="2018-06-07T11:28:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="login(java.lang.String, java.lang.String)[pri:7, instance:testcases.CarrierOutlookCanadaTest@6eceb130]" name="login" duration-ms="7898" started-at="2018-06-07T11:28:07Z" data-provider="getoutlookLoginData" finished-at="2018-06-07T11:28:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[w2k/anilkumar]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Cgihrms@1234]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="outlookloginTest()[pri:8, instance:testcases.CarrierOutlookCanadaTest@6eceb130]" name="outlookloginTest" duration-ms="38658" started-at="2018-06-07T11:28:15Z" finished-at="2018-06-07T11:28:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- outlookloginTest -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.CarrierOutlookCanadaTest@6eceb130]" name="quit" is-config="true" duration-ms="858" started-at="2018-06-07T11:28:53Z" finished-at="2018-06-07T11:28:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.CarrierOutlookCanadaTest -->
+      <class name="testcases.ShipperSchedulePaymentTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.ShipperSchedulePaymentTest@47db50c5]" name="setUp" is-config="true" duration-ms="10648" started-at="2018-06-07T11:29:49Z" finished-at="2018-06-07T11:29:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="loginBroker(java.lang.String, java.lang.String)[pri:14, instance:testcases.ShipperSchedulePaymentTest@47db50c5]" name="loginBroker" duration-ms="3680" started-at="2018-06-07T11:29:59Z" data-provider="getBrokerLoginData" finished-at="2018-06-07T11:30:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[shantesh.hulagabali@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Shantesh@123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginBroker -->
+        <test-method status="PASS" signature="brokernewPayment(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:15, instance:testcases.ShipperSchedulePaymentTest@47db50c5]" name="brokernewPayment" duration-ms="19650" started-at="2018-06-07T11:30:03Z" data-provider="getPaymentData" finished-at="2018-06-07T11:30:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[avatarqacarrier@mailinator.truckstop.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[88658.0]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[88658.0]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[10.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- brokernewPayment -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.ShipperSchedulePaymentTest@47db50c5]" name="quit" is-config="true" duration-ms="767" started-at="2018-06-07T11:30:23Z" finished-at="2018-06-07T11:30:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.ShipperSchedulePaymentTest -->
+      <class name="testcases.AdminBrokerCanadaTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.AdminBrokerCanadaTest@2eda0940]" name="setUp" is-config="true" duration-ms="11317" started-at="2018-06-07T11:26:19Z" finished-at="2018-06-07T11:26:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="Home()[pri:4, instance:testcases.AdminBrokerCanadaTest@2eda0940]" name="Home" duration-ms="4639" started-at="2018-06-07T11:26:30Z" finished-at="2018-06-07T11:26:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Home -->
+        <test-method status="PASS" signature="adminLogin(java.lang.String, java.lang.String)[pri:5, instance:testcases.AdminBrokerCanadaTest@2eda0940]" name="adminLogin" duration-ms="14244" started-at="2018-06-07T11:26:35Z" data-provider="getAdminLoginData" finished-at="2018-06-07T11:26:49Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[jasonglaser@truckstop.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[aaaaaaa]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- adminLogin -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.AdminBrokerCanadaTest@2eda0940]" name="quit" is-config="true" duration-ms="794" started-at="2018-06-07T11:26:49Z" finished-at="2018-06-07T11:26:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.AdminBrokerCanadaTest -->
+      <class name="testcases.BrokerOutlookCanadaTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerOutlookCanadaTest@eb21112]" name="setUp" is-config="true" duration-ms="11277" started-at="2018-06-07T11:25:20Z" finished-at="2018-06-07T11:25:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="login(java.lang.String, java.lang.String)[pri:2, instance:testcases.BrokerOutlookCanadaTest@eb21112]" name="login" duration-ms="7165" started-at="2018-06-07T11:25:32Z" data-provider="getoutlookLoginData" finished-at="2018-06-07T11:25:39Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[w2k/anilkumar]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Cgihrms@1234]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="outlookloginTest()[pri:3, instance:testcases.BrokerOutlookCanadaTest@eb21112]" name="outlookloginTest" duration-ms="39453" started-at="2018-06-07T11:25:39Z" finished-at="2018-06-07T11:26:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- outlookloginTest -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerOutlookCanadaTest@eb21112]" name="quit" is-config="true" duration-ms="814" started-at="2018-06-07T11:26:18Z" finished-at="2018-06-07T11:26:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.BrokerOutlookCanadaTest -->
+      <class name="testcases.UnmatchedNewPaymentCarrierOutlookTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.UnmatchedNewPaymentCarrierOutlookTest@545997b1]" name="setUp" is-config="true" duration-ms="10730" started-at="2018-06-07T11:39:30Z" finished-at="2018-06-07T11:39:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="login(java.lang.String, java.lang.String)[pri:37, instance:testcases.UnmatchedNewPaymentCarrierOutlookTest@545997b1]" name="login" duration-ms="9254" started-at="2018-06-07T11:39:41Z" data-provider="getoutlookLoginData" finished-at="2018-06-07T11:39:51Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[w2k/anilkumar]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Cgihrms@1234]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="outlookloginTest()[pri:38, instance:testcases.UnmatchedNewPaymentCarrierOutlookTest@545997b1]" name="outlookloginTest" duration-ms="38829" started-at="2018-06-07T11:39:51Z" finished-at="2018-06-07T11:40:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- outlookloginTest -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.UnmatchedNewPaymentCarrierOutlookTest@545997b1]" name="quit" is-config="true" duration-ms="984" started-at="2018-06-07T11:40:29Z" finished-at="2018-06-07T11:40:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.UnmatchedNewPaymentCarrierOutlookTest -->
+      <class name="testcases.CarrierFirstLoginNextDayACHTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.CarrierFirstLoginNextDayACHTest@481a15ff]" name="setUp" is-config="true" duration-ms="11306" started-at="2018-06-07T11:36:24Z" finished-at="2018-06-07T11:36:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="loginTest()[pri:31, instance:testcases.CarrierFirstLoginNextDayACHTest@481a15ff]" name="loginTest" duration-ms="10681" started-at="2018-06-07T11:36:35Z" finished-at="2018-06-07T11:36:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.CarrierFirstLoginNextDayACHTest@481a15ff]" name="quit" is-config="true" duration-ms="748" started-at="2018-06-07T11:36:46Z" finished-at="2018-06-07T11:36:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.CarrierFirstLoginNextDayACHTest -->
+      <class name="testcases.CarrierCanadaFirstLoginTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.CarrierCanadaFirstLoginTest@67b467e9]" name="setUp" is-config="true" duration-ms="11737" started-at="2018-06-07T11:29:26Z" finished-at="2018-06-07T11:29:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="loginTest()[pri:11, instance:testcases.CarrierCanadaFirstLoginTest@67b467e9]" name="loginTest" duration-ms="10154" started-at="2018-06-07T11:29:38Z" finished-at="2018-06-07T11:29:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.CarrierCanadaFirstLoginTest@67b467e9]" name="quit" is-config="true" duration-ms="742" started-at="2018-06-07T11:29:48Z" finished-at="2018-06-07T11:29:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.CarrierCanadaFirstLoginTest -->
+      <class name="testcases.BrokerRegisterCanadaTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerRegisterCanadaTest@43a0cee9]" name="setUp" is-config="true" duration-ms="12365" started-at="2018-06-07T11:24:33Z" finished-at="2018-06-07T11:24:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="BrokerRegister(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:testcases.BrokerRegisterCanadaTest@43a0cee9]" name="BrokerRegister" duration-ms="32766" started-at="2018-06-07T11:24:47Z" data-provider="getBrokerData" finished-at="2018-06-07T11:25:19Z">
+          <params>
+            <param index="0">
+              <value is-null="true"/>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[broker registration ]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Travells]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[brcanada1395@loadpaytest.truckstop.com]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[brcanada1395@loadpaytest.truckstop.com]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Canada]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Yukon]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[A1A1A1]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[alabama]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[alabama]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[Canada]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[AB]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[istration]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[reg]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[374657000000]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[Password@123]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[Password@123]]>
+              </value>
+            </param>
+            <param index="17">
+              <value>
+                <![CDATA[balajiii]]>
+              </value>
+            </param>
+            <param index="18">
+              <value>
+                <![CDATA[102101645]]>
+              </value>
+            </param>
+            <param index="19">
+              <value>
+                <![CDATA[456457000000]]>
+              </value>
+            </param>
+            <param index="20">
+              <value>
+                <![CDATA[456457000000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BrokerRegister -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerRegisterCanadaTest@43a0cee9]" name="quit" is-config="true" duration-ms="797" started-at="2018-06-07T11:25:19Z" finished-at="2018-06-07T11:25:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.BrokerRegisterCanadaTest -->
+      <class name="testcases.CarrierSchedulePaymentTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.CarrierSchedulePaymentTest@4d1b0d2a]" name="setUp" is-config="true" duration-ms="11556" started-at="2018-06-07T11:31:10Z" finished-at="2018-06-07T11:31:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="loginCarrier(java.lang.String, java.lang.String)[pri:19, instance:testcases.CarrierSchedulePaymentTest@4d1b0d2a]" name="loginCarrier" duration-ms="9043" started-at="2018-06-07T11:31:22Z" data-provider="getCarrierLoginData" finished-at="2018-06-07T11:31:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[avatarqacarrier@mailinator.truckstop.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Password@123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginCarrier -->
+        <test-method status="PASS" signature="carrierPaymeNow()[pri:20, instance:testcases.CarrierSchedulePaymentTest@4d1b0d2a]" name="carrierPaymeNow" duration-ms="18126" started-at="2018-06-07T11:31:31Z" finished-at="2018-06-07T11:31:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- carrierPaymeNow -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.CarrierSchedulePaymentTest@4d1b0d2a]" name="quit" is-config="true" duration-ms="774" started-at="2018-06-07T11:31:49Z" finished-at="2018-06-07T11:31:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.CarrierSchedulePaymentTest -->
+      <class name="testcases.BrokerCanadaFirstLoginTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerCanadaFirstLoginTest@3578436e]" name="setUp" is-config="true" duration-ms="11094" started-at="2018-06-07T11:26:50Z" finished-at="2018-06-07T11:27:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="loginTest()[pri:6, instance:testcases.BrokerCanadaFirstLoginTest@3578436e]" name="loginTest" duration-ms="5746" started-at="2018-06-07T11:27:01Z" finished-at="2018-06-07T11:27:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerCanadaFirstLoginTest@3578436e]" name="quit" is-config="true" duration-ms="735" started-at="2018-06-07T11:27:07Z" finished-at="2018-06-07T11:27:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.BrokerCanadaFirstLoginTest -->
+      <class name="testcases.UnmatchedCarrierOutlookNewPaymentTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.UnmatchedCarrierOutlookNewPaymentTest@306279ee]" name="setUp" is-config="true" duration-ms="11214" started-at="2018-06-07T11:37:32Z" finished-at="2018-06-07T11:37:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="login(java.lang.String, java.lang.String)[pri:34, instance:testcases.UnmatchedCarrierOutlookNewPaymentTest@306279ee]" name="login" duration-ms="9466" started-at="2018-06-07T11:37:44Z" data-provider="getoutlookLoginData" finished-at="2018-06-07T11:37:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[w2k/anilkumar]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Cgihrms@1234]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="outlookloginTest()[pri:35, instance:testcases.UnmatchedCarrierOutlookNewPaymentTest@306279ee]" name="outlookloginTest" duration-ms="67480" started-at="2018-06-07T11:37:53Z" finished-at="2018-06-07T11:39:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- outlookloginTest -->
+        <test-method status="PASS" signature="CarrierRegister(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:36, instance:testcases.UnmatchedCarrierOutlookNewPaymentTest@306279ee]" name="CarrierRegister" duration-ms="29029" started-at="2018-06-07T11:39:01Z" data-provider="getCarrierRegisterData" finished-at="2018-06-07T11:39:30Z">
+          <params>
+            <param index="0">
+              <value is-null="true"/>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[carrier]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Travells]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[carrierregister25@loadpaytest.truckstop.com]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[carrierregister25@loadpaytest.truckstop.com]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[12344-4567]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[alabama]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[alabama]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[istration]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[reg]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[374657342938]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[Password@123]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[Password@123]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[balajiii]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[102101645]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[456456567567]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[456456567567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CarrierRegister -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.UnmatchedCarrierOutlookNewPaymentTest@306279ee]" name="quit" is-config="true" duration-ms="858" started-at="2018-06-07T11:39:30Z" finished-at="2018-06-07T11:39:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.UnmatchedCarrierOutlookNewPaymentTest -->
+      <class name="testcases.ShipperAdvancePaymentTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.ShipperAdvancePaymentTest@5c072e3f]" name="setUp" is-config="true" duration-ms="11287" started-at="2018-06-07T11:30:23Z" finished-at="2018-06-07T11:30:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="loginBroker(java.lang.String, java.lang.String)[pri:16, instance:testcases.ShipperAdvancePaymentTest@5c072e3f]" name="loginBroker" duration-ms="2984" started-at="2018-06-07T11:30:35Z" data-provider="getBrokerLoginData" finished-at="2018-06-07T11:30:38Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[shantesh.hulagabali@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Shantesh@123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginBroker -->
+        <test-method status="PASS" signature="brokernewPayment(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:17, instance:testcases.ShipperAdvancePaymentTest@5c072e3f]" name="brokernewPayment" duration-ms="20218" started-at="2018-06-07T11:30:38Z" data-provider="getPaymentData" finished-at="2018-06-07T11:30:58Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[avatarqacarrier@mailinator.truckstop.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[88658.0]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[88658.0]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[10.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- brokernewPayment -->
+        <test-method status="PASS" signature="loginTest(java.lang.String, java.lang.String)[pri:18, instance:testcases.ShipperAdvancePaymentTest@5c072e3f]" name="loginTest" duration-ms="11088" started-at="2018-06-07T11:30:58Z" data-provider="getCarrierLoginData" finished-at="2018-06-07T11:31:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[avatarqacarrier@mailinator.truckstop.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Password@123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.ShipperAdvancePaymentTest@5c072e3f]" name="quit" is-config="true" duration-ms="817" started-at="2018-06-07T11:31:09Z" finished-at="2018-06-07T11:31:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.ShipperAdvancePaymentTest -->
+      <class name="testcases.BrokerPaymentforUnmatchedCarrierTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerPaymentforUnmatchedCarrierTest@954b04f]" name="setUp" is-config="true" duration-ms="10204" started-at="2018-06-07T11:31:50Z" finished-at="2018-06-07T11:32:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="loginBroker(java.lang.String, java.lang.String)[pri:22, instance:testcases.BrokerPaymentforUnmatchedCarrierTest@954b04f]" name="loginBroker" duration-ms="5859" started-at="2018-06-07T11:32:00Z" data-provider="getBrokerLoginData" finished-at="2018-06-07T11:32:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[shantesh.hulagabali@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Shantesh@123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginBroker -->
+        <test-method status="PASS" signature="brokernewPayment(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:23, instance:testcases.BrokerPaymentforUnmatchedCarrierTest@954b04f]" name="brokernewPayment" duration-ms="19939" started-at="2018-06-07T11:32:06Z" data-provider="getPaymentDataforUnmatchcarrier" finished-at="2018-06-07T11:32:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[unmatched97@loadpaytest.truckstop.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[10041596]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[10041596]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[10.0]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Carrier]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[295676692]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- brokernewPayment -->
+        <test-method status="PASS" signature="brokernewPayment(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:23, instance:testcases.BrokerPaymentforUnmatchedCarrierTest@954b04f]" name="brokernewPayment" duration-ms="19848" started-at="2018-06-07T11:32:26Z" data-provider="getPaymentDataforUnmatchcarrier" finished-at="2018-06-07T11:32:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[unmatched98@loadpaytest.truckstop.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[10041597]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[10041597]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[10.0]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Carrier]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[295676692]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- brokernewPayment -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerPaymentforUnmatchedCarrierTest@954b04f]" name="quit" is-config="true" duration-ms="781" started-at="2018-06-07T11:32:45Z" finished-at="2018-06-07T11:32:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.BrokerPaymentforUnmatchedCarrierTest -->
+      <class name="testcases.CarrierRegisterCanadaTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.CarrierRegisterCanadaTest@706a04ae]" name="setUp" is-config="true" duration-ms="11321" started-at="2018-06-07T11:27:08Z" finished-at="2018-06-07T11:27:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="CarrierRegister(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:6, instance:testcases.CarrierRegisterCanadaTest@706a04ae]" name="CarrierRegister" duration-ms="35267" started-at="2018-06-07T11:27:19Z" data-provider="getCarrierData" finished-at="2018-06-07T11:27:55Z">
+          <params>
+            <param index="0">
+              <value is-null="true"/>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Carrier registration ]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Travells]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[crcanada1416@loadpaytest.truckstop.com]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[crcanada1416@loadpaytest.truckstop.com]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Canada]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Yukon]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[A1A1A1]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[alabama]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[alabama]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[Canada]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[AB]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[istration]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[reg]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[374657000000]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[Password@123]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[Password@123]]>
+              </value>
+            </param>
+            <param index="17">
+              <value>
+                <![CDATA[balajiii]]>
+              </value>
+            </param>
+            <param index="18">
+              <value>
+                <![CDATA[102101645]]>
+              </value>
+            </param>
+            <param index="19">
+              <value>
+                <![CDATA[456457000000]]>
+              </value>
+            </param>
+            <param index="20">
+              <value>
+                <![CDATA[456457000000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CarrierRegister -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.CarrierRegisterCanadaTest@706a04ae]" name="quit" is-config="true" duration-ms="743" started-at="2018-06-07T11:27:55Z" finished-at="2018-06-07T11:27:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.CarrierRegisterCanadaTest -->
+      <class name="testcases.UnmatchedCarrierOutlookNextDayTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.UnmatchedCarrierOutlookNextDayTest@149494d8]" name="setUp" is-config="true" duration-ms="11416" started-at="2018-06-07T11:32:46Z" finished-at="2018-06-07T11:32:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="login(java.lang.String, java.lang.String)[pri:24, instance:testcases.UnmatchedCarrierOutlookNextDayTest@149494d8]" name="login" duration-ms="8810" started-at="2018-06-07T11:32:58Z" data-provider="getoutlookLoginData" finished-at="2018-06-07T11:33:07Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[w2k/anilkumar]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Cgihrms@1234]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="outlookloginTest()[pri:25, instance:testcases.UnmatchedCarrierOutlookNextDayTest@149494d8]" name="outlookloginTest" duration-ms="58690" started-at="2018-06-07T11:33:07Z" finished-at="2018-06-07T11:34:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- outlookloginTest -->
+        <test-method status="PASS" signature="CarrierRegister(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:26, instance:testcases.UnmatchedCarrierOutlookNextDayTest@149494d8]" name="CarrierRegister" duration-ms="29982" started-at="2018-06-07T11:34:05Z" data-provider="getCarrierRegisterData" finished-at="2018-06-07T11:34:35Z">
+          <params>
+            <param index="0">
+              <value is-null="true"/>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[carrier]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Travells]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[carrierregister25@loadpaytest.truckstop.com]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[carrierregister25@loadpaytest.truckstop.com]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[12344-4567]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[alabama]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[alabama]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[istration]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[reg]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[374657342938]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[Password@123]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[Password@123]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[balajiii]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[102101645]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[456456567567]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[456456567567]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CarrierRegister -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.UnmatchedCarrierOutlookNextDayTest@149494d8]" name="quit" is-config="true" duration-ms="883" started-at="2018-06-07T11:34:35Z" finished-at="2018-06-07T11:34:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.UnmatchedCarrierOutlookNextDayTest -->
     </test> <!--  Test Cases -->
   </suite> <!-- Automation Test Suite -->
 </testng-results>
