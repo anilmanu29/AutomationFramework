@@ -23,7 +23,7 @@ public class BrokerAvailableCreditTab extends TestBase{
 
 	@FindBy(xpath="//button[text()='Close']")
 	WebElement CloseButton;
-	
+			
 	public BrokerAvailableCreditTab() {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 30);

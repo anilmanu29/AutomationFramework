@@ -3,14 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testcases.ShipperAdvancePaymentTest">
+      <class name="testcases.AdminPayMeNowLockTest">
         <methods>
-          <include name="brokernewPayment" invocation-numbers="0"/>
-          <include name="quit"/>
-          <include name="loginTest" invocation-numbers="0"/>
+          <include name="getBrokerCredentials"/>
           <include name="setUp"/>
+          <include name="quit"/>
+          <include name="verifyLockPayMeNowStatus" invocation-numbers="0"/>
+          <include name="verifyBrokerCannotOptOutPayMeNow"/>
         </methods>
-      </class> <!-- testcases.ShipperAdvancePaymentTest -->
+      </class> <!-- testcases.AdminPayMeNowLockTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
