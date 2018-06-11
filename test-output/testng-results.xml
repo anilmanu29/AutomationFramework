@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
+<testng-results skipped="0" failed="0" ignored="0" total="14" passed="14">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="74073" started-at="2018-06-08T11:11:33Z" finished-at="2018-06-08T11:12:47Z">
+  <suite name="Automation Test Suite" duration-ms="81071" started-at="2018-06-11T08:45:30Z" finished-at="2018-06-11T08:46:52Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="74073" started-at="2018-06-08T11:11:33Z" finished-at="2018-06-08T11:12:47Z">
-      <class name="testcases.BrokerAvailableCreditTabTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerAvailableCreditTabTest@22eeefeb]" name="setUp" is-config="true" duration-ms="10808" started-at="2018-06-08T11:11:33Z" finished-at="2018-06-08T11:11:44Z">
+    <test name=" Test Cases" duration-ms="81071" started-at="2018-06-11T08:45:30Z" finished-at="2018-06-11T08:46:52Z">
+      <class name="testcases.BrokerScheduledPaymentsTabTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerScheduledPaymentsTabTest@396e2f39]" name="setUp" is-config="true" duration-ms="11683" started-at="2018-06-11T08:45:31Z" finished-at="2018-06-11T08:45:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginBrokerTest(java.lang.String, java.lang.String)[pri:1, instance:testcases.BrokerAvailableCreditTabTest@22eeefeb]" name="loginBrokerTest" duration-ms="5144" started-at="2018-06-08T11:11:45Z" description="LP-5398 Broker Request Additional Credit Login" data-provider="getBrokerLoginData" finished-at="2018-06-08T11:11:50Z">
+        <test-method status="PASS" signature="loginAsBroker(java.lang.String, java.lang.String)[pri:1, instance:testcases.BrokerScheduledPaymentsTabTest@396e2f39]" name="loginAsBroker" duration-ms="3212" started-at="2018-06-11T08:45:43Z" data-provider="getBrokerLoginData" finished-at="2018-06-11T08:45:46Z">
           <params>
             <param index="0">
               <value>
@@ -26,40 +26,64 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginBrokerTest -->
-        <test-method status="PASS" signature="ClickBrokerAvailableCreditTabTest()[pri:2, instance:testcases.BrokerAvailableCreditTabTest@22eeefeb]" name="ClickBrokerAvailableCreditTabTest" duration-ms="3433" started-at="2018-06-08T11:11:50Z" description="LP-5398 Broker Request Additional Credit Credit Tab" finished-at="2018-06-08T11:11:54Z">
+        </test-method> <!-- loginAsBroker -->
+        <test-method status="PASS" signature="verifyBrokerScheduledPaymentsTabTest()[pri:2, instance:testcases.BrokerScheduledPaymentsTabTest@396e2f39]" name="verifyBrokerScheduledPaymentsTabTest" duration-ms="1348" started-at="2018-06-11T08:45:46Z" depends-on-methods="testcases.BrokerScheduledPaymentsTabTest.loginAsBroker" finished-at="2018-06-11T08:45:48Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ClickBrokerAvailableCreditTabTest -->
-        <test-method status="PASS" signature="RequestAdditionalCreditButtonTest()[pri:3, instance:testcases.BrokerAvailableCreditTabTest@22eeefeb]" name="RequestAdditionalCreditButtonTest" duration-ms="2475" started-at="2018-06-08T11:11:54Z" description="LP-5398 Broker Request Additional Credit Click Credit Button" finished-at="2018-06-08T11:11:56Z">
+        </test-method> <!-- verifyBrokerScheduledPaymentsTabTest -->
+        <test-method status="PASS" signature="verifyclickpaymenTypeLinksortTest()[pri:3, instance:testcases.BrokerScheduledPaymentsTabTest@396e2f39]" name="verifyclickpaymenTypeLinksortTest" duration-ms="9891" started-at="2018-06-11T08:45:48Z" depends-on-methods="testcases.BrokerScheduledPaymentsTabTest.verifyBrokerScheduledPaymentsTabTest" finished-at="2018-06-11T08:45:58Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- RequestAdditionalCreditButtonTest -->
-        <test-method status="PASS" signature="RequestAdditionalCreditPopUpTest()[pri:4, instance:testcases.BrokerAvailableCreditTabTest@22eeefeb]" name="RequestAdditionalCreditPopUpTest" duration-ms="5803" started-at="2018-06-08T11:11:56Z" description="LP-5398 Broker Request Additional Credit Pop Up" finished-at="2018-06-08T11:12:02Z">
+        </test-method> <!-- verifyclickpaymenTypeLinksortTest -->
+        <test-method status="PASS" signature="verifyclickAnticipatedPullDatesortTest()[pri:4, instance:testcases.BrokerScheduledPaymentsTabTest@396e2f39]" name="verifyclickAnticipatedPullDatesortTest" duration-ms="5687" started-at="2018-06-11T08:45:58Z" depends-on-methods="testcases.BrokerScheduledPaymentsTabTest.verifyBrokerScheduledPaymentsTabTest" finished-at="2018-06-11T08:46:03Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- RequestAdditionalCreditPopUpTest -->
-        <test-method status="PASS" signature="BrokerOutlookTest(java.lang.String, java.lang.String)[pri:5, instance:testcases.BrokerAvailableCreditTabTest@22eeefeb]" name="BrokerOutlookTest" duration-ms="45201" started-at="2018-06-08T11:12:02Z" description="LP-5398 Broker Request Additional Credit Outlook Login" data-provider="getoutlookLoginData" finished-at="2018-06-08T11:12:47Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[w2k/anilkumar]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Cgihrms@1234]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- verifyclickAnticipatedPullDatesortTest -->
+        <test-method status="PASS" signature="verifyclickPayToDatesortTest()[pri:5, instance:testcases.BrokerScheduledPaymentsTabTest@396e2f39]" name="verifyclickPayToDatesortTest" duration-ms="5682" started-at="2018-06-11T08:46:03Z" depends-on-methods="testcases.BrokerScheduledPaymentsTabTest.verifyBrokerScheduledPaymentsTabTest" finished-at="2018-06-11T08:46:09Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- BrokerOutlookTest -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerAvailableCreditTabTest@22eeefeb]" name="quit" is-config="true" duration-ms="1" started-at="2018-06-08T11:12:47Z" finished-at="2018-06-08T11:12:47Z">
+        </test-method> <!-- verifyclickPayToDatesortTest -->
+        <test-method status="PASS" signature="verifyclickAmountSortTest()[pri:6, instance:testcases.BrokerScheduledPaymentsTabTest@396e2f39]" name="verifyclickAmountSortTest" duration-ms="5744" started-at="2018-06-11T08:46:09Z" depends-on-methods="testcases.BrokerScheduledPaymentsTabTest.verifyBrokerScheduledPaymentsTabTest" finished-at="2018-06-11T08:46:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyclickAmountSortTest -->
+        <test-method status="PASS" signature="verifyclickCarrierSortTest()[pri:7, instance:testcases.BrokerScheduledPaymentsTabTest@396e2f39]" name="verifyclickCarrierSortTest" duration-ms="5821" started-at="2018-06-11T08:46:15Z" depends-on-methods="testcases.BrokerScheduledPaymentsTabTest.verifyBrokerScheduledPaymentsTabTest" finished-at="2018-06-11T08:46:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyclickCarrierSortTest -->
+        <test-method status="PASS" signature="verifyclickinvoiceSortTest()[pri:8, instance:testcases.BrokerScheduledPaymentsTabTest@396e2f39]" name="verifyclickinvoiceSortTest" duration-ms="5712" started-at="2018-06-11T08:46:20Z" depends-on-methods="testcases.BrokerScheduledPaymentsTabTest.verifyBrokerScheduledPaymentsTabTest" finished-at="2018-06-11T08:46:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyclickinvoiceSortTest -->
+        <test-method status="PASS" signature="verifyclickLoadIDSortTest()[pri:9, instance:testcases.BrokerScheduledPaymentsTabTest@396e2f39]" name="verifyclickLoadIDSortTest" duration-ms="5027" started-at="2018-06-11T08:46:26Z" depends-on-methods="testcases.BrokerScheduledPaymentsTabTest.verifyBrokerScheduledPaymentsTabTest" finished-at="2018-06-11T08:46:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyclickLoadIDSortTest -->
+        <test-method status="PASS" signature="verifyCompanyNameSearchTest()[pri:10, instance:testcases.BrokerScheduledPaymentsTabTest@396e2f39]" name="verifyCompanyNameSearchTest" duration-ms="3958" started-at="2018-06-11T08:46:31Z" depends-on-methods="testcases.BrokerScheduledPaymentsTabTest.verifyBrokerScheduledPaymentsTabTest" finished-at="2018-06-11T08:46:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCompanyNameSearchTest -->
+        <test-method status="PASS" signature="verifyAmountSearchTest()[pri:11, instance:testcases.BrokerScheduledPaymentsTabTest@396e2f39]" name="verifyAmountSearchTest" duration-ms="3855" started-at="2018-06-11T08:46:35Z" depends-on-methods="testcases.BrokerScheduledPaymentsTabTest.verifyBrokerScheduledPaymentsTabTest" finished-at="2018-06-11T08:46:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAmountSearchTest -->
+        <test-method status="PASS" signature="verifyAnticipatedPullDateSearchTest()[pri:13, instance:testcases.BrokerScheduledPaymentsTabTest@396e2f39]" name="verifyAnticipatedPullDateSearchTest" duration-ms="3920" started-at="2018-06-11T08:46:39Z" depends-on-methods="testcases.BrokerScheduledPaymentsTabTest.verifyBrokerScheduledPaymentsTabTest" finished-at="2018-06-11T08:46:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAnticipatedPullDateSearchTest -->
+        <test-method status="PASS" signature="verifyinvoiceNumSearchTest()[pri:14, instance:testcases.BrokerScheduledPaymentsTabTest@396e2f39]" name="verifyinvoiceNumSearchTest" duration-ms="3874" started-at="2018-06-11T08:46:43Z" depends-on-methods="testcases.BrokerScheduledPaymentsTabTest.verifyBrokerScheduledPaymentsTabTest" finished-at="2018-06-11T08:46:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyinvoiceNumSearchTest -->
+        <test-method status="PASS" signature="verifyLoadIDNumSearchTest()[pri:15, instance:testcases.BrokerScheduledPaymentsTabTest@396e2f39]" name="verifyLoadIDNumSearchTest" duration-ms="3932" started-at="2018-06-11T08:46:47Z" depends-on-methods="testcases.BrokerScheduledPaymentsTabTest.verifyBrokerScheduledPaymentsTabTest" finished-at="2018-06-11T08:46:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLoadIDNumSearchTest -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerScheduledPaymentsTabTest@396e2f39]" name="quit" is-config="true" duration-ms="814" started-at="2018-06-11T08:46:51Z" finished-at="2018-06-11T08:46:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quit -->
-      </class> <!-- testcases.BrokerAvailableCreditTabTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- testcases.BrokerScheduledPaymentsTabTest -->
+    </test> <!--  Test Cases -->
+  </suite> <!-- Automation Test Suite -->
 </testng-results>
