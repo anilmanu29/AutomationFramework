@@ -57,6 +57,19 @@ public class BrokerProcessedTab extends TestBase {
 	@FindBy(xpath = "//*[@aria-expanded='true']//child::div[6]/span")
 	public WebElement invoice;
 	
+	@FindBy(xpath = "//*[@aria-expanded='true']//child::div[4]//child::div[1]/span")
+	public WebElement companyname;
+	
+	@FindBy(xpath = "//*[@aria-expanded='true']//child::div[5]//child::div[1]/span")
+	public WebElement loadid;
+	
+	@FindBy(xpath = "//div[@aria-expanded='true']/div[3]/div[2]/div")
+	public WebElement amount;
+	
+	@FindBy(xpath = "//div[@aria-expanded='true']/div[3]/div[1]/div")
+	public WebElement date;
+	
+
 
 	public BrokerProcessedTab() {
 		PageFactory.initElements(driver, this);
@@ -118,6 +131,8 @@ public class BrokerProcessedTab extends TestBase {
 	}
 	
 	public void enterSearchText(String searchText) throws InterruptedException {
+		searchInputField.clear();
+		Thread.sleep(1000);
 		searchInputField.sendKeys(searchText);
 	}
 	

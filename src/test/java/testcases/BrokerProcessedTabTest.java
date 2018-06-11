@@ -1,6 +1,8 @@
 package testcases;
 
 import java.util.List;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -13,7 +15,8 @@ public class BrokerProcessedTabTest extends TestBase {
 	BrokerProcessedTab brokerProcessedTab;
 	List<String> firstRowData = null;
 	List<String> lastRowData = null;
-	String searchForText = "";
+	JavascriptExecutor jse;
+	String searchForInvoice, searchforcompanyname, searchforLoadID, searchforAmount, searchforDate  = "";
 
 	public BrokerProcessedTabTest() {
 		super();
@@ -24,6 +27,7 @@ public class BrokerProcessedTabTest extends TestBase {
 		initialization();
 		loginPage = new BrokerLoginPage();
 		brokerProcessedTab = new BrokerProcessedTab();
+		jse = (JavascriptExecutor) driver;
 	}
 
 	@Test(dataProvider = "getBrokerLoginData", priority = 1)
@@ -182,30 +186,94 @@ public class BrokerProcessedTabTest extends TestBase {
 		brokerProcessedTab.clickFirstRow();
 		// get the data elements from the first row displayed
 		firstRowData = brokerProcessedTab.getFirstRowData();
-		// click LoadID sort from ascending to descending
-		brokerProcessedTab.clickLoadIDColumn();
 		// click first row to expand
-		brokerProcessedTab.clickFirstRow();
-		searchForText = brokerProcessedTab.invoice.getText();
+		//brokerProcessedTab.clickFirstRow();
+		searchForInvoice = brokerProcessedTab.invoice.getText();
+		searchforcompanyname = brokerProcessedTab.companyname.getText();
+		searchforLoadID = brokerProcessedTab.loadid.getText();
+		searchforDate = 	brokerProcessedTab.date.getAttribute("innerText").replace("PayMeNowTM", "");
+		searchforAmount =	brokerProcessedTab.amount.getAttribute("innerText").replace("INVOICE AMOUNT:$", "");
+		System.out.println(searchforAmount);
+	
 		// get the data elements from the first row displayed
 		lastRowData = brokerProcessedTab.getFirstRowData();
 		// compare to the database when sorted by given column-Descending
-		Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal when sorted by  LoadID!");
+		//Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal when sorted by  LoadID!");
 	}
 
 	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 11)
-	public void verifySearchTest() throws InterruptedException {
+	public void verifyCompanySearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
-		brokerProcessedTab.enterSearchText(searchForText);
+		brokerProcessedTab.enterSearchText(searchforcompanyname);
 		brokerProcessedTab.clickSearchButton();
 		// click first row to expand
 		brokerProcessedTab.clickFirstRow();
 		// get the data elements from the first row displayed
 		firstRowData = brokerProcessedTab.getFirstRowData();
-		Assert.assertTrue(firstRowData.get(0).contains(searchForText),
-				"Matching text [" + searchForText + "] NOT found in [" + firstRowData + "]");
+		Assert.assertTrue(firstRowData.get(0).contains(searchforcompanyname),
+				"Matching text [" + searchforcompanyname + "] NOT found in [" + firstRowData + "]");
 
 	}
+	
+	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 11)
+	public void verifyInvoiceSearchTest() throws InterruptedException {
+		// TEST - SEARCH VERIFICATION
+		
+		brokerProcessedTab.enterSearchText(searchForInvoice);
+		brokerProcessedTab.clickSearchButton();
+		// click first row to expand
+		brokerProcessedTab.clickFirstRow();
+		// get the data elements from the first row displayed
+		firstRowData = brokerProcessedTab.getFirstRowData();
+		Assert.assertTrue(firstRowData.get(0).contains(searchForInvoice),
+				"Matching text [" + searchForInvoice + "] NOT found in [" + firstRowData + "]");
+
+	}
+	
+	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 12)
+	public void verifyLoadIDSearchTest() throws InterruptedException {
+		// TEST - SEARCH VERIFICATION
+		
+		brokerProcessedTab.enterSearchText(searchforLoadID);
+		brokerProcessedTab.clickSearchButton();
+		// click first row to expand
+		brokerProcessedTab.clickFirstRow();
+		// get the data elements from the first row displayed
+		firstRowData = brokerProcessedTab.getFirstRowData();
+		Assert.assertTrue(firstRowData.get(0).contains(searchforLoadID),
+				"Matching text [" + searchforLoadID + "] NOT found in [" + firstRowData + "]");
+
+	}
+	
+	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 12)
+	public void verifyAmountSearchTest() throws InterruptedException {
+		// TEST - SEARCH VERIFICATION
+		brokerProcessedTab.enterSearchText(searchforAmount);
+		brokerProcessedTab.clickSearchButton();
+		// click first row to expand
+		brokerProcessedTab.clickFirstRow();
+		// get the data elements from the first row displayed
+		firstRowData = brokerProcessedTab.getFirstRowData();
+		Assert.assertTrue(firstRowData.get(0).contains(searchforAmount),
+				"Matching text [" + searchforAmount + "] NOT found in [" + firstRowData + "]");
+
+	}
+	
+	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 12)
+	public void verifyDateSearchTest() throws InterruptedException {
+		// TEST - SEARCH VERIFICATION
+		
+		brokerProcessedTab.enterSearchText(searchforDate);
+		brokerProcessedTab.clickSearchButton();
+		// click first row to expand
+		brokerProcessedTab.clickFirstRow();
+		// get the data elements from the first row displayed
+		firstRowData = brokerProcessedTab.getFirstRowData();
+		Assert.assertTrue(firstRowData.get(0).contains(searchforDate),
+				"Matching text [" + searchforDate + "] NOT found in [" + firstRowData + "]");
+	}
+	
+
 
 	public void verifyProcessTabElementsDisplayed() {
 
