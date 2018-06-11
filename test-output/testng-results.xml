@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="15" passed="15">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="84096" started-at="2018-06-11T09:28:09Z" finished-at="2018-06-11T09:29:33Z">
+  <suite name="Default suite" duration-ms="121197" started-at="2018-06-11T11:36:36Z" finished-at="2018-06-11T11:38:38Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="84096" started-at="2018-06-11T09:28:09Z" finished-at="2018-06-11T09:29:33Z">
+    <test name="Default test" duration-ms="121197" started-at="2018-06-11T11:36:36Z" finished-at="2018-06-11T11:38:38Z">
       <class name="testcases.BrokerProcessedTabTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerProcessedTabTest@75881071]" name="setUp" is-config="true" duration-ms="8815" started-at="2018-06-11T09:28:09Z" finished-at="2018-06-11T09:28:18Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="setUp" is-config="true" duration-ms="11564" started-at="2018-06-11T11:36:36Z" finished-at="2018-06-11T11:36:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginAsBroker(java.lang.String, java.lang.String)[pri:1, instance:testcases.BrokerProcessedTabTest@75881071]" name="loginAsBroker" duration-ms="4718" started-at="2018-06-11T09:28:19Z" data-provider="getBrokerLoginData" finished-at="2018-06-11T09:28:23Z">
+        <test-method status="PASS" signature="loginAsBroker(java.lang.String, java.lang.String)[pri:1, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="loginAsBroker" duration-ms="10405" started-at="2018-06-11T11:36:49Z" data-provider="getBrokerLoginData" finished-at="2018-06-11T11:36:59Z">
           <params>
             <param index="0">
               <value>
@@ -27,63 +27,63 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginAsBroker -->
-        <test-method status="PASS" signature="verifyProcessedTabTest()[pri:2, instance:testcases.BrokerProcessedTabTest@75881071]" name="verifyProcessedTabTest" duration-ms="5494" started-at="2018-06-11T09:28:23Z" depends-on-methods="testcases.BrokerProcessedTabTest.loginAsBroker" finished-at="2018-06-11T09:28:29Z">
+        <test-method status="PASS" signature="verifyProcessedTabTest()[pri:2, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyProcessedTabTest" duration-ms="6955" started-at="2018-06-11T11:36:59Z" depends-on-methods="testcases.BrokerProcessedTabTest.loginAsBroker" finished-at="2018-06-11T11:37:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyProcessedTabTest -->
-        <test-method status="PASS" signature="verifyPaySelectionSortTest()[pri:3, instance:testcases.BrokerProcessedTabTest@75881071]" name="verifyPaySelectionSortTest" duration-ms="5976" started-at="2018-06-11T09:28:29Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T09:28:35Z">
+        <test-method status="PASS" signature="verifyPaySelectionSortTest()[pri:3, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyPaySelectionSortTest" duration-ms="9977" started-at="2018-06-11T11:37:06Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:37:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyPaySelectionSortTest -->
-        <test-method status="PASS" signature="verifyDiscountSortTest()[pri:4, instance:testcases.BrokerProcessedTabTest@75881071]" name="verifyDiscountSortTest" duration-ms="5587" started-at="2018-06-11T09:28:35Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T09:28:41Z">
+        <test-method status="PASS" signature="verifyDiscountSortTest()[pri:4, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyDiscountSortTest" duration-ms="10419" started-at="2018-06-11T11:37:16Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:37:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyDiscountSortTest -->
-        <test-method status="PASS" signature="verifyPulledFromBankDateSortTest()[pri:5, instance:testcases.BrokerProcessedTabTest@75881071]" name="verifyPulledFromBankDateSortTest" duration-ms="5762" started-at="2018-06-11T09:28:41Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T09:28:46Z">
+        <test-method status="PASS" signature="verifyPulledFromBankDateSortTest()[pri:5, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyPulledFromBankDateSortTest" duration-ms="9400" started-at="2018-06-11T11:37:27Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:37:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyPulledFromBankDateSortTest -->
-        <test-method status="PASS" signature="verifyPaidToCarrierSortTest()[pri:6, instance:testcases.BrokerProcessedTabTest@75881071]" name="verifyPaidToCarrierSortTest" duration-ms="5547" started-at="2018-06-11T09:28:46Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T09:28:52Z">
+        <test-method status="PASS" signature="verifyPaidToCarrierSortTest()[pri:6, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyPaidToCarrierSortTest" duration-ms="9008" started-at="2018-06-11T11:37:36Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:37:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyPaidToCarrierSortTest -->
-        <test-method status="PASS" signature="verifyAmountPulledSortTest()[pri:7, instance:testcases.BrokerProcessedTabTest@75881071]" name="verifyAmountPulledSortTest" duration-ms="5590" started-at="2018-06-11T09:28:52Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T09:28:57Z">
+        <test-method status="PASS" signature="verifyAmountPulledSortTest()[pri:7, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyAmountPulledSortTest" duration-ms="7970" started-at="2018-06-11T11:37:45Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:37:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyAmountPulledSortTest -->
-        <test-method status="PASS" signature="verifyAmountPaidToCarrierSortTest()[pri:8, instance:testcases.BrokerProcessedTabTest@75881071]" name="verifyAmountPaidToCarrierSortTest" duration-ms="5581" started-at="2018-06-11T09:28:57Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T09:29:03Z">
+        <test-method status="PASS" signature="verifyAmountPaidToCarrierSortTest()[pri:8, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyAmountPaidToCarrierSortTest" duration-ms="8250" started-at="2018-06-11T11:37:53Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:38:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyAmountPaidToCarrierSortTest -->
-        <test-method status="PASS" signature="verifyCarrierSortTest()[pri:9, instance:testcases.BrokerProcessedTabTest@75881071]" name="verifyCarrierSortTest" duration-ms="5535" started-at="2018-06-11T09:29:03Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T09:29:09Z">
+        <test-method status="PASS" signature="verifyCarrierSortTest()[pri:9, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyCarrierSortTest" duration-ms="8006" started-at="2018-06-11T11:38:01Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:38:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyCarrierSortTest -->
-        <test-method status="PASS" signature="verifyLoadIDSortTest()[pri:10, instance:testcases.BrokerProcessedTabTest@75881071]" name="verifyLoadIDSortTest" duration-ms="5065" started-at="2018-06-11T09:29:09Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T09:29:14Z">
+        <test-method status="PASS" signature="verifyLoadIDSortTest()[pri:10, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyLoadIDSortTest" duration-ms="6746" started-at="2018-06-11T11:38:09Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:38:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLoadIDSortTest -->
-        <test-method status="PASS" signature="verifyCompanySearchTest()[pri:11, instance:testcases.BrokerProcessedTabTest@75881071]" name="verifyCompanySearchTest" duration-ms="3999" started-at="2018-06-11T09:29:14Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T09:29:18Z">
+        <test-method status="PASS" signature="verifyCompanySearchTest()[pri:11, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyCompanySearchTest" duration-ms="5369" started-at="2018-06-11T11:38:16Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:38:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyCompanySearchTest -->
-        <test-method status="PASS" signature="verifyInvoiceSearchTest()[pri:11, instance:testcases.BrokerProcessedTabTest@75881071]" name="verifyInvoiceSearchTest" duration-ms="3775" started-at="2018-06-11T09:29:18Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T09:29:21Z">
+        <test-method status="PASS" signature="verifyInvoiceSearchTest()[pri:11, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyInvoiceSearchTest" duration-ms="3958" started-at="2018-06-11T11:38:21Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:38:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyInvoiceSearchTest -->
-        <test-method status="PASS" signature="verifyAmountSearchTest()[pri:12, instance:testcases.BrokerProcessedTabTest@75881071]" name="verifyAmountSearchTest" duration-ms="3749" started-at="2018-06-11T09:29:21Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T09:29:25Z">
+        <test-method status="PASS" signature="verifyAmountSearchTest()[pri:12, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyAmountSearchTest" duration-ms="3846" started-at="2018-06-11T11:38:25Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:38:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyAmountSearchTest -->
-        <test-method status="PASS" signature="verifyDateSearchTest()[pri:12, instance:testcases.BrokerProcessedTabTest@75881071]" name="verifyDateSearchTest" duration-ms="3840" started-at="2018-06-11T09:29:25Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T09:29:29Z">
+        <test-method status="PASS" signature="verifyDateSearchTest()[pri:12, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyDateSearchTest" duration-ms="3888" started-at="2018-06-11T11:38:29Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:38:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyDateSearchTest -->
-        <test-method status="PASS" signature="verifyLoadIDSearchTest()[pri:12, instance:testcases.BrokerProcessedTabTest@75881071]" name="verifyLoadIDSearchTest" duration-ms="3725" started-at="2018-06-11T09:29:29Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T09:29:33Z">
+        <test-method status="PASS" signature="verifyLoadIDSearchTest()[pri:12, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyLoadIDSearchTest" duration-ms="3840" started-at="2018-06-11T11:38:33Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:38:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLoadIDSearchTest -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerProcessedTabTest@75881071]" name="quit" is-config="true" duration-ms="722" started-at="2018-06-11T09:29:33Z" finished-at="2018-06-11T09:29:33Z">
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="quit" is-config="true" duration-ms="729" started-at="2018-06-11T11:38:37Z" finished-at="2018-06-11T11:38:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quit -->

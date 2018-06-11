@@ -12,11 +12,22 @@
 		
 		<!-- Script for Jira Ticket LP-5405 - LoadPay - Selenium Test - Broker Processed Tab AdminPayByCheck -->
 		
-		     <!-- <class name="testcases.BrokerProcessedTabTest"></class> -->
+		     <class name="testcases.BrokerProcessedTabTest"></class>
 		
 		<!-- Script for Jira Ticket LP-5406 - LoadPay - Selenium Test - Broker Scheduled Payments Tab -->
 		
 		 	 <class name="testcases.BrokerScheduledPaymentsTabTest"></class>
+		 	 
+		 	 <!-- Script for Jira Ticket   LoadPay - Selenium Test - Admin PayMeNow LockTest  Yurii-->
+		 	 
+		 	  <class name="testcases.AdminPayMeNowLockTest"></class>
+		 	 
+		 	 <!-- Script for Jira Ticket   LoadPay - Selenium Test - Broker Available Credit Tab Test  JASON-->
+		 	 
+		 	 <class name="testcases.BrokerAvailableCreditTabTest"></class>
+		 	 
+		 	 
+		 	 
 		
 		
 		
