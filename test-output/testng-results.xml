@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="15" passed="15">
+<testng-results skipped="0" failed="0" ignored="0" total="9" passed="9">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="121197" started-at="2018-06-11T11:36:36Z" finished-at="2018-06-11T11:38:38Z">
+  <suite name="Automation Test Suite" duration-ms="56708" started-at="2018-06-12T11:50:03Z" finished-at="2018-06-12T11:50:59Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="121197" started-at="2018-06-11T11:36:36Z" finished-at="2018-06-11T11:38:38Z">
-      <class name="testcases.BrokerProcessedTabTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="setUp" is-config="true" duration-ms="11564" started-at="2018-06-11T11:36:36Z" finished-at="2018-06-11T11:36:48Z">
+    <test name=" Test Cases" duration-ms="56708" started-at="2018-06-12T11:50:03Z" finished-at="2018-06-12T11:50:59Z">
+      <class name="testcases.BrokerDiscountsTabTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="setUp" is-config="true" duration-ms="15578" started-at="2018-06-12T11:50:03Z" finished-at="2018-06-12T11:50:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginAsBroker(java.lang.String, java.lang.String)[pri:1, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="loginAsBroker" duration-ms="10405" started-at="2018-06-11T11:36:49Z" data-provider="getBrokerLoginData" finished-at="2018-06-11T11:36:59Z">
+        <test-method status="PASS" signature="loginAsBroker(java.lang.String, java.lang.String)[pri:12, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="loginAsBroker" duration-ms="2905" started-at="2018-06-12T11:50:20Z" data-provider="getBrokerLoginData" finished-at="2018-06-12T11:50:23Z">
           <params>
             <param index="0">
               <value>
@@ -27,67 +27,43 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginAsBroker -->
-        <test-method status="PASS" signature="verifyProcessedTabTest()[pri:2, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyProcessedTabTest" duration-ms="6955" started-at="2018-06-11T11:36:59Z" depends-on-methods="testcases.BrokerProcessedTabTest.loginAsBroker" finished-at="2018-06-11T11:37:06Z">
+        <test-method status="PASS" signature="verifyDiscountsTabTest()[pri:13, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="verifyDiscountsTabTest" duration-ms="5535" started-at="2018-06-12T11:50:23Z" depends-on-methods="testcases.BrokerDiscountsTabTest.loginAsBroker" finished-at="2018-06-12T11:50:29Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyProcessedTabTest -->
-        <test-method status="PASS" signature="verifyPaySelectionSortTest()[pri:3, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyPaySelectionSortTest" duration-ms="9977" started-at="2018-06-11T11:37:06Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:37:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyPaySelectionSortTest -->
-        <test-method status="PASS" signature="verifyDiscountSortTest()[pri:4, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyDiscountSortTest" duration-ms="10419" started-at="2018-06-11T11:37:16Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:37:27Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyDiscountSortTest -->
-        <test-method status="PASS" signature="verifyPulledFromBankDateSortTest()[pri:5, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyPulledFromBankDateSortTest" duration-ms="9400" started-at="2018-06-11T11:37:27Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:37:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyPulledFromBankDateSortTest -->
-        <test-method status="PASS" signature="verifyPaidToCarrierSortTest()[pri:6, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyPaidToCarrierSortTest" duration-ms="9008" started-at="2018-06-11T11:37:36Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:37:45Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyPaidToCarrierSortTest -->
-        <test-method status="PASS" signature="verifyAmountPulledSortTest()[pri:7, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyAmountPulledSortTest" duration-ms="7970" started-at="2018-06-11T11:37:45Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:37:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyAmountPulledSortTest -->
-        <test-method status="PASS" signature="verifyAmountPaidToCarrierSortTest()[pri:8, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyAmountPaidToCarrierSortTest" duration-ms="8250" started-at="2018-06-11T11:37:53Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:38:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyAmountPaidToCarrierSortTest -->
-        <test-method status="PASS" signature="verifyCarrierSortTest()[pri:9, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyCarrierSortTest" duration-ms="8006" started-at="2018-06-11T11:38:01Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:38:09Z">
+        </test-method> <!-- verifyDiscountsTabTest -->
+        <test-method status="PASS" signature="verifyCarrierSortTest()[pri:14, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="verifyCarrierSortTest" duration-ms="5546" started-at="2018-06-12T11:50:29Z" depends-on-methods="testcases.BrokerDiscountsTabTest.verifyDiscountsTabTest" finished-at="2018-06-12T11:50:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyCarrierSortTest -->
-        <test-method status="PASS" signature="verifyLoadIDSortTest()[pri:10, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyLoadIDSortTest" duration-ms="6746" started-at="2018-06-11T11:38:09Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:38:16Z">
+        <test-method status="PASS" signature="verifyLoadIDSortTest()[pri:15, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="verifyLoadIDSortTest" duration-ms="4988" started-at="2018-06-12T11:50:34Z" depends-on-methods="testcases.BrokerDiscountsTabTest.verifyDiscountsTabTest" finished-at="2018-06-12T11:50:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLoadIDSortTest -->
-        <test-method status="PASS" signature="verifyCompanySearchTest()[pri:11, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyCompanySearchTest" duration-ms="5369" started-at="2018-06-11T11:38:16Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:38:21Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyCompanySearchTest -->
-        <test-method status="PASS" signature="verifyInvoiceSearchTest()[pri:11, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyInvoiceSearchTest" duration-ms="3958" started-at="2018-06-11T11:38:21Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:38:25Z">
+        <test-method status="PASS" signature="verifyInvoiceSearchTest()[pri:16, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="verifyInvoiceSearchTest" duration-ms="4049" started-at="2018-06-12T11:50:39Z" depends-on-methods="testcases.BrokerDiscountsTabTest.verifyDiscountsTabTest" finished-at="2018-06-12T11:50:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyInvoiceSearchTest -->
-        <test-method status="PASS" signature="verifyAmountSearchTest()[pri:12, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyAmountSearchTest" duration-ms="3846" started-at="2018-06-11T11:38:25Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:38:29Z">
+        <test-method status="PASS" signature="verifyCompanyNameSearchTest()[pri:17, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="verifyCompanyNameSearchTest" duration-ms="3868" started-at="2018-06-12T11:50:43Z" depends-on-methods="testcases.BrokerDiscountsTabTest.verifyDiscountsTabTest" finished-at="2018-06-12T11:50:47Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyAmountSearchTest -->
-        <test-method status="PASS" signature="verifyDateSearchTest()[pri:12, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyDateSearchTest" duration-ms="3888" started-at="2018-06-11T11:38:29Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:38:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyDateSearchTest -->
-        <test-method status="PASS" signature="verifyLoadIDSearchTest()[pri:12, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="verifyLoadIDSearchTest" duration-ms="3840" started-at="2018-06-11T11:38:33Z" depends-on-methods="testcases.BrokerProcessedTabTest.verifyProcessedTabTest" finished-at="2018-06-11T11:38:37Z">
+        </test-method> <!-- verifyCompanyNameSearchTest -->
+        <test-method status="PASS" signature="verifyLoadIDSearchTest()[pri:18, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="verifyLoadIDSearchTest" duration-ms="3795" started-at="2018-06-12T11:50:47Z" depends-on-methods="testcases.BrokerDiscountsTabTest.verifyDiscountsTabTest" finished-at="2018-06-12T11:50:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLoadIDSearchTest -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerProcessedTabTest@17d0685f]" name="quit" is-config="true" duration-ms="729" started-at="2018-06-11T11:38:37Z" finished-at="2018-06-11T11:38:38Z">
+        <test-method status="PASS" signature="verifyDateSearchTest()[pri:19, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="verifyDateSearchTest" duration-ms="3820" started-at="2018-06-12T11:50:51Z" depends-on-methods="testcases.BrokerDiscountsTabTest.verifyDiscountsTabTest" finished-at="2018-06-12T11:50:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyDateSearchTest -->
+        <test-method status="PASS" signature="verifyAmountSearchTest()[pri:20, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="verifyAmountSearchTest" duration-ms="3753" started-at="2018-06-12T11:50:55Z" depends-on-methods="testcases.BrokerDiscountsTabTest.verifyDiscountsTabTest" finished-at="2018-06-12T11:50:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAmountSearchTest -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="quit" is-config="true" duration-ms="812" started-at="2018-06-12T11:50:59Z" finished-at="2018-06-12T11:50:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quit -->
-      </class> <!-- testcases.BrokerProcessedTabTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- testcases.BrokerDiscountsTabTest -->
+    </test> <!--  Test Cases -->
+  </suite> <!-- Automation Test Suite -->
 </testng-results>
