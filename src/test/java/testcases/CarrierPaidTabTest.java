@@ -15,7 +15,10 @@ public class CarrierPaidTabTest extends TestBase{
 	CarrierPaidTab carrierPaidTab;
 	List<String> firstRowData = null;
 	List<String> lastRowData = null;
-	String searchForText = "";
+	String searchStatusText = "";
+	String searchAmountText = "";
+	String searchPayerText = "";
+	String searchLoadIdText = "";
 	
 	public CarrierPaidTabTest()
 	{
@@ -32,11 +35,14 @@ public class CarrierPaidTabTest extends TestBase{
 
 
 	@Test(description="LP-3476 CarrierPaidTabTest_Login", dataProvider="getCarrierPaidTabData", priority=1)
-	public void loginAsCarrier(String carrierEmail, String carrierPassword, String searchText) throws InterruptedException
+	public void loginAsCarrier(String carrierEmail, String carrierPassword, String statusText, String amountText, String payerText, String loadIdText) throws InterruptedException
 	{
 		//login as carrier
 		loginPage.Carrierlogin(carrierEmail, carrierPassword);
-		searchForText = searchText;
+		searchStatusText = statusText;
+		searchAmountText = amountText;
+		searchPayerText = payerText;
+		searchLoadIdText = loadIdText;
 		
 		//Assert PayMeNow, Scheduled and Paid tabs exist
 		verifyCarrierTabsDisplayed();
@@ -134,17 +140,58 @@ public class CarrierPaidTabTest extends TestBase{
 		Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal when sorted by LoadID!");
 	}
 	
-	@Test(description="LP-3476 CarrierPaidTabTest_VerifySearch", dependsOnMethods = {"verifyPaidTabTest"}, priority=7)
-	public void verifySearchTest() throws InterruptedException
+	//TODO
+	//Enable when LP-3241 https://gojira.truckstop.com/browse/LP-3241 is resolved
+	@Test(description="LP-3476 CarrierPaidTabTest_VerifySearchStatus", enabled = false, dependsOnMethods = {"verifyPaidTabTest"}, priority=7)
+	public void verifySearchStatusTest() throws InterruptedException
 	{
 		//TEST - SEARCH VERIFICATION
-		carrierPaidTab.enterSearchText(searchForText);
+		carrierPaidTab.enterSearchText(searchStatusText);
 		carrierPaidTab.clickSearchButton();		
 		//click first row to expand
 		carrierPaidTab.clickFirstRow();
 		//get the data elements from the first row displayed
 		firstRowData = carrierPaidTab.getFirstRowData();
-		Assert.assertTrue(firstRowData.get(0).contains(searchForText), "Matching text [" + searchForText + "] NOT found in [" + firstRowData + "]");
+		Assert.assertTrue(firstRowData.get(0).contains(searchStatusText), "Matching text [" + searchStatusText + "] NOT found in [" + firstRowData + "]");
+	}
+	
+	@Test(description="LP-3476 CarrierPaidTabTest_VerifySearchAmount", dependsOnMethods = {"verifyPaidTabTest"}, priority=8)
+	public void verifySearchAmountTest() throws InterruptedException
+	{
+		//TEST - SEARCH VERIFICATION
+		carrierPaidTab.enterSearchText(searchAmountText);
+		carrierPaidTab.clickSearchButton();		
+		//click first row to expand
+		carrierPaidTab.clickFirstRow();
+		//get the data elements from the first row displayed
+		firstRowData = carrierPaidTab.getFirstRowData();
+		Assert.assertTrue(firstRowData.get(0).contains(searchAmountText), "Matching text [" + searchAmountText + "] NOT found in [" + firstRowData + "]");
+	}
+	
+	@Test(description="LP-3476 CarrierPaidTabTest_VerifySearchPayer", dependsOnMethods = {"verifyPaidTabTest"}, priority=9)
+	public void verifySearchPayerTest() throws InterruptedException
+	{
+		//TEST - SEARCH VERIFICATION
+		carrierPaidTab.enterSearchText(searchPayerText);
+		carrierPaidTab.clickSearchButton();		
+		//click first row to expand
+		carrierPaidTab.clickFirstRow();
+		//get the data elements from the first row displayed
+		firstRowData = carrierPaidTab.getFirstRowData();
+		Assert.assertTrue(firstRowData.get(0).contains(searchPayerText), "Matching text [" + searchPayerText + "] NOT found in [" + firstRowData + "]");
+	}
+	
+	@Test(description="LP-3476 CarrierPaidTabTest_VerifySearchLoadId", dependsOnMethods = {"verifyPaidTabTest"}, priority=10)
+	public void verifySearchLoadIdTest() throws InterruptedException
+	{
+		//TEST - SEARCH VERIFICATION
+		carrierPaidTab.enterSearchText(searchLoadIdText);
+		carrierPaidTab.clickSearchButton();		
+		//click first row to expand
+		carrierPaidTab.clickFirstRow();
+		//get the data elements from the first row displayed
+		firstRowData = carrierPaidTab.getFirstRowData();
+		Assert.assertTrue(firstRowData.get(0).contains(searchLoadIdText), "Matching text [" + searchLoadIdText + "] NOT found in [" + firstRowData + "]");
 	}
 	
 	public void verifyCarrierTabsDisplayed(){

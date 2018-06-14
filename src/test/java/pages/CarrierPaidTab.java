@@ -79,6 +79,7 @@ public class CarrierPaidTab extends TestBase {
 	}
 	
 	public void enterSearchText(String searchText) throws InterruptedException {
+		searchInputField.clear();
 		searchInputField.sendKeys(searchText);
 	}
 	
