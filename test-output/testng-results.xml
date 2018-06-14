@@ -1,69 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="9" passed="9">
+<testng-results skipped="0" failed="0" ignored="0" total="14" passed="14">
   <reporter-output>
   </reporter-output>
-  <suite name="Automation Test Suite" duration-ms="56708" started-at="2018-06-12T11:50:03Z" finished-at="2018-06-12T11:50:59Z">
+  <suite name="Automation Test Suite" duration-ms="63078" started-at="2018-06-14T10:01:53Z" finished-at="2018-06-14T10:02:56Z">
     <groups>
     </groups>
-    <test name=" Test Cases" duration-ms="56708" started-at="2018-06-12T11:50:03Z" finished-at="2018-06-12T11:50:59Z">
-      <class name="testcases.BrokerDiscountsTabTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="setUp" is-config="true" duration-ms="15578" started-at="2018-06-12T11:50:03Z" finished-at="2018-06-12T11:50:18Z">
+    <test name=" Test Cases" duration-ms="63078" started-at="2018-06-14T10:01:53Z" finished-at="2018-06-14T10:02:56Z">
+      <class name="testcases.BrokerBulkUploadPaymentsmatchedCarrierTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerBulkUploadPaymentsmatchedCarrierTest@a74868d]" name="setUp" is-config="true" duration-ms="10589" started-at="2018-06-14T10:01:53Z" finished-at="2018-06-14T10:02:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginAsBroker(java.lang.String, java.lang.String)[pri:12, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="loginAsBroker" duration-ms="2905" started-at="2018-06-12T11:50:20Z" data-provider="getBrokerLoginData" finished-at="2018-06-12T11:50:23Z">
+        <test-method status="PASS" signature="loginBroker(java.lang.String, java.lang.String)[pri:1, instance:testcases.BrokerBulkUploadPaymentsmatchedCarrierTest@a74868d]" name="loginBroker" duration-ms="4840" started-at="2018-06-14T10:02:04Z" data-provider="getBrokerLoginData" finished-at="2018-06-14T10:02:09Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[cadregbroker@mailinator.truckstop.com]]>
+                <![CDATA[brokerregisterstage1@loadpaytest.truckstop.com]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Password@123]]>
+                <![CDATA[Password@1]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginAsBroker -->
-        <test-method status="PASS" signature="verifyDiscountsTabTest()[pri:13, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="verifyDiscountsTabTest" duration-ms="5535" started-at="2018-06-12T11:50:23Z" depends-on-methods="testcases.BrokerDiscountsTabTest.loginAsBroker" finished-at="2018-06-12T11:50:29Z">
+        </test-method> <!-- loginBroker -->
+        <test-method status="PASS" signature="verifyBulkUploadPaymentsUnmatched()[pri:2, instance:testcases.BrokerBulkUploadPaymentsmatchedCarrierTest@a74868d]" name="verifyBulkUploadPaymentsUnmatched" duration-ms="6" started-at="2018-06-14T10:02:09Z" finished-at="2018-06-14T10:02:09Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyDiscountsTabTest -->
-        <test-method status="PASS" signature="verifyCarrierSortTest()[pri:14, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="verifyCarrierSortTest" duration-ms="5546" started-at="2018-06-12T11:50:29Z" depends-on-methods="testcases.BrokerDiscountsTabTest.verifyDiscountsTabTest" finished-at="2018-06-12T11:50:34Z">
+        </test-method> <!-- verifyBulkUploadPaymentsUnmatched -->
+        <test-method status="PASS" signature="verifynewPayment()[pri:3, instance:testcases.BrokerBulkUploadPaymentsmatchedCarrierTest@a74868d]" name="verifynewPayment" duration-ms="1347" started-at="2018-06-14T10:02:09Z" finished-at="2018-06-14T10:02:11Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyCarrierSortTest -->
-        <test-method status="PASS" signature="verifyLoadIDSortTest()[pri:15, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="verifyLoadIDSortTest" duration-ms="4988" started-at="2018-06-12T11:50:34Z" depends-on-methods="testcases.BrokerDiscountsTabTest.verifyDiscountsTabTest" finished-at="2018-06-12T11:50:39Z">
+        </test-method> <!-- verifynewPayment -->
+        <test-method status="PASS" signature="verifyUploadFile()[pri:4, instance:testcases.BrokerBulkUploadPaymentsmatchedCarrierTest@a74868d]" name="verifyUploadFile" duration-ms="4423" started-at="2018-06-14T10:02:11Z" finished-at="2018-06-14T10:02:15Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyLoadIDSortTest -->
-        <test-method status="PASS" signature="verifyInvoiceSearchTest()[pri:16, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="verifyInvoiceSearchTest" duration-ms="4049" started-at="2018-06-12T11:50:39Z" depends-on-methods="testcases.BrokerDiscountsTabTest.verifyDiscountsTabTest" finished-at="2018-06-12T11:50:43Z">
+        </test-method> <!-- verifyUploadFile -->
+        <test-method status="PASS" signature="verifyClickimport()[pri:5, instance:testcases.BrokerBulkUploadPaymentsmatchedCarrierTest@a74868d]" name="verifyClickimport" duration-ms="2066" started-at="2018-06-14T10:02:15Z" depends-on-methods="testcases.BrokerBulkUploadPaymentsmatchedCarrierTest.verifyBulkUploadPaymentsUnmatched" finished-at="2018-06-14T10:02:17Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyInvoiceSearchTest -->
-        <test-method status="PASS" signature="verifyCompanyNameSearchTest()[pri:17, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="verifyCompanyNameSearchTest" duration-ms="3868" started-at="2018-06-12T11:50:43Z" depends-on-methods="testcases.BrokerDiscountsTabTest.verifyDiscountsTabTest" finished-at="2018-06-12T11:50:47Z">
+        </test-method> <!-- verifyClickimport -->
+        <test-method status="PASS" signature="verifyClickschpayment()[pri:6, instance:testcases.BrokerBulkUploadPaymentsmatchedCarrierTest@a74868d]" name="verifyClickschpayment" duration-ms="3160" started-at="2018-06-14T10:02:17Z" finished-at="2018-06-14T10:02:20Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyCompanyNameSearchTest -->
-        <test-method status="PASS" signature="verifyLoadIDSearchTest()[pri:18, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="verifyLoadIDSearchTest" duration-ms="3795" started-at="2018-06-12T11:50:47Z" depends-on-methods="testcases.BrokerDiscountsTabTest.verifyDiscountsTabTest" finished-at="2018-06-12T11:50:51Z">
+        </test-method> <!-- verifyClickschpayment -->
+        <test-method status="PASS" signature="verifyClickGridDown()[pri:7, instance:testcases.BrokerBulkUploadPaymentsmatchedCarrierTest@a74868d]" name="verifyClickGridDown" duration-ms="3132" started-at="2018-06-14T10:02:20Z" finished-at="2018-06-14T10:02:23Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyLoadIDSearchTest -->
-        <test-method status="PASS" signature="verifyDateSearchTest()[pri:19, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="verifyDateSearchTest" duration-ms="3820" started-at="2018-06-12T11:50:51Z" depends-on-methods="testcases.BrokerDiscountsTabTest.verifyDiscountsTabTest" finished-at="2018-06-12T11:50:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyDateSearchTest -->
-        <test-method status="PASS" signature="verifyAmountSearchTest()[pri:20, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="verifyAmountSearchTest" duration-ms="3753" started-at="2018-06-12T11:50:55Z" depends-on-methods="testcases.BrokerDiscountsTabTest.verifyDiscountsTabTest" finished-at="2018-06-12T11:50:59Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyAmountSearchTest -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerDiscountsTabTest@396e2f39]" name="quit" is-config="true" duration-ms="812" started-at="2018-06-12T11:50:59Z" finished-at="2018-06-12T11:50:59Z">
+        </test-method> <!-- verifyClickGridDown -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerBulkUploadPaymentsmatchedCarrierTest@a74868d]" name="quit" is-config="true" duration-ms="739" started-at="2018-06-14T10:02:23Z" finished-at="2018-06-14T10:02:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quit -->
-      </class> <!-- testcases.BrokerDiscountsTabTest -->
+      </class> <!-- testcases.BrokerBulkUploadPaymentsmatchedCarrierTest -->
+      <class name="testcases.BrokerBulkUploadPaymentsUnmatchedCarrierTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.BrokerBulkUploadPaymentsUnmatchedCarrierTest@18bf3d14]" name="setUp" is-config="true" duration-ms="11946" started-at="2018-06-14T10:02:24Z" finished-at="2018-06-14T10:02:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="loginBroker(java.lang.String, java.lang.String)[pri:8, instance:testcases.BrokerBulkUploadPaymentsUnmatchedCarrierTest@18bf3d14]" name="loginBroker" duration-ms="4980" started-at="2018-06-14T10:02:36Z" data-provider="getBrokerLoginData" finished-at="2018-06-14T10:02:41Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[brokerregisterstage1@loadpaytest.truckstop.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Password@1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginBroker -->
+        <test-method status="PASS" signature="verifyBulkUploadPaymentsUnmatched()[pri:9, instance:testcases.BrokerBulkUploadPaymentsUnmatchedCarrierTest@18bf3d14]" name="verifyBulkUploadPaymentsUnmatched" duration-ms="3" started-at="2018-06-14T10:02:41Z" finished-at="2018-06-14T10:02:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyBulkUploadPaymentsUnmatched -->
+        <test-method status="PASS" signature="verifynewPayment()[pri:10, instance:testcases.BrokerBulkUploadPaymentsUnmatchedCarrierTest@18bf3d14]" name="verifynewPayment" duration-ms="1110" started-at="2018-06-14T10:02:41Z" finished-at="2018-06-14T10:02:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifynewPayment -->
+        <test-method status="PASS" signature="verifyUploadFile()[pri:11, instance:testcases.BrokerBulkUploadPaymentsUnmatchedCarrierTest@18bf3d14]" name="verifyUploadFile" duration-ms="4533" started-at="2018-06-14T10:02:42Z" finished-at="2018-06-14T10:02:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyUploadFile -->
+        <test-method status="PASS" signature="verifyClickimport()[pri:12, instance:testcases.BrokerBulkUploadPaymentsUnmatchedCarrierTest@18bf3d14]" name="verifyClickimport" duration-ms="2062" started-at="2018-06-14T10:02:47Z" depends-on-methods="testcases.BrokerBulkUploadPaymentsUnmatchedCarrierTest.verifyBulkUploadPaymentsUnmatched" finished-at="2018-06-14T10:02:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyClickimport -->
+        <test-method status="PASS" signature="verifyClickschpayment()[pri:13, instance:testcases.BrokerBulkUploadPaymentsUnmatchedCarrierTest@18bf3d14]" name="verifyClickschpayment" duration-ms="3148" started-at="2018-06-14T10:02:49Z" finished-at="2018-06-14T10:02:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyClickschpayment -->
+        <test-method status="PASS" signature="verifyClickGridDown()[pri:14, instance:testcases.BrokerBulkUploadPaymentsUnmatchedCarrierTest@18bf3d14]" name="verifyClickGridDown" duration-ms="3136" started-at="2018-06-14T10:02:52Z" finished-at="2018-06-14T10:02:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyClickGridDown -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:testcases.BrokerBulkUploadPaymentsUnmatchedCarrierTest@18bf3d14]" name="quit" is-config="true" duration-ms="753" started-at="2018-06-14T10:02:55Z" finished-at="2018-06-14T10:02:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- testcases.BrokerBulkUploadPaymentsUnmatchedCarrierTest -->
     </test> <!--  Test Cases -->
   </suite> <!-- Automation Test Suite -->
 </testng-results>
