@@ -7,42 +7,27 @@
   </listeners>
   <test thread-count="5" name=" Test Cases(failed)">
     <classes>
-      <class name="testcases.CarrierFirstLoginNextDayACHTest">
+      <class name="testcases.CarrierFirstLoginTest">
         <methods>
-          <include name="quit"/>
-          <include name="setUp"/>
           <include name="loginTest"/>
-        </methods>
-      </class> <!-- testcases.CarrierFirstLoginNextDayACHTest -->
-      <class name="testcases.UnmatchedCarrierNextDayACHTest">
-        <methods>
-          <include name="carrierPaymenowNextDAYACH"/>
           <include name="quit"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- testcases.UnmatchedCarrierNextDayACHTest -->
-      <class name="testcases.UnmatchedCariierEmailVerifyNextDayTest">
+      </class> <!-- testcases.CarrierFirstLoginTest -->
+      <class name="testcases.UnmatchedCariierEmailVerifyWiretRansferTest">
         <methods>
-          <include name="outlookloginTest"/>
           <include name="quit"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- testcases.UnmatchedCariierEmailVerifyNextDayTest -->
-      <class name="testcases.UnmatchedCarrierOutlookNextDayTest">
-        <methods>
-          <include name="CarrierRegister" invocation-numbers="0"/>
           <include name="outlookloginTest"/>
           <include name="setUp"/>
-          <include name="quit"/>
         </methods>
-      </class> <!-- testcases.UnmatchedCarrierOutlookNextDayTest -->
-      <class name="testcases.ShipperAdvancePaymentTest">
+      </class> <!-- testcases.UnmatchedCariierEmailVerifyWiretRansferTest -->
+      <class name="testcases.UnmatchedCarrierWireTransferTest">
         <methods>
-          <include name="brokernewPayment" invocation-numbers="1"/>
           <include name="quit"/>
+          <include name="carrierPaymenowWirTransfer"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- testcases.ShipperAdvancePaymentTest -->
+      </class> <!-- testcases.UnmatchedCarrierWireTransferTest -->
     </classes>
   </test> <!--  Test Cases(failed) -->
 </suite> <!-- Failed suite [Automation Test Suite] -->

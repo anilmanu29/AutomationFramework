@@ -12,7 +12,7 @@
 		
 		<!-- Script for Jira Ticket LP-5405 - LoadPay - Selenium Test - Broker Processed Tab AdminPayByCheck -->
 		
-		    <!--  <class name="testcases.BrokerProcessedTabTest"></class> -->
+		   <!--   <class name="testcases.BrokerProcessedTabTest"></class> -->
 		
 		<!-- Script for Jira Ticket LP-5406 - LoadPay - Selenium Test - Broker Scheduled Payments Tab -->
 		

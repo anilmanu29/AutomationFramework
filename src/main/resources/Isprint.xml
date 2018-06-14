@@ -14,38 +14,38 @@
 		<classes>
 	
 	   <!--     Script for Jira Tickets LP-4269 Verify Email in Mailinator_Broker     -->
-	
+	<!-- 
 	        <class name="testcases.BrokerRegisterTest"></class>
 			<class name="testcases.BrokerOutlookTest"></class>
 			<class name="testcases.AdminBrokerTest"></class>
-			<class name="testcases.BrokerLoginTest"></class>
+			<class name="testcases.BrokerLoginTest"></class> -->
 			
 			
 			
 		<!--   Script for Jira Tickets LP-4270 Verify Email in Mailinator_Carrier     -->
 	
-		 	<class name="testcases.CarrierRegisterTest"></class>
+	<!-- 	 	<class name="testcases.CarrierRegisterTest"></class>
 			<class name="testcases.CariierOutlookTest"></class>
 			<class name="testcases.AdminCarrierTest"></class>
 		 	<class name="testcases.CarrierLoginTest"></class>
 		 	<class name="testcases.CarrierNotificationTest"></class>
-			
+			 -->
 			
 			
 		<!-- Script for Jira Tickets LP-3474 & LP-5413  CarrierWireTransferTest & CarrierPayMeNowTabTest -->
 		 	
-		 	<class name="testcases.BrokerNewPaymentTest"></class>
+		 <!-- 	<class name="testcases.BrokerNewPaymentTest"></class>
 		 	<class name="testcases.CarrierWireTransferTest"></class>
-		 	<class name="testcases.CarrierPayMeNowTabTest"></class>
+		 	<class name="testcases.CarrierPayMeNowTabTest"></class> -->
 		 	
 				
 			    <!--  Script for Jira Tickets LP-5421 UnmatchedCarrier-SAMEDAYACH      --> 
 		 	<class name="testcases.BrokerPaymentforUnmatchedCarrierTest"></class>
-		 	<class name="testcases.UnmatchedCarrierOutlooksameDayTest"></class>
+		 	<!-- <class name="testcases.UnmatchedCarrierOutlooksameDayTest"></class>
 		 	<class name="testcases.UnmatchedCariierEmailVerifyTest"></class>
 		 	<class name="testcases.UnmatchedCarrierAdminSameDayTest"></class>
 		 	<class name="testcases.CarrierFirstLoginSameDayTest"></class>
-		 	<class name="testcases.UnmatchedCarrierSameDayACHTest"></class>
+		 	<class name="testcases.UnmatchedCarrierSameDayACHTest"></class> -->
 			
 		  <!--   Script for Jira Tickets LP-5419 UnmatchedCarrier-WIRETRASFER    -->  
 		
@@ -61,9 +61,9 @@
 			 <!--   Script for Jira Tickets LP-5411 & LP-5417 CarrierSameDayACHTest &  CarrierNextDayACHTest     -->
 		
 			
-		 	<class name="testcases.CarrierSameDayACHTest"></class>
+		<!--  	<class name="testcases.CarrierSameDayACHTest"></class>
 		 	<class name="testcases.CarrierNextDAYACHTest"></class>
-		 	
+		 	 -->
 		 	
 		
 	
