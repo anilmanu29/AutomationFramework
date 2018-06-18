@@ -184,6 +184,20 @@ public class TestBase {
 	return read.getCellData(Fileppath, "CarrierlockedaccountAdminUnlock");
 	}
 	
+    @DataProvider
+    public Object[][] getCarrierParentChildData() throws InvalidFormatException, IOException
+    {
+    ReadExcel read = new ReadExcel();
+    return read.getCellData(Fileppath, "carrierparentchilddata");
+    }
+
+    @DataProvider
+    public Object[][] getCarrierParentChildPasswordData() throws InvalidFormatException, IOException
+    {
+    ReadExcel read = new ReadExcel();
+    return read.getCellData(Fileppath, "carrierresetpassworddata");
+    }
+
 	
 	@AfterClass
 	public void quit()
