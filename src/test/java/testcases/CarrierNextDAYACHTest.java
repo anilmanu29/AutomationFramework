@@ -41,7 +41,7 @@ public class CarrierNextDAYACHTest extends TestBase {
 		ns.getAmount();
 		ns.clickPaymenow();
 		Thread.sleep(3000);
-		ns.getsamedayAmount();
+		ns.getnextdayAmount();
 		Thread.sleep(3000);
 		ns.clickSelectButton();
 		Thread.sleep(3000);

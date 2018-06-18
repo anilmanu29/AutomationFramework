@@ -43,7 +43,7 @@ public class UnmatchedCarrierNextDayACHTest extends TestBase {
 		Thread.sleep(2000);
 		ns.clickPaymenow();
 		Thread.sleep(3000);
-		ns.getsamedayAmount();
+		ns.getnextdayAmount();
 		Thread.sleep(3000);
 		ns.clickSelectButton();
 		Thread.sleep(3000);
