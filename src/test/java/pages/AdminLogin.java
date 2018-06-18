@@ -27,6 +27,8 @@ public class AdminLogin extends TestBase
 	@FindBy(xpath=".//*[@id='angularScope']/div[1]/div/div[1]/div/nav/div[2]/ul/li[3]/a")
 	WebElement CustomerTab;
 	
+	@FindBy(xpath="//a[@href='#/customer/6620']")
+	WebElement CustomerId;
 
 	@FindBy(xpath=".//*[@id='searchKeyword']")
 	WebElement search;
@@ -42,6 +44,12 @@ public class AdminLogin extends TestBase
 
 	@FindBy(xpath=".//*[@id='CustomerStatusId']")
 	WebElement CustomersatatusIdDropDown ;
+	
+	@FindBy(xpath=".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[7]")
+	WebElement editloginuser ;
+	
+	@FindBy(xpath=".//*[@id='TabList']/div/table/tbody/tr/td[6]/input")
+	WebElement CancelLockout ;
 
 
 	@FindBy(xpath=".//*[@id='formCompany']/div[2]/input")
@@ -90,6 +98,25 @@ public class AdminLogin extends TestBase
 		
 		DoubleClickID.click();
 	}
+	
+	public void clickCustomerId() throws InterruptedException
+	{
+		
+		CustomerId.click();
+	}
+	
+	public void clickeditloginuser() throws InterruptedException
+	{
+		
+		editloginuser.click();
+	}
+	
+	public void clickCancelLockout() throws InterruptedException
+	{
+		
+		CancelLockout.click();
+	}
+	
 	public void StatusIDDropDown() throws InterruptedException
 	{
 		Thread.sleep(1000);

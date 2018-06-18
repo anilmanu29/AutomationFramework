@@ -22,7 +22,7 @@ public class CarrierLoginTest extends TestBase{
 		loginPage = new CarrierLoginPage();	
 	}
 
-	@Test(dataProvider="getCarrierLoginData",priority=13)
+	@Test(dataProvider="getCarrierLoginData",priority=16)
 	public void loginTest(String user,String pass) throws InterruptedException
 	{
 		loginPage.Carrierlogin(user, pass);

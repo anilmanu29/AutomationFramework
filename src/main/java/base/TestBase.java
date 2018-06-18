@@ -177,6 +177,13 @@ public class TestBase {
 	return read.getCellData(Fileppath, "CarrierPaidTabData");
 	}
 	
+	@DataProvider
+	public Object[][] getCarrierlockedaccountAdminUnlockData() throws InvalidFormatException, IOException
+	{
+	ReadExcel read = new ReadExcel();
+	return read.getCellData(Fileppath, "CarrierlockedaccountAdminUnlock");
+	}
+	
 	
 	@AfterClass
 	public void quit()

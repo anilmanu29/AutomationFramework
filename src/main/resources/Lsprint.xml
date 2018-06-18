@@ -32,9 +32,13 @@
 		 	 
 		 	 
 		 	 
-		 	 <class name="testcases.BrokerBulkUploadPaymentsmatchedCarrierTest"></class> 
-		 	 <class name="testcases.BrokerBulkUploadPaymentsUnmatchedCarrierTest"></class> 
+		 	<!--  <class name="testcases.BrokerBulkUploadPaymentsmatchedCarrierTest"></class> 
+		 	 <class name="testcases.BrokerBulkUploadPaymentsUnmatchedCarrierTest"></class>  -->
 		
+		 
+		 <class name="testcases.CarrierlockedaccountcanbeunlockedbyadminTest"></class>
+		 <class name="testcases.CarrierLoginTest"></class> 
+		 
 		
 		
     </classes>
