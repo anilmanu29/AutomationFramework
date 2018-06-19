@@ -21,7 +21,7 @@ import base.TestBase;
 public class BrokerBulkUploadPaymentsmatchedCarrier extends TestBase
 {
 	String  payment_status = "Verified";
-	String payment_statuss = "Unmatched:";
+	String payment_statuss = "matched:";
 	String load;
 	String    scheduledamount;
 	public static float totalamounnt;

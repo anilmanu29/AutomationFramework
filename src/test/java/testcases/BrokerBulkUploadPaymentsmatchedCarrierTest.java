@@ -42,7 +42,7 @@ public class BrokerBulkUploadPaymentsmatchedCarrierTest extends TestBase
 	/*-------Login to Load Pay as Broker---------*/
 	
 	
-	@Test(dataProvider="getBrokerLoginData", priority=64)
+	@Test(dataProvider="getBrokerLoginData", priority=1)
 	public void loginBroker(String un, String pwd) throws InterruptedException, IOException, AWTException
 	{
 		loginPage.Brokerlogin(un, pwd);
@@ -50,40 +50,40 @@ public class BrokerBulkUploadPaymentsmatchedCarrierTest extends TestBase
 		
 		
 	}
-	@Test(priority = 65)
+	@Test(priority = 2)
 	public void verifyBulkUploadPaymentsmatched() throws InterruptedException {
 		bbmp = new BrokerBulkUploadPaymentsmatchedCarrier();
 		//verifyBulkUploadPaymentsmatchedCarrierElementsDisplayed(); 
 		
 	}
 	
-	@Test( priority = 66)
+	@Test( priority = 3)
 	public void verifynewPayment() throws InterruptedException {
 		bbmp.newPayment();
 		Thread.sleep(1000);
 	}
 	
 
-	@Test(priority = 67)
+	@Test(priority = 4)
 	public void verifyUploadFile() throws InterruptedException, IOException, AWTException {
 		bbmp.UploadFile();
 		Thread.sleep(2000);
 	}
 	
 		
-	@Test(priority = 68)
+	@Test(priority = 5)
 	public void verifyClickimport() throws InterruptedException, IOException {
 		bbmp.Clickimport();
 		Thread.sleep(2000);
 	}
 	
-	@Test(priority = 69)
+	@Test(priority = 6)
 	public void verifyClickschpayment() throws InterruptedException, IOException {
 		bbmp.Clickschpayment();
 		Thread.sleep(1000);
 	}
 		
-	@Test(priority = 70)
+	@Test(priority = 7)
 	public void verifyClickGridDown() throws InterruptedException, IOException {
 		bbmp.ClickGridDown();
 		Thread.sleep(1000);
@@ -149,7 +149,7 @@ public class BrokerBulkUploadPaymentsmatchedCarrierTest extends TestBase
 				"Data appears to be equal when sorted by Pulled from Bank Date!");
 	}*/
 
-	@Test(priority = 71 )
+	@Test(priority = 8 )
 	public void verifyclickAmountSortTest() throws InterruptedException {
 		// TEST - Paid to Carrier
 		// click Paid to Carrier to change sort from default to ascending
@@ -208,7 +208,7 @@ public class BrokerBulkUploadPaymentsmatchedCarrierTest extends TestBase
 				"Data appears to be equal when sorted by  Paid to Amount Pulled!");
 	}*/
 
-	@Test(priority = 72)
+	@Test(priority = 9)
 	public void verifyclickLoadIDSortTest() throws InterruptedException {
 		// TEST - Carrier
 		// click Carrier sort from default to ascending
@@ -241,10 +241,10 @@ public class BrokerBulkUploadPaymentsmatchedCarrierTest extends TestBase
 
 	}*/
 	
-	@Test(priority = 73)
-	public void verifyAmountSearchTest() throws InterruptedException {
+	@Test(dataProvider="getBulkUploadPaymentsData", priority = 10)
+	public void verifyAmountSearchTest(String Amount, String LoadID) throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
-		bbmp.enterSearchText(bbmp.Amount.getText());
+		bbmp.enterSearchText(Amount);
 		bbmp.clickSearchButton();
 		// click first row to expand
 		bbmp.clickFirstRow();
@@ -297,10 +297,10 @@ public class BrokerBulkUploadPaymentsmatchedCarrierTest extends TestBase
 
 	}*/
 	
-	@Test( priority = 74)
-	public void verifyLoadIDNumSearchTest() throws InterruptedException {
+	@Test( dataProvider="getBulkUploadPaymentsData",priority = 11)
+	public void verifyLoadIDNumSearchTest(String Amount, String LoadID) throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
-		bbmp.enterSearchText(bbmp.LoadIDNum.getText());
+		bbmp.enterSearchText(LoadID);
 		bbmp.clickSearchButton();
 		// click first row to expand
 		bbmp.clickFirstRow();

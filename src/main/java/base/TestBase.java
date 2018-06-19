@@ -197,6 +197,14 @@ public class TestBase {
     ReadExcel read = new ReadExcel();
     return read.getCellData(Fileppath, "carrierresetpassworddata");
     }
+    
+    @DataProvider
+    public Object[][] getBulkUploadPaymentsData() throws InvalidFormatException, IOException
+    {
+    ReadExcel read = new ReadExcel();
+    return read.getCellData(Fileppath, "BulkUploadPayments");
+    }
+
 
 	
 	@AfterClass
