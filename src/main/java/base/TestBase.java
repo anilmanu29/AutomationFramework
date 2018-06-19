@@ -199,10 +199,17 @@ public class TestBase {
     }
     
     @DataProvider
-    public Object[][] getBulkUploadPaymentsData() throws InvalidFormatException, IOException
+    public Object[][] getBulkUploadPaymentsmatchedData() throws InvalidFormatException, IOException
     {
     ReadExcel read = new ReadExcel();
-    return read.getCellData(Fileppath, "BulkUploadPayments");
+    return read.getCellData(Fileppath, "BulkUploadPaymentsmatched");
+    }
+
+    @DataProvider
+    public Object[][] getBulkUploadPaymentsUnmatchedData() throws InvalidFormatException, IOException
+    {
+    ReadExcel read = new ReadExcel();
+    return read.getCellData(Fileppath, "BulkUploadPaymentsUnmatched");
     }
 
 

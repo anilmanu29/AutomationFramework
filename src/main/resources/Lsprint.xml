@@ -34,8 +34,8 @@
 		 	 
 		 	 <class name="testcases.BrokerAvailableCreditTabTest"></class>
 		 	 
-	<!-- 	 	 <class name="testcases.BrokerBulkUploadPaymentsmatchedCarrierTest"></class> 
-		 	 <class name="testcases.BrokerBulkUploadPaymentsUnmatchedCarrierTest"></class>  -->
+		 	 <class name="testcases.BrokerBulkUploadPaymentsmatchedCarrierTest"></class> 
+		 	 <class name="testcases.BrokerBulkUploadPaymentsUnmatchedCarrierTest"></class> 
 		
 		 
 		 <class name="testcases.CarrierlockedaccountcanbeunlockedbyadminTest"></class>

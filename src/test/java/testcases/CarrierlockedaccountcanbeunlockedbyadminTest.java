@@ -87,6 +87,8 @@ public class CarrierlockedaccountcanbeunlockedbyadminTest extends TestBase
 	@Test(dataProvider="getCarrierLoginData",priority=89)
 	public void loginTest(String user,String pass) throws InterruptedException
 	{
+		
+		driver.get(prop.getProperty("url"));
 		loginPage.Carrierlogin(user, pass);
 	
 		Thread.sleep(5000);
