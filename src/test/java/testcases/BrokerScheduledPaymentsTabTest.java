@@ -33,18 +33,18 @@ public class BrokerScheduledPaymentsTabTest extends TestBase {
 		
 	}
 	
-	@Test(dataProvider = "getBrokerLoginData", priority = 1)
+	@Test(dataProvider = "getBrokerLoginData", priority = 41)
 	public void loginAsBroker(String un, String pwd) throws InterruptedException {
 		// login as broker
 		loginPage.Brokerlogin(un, pwd);
 	}
 
-	@Test(dependsOnMethods = { "loginAsBroker" }, priority = 2)
+	@Test(dependsOnMethods = { "loginAsBroker" }, priority = 42)
 	public void verifyBrokerScheduledPaymentsTabTest() throws InterruptedException {
 		verifySchedulePaymentsTabElementsDisplayed();
 	}
 	
-	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 3)
+	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 43)
 	public void verifyclickpaymenTypeLinksortTest() throws InterruptedException {
 		// TEST - Pay Selection SORT
 		// click pay selection Column to change sort from default to ascending
@@ -60,7 +60,7 @@ public class BrokerScheduledPaymentsTabTest extends TestBase {
 		lastRowData = brokerschedulepaymentstab.getFirstRowData();
 	}
 
-	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 4)
+	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 44)
 	public void verifyclickAnticipatedPullDatesortTest() throws InterruptedException {
 		// TEST - Discount SORT
 		// click Discount Column to change sort from default to ascending
@@ -79,7 +79,7 @@ public class BrokerScheduledPaymentsTabTest extends TestBase {
 		Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal when sorted by Discount!");
 	}
 
-	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 5)
+	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 45)
 	public void verifyclickPayToDatesortTest() throws InterruptedException {
 		// TEST - Pulled from Bank Date
 		// click Pulled from Bank Date to change sort from default to ascending
@@ -99,7 +99,7 @@ public class BrokerScheduledPaymentsTabTest extends TestBase {
 				"Data appears to be equal when sorted by Pulled from Bank Date!");
 	}
 
-	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 6)
+	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 46)
 	public void verifyclickAmountSortTest() throws InterruptedException {
 		// TEST - Paid to Carrier
 		// click Paid to Carrier to change sort from default to ascending
@@ -118,7 +118,7 @@ public class BrokerScheduledPaymentsTabTest extends TestBase {
 		Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal when sorted by  Paid to Carrier!");
 	}
 
-	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 7)
+	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 47)
 	public void verifyclickCarrierSortTest() throws InterruptedException {
 		// TEST - Amount Pulled
 		// click Amount Pulled to change sort from default to ascending
@@ -138,7 +138,7 @@ public class BrokerScheduledPaymentsTabTest extends TestBase {
 				"Data appears to be equal when sorted by  Paid to Amount Pulled!");
 	}
 
-	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 8)
+	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 48)
 	public void verifyclickinvoiceSortTest() throws InterruptedException {
 		// TEST - Amount Paid To Carrier
 		// click Amount Paid ToCarrier sort from default to ascending
@@ -158,7 +158,7 @@ public class BrokerScheduledPaymentsTabTest extends TestBase {
 				"Data appears to be equal when sorted by  Paid to Amount Pulled!");
 	}
 
-	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 9)
+	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 49)
 	public void verifyclickLoadIDSortTest() throws InterruptedException {
 		// TEST - Carrier
 		// click Carrier sort from default to ascending
@@ -177,7 +177,7 @@ public class BrokerScheduledPaymentsTabTest extends TestBase {
 		Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal when sorted by  Carrier!");
 	}
 	
-	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 10)
+	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 50)
 	public void verifyCompanyNameSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		brokerschedulepaymentstab.enterSearchText(brokerschedulepaymentstab.CompanyName.getText());
@@ -191,7 +191,7 @@ public class BrokerScheduledPaymentsTabTest extends TestBase {
 
 	}
 	
-	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 11)
+	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 51)
 	public void verifyAmountSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		brokerschedulepaymentstab.enterSearchText(brokerschedulepaymentstab.Amount.getText());
@@ -219,7 +219,7 @@ public class BrokerScheduledPaymentsTabTest extends TestBase {
 
 	}*/
 	
-	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 13)
+	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 53)
 	public void verifyAnticipatedPullDateSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		brokerschedulepaymentstab.enterSearchText(brokerschedulepaymentstab.AnticipatedPullDate.getAttribute("innerText"));
@@ -233,7 +233,7 @@ public class BrokerScheduledPaymentsTabTest extends TestBase {
 
 	}
 	
-	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 14)
+	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 54)
 	public void verifyinvoiceNumSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		brokerschedulepaymentstab.enterSearchText(brokerschedulepaymentstab.invoiceNum.getText());
@@ -247,7 +247,7 @@ public class BrokerScheduledPaymentsTabTest extends TestBase {
 
 	}
 	
-	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 15)
+	@Test(dependsOnMethods = { "verifyBrokerScheduledPaymentsTabTest" }, priority = 55)
 	public void verifyLoadIDNumSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		brokerschedulepaymentstab.enterSearchText(brokerschedulepaymentstab.LoadIDNum.getText());

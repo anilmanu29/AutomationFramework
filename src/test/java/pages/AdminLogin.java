@@ -27,7 +27,7 @@ public class AdminLogin extends TestBase
 	@FindBy(xpath=".//*[@id='angularScope']/div[1]/div/div[1]/div/nav/div[2]/ul/li[3]/a")
 	WebElement CustomerTab;
 	
-	@FindBy(xpath="//a[@href='#/customer/6620']")
+	@FindBy(xpath="//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr/td[1]/a")
 	WebElement CustomerId;
 
 	@FindBy(xpath=".//*[@id='searchKeyword']")

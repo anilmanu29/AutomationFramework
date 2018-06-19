@@ -309,7 +309,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 
 	
 	
-	@Test(dataProvider = "getAdminLoginData", priority =18 )
+	@Test(dataProvider = "getAdminLoginData", priority =12)
 	public void verifyAdminPayByCheck(String Username, String pass) throws InterruptedException, AWTException {
 		bp.logout();
 		Thread.sleep(1000);
@@ -348,7 +348,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		Thread.sleep(3000);
 		
 	}
-		@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData",priority=19)
+		@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData",priority=13)
 		public void carrierPaymenowPayByCheck(String EnterDOTNnumber,String ContactName) throws InterruptedException {
 		apbc.EnterDOTNnumber(EnterDOTNnumber);
 		Thread.sleep(3000);
@@ -361,7 +361,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 
 	}
 		
-		@Test(dataProvider = "getAdminLoginData", priority =20 )
+		@Test(dataProvider = "getAdminLoginData", priority =14)
 		public void verifyAdminPayByCheckTermPayment(String Username, String pass) throws InterruptedException, AWTException {
 			Thread.sleep(1000);
 			ahp.AdminURL(); 
@@ -400,7 +400,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 			Thread.sleep(3000);
 			
 		}
-			@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData",priority=21 )
+			@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData",priority=15)
 			public void carrierTermPaymentPayByCheck(String EnterDOTNnumber,String ContactName) throws InterruptedException {
 			apbc.EnterDOTNnumber(EnterDOTNnumber);
 			Thread.sleep(3000);
@@ -412,7 +412,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 			
 		}
 
-			@Test(dataProvider = "getCarrierLoginData", priority = 22)
+			@Test(dataProvider = "getCarrierLoginData", priority = 16)
 			public void verifyDeleteChildAccountTest(String un, String password) throws InterruptedException {
 			driver.get(prop.getProperty("url"));
 			loginPage.Carrierlogin(un, password);

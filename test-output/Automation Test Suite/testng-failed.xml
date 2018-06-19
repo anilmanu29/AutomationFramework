@@ -7,27 +7,36 @@
   </listeners>
   <test thread-count="5" name=" Test Cases(failed)">
     <classes>
-      <class name="testcases.CarrierFirstLoginTest">
+      <class name="testcases.BrokerAvailableCreditTabTest">
         <methods>
+          <include name="ClickBrokerAvailableCreditTabTest"/>
+          <include name="quit"/>
+          <include name="BrokerOutlookTest"/>
+          <include name="RequestAdditionalCreditPopUpTest"/>
+          <include name="loginBrokerTest"/>
+          <include name="setUp"/>
+          <include name="RequestAdditionalCreditButtonTest"/>
+        </methods>
+      </class> <!-- testcases.BrokerAvailableCreditTabTest -->
+      <class name="testcases.CarrierlockedaccountcanbeunlockedbyadminTest">
+        <methods>
+          <include name="quit"/>
           <include name="loginTest"/>
-          <include name="quit"/>
+          <include name="loginTest"/>
+          <include name="adminLogin"/>
+          <include name="Home"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- testcases.CarrierFirstLoginTest -->
-      <class name="testcases.UnmatchedCariierEmailVerifyWiretRansferTest">
+      </class> <!-- testcases.CarrierlockedaccountcanbeunlockedbyadminTest -->
+      <class name="testcases.AdminPayMeNowLockTest">
         <methods>
-          <include name="quit"/>
-          <include name="outlookloginTest"/>
+          <include name="getBrokerCredentials"/>
           <include name="setUp"/>
-        </methods>
-      </class> <!-- testcases.UnmatchedCariierEmailVerifyWiretRansferTest -->
-      <class name="testcases.UnmatchedCarrierWireTransferTest">
-        <methods>
           <include name="quit"/>
-          <include name="carrierPaymenowWirTransfer"/>
-          <include name="setUp"/>
+          <include name="verifyLockPayMeNowStatus" invocation-numbers="0"/>
+          <include name="verifyBrokerCannotOptOutPayMeNow"/>
         </methods>
-      </class> <!-- testcases.UnmatchedCarrierWireTransferTest -->
+      </class> <!-- testcases.AdminPayMeNowLockTest -->
     </classes>
   </test> <!--  Test Cases(failed) -->
 </suite> <!-- Failed suite [Automation Test Suite] -->

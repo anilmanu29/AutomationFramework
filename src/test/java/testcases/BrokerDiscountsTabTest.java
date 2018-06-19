@@ -26,20 +26,20 @@ public class BrokerDiscountsTabTest extends TestBase {
 		brokerdiscountsTab = new BrokerDiscountsTab();
 	}
 
-	@Test(dataProvider = "getBrokerLoginData", priority = 12)
+	@Test(dataProvider = "getBrokerLoginData", priority = 32)
 	public void loginAsBroker(String un, String pwd) throws InterruptedException {
 		// login as broker
 		loginPage.Brokerlogin(un, pwd);
 	}
 
-	@Test(dependsOnMethods = { "loginAsBroker" }, priority = 13)
+	@Test(dependsOnMethods = { "loginAsBroker" }, priority = 33)
 	public void verifyDiscountsTabTest() throws InterruptedException {
 
 		brokerdiscountsTab.clickDiscountsTab();
 		verifyDiscountTabElementsDisplayed();
 	}
 
-	@Test(dependsOnMethods = {"verifyDiscountsTabTest" }, priority = 14)
+	@Test(dependsOnMethods = {"verifyDiscountsTabTest" }, priority = 34)
 	public void verifyCarrierSortTest() throws InterruptedException {
 		// TEST - Carrier
 		// click Carrier sort from default to ascending
@@ -58,7 +58,7 @@ public class BrokerDiscountsTabTest extends TestBase {
 		Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal when sorted by  Carrier!");
 	}
 
-	@Test(dependsOnMethods = {"verifyDiscountsTabTest"}, priority = 15)
+	@Test(dependsOnMethods = {"verifyDiscountsTabTest"}, priority = 35)
 	public void verifyLoadIDSortTest() throws InterruptedException {
 		// TEST - LoadID
 		// click LoadID sort from default to ascending
@@ -79,7 +79,7 @@ public class BrokerDiscountsTabTest extends TestBase {
 		//Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal when sorted by  LoadID!");
 	}
 
-	@Test(dependsOnMethods = {"verifyDiscountsTabTest"}, priority = 16)
+	@Test(dependsOnMethods = {"verifyDiscountsTabTest"}, priority = 36)
 	public void verifyInvoiceSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		brokerdiscountsTab.enterSearchText(searchforcompanyname);
@@ -93,7 +93,7 @@ public class BrokerDiscountsTabTest extends TestBase {
 
 	}
 	
-	@Test(dependsOnMethods = {"verifyDiscountsTabTest"}, priority = 17)
+	@Test(dependsOnMethods = {"verifyDiscountsTabTest"}, priority = 37)
 	public void verifyCompanyNameSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		brokerdiscountsTab.enterSearchText(searchForInvoice);
@@ -108,7 +108,7 @@ public class BrokerDiscountsTabTest extends TestBase {
 	}
 	
 	
-	@Test(dependsOnMethods = {"verifyDiscountsTabTest"}, priority = 18)
+	@Test(dependsOnMethods = {"verifyDiscountsTabTest"}, priority = 38)
 	public void verifyLoadIDSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		brokerdiscountsTab.enterSearchText(searchforLoadID);
@@ -123,7 +123,7 @@ public class BrokerDiscountsTabTest extends TestBase {
 	}
 	
 	
-	@Test(dependsOnMethods = {"verifyDiscountsTabTest"}, priority = 19)
+	@Test(dependsOnMethods = {"verifyDiscountsTabTest"}, priority = 39)
 	public void verifyDateSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		brokerdiscountsTab.enterSearchText(searchforDate);
@@ -137,7 +137,7 @@ public class BrokerDiscountsTabTest extends TestBase {
 
 	}
 	
-	@Test(dependsOnMethods = {"verifyDiscountsTabTest"}, priority = 20)
+	@Test(dependsOnMethods = {"verifyDiscountsTabTest"}, priority = 40)
 	public void verifyAmountSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		brokerdiscountsTab.enterSearchText(searchforAmount);

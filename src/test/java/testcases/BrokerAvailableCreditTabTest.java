@@ -50,24 +50,24 @@ public class BrokerAvailableCreditTabTest extends TestBase {
 	}
 	
 	
-	@Test(description = "LP-5398 Broker Request Additional Credit Login", dataProvider="getBrokerLoginData", priority=1)
+	@Test(description = "LP-5398 Broker Request Additional Credit Login", dataProvider="getBrokerLoginData", priority=59)
 	public void loginBrokerTest(String un, String pwd) throws InterruptedException
 	{
 		brokerloginpage.Brokerlogin(un, pwd);
 					
 	}
 	
-	@Test(description = "LP-5398 Broker Request Additional Credit Credit Tab", priority=2)
+	@Test(description = "LP-5398 Broker Request Additional Credit Credit Tab", priority=60)
 	public void ClickBrokerAvailableCreditTabTest() throws InterruptedException
 	{
 		brokeravailablecredittab.clickAvailableCreditTab();
 	}
-	@Test(description = "LP-5398 Broker Request Additional Credit Click Credit Button", priority=3)
+	@Test(description = "LP-5398 Broker Request Additional Credit Click Credit Button", priority=61)
 	public void RequestAdditionalCreditButtonTest() throws InterruptedException
 	{
 		brokeravailablecredittab.clickRequestAdditionalCreditButton();
 	}
-	@Test(description = "LP-5398 Broker Request Additional Credit Pop Up", priority=4)
+	@Test(description = "LP-5398 Broker Request Additional Credit Pop Up", priority=62)
 	public void RequestAdditionalCreditPopUpTest() throws InterruptedException
 	{
 		brokeravailablecredittab.clickCloseButton();
@@ -75,7 +75,7 @@ public class BrokerAvailableCreditTabTest extends TestBase {
 		brokerloginpage.BrokerLogout();
 	}
 	
-	@Test(description = "LP-5398 Broker Request Additional Credit Outlook Login", dataProvider = "getoutlookLoginData", priority=5)
+	@Test(description = "LP-5398 Broker Request Additional Credit Outlook Login", dataProvider = "getoutlookLoginData", priority=63)
 	public void BrokerOutlookTest(String un, String pwd) throws InterruptedException
 	{
 		

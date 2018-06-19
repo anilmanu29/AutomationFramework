@@ -30,20 +30,20 @@ public class BrokerProcessedTabTest extends TestBase {
 		jse = (JavascriptExecutor) driver;
 	}
 
-	@Test(dataProvider = "getBrokerLoginData", priority = 1)
+	@Test(dataProvider = "getBrokerLoginData", priority = 17)
 	public void loginAsBroker(String un, String pwd) throws InterruptedException {
 		// login as broker
 		loginPage.Brokerlogin(un, pwd);
 	}
 
-	@Test(dependsOnMethods = { "loginAsBroker" }, priority = 2)
+	@Test(dependsOnMethods = { "loginAsBroker" }, priority = 18)
 	public void verifyProcessedTabTest() throws InterruptedException {
 
 		brokerProcessedTab.clickProcessedTab();
 		verifyProcessTabElementsDisplayed();
 	}
 
-	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 3)
+	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 19)
 	public void verifyPaySelectionSortTest() throws InterruptedException {
 		// TEST - Pay Selection SORT
 		// click pay selection Column to change sort from default to ascending
@@ -60,7 +60,7 @@ public class BrokerProcessedTabTest extends TestBase {
 		lastRowData = brokerProcessedTab.getFirstRowData();
 	}
 
-	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 4)
+	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 20)
 	public void verifyDiscountSortTest() throws InterruptedException {
 		// TEST - Discount SORT
 		// click Discount Column to change sort from default to ascending
@@ -79,7 +79,7 @@ public class BrokerProcessedTabTest extends TestBase {
 		Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal when sorted by Discount!");
 	}
 
-	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 5)
+	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 21)
 	public void verifyPulledFromBankDateSortTest() throws InterruptedException {
 		// TEST - Pulled from Bank Date
 		// click Pulled from Bank Date to change sort from default to ascending
@@ -99,7 +99,7 @@ public class BrokerProcessedTabTest extends TestBase {
 				"Data appears to be equal when sorted by Pulled from Bank Date!");
 	}
 
-	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 6)
+	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 22)
 	public void verifyPaidToCarrierSortTest() throws InterruptedException {
 		// TEST - Paid to Carrier
 		// click Paid to Carrier to change sort from default to ascending
@@ -118,7 +118,7 @@ public class BrokerProcessedTabTest extends TestBase {
 		Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal when sorted by  Paid to Carrier!");
 	}
 
-	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 7)
+	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 23)
 	public void verifyAmountPulledSortTest() throws InterruptedException {
 		// TEST - Amount Pulled
 		// click Amount Pulled to change sort from default to ascending
@@ -138,7 +138,7 @@ public class BrokerProcessedTabTest extends TestBase {
 				"Data appears to be equal when sorted by  Paid to Amount Pulled!");
 	}
 
-	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 8)
+	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 24)
 	public void verifyAmountPaidToCarrierSortTest() throws InterruptedException {
 		// TEST - Amount Paid To Carrier
 		// click Amount Paid ToCarrier sort from default to ascending
@@ -158,7 +158,7 @@ public class BrokerProcessedTabTest extends TestBase {
 				"Data appears to be equal when sorted by  Paid to Amount Pulled!");
 	}
 
-	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 9)
+	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 25)
 	public void verifyCarrierSortTest() throws InterruptedException {
 		// TEST - Carrier
 		// click Carrier sort from default to ascending
@@ -177,7 +177,7 @@ public class BrokerProcessedTabTest extends TestBase {
 		Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal when sorted by  Carrier!");
 	}
 
-	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 10)
+	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 26)
 	public void verifyLoadIDSortTest() throws InterruptedException {
 		// TEST - LoadID
 		// click LoadID sort from default to ascending
@@ -201,7 +201,7 @@ public class BrokerProcessedTabTest extends TestBase {
 		//Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal when sorted by  LoadID!");
 	}
 
-	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 11)
+	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 27)
 	public void verifyCompanySearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		brokerProcessedTab.enterSearchText(searchforcompanyname);
@@ -215,7 +215,7 @@ public class BrokerProcessedTabTest extends TestBase {
 
 	}
 	
-	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 11)
+	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 28)
 	public void verifyInvoiceSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		
@@ -230,7 +230,7 @@ public class BrokerProcessedTabTest extends TestBase {
 
 	}
 	
-	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 12)
+	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 29)
 	public void verifyLoadIDSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		
@@ -245,7 +245,7 @@ public class BrokerProcessedTabTest extends TestBase {
 
 	}
 	
-	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 12)
+	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 30)
 	public void verifyAmountSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		brokerProcessedTab.enterSearchText(searchforAmount);
@@ -259,7 +259,7 @@ public class BrokerProcessedTabTest extends TestBase {
 
 	}
 	
-	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 12)
+	@Test(dependsOnMethods = { "verifyProcessedTabTest" }, priority = 31)
 	public void verifyDateSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		

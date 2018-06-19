@@ -31,25 +31,26 @@ public class CarrierlockedaccountcanbeunlockedbyadminTest extends TestBase
 		h= new AdminHomePage();	
 		a= new AdminLogin();
 		Claua= new Carrierlockedaccountcanbeunlockedbyadmin();
+		loginPage = new CarrierLoginPage();
 		}
 	
-	@Test(dataProvider="getCarrierlockedaccountAdminUnlockData",priority=13)
+	@Test(dataProvider="getCarrierlockedaccountAdminUnlockData",priority=86)
 	public void loginTest(String user,String pass, String wrongpass) throws InterruptedException
 	{
 		aemail = user;
-		Claua.Carrierloginlock(user,pass, wrongpass);
+		Claua.Carrierloginlock(user, pass, wrongpass);
 	
 		Thread.sleep(5000);
 	}
 	
-	@Test(priority=14)
+	@Test(priority=87)
 	public void Home() throws IOException, AWTException, InterruptedException
 	{
 	System.out.println(BrokerPaymentforUnmatchedCarrierTest.umemail);
 	h.AdminURL();
 	}
 	
-	@Test(dataProvider="getAdminLoginData",priority=15)
+	@Test(dataProvider="getAdminLoginData",priority=88)
 	public void adminLogin(String Username,String pass) throws IOException, InterruptedException, AWTException
 	{		
 		a.adminUserPass(Username, pass);
@@ -82,6 +83,14 @@ public class CarrierlockedaccountcanbeunlockedbyadminTest extends TestBase
 		a.AdminLogOut();
 	
 	}	
+	
+	@Test(dataProvider="getCarrierLoginData",priority=89)
+	public void loginTest(String user,String pass) throws InterruptedException
+	{
+		loginPage.Carrierlogin(user, pass);
+	
+		Thread.sleep(5000);
+	}
 	
 	
 }

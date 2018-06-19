@@ -43,14 +43,14 @@ public class AdminPayMeNowLockTest extends TestBase {
     brokLoginPage = new BrokerLoginPage();
      
   }
-  @Test(dataProvider="getBrokerLoginData", priority=1)
+  @Test(dataProvider="getBrokerLoginData", priority=56)
   public void getBrokerCredentials(String user,String pass) throws InterruptedException
   {    
          brokerUserName = user;
          brokerPassword = pass;
   }
 
-  @Test(description = "LP-4683 AdminPayMeNowLockTest_verifyLockPayMeNowStatus", dataProvider = "getAdminLoginData", dependsOnMethods="getBrokerCredentials", priority = 2)
+  @Test(description = "LP-4683 AdminPayMeNowLockTest_verifyLockPayMeNowStatus", dataProvider = "getAdminLoginData", dependsOnMethods="getBrokerCredentials", priority = 57)
   public void verifyLockPayMeNowStatus(String Username, String pass) throws InterruptedException, AWTException, IOException, InvalidFormatException {
     admHomePage.AdminURL();
     Thread.sleep(1000);
@@ -79,7 +79,7 @@ public class AdminPayMeNowLockTest extends TestBase {
   }
   
 
-@Test(description = "LP-4683 AdminPayMeNowLockTest_verifyBrokerCannotOptOutPayMeNow", dataProvider = "getBrokerLoginData",dependsOnMethods="verifyLockPayMeNowStatus", priority=3)
+@Test(description = "LP-4683 AdminPayMeNowLockTest_verifyBrokerCannotOptOutPayMeNow", dataProvider = "getBrokerLoginData",dependsOnMethods="verifyLockPayMeNowStatus", priority=58)
   public void verifyBrokerCannotOptOutPayMeNow(String un, String pwd) throws InterruptedException, AWTException {
 	 Thread.sleep(2000);
 	 driver.get(super.prop.getProperty("url"));
