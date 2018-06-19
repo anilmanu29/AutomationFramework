@@ -40,6 +40,7 @@
 		 <class name="testcases.CarrierLoginTest"></class> 
 		 
 		
+		<!-- <class name="testcases.CarrierParentChildRelationshipsTest"></class> -->
 		
     </classes>
   </test> 
