@@ -44,8 +44,12 @@
 		   <!--   <class name="testcases.AdminEditEmailBrokerTest"></class> 
 		 	 <class name="testcases.AdminEditEmailCarrierTest"></class> -->
 		 	
-		 	 <class name="testcases.AdminPayMeNowUnlockTest"></class>
+		 	<!--  <class name="testcases.AdminPayMeNowUnlockTest"></class> -->
 		 	
+		 	 <class name="testcases.BrokerEditPaymentMatchedCarrierTest"></class>
+		 	 <!-- <class name="testcases.BrokerEditPaymentUnmatchedCarrierTest"></class> -->
+		 	
+
 
     </classes>
   </test> 
