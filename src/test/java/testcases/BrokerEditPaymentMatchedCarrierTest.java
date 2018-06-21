@@ -24,7 +24,7 @@ public class BrokerEditPaymentMatchedCarrierTest extends TestBase
 	
 	
 	/*-------Login to Load Pay as Broker---------*/
-	@Test(description="LP-5393 BrokerEditPayment_MatchedCarrier_Login", dataProvider="getBrokerLoginData", priority=1)
+	@Test(description="LP-5393 BrokerEditPayment_MatchedCarrier_Login", dataProvider="getBrokerLoginData", priority=105)
 	public void loginAsBrokerTest(String un, String pwd)
 	{
 		brokerEditPaymentMatchCarrierObj.loginAsBroker(un, pwd);
@@ -32,21 +32,21 @@ public class BrokerEditPaymentMatchedCarrierTest extends TestBase
 	}
 	
 	/*-------Scheduling New Payment as a Broker---------*/
-	@Test(description="LP-5393 BrokerEditPayment_MatchedCarrier_CreateNewPayment", dependsOnMethods =  {"loginAsBrokerTest"}, dataProvider="getPaymentData", priority=2)
+	@Test(description="LP-5393 BrokerEditPayment_MatchedCarrier_CreateNewPayment", dependsOnMethods =  {"loginAsBrokerTest"}, dataProvider="getPaymentData", priority=106)
 	public void brokerCreateNewPaymentTest(String cE, String iN, String lId, String pA) throws InterruptedException {
 		
 		brokerEditPaymentMatchCarrierObj.brokerCreateNewPayment(cE, iN, lId, pA);
 		System.out.println("brokerCreateNewPaymentTest - Passed");
 	}
 	
-	@Test(description="LP-5393 BrokerEditPayment_MatchedCarrier_VerifyEditableFieldsEnabled", dependsOnMethods =  {"brokerCreateNewPaymentTest"}, priority=2)
+	@Test(description="LP-5393 BrokerEditPayment_MatchedCarrier_VerifyEditableFieldsEnabled", dependsOnMethods =  {"brokerCreateNewPaymentTest"}, priority=107)
 	public void verifyEditableFieldsEnabledTest() throws InterruptedException
 	{
 		brokerEditPaymentMatchCarrierObj.verifyEditableFieldsEnabled();
 		System.out.println("verifyEditableFieldsEnabledTest - Passed");
 	}
 	
-	@Test(description="LP-5393 BrokerEditPayment_MatchedCarrier_UpdatePaymentDetails", dependsOnMethods =  {"verifyEditableFieldsEnabledTest"}, dataProvider="getUpdatedPaymentData", priority=3)
+	@Test(description="LP-5393 BrokerEditPayment_MatchedCarrier_UpdatePaymentDetails", dependsOnMethods =  {"verifyEditableFieldsEnabledTest"}, dataProvider="getUpdatedPaymentData", priority=108)
 	public void updatePaymentDetailsTest(
 		String updatedCarrierEmail,
 		String updatedPayTo,
