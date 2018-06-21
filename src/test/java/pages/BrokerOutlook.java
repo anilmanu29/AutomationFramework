@@ -54,6 +54,9 @@ public class BrokerOutlook extends TestBase {
 
 	@FindBy(xpath = "//div[@id='page-main']//child::*[text()='Email Verified']")
 	WebElement emailverifymessage;
+	
+	@FindBy(xpath = "//table/tbody/tr/td//child::a[text()='Verify Email ']")
+	WebElement verifyEmailLink;
 
 //	@FindBy(xpath = "html/body/div[2]/div/div[3]/div[3]/div/div[1]/div[2]/div[4]/div/div/div[1]/div/div/button")
 //	WebElement fieldsearch;
@@ -179,6 +182,30 @@ public class BrokerOutlook extends TestBase {
 		//linkVerify.click();
 
 	}
+	
+	public void handleUpdatedEmailInbox(String updatedEmailAddress) throws InterruptedException {
+		Thread.sleep(2000);
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(1));
+		Thread.sleep(6000);
+		
+		List<WebElement> list = driver.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
+
+		for(WebElement e : list)
+		{
+			Thread.sleep(1000);
+			e.click();
+			Thread.sleep(1000);
+			System.out.println(emailid.getText());
+			if(emailid.getText().equalsIgnoreCase(updatedEmailAddress +";"))
+			{
+				Thread.sleep(1000);
+				verifyEmailLink.click();
+				break;
+			}
+			
+		}
+	}
 
 	public void verifyConfirmationMessage() throws InterruptedException {
 		Thread.sleep(1000);
@@ -189,6 +216,48 @@ public class BrokerOutlook extends TestBase {
 		driver.close();
 		driver.switchTo().window(tabs.get(1));
 
+	}
+	
+	public void outlookSearchInbox(String updatedBrokerEmailAddress) throws InterruptedException
+	{
+		WebElement searchInput;
+		WebElement searchButton;
+		WebElement infoMessage;
+		WebElement emailid;
+		Integer retryCount = 0;
+		Integer maxRetryCount = 300;
+		
+		Thread.sleep(2000);
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(1));
+		Thread.sleep(6000);
+		
+		WebElement searchField = driver.findElement(By.xpath("//span[text()='Search mail and people']"));
+		searchField.click();
+		
+		searchInput = driver.findElement(By.xpath("//input[@aria-label='Search. Press Enter to Start Searching.']"));
+		searchButton = driver.findElement(By.xpath("//button[@aria-label='Start search']"));
+		
+		Thread.sleep(1000);
+		searchInput.sendKeys(updatedBrokerEmailAddress);
+		searchButton.click();
+		
+		infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
+		System.out.println("Info message text: " + infoMessage.getText());
+		
+		while(infoMessage.isDisplayed() && (retryCount < maxRetryCount))
+		{
+			searchButton.click();
+			Thread.sleep(1000);
+			infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
+		}
+		
+		emailid = driver.findElement(By.xpath("//*[@id='ItemHeader.ToContainer']/div/div/div/span/span/div/span[2]"));
+		
+		System.out.println("Email ID text: " + emailid.getText());
+		Assert.assertTrue(emailid.getText().equalsIgnoreCase(updatedBrokerEmailAddress+";"), "Email ID not found!");
+			
+		Thread.sleep(1000);
 	}
 
 }
