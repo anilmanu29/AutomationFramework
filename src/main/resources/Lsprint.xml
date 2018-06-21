@@ -41,8 +41,11 @@
 		<!--  <class name="testcases.CarrierlockedaccountcanbeunlockedbyadminTest"></class> -->
 		
 		
-		<!-- <class name="testcases.AdminEditEmailBrokerTest"></class> --> 
-		 	 <class name="testcases.AdminEditEmailCarrierTest"></class>
+		   <!--   <class name="testcases.AdminEditEmailBrokerTest"></class> 
+		 	 <class name="testcases.AdminEditEmailCarrierTest"></class> -->
+		 	
+		 	 <class name="testcases.AdminPayMeNowUnlockTest"></class>
+		 	
 
     </classes>
   </test> 
