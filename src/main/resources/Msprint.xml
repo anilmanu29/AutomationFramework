@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Automation Test Suite">
+
+  <listeners>
+   <listener class-name = "extentReportListener.ExtentReporterNG"/>
+   <listener class-name = "TestNGCustomReportListener.TestNGCustomReportListener"/>
+   </listeners>
+   
+	<test name=" Test Cases">
+    <classes>
+    
+    <!-- Script for Jira Ticket LP-5416 - LoadPay - LoadPay - Selenium Test - Carrier account locked after 10 failed logins -->
+    
+    	<class name="testcases.CarrierAccountLockedafter10FailedLoginsTest"></class>
+		
+		
+
+    </classes>
+  </test> 
+</suite> 
