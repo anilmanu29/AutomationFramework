@@ -12,7 +12,8 @@
     
     <!-- Script for Jira Ticket LP-5416 - LoadPay - LoadPay - Selenium Test - Carrier account locked after 10 failed logins -->
     
-    	<class name="testcases.CarrierAccountLockedafter10FailedLoginsTest"></class>
+   <!--  	<class name="testcases.CarrierAccountLockedafter10FailedLoginsTest"></class> -->
+    	<class name="testcases.CarrierlockedAccountResetPasswordTest"></class>
 		
 		
 
