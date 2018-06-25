@@ -46,7 +46,7 @@ public class AdminSearchTest extends TestBase
 	}
 	
 	//login as admin
-	@Test(description="LP-5423 Admin_Search_adminLogin", dataProvider="getAdminLoginData")
+	@Test(description="LP-5423 Admin_Search_adminLogin", dataProvider="getAdminLoginData", priority = 1)
 	public void adminLogin(String Username,String pass) throws AWTException, InterruptedException
 	{		
 		adminHomePage.AdminURL();
@@ -60,171 +60,193 @@ public class AdminSearchTest extends TestBase
 	}
 	
 	//click search tab on left pane
-	@Test(description="LP-5423 Admin_Search_goToSearchPage", dependsOnMethods = {"adminLogin"})
+	@Test(description="LP-5423 Admin_Search_goToSearchPage", dependsOnMethods = {"adminLogin"}, priority = 2)
 	public void goToSearchPage()
 	{	
 		adminSearchPage.clickSearchPageLink();
 	}
 	
-	@Test(description="LP-5423 Admin_Search_goToSearchPage", dependsOnMethods = {"goToSearchPage"}, dataProvider="getAdminSearchData")
+	@Test(description="LP-5423 Admin_Search_goToSearchPage", dependsOnMethods = {"goToSearchPage"}, dataProvider="getAdminSearchData", priority = 3)
 	public void searchTest(
 			String paymentId, String invoiceAmountFrom, String invoiceAmountTo, String dateFrom, String dateTo,
 			String filterByAll, String filterByUnmatched, String filterByNotScheduled, String filterByScheduled,
 			String filterByPaid, String filteredByError, String filterByCanceled)
 	{	
-		if(!paymentId.isEmpty())
+		if(paymentId != null)
 			adminSearchPage.setSearchInputField(paymentId);
 		
-		if(!invoiceAmountFrom.isEmpty())
+		if(invoiceAmountFrom != null)
 			adminSearchPage.setAmountFromInputField(invoiceAmountFrom);
 		
-		if(!invoiceAmountTo.isEmpty())
+		if(invoiceAmountTo != null)
 			adminSearchPage.setAmountToInputField(invoiceAmountTo);
 		
-		if(!dateFrom.isEmpty())
+		if(dateFrom != null)
 			adminSearchPage.setStartDateInputField(dateFrom);
 		
-		if(!dateTo.isEmpty())
+		if(dateTo != null)
 			adminSearchPage.setEndDateInputField(dateTo);
 		
 		//set filter for ALL based on TestData.xlsx
-		if(filterByAll.equalsIgnoreCase("t"))
+		if(filterByAll != null)
 		{
-			if(!adminSearchPage.isAllFilterChecked())
+			if(filterByAll.equalsIgnoreCase("t"))
 			{
-				adminSearchPage.clickAllCheckBox();
+				if(!adminSearchPage.isAllFilterChecked())
+				{
+					adminSearchPage.clickAllCheckBox();
+				}
+				
+				Assert.assertTrue(adminSearchPage.isAllFilterChecked(), "All filter NOT checked but data indicates it should be!");
 			}
-			
-			Assert.assertTrue(adminSearchPage.isAllFilterChecked(), "All filter NOT checked but data indicates it should be!");
-		}
-		else if(filterByAll.equalsIgnoreCase("f") || filterByAll.isEmpty())
-		{
-			if(adminSearchPage.isAllFilterChecked())
+			else if(filterByAll.equalsIgnoreCase("f"))
 			{
-				adminSearchPage.clickAllCheckBox();
-			}
-			
-			Assert.assertFalse(adminSearchPage.isAllFilterChecked(), "All filter IS checked but data indicates it should NOT be!");
+				if(adminSearchPage.isAllFilterChecked())
+				{
+					adminSearchPage.clickAllCheckBox();
+				}
+				
+				Assert.assertFalse(adminSearchPage.isAllFilterChecked(), "All filter IS checked but data indicates it should NOT be!");
+			}		
 		}
+
 		
 		//set filter for UNMATCHED based on TestData.xlsx
-		if(filterByUnmatched.equalsIgnoreCase("t"))
+		if(filterByUnmatched != null)
 		{
-			if(!adminSearchPage.isUnmatchedChecked())
+			if(filterByUnmatched.equalsIgnoreCase("t"))
 			{
-				adminSearchPage.clickUnmatchedCheckBox();
+				if(!adminSearchPage.isUnmatchedChecked())
+				{
+					adminSearchPage.clickUnmatchedCheckBox();
+				}
+				
+				Assert.assertTrue(adminSearchPage.isUnmatchedChecked(), "Unmatched filter NOT checked but data indicates it should be!");
 			}
-			
-			Assert.assertTrue(adminSearchPage.isUnmatchedChecked(), "Unmatched filter NOT checked but data indicates it should be!");
-		}
-		else if(filterByUnmatched.equalsIgnoreCase("f") || filterByUnmatched.isEmpty())
-		{
-			if(adminSearchPage.isUnmatchedChecked())
+			else if(filterByUnmatched.equalsIgnoreCase("f"))
 			{
-				adminSearchPage.clickUnmatchedCheckBox();
+				if(adminSearchPage.isUnmatchedChecked())
+				{
+					adminSearchPage.clickUnmatchedCheckBox();
+				}
+				
+				Assert.assertFalse(adminSearchPage.isUnmatchedChecked(), "Unmatched filtered IS checked but data indicates it should NOT be!");
 			}
-			
-			Assert.assertFalse(adminSearchPage.isUnmatchedChecked(), "Unmatched filtered IS checked but data indicates it should NOT be!");
 		}
 		
 		//set filter for NOT SCHEDULED based on TestData.xlsx
-		if(filterByNotScheduled.equalsIgnoreCase("t"))
+		if(filterByNotScheduled != null)
 		{
-			if(!adminSearchPage.isNotScheduledChecked())
+			if(filterByNotScheduled.equalsIgnoreCase("t"))
 			{
-				adminSearchPage.clickNotScheduledCheckBox();
+				if(!adminSearchPage.isNotScheduledChecked())
+				{
+					adminSearchPage.clickNotScheduledCheckBox();
+				}
+				
+				Assert.assertTrue(adminSearchPage.isNotScheduledChecked(), "Not Scheduled filter NOT checked but data indicates it should be!");
 			}
-			
-			Assert.assertTrue(adminSearchPage.isNotScheduledChecked(), "Not Scheduled filter NOT checked but data indicates it should be!");
-		}
-		else if(filterByNotScheduled.equalsIgnoreCase("f") || filterByNotScheduled.isEmpty())
-		{
-			if(adminSearchPage.isNotScheduledChecked())
+			else if(filterByNotScheduled.equalsIgnoreCase("f"))
 			{
-				adminSearchPage.clickNotScheduledCheckBox();
+				if(adminSearchPage.isNotScheduledChecked())
+				{
+					adminSearchPage.clickNotScheduledCheckBox();
+				}
+				
+				Assert.assertFalse(adminSearchPage.isNotScheduledChecked(), "Not Scheduled filtered IS checked but data indicates it should NOT be!");
 			}
-			
-			Assert.assertFalse(adminSearchPage.isNotScheduledChecked(), "Not Scheduled filtered IS checked but data indicates it should NOT be!");
 		}
 		
 		//set filter for SCHEDULED based on TestData.xlsx
-		if(filterByScheduled.equalsIgnoreCase("t"))
+		if(filterByScheduled != null)
 		{
-			if(!adminSearchPage.isScheduledChecked())
+			if(filterByScheduled.equalsIgnoreCase("t"))
 			{
-				adminSearchPage.clickScheduledCheckBox();
+				if(!adminSearchPage.isScheduledChecked())
+				{
+					adminSearchPage.clickScheduledCheckBox();
+				}
+				
+				Assert.assertTrue(adminSearchPage.isScheduledChecked(), "Scheduled filter NOT checked but data indicates it should be!");
 			}
-			
-			Assert.assertTrue(adminSearchPage.isScheduledChecked(), "Scheduled filter NOT checked but data indicates it should be!");
-		}
-		else if(filterByScheduled.equalsIgnoreCase("f") || filterByScheduled.isEmpty())
-		{
-			if(adminSearchPage.isScheduledChecked())
+			else if(filterByScheduled.equalsIgnoreCase("f"))
 			{
-				adminSearchPage.clickScheduledCheckBox();
+				if(adminSearchPage.isScheduledChecked())
+				{
+					adminSearchPage.clickScheduledCheckBox();
+				}
+				
+				Assert.assertFalse(adminSearchPage.isScheduledChecked(), "Scheduled filtered IS checked but data indicates it should NOT be!");
 			}
-			
-			Assert.assertFalse(adminSearchPage.isScheduledChecked(), "Scheduled filtered IS checked but data indicates it should NOT be!");
 		}
 		
 		//set filter for PAID based on TestData.xlsx
-		if(filterByPaid.equalsIgnoreCase("t"))
+		if(filterByPaid != null)
 		{
-			if(!adminSearchPage.isPaidChecked())
+			if(filterByPaid.equalsIgnoreCase("t"))
 			{
-				adminSearchPage.clickPaidCheckBox();
+				if(!adminSearchPage.isPaidChecked())
+				{
+					adminSearchPage.clickPaidCheckBox();
+				}
+				
+				Assert.assertTrue(adminSearchPage.isPaidChecked(), "Paid filter NOT checked but data indicates it should be!");
 			}
-			
-			Assert.assertTrue(adminSearchPage.isPaidChecked(), "Paid filter NOT checked but data indicates it should be!");
-		}
-		else if(filterByPaid.equalsIgnoreCase("f") || filterByPaid.isEmpty())
-		{
-			if(adminSearchPage.isPaidChecked())
+			else if(filterByPaid.equalsIgnoreCase("f"))
 			{
-				adminSearchPage.clickPaidCheckBox();
+				if(adminSearchPage.isPaidChecked())
+				{
+					adminSearchPage.clickPaidCheckBox();
+				}
+				
+				Assert.assertFalse(adminSearchPage.isPaidChecked(), "Paid filtered IS checked but data indicates it should NOT be!");
 			}
-			
-			Assert.assertFalse(adminSearchPage.isPaidChecked(), "Paid filtered IS checked but data indicates it should NOT be!");
 		}
 		
 		//set filter for ERROR based on TestData.xlsx
-		if(filteredByError.equalsIgnoreCase("t"))
+		if(filteredByError != null)
 		{
-			if(!adminSearchPage.isErrorChecked())
+			if(filteredByError.equalsIgnoreCase("t"))
 			{
-				adminSearchPage.clickErrorCheckBox();
+				if(!adminSearchPage.isErrorChecked())
+				{
+					adminSearchPage.clickErrorCheckBox();
+				}
+				
+				Assert.assertTrue(adminSearchPage.isErrorChecked(), "Error filter NOT checked but data indicates it should be!");
 			}
-			
-			Assert.assertTrue(adminSearchPage.isErrorChecked(), "Error filter NOT checked but data indicates it should be!");
-		}
-		else if(filteredByError.equalsIgnoreCase("f") || filteredByError.isEmpty())
-		{
-			if(adminSearchPage.isErrorChecked())
+			else if(filteredByError.equalsIgnoreCase("f"))
 			{
-				adminSearchPage.clickErrorCheckBox();
+				if(adminSearchPage.isErrorChecked())
+				{
+					adminSearchPage.clickErrorCheckBox();
+				}
+				
+				Assert.assertFalse(adminSearchPage.isErrorChecked(), "Error filtered IS checked but data indicates it should NOT be!");
 			}
-			
-			Assert.assertFalse(adminSearchPage.isErrorChecked(), "Error filtered IS checked but data indicates it should NOT be!");
 		}
 		
 		//set filter for CANCELED based on TestData.xlsx
-		if(filterByCanceled.equalsIgnoreCase("t"))
+		if(filterByCanceled != null)
 		{
-			if(!adminSearchPage.isCanceledChecked())
+			if(filterByCanceled.equalsIgnoreCase("t"))
 			{
-				adminSearchPage.clickCanceledCheckBox();
+				if(!adminSearchPage.isCanceledChecked())
+				{
+					adminSearchPage.clickCanceledCheckBox();
+				}
+				
+				Assert.assertTrue(adminSearchPage.isErrorChecked(), "Error filter NOT checked but data indicates it should be!");
 			}
-			
-			Assert.assertTrue(adminSearchPage.isErrorChecked(), "Error filter NOT checked but data indicates it should be!");
-		}
-		else if(filterByCanceled.equalsIgnoreCase("f") || filterByCanceled.isEmpty())
-		{
-			if(adminSearchPage.isCanceledChecked())
+			else if(filterByCanceled.equalsIgnoreCase("f"))
 			{
-				adminSearchPage.clickCanceledCheckBox();
+				if(adminSearchPage.isCanceledChecked())
+				{
+					adminSearchPage.clickCanceledCheckBox();
+				}
+				
+				Assert.assertFalse(adminSearchPage.isCanceledChecked(), "Error filtered IS checked but data indicates it should NOT be!");
 			}
-			
-			Assert.assertFalse(adminSearchPage.isCanceledChecked(), "Error filtered IS checked but data indicates it should NOT be!");
 		}
 		
 		adminSearchPage.clickSearchButton();
