@@ -120,13 +120,13 @@ public class CarrierParentChildRelationships extends TestBase {
 	private WebElement buttonresetpassword;
 
 	@FindBy(id = "User_Password")
-	private WebElement newpasswordfield;
+	public WebElement newpasswordfield;
 
 	@FindBy(id = "User_ConfirmPassword")
-	private WebElement confirmpassword;
+	public WebElement confirmpassword;
 
 	@FindBy(xpath = "//input[@value='Submit']")
-	private WebElement submitbutton;
+	public WebElement submitbutton;
 
 	@FindBy(xpath = "//a[@href='/Account/LogOff']")
 	private WebElement logoffbutton;
