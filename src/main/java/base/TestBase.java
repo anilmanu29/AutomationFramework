@@ -206,17 +206,10 @@ public class TestBase {
     }
 
     @DataProvider
-    public Object[][] getBulkUploadPaymentsUnmatchedData() throws InvalidFormatException, IOException
+    public Object[][] getCarrierSchedulePaymentTabData() throws InvalidFormatException, IOException
     {
     ReadExcel read = new ReadExcel();
-    return read.getCellData(Fileppath, "BulkUploadPaymentsUnmatched");
-    }
-    
-    @DataProvider
-    public Object[][] getUpdatedPaymentData() throws InvalidFormatException, IOException
-    {
-    ReadExcel read = new ReadExcel();
-    return read.getCellData(Fileppath, "BrokerUpdatePaymentData");
+    return read.getCellData(Fileppath, "CarrierSchedulePaymentTabData");
     }
 
 
