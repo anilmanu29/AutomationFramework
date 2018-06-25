@@ -2,7 +2,12 @@ package testcases;
 
 import java.awt.AWTException;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.TimeZone;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -30,6 +35,14 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 	CarrierParentChildRelationships carrierparentchildobject;
 	CarrierLoginPage carrierloginobj;
 	ArrayList<String> tabs;
+	
+	Date currentTime;
+	String formattedDate = "";
+	Long longTime;
+	DateFormat formatter;
+	String currentHour = "";
+	String currentMinutes = "";
+	String timeArray[] = new String[2];
 
 	public CarrierlockedAccountResetPasswordTest() {
 		super();
@@ -46,6 +59,7 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 		carrierOutlookObj = new CarrierOutlook();
 		carrierparentchildobject = new CarrierParentChildRelationships();
 		carrierloginobj = new CarrierLoginPage();
+		currentTime = new Date();
 	}
 
 	@Test(description = "LP-5415 Carriercanresetpasswordwhenaccountislocked_verifyCarrierAccountLocked", dataProvider = "getCarrierlockedaccountAdminUnlockData", priority = 1)
@@ -69,6 +83,26 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 		Assert.assertTrue(
 				carrierlockaccounrsetpwdtobj.succesfulmessage.getText().contains("Thank you. An email has been sent."),
 				"Email sent for Password Rest message is NOT Displayed");
+
+		/////////////////////////////////////////////////////////////////
+		formatter = new SimpleDateFormat("HH:mm");
+		formatter.setTimeZone(TimeZone.getTimeZone("EST"));
+		longTime = currentTime.getTime();
+		formattedDate = formatter.format(longTime);
+		timeArray = formattedDate.split(":");
+		currentHour = timeArray[0];
+		
+		if(Integer.parseInt(currentHour) > 12)
+			currentHour = Integer.toString((Integer.parseInt(currentHour) - 14)); //minus 12 hour offset and an additional 2 hours for the eastern time zone in outlook
+		
+		currentMinutes = timeArray[1];
+		System.out.println("\n\n\n===============================");
+		System.out.println("Current date: " + longTime);
+		System.out.println("Formatted date: " + formattedDate);
+		System.out.println("Hour: " + currentHour);
+		System.out.println("Minutes: " + currentMinutes);
+		System.out.println("\n\n\n===============================");
+		//////////////////////////////////////////////////////////////////
 	}
 
 	@Test(description = "LP-5415 Carriercanresetpasswordwhenaccountislocked_verifyPasswordResetEmail", dataProvider = "getoutlookLoginData", priority = 3)
@@ -84,7 +118,7 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 			carrierOutlookObj.clickOpenMailBox();
 			carrierOutlookObj.enterEmail(super.prop.getProperty("email"));
 			Thread.sleep(4000);
-			carrierlockaccounrsetpwdtobj.outlookSearchInbox(aemail);
+			carrierlockaccounrsetpwdtobj.outlookSearchInbox(aemail, currentHour, currentMinutes);
 			carrierlockaccounrsetpwdtobj.handleUpdatedEmailInbox(aemail);
 		} catch (AWTException e) {
 			e.printStackTrace();

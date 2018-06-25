@@ -1,7 +1,12 @@
 package testcases;
 import java.awt.AWTException;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.TimeZone;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -34,6 +39,14 @@ public class AdminEditEmailCarrierTest extends TestBase
 	String updatedCarrierPassword = "";
 	String adminUN = "";
 	String adminPW = "";
+	
+	Date currentTime;
+	String formattedDate = "";
+	Long longTime;
+	DateFormat formatter;
+	String currentHour = "";
+	String currentMinutes = "";
+	String timeArray[] = new String[2];
 	
 	public AdminEditEmailCarrierTest()
 	{
@@ -276,6 +289,26 @@ public class AdminEditEmailCarrierTest extends TestBase
 		adminEmailPage.clickUpdateCompanyButton();
 		Thread.sleep(1000);
 		
+		/////////////////////////////////////////////////////////////////
+		formatter = new SimpleDateFormat("HH:mm");
+		formatter.setTimeZone(TimeZone.getTimeZone("EST"));
+		longTime = currentTime.getTime();
+		formattedDate = formatter.format(longTime);
+		timeArray = formattedDate.split(":");
+		currentHour = timeArray[0];
+		
+		if(Integer.parseInt(currentHour) > 12)
+		currentHour = Integer.toString((Integer.parseInt(currentHour) - 14)); //minus 12 hour offset and an additional 2 hours for the eastern time zone in outlook
+		
+		currentMinutes = timeArray[1];
+		System.out.println("\n\n\n===============================");
+		System.out.println("Current date: " + longTime);
+		System.out.println("Formatted date: " + formattedDate);
+		System.out.println("Hour: " + currentHour);
+		System.out.println("Minutes: " + currentMinutes);
+		System.out.println("\n\n\n===============================");
+		//////////////////////////////////////////////////////////////////
+		
 	}	
 	
 	@Test(description = "LP-5432 Admin_EditEmail_Outlook", dependsOnMethods = {"carrierEditEmailTest"}, dataProvider = "getoutlookLoginData", priority=98)
@@ -287,7 +320,7 @@ public class AdminEditEmailCarrierTest extends TestBase
 			carrierOutlookObj.clickPopUp();
 			carrierOutlookObj.clickOpenMailBox();
 			carrierOutlookObj.enterEmail(super.prop.getProperty("email"));
-			carrierOutlookObj.outlookSearchInbox(updatedCarrierEmailAddress);
+			carrierOutlookObj.outlookSearchInbox(updatedCarrierEmailAddress, currentHour, currentMinutes);
 			carrierOutlookObj.handleUpdatedEmailInbox(updatedCarrierEmailAddress);
 		} catch (AWTException e) {
 			e.printStackTrace();
