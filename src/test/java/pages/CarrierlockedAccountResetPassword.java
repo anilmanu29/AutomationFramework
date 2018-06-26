@@ -97,6 +97,7 @@ public class CarrierlockedAccountResetPassword extends TestBase {
 			searchButton.click();
 			Thread.sleep(1000);
 			infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
+			retryCount++;
 		}
 		
 
