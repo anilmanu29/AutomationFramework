@@ -64,6 +64,7 @@ public class AdminEditEmailCarrierTest extends TestBase
 		carrierLoginObj = new CarrierLoginPage();
 		carrierOutlookObj = new CarrierOutlook();
 		carrierRegisterObj = new CarrierRegisterPage();
+		currentTime = new Date();
 	}
 	
 	@AfterClass

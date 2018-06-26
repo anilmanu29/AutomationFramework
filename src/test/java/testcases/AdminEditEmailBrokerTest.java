@@ -66,6 +66,7 @@ public class AdminEditEmailBrokerTest extends TestBase
 		brokerLoginObj = new BrokerLoginPage();
 		brokerRegisterObj = new BrokerRegister();
 		brokerOutlookObj = new BrokerOutlook();
+		currentTime = new Date();
 	}
 	
 	@AfterClass
