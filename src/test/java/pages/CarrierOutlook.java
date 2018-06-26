@@ -251,6 +251,7 @@ public class CarrierOutlook extends TestBase {
 			searchButton.click();
 			Thread.sleep(1000);
 			infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
+			retryCount++;
 		}
 		
 		emailid = driver.findElement(By.xpath("//*[@id='ItemHeader.ToContainer']/div/div/div/span/span/div/span[2]"));

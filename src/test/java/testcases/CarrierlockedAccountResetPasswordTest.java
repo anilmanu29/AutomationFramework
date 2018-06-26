@@ -94,6 +94,8 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 		
 		if(Integer.parseInt(currentHour) > 12)
 			currentHour = Integer.toString((Integer.parseInt(currentHour) - 14)); //minus 12 hour offset and an additional 2 hours for the eastern time zone in outlook
+		else
+			currentHour = Integer.toString((Integer.parseInt(currentHour) - 2));	//minus 2 hours for EST -> CST offset
 		
 		currentMinutes = timeArray[1];
 		System.out.println("\n\n\n===============================");

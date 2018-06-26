@@ -218,7 +218,7 @@ public class BrokerOutlook extends TestBase {
 
 	}
 	
-	public void outlookSearchInbox(String updatedBrokerEmailAddress) throws InterruptedException
+	public void outlookSearchInbox(String updatedBrokerEmailAddress, String hour, String minutes) throws InterruptedException
 	{
 		WebElement searchInput;
 		WebElement searchButton;
@@ -245,11 +245,11 @@ public class BrokerOutlook extends TestBase {
 		infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
 		System.out.println("Info message text: " + infoMessage.getText());
 		
-		while(infoMessage.isDisplayed() && (retryCount < maxRetryCount))
-		{
+		while ((infoMessage.isDisplayed() || checkEmailTimeStamp(hour, minutes)) && (retryCount < maxRetryCount)) {
 			searchButton.click();
 			Thread.sleep(1000);
 			infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
+			retryCount++;
 		}
 		
 		emailid = driver.findElement(By.xpath("//*[@id='ItemHeader.ToContainer']/div/div/div/span/span/div/span[2]"));
@@ -258,6 +258,45 @@ public class BrokerOutlook extends TestBase {
 		Assert.assertTrue(emailid.getText().equalsIgnoreCase(updatedBrokerEmailAddress+";"), "Email ID not found!");
 			
 		Thread.sleep(1000);
+	}
+	
+	private Boolean checkEmailTimeStamp(String hour, String minutes)
+	{
+		WebElement emailTimeStamp;
+		String emailTime = "";
+		Integer approximateHour = 0;
+		Integer approximateMinutes = 0;
+		Integer actualHour = 0;
+		Integer actualMinutes = 0;
+		String[] timeParser;
+		
+		emailTimeStamp = driver.findElement(By.id("ItemHeader.DateReceivedLabel"));
+		emailTime = emailTimeStamp.getText();
+		emailTime = emailTime.substring(emailTime.length()-8, emailTime.length());
+		System.out.println("\n\n\nEmail time: " + emailTime);
+		timeParser = emailTime.split(":");
+		timeParser[0] = timeParser[0].trim();
+		timeParser[1] = timeParser[1].trim();
+		timeParser[1] = timeParser[1].substring(0, 2);
+		
+		approximateHour = Integer.parseInt(hour);
+		approximateMinutes = Integer.parseInt(minutes);
+		System.out.println("Approx Hours: " + approximateHour);
+		System.out.println("Approx Minutes: " + approximateMinutes);
+		
+		actualHour = Integer.parseInt(timeParser[0]);
+		actualMinutes = Integer.parseInt(timeParser[1]);
+		System.out.println("Actual Hours: " + actualHour);
+		System.out.println("Actual Minutes: " + actualMinutes);
+		
+		if((approximateHour != actualHour) || (actualMinutes < approximateMinutes))
+		{
+			return true;	
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 }
