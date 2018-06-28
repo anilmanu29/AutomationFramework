@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -67,7 +68,15 @@ public class TestUtil extends TestBase{
 		
 		}
 	
-
-	
+	//this function takes a single string and removes the .0 that Excel likes to add regardless of formatting
+	public static String removeDecimalZeroFormat(String strData)
+	{
+		if(strData == null)
+			System.out.println("String data is null!");
+		else if(strData.contains(".0"))
+			strData = strData.replace(".0","");
+		
+		return strData;
+	}
 
 }

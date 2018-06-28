@@ -218,6 +218,13 @@ public class TestBase {
     ReadExcel read = new ReadExcel();
     return read.getCellData(Fileppath, "CarrierSchedulePaymentTabData");
     }
+    
+    @DataProvider
+    public Object[][] getAdminSearchData() throws InvalidFormatException, IOException
+    {
+    ReadExcel read = new ReadExcel();
+    return read.getCellData(Fileppath, "AdminSearchData");
+    }
 
 	@AfterClass
 	public void quit()
