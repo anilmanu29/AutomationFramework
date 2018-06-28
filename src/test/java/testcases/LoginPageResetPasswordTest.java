@@ -1,13 +1,12 @@
 package testcases;
 
   import base.TestBase;
+  import org.apache.http.auth.UsernamePasswordCredentials;
   import org.testng.Assert;
   import org.testng.annotations.BeforeClass;
   import org.testng.annotations.Test;
-  import pages.BrokerLoginPage;
-  import pages.BrokerOutlook;
-  import pages.ResetPassword;
-  import pages.outlooklogin;
+  import pages.*;
+
   import java.awt.*;
   import java.io.IOException;
   import java.text.DateFormat;
@@ -17,6 +16,7 @@ package testcases;
   import java.util.TimeZone;
 
 public class LoginPageResetPasswordTest extends TestBase {
+  BrokerPasswordSetupResetPage brokerPasswordSetupResetPage;
   BrokerLoginPage brokerLoginPage;
   ResetPassword resetPassword;
   BrokerOutlook brokerOutlook;
@@ -43,6 +43,7 @@ public class LoginPageResetPasswordTest extends TestBase {
     resetPassword = new ResetPassword();
     outlookLogin = new outlooklogin();
     brokerOutlook = new BrokerOutlook();
+    brokerPasswordSetupResetPage = new BrokerPasswordSetupResetPage();
     currentTime = new Date();
 
   }
@@ -101,8 +102,12 @@ public class LoginPageResetPasswordTest extends TestBase {
     brokerOutlook.enterEmail(super.prop.getProperty("email"));
     brokerOutlook.outlookSearchInbox(EmailAddress, currentHour, currentMinutes);
     brokerOutlook.handleResetPasswordEmailInbox(EmailAddress);
+    brokerPasswordSetupResetPage.enterNewPassword(NewPassword);
+    brokerPasswordSetupResetPage.confirmNewPassword(ConfirmPassword);
+    brokerPasswordSetupResetPage.clickSubmitButton();
+    brokerLoginPage.brokerVerificationLogin(UserName, NewPassword);
+    brokerLoginPage.verificationBrokerLogout();
   }
-
 }
 
 
