@@ -226,6 +226,20 @@ public class TestBase {
     return read.getCellData(Fileppath, "AdminSearchData");
     }
 
+	@DataProvider
+	public Object[][] getBrokerChangePasswordData() throws InvalidFormatException, IOException
+	{
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(Fileppath, "BrokerChangePasswordData");
+	}
+
+	@DataProvider
+	public Object[][] getBrokerForgotPassword() throws InvalidFormatException, IOException
+	{
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(Fileppath, "BrokerForgotPassword");
+	}
+
 	@AfterClass
 	public void quit()
 	{

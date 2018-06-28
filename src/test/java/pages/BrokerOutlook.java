@@ -88,6 +88,9 @@ public class BrokerOutlook extends TestBase {
 	@FindBy(xpath = "//*[@id='ItemHeader.ToContainer']/div/div/div/span/span/div/span[2]")
 	WebElement emailid;
 
+	@FindBy(xpath = "//table/tbody/tr/td//child::a[text()='Reset Your Password ']")
+	WebElement resetPasswordButton;
+
 	// Initializing the Page Objects:
 	public BrokerOutlook() throws IOException {
 
@@ -182,7 +185,26 @@ public class BrokerOutlook extends TestBase {
 		//linkVerify.click();
 
 	}
-	
+
+
+	public void handleResetPasswordEmailInbox(String EmailAddress) throws InterruptedException {
+		Thread.sleep(1000);
+   /* ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+    driver.switchTo().window(tabs.get(1));
+    Thread.sleep(2000);*/
+		driver.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
+		System.out.println(emailid.getText());
+		if (emailid.getText().equalsIgnoreCase(EmailAddress + ";")) {
+			Thread.sleep(3000);
+			resetPasswordButton.click();
+			Thread.sleep(2000);
+			ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+			driver.switchTo().window(tabs.get(2));
+			Thread.sleep(2000);
+
+		}
+	}
+
 	public void handleUpdatedEmailInbox(String updatedEmailAddress) throws InterruptedException {
 		Thread.sleep(2000);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
