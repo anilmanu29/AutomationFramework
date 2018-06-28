@@ -10,6 +10,11 @@ package testcases;
   import pages.outlooklogin;
   import java.awt.*;
   import java.io.IOException;
+  import java.text.DateFormat;
+  import java.text.SimpleDateFormat;
+  import java.util.Calendar;
+  import java.util.Date;
+  import java.util.TimeZone;
 
 public class LoginPageResetPasswordTest extends TestBase {
   BrokerLoginPage brokerLoginPage;
@@ -17,6 +22,14 @@ public class LoginPageResetPasswordTest extends TestBase {
   BrokerOutlook brokerOutlook;
   outlooklogin outlookLogin;
   public static String emailid;
+  Date currentTime;
+  String formattedDate = "";
+  Long longTime;
+  DateFormat formatter;
+  String currentHour = "";
+  String currentMinutes = "";
+  String timeArray[] = new String[2];
+
 
   public LoginPageResetPasswordTest() {
     super();
@@ -30,6 +43,7 @@ public class LoginPageResetPasswordTest extends TestBase {
     resetPassword = new ResetPassword();
     outlookLogin = new outlooklogin();
     brokerOutlook = new BrokerOutlook();
+    currentTime = new Date();
 
   }
 
@@ -47,6 +61,30 @@ public class LoginPageResetPasswordTest extends TestBase {
     Thread.sleep(1000);
     resetPassword.clickResetPassword();
     Assert.assertEquals(resetPassword.verificationPage(), "Thank you. An email has been sent.");
+    /////////////////////////////////////////////////////////////////
+    TimeZone tz = Calendar.getInstance().getTimeZone();
+    String currentTimeZone = tz.getDisplayName();
+    System.out.println(currentTimeZone);
+
+    formatter = new SimpleDateFormat("HH:mm");
+    formatter.setTimeZone(TimeZone.getTimeZone("MST"));
+    longTime = currentTime.getTime();
+    formattedDate = formatter.format(longTime);
+    timeArray = formattedDate.split(":");
+    currentHour = timeArray[0];
+
+    currentMinutes = timeArray[1];
+
+    currentHour = Integer.toString(Math.abs(Integer.parseInt(currentHour)));
+    currentMinutes =  Integer.toString(Math.abs(Integer.parseInt(currentMinutes)));
+
+    System.out.println("\n\n\n===============================");
+    System.out.println("Current date: " + longTime);
+    System.out.println("Formatted date: " + formattedDate);
+    System.out.println("Current Hour: " + currentHour);
+    System.out.println("Current Minutes: " + currentMinutes);
+    System.out.println("\n\n\n===============================");
+    //////////////////////////////////////////////////////////////////
 
   }
 
@@ -61,7 +99,7 @@ public class LoginPageResetPasswordTest extends TestBase {
     EmailAddress = EmailAddress.trim();
     brokerOutlook.clickOpenMailBox();
     brokerOutlook.enterEmail(super.prop.getProperty("email"));
-    brokerOutlook.outlookSearchInbox(EmailAddress);
+    brokerOutlook.outlookSearchInbox(EmailAddress, currentHour, currentMinutes);
     brokerOutlook.handleResetPasswordEmailInbox(EmailAddress);
   }
 

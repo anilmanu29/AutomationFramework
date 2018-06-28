@@ -54,7 +54,17 @@ public class BrokerLoginPage extends TestBase{
 		    	JavascriptExecutor js = (JavascriptExecutor)driver;
 		    	js.executeScript("arguments[0].click();", loginBtn);
 	}
-	
+
+	public void brokerVerificationLogin(String UserName, String NewPassword) {
+		bemail = UserName;
+		this.UserName.sendKeys(UserName);
+		Password.sendKeys(NewPassword);
+		//loginBtn.click();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", loginBtn);
+	}
+
+
 	public void BrokerLogout()
 	{
 		btn_logout.click();
