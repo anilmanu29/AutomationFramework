@@ -20,7 +20,11 @@
     	
     	<!-- Script for Jira Ticket LP-5399 - LoadPay- Broker Payment Terms Charge Sender -->
     	
-    	<class name="testcases.BrokerPaymentTermsChargeSenderTest"></class>
+    	<!-- <class name="testcases.BrokerPaymentTermsChargeSenderTest"></class> -->
+    	
+    		<!-- Script for Jira Ticket LP-5423 - LoadPay - Selenium Test - Admin - Search-->
+    	
+    	<class name="testcases.AdminSearchTest"></class>
     	
 	
     </classes>
