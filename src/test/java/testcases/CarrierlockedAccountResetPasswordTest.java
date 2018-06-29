@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -85,24 +86,23 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 				"Email sent for Password Rest message is NOT Displayed");
 
 		/////////////////////////////////////////////////////////////////
+		TimeZone tz = Calendar.getInstance().getTimeZone();
+		String currentTimeZone = tz.getDisplayName();
+		System.out.println(currentTimeZone);
+		
 		formatter = new SimpleDateFormat("HH:mm");
-		formatter.setTimeZone(TimeZone.getTimeZone("EST"));
+		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
 		longTime = currentTime.getTime();
 		formattedDate = formatter.format(longTime);
 		timeArray = formattedDate.split(":");
 		currentHour = timeArray[0];
-		
-		if(Integer.parseInt(currentHour) > 12)
-			currentHour = Integer.toString((Integer.parseInt(currentHour) - 14)); //minus 12 hour offset and an additional 2 hours for the eastern time zone in outlook
-		else
-			currentHour = Integer.toString((Integer.parseInt(currentHour) - 2));	//minus 2 hours for EST -> CST offset
-		
 		currentMinutes = timeArray[1];
+		
 		System.out.println("\n\n\n===============================");
 		System.out.println("Current date: " + longTime);
 		System.out.println("Formatted date: " + formattedDate);
-		System.out.println("Hour: " + currentHour);
-		System.out.println("Minutes: " + currentMinutes);
+		System.out.println("Current Hour: " + currentHour);
+		System.out.println("Current Minutes: " + currentMinutes);
 		System.out.println("\n\n\n===============================");
 		//////////////////////////////////////////////////////////////////
 	}
