@@ -1,4 +1,4 @@
-package testcases.LoadPay.Carrier;
+package testcases.LoadPay.Broker;
 
 import java.io.IOException;
 
@@ -11,8 +11,8 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.LoadPay.Broker.BrokerLoginPage;
 import pages.LoadPay.Broker.BrokerNewPayment;
+import pages.LoadPay.Broker.ShipperAdvancePayment;
 import pages.LoadPay.Carrier.CarrierLoginPage;
-import pages.LoadPay.Carrier.ShipperAdvancePayment;
 
 public class ShipperAdvancePaymentTest extends TestBase 
 {

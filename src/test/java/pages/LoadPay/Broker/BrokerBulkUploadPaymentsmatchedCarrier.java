@@ -159,7 +159,7 @@ public class BrokerBulkUploadPaymentsmatchedCarrier extends TestBase
 	{
 		
 		// Specify the file location with extension
-		 StringSelection sel = new StringSelection("C:\\AUTOMATION\\SELENIUM\\_Project\\testing\\SeleniumAutomation\\LoadPay-Truckstop\\SeleniumAutomation\\Matchedcarrier\\LoadPayBulkTemplateMatchedCarrier.csv");
+		 StringSelection sel = new StringSelection("C:\\AUTOMATION\\SELENIUM\\_Project\\testing\\TestAutomation\\FrameworkBase\\src\\main\\java\\testdata\\LoadPay\\LoadPayBulkTemplateMatchedCarrier.csv");
 		 		
 		
 		   // Copy to clipboard

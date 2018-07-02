@@ -1,4 +1,4 @@
-package testcases.LoadPay.Carrier;
+package testcases.LoadPay.Broker;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
