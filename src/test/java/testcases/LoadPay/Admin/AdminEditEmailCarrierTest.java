@@ -98,7 +98,7 @@ public class AdminEditEmailCarrierTest extends TestBase
 		Assert.assertTrue(adminEmailPage.getEmailPagePrimaryAddress().getText().contains(originalCarrierEmailAddress), "Original Email Address Not Found!");
 	}
 	
-	@Test(description="LP-5432 Admin_EditEmail_setAdminURL", dataProvider ="getCarrierRegisterData", priority = 95)
+	@Test(description="LP-5432 Admin_EditEmail_setAdminURL", dataProvider ="getCarrierRegisterData")
 	  public void registerNewCarrier (String Dotnumber, String CompanyName, String DoingBusinessAs, String Email, String ConfirmEmail, String ZipCode1, String Address, String City,
 	      String FirstNames, String LastName, String PhoneNumber, String Password, String ConfirmPassword, String NameOnAccount, String RoutingNumber, String BankAccountNumber,
 	      String ConfirmbankAccountNumber ) throws IOException, InterruptedException
@@ -208,7 +208,7 @@ public class AdminEditEmailCarrierTest extends TestBase
 	  
 	  }
 
-	@Test(description="LP-5432 Admin_EditEmail_adminLogin",  dependsOnMethods = {"registerNewCarrier"}, dataProvider="getAdminLoginData", priority = 96)
+	@Test(description="LP-5432 Admin_EditEmail_adminLogin",  dependsOnMethods = {"registerNewCarrier"}, dataProvider="getAdminLoginData")
 	public void adminLogin(String Username,String pass) throws AWTException, InterruptedException
 	{		
 		adminHomePage.AdminURL();
@@ -221,7 +221,7 @@ public class AdminEditEmailCarrierTest extends TestBase
 		Thread.sleep(1000);
 	}
 	
-	@Test(description="LP-5432 Admin_EditEmail_Carrier", dependsOnMethods = {"adminLogin"}, priority = 97)
+	@Test(description="LP-5432 Admin_EditEmail_Carrier", dependsOnMethods = {"adminLogin"})
 	public void carrierEditEmailTest() throws InterruptedException
 	{
 		int randomNumber = adminEmailPage.getRandomNumber(1,999999);
@@ -314,7 +314,7 @@ public class AdminEditEmailCarrierTest extends TestBase
 		
 	}	
 	
-	@Test(description = "LP-5432 Admin_EditEmail_Outlook", dependsOnMethods = {"carrierEditEmailTest"}, dataProvider = "getoutlookLoginData", priority=98)
+	@Test(description = "LP-5432 Admin_EditEmail_Outlook", dependsOnMethods = {"carrierEditEmailTest"}, dataProvider = "getoutlookLoginData")
 	public void verifyCarrierEmailInOutlookTest(String un, String pwd) throws InterruptedException
 	{
 		
@@ -330,7 +330,7 @@ public class AdminEditEmailCarrierTest extends TestBase
 		}
 	}
 	
-	@Test(description = "LP-5432 Admin_EditEmail_UpdatedCarrierLogin", dependsOnMethods = {"verifyCarrierEmailInOutlookTest"}, priority=99)
+	@Test(description = "LP-5432 Admin_EditEmail_UpdatedCarrierLogin", dependsOnMethods = {"verifyCarrierEmailInOutlookTest"})
 	public void verifyUpdatedCarrierLogin() throws InterruptedException
 	{
 		Thread.sleep(2000);

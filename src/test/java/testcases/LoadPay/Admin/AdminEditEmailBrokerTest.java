@@ -100,7 +100,7 @@ public class AdminEditEmailBrokerTest extends TestBase
 		Assert.assertTrue(adminEmailPage.getEmailPagePrimaryAddress().getText().contains(originalBrokerEmailAddress), "Original Email Address Not Found!");
 	}
 	
-	@Test(description="LP-5432 Admin_EditEmail_registerNewBroker", dataProvider = "getBrokerRegisterData", priority = 90)
+	@Test(description="LP-5432 Admin_EditEmail_registerNewBroker", dataProvider = "getBrokerRegisterData")
 	public void registerNewBroker(String DotNumber, String CompanyName, String DoingBusinessAs, String Email, String ConfirmEmail, String ZipCode1, String Address, String City,
 		      String FirstName, String LastName, String PhoneNumber, String Password, String ConfirmPassword, String NameOnAccount, String RoutingNumber, String BankAccountNumber,
 		      String ConfirmbankAccountNumber ) throws AWTException, InterruptedException
@@ -216,7 +216,7 @@ public class AdminEditEmailBrokerTest extends TestBase
 		System.out.println(" Broker Register Completed...");
 	}
 
-	@Test(description="LP-5432 Admin_EditEmail_adminLogin",  dependsOnMethods = {"registerNewBroker"}, dataProvider="getAdminLoginData", priority = 91)
+	@Test(description="LP-5432 Admin_EditEmail_adminLogin",  dependsOnMethods = {"registerNewBroker"}, dataProvider="getAdminLoginData")
 	public void adminLogin(String Username,String pass) throws AWTException, InterruptedException
 	{		
 		adminHomePage.AdminURL();
@@ -229,7 +229,7 @@ public class AdminEditEmailBrokerTest extends TestBase
 		Thread.sleep(1000);
 	}
 	
-	@Test(description="LP-5432 Admin_EditEmail_Broker", dependsOnMethods = {"adminLogin"}, priority = 92)
+	@Test(description="LP-5432 Admin_EditEmail_Broker", dependsOnMethods = {"adminLogin"})
 	public void brokerEditEmailTest() throws InterruptedException
 	{
 		int randomNumber = adminEmailPage.getRandomNumber(1,999999);
@@ -321,7 +321,7 @@ public class AdminEditEmailBrokerTest extends TestBase
 	}	
 	
 	@SuppressWarnings("static-access")
-	@Test(description = "LP-5432 Admin_EditEmail_Outlook", dependsOnMethods = {"brokerEditEmailTest"}, dataProvider = "getoutlookLoginData", priority=93)
+	@Test(description = "LP-5432 Admin_EditEmail_Outlook", dependsOnMethods = {"brokerEditEmailTest"}, dataProvider = "getoutlookLoginData")
 	public void verifyBrokerEmailInOutlookTest(String un, String pwd) throws InterruptedException
 	{
 		
@@ -337,7 +337,7 @@ public class AdminEditEmailBrokerTest extends TestBase
 		}
 	}
 	
-	@Test(description = "LP-5432 Admin_EditEmail_UpdatedBrokerLogin", dependsOnMethods = {"verifyBrokerEmailInOutlookTest"}, priority=94)
+	@Test(description = "LP-5432 Admin_EditEmail_UpdatedBrokerLogin", dependsOnMethods = {"verifyBrokerEmailInOutlookTest"})
 	public void verifyUpdatedBrokerLogin() throws InterruptedException
 	{
 		Thread.sleep(2000);

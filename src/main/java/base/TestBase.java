@@ -23,9 +23,9 @@ public class TestBase {
 	
 	public static WebDriver driver;
 	public static Properties prop;
-	public  static EventFiringWebDriver e_driver;
+	public static EventFiringWebDriver e_driver;
 	public static WebEventListener eventListener;
-	public  String loadPayTestDataFilePath=System.getProperty("user.dir")+"/src/main/java/testdata/LoadPay/LoadPayTestData.xlsx";
+	public static final String loadPayTestDataFilePath = System.getProperty("user.dir")+"/src/main/java/testdata/LoadPay/LoadPayTestData.xlsx";
 	
 	
 	
@@ -47,27 +47,26 @@ public class TestBase {
 		
 		if(browserName.equals("chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver", 
-					System.getProperty("user.dir")+ "/Drivers/chromedriver.exe");	
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ "/Drivers/chromedriver.exe");	
 			driver = new ChromeDriver(); 
 			driver.get(prop.getProperty("url"));
 		}
 		else if(browserName.equals("FF"))
 		{
 			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+ "/Drivers/geckodriver.exe");	
-			driver = new FirefoxDriver(); 
-		
+			driver = new FirefoxDriver(); 	
 			driver.get(prop.getProperty("url"));
-			}
-		else if(browserName.equals("IE")){
+		}
+		else if(browserName.equals("IE"))
+		{
 			System.setProperty("webdriver.ie.driver", System.getProperty("user.dir")+ "/Drivers/IEDriverServer.exe");	
 			driver = new InternetExplorerDriver(); 
 			driver.get(prop.getProperty("url"));
 		}
 		
-			
+		
+		//Create object of EventListerHandler to register it with EventFiringWebDriver
 		e_driver = new EventFiringWebDriver(driver);
-		// Now create object of EventListerHandler to register it with EventFiringWebDriver
 		eventListener = new util.WebEventListener();
 		e_driver.register(eventListener);
 		driver = e_driver;
@@ -75,8 +74,6 @@ public class TestBase {
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
-		
-		
 	}
 	
 	@DataProvider
