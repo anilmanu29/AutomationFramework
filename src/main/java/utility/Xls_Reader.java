@@ -3,6 +3,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
+
 import org.apache.poi.common.usermodel.Hyperlink;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.Cell;
@@ -391,7 +392,6 @@ public Xls_Reader(String path) {
 			sheet=workbook.getSheet(sheetName);
 			XSSFCellStyle style = workbook.createCellStyle();
 			style.setFillForegroundColor(HSSFColor.GREY_40_PERCENT.index);
-			XSSFCreationHelper createHelper = workbook.getCreationHelper();
 			style.setFillPattern(CellStyle.NO_FILL);
 			for(int i =0;i<getRowCount(sheetName);i++){
 				row=sheet.getRow(i);	
@@ -473,9 +473,6 @@ public Xls_Reader(String path) {
 			
 		// to run this on stand alone
 		public static void main(String arg[]) throws IOException{
-			
-			//System.out.println(filename);
-			Xls_Reader datatable = null;
 			
 
 				/* datatable = new Xls_Reader(System.getProperty("user.dir")+"\\src\\com\\qtpselenium\\xls\\Controller.xlsx");

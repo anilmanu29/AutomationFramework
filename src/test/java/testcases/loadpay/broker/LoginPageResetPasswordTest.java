@@ -1,0 +1,118 @@
+package testcases.loadpay.broker;
+
+  import java.awt.AWTException;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
+
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import base.TestBase;
+import pages.loadpay.broker.BrokerLoginPage;
+import pages.loadpay.broker.BrokerOutlook;
+import pages.loadpay.broker.BrokerPasswordSetupResetPage;
+import pages.loadpay.carrier.ResetPassword;
+import pages.loadpay.outlook.outlooklogin;
+
+public class LoginPageResetPasswordTest extends TestBase {
+  BrokerPasswordSetupResetPage brokerPasswordSetupResetPage;
+  BrokerLoginPage brokerLoginPage;
+  ResetPassword resetPassword;
+  BrokerOutlook brokerOutlook;
+  outlooklogin outlookLogin;
+  public static String emailid;
+  Date currentTime;
+  String formattedDate = "";
+  Long longTime;
+  DateFormat formatter;
+  String currentHour = "";
+  String currentMinutes = "";
+  String timeArray[] = new String[2];
+
+
+  public LoginPageResetPasswordTest() {
+    super();
+
+  }
+
+  @BeforeClass
+  public void setUp() throws IOException, InterruptedException {
+    initialization();
+    brokerLoginPage = new BrokerLoginPage();
+    resetPassword = new ResetPassword();
+    outlookLogin = new outlooklogin();
+    brokerOutlook = new BrokerOutlook();
+    brokerPasswordSetupResetPage = new BrokerPasswordSetupResetPage();
+    currentTime = new Date();
+
+  }
+
+  @Test(description = "LP-5025 ")
+  public void openBrokerLoginPage() throws InterruptedException {
+    Thread.sleep(1000);
+    brokerLoginPage.forgotPasswordButton();
+
+  }
+
+  @Test(dataProvider = "getBrokerForgotPassword", dependsOnMethods = "openBrokerLoginPage")
+  public void proceedWithResetPassword(String UserName, String EmailAddress, String NewPassword, String ConfirmPassword) throws InterruptedException {
+    Thread.sleep(2000);
+    resetPassword.enterUserName(UserName);
+    Thread.sleep(1000);
+    resetPassword.clickResetPassword();
+    Assert.assertEquals(resetPassword.verificationPage(), "Thank you. An email has been sent.");
+
+	/////////////////////////////////////////////////////////////////
+	TimeZone tz = Calendar.getInstance().getTimeZone();
+	String currentTimeZone = tz.getDisplayName();
+	System.out.println(currentTimeZone);
+	
+	formatter = new SimpleDateFormat("HH:mm");
+	formatter.setTimeZone(TimeZone.getTimeZone("MST"));
+	longTime = currentTime.getTime();
+	formattedDate = formatter.format(longTime);
+	timeArray = formattedDate.split(":");
+	currentHour = timeArray[0];
+	currentMinutes = timeArray[1];
+	
+	System.out.println("\n\n\n===============================");
+	System.out.println("Current date: " + longTime);
+	System.out.println("Formatted date: " + formattedDate);
+	System.out.println("Current Hour: " + currentHour);
+	System.out.println("Current Minutes: " + currentMinutes);
+	System.out.println("\n\n\n===============================");
+	//////////////////////////////////////////////////////////////////
+
+  }
+
+  @Test(dataProvider = "getoutlookLoginData", dependsOnMethods = "proceedWithResetPassword")
+  public void login(String un, String pwd) throws InterruptedException, AWTException {
+    outlookLogin.outlookLogin(un, pwd);
+  }
+
+  @Test(dataProvider = "getBrokerForgotPassword", dependsOnMethods = "login")
+  public void outlookloginTest(String UserName, String EmailAddress, String NewPassword, String ConfirmPassword) throws InterruptedException {
+    brokerOutlook.clickPopUp();
+    EmailAddress = EmailAddress.trim();
+    brokerOutlook.clickOpenMailBox();
+    brokerOutlook.enterEmail(super.prop.getProperty("email"));
+    brokerOutlook.outlookSearchInbox(EmailAddress, currentHour, currentMinutes);
+    brokerOutlook.handleResetPasswordEmailInbox(EmailAddress);
+    brokerPasswordSetupResetPage.enterNewPassword(NewPassword);
+    brokerPasswordSetupResetPage.confirmNewPassword(ConfirmPassword);
+    brokerPasswordSetupResetPage.clickSubmitButton();
+    brokerLoginPage.brokerVerificationLogin(UserName, NewPassword);
+    brokerLoginPage.verificationBrokerLogout();
+  }
+}
+
+
+
+
+
+

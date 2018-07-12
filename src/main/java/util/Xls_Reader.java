@@ -77,7 +77,7 @@ public Xls_Reader(String path) {
 			sheet = workbook.getSheetAt(index);
 			row=sheet.getRow(0);
 			for(int i=0;i<row.getLastCellNum();i++){
-				//System.out.println(row.getCell(i).getStringCellValue().trim());
+
 				if(row.getCell(i).getStringCellValue().trim().equals(colName.trim()))
 					col_Num=i;
 			}
@@ -399,7 +399,6 @@ public Xls_Reader(String path) {
 			sheet=workbook.getSheet(sheetName);
 			XSSFCellStyle style = workbook.createCellStyle();
 			style.setFillForegroundColor(HSSFColor.GREY_40_PERCENT.index);
-			XSSFCreationHelper createHelper = workbook.getCreationHelper();
 			style.setFillPattern(CellStyle.NO_FILL);
 			
 		    
@@ -490,9 +489,7 @@ public Xls_Reader(String path) {
 			
 		// to run this on stand alone
 		public static void main(String arg[]) throws IOException{
-			
-			//System.out.println(filename);
-			Xls_Reader datatable = null;
+
 			
 
 				/* datatable = new Xls_Reader(System.getProperty("user.dir")+"\\src\\com\\qtpselenium\\xls\\Controller.xlsx");

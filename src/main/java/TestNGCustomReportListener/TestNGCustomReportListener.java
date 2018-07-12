@@ -3,25 +3,16 @@ package TestNGCustomReportListener;
 import java.io.File;
 import java.util.Calendar;
 import java.util.Collection;
-
 import java.util.Date;
-
 import java.util.List;
-
 import java.util.Map;
-
 import java.util.Set;
 
 import org.testng.IReporter;
-
 import org.testng.IResultMap;
-
 import org.testng.ISuite;
-
 import org.testng.ISuiteResult;
-
 import org.testng.ITestContext;
-
 import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 import org.testng.xml.XmlSuite;
@@ -41,7 +32,6 @@ public class TestNGCustomReportListener<TestNGReports> implements IReporter{
 
             String outputDirectory) {
     	
-    	String currentDir = System.getProperty("user.dir");
     	/*emailable = (EmailableReports) new ExtentReports(currentDir + "/output/Reports/" + System.currentTimeMillis() + File.separator
 				+ "emailable-report.html", true);*/
     	extent = new ExtentReports(outputDirectory + File.separator
