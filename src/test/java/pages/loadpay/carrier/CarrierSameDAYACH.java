@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import base.TestBase;
 
@@ -33,7 +34,7 @@ public class CarrierSameDAYACH extends TestBase {
 	 float paymenowf;
 	 
 
-	@FindBy(xpath = ".//*[@class='getpaid']")
+	@FindBy(xpath = "//*[@class='getpaid']")
 	private WebElement btn_paymenow;
 
 	@FindBy(xpath = "//span[text()='SAME DAY ACH']//following::input[@value='Select'][1]")
@@ -48,7 +49,7 @@ public class CarrierSameDAYACH extends TestBase {
 	@FindBy(xpath = "//*[@id='angularScope']/div[2]/div/div[3]/ul/li[3]/a/div/div[1]/div[2]/span[1]")
 	private WebElement paidamt;
 	
-	@FindBy(xpath = ".//*[@id='paymentOptionsDiv']/div[3]/div[1]/div[3]/p/span")
+	@FindBy(xpath = "//*[@id='paymentOptionsDiv']/div[3]/div[1]/div[3]/p/span")
 	private WebElement samedayamt;
 	
 	@FindBy(xpath = ".//*[@id='paymentOptionsDiv']/div[3]/div[1]/div[5]/span[3]//following::text()[1]")

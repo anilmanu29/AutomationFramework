@@ -7,7 +7,6 @@ import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -25,7 +24,7 @@ public class BrokerBulkUploadPaymentsmatchedCarrier extends TestBase
 	String payment_statuss = "matched:";
 	String load;
 	String    scheduledamount;
-	public static float totalamounnt;
+	public static float totalamounnt;	
 	String schedule;
 	String scheduleamt;
 	WebDriverWait wait = null;
@@ -202,6 +201,46 @@ public class BrokerBulkUploadPaymentsmatchedCarrier extends TestBase
 		Runtime.getRuntime().exec(System.getProperty("user.dir")+"\\AutoItScripts\\FileUpload.exe");
 		//logger.debug("Bulk uploadfiles");
 */		
+		
+	}
+	
+	public void UploadFileforError() throws IOException, InterruptedException, AWTException
+	{
+		
+		// Specify the file location with extension
+		 StringSelection sel = new StringSelection("C:\\AUTOMATION\\SELENIUM\\_Project\\testing\\SeleniumAutomation\\LoadPay-Truckstop\\SeleniumAutomation\\SeleniumAutomation\\Matchedcarrier\\BrokerBulkUploadPaymentErrors.csv");
+		 		
+		
+		   // Copy to clipboard
+		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(sel,null);
+		 System.out.println("selection" +sel);
+		 
+		 link_Upload.click();
+
+		// Create object of Robot class
+		 Robot robot = new Robot();
+		 Thread.sleep(1000);
+		      
+		  // Press Enter
+		 robot.keyPress(KeyEvent.VK_ENTER);
+
+		// Release Enter
+		 robot.keyRelease(KeyEvent.VK_ENTER);
+
+		  // Press CTRL+V
+		 robot.keyPress(KeyEvent.VK_CONTROL);
+		 robot.keyPress(KeyEvent.VK_V);
+
+		// Release CTRL+V
+		 robot.keyRelease(KeyEvent.VK_CONTROL);
+		 robot.keyRelease(KeyEvent.VK_V);
+		 
+		  // Press Enter
+		 robot.keyPress(KeyEvent.VK_ENTER);
+
+		// Release Enter
+		 robot.keyRelease(KeyEvent.VK_ENTER);
+		 Thread.sleep(1000);
 		
 	}
 	

@@ -5,14 +5,12 @@ import java.awt.AWTException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import base.TestBase;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
@@ -147,12 +145,9 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		Thread.sleep(2000);
 		carriersamedayach.gettotalpaiyAmount();
 		Thread.sleep(2000);
-		carriersamedayach.verifySamedayach();
 		
 		 carriernextdayach.getAmount();
 		 carriernextdayach.clickPaymenow();
-		 Thread.sleep(3000);
-		 carriernextdayach.getnextdayAmount();
 		 Thread.sleep(3000);
 		 carriernextdayach.clickSelectButton();
 		 Thread.sleep(3000);
@@ -160,13 +155,10 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		 Thread.sleep(3000);
 		 carriernextdayach.gettotalpaiyAmount();
 		 Thread.sleep(3000);
-		 carriernextdayach.verifyNextDayach();
 		
 		 carrierwiretransferach.getAmount();
 		 Thread.sleep(2000);
 		 carrierwiretransferach.clickPaymenow();
-		 Thread.sleep(2000);
-		 carrierwiretransferach.getwiretransferAmount();
 		 Thread.sleep(2000);
 		 carrierwiretransferach.clickSelectButton();
 		 Thread.sleep(2000);
@@ -174,7 +166,6 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		 Thread.sleep(2000);
 		 carrierwiretransferach.gettotalpaiyAmount();
 		 Thread.sleep(2000);
-		 carrierwiretransferach.verifywiretransfer();
 		
 		 carrierpaymenowfuelcard.clickPaymenow();
 		 Thread.sleep(2000);

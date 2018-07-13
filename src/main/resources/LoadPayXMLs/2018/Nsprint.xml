@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Automation Test Suite">
+
+  <listeners>
+   <listener class-name = "extentReportListener.ExtentReporterNG"/>
+   <listener class-name = "TestNGCustomReportListener.TestNGCustomReportListener"/>
+   </listeners>
+   
+	<test name=" Test Cases">
+    <classes>
+    
+    <!-- Script for Jira Ticket LP-6362 - LoadPay - Selenium Test - Broker - Bulk Upload Payment Errors -->
+    
+    	<class name="testcases.BrokerBulkUploadPaymentErrorsTest"></class>
+    	
+    
+	<!-- Script for Jira Ticket LP-6363 LoadPay - Selenium Test - Broker - Cannot create advance payment to unmatched carrier-->
+    
+    	<!-- <class name="testcases.BrokerAdvancePaymenttoUnmatchedCarrierTest"></class> -->
+
+
+	
+    </classes>
+  </test> 
+</suite> 
