@@ -156,7 +156,7 @@ public class UnmatchedCarrierAdminCancelPayByCheck  extends TestBase{
 	public void getPaymentID() throws InterruptedException {
 		Thread.sleep(1000);
 		paymentidd = paymentid.getText();
-		System.out.println(paymentidd);
+		log.info(paymentidd);
 }
 	
 	public void clickSearch() throws InterruptedException {
@@ -265,7 +265,7 @@ public class UnmatchedCarrierAdminCancelPayByCheck  extends TestBase{
 			CheckNumberSubmit.click();
 			Thread.sleep(3000);
 			WebElement CheckNum = driver.findElement(By.xpath("//*[contains(text(),'1234567890')]"));
-			System.out.println(CheckNum.getText());
+			log.info(CheckNum.getText());
 				
 		}*/
 }

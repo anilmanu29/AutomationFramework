@@ -147,7 +147,7 @@ public class UnmatchedCariierEmailVerify extends TestBase {
 		{
 			e.click();
 			Thread.sleep(1000);
-			System.out.println(emailid.getText());
+			log.info(emailid.getText());
 			if(emailid.getText().equalsIgnoreCase(BrokerPaymentforUnmatchedCarrierTest.al.get(0)+";"))
 			{
 				Thread.sleep(1000);

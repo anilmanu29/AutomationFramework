@@ -145,7 +145,7 @@ import pages.loadpay.carrier.CarrierRegisterPage;
 		Thread.sleep(1000);
 		Thread.sleep(1000);
 	    cr.submit();
-	    System.out.println("Carrier Registration Completed...");
+	    log.info("Carrier Registration Completed...");
 	  
 	  }
 	

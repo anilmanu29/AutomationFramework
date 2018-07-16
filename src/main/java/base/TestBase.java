@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,65 +16,72 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.DataProvider;
 
+import com.relevantcodes.extentreports.model.Log;
+
 import util.TestUtil;
 import util.WebEventListener;
 import utility.ReadExcel;
 
 public class TestBase {
 	
-	public static WebDriver driver;
-	public static Properties prop;
-	public static EventFiringWebDriver e_driver;
-	public static WebEventListener eventListener;
-	public static final String loadPayTestDataFilePath = System.getProperty("user.dir")+"/src/main/java/testdata/LoadPay/LoadPayTestData.xlsx";
+	protected WebDriver driver;
+	protected Properties prop;
+	protected EventFiringWebDriver eDriver;
+	protected WebEventListener eventListener;
+	protected String userDirectory = "user.dir";
+	protected Logger log;
 	
-	
+	public final String loadPayTestDataFilePath = System.getProperty(userDirectory)+"/src/main/java/testdata/LoadPay/LoadPayTestData.xlsx";
 	
 	public TestBase(){
 		try {
 			prop = new Properties();
-			FileInputStream ip = new FileInputStream(System.getProperty("user.dir")+"/src/main/java/config/config.properties");
+			FileInputStream ip = new FileInputStream(System.getProperty(userDirectory)+"/src/main/java/config/config.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			log.info(e);
 		} catch (IOException e) {
-			e.printStackTrace();
+			log.info(e);
 		}
 	}
 	
-	
-	public static void initialization(){
+	public void initialization(){
+		log = Logger.getLogger(Log.class.getName());
 		String browserName = prop.getProperty("browser");
 		
 		if(browserName.equals("chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ "/Drivers/chromedriver.exe");	
+			System.setProperty("webdriver.chrome.driver", System.getProperty(userDirectory)+ "/Drivers/chromedriver.exe");	
 			driver = new ChromeDriver(); 
 			driver.get(prop.getProperty("url"));
 		}
 		else if(browserName.equals("FF"))
 		{
-			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+ "/Drivers/geckodriver.exe");	
+			System.setProperty("webdriver.gecko.driver", System.getProperty(userDirectory)+ "/Drivers/geckodriver.exe");	
 			driver = new FirefoxDriver(); 	
 			driver.get(prop.getProperty("url"));
 		}
 		else if(browserName.equals("IE"))
 		{
-			System.setProperty("webdriver.ie.driver", System.getProperty("user.dir")+ "/Drivers/IEDriverServer.exe");	
+			System.setProperty("webdriver.ie.driver", System.getProperty(userDirectory)+ "/Drivers/IEDriverServer.exe");	
 			driver = new InternetExplorerDriver(); 
 			driver.get(prop.getProperty("url"));
 		}
 		
 		
 		//Create object of EventListerHandler to register it with EventFiringWebDriver
-		e_driver = new EventFiringWebDriver(driver);
+		eDriver = new EventFiringWebDriver(driver);
 		eventListener = new util.WebEventListener();
-		e_driver.register(eventListener);
-		driver = e_driver;
+		eDriver.register(eventListener);
+		driver = eDriver;
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
+	}
+	
+	public WebDriver getDriverObj() {
+		return driver;
 	}
 	
 	@DataProvider

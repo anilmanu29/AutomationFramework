@@ -153,7 +153,7 @@ public class CarrierOutlook extends TestBase {
 			Thread.sleep(1000);
 			e.click();
 			Thread.sleep(1000);
-			System.out.println(emailid.getText());
+			log.info(emailid.getText());
 			if(emailid.getText().equalsIgnoreCase(CarrierRegisterTest.email+";"))
 			{
 				Thread.sleep(1000);
@@ -192,7 +192,7 @@ public class CarrierOutlook extends TestBase {
     driver.switchTo().window(tabs.get(1));
     Thread.sleep(2000);*/
 		driver.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
-		System.out.println(emailid.getText());
+		log.info(emailid.getText());
 		if (emailid.getText().equalsIgnoreCase(EmailAddress + ";")) {
 			Thread.sleep(3000);
 			resetPasswordButton.click();
@@ -218,7 +218,7 @@ public class CarrierOutlook extends TestBase {
 			Thread.sleep(1000);
 			e.click();
 			Thread.sleep(1000);
-			System.out.println(emailid.getText());
+			log.info(emailid.getText());
 			if(emailid.getText().equalsIgnoreCase(updatedEmailAddress +";"))
 			{
 				Thread.sleep(1000);
@@ -265,7 +265,7 @@ public class CarrierOutlook extends TestBase {
 		searchButton.click();
 		
 		infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
-		System.out.println("Info message text: " + infoMessage.getText());
+		log.info("Info message text: " + infoMessage.getText());
 		
 		while ((infoMessage.isDisplayed() || checkEmailTimeStamp(hour, minutes)) && (retryCount < maxRetryCount)) {
 			searchButton.click();
@@ -276,7 +276,7 @@ public class CarrierOutlook extends TestBase {
 		
 		emailid = driver.findElement(By.xpath("//*[@id='ItemHeader.ToContainer']/div/div/div/span/span/div/span[2]"));
 		
-		System.out.println("Email ID text: " + emailid.getText());
+		log.info("Email ID text: " + emailid.getText());
 		Assert.assertTrue(emailid.getText().equalsIgnoreCase(updatedBrokerEmailAddress+";"), "Email ID not found!");
 			
 		Thread.sleep(1000);
@@ -307,7 +307,7 @@ public class CarrierOutlook extends TestBase {
 		searchButton.click();
 		
 		infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
-		System.out.println("Info message text: " + infoMessage.getText());
+		log.info("Info message text: " + infoMessage.getText());
 		
 		while ( (retryCount < maxRetryCount)) {
 			searchButton.click();
@@ -318,7 +318,7 @@ public class CarrierOutlook extends TestBase {
 		
 		emailid = driver.findElement(By.xpath("//*[@id='ItemHeader.ToContainer']/div/div/div/span/span/div/span[2]"));
 		
-		System.out.println("Email ID text: " + emailid.getText());
+		log.info("Email ID text: " + emailid.getText());
 		Assert.assertTrue(emailid.getText().equalsIgnoreCase(updatedBrokerEmailAddress+";"), "Email ID not found!");
 			
 		Thread.sleep(1000);
@@ -337,7 +337,7 @@ public class CarrierOutlook extends TestBase {
 		emailTimeStamp = driver.findElement(By.id("ItemHeader.DateReceivedLabel"));
 		emailTime = emailTimeStamp.getText();
 		emailTime = emailTime.substring(emailTime.length()-8, emailTime.length());
-		System.out.println("\n\n\nEmail time: " + emailTime);
+		log.info("\n\n\nEmail time: " + emailTime);
 		timeParser = emailTime.split(":");
 		timeParser[0] = timeParser[0].trim();
 		timeParser[1] = timeParser[1].trim();
@@ -349,8 +349,8 @@ public class CarrierOutlook extends TestBase {
 		if(approximateHour > 12)
 			approximateHour -= 12;
 		
-		System.out.println("Approx Hours: " + approximateHour);
-		System.out.println("Approx Minutes: " + approximateMinutes);
+		log.info("Approx Hours: " + approximateHour);
+		log.info("Approx Minutes: " + approximateMinutes);
 		
 		actualHour = Integer.parseInt(timeParser[0]);
 		actualMinutes = Integer.parseInt(timeParser[1]);
@@ -358,8 +358,8 @@ public class CarrierOutlook extends TestBase {
 		if(actualHour > 12)
 			actualHour -= 12;
 		
-		System.out.println("Actual Hours: " + actualHour);
-		System.out.println("Actual Minutes: " + actualMinutes);
+		log.info("Actual Hours: " + actualHour);
+		log.info("Actual Minutes: " + actualMinutes);
 		
 		if((approximateHour != actualHour) || (actualMinutes < approximateMinutes))
 		{

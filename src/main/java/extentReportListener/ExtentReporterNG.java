@@ -77,7 +77,8 @@ public class ExtentReporterNG implements IReporter {
 		return calendar.getTime();
 	}
 	
-	 private String millisToTimeConversion(long seconds) {
+	 @SuppressWarnings("unused")
+	private String millisToTimeConversion(long seconds) {
 
 	        final int MINUTES_IN_AN_HOUR = 60;
 	        final int SECONDS_IN_A_MINUTE = 60;

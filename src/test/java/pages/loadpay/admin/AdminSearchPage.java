@@ -254,10 +254,10 @@ public class AdminSearchPage extends TestBase
 	public Integer getTotalRecordCount() {
 		
 		String strCount = totalRecordCount.getText();
-		System.out.println("Raw string of Record Count Element: " + strCount);
+		log.info("Raw string of Record Count Element: " + strCount);
 		
 		strCount = strCount.substring(12, strCount.length());
-		System.out.println("Substring of Record Count Element: " + strCount);
+		log.info("Substring of Record Count Element: " + strCount);
 		
 		Integer intRecordCount = Integer.parseInt(strCount);
 		
@@ -266,16 +266,16 @@ public class AdminSearchPage extends TestBase
 	
 	public Boolean verifyFirstRowData(String searchText) {
 		
-		System.out.println("\n ===================== Search Text: " + searchText + "=====================");
+		log.info("\n ===================== Search Text: " + searchText + "=====================");
 		
 		if(firstRowData.getText().contains(searchText))
 		{
-			System.out.println("Search Text: [" + searchText + "] found within [" + firstRowData.getText() + "]");
+			log.info("Search Text: [" + searchText + "] found within [" + firstRowData.getText() + "]");
 			return true;
 		}
 		else
 		{
-			System.out.println("Search Text: [" + searchText + "] NOT found within [" + firstRowData.getText() + "]");
+			log.info("Search Text: [" + searchText + "] NOT found within [" + firstRowData.getText() + "]");
 			return false;
 		}
 	}
@@ -283,21 +283,21 @@ public class AdminSearchPage extends TestBase
 	public Boolean verifyFirstRowDataWithinRange(String minRange, String maxRange, String elementType) {
 		
 		WebElement webElementType;
-		System.out.println("\n\nFirst Row Data: [" + firstRowData.getText() + "]\n\n");
+		log.info("\n\nFirst Row Data: [" + firstRowData.getText() + "]\n\n");
 		
 		if(elementType.equals("Invoice Amount"))
 		{
 			webElementType = driver.findElement(By.xpath(".//*[@id=\"angularScope\"]/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/a/div/div[3]/div/b"));
 			
-			System.out.println("Element Text: " + webElementType.getText());
+			log.info("Element Text: " + webElementType.getText());
 			
 			Double invoiceAmt = Double.parseDouble(webElementType.getText());
 			Double minAmt = Double.parseDouble(minRange);
 			Double maxAmt = Double.parseDouble(maxRange);
 			
-			System.out.println("Invoice Amt: " + invoiceAmt);
-			System.out.println("Min Amt: " + minAmt);
-			System.out.println("Max Amt: " + maxAmt);
+			log.info("Invoice Amt: " + invoiceAmt);
+			log.info("Min Amt: " + minAmt);
+			log.info("Max Amt: " + maxAmt);
 			
 			if(invoiceAmt >= minAmt && invoiceAmt <= maxAmt)
 				return true;
@@ -310,7 +310,7 @@ public class AdminSearchPage extends TestBase
 			webElementType = driver.findElement(By.xpath(".//*[@id=\"angularScope\"]/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/a/div/div[2]/div/b"));
 			
 			String foundDateStr = webElementType.getText();
-			System.out.println("Element Text: " + foundDateStr);
+			log.info("Element Text: " + foundDateStr);
 			
 			String[] minDateElements = minRange.split("/");
 			String[] maxDateElements = maxRange.split("/");
@@ -330,49 +330,49 @@ public class AdminSearchPage extends TestBase
 			
 			Integer verificationCount = 0;
 			
-			System.out.println("Found Month: " + foundMonth);
-			System.out.println("Found Day: " + foundDay);
-			System.out.println("Found Year: " + foundYear);
+			log.info("Found Month: " + foundMonth);
+			log.info("Found Day: " + foundDay);
+			log.info("Found Year: " + foundYear);
 			
-			System.out.println("Min Month: " + minMonth);
-			System.out.println("Min Day: " + minDay);
-			System.out.println("Min Year: " + minYear);
+			log.info("Min Month: " + minMonth);
+			log.info("Min Day: " + minDay);
+			log.info("Min Year: " + minYear);
 			
-			System.out.println("Max Month: " + maxMonth);
-			System.out.println("Max Day: " + maxDay);
-			System.out.println("Max Year: " + maxYear);
+			log.info("Max Month: " + maxMonth);
+			log.info("Max Day: " + maxDay);
+			log.info("Max Year: " + maxYear);
 			
 			//test month range
 			if(foundMonth >= minMonth && foundMonth <= maxMonth)
 			{
-				System.out.println("Month filter within range");
+				log.info("Month filter within range");
 				verificationCount++;
 			}
 			else
 			{
-				System.out.println("Month filter NOT within range");
+				log.info("Month filter NOT within range");
 			}
 			
 			//test day range
 			if(foundDay >= minDay && foundDay <= maxDay)
 			{
-				System.out.println("Day filter within range");
+				log.info("Day filter within range");
 				verificationCount++;
 			}
 			else
 			{
-				System.out.println("Day filter NOT within range");
+				log.info("Day filter NOT within range");
 			}
 			
 			//test year range
 			if(foundYear >= minYear && foundYear <= maxYear)
 			{
-				System.out.println("Year filter within range");
+				log.info("Year filter within range");
 				verificationCount++;
 			}
 			else
 			{
-				System.out.println("Year filter NOT within range");
+				log.info("Year filter NOT within range");
 			}
 			
 			if(verificationCount == 3)

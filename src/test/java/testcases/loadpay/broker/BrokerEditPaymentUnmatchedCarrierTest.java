@@ -30,7 +30,7 @@ public class BrokerEditPaymentUnmatchedCarrierTest extends TestBase
 	public void loginAsBrokerTest(String un, String pwd)
 	{
 		brokerEditPaymentUnmatchedCarrierObj.loginAsBroker(un, pwd);
-		System.out.println("loginAsBrokerTest - Passed");
+		log.info("loginAsBrokerTest - Passed");
 	}
 	
 	/*-------Scheduling New Payment as a Broker---------*/
@@ -38,14 +38,14 @@ public class BrokerEditPaymentUnmatchedCarrierTest extends TestBase
 	public void brokerCreateNewPaymentTest(String cE, String iN, String lId, String pA, String pT, String Ein) throws InterruptedException {
 		
 		brokerEditPaymentUnmatchedCarrierObj.brokerCreateNewPayment(cE, iN, lId, pA, pT, Ein);
-		System.out.println("brokerCreateNewPaymentTest - Passed");
+		log.info("brokerCreateNewPaymentTest - Passed");
 	}
 	
 	@Test(description="LP-5392 BrokerEditPayment_UnmatchedCarrier_VerifyEditableFieldsEnabled", dependsOnMethods =  {"brokerCreateNewPaymentTest"})
 	public void verifyEditableFieldsEnabledTest() throws InterruptedException
 	{
 		brokerEditPaymentUnmatchedCarrierObj.verifyEditableFieldsEnabled();
-		System.out.println("verifyEditableFieldsEnabledTest - Passed");
+		log.info("verifyEditableFieldsEnabledTest - Passed");
 	}
 	
 	@Test(description="LP-5392 BrokerEditPayment_UnmatchedCarrier_UpdatePaymentDetails", dependsOnMethods =  {"verifyEditableFieldsEnabledTest"}, dataProvider="getUpdatedPaymentData")
@@ -86,6 +86,6 @@ public class BrokerEditPaymentUnmatchedCarrierTest extends TestBase
 				updatedTrailerType, updatedMiles, updatedPickupDate, updatedDeliveryDate, updatedCommodity, updatedLength, updatedWidth, updatedHeight, 
 				updatedWeight, updatedNumOfStops, updatedFuelSurcharge);
 		
-		System.out.println("updatePaymentDetailsTest - Passed");
+		log.info("updatePaymentDetailsTest - Passed");
 	}
 }

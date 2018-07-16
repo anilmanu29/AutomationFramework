@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -15,7 +14,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import base.TestBase;
 import pages.loadpay.admin.AdminEditEmailBroker;
 import pages.loadpay.admin.AdminHomePage;
@@ -211,8 +209,8 @@ public class AdminEditEmailBrokerTest extends TestBase
 		
 		brokerRegisterObj.submit();
 		Thread.sleep(1000);
-	    
-		System.out.println(" Broker Register Completed...");
+
+		log.info("Broker Registration Completed...");
 	}
 
 	@Test(description="LP-5432 Admin_EditEmail_adminLogin",  dependsOnMethods = {"registerNewBroker"}, dataProvider="getAdminLoginData")
@@ -234,8 +232,8 @@ public class AdminEditEmailBrokerTest extends TestBase
 		int randomNumber = adminEmailPage.getRandomNumber(1,999999);
 		updatedBrokerEmailAddress = originalBrokerEmailAddress.replaceFirst("@", randomNumber + "@");
 		
-		System.out.println(originalBrokerEmailAddress);
-		System.out.println(updatedBrokerEmailAddress);
+		log.info(originalBrokerEmailAddress);
+		log.info(updatedBrokerEmailAddress);
 		
 		adminLoginPage.ClickOnCustomersTab();
 		Thread.sleep(1000);
@@ -300,7 +298,7 @@ public class AdminEditEmailBrokerTest extends TestBase
 		/////////////////////////////////////////////////////////////////
 		TimeZone tz = Calendar.getInstance().getTimeZone();
 		String currentTimeZone = tz.getDisplayName();
-		System.out.println(currentTimeZone);
+		log.info(currentTimeZone);
 		
 		formatter = new SimpleDateFormat("HH:mm");
 		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
@@ -310,16 +308,15 @@ public class AdminEditEmailBrokerTest extends TestBase
 		currentHour = timeArray[0];
 		currentMinutes = timeArray[1];
 		
-		System.out.println("\n\n\n===============================");
-		System.out.println("Current date: " + longTime);
-		System.out.println("Formatted date: " + formattedDate);
-		System.out.println("Current Hour: " + currentHour);
-		System.out.println("Current Minutes: " + currentMinutes);
-		System.out.println("\n\n\n===============================");
+		log.info("\n\n\n===============================");
+		log.info("Current date: " + longTime);
+		log.info("Formatted date: " + formattedDate);
+		log.info("Current Hour: " + currentHour);
+		log.info("Current Minutes: " + currentMinutes);
+		log.info("\n\n\n===============================");
 		//////////////////////////////////////////////////////////////////
 	}	
 	
-	@SuppressWarnings("static-access")
 	@Test(description = "LP-5432 Admin_EditEmail_Outlook", dependsOnMethods = {"brokerEditEmailTest"}, dataProvider = "getoutlookLoginData")
 	public void verifyBrokerEmailInOutlookTest(String un, String pwd) throws InterruptedException
 	{
@@ -350,10 +347,10 @@ public class AdminEditEmailBrokerTest extends TestBase
 		WebElement submitButton = driver.findElement(By.xpath("//*[@id=\"formLogIn\"]/div/div[2]/div/div/div[1]/div[3]/input"));
 
 		updatedBrokerPassword = originalBrokerPassword + adminEmailPage.getRandomNumber(1,999);
-		System.out.println("\n\n\n==================================================");
-		System.out.println("Updated Username: " + updatedBrokerEmailAddress);
-		System.out.println("Updated Password: " + updatedBrokerPassword);
-		System.out.println("==================================================\n\n\n");
+		log.info("\n\n\n==================================================");
+		log.info("Updated Username: " + updatedBrokerEmailAddress);
+		log.info("Updated Password: " + updatedBrokerPassword);
+		log.info("==================================================\n\n\n");
 		
 		//reset and confirm password
 		newPassword.sendKeys(updatedBrokerPassword);

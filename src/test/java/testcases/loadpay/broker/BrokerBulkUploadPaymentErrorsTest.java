@@ -88,6 +88,7 @@ public class BrokerBulkUploadPaymentErrorsTest extends TestBase
 		    ToolTip1.clickAndHold(alttext).perform();
 		    String ToolTipText = alttext.getAttribute("title");
 		    Thread.sleep(5000);
+		    log.info("ToolTipText: " + ToolTipText);
 		    /*Assert.assertEquals(ToolTipText, "title");*/
 		   
 	}

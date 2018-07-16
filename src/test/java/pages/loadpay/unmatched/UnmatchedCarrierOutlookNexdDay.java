@@ -226,10 +226,10 @@ public class UnmatchedCarrierOutlookNexdDay  extends TestBase {
 			Thread.sleep(2000);
 			e.click();
 			Thread.sleep(1000);
-			System.out.println(list.size());
+			log.info(list.size());
 			Thread.sleep(1000);
-			//System.out.println(BrokerPaymentforUnmatchedCarrierTest.umemail);
-			System.out.println(emailid.getText());
+			//log.info(BrokerPaymentforUnmatchedCarrierTest.umemail);
+			log.info(emailid.getText());
 			if(emailid.getText().equalsIgnoreCase(BrokerPaymentforUnmatchedCarrierTest.al.get(0)+";"))
 			{
 				Thread.sleep(1000);

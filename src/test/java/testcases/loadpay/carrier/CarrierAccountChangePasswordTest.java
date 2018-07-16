@@ -41,9 +41,9 @@ public class CarrierAccountChangePasswordTest extends TestBase {
   @Test(dataProvider = "getCarrierChangePasswordData", dependsOnMethods = "loginTest")
   public void changePasswordVerification(String Username, String CurrentPassword, String NewPassword, String ConfirmNewPassword) throws
     InterruptedException {
-    System.out.println(Username);
-    System.out.println(CurrentPassword);
-    System.out.println(NewPassword);
+    log.info(Username);
+    log.info(CurrentPassword);
+    log.info(NewPassword);
     CarrierEmailLoginUsersPage.openAccountTab();
     Thread.sleep(1000);
     CarrierEmailLoginUsersPage.goToEmailLoginUsers();

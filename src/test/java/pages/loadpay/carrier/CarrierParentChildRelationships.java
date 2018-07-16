@@ -271,8 +271,8 @@ public class CarrierParentChildRelationships extends TestBase {
 		for (WebElement element : list) {
 			Thread.sleep(2000);
 			element.click();
-			System.out.println(CarrierParentChildRelationshipsTest.nemail);
-			System.out.println(emailid.getText());
+			log.info(CarrierParentChildRelationshipsTest.nemail);
+			log.info(emailid.getText());
 			Thread.sleep(1000);
 			if (emailid.getText().equalsIgnoreCase(CarrierParentChildRelationshipsTest.nemail + ";")) {
 				firstRowData = getFirstRowData();
@@ -334,8 +334,8 @@ public class CarrierParentChildRelationships extends TestBase {
 		for (WebElement element : list) {
 			Thread.sleep(2000);
 			element.click();
-			System.out.println(CarrierParentChildRelationshipsTest.nemail);
-			System.out.println(emailid.getText());
+			log.info(CarrierParentChildRelationshipsTest.nemail);
+			log.info(emailid.getText());
 			Thread.sleep(1000);
 			if (emailid.getText().equalsIgnoreCase(CarrierParentChildRelationshipsTest.nemail + ";")) {
 				wait.until(ExpectedConditions.elementToBeClickable(buttonresetpassword));
@@ -361,13 +361,13 @@ public class CarrierParentChildRelationships extends TestBase {
 
 	public void forcePasswordReset() throws InterruptedException {
 
-		System.out.println(CarrierParentChildRelationshipsTest.nemail);
+		log.info(CarrierParentChildRelationshipsTest.nemail);
 		int count = accountemailids.size();
 		for (int i = 0; i < count; i++) {
 			Thread.sleep(2000);
 			if (accountemailids.get(i).getText().equalsIgnoreCase(CarrierParentChildRelationshipsTest.nemail)) {
-				System.out.println(CarrierParentChildRelationshipsTest.nemail);
-				System.out.println(i);
+				log.info(CarrierParentChildRelationshipsTest.nemail);
+				log.info(i);
 				Thread.sleep(1000);
 
 				j = i;
@@ -388,8 +388,8 @@ public class CarrierParentChildRelationships extends TestBase {
 		for (int i = 0; i < count; i++) {
 			Thread.sleep(2000);
 			if (accountemailids.get(i).getText().equalsIgnoreCase(CarrierParentChildRelationshipsTest.nemail)) {
-				System.out.println(CarrierParentChildRelationshipsTest.nemail);
-				System.out.println(i);
+				log.info(CarrierParentChildRelationshipsTest.nemail);
+				log.info(i);
 				Thread.sleep(1000);
 
 				j = i;
@@ -408,8 +408,8 @@ public class CarrierParentChildRelationships extends TestBase {
 		for (int i = 0; i < count; i++) {
 			Thread.sleep(2000);
 			if (accountemailids.get(i).getText().equalsIgnoreCase(CarrierParentChildRelationshipsTest.nemail)) {
-				System.out.println(CarrierParentChildRelationshipsTest.nemail);
-				System.out.println(i);
+				log.info(CarrierParentChildRelationshipsTest.nemail);
+				log.info(i);
 				Thread.sleep(1000);
 
 				j = i;

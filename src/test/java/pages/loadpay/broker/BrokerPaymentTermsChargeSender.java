@@ -24,7 +24,7 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 	AdminHomePage ahp;
 	AdminLogin adminloginobj;
 	String defaultpercentagevalue = "";
-	public static String numberAsString = "";
+	public String numberAsString = "";
 	String paymentStatus = "Verified";
 	String carrierEmail = "";
 	String invoiceNum = "";
@@ -115,7 +115,7 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 		js.executeScript("arguments[0].click();", paymenttermslink);
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(paymenttermscheckbox));
-		System.out.println(paymenttermscheckbox.isSelected());
+		log.info(paymenttermscheckbox.isSelected());
 		if (paymenttermscheckbox.isSelected()) {
 			js.executeScript("arguments[0].click();", chargesenderradiobutton);
 			Thread.sleep(1000);

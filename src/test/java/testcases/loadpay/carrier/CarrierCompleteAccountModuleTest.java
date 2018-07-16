@@ -72,8 +72,8 @@ public class CarrierCompleteAccountModuleTest extends TestBase {
 		adminlogin.ClickOnCustomersTab();
 		Thread.sleep(1000);
 		Assert.assertTrue(adminlogin.CustomerTab.isDisplayed());
-		System.out.println(CarrierLoginPage.cemail);
-		adminlogin.ClickOnSearchBox(CarrierLoginPage.cemail);
+		log.info(loginPage.cemail);
+		adminlogin.ClickOnSearchBox(loginPage.cemail);
 		Thread.sleep(1000);
 		adminlogin.ClickOnSearchButton();
 		Thread.sleep(1000);
@@ -85,7 +85,7 @@ public class CarrierCompleteAccountModuleTest extends TestBase {
 	
 	@Test(description = "LP-3473 Carrier - Complete Account module", dataProvider = "getShipperCompleteAccModuleData", dependsOnMethods = {"verifyAdminAccountModule"})
 	public void verifyContactDetails(String un, String pwd,String ContactFN, String ContactLN,String contactemail, String ContactPN,String Contactextension,String ContactMobileNumber,String ContactFax) throws InterruptedException {
-		driver.get(prop.getProperty("url"));
+		driver.get(super.prop.getProperty("url"));
 		/*brokerlogin = new BrokerLoginPage();
 		brokerlogin.Brokerlogin(un, pwd);
 		Thread.sleep(1000);*/
@@ -140,7 +140,7 @@ public class CarrierCompleteAccountModuleTest extends TestBase {
 	
 	@Test(description = "LP-3473 Carrier - Complete Account module", dependsOnMethods = {"verifyContactDetails"})
 	public void verifyNotifications() throws InterruptedException {
-		driver.get(prop.getProperty("url"));
+		driver.get(super.prop.getProperty("url"));
 		carriercompleteaccountmoduleObj.clickAccountlink();
 		Thread.sleep(1000);
 		Assert.assertTrue(carriercompleteaccountmoduleObj.lnk_account.isDisplayed());

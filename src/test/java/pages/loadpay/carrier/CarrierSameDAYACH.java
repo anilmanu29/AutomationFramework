@@ -7,8 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-
 import base.TestBase;
 
 
@@ -75,7 +73,7 @@ public class CarrierSameDAYACH extends TestBase {
 		 amtbeforepaidsmday = amtbeforepaidsameday.replaceAll("\\$", "");
 		 amtbefore = amtbeforepaidsmday.replaceAll(",", "");	
 		 amtbeforesamedayach = Float.parseFloat(amtbefore);
-		 System.out.println(amtbeforesamedayach);
+		 log.info(amtbeforesamedayach);
 	}
 	
 	
@@ -91,19 +89,19 @@ public class CarrierSameDAYACH extends TestBase {
 		 amtsamedayachh = amtsamedayach.replaceAll("\\$", "");
 		 amtsmdayach = amtsamedayachh.replaceAll(",", "");	
 		 amttsamedayach = Float.parseFloat(amtsmdayach);
-		 System.out.println(amttsamedayach);	
+		 log.info(amttsamedayach);	
 		 
 //		paymenowfe =paymenowfee.getText();
 //		paymenow=paymenowfe.replaceAll("\\$", "");
 //		paymenowfeee= paymenow.replaceAll(",", "");
 //		paymenowf = Float.parseFloat(paymenowfeee);
-//		 System.out.println(paymenowf);	
+//		 log.info(paymenowf);	
 //		 
 //		 achtransfees= 	achtransfee.getText();
 //		 achtrafee= achtransfees.replaceAll("\\$", "");
 //		achfee =  achtrafee.replaceAll(",", "");
 //		achtrans = Float.parseFloat(achfee);
-//		System.out.println(achtrans);
+//		log.info(achtrans);
 		
 		 
 		 
@@ -132,14 +130,14 @@ public class CarrierSameDAYACH extends TestBase {
 		 totalamount =  totalamt.replaceAll("\\$", "");
 		 totalamountt =	totalamount.replaceAll(",", "");	
 		 total = Float.parseFloat(totalamountt);
-		 System.out.println(total);	
+		 log.info(total);	
 		 
 		
 	}
 	public void verifySamedayach() throws InterruptedException {
 		Thread.sleep(1000);
 		amttsamedayach = (total - amtbeforesamedayach);
-		System.out.println(amttsamedayach);
+		log.info(amttsamedayach);
 	
 	}
 }

@@ -316,7 +316,7 @@ public class AdminSearchTest extends TestBase
 		while(loadingGif.isDisplayed())
 		{
 			Thread.sleep(3000);
-			System.out.println("Waiting for Loading Gif to disappear!");
+			log.info("Waiting for Loading Gif to disappear!");
 		}
 		
 		
@@ -334,7 +334,7 @@ public class AdminSearchTest extends TestBase
 		if(assertFilterByAll)
 		{
 			maxRecordCount = adminSearchPage.getTotalRecordCount();
-			System.out.println("\n\n======================\nMax record Count - ALL: [" + maxRecordCount + "]\n=======================\n");
+			log.info("\n\n======================\nMax record Count - ALL: [" + maxRecordCount + "]\n=======================\n");
 			Assert.assertTrue(maxRecordCount > 0, "Filter by ALL - Record count not greater than zero");
 		}
 		

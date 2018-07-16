@@ -133,9 +133,9 @@ public class BrokerRegisterCanadaTest extends TestBase {
 		brc.ConfirmBankingAccount(ConfirmbankAccountNumber);
 		Thread.sleep(1000);
 		brc.submit();
-		System.out.println("Broker Register Completed...");
+		log.info("Broker Register Completed...");
 		Thread.sleep(1000);
-		System.out.print("BrokerRegisterSuccessfully");
+		log.info("BrokerRegisterSuccessfully");
 
 	}
 

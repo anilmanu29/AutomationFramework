@@ -188,9 +188,9 @@ public class ShipperAdvancePayment extends TestBase {
 		schedule = scheduledamount.replaceAll("\\$", "");
 		scheduleamt = schedule.replaceAll(",", "");
 		totalamounnt = Float.parseFloat(scheduleamt);
-		System.out.println(totalamounnt);
+		log.info(totalamounnt);
 
-		System.out.println(scheduledamount);
+		log.info(scheduledamount);
 		return totalamounnt;
 	}
 	/*-------verify invoicenumber---------*/
@@ -202,9 +202,9 @@ public class ShipperAdvancePayment extends TestBase {
 
 		List<WebElement> loadiidscount = loadids;
 
-		// System.out.println(invoicenumcount);
+		// log.info(invoicenumcount);
 
-		System.out.println("Total loadids :" + loadiidscount.size());
+		log.info("Total loadids :" + loadiidscount.size());
 
 		for (int i = 0; i < loadiidscount.size(); i++)
 
@@ -214,7 +214,7 @@ public class ShipperAdvancePayment extends TestBase {
 			if (expectedloadid.equalsIgnoreCase(loadidd))
 
 			{
-				System.out.println(expectedloadid);
+				log.info(expectedloadid);
 				loadids.get(i).click();
 				Thread.sleep(1000);
 				scheduledate = expectedscheduldate.getText();
@@ -223,7 +223,7 @@ public class ShipperAdvancePayment extends TestBase {
 				if (scheduledate.equalsIgnoreCase(paymentdate))
 
 				{
-					System.out.println("Date is :" + "" + scheduledate);
+					log.info("Date is :" + "" + scheduledate);
 
 				}
 
@@ -237,7 +237,7 @@ public class ShipperAdvancePayment extends TestBase {
 
 	public String verifyLoadId() {
 		String load = loadidd.getText();
-		System.out.println(load);
+		log.info(load);
 		return load;
 	}
 

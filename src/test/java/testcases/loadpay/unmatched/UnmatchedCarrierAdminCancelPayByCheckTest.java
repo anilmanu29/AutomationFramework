@@ -56,7 +56,7 @@ public class UnmatchedCarrierAdminCancelPayByCheckTest extends TestBase {
 		Thread.sleep(1000);
 		al.ClickOnCustomersTab();
 		Thread.sleep(1000);
-		System.out.println(BrokerLoginPage.bemail);
+		log.info(BrokerLoginPage.bemail);
 		al.ClickOnSearchBox(BrokerLoginPage.bemail);
 		Thread.sleep(1000);
 		al.ClickOnSearchButton();
@@ -65,7 +65,7 @@ public class UnmatchedCarrierAdminCancelPayByCheckTest extends TestBase {
 		Thread.sleep(1000);
 		apbc.clickPayments();
 		Thread.sleep(3000);
-		System.out.println(UnCarrierAdminPBC.getPaymentId1().getText());
+		log.info(UnCarrierAdminPBC.getPaymentId1().getText());
 		UnCarrierAdminPBC.ClickOnsearchKeyword(UnCarrierAdminPBC.getPaymentId1().getText());
 		Thread.sleep(2000);
 		apbc.getPaymentID();
@@ -112,7 +112,7 @@ public class UnmatchedCarrierAdminCancelPayByCheckTest extends TestBase {
 			Thread.sleep(1000);
 			adminLoginPageObj.ClickOnCustomersTab();
 			Thread.sleep(1000);
-			System.out.println(BrokerLoginPage.bemail);
+			log.info(BrokerLoginPage.bemail);
 			adminLoginPageObj.ClickOnSearchBox(BrokerLoginPage.bemail);
 			Thread.sleep(1000);
 			adminLoginPageObj.ClickOnSearchButton();
@@ -121,7 +121,7 @@ public class UnmatchedCarrierAdminCancelPayByCheckTest extends TestBase {
 			Thread.sleep(1000);
 			adminPayByCheckObj.clickPayments();
 			Thread.sleep(3000);
-			System.out.println(UnCarrierAdminPBC.getPaymentId1().getText());
+			log.info(UnCarrierAdminPBC.getPaymentId1().getText());
 			UnCarrierAdminPBC.ClickOnsearchKeywordterm(UnCarrierAdminPBC.getPaymentId1().getText());
 			Thread.sleep(2000);
 			UnCarrierAdminCancelPayByCheckObj.getPaymentID();

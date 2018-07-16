@@ -70,7 +70,7 @@ public class LoginPageResetPasswordTest extends TestBase {
 	/////////////////////////////////////////////////////////////////
 	TimeZone tz = Calendar.getInstance().getTimeZone();
 	String currentTimeZone = tz.getDisplayName();
-	System.out.println(currentTimeZone);
+	log.info(currentTimeZone);
 	
 	formatter = new SimpleDateFormat("HH:mm");
 	formatter.setTimeZone(TimeZone.getTimeZone("MST"));
@@ -80,12 +80,12 @@ public class LoginPageResetPasswordTest extends TestBase {
 	currentHour = timeArray[0];
 	currentMinutes = timeArray[1];
 	
-	System.out.println("\n\n\n===============================");
-	System.out.println("Current date: " + longTime);
-	System.out.println("Formatted date: " + formattedDate);
-	System.out.println("Current Hour: " + currentHour);
-	System.out.println("Current Minutes: " + currentMinutes);
-	System.out.println("\n\n\n===============================");
+	log.info("\n\n\n===============================");
+	log.info("Current date: " + longTime);
+	log.info("Formatted date: " + formattedDate);
+	log.info("Current Hour: " + currentHour);
+	log.info("Current Minutes: " + currentMinutes);
+	log.info("\n\n\n===============================");
 	//////////////////////////////////////////////////////////////////
 
   }

@@ -166,7 +166,7 @@ public class BrokerRegisterCanada extends TestBase {
 		}
 	}
 
-	public static String BrokerEmail(String email) {
+	public String BrokerEmail(String email) {
 		field_email.sendKeys(email);
 		return email;
 	}

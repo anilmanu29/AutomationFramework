@@ -82,9 +82,9 @@ public class CarrierWireTransfer extends TestBase {
 		 amtbeforepaidsameday = paidamt.getText();
 		 amtbeforepaidsmday = amtbeforepaidsameday.replaceAll("\\$", "");
 		 amtbefore = amtbeforepaidsmday.replaceAll(",", "");	
-		 System.out.println(amtbeforepaidsmday);
+		 log.info(amtbeforepaidsmday);
 		 amtbeforesamedayach = Float.parseFloat(amtbefore);
-		 System.out.println(amtbeforesamedayach);
+		 log.info(amtbeforesamedayach);
 	}
 
 	public void clickPaymenow() throws InterruptedException {
@@ -99,7 +99,7 @@ public class CarrierWireTransfer extends TestBase {
 		amtwiretrsfr = amtwiretransfer.replaceAll("\\$", "");
 		 amtsmdayach = amtwiretrsfr.replaceAll(",", "");	
 		 amttwiretransfer = Float.parseFloat(amtsmdayach);
-		 System.out.println(amttwiretransfer);
+		 log.info(amttwiretransfer);
 	}
 
 	public void clickSelectButton() throws InterruptedException {
@@ -126,14 +126,14 @@ public class CarrierWireTransfer extends TestBase {
 		 totalamount =  totalamt.replaceAll("\\$", "");
 		 totalamountt =	totalamount.replaceAll(",", "");	
 		 total = Float.parseFloat(totalamountt);
-		 System.out.println(total);	
+		 log.info(total);	
 		 
 		
 	}
 	public void verifywiretransfer() throws InterruptedException {
 		Thread.sleep(1000);
 		amttwiretransfer = (total - amtbeforesamedayach);
-		System.out.println(amttwiretransfer);
+		log.info(amttwiretransfer);
 	
 	}
 

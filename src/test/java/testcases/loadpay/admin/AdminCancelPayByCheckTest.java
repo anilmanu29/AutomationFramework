@@ -53,7 +53,7 @@ public class AdminCancelPayByCheckTest extends TestBase {
 		Thread.sleep(1000);
 		al.ClickOnCustomersTab();
 		Thread.sleep(1000);
-		System.out.println(BrokerLoginPage.bemail);
+		log.info(BrokerLoginPage.bemail);
 		al.ClickOnSearchBox(BrokerLoginPage.bemail);
 		Thread.sleep(1000);
 		al.ClickOnSearchButton();
@@ -108,7 +108,7 @@ public class AdminCancelPayByCheckTest extends TestBase {
 			Thread.sleep(1000);
 			adminLogObj.ClickOnCustomersTab();
 			Thread.sleep(1000);
-			System.out.println(BrokerLoginPage.bemail);
+			log.info(BrokerLoginPage.bemail);
 			adminLogObj.ClickOnSearchBox(BrokerLoginPage.bemail);
 			Thread.sleep(1000);
 			adminLogObj.ClickOnSearchButton();
@@ -117,7 +117,7 @@ public class AdminCancelPayByCheckTest extends TestBase {
 			Thread.sleep(1000);
 			adminPayByCheckObj.clickPayments();
 			Thread.sleep(3000);
-			System.out.println(adminCancelPayByCheckObj);
+			log.info(adminCancelPayByCheckObj);
 			adminCancelPayByCheckObj.ClickOnsearchKeyword(adminCancelPayByCheckObj.getPaymentId1().getText());
 			//acpbc.ClickOnsearchKeywordterm(BrokerNewPaymentTest.al.get(0));
 			Thread.sleep(2000);

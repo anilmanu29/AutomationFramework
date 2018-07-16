@@ -105,10 +105,10 @@ public class CarrierPayMeNowEmailNotification extends TestBase {
 			js.executeScript("arguments[0].click();", e);
 			// e.click();
 			Thread.sleep(3000);
-			//System.out.println(emailid.getText());
+			//log.info(emailid.getText());
 			if (emailid.getText().equalsIgnoreCase(emailaddress + ";")) {
 				Thread.sleep(1000);
-				System.out.println(paymenttype.getText());
+				log.info(paymenttype.getText());
 				Assert.assertTrue(paymenttype.getText().equalsIgnoreCase(paymenttypetext),
 						"Payment type text not found!");
 				break;

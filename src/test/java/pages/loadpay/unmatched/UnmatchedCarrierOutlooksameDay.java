@@ -229,8 +229,8 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 			e.click();
 			Thread.sleep(1000);
 			Thread.sleep(1000);
-			System.out.println(BrokerPaymentforUnmatchedCarrierTest.al.get(0)+";");
-			System.out.println(emailid.getText());
+			log.info(BrokerPaymentforUnmatchedCarrierTest.al.get(0)+";");
+			log.info(emailid.getText());
 			if(emailid.getText().equalsIgnoreCase(BrokerPaymentforUnmatchedCarrierTest.al.get(0)+";"))
 			{
 				Thread.sleep(1000);

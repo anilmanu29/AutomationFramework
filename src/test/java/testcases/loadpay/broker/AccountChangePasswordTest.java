@@ -41,9 +41,9 @@ public class AccountChangePasswordTest extends TestBase {
   @Test(dataProvider = "getBrokerChangePasswordData", dependsOnMethods = "loginTest")
   public void changePasswordVerification(String Username, String CurrentPassword, String NewPassword, String ConfirmNewPassword) throws
     InterruptedException {
-    System.out.println(Username);
-    System.out.println(CurrentPassword);
-    System.out.println(NewPassword);
+    log.info(Username);
+    log.info(CurrentPassword);
+    log.info(NewPassword);
     brokEmailLogUsePage.openAccountTab();
     Thread.sleep(1000);
     brokEmailLogUsePage.goToEmailLoginUsers();

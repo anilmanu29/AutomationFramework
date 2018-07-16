@@ -148,9 +148,9 @@ public class CarrierSchedulePayment extends TestBase {
 		Thread.sleep(2000);
 		WebElement recordCount = driver.findElement(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/ul/li[2]/a/div/div[1]/div[1]/span[1]"));
 		
-		System.out.println("String Record count: " + recordCount.getText());
+		log.info("String Record count: " + recordCount.getText());
 		Integer intRowCount = Integer.parseInt(recordCount.getText());
-		System.out.println("Integer Record count: " + intRowCount);
+		log.info("Integer Record count: " + intRowCount);
 		
 		return intRowCount;
 	}

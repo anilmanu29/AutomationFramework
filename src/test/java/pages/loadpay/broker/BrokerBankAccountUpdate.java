@@ -178,7 +178,7 @@ public class BrokerBankAccountUpdate extends TestBase {
 		for (int i = 0; i < lists.size(); i++) {
 			if (lists.get(i).getText().equalsIgnoreCase(BrokerBankAccountUpdateTest.routingnumber)) {
 				Thread.sleep(1000);
-				System.out.println(BrokerBankAccountUpdateTest.routingnumber);
+				log.info(BrokerBankAccountUpdateTest.routingnumber);
 				Thread.sleep(1000);
 				 j=i;
 				

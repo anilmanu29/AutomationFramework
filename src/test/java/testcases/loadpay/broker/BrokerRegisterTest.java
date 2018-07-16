@@ -175,7 +175,7 @@ public class BrokerRegisterTest extends TestBase
 	   Thread.sleep(2000);
 	   
 	   r.submit();
-	   System.out.println(" Broker Register Completed...");  
+	   log.info(" Broker Register Completed...");  
   }
   
   @Test(description = "Capture Outlook Login creds", dataProvider="getoutlookLoginData", dependsOnMethods = "BrokerRegister")
@@ -235,14 +235,14 @@ public class BrokerRegisterTest extends TestBase
 		depositAmount = adminCustomerDepositAmount.getText();
 		depositAmount = depositAmount.substring(depositAmount.length()-2, depositAmount.length());
 		depositAmount = "0" + depositAmount;
-		System.out.println("Captured deposit amount: "  + depositAmount);
+		log.info("Captured deposit amount: "  + depositAmount);
 		Thread.sleep(5000);
 		
 		//verify in outlook
 		/////////////////////////////////////////////////////////////////
 		TimeZone tz = Calendar.getInstance().getTimeZone();
 		String currentTimeZone = tz.getDisplayName();
-		System.out.println(currentTimeZone);
+		log.info(currentTimeZone);
 		
 		formatter = new SimpleDateFormat("HH:mm");
 		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
@@ -252,12 +252,12 @@ public class BrokerRegisterTest extends TestBase
 		currentHour = timeArray[0];
 		currentMinutes = timeArray[1];
 		
-		System.out.println("\n\n\n===============================");
-		System.out.println("Current date: " + longTime);
-		System.out.println("Formatted date: " + formattedDate);
-		System.out.println("Current Hour: " + currentHour);
-		System.out.println("Current Minutes: " + currentMinutes);
-		System.out.println("\n\n\n===============================");
+		log.info("\n\n\n===============================");
+		log.info("Current date: " + longTime);
+		log.info("Formatted date: " + formattedDate);
+		log.info("Current Hour: " + currentHour);
+		log.info("Current Minutes: " + currentMinutes);
+		log.info("\n\n\n===============================");
 		
 		outlookLoginObj.outlookLogin(outlookUsername, outlookPassword);
 		brokerOutlookObj.clickPopUp();
@@ -269,7 +269,7 @@ public class BrokerRegisterTest extends TestBase
 		//////////////////////////////////////////////////////////////////
 		
 		//log in as broker
-		driver.get(prop.getProperty("url"));
+		driver.get(super.prop.getProperty("url"));
 		loginPage.Brokerlogin(brokerUsername, brokerPassword);
 		Thread.sleep(1000);
 		
@@ -304,7 +304,7 @@ public class BrokerRegisterTest extends TestBase
 		Thread.sleep(1000);
 		
 		WebElement confirmationPopup = driver.findElement(By.xpath("//*[@id='angularScope']/div[3]/div/div/div[1]/div/p"));
-		System.out.println("Confirmation message: " + confirmationPopup.getText());
+		log.info("Confirmation message: " + confirmationPopup.getText());
 		Assert.assertTrue(confirmationPopup.getText().contains("Your LoadPay™ registration has been completed successfully."), "Registration success message not found");
 
 		//as broker update pay me now option

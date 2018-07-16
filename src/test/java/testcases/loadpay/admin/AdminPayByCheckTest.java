@@ -62,7 +62,7 @@ public class AdminPayByCheckTest extends TestBase {
 		Thread.sleep(1000);
 		al.ClickOnCustomersTab();
 		Thread.sleep(1000);
-		System.out.println(brokerUsername);
+		log.info(brokerUsername);
 		al.ClickOnSearchBox(brokerUsername);
 		Thread.sleep(1000);
 		al.ClickOnSearchButton();
@@ -108,7 +108,7 @@ public class AdminPayByCheckTest extends TestBase {
 			Thread.sleep(1000);
 			al.ClickOnCustomersTab();
 			Thread.sleep(1000);
-			System.out.println(brokerUsername);
+			log.info(brokerUsername);
 			al.ClickOnSearchBox(brokerUsername);
 			Thread.sleep(1000);
 			al.ClickOnSearchButton();

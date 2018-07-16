@@ -90,7 +90,7 @@ public class BrokerPaymentTermsChargeRecipientTest extends TestBase {
 		Thread.sleep(1000);
 		Assert.assertTrue(adminlogin.CustomerTab.isDisplayed());
 		
-		System.out.println(BrokerLoginPage.bemail);
+		log.info(BrokerLoginPage.bemail);
 		adminlogin.ClickOnSearchBox(BrokerLoginPage.bemail);
 		Thread.sleep(1000);
 		
@@ -110,7 +110,7 @@ public class BrokerPaymentTermsChargeRecipientTest extends TestBase {
 	
 	@Test(dataProvider="getPaymentData", dependsOnMethods = "verifyAdminPaymentTerm")
 	public void brokernewPayment(String cemail, String invoiceno, String loadid, String amt) throws InterruptedException {
-		driver.get(prop.getProperty("url"));
+		driver.get(super.prop.getProperty("url"));
 		BrokerNewPayment = new BrokerNewPayment();
 		BrokerNewPayment.newPayment();
 		Thread.sleep(1000);
@@ -145,7 +145,7 @@ public class BrokerPaymentTermsChargeRecipientTest extends TestBase {
 		BrokerNewPayment.verifyInvoiceNumber(invoiceno,amt);
 		 Thread.sleep(1000);
 		//Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
-		System.out.println(BrokerNewPayment.verifyPaymentStatus());
+		log.info(BrokerNewPayment.verifyPaymentStatus());
 		//bp.logout();
 	}
 		

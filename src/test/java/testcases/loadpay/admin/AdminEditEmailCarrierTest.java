@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -15,6 +16,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import com.relevantcodes.extentreports.model.Log;
 
 import base.TestBase;
 import pages.loadpay.admin.AdminEditEmailCarrier;
@@ -49,6 +52,7 @@ public class AdminEditEmailCarrierTest extends TestBase
 	String currentHour = "";
 	String currentMinutes = "";
 	String timeArray[] = new String[2];
+	Logger log;
 	
 	public AdminEditEmailCarrierTest()
 	{
@@ -67,6 +71,8 @@ public class AdminEditEmailCarrierTest extends TestBase
 		carrierOutlookObj = new CarrierOutlook();
 		carrierRegisterObj = new CarrierRegisterPage();
 		currentTime = new Date();
+		log = Logger.getLogger(Log.class.getName());
+		log.info("Test Set Up");
 	}
 	
 	@AfterClass
@@ -205,7 +211,7 @@ public class AdminEditEmailCarrierTest extends TestBase
 		carrierRegisterObj.submit();
 		Thread.sleep(1000);
 		
-	    System.out.println(" Carrier Register Completed...");
+	    log.info(" Carrier Register Completed...");
 	  
 	  }
 
@@ -228,8 +234,8 @@ public class AdminEditEmailCarrierTest extends TestBase
 		int randomNumber = adminEmailPage.getRandomNumber(1,999999);
 		updatedCarrierEmailAddress = originalCarrierEmailAddress.replaceFirst("@", randomNumber + "@");
 		
-		System.out.println(originalCarrierEmailAddress);
-		System.out.println(updatedCarrierEmailAddress);
+		log.info(originalCarrierEmailAddress);
+		log.info(updatedCarrierEmailAddress);
 		
 		adminLoginPage.ClickOnCustomersTab();
 		Thread.sleep(1000);
@@ -295,7 +301,7 @@ public class AdminEditEmailCarrierTest extends TestBase
 		/////////////////////////////////////////////////////////////////
 		TimeZone tz = Calendar.getInstance().getTimeZone();
 		String currentTimeZone = tz.getDisplayName();
-		System.out.println(currentTimeZone);
+		log.info(currentTimeZone);
 		
 		formatter = new SimpleDateFormat("HH:mm");
 		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
@@ -305,12 +311,12 @@ public class AdminEditEmailCarrierTest extends TestBase
 		currentHour = timeArray[0];
 		currentMinutes = timeArray[1];
 		
-		System.out.println("\n\n\n===============================");
-		System.out.println("Current date: " + longTime);
-		System.out.println("Formatted date: " + formattedDate);
-		System.out.println("Current Hour: " + currentHour);
-		System.out.println("Current Minutes: " + currentMinutes);
-		System.out.println("\n\n\n===============================");
+		log.info("\n\n\n===============================");
+		log.info("Current date: " + longTime);
+		log.info("Formatted date: " + formattedDate);
+		log.info("Current Hour: " + currentHour);
+		log.info("Current Minutes: " + currentMinutes);
+		log.info("\n\n\n===============================");
 		//////////////////////////////////////////////////////////////////
 		
 	}	
@@ -345,10 +351,10 @@ public class AdminEditEmailCarrierTest extends TestBase
 		WebElement submitButton = driver.findElement(By.xpath("//*[@id=\"formLogIn\"]/div/div[2]/div/div/div[1]/div[3]/input"));
 
 		updatedCarrierPassword = originalCarrierPassword + adminEmailPage.getRandomNumber(1, 999999);
-		System.out.println("\n\n\n==================================================");
-		System.out.println("Updated Username: " + updatedCarrierEmailAddress);
-		System.out.println("Updated Password: " + updatedCarrierPassword);
-		System.out.println("==================================================\n\n\n");
+		log.info("\n\n\n==================================================");
+		log.info("Updated Username: " + updatedCarrierEmailAddress);
+		log.info("Updated Password: " + updatedCarrierPassword);
+		log.info("==================================================\n\n\n");
 		
 		//reset and confirm password
 		newPassword.sendKeys(updatedCarrierPassword);
@@ -358,7 +364,7 @@ public class AdminEditEmailCarrierTest extends TestBase
 		//log in as carrier
 		carrierLoginObj.Carrierlogin(updatedCarrierEmailAddress, updatedCarrierPassword);
 
-		System.out.println("//span[@title='" + updatedCarrierEmailAddress + "]'");
+		log.info("//span[@title='" + updatedCarrierEmailAddress + "]'");
 		WebElement loginLabel = driver.findElement(By.xpath("//span[@title='" + updatedCarrierEmailAddress + "']"));
 		
 		Assert.assertTrue(loginLabel.getText().equals(updatedCarrierEmailAddress), "Updated email address not seen after login!");

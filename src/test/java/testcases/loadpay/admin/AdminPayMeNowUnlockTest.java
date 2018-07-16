@@ -89,9 +89,9 @@ public class AdminPayMeNowUnlockTest extends TestBase {
     Thread.sleep(1000);
     checkbox = driver.findElement(By.id("PMNEnrolled"));
     if (!checkbox.isEnabled()) {
-      System.out.println("Enroll in PayMeNow is Disabled");
+      log.info("Enroll in PayMeNow is Disabled");
     } else {
-      System.out.println("Enroll in PayMeNow is Enabled");
+      log.info("Enroll in PayMeNow is Enabled");
     }
   Thread.sleep(2000);
     brokLoginPage.BrokerLogout();
@@ -112,11 +112,11 @@ public class AdminPayMeNowUnlockTest extends TestBase {
       Thread.sleep(1000);
       admLogin.DoubleClickID();
       Thread.sleep(1000);
-      AdminPayMeNowUnlockTab.openPayMeNowTab();
+      admPayMeNowUnlockTab.openPayMeNowTab();
       Thread.sleep(1000);
-      AdminPayMeNowUnlockTab.clickUnLockPaymeNowStatusButton();
+      admPayMeNowUnlockTab.clickUnLockPaymeNowStatusButton();
       Thread.sleep(1000);
-      AdminPayMeNowUnlockTab.clickUpdateButton();
+      admPayMeNowUnlockTab.clickUpdateButton();
       Thread.sleep(1000);
       admLogin.AdminLogOut();
     }
@@ -134,14 +134,14 @@ public class AdminPayMeNowUnlockTest extends TestBase {
 
     brokerPayMeNowTab.enrollPayMeNow();
     Thread.sleep(2000);
-    System.out.println("User enrolled in PayMeNow");
+    log.info("User enrolled in PayMeNow");
     brokerPayMeNowTab.updateButton();
 
    /* if (!checkbox.isEnabled()) {
       brokerPayMeNowTab.enrollPayMeNow();
-      System.out.println("Enroll in PayMeNow is Disabled");
+      log.info("Enroll in PayMeNow is Disabled");
     } else {
-      System.out.println("Enroll in PayMeNow is Enabled");
+      log.info("Enroll in PayMeNow is Enabled");
     }*/
   }
 

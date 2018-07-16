@@ -158,7 +158,7 @@ public class AdminPayByCheckServiceBatchFile  extends TestBase{
 	public void getPaymentID() throws InterruptedException {
 		Thread.sleep(1000);
 		paymentidd = paymentid.getText();
-		System.out.println(paymentidd);
+		log.info(paymentidd);
 }
 	
 	public void clickSearch() throws InterruptedException {

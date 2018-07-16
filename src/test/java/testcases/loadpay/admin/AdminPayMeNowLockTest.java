@@ -90,9 +90,9 @@ public class AdminPayMeNowLockTest extends TestBase {
     Thread.sleep(2000);
     checkbox = driver.findElement(By.id("PMNEnrolled"));
     if (!checkbox.isEnabled()) {
-      System.out.println("Enroll in PayMeNow is Disabled");
+      log.info("Enroll in PayMeNow is Disabled");
     } else {
-      System.out.println("Enroll in PayMeNow is Enabled");
+      log.info("Enroll in PayMeNow is Enabled");
     }
 
   }

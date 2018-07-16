@@ -294,7 +294,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		 bp.verifyInvoiceNumber(invoiceno,amt);
 		 Thread.sleep(1000);
 		//Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
-		System.out.println(bp.verifyPaymentStatus());
+		log.info(bp.verifyPaymentStatus());
 		//bp.logout();
 	}
 	
@@ -314,7 +314,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		Thread.sleep(1000);
 		all.ClickOnCustomersTab();
 		Thread.sleep(1000);
-		System.out.println(BrokerLoginPage.bemail);
+		log.info(BrokerLoginPage.bemail);
 		all.ClickOnSearchBox(BrokerLoginPage.bemail);
 		Thread.sleep(1000);
 		all.ClickOnSearchButton();
@@ -323,7 +323,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		Thread.sleep(1000);
 		apbc.clickPayments();
 		Thread.sleep(3000);
-		//System.out.println(BrokerNewPaymentTest.al.get(0));
+		//log.info(BrokerNewPaymentTest.al.get(0));
 		apbc.ClickOnsearchKeyword(CarrierParentChildRelationshipsTest.arraylist.get(0));
 		Thread.sleep(2000);
 		apbc.getPaymentID();
@@ -365,7 +365,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 			Thread.sleep(1000);
 			all.ClickOnCustomersTab();
 			Thread.sleep(1000);
-			System.out.println(BrokerLoginPage.bemail);
+			log.info(BrokerLoginPage.bemail);
 			all.ClickOnSearchBox(BrokerLoginPage.bemail);
 			Thread.sleep(1000);
 			all.ClickOnSearchButton();
@@ -408,7 +408,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 
 			@Test(dataProvider = "getCarrierLoginData", dependsOnMethods = {"carrierTermPaymentPayByCheck"})
 			public void verifyDeleteChildAccountTest(String un, String password) throws InterruptedException {
-			driver.get(prop.getProperty("url"));
+			driver.get(super.prop.getProperty("url"));
 			loginPage.Carrierlogin(un, password);
 			carrierchildrelation.clickAccountLink();
 			carrierchildrelation.clickEmailLink();
@@ -424,7 +424,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		List<WebElement> list = driver.findElements(By.xpath("//div[@class='ellipsis ng-binding']"));
 		for (WebElement e : list) {
 			Thread.sleep(2000);
-			// System.out.println(e.getText());
+			// log.info(e.getText());
 			if (e.getText().contains(nemailid)) {
 				Thread.sleep(1000);
 				Assert.assertTrue(e.getText().contains(nemailid));

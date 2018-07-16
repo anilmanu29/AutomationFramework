@@ -276,8 +276,8 @@ public class BrokerNewPayment extends TestBase
 		 schedule= scheduledamount.replaceAll("\\$", "");
 		scheduleamt =  schedule.replaceAll(",", "");
 		totalamounnt = Float.parseFloat(scheduleamt);
-		System.out.println(totalamounnt);
-		System.out.println(scheduledamount);
+		log.info(totalamounnt);
+		log.info(scheduledamount);
 		return totalamounnt;			
 	}
 	
@@ -287,8 +287,8 @@ public class BrokerNewPayment extends TestBase
 	   Thread.sleep(1000);
 	   List<WebElement>invoicenumcount = List_payment;
 	   
-	   //System.out.println(invoicenumcount);
-	   System.out.println("Total Sceduled Payments:"+invoicenumcount.size());
+	   //log.info(invoicenumcount);
+	   log.info("Total Sceduled Payments:"+invoicenumcount.size());
 	   
 	   for(int i=0; i<invoicenumcount.size();i++)
 	   {
@@ -298,7 +298,7 @@ public class BrokerNewPayment extends TestBase
     	 if(invoice.contains(invoicenum))
     	 {
 
-           System.out.println(invoice);
+           log.info(invoice);
            invoicenumcount.get(i).click();
            Thread.sleep(1000);
 
@@ -306,7 +306,7 @@ public class BrokerNewPayment extends TestBase
 
            if(scheduledamount.contains(amt))
            {
-                  System.out.println("Amount is :"+ ""+ scheduledamount);
+                  log.info("Amount is :"+ ""+ scheduledamount);
            }
 
            break;
@@ -321,7 +321,7 @@ public class BrokerNewPayment extends TestBase
 	public String verifyLoadId()
 	{
 		String  load = loadidd.getText();
-		System.out.println(load);
+		log.info(load);
 		return load;
 	}	
 	

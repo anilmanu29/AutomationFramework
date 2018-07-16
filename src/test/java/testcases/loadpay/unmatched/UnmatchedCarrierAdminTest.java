@@ -34,7 +34,7 @@ public class UnmatchedCarrierAdminTest extends TestBase
 	@Test()
 	public void Home() throws IOException, AWTException, InterruptedException
 	{
-	System.out.println(BrokerPaymentforUnmatchedCarrierTest.umemail);
+	log.info(BrokerPaymentforUnmatchedCarrierTest.umemail);
 	h.AdminURL();
 	}
 	

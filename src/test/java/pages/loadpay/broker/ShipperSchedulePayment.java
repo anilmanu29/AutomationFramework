@@ -192,12 +192,12 @@ public class ShipperSchedulePayment extends TestBase
 			 schedule= scheduledamount.replaceAll("\\$", "");
 			scheduleamt =  schedule.replaceAll(",", "");
 			totalamounnt = Float.parseFloat(scheduleamt);
-			System.out.println(totalamounnt);
+			log.info(totalamounnt);
 			
 			
 			
 			
-			System.out.println(scheduledamount);
+			log.info(scheduledamount);
 			return totalamounnt;			
 		}
 		/*-------verify invoicenumber---------*/
@@ -212,9 +212,9 @@ public class ShipperSchedulePayment extends TestBase
 
 	        List<WebElement>invoicenumcount = List_payment;
 
-	              //System.out.println(invoicenumcount);
+	              //log.info(invoicenumcount);
 
-	                     System.out.println("Total Sceduled Payments:"+invoicenumcount.size());
+	                     log.info("Total Sceduled Payments:"+invoicenumcount.size());
 
 	                     for(int i=0; i<invoicenumcount.size();i++)
 
@@ -226,7 +226,7 @@ public class ShipperSchedulePayment extends TestBase
 
 	                     {
 
-	                           System.out.println(invoice);
+	                           log.info(invoice);
 
 	                           invoicenumcount.get(i).click();
 
@@ -238,7 +238,7 @@ public class ShipperSchedulePayment extends TestBase
 
 	                           {
 
-	                                  System.out.println("Amount is :"+ ""+ scheduledamount);
+	                                  log.info("Amount is :"+ ""+ scheduledamount);
 
 	                           }
 
@@ -260,7 +260,7 @@ public class ShipperSchedulePayment extends TestBase
 		public String verifyLoadId()
 		{
 			String  load = loadidd.getText();
-			System.out.println(load);
+			log.info(load);
 			return load;
 			
 		}	

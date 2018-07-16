@@ -102,7 +102,7 @@ public class BrokerAvailableCreditTabTest extends TestBase {
 			Thread.sleep(2000);
 			e.click();
 			Thread.sleep(1000);
-			//System.out.println(e.getText());
+			//log.info(e.getText());
 			if(e.getText().contains(SearchText))
 			{
 				return true;

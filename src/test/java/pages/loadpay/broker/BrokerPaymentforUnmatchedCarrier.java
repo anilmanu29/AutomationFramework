@@ -175,7 +175,7 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 		Thread.sleep(1000);
 		paymentstatus.click();
 		String scheduledamount = amount.getText();
-		System.out.println(scheduledamount);
+		log.info(scheduledamount);
 		return scheduledamount;
 	}
 	/*-------verify invoicenumber---------*/
@@ -188,9 +188,9 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 
 		List<WebElement> invoicenumcount = List_payment;
 
-		// System.out.println(invoicenumcount);
+		// log.info(invoicenumcount);
 
-		System.out.println("Total Sceduled Payments:" + invoicenumcount.size());
+		log.info("Total Sceduled Payments:" + invoicenumcount.size());
 
 		for (int i = 0; i < invoicenumcount.size(); i++)
 
@@ -202,7 +202,7 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 
 			{
 
-				System.out.println(invoice);
+				log.info(invoice);
 
 				invoicenumcount.get(i).click();
 
@@ -214,7 +214,7 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 
 				{
 
-					System.out.println("Amount is :" + "" + scheduledamount);
+					log.info("Amount is :" + "" + scheduledamount);
 
 				}
 
@@ -229,7 +229,7 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 
 	public String verifyLoadId() {
 		String load = loadidd.getText();
-		System.out.println(load);
+		log.info(load);
 		return load;
 
 	}

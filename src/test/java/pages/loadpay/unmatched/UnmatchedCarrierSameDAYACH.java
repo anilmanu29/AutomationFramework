@@ -87,9 +87,9 @@ public class UnmatchedCarrierSameDAYACH extends TestBase {
 		amtbeforepaidsameday = paidamt.getText();
 		 amtbeforepaidsmday = amtbeforepaidsameday.replaceAll("\\$", "");
 		 amtbefore = amtbeforepaidsmday.replaceAll(",", "");	
-		 System.out.println(amtbeforepaidsmday);
+		 log.info(amtbeforepaidsmday);
 		 amtbeforesamedayach = Float.parseFloat(amtbefore);
-		 System.out.println(amtbeforesamedayach);
+		 log.info(amtbeforesamedayach);
 	}
 	
 	
@@ -105,19 +105,19 @@ public class UnmatchedCarrierSameDAYACH extends TestBase {
 		 amtsamedayachh = amtsamedayach.replaceAll("\\$", "");
 		 amtsmdayach = amtsamedayachh.replaceAll(",", "");	
 		 amttsamedayach = Float.parseFloat(amtsmdayach);
-		 System.out.println(amttsamedayach);	
+		 log.info(amttsamedayach);	
 		 
 //		paymenowfe =paymenowfee.getText();
 //		paymenow=paymenowfe.replaceAll("\\$", "");
 //		paymenowfeee= paymenow.replaceAll(",", "");
 //		paymenowf = Float.parseFloat(paymenowfeee);
-//		 System.out.println(paymenowf);	
+//		 log.info(paymenowf);	
 //		 
 //		 achtransfees= 	achtransfee.getText();
 //		 achtrafee= achtransfees.replaceAll("\\$", "");
 //		achfee =  achtrafee.replaceAll(",", "");
 //		achtrans = Float.parseFloat(achfee);
-//		System.out.println(achtrans);
+//		log.info(achtrans);
 		
 		 
 		 
@@ -146,14 +146,14 @@ public class UnmatchedCarrierSameDAYACH extends TestBase {
 		 totalamount =  totalamt.replaceAll("\\$", "");
 		 totalamountt =	totalamount.replaceAll(",", "");	
 		 total = Float.parseFloat(totalamountt);
-		 System.out.println(total);	
+		 log.info(total);	
 		 
 		
 	}
 	public void verifySamedayach() throws InterruptedException {
 		Thread.sleep(1000);
 		amttsamedayach = (total - amtbeforesamedayach);
-		System.out.println(amttsamedayach);
+		log.info(amttsamedayach);
 	
 	}
 }

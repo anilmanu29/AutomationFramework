@@ -92,7 +92,7 @@ public Xls_Reader(String path) {
 			
 			if(cell==null)
 				return "";
-			//System.out.println(cell.getCellType());
+			//log.info(cell.getCellType());
 			if(cell.getCellType()==Cell.CELL_TYPE_STRING)
 				  return cell.getStringCellValue();
 			else if(cell.getCellType()==Cell.CELL_TYPE_NUMERIC || cell.getCellType()==Cell.CELL_TYPE_FORMULA ){
@@ -110,7 +110,7 @@ public Xls_Reader(String path) {
 			                      cal.get(Calendar.MONTH)+1 + "/" + 
 			                      cellText;
 			           
-			           //System.out.println(cellText);
+			           //log.info(cellText);
 
 			         }
 
@@ -168,7 +168,7 @@ public Xls_Reader(String path) {
 		                      cal.get(Calendar.DAY_OF_MONTH) + "/" +
 		                      cellText;
 		           
-		          // System.out.println(cellText);
+		          // log.info(cellText);
 
 		         }
 
@@ -208,7 +208,7 @@ public Xls_Reader(String path) {
 
 			row=sheet.getRow(0);
 			for(int i=0;i<row.getLastCellNum();i++){
-				//System.out.println(row.getCell(i).getStringCellValue().trim());
+				//log.info(row.getCell(i).getStringCellValue().trim());
 				if(row.getCell(i).getStringCellValue().trim().equals(colName))
 					colNum=i;
 			}
@@ -245,7 +245,7 @@ public Xls_Reader(String path) {
 		}
 		// returns true if data is set successfully else false
 		public boolean setCellData(String sheetName,String colName,int rowNum, String data,String url){
-			//System.out.println("setCellData setCellData******************");
+			//log.info("setCellData setCellData******************");
 			try{
 			fis = new FileInputStream(path); 
 			workbook = new XSSFWorkbook(fis);
@@ -260,10 +260,10 @@ public Xls_Reader(String path) {
 			
 			
 			sheet = workbook.getSheetAt(index);
-			//System.out.println("A");
+			//log.info("A");
 			row=sheet.getRow(0);
 			for(int i=0;i<row.getLastCellNum();i++){
-				//System.out.println(row.getCell(i).getStringCellValue().trim());
+				//log.info(row.getCell(i).getStringCellValue().trim());
 				if(row.getCell(i).getStringCellValue().trim().equalsIgnoreCase(colName))
 					colNum=i;
 			}
@@ -346,7 +346,7 @@ public Xls_Reader(String path) {
 		}
 		// returns true if column is created successfully
 		public boolean addColumn(String sheetName,String colName){
-			//System.out.println("**************addColumn*********************");
+			//log.info("**************addColumn*********************");
 			
 			try{				
 				fis = new FileInputStream(path); 
@@ -367,7 +367,7 @@ public Xls_Reader(String path) {
 			
 			//cell = row.getCell();	
 			//if (cell == null)
-			//System.out.println(row.getLastCellNum());
+			//log.info(row.getLastCellNum());
 			if(row.getLastCellNum() == -1)
 				cell = row.createCell(0);
 			else
@@ -457,7 +457,7 @@ public Xls_Reader(String path) {
 		}
 		//String sheetName, String testCaseName,String keyword ,String URL,String message
 		public boolean addHyperLink(String sheetName,String screenShotColName,String testCaseName,int index,String url,String message){
-			//System.out.println("ADDING addHyperLink******************");
+			//log.info("ADDING addHyperLink******************");
 			
 			url=url.replace('\\', '/');
 			if(!isSheetExist(sheetName))
@@ -467,7 +467,7 @@ public Xls_Reader(String path) {
 		    
 		    for(int i=2;i<=getRowCount(sheetName);i++){
 		    	if(getCellData(sheetName, 0, i).equalsIgnoreCase(testCaseName)){
-		    		//System.out.println("**caught "+(i+index));
+		    		//log.info("**caught "+(i+index));
 		    		setCellData(sheetName, screenShotColName, i+index, message,url);
 		    		break;
 		    	}
@@ -494,7 +494,7 @@ public Xls_Reader(String path) {
 
 				/* datatable = new Xls_Reader(System.getProperty("user.dir")+"\\src\\com\\qtpselenium\\xls\\Controller.xlsx");
 					for(int col=0 ;col< datatable.getColumnCount("TC5"); col++){
-						System.out.println(datatable.getCellData("TC5", col, 1)); 
+						log.info(datatable.getCellData("TC5", col, 1)); 
 					} */
 		}
 }

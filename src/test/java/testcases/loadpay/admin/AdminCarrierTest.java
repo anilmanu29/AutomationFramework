@@ -34,7 +34,7 @@ public class AdminCarrierTest extends TestBase
 	@Test(description = "Switch to admin URL")
 	public void Home() throws IOException, AWTException, InterruptedException
 	{
-	System.out.println(BrokerPaymentforUnmatchedCarrierTest.umemail);
+	log.info(BrokerPaymentforUnmatchedCarrierTest.umemail);
 	h.AdminURL();
 	}
 	

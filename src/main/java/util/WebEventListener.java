@@ -21,109 +21,114 @@ import base.TestBase;
 
 public class WebEventListener extends TestBase implements WebDriverEventListener {
 
+	TestUtil testUtilObj = new TestUtil();
+	String elementLogMsg = "Element value: ";
+	
 	public void beforeNavigateTo(String url, WebDriver driver) {
-		System.out.println("Before navigating to: '" + url + "'");
+		log.info("Before navigating to: '" + url + "'");
 	}
 
 	public void afterNavigateTo(String url, WebDriver driver) {
-		System.out.println("Navigated to:'" + url + "'");
+		log.info("Navigated to:'" + url + "'");
 	}
 
-	public void beforeChangeValueOf(WebElement element, WebDriver driver) {
-		System.out.println("Value of the:" + element.toString() + " before any changes made");
+	public void beforeChangeValueOf(WebElement element) {
+		log.info("Value of the:" + element.toString() + " before any changes made");
 	}
 
-	public void afterChangeValueOf(WebElement element, WebDriver driver) {
-		System.out.println("Element value changed to: " + element.toString());
+	public void afterChangeValueOf(WebElement element) {
+		log.info("Element value changed to: " + element.toString());
 	}
 
 	public void beforeClickOn(WebElement element, WebDriver driver) {
-		System.out.println("Trying to click on: " + element.toString());
+		log.info("Trying to click on: " + element.toString());
 	}
 
 	public void afterClickOn(WebElement element, WebDriver driver) {
-		System.out.println("Clicked on: " + element.toString());
+		log.info("Clicked on: " + element.toString());
 	}
 
 	public void beforeNavigateBack(WebDriver driver) {
-		System.out.println("Navigating back to previous page");
+		log.info("Navigating back to previous page");
 	}
 
 	public void afterNavigateBack(WebDriver driver) {
-		System.out.println("Navigated back to previous page");
+		log.info("Navigated back to previous page");
 	}
 
 	public void beforeNavigateForward(WebDriver driver) {
-		System.out.println("Navigating forward to next page");
+		log.info("Navigating forward to next page");
 	}
 
 	public void afterNavigateForward(WebDriver driver) {
-		System.out.println("Navigated forward to next page");
+		log.info("Navigated forward to next page");
 	}
 
 	public void onException(Throwable error, WebDriver driver) {
-		System.out.println("Exception occured: " + error);
+		log.info("Exception occured: " + error);
 		try {
-			TestUtil.takeScreenshotAtEndOfTest();
+			testUtilObj.takeScreenshotAtEndOfTest();
 		} catch (IOException e) {
-			e.printStackTrace();
+			log.info(e);
 		}
 	}
 
 	public void beforeFindBy(By by, WebElement element, WebDriver driver) {
-		System.out.println("Trying to find Element By : " + by.toString());
+		log.info("Trying to find Element By : " + by.toString());
 	}
 
 	public void afterFindBy(By by, WebElement element, WebDriver driver) {
-		System.out.println("Found Element By : " + by.toString());
+		log.info("Found Element By : " + by.toString());
 	}
 
 	/*
 	 * non overridden methods of WebListener class
 	 */
 	public void beforeScript(String script, WebDriver driver) {
+		log.info(elementLogMsg + script);
 	}
 
 	public void afterScript(String script, WebDriver driver) {
+		log.info(elementLogMsg + script);
 	}
 
 	public void beforeAlertAccept(WebDriver driver) {
-		// TODO Auto-generated method stub
+		log.info(elementLogMsg + driver);
 
 	}
 
 	public void afterAlertAccept(WebDriver driver) {
-		// TODO Auto-generated method stub
+		log.info(elementLogMsg + driver);
 
 	}
 
 	public void afterAlertDismiss(WebDriver driver) {
-		// TODO Auto-generated method stub
+		log.info(elementLogMsg + driver);
 
 	}
 
 	public void beforeAlertDismiss(WebDriver driver) {
-		// TODO Auto-generated method stub
+		log.info(elementLogMsg + driver);
 
 	}
 
 	public void beforeNavigateRefresh(WebDriver driver) {
-		// TODO Auto-generated method stub
+		log.info(elementLogMsg + driver);
 
 	}
 
 	public void afterNavigateRefresh(WebDriver driver) {
-		// TODO Auto-generated method stub
+		log.info(elementLogMsg + driver);
 
 	}
 
 	public void beforeChangeValueOf(WebElement element, WebDriver driver, CharSequence[] keysToSend) {
-		// TODO Auto-generated method stub
+		log.info(elementLogMsg + element);
 
 	}
 
 	public void afterChangeValueOf(WebElement element, WebDriver driver, CharSequence[] keysToSend) {
-		// TODO Auto-generated method stub
+		log.info(elementLogMsg + element);
 
 	}
 

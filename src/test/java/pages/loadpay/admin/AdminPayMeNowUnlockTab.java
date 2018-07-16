@@ -13,18 +13,15 @@ import base.TestBase;
     WebElement checkbox;
 
     @FindBy(xpath = ("//a[contains(text(),'PayMeNow')]"))
-    static WebElement PayMeNowTab;
+    WebElement PayMeNowTab;
 
     @FindBy(id = "PMNEnrolled")
-    static
     WebElement enrollInPaymeNowButton;
 
     @FindBy(id = "PMNLocked")
-    static
     WebElement lockPayMeNowStatusButton;
 
     @FindBy(xpath = "//*[@id='formPMN']/div/div[3]/input[2]")
-    static
     WebElement updateButton;
 
 
@@ -33,40 +30,40 @@ import base.TestBase;
       wait = new WebDriverWait(driver, 10);
     }
 
-    public static void openPayMeNowTab() {
+    public void openPayMeNowTab() {
       PayMeNowTab.click();
     }
 
-    public static void clickEnrollInPayMeNow() {
+    public void clickEnrollInPayMeNow() {
 
       if(!enrollInPaymeNowButton.isSelected()) {
         enrollInPaymeNowButton.click();
-        System.out.println("User Enrolled in PayMeNow ");
+        log.info("User Enrolled in PayMeNow ");
       } else {
-        System.out.println("User is not enrolled in PayMeNow");
+        log.info("User is not enrolled in PayMeNow");
       }
     }
 
-    public static void clickLockPaymeNowStatusButton() {
+    public void clickLockPaymeNowStatusButton() {
 
       if(!lockPayMeNowStatusButton.isSelected()) {
         lockPayMeNowStatusButton.click();
-        System.out.println("User Locked PayMeNow status button");
+        log.info("User Locked PayMeNow status button");
       }
     }
 
-    public static void clickUnLockPaymeNowStatusButton() {
+    public void clickUnLockPaymeNowStatusButton() {
 
       if(lockPayMeNowStatusButton.isSelected()) {
         lockPayMeNowStatusButton.click();
         enrollInPaymeNowButton.click();
 
-        System.out.println("User Unlocked PayMeNow status button");
-        System.out.println("User Unenrolled from PayMeNow");
+        log.info("User Unlocked PayMeNow status button");
+        log.info("User Unenrolled from PayMeNow");
       }
     }
 
-    public static void clickUpdateButton() {
+    public void clickUpdateButton() {
       updateButton.click();
     }
 

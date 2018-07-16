@@ -76,7 +76,7 @@ public class ShipperSchedulePaymentTest extends TestBase
 		 bp.verifyInvoiceNumber(invoiceno,amt);
 		 Thread.sleep(1000);
 		Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
-		System.out.println(bp.verifyPaymentStatus());
+		log.info(bp.verifyPaymentStatus());
 		//bp.logout();
 	}
 

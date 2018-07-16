@@ -196,7 +196,7 @@ public class BrokerBanking extends TestBase {
 		int count = banking.size();
 		for (int i = 0; i < count; i++) {
 			if (banking.get(i).getText().equalsIgnoreCase(BrokerBankingTest.acountname)) {
-				System.out.println(BrokerBankingTest.acountname);
+				log.info(BrokerBankingTest.acountname);
 				
 				j = i;
 				break;
@@ -205,12 +205,12 @@ public class BrokerBanking extends TestBase {
 
 		// List<WebElement> lists =
 		// driver.findElements(By.xpath("//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[2]/div/div/div[1]/div/div/div/p[9]/span"));
-		System.out.println(lists.size());
-		System.out.println(lists.get(j).getText());
+		log.info(lists.size());
+		log.info(lists.get(j).getText());
 		pennyamt = lists.get(j).getText();
 
 		pennyamt.replaceAll("Penny Verification Amount:", "");
-		System.out.println((pennyamt.length()));
+		log.info((pennyamt.length()));
 
 		if (pennyamt.length() == 33) {
 			pennyamoun = pennyamt.replaceAll("\\$", "");
@@ -242,7 +242,7 @@ public class BrokerBanking extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(field_amount));
 		js.executeScript("arguments[0].click();", field_amount);
 		Thread.sleep(1000);
-		System.out.println(pennyamounts);
+		log.info(pennyamounts);
 		field_amount.sendKeys(pennyamounts);
 	}
 

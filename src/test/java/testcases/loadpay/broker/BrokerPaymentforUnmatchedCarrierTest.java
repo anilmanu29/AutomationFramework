@@ -86,7 +86,7 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase
 		 Thread.sleep(1000);
 		einno =  bp.getEin(ein);
 		//Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
-		System.out.println(bp.verifyPaymentStatus());
+		log.info(bp.verifyPaymentStatus());
 		
 		//bp.logout();
 	} 

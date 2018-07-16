@@ -240,12 +240,12 @@ public class CarrierPaymentHistory extends TestBase {
 							.findElement(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div/div[2]/img"));
 					while (loadingGif.isDisplayed()) {
 						Thread.sleep(3000);
-						System.out.println("Waiting for Loading Gif to disappear!");
+						log.info("Waiting for Loading Gif to disappear!");
 
 					}
 
 				} catch (Exception e) {
-					System.out.println("Waiting for Loading Gif is NOT displayed");
+					log.info("Waiting for Loading Gif is NOT displayed");
 				}
 
 			} else {
@@ -255,12 +255,12 @@ public class CarrierPaymentHistory extends TestBase {
 							.findElement(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div/div[2]/img"));
 					while (loadingGif.isDisplayed()) {
 						Thread.sleep(3000);
-						System.out.println("Waiting for Loading Gif to disappear!");
+						log.info("Waiting for Loading Gif to disappear!");
 
 					}
 
 				} catch (Exception e) {
-					System.out.println("Waiting for Loading Gif is NOT displayed");
+					log.info("Waiting for Loading Gif is NOT displayed");
 				}
 			}
 		}
@@ -277,12 +277,12 @@ public class CarrierPaymentHistory extends TestBase {
 					.findElement(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div/div[2]/img"));
 			while (loadingGif.isDisplayed()) {
 				Thread.sleep(1000);
-				System.out.println("Waiting for Loading Gif to disappear!");
+				log.info("Waiting for Loading Gif to disappear!");
 
 			}
 
 		} catch (Exception e) {
-			System.out.println("Waiting for Loading Gif is NOT displayed");
+			log.info("Waiting for Loading Gif is NOT displayed");
 		}
 
 		try {
@@ -310,7 +310,7 @@ public class CarrierPaymentHistory extends TestBase {
 			js.executeScript("arguments[0].click();", element);
 		} catch (Exception e) {
 			js.executeScript("arguments[0].click();", element);
-			System.out.println("Selected Filter Payments are NOT Available");
+			log.info("Selected Filter Payments are NOT Available");
 		}
 
 		js.executeScript("window.scrollBy(0,-100)", "");
@@ -324,12 +324,12 @@ public class CarrierPaymentHistory extends TestBase {
 					.findElement(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div/div[2]/img"));
 			while (loadingGif.isDisplayed()) {
 				Thread.sleep(3000);
-				System.out.println("Waiting for Loading Gif to disappear!");
+				log.info("Waiting for Loading Gif to disappear!");
 
 			}
 
 		} catch (Exception e) {
-			System.out.println("Waiting for Loading Gif is NOT displayed");
+			log.info("Waiting for Loading Gif is NOT displayed");
 		}
 
 	}
@@ -349,12 +349,12 @@ public class CarrierPaymentHistory extends TestBase {
 					.findElement(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div/div[2]/img"));
 			while (loadingGif.isDisplayed()) {
 				Thread.sleep(3000);
-				System.out.println("Waiting for Loading Gif to disappear!");
+				log.info("Waiting for Loading Gif to disappear!");
 
 			}
 
 		} catch (Exception e) {
-			System.out.println("Waiting for Loading Gif is NOT displayed");
+			log.info("Waiting for Loading Gif is NOT displayed");
 		}
 		
 		if (numofmonthgrids.size() > 1) {
@@ -382,7 +382,7 @@ public class CarrierPaymentHistory extends TestBase {
 		}
 		catch(Exception e)
 		{
-			System.out.println("More than one months");
+			log.info("More than one months");
 		}
 		
 	}
@@ -397,12 +397,12 @@ public class CarrierPaymentHistory extends TestBase {
 					.findElement(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div/div[2]/img"));
 			while (loadingGif.isDisplayed()) {
 				Thread.sleep(3000);
-				System.out.println("Waiting for Loading Gif to disappear!");
+				log.info("Waiting for Loading Gif to disappear!");
 
 			}
 
 		} catch (Exception e) {
-			System.out.println("Waiting for Loading Gif is NOT displayed");
+			log.info("Waiting for Loading Gif is NOT displayed");
 
 		}
 		Assert.assertTrue(invoiceamtrange.isDisplayed(), "Invoice Amount Rage field NOT found");

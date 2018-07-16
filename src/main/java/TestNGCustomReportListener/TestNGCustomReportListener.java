@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
 import org.testng.IReporter;
 import org.testng.IResultMap;
 import org.testng.ISuite;
@@ -20,6 +21,7 @@ import org.testng.xml.XmlSuite;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+import com.relevantcodes.extentreports.model.Log;
 
 /*import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -27,6 +29,8 @@ import com.relevantcodes.extentreports.LogStatus;
 */
 public class TestNGCustomReportListener<TestNGReports> implements IReporter{
 	private ExtentReports extent;
+	Logger log = Logger.getLogger(Log.class.getName());
+	
 	//private EmailableReports emailable;
     public void generateReport(List<XmlSuite> arg0, List<ISuite> arg1,
 
@@ -59,7 +63,7 @@ public class TestNGCustomReportListener<TestNGReports> implements IReporter{
 
             //Print Suite detail in Console
 
-             System.out.println("Suite Name->"+context.getName()
+             log.info("Suite Name->"+context.getName()
 
                     + "::Report output Ditectory->"+context.getOutputDirectory()
 
@@ -81,13 +85,13 @@ public class TestNGCustomReportListener<TestNGReports> implements IReporter{
 
             //Loop one by one in all failed methods
 
-            System.out.println("--------FAILED TEST CASE---------");
+            log.info("--------FAILED TEST CASE---------");
 
             for (ITestNGMethod iTestNGMethod : failedMethods) {
 
                 //Print failed test cases detail
 
-                System.out.println("TESTCASE NAME->"+iTestNGMethod.getMethodName()
+                log.info("TESTCASE NAME->"+iTestNGMethod.getMethodName()
 
                         +"\nDescription->"+iTestNGMethod.getDescription()
 
@@ -105,7 +109,9 @@ public class TestNGCustomReportListener<TestNGReports> implements IReporter{
 
 
     }
-    private String timeConversion(long seconds) {
+    
+    @SuppressWarnings("unused")
+	private String timeConversion(long seconds) {
 
 	    final int MINUTES_IN_AN_HOUR = 60;
 	    final int SECONDS_IN_A_MINUTE = 60;
@@ -130,6 +136,7 @@ public class TestNGCustomReportListener<TestNGReports> implements IReporter{
 		
 	}
 	
+	@SuppressWarnings("unused")
 	private void buildTestNodes(IResultMap tests, LogStatus status) {
 		ExtentTest test;
 

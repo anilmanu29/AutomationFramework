@@ -149,7 +149,7 @@ public class UnmatchedNewPaymentCarrierOutlook extends TestBase {
 			Thread.sleep(1000);
 			e.click();
 			Thread.sleep(1000);
-			System.out.println(emailid.getText());
+			log.info(emailid.getText());
 			if(emailid.getText().equalsIgnoreCase(BrokerPaymentforUnmatchedCarrierTest.al.get(1)+";"))
 			{
 				Thread.sleep(1000);

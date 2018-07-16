@@ -9,7 +9,7 @@ import base.TestBase;
 
 public class CarrierLoginPage extends TestBase{
 	WebDriverWait wait;
-	public static String cemail;
+	public String cemail;
 	
 	//Page Factory - OR:
 	@FindBy(xpath="//input[@id='UserName']")

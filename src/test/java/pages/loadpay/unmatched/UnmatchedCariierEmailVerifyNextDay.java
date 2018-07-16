@@ -145,14 +145,14 @@ public class UnmatchedCariierEmailVerifyNextDay extends TestBase {
 		
 	//List<WebElement> list = driver.findElements(By.xpath("//*[contains(@class,'lvHighlightAllClass')][text()='Verify your email address']"));
 		List<WebElement> list = driver.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
-		System.out.println(list.size());
+		log.info(list.size());
 		
 		for(WebElement e : list)
 		{
 			Thread.sleep(1000);
 			e.click();
 			Thread.sleep(1000);
-			//System.out.println(BrokerPaymentforUnmatchedCarrierTest.umemail);
+			//log.info(BrokerPaymentforUnmatchedCarrierTest.umemail);
 			if(emailid.getText().equalsIgnoreCase(BrokerPaymentforUnmatchedCarrierTest.al.get(0)+";"))
 			{
 				Thread.sleep(1000);

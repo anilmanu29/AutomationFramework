@@ -220,14 +220,14 @@ public class ShipperPaymentHistory extends TestBase {
 			while(loadingGif.isDisplayed())
 			{
 				Thread.sleep(3000);
-				System.out.println("Waiting for Loading Gif to disappear!");
+				log.info("Waiting for Loading Gif to disappear!");
 		
 			}
 			
 			}
 			catch(Exception e)
 			{
-				System.out.println("Waiting for Loading Gif is NOT displayed");
+				log.info("Waiting for Loading Gif is NOT displayed");
 			}
 		}
 		}
@@ -245,14 +245,14 @@ public class ShipperPaymentHistory extends TestBase {
 			while(loadingGif.isDisplayed())
 			{
 				Thread.sleep(1000);
-				System.out.println("Waiting for Loading Gif to disappear!");
+				log.info("Waiting for Loading Gif to disappear!");
 		
 			}
 			
 			}
 			catch(Exception e)
 			{
-				System.out.println("Waiting for Loading Gif is NOT displayed");
+				log.info("Waiting for Loading Gif is NOT displayed");
 			}
 
 		try {
@@ -297,7 +297,7 @@ public class ShipperPaymentHistory extends TestBase {
 		catch(Exception e)
 		{
 			js.executeScript("arguments[0].click();", element);
-			System.out.println("Selected Filter Payments are NOT Available");
+			log.info("Selected Filter Payments are NOT Available");
 		}
 		
 		js.executeScript("window.scrollBy(0,-100)", "");
@@ -310,14 +310,14 @@ public class ShipperPaymentHistory extends TestBase {
 			while(loadingGif.isDisplayed())
 			{
 				Thread.sleep(3000);
-				System.out.println("Waiting for Loading Gif to disappear!");
+				log.info("Waiting for Loading Gif to disappear!");
 		
 			}
 			
 			}
 			catch(Exception e)
 			{
-				System.out.println("Waiting for Loading Gif is NOT displayed");
+				log.info("Waiting for Loading Gif is NOT displayed");
 			}
 	
 	}
@@ -332,14 +332,14 @@ public class ShipperPaymentHistory extends TestBase {
 			while(loadingGif.isDisplayed())
 			{
 				Thread.sleep(3000);
-				System.out.println("Waiting for Loading Gif to disappear!");
+				log.info("Waiting for Loading Gif to disappear!");
 		
 			}
 			
 			}
 			catch(Exception e)
 			{
-				System.out.println("Waiting for Loading Gif is NOT displayed");
+				log.info("Waiting for Loading Gif is NOT displayed");
 			}
 			
 	}
@@ -353,14 +353,14 @@ public class ShipperPaymentHistory extends TestBase {
 			while(loadingGif.isDisplayed())
 			{
 				Thread.sleep(3000);
-				System.out.println("Waiting for Loading Gif to disappear!");
+				log.info("Waiting for Loading Gif to disappear!");
 		
 			}
 			
 			}
 			catch(Exception e)
 			{
-				System.out.println("Waiting for Loading Gif is NOT displayed");
+				log.info("Waiting for Loading Gif is NOT displayed");
 
 			}
 		Assert.assertTrue(invoiceamtrange.isDisplayed(), "Invoice Amount Rage field NOT found");

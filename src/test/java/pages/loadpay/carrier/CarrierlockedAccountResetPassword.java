@@ -92,7 +92,7 @@ public class CarrierlockedAccountResetPassword extends TestBase {
 		searchButton.click();
 
 		infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
-		System.out.println("Info message text: " + infoMessage.getText());
+		log.info("Info message text: " + infoMessage.getText());
 		
 		while ((infoMessage.isDisplayed() || checkEmailTimeStamp(hour, minutes)) && (retryCount < maxRetryCount)) {
 			searchButton.click();
@@ -104,7 +104,7 @@ public class CarrierlockedAccountResetPassword extends TestBase {
 
 		emailid = driver.findElement(By.xpath("//*[@id='ItemHeader.ToContainer']/div/div/div/span/span/div/span[2]"));
 
-		System.out.println("Email ID text: " + emailid.getText());
+		log.info("Email ID text: " + emailid.getText());
 		Assert.assertTrue(emailid.getText().equalsIgnoreCase(emailaddress + ";"), "Email ID not found!");
 
 		Thread.sleep(1000);
@@ -120,7 +120,7 @@ public class CarrierlockedAccountResetPassword extends TestBase {
 			Thread.sleep(1000);
 			e.click();
 			Thread.sleep(1000);
-			System.out.println(emailid.getText());
+			log.info(emailid.getText());
 			if (emailid.getText().equalsIgnoreCase(emailaddress + ";")) {
 				Thread.sleep(1000);
 				wait.until(ExpectedConditions.elementToBeClickable(buttonresetpassword));
@@ -148,7 +148,7 @@ public class CarrierlockedAccountResetPassword extends TestBase {
 		emailTimeStamp = driver.findElement(By.id("ItemHeader.DateReceivedLabel"));
 		emailTime = emailTimeStamp.getText();
 		emailTime = emailTime.substring(emailTime.length()-8, emailTime.length());
-		System.out.println("\n\n\nEmail time: " + emailTime);
+		log.info("\n\n\nEmail time: " + emailTime);
 		timeParser = emailTime.split(":");
 		timeParser[0] = timeParser[0].trim();
 		timeParser[1] = timeParser[1].trim();
@@ -156,13 +156,13 @@ public class CarrierlockedAccountResetPassword extends TestBase {
 		
 		approximateHour = Integer.parseInt(hour);
 		approximateMinutes = Integer.parseInt(minutes);
-		System.out.println("Approx Hours: " + approximateHour);
-		System.out.println("Approx Minutes: " + approximateMinutes);
+		log.info("Approx Hours: " + approximateHour);
+		log.info("Approx Minutes: " + approximateMinutes);
 		
 		actualHour = Integer.parseInt(timeParser[0]);
 		actualMinutes = Integer.parseInt(timeParser[1]);
-		System.out.println("Actual Hours: " + actualHour);
-		System.out.println("Actual Minutes: " + actualMinutes);
+		log.info("Actual Hours: " + actualHour);
+		log.info("Actual Minutes: " + actualMinutes);
 		
 		if((approximateHour != actualHour) || (actualMinutes < approximateMinutes))
 		{

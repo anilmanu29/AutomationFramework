@@ -75,7 +75,7 @@ public class BrokerBankingTest extends TestBase {
 		Thread.sleep(1000);
 		al.ClickOnCustomersTab();
 		Thread.sleep(1000);
-		System.out.println(BrokerLoginPage.bemail);
+		log.info(BrokerLoginPage.bemail);
 		al.ClickOnSearchBox(BrokerLoginPage.bemail);
 		Thread.sleep(1000);
 		al.ClickOnSearchButton();
@@ -84,7 +84,7 @@ public class BrokerBankingTest extends TestBase {
 		Thread.sleep(1000);
 		bb.clickAdminBankingLink();
 		Thread.sleep(1000);
-		System.out.println(bb.getPennyVerificationAmount());
+		log.info(bb.getPennyVerificationAmount());
 		Thread.sleep(1000);
 		al.AdminLogOut();
 		Thread.sleep(1000);
@@ -147,7 +147,7 @@ public class BrokerBankingTest extends TestBase {
 		Thread.sleep(1000);
 		al.ClickOnCustomersTab();
 		Thread.sleep(1000);
-		System.out.println(BrokerLoginPage.bemail);
+		log.info(BrokerLoginPage.bemail);
 		al.ClickOnSearchBox(BrokerLoginPage.bemail);
 		Thread.sleep(1000);
 		al.ClickOnSearchButton();
@@ -156,7 +156,7 @@ public class BrokerBankingTest extends TestBase {
 		Thread.sleep(1000);
 		bb.clickAdminBankingLink();
 		Thread.sleep(1000);
-		System.out.println(bb.getPennyVerificationAmount());
+		log.info(bb.getPennyVerificationAmount());
 		Thread.sleep(1000);
 		al.AdminLogOut();
 		Thread.sleep(1000);
@@ -219,7 +219,7 @@ public class BrokerBankingTest extends TestBase {
 		Thread.sleep(1000);
 		al.ClickOnCustomersTab();
 		Thread.sleep(1000);
-		System.out.println(BrokerLoginPage.bemail);
+		log.info(BrokerLoginPage.bemail);
 		al.ClickOnSearchBox(BrokerLoginPage.bemail);
 		Thread.sleep(1000);
 		al.ClickOnSearchButton();
@@ -228,7 +228,7 @@ public class BrokerBankingTest extends TestBase {
 		Thread.sleep(1000);
 		bb.clickAdminBankingLink();
 		Thread.sleep(1000);
-		System.out.println(bb.getPennyVerificationAmount());
+		log.info(bb.getPennyVerificationAmount());
 		Thread.sleep(1000);
 		al.AdminLogOut();
 		Thread.sleep(1000);

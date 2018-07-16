@@ -69,7 +69,7 @@ public class ShipperAdvancePaymentTest extends TestBase
 		bp.advanceCheckbox();
 		Thread.sleep(1000);
 		paymentdate = bp.getPaymentDate();
-		System.out.println(paymentdate);
+		log.info(paymentdate);
 		bp.clickShedulePayment();
 		Thread.sleep(1000);
 		bp.clickShedulePaymenttab();
@@ -82,7 +82,7 @@ public class ShipperAdvancePaymentTest extends TestBase
 		jse.executeScript("window.scrollBy(0,250)", "");
 		Thread.sleep(1000);*/
 		//Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
-		//System.out.println(bp.verifyPaymentStatus());
+		//log.info(bp.verifyPaymentStatus());
 		bp.logout();
 		 Thread.sleep(1000);
 	}

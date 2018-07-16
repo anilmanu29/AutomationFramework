@@ -141,7 +141,7 @@ public class BrokerOutlookCanada  extends TestBase {
 		driver.switchTo().window(tabs.get(1));
 		Thread.sleep(6000);
 		List<WebElement> list = driver.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
-		System.out.println(list.size());
+		log.info(list.size());
 		Thread.sleep(1000);
 		for(WebElement e : list)
 		{

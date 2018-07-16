@@ -172,14 +172,14 @@ public class CarrierPaymeNowFuelCard extends TestBase {
 		 totalamount =  totalamt.replaceAll("\\$", "");
 		 totalamountt =	totalamount.replaceAll(",", "");	
 		 total = Float.parseFloat(totalamountt);
-		 System.out.println(total);	
+		 log.info(total);	
 		 
 		
 	}
 	public void verifywiretransfer() throws InterruptedException {
 		Thread.sleep(1000);
 		amttwiretransfer = (total - amtbeforesamedayach);
-		System.out.println(amttwiretransfer);
+		log.info(amttwiretransfer);
 	
 	}*/
 

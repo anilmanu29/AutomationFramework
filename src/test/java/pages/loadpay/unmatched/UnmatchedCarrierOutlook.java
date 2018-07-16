@@ -225,10 +225,10 @@ List<WebElement> list = driver.findElements(By.xpath("//*[@class='ms-font-l lvHi
 			Thread.sleep(1000);
 			e.click();
 			Thread.sleep(1000);
-			System.out.println(list.size());
+			log.info(list.size());
 			Thread.sleep(1000);
-			//System.out.println(BrokerPaymentforUnmatchedCarrierTest.al.get(1)+";");
-			System.out.println(emailid.getText());
+			//log.info(BrokerPaymentforUnmatchedCarrierTest.al.get(1)+";");
+			log.info(emailid.getText());
 			if(emailid.getText().equalsIgnoreCase(BrokerPaymentforUnmatchedCarrierTest.al.get(1)+";"))
 			{
 				Thread.sleep(1000);

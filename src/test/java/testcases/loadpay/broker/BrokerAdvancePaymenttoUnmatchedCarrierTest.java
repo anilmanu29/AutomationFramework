@@ -59,7 +59,7 @@ public class BrokerAdvancePaymenttoUnmatchedCarrierTest extends TestBase {
 	@Test(dependsOnMethods = "verifyBrokerPayment")
 	public void verifyAlertMessage() throws InterruptedException, InvalidFormatException, IOException {
 		// verify alert message
-		System.out.println(brokeradvancepaymentobj.alertMessage());
+		log.info(brokeradvancepaymentobj.alertMessage());
 		Assert.assertEquals(brokeradvancepaymentobj.alertMessage(),
 				"The advance payment you are trying to schedule to this Carrier cannot be completed at this time. "
 						+ "The Carrier has not yet verified a bank account with LoadPay. "

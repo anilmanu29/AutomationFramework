@@ -59,7 +59,7 @@ public void days() throws InterruptedException {
 	act.moveToElement(days).click().perform();
 //	JavascriptExecutor js = (JavascriptExecutor)driver;
 //	js.executeScript("arguments[0].click();", days);
-	/*System.out.println("show me the message of days click");*/
+	/*log.info("show me the message of days click");*/
 }
 
 public void Amount() throws InterruptedException {

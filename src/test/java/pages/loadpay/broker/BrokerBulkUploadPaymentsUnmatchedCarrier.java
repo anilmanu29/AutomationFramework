@@ -165,7 +165,7 @@ public class BrokerBulkUploadPaymentsUnmatchedCarrier extends TestBase
 		
 		   // Copy to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(sel,null);
-		 System.out.println("selection" +sel);
+		 log.info("selection" +sel);
 		 
 		 link_Upload.click();
 
