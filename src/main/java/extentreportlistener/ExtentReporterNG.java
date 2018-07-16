@@ -2,7 +2,7 @@
  * @autor : ANILKUMAR
  * 
  */
-package extentReportListener;
+package extentreportlistener;
 
 import java.io.File;
 import java.util.Calendar;
@@ -94,12 +94,9 @@ public class ExtentReporterNG implements IReporter {
 
 	private String prefixZeroToDigit(int num){
 	        int number=num;
-	        if(number<=9){
-	            String sNumber="0"+number;
-	            return sNumber;
-	        }
+	        if(number<=9)
+	            return "0"+number;
 	        else
 	            return ""+number;
-
 	    }
 }
