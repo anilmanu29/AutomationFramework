@@ -36,8 +36,9 @@ public class BrokerRegister extends TestBase
   @FindBy(xpath=".//*[@id='PMNTerm'] ")
 	WebElement PaymentTerms;
   
-  @FindBy(xpath=".//*[@id='formCompany']/div/div[12]/div/div/input ")
+  @FindBy(xpath="//input[contains(@value,'Next')]")
 	WebElement Next;
+  
   @FindBy(xpath="//input[@id='ZipCode']")
 	WebElement ZipCode;
 @FindBy(xpath="//select[@id='OriginCountry']")

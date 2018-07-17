@@ -36,7 +36,7 @@ public class CarrierNextDAYACH extends TestBase {
 	@FindBy(xpath = "//*[@class='getpaid']")
 	private WebElement btn_paymenow;
 
-	@FindBy(xpath = "//span[text()='NEXT DAY ACH']//following::input[@value='Select'][1]")
+	@FindBy(xpath = "//*[@id='paymentOptionsDiv']/div[3]/div[1]/div[7]/span/text()[4]//following::*[@value='Select'][1]")
 	private WebElement btn_selectnextdayach;
 
 	@FindBy(xpath = "//div[@id='payMeNowQuoteDiv']//child::button[text()='CONFIRM']")
@@ -74,7 +74,7 @@ public class CarrierNextDAYACH extends TestBase {
 		 amtbeforepaidsmday = amtbeforepaidsameday.replaceAll("\\$", "");
 		 amtbefore = amtbeforepaidsmday.replaceAll(",", "");	
 		 amtbeforesamedayach = Float.parseFloat(amtbefore);
-		 log.info(amtbeforesamedayach);
+		 System.out.println(amtbeforesamedayach);
 	}
 	
 	
@@ -90,19 +90,19 @@ public class CarrierNextDAYACH extends TestBase {
 		amtnextdayachh = amtnextdayach.replaceAll("\\$", "");
 		amtnxtdayach = amtnextdayachh.replaceAll(",", "");	
 		amttnextdayach = Float.parseFloat(amtnxtdayach);
-		 log.info(amttnextdayach);	
+		 System.out.println(amttnextdayach);	
 		 
 //		paymenowfe =paymenowfee.getText();
 //		paymenow=paymenowfe.replaceAll("\\$", "");
 //		paymenowfeee= paymenow.replaceAll(",", "");
 //		paymenowf = Float.parseFloat(paymenowfeee);
-//		 log.info(paymenowf);	
+//		 System.out.println(paymenowf);	
 //		 
 //		 achtransfees= 	achtransfee.getText();
 //		 achtrafee= achtransfees.replaceAll("\\$", "");
 //		achfee =  achtrafee.replaceAll(",", "");
 //		achtrans = Float.parseFloat(achfee);
-//		log.info(achtrans);
+//		System.out.println(achtrans);
 		
 		 
 		 
@@ -131,14 +131,14 @@ public class CarrierNextDAYACH extends TestBase {
 		 totalamount =  totalamt.replaceAll("\\$", "");
 		 totalamountt =	totalamount.replaceAll(",", "");	
 		 total = Float.parseFloat(totalamountt);
-		 log.info(total);	
+		 System.out.println(total);	
 		 
 		
 	}
 	public void verifyNextDayach() throws InterruptedException {
 		Thread.sleep(1000);
 		amttnextdayach = (total - amtbeforesamedayach);
-		log.info(amttnextdayach);
+		System.out.println(amttnextdayach);
 	
 	}
 }

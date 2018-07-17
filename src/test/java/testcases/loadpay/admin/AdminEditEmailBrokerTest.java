@@ -210,7 +210,7 @@ public class AdminEditEmailBrokerTest extends TestBase
 		brokerRegisterObj.submit();
 		Thread.sleep(1000);
 
-		log.info("Broker Registration Completed...");
+		log.debug("Broker Registration Completed...");
 	}
 
 	@Test(description="LP-5432 Admin_EditEmail_adminLogin",  dependsOnMethods = {"registerNewBroker"}, dataProvider="getAdminLoginData")

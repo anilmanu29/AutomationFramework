@@ -35,7 +35,7 @@ public class CarrierWireTransfer extends TestBase {
 	@FindBy(xpath = "//*[@class='getpaid']")
 	private WebElement btn_paymenow;
 
-	@FindBy(xpath = "//span[text()='WIRE TRANSFER']//following::input[@type='submit'][1]")
+	@FindBy(xpath = ".//*[@id='paymentOptionsDiv']//child::span[text()='Wire Fee']//following::*[@value='Select'][1]")
 	private WebElement btn_selectwiretransfer;
 
 	@FindBy(xpath = "//div[@id='payMeNowQuoteDiv']//child::button[text()='CONFIRM']")
@@ -82,9 +82,9 @@ public class CarrierWireTransfer extends TestBase {
 		 amtbeforepaidsameday = paidamt.getText();
 		 amtbeforepaidsmday = amtbeforepaidsameday.replaceAll("\\$", "");
 		 amtbefore = amtbeforepaidsmday.replaceAll(",", "");	
-		 log.info(amtbeforepaidsmday);
+		 System.out.println(amtbeforepaidsmday);
 		 amtbeforesamedayach = Float.parseFloat(amtbefore);
-		 log.info(amtbeforesamedayach);
+		 System.out.println(amtbeforesamedayach);
 	}
 
 	public void clickPaymenow() throws InterruptedException {
@@ -99,7 +99,7 @@ public class CarrierWireTransfer extends TestBase {
 		amtwiretrsfr = amtwiretransfer.replaceAll("\\$", "");
 		 amtsmdayach = amtwiretrsfr.replaceAll(",", "");	
 		 amttwiretransfer = Float.parseFloat(amtsmdayach);
-		 log.info(amttwiretransfer);
+		 System.out.println(amttwiretransfer);
 	}
 
 	public void clickSelectButton() throws InterruptedException {
@@ -126,14 +126,14 @@ public class CarrierWireTransfer extends TestBase {
 		 totalamount =  totalamt.replaceAll("\\$", "");
 		 totalamountt =	totalamount.replaceAll(",", "");	
 		 total = Float.parseFloat(totalamountt);
-		 log.info(total);	
+		 System.out.println(total);	
 		 
 		
 	}
 	public void verifywiretransfer() throws InterruptedException {
 		Thread.sleep(1000);
 		amttwiretransfer = (total - amtbeforesamedayach);
-		log.info(amttwiretransfer);
+		System.out.println(amttwiretransfer);
 	
 	}
 

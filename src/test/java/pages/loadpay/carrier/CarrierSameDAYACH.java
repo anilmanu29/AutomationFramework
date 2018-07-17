@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import base.TestBase;
 
 
@@ -35,9 +36,12 @@ public class CarrierSameDAYACH extends TestBase {
 	@FindBy(xpath = "//*[@class='getpaid']")
 	private WebElement btn_paymenow;
 
-	@FindBy(xpath = "//span[text()='SAME DAY ACH']//following::input[@value='Select'][1]")
-	private WebElement btn_selectnextdayach;
-
+/*	@FindBy(xpath = "//span[text()='SAME DAY ACH']//following::input[@value='Select'][1]")
+	private WebElement btn_selectnextdayach;*/
+	
+	@FindBy(xpath = "//*[@id='paymentOptionsDiv']/div[1]/div[1]/div[7]/span/text()[4]//following::*[@value='Select'][1]")
+	private WebElement btn_selectsamedayach;
+	
 	@FindBy(xpath = "//div[@id='payMeNowQuoteDiv']//child::button[text()='CONFIRM']")
 	private WebElement btn_confirm;
 
@@ -73,7 +77,7 @@ public class CarrierSameDAYACH extends TestBase {
 		 amtbeforepaidsmday = amtbeforepaidsameday.replaceAll("\\$", "");
 		 amtbefore = amtbeforepaidsmday.replaceAll(",", "");	
 		 amtbeforesamedayach = Float.parseFloat(amtbefore);
-		 log.info(amtbeforesamedayach);
+		 System.out.println(amtbeforesamedayach);
 	}
 	
 	
@@ -89,27 +93,27 @@ public class CarrierSameDAYACH extends TestBase {
 		 amtsamedayachh = amtsamedayach.replaceAll("\\$", "");
 		 amtsmdayach = amtsamedayachh.replaceAll(",", "");	
 		 amttsamedayach = Float.parseFloat(amtsmdayach);
-		 log.info(amttsamedayach);	
+		 System.out.println(amttsamedayach);	
 		 
 //		paymenowfe =paymenowfee.getText();
 //		paymenow=paymenowfe.replaceAll("\\$", "");
 //		paymenowfeee= paymenow.replaceAll(",", "");
 //		paymenowf = Float.parseFloat(paymenowfeee);
-//		 log.info(paymenowf);	
+//		 System.out.println(paymenowf);	
 //		 
 //		 achtransfees= 	achtransfee.getText();
 //		 achtrafee= achtransfees.replaceAll("\\$", "");
 //		achfee =  achtrafee.replaceAll(",", "");
 //		achtrans = Float.parseFloat(achfee);
-//		log.info(achtrans);
+//		System.out.println(achtrans);
 		
 		 
 		 
 	}
 	
 	public void clickSelectButton() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(btn_selectnextdayach));
-		btn_selectnextdayach.click();
+		wait.until(ExpectedConditions.elementToBeClickable(btn_selectsamedayach));
+		btn_selectsamedayach.click();
 	}
 
 	public void clickConfirmButton() throws InterruptedException {
@@ -130,14 +134,14 @@ public class CarrierSameDAYACH extends TestBase {
 		 totalamount =  totalamt.replaceAll("\\$", "");
 		 totalamountt =	totalamount.replaceAll(",", "");	
 		 total = Float.parseFloat(totalamountt);
-		 log.info(total);	
+		 System.out.println(total);	
 		 
 		
 	}
 	public void verifySamedayach() throws InterruptedException {
 		Thread.sleep(1000);
 		amttsamedayach = (total - amtbeforesamedayach);
-		log.info(amttsamedayach);
+		System.out.println(amttsamedayach);
 	
 	}
 }

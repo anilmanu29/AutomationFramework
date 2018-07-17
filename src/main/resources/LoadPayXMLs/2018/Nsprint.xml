@@ -12,15 +12,18 @@
     
     <!-- Script for Jira Ticket LP-6362 - LoadPay - Selenium Test - Broker - Bulk Upload Payment Errors -->
     
-    	<class name="testcases.BrokerBulkUploadPaymentErrorsTest"></class>
+    	<!-- <class name="testcases.BrokerBulkUploadPaymentErrorsTest"></class> -->
     	
     
 	<!-- Script for Jira Ticket LP-6363 LoadPay - Selenium Test - Broker - Cannot create advance payment to unmatched carrier-->
     
-    	<!-- <class name="testcases.BrokerAdvancePaymenttoUnmatchedCarrierTest"></class> -->
-
-
-	
+    <!-- 	<class name="testcases.BrokerAdvancePaymenttoUnmatchedCarrierTest"></class> -->
+    	
+    	
+    <!-- Script for Jira Ticket LP-6365 LoadPay - Selenium Test - Broker - Disable copy / paste functionality for add and confirm bank account-->
+    	
+    	<class name="testcases.BrokerDisableCopyPasteConfirmBankAccountTest"></class>
+    
     </classes>
   </test> 
 </suite> 

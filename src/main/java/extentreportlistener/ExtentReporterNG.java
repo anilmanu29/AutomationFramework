@@ -5,6 +5,7 @@
 package extentreportlistener;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -28,7 +29,13 @@ public class ExtentReporterNG implements IReporter {
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,
 			String outputDirectory) {
 		String currentDir = System.getProperty("user.dir"); 
-		extent = new ExtentReports(currentDir + "/output/" + "/Reports/" + System.currentTimeMillis() + File.separator
+		
+		long currentTimeMillis = System.currentTimeMillis();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd,yyyy HH:mm");    
+		Date formattedDate = new Date(currentTimeMillis);
+		String currentDate = dateFormat.format(formattedDate);
+		
+		extent = new ExtentReports(currentDir + "/output/" + "/Reports/" + currentDate + File.separator
 				+ "Extent.html", true);
 		for (ISuite suite : suites) {
 			Map<String, ISuiteResult> result = suite.getResults();
