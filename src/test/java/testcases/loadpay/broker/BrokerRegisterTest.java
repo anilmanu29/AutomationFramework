@@ -262,14 +262,14 @@ public class BrokerRegisterTest extends TestBase
 		outlookLoginObj.outlookLogin(outlookUsername, outlookPassword);
 		brokerOutlookObj.clickPopUp();
 		brokerOutlookObj.clickOpenMailBox();
-		brokerOutlookObj.enterEmail(super.prop.getProperty("email"));
+		brokerOutlookObj.enterEmail(super.getProperties().getProperty("email"));
 		brokerOutlookObj.outlookSearchInbox(brokerUsername, currentHour, currentMinutes);
 		brokerOutlookObj.handleNewInbox();
 		Thread.sleep(5000);
 		//////////////////////////////////////////////////////////////////
 		
 		//log in as broker
-		driver.get(super.prop.getProperty("url"));
+		driver.get(super.getProperties().getProperty("url"));
 		loginPage.Brokerlogin(brokerUsername, brokerPassword);
 		Thread.sleep(1000);
 		

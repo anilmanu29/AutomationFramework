@@ -100,7 +100,7 @@ public class LoginPageResetPasswordTest extends TestBase {
     brokerOutlook.clickPopUp();
     EmailAddress = EmailAddress.trim();
     brokerOutlook.clickOpenMailBox();
-    brokerOutlook.enterEmail(super.prop.getProperty("email"));
+    brokerOutlook.enterEmail(super.getProperties().getProperty("email"));
     brokerOutlook.outlookSearchInbox(EmailAddress, currentHour, currentMinutes);
     brokerOutlook.handleResetPasswordEmailInbox(EmailAddress);
     brokerPasswordSetupResetPage.enterNewPassword(NewPassword);

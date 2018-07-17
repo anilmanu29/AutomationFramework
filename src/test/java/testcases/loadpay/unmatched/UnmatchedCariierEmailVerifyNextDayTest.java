@@ -36,7 +36,7 @@ public class UnmatchedCariierEmailVerifyNextDayTest extends TestBase {
 	public void outlookloginTest() throws InterruptedException, AWTException {
 		outlookk.clickPopUp();
 		outlookk.clickOpenMailBox();
-		outlookk.enterEmail(super.prop.getProperty("email"));
+		outlookk.enterEmail(super.getProperties().getProperty("email"));
 		//outlookk.clickOpen();
 		outlookk.handleNewInbox();
 		outlookk.verifyConfirmationMessage();

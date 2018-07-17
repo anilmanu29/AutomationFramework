@@ -32,10 +32,13 @@ public class CarrierWireTransfer extends TestBase {
 	 String paymenowfeee;
 	 float paymenowf;
 
-	@FindBy(xpath = "//*[@class='getpaid']")
+	@FindBy(xpath= "//a[contains(@href,'#/Payments/PayMeNow')]")
+	WebElement PayMeNowTab;
+
+	 @FindBy(xpath = "//*[@class='getpaid']")
 	private WebElement btn_paymenow;
 
-	@FindBy(xpath = ".//*[@id='paymentOptionsDiv']//child::span[text()='Wire Fee']//following::*[@value='Select'][1]")
+	@FindBy(xpath = "//*[@id='paymentOptionsDiv']/div[2]/div[1]/div[8]/input[1]")
 	private WebElement btn_selectwiretransfer;
 
 	@FindBy(xpath = "//div[@id='payMeNowQuoteDiv']//child::button[text()='CONFIRM']")
@@ -137,4 +140,7 @@ public class CarrierWireTransfer extends TestBase {
 	
 	}
 
+	public void goToPayMeNowTab() {
+		PayMeNowTab.click();
+	}
 }

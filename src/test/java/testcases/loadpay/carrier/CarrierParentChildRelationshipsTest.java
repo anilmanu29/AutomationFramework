@@ -117,10 +117,10 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		Thread.sleep(1000);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		driver.get(super.prop.getProperty("outlookurl"));
+		driver.get(super.getProperties().getProperty("outlookurl"));
 		brokeroutlook.clickPopUp();
 		brokeroutlook.clickOpenMailBox();
-		brokeroutlook.enterEmail(super.prop.getProperty("email"));
+		brokeroutlook.enterEmail(super.getProperties().getProperty("email"));
 
 	}
 
@@ -237,10 +237,10 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		Thread.sleep(1000);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		driver.get(super.prop.getProperty("outlookurl"));
+		driver.get(super.getProperties().getProperty("outlookurl"));
 		brokeroutlook.clickPopUp();
 		brokeroutlook.clickOpenMailBox();
-		brokeroutlook.enterEmail(super.prop.getProperty("email"));
+		brokeroutlook.enterEmail(super.getProperties().getProperty("email"));
 		carrierchildrelation.resetPassword(forcepwd, confirmforcepwd);
 
 	}
@@ -408,7 +408,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 
 			@Test(dataProvider = "getCarrierLoginData", dependsOnMethods = {"carrierTermPaymentPayByCheck"})
 			public void verifyDeleteChildAccountTest(String un, String password) throws InterruptedException {
-			driver.get(super.prop.getProperty("url"));
+			driver.get(super.getProperties().getProperty("url"));
 			loginPage.Carrierlogin(un, password);
 			carrierchildrelation.clickAccountLink();
 			carrierchildrelation.clickEmailLink();

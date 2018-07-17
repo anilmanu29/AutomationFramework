@@ -17,7 +17,7 @@ public class AdminHomePage extends TestBase
 		public void AdminURL() throws AWTException, InterruptedException
 		{  
 			
-			driver.get(super.prop.getProperty("AdminURL"));
+			driver.get(super.getProperties().getProperty("AdminURL"));
 			
 		}
 }

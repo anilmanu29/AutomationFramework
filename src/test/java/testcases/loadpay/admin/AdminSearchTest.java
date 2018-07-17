@@ -91,30 +91,28 @@ public class AdminSearchTest extends TestBase
 		Boolean assertFilterByPaid = false;
 		Boolean assertFilteredByError = false;
 		Boolean assertFilterByCanceled = false;
-		
-		//clean up excel formatting if it exists
-		paymentId = TestUtil.removeDecimalZeroFormat(paymentId);
-		invoiceAmountFrom = TestUtil.removeDecimalZeroFormat(invoiceAmountFrom);
-		invoiceAmountTo = TestUtil.removeDecimalZeroFormat(invoiceAmountTo);
-		
+
 		//reset fields first so that the fields are reset on each iteration as determined by the dataProvider
 		adminSearchPage.resetFields();
 		
 		//check data provider elements for null values...if not null, setup the relevant data in the web page
 		if(paymentId != null)
 		{
+			paymentId = TestUtil.removeDecimalZeroFormat(paymentId);
 			adminSearchPage.setSearchInputField(paymentId);
 			assertPaymentID = true;
 		}
 		
 		if(invoiceAmountFrom != null)
 		{
+			invoiceAmountFrom = TestUtil.removeDecimalZeroFormat(invoiceAmountFrom);
 			adminSearchPage.setAmountFromInputField(invoiceAmountFrom);
 			assertInvoiceAmountFrom = true;
 		}
 		
 		if(invoiceAmountTo != null)
 		{
+			invoiceAmountTo = TestUtil.removeDecimalZeroFormat(invoiceAmountTo);
 			adminSearchPage.setAmountToInputField(invoiceAmountTo);
 			assertInvoiceAmountTo = true;
 		}

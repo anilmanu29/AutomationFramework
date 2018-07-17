@@ -129,7 +129,7 @@ public class CarrierLoginPageResetPasswordTest extends TestBase {
 	  carrierOutlook.clickPopUp();
     EmailAddress = EmailAddress.trim();
     carrierOutlook.clickOpenMailBox();
-    carrierOutlook.enterEmail(super.prop.getProperty("email"));
+    carrierOutlook.enterEmail(super.getProperties().getProperty("email"));
     carrierOutlook.outlookSearchInbox(EmailAddress, currentHour, currentMinutes);
     carrierOutlook.handleResetPasswordEmailInbox(EmailAddress);
     CarrierPasswordSetupResetPage.enterNewPassword(NewPassword);
@@ -174,7 +174,7 @@ public class CarrierLoginPageResetPasswordTest extends TestBase {
   @Test(dataProvider = "getoutlookLoginData", dependsOnMethods = "ResetPasswordEmail")
   public void outlogin(String un, String pwd) throws InterruptedException, AWTException {
    // outlookLogin.outlookLogin(un, pwd);
-	  driver.get(super.prop.getProperty("outlookurl"));
+	  driver.get(super.getProperties().getProperty("outlookurl"));
   }
   
   @Test(dataProvider = "getAdminforcepasswordData", dependsOnMethods = {"outlogin"})
@@ -182,7 +182,7 @@ public class CarrierLoginPageResetPasswordTest extends TestBase {
 	  carrierOutlook.clickPopUp();
     EmailAddress = EmailAddress.trim();
     carrierOutlook.clickOpenMailBox();
-    carrierOutlook.enterEmail(super.prop.getProperty("email"));
+    carrierOutlook.enterEmail(super.getProperties().getProperty("email"));
     carrierOutlook.outlookSearchInboxforcareer(EmailAddress, currentHour, currentMinutes);
     carrierOutlook.handleResetPasswordEmailInbox(EmailAddress);
     Thread.sleep(2000);

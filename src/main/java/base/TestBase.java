@@ -24,17 +24,16 @@ import utility.ReadExcel;
 
 public class TestBase {
 	
-	public static WebDriver driver;
-	public static Properties prop;
-	public static EventFiringWebDriver eDriver;
-	public static WebEventListener eventListener;
-	public static String userDirectory = "user.dir";
+	protected static WebDriver driver;
+	protected static Properties prop = new Properties();
+	protected static EventFiringWebDriver eDriver;
+	protected static WebEventListener eventListener;
+	protected static String userDirectory = "user.dir";
 	public static Logger log;
 	public final String loadPayTestDataFilePath = System.getProperty(userDirectory)+"/src/main/java/testdata/LoadPay/LoadPayTestData.xlsx";
 	
 	public TestBase(){
 		try {
-			prop = new Properties();
 			FileInputStream ip = new FileInputStream(System.getProperty(userDirectory)+"/src/main/java/config/config.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
@@ -79,6 +78,11 @@ public class TestBase {
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 	}
 	
+	public static Properties getProperties()
+	{
+		return prop;
+	}
+	
 	
 	@DataProvider
 	public Object[][] getoutlookLoginData() throws InvalidFormatException, IOException
@@ -86,6 +90,7 @@ public class TestBase {
 		ReadExcel read = new ReadExcel();
 		return read.getCellData(loadPayTestDataFilePath, "outlookLoginData");
 	}
+	
 	@DataProvider
 	public Object[][] getAdminLoginData() throws InvalidFormatException, IOException
 	{

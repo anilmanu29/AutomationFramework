@@ -93,7 +93,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 	
 	@Test(dataProvider = "getShipperCompleteAccModuleData",dependsOnMethods = {"verifyAdminAccountModule"})
 	public void verifyContactDetails(String un, String pwd,String ContactFN, String ContactLN,String contactemail, String ContactPN,String Contactextension,String ContactMobileNumber,String ContactFax) throws InterruptedException {
-		driver.get(super.prop.getProperty("url"));
+		driver.get(super.getProperties().getProperty("url"));
 		/*brokerlogin = new BrokerLoginPage();
 		brokerlogin.Brokerlogin(un, pwd);
 		Thread.sleep(1000);*/
@@ -150,7 +150,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 	
 	@Test(dependsOnMethods = {"verifyContactDetails"})
 	public void verifyNotifications() throws InterruptedException {
-		driver.get(super.prop.getProperty("url"));
+		driver.get(super.getProperties().getProperty("url"));
 		shippercompleteaccountmodule.clickAccountlink();
 		Thread.sleep(1000);
 		Assert.assertTrue(shippercompleteaccountmodule.lnk_account.isDisplayed());
@@ -181,7 +181,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 	@Test(dataProvider = "getAdminLoginshipperaccountmoduleData",dependsOnMethods = {"verifyNotifications"})
 	public void verifyCredit(String ExtendedCredit) throws InterruptedException, AWTException {
 		Thread.sleep(1000);
-		driver.get(super.prop.getProperty("AdminURL"));
+		driver.get(super.getProperties().getProperty("AdminURL"));
 		adminhomepage.AdminURL(); 
 		Thread.sleep(2000);
 		adminlogin.ClickOnCustomersTab();
@@ -210,7 +210,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 	
 	@Test(dependsOnMethods = {"verifyCredit"})
 	public void verifybrokercredit() throws InterruptedException {
-		driver.get(super.prop.getProperty("url"));
+		driver.get(super.getProperties().getProperty("url"));
 		shippercompleteaccountmodule.clickAccountlink();
 		Thread.sleep(1000);
 		Assert.assertTrue(shippercompleteaccountmodule.lnk_account.isDisplayed());
@@ -223,7 +223,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 	
 	@Test(dependsOnMethods = {"verifybrokercredit"})
 	public void verifybrokerPayMeNow() throws InterruptedException {
-		driver.get(super.prop.getProperty("url"));
+		driver.get(super.getProperties().getProperty("url"));
 		shippercompleteaccountmodule.clickAccountlink();
 		Thread.sleep(1000);
 		Assert.assertTrue(shippercompleteaccountmodule.lnk_account.isDisplayed());
@@ -249,7 +249,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 	@Test(dependsOnMethods = {"verifybrokerPayMeNow"})
 	public void verifyAdminPaymeNow() throws InterruptedException, AWTException {
 		Thread.sleep(1000);
-		driver.get(super.prop.getProperty("AdminURL"));
+		driver.get(super.getProperties().getProperty("AdminURL"));
 		adminhomepage.AdminURL(); 
 		Thread.sleep(2000);
 		adminlogin.ClickOnCustomersTab();
@@ -281,7 +281,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 	
 	@Test(dependsOnMethods = {"verifyAdminPaymeNow"})
 	public void verifybrokerPayMeNowupdate() throws InterruptedException {
-		driver.get(super.prop.getProperty("url"));
+		driver.get(super.getProperties().getProperty("url"));
 		shippercompleteaccountmodule.clickAccountlink();
 		Thread.sleep(1000);
 		shippercompleteaccountmodule.clickpaymenowlink();

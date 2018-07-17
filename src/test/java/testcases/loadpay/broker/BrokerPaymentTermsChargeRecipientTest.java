@@ -110,7 +110,7 @@ public class BrokerPaymentTermsChargeRecipientTest extends TestBase {
 	
 	@Test(dataProvider="getPaymentData", dependsOnMethods = "verifyAdminPaymentTerm")
 	public void brokernewPayment(String cemail, String invoiceno, String loadid, String amt) throws InterruptedException {
-		driver.get(super.prop.getProperty("url"));
+		driver.get(super.getProperties().getProperty("url"));
 		BrokerNewPayment = new BrokerNewPayment();
 		BrokerNewPayment.newPayment();
 		Thread.sleep(1000);

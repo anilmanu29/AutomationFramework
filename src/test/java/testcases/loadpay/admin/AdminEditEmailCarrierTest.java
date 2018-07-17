@@ -329,7 +329,7 @@ public class AdminEditEmailCarrierTest extends TestBase
 			outlookLoginObj.outlookLogin(un, pwd);
 			carrierOutlookObj.clickPopUp();
 			carrierOutlookObj.clickOpenMailBox();
-			carrierOutlookObj.enterEmail(super.prop.getProperty("email"));
+			carrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
 			carrierOutlookObj.outlookSearchInbox(updatedCarrierEmailAddress, currentHour, currentMinutes);
 			carrierOutlookObj.handleUpdatedEmailInbox(updatedCarrierEmailAddress);
 		} catch (AWTException e) {
