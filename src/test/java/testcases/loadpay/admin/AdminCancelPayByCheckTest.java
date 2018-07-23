@@ -3,6 +3,7 @@ package testcases.loadpay.admin;
 import java.awt.AWTException;
 import java.io.IOException;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -21,7 +22,6 @@ public class AdminCancelPayByCheckTest extends TestBase {
 	AdminCancelPayByCheck adminCancelPayByCheckObj;
 	public static String acountname;
 
-	
 	/*-------Initializing driver---------*/
 
 	public AdminCancelPayByCheckTest() {
@@ -32,130 +32,149 @@ public class AdminCancelPayByCheckTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
-		
+
 		adminLogObj = new AdminLogin();
-		adminHomePageObj = new AdminHomePage(); 
-		adminPayByCheckObj=new AdminPayByCheck();
+		adminHomePageObj = new AdminHomePage();
+		adminPayByCheckObj = new AdminPayByCheck();
 		adminCancelPayByCheckObj = new AdminCancelPayByCheck();
-		
-		
+
 	}
 
-	
+	/*
+	 * @Test(dataProvider = "getAdminLoginData", priority =18 ) public void
+	 * verifyAdminPayByCheck(String Username, String pass) throws
+	 * InterruptedException, AWTException {
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement)); ahp.AdminURL();
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * al.adminUserPass(Username, pass); al.adminLogin();
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * al.ClickOnCustomersTab();
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * log.info(BrokerLoginPage.bemail);
+	 * al.ClickOnSearchBox(BrokerLoginPage.bemail);
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * al.ClickOnSearchButton();
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * al.DoubleClickID();
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * apbc.clickPayments();
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * apbc.ClickOnsearchKeyword(BrokerNewPaymentTest.al.get(0));
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * apbc.getPaymentID();
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * apbc.clickSearch();
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * apbc.searchKeyword();
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * apbc.clickSearch1();
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * apbc.clickgridcollapse();
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * apbc.clickPayByCheck();
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * apbc.selectTerms();
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * 
+	 * }
+	 * 
+	 * @Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData",priority=19)
+	 * public void carrierPaymenowPayByCheck(String EnterDOTNnumber,String
+	 * ContactName) throws InterruptedException {
+	 * apbc.EnterDOTNnumber(EnterDOTNnumber);
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * apbc.ContactName(ContactName);
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * apbc.clickPayByChecksubmit();
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * apbc.clickAddCheckNumber();
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * apbc.ClickOnEnterCheckNumber();
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * //al.AdminLogOut();
+	 * //wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * 
+	 * 
+	 * }
+	 */
 
-	/*@Test(dataProvider = "getAdminLoginData", priority =18 )
-	public void verifyAdminPayByCheck(String Username, String pass) throws InterruptedException, AWTException {
-		Thread.sleep(1000);
-		ahp.AdminURL(); 
-		Thread.sleep(2000);
-		al.adminUserPass(Username, pass);
-		al.adminLogin();
-		Thread.sleep(1000);
-		al.ClickOnCustomersTab();
-		Thread.sleep(1000);
+	@Test(dataProvider = "getAdminLoginData")
+	public void verifyAdminPayByCheckTermPayment(String Username, String pass)
+			throws InterruptedException, AWTException {
+		adminHomePageObj.AdminURL();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLogObj.getUserName()));
+		adminLogObj.adminUserPass(Username, pass);
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLogObj.getLoginBtn()));
+		adminLogObj.adminLogin();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLogObj.getCustomerTab()));
+		adminLogObj.ClickOnCustomersTab();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLogObj.getSearch()));
 		log.info(BrokerLoginPage.bemail);
-		al.ClickOnSearchBox(BrokerLoginPage.bemail);
-		Thread.sleep(1000);
-		al.ClickOnSearchButton();
-		Thread.sleep(1000);
-		al.DoubleClickID();
-		Thread.sleep(1000);
-		apbc.clickPayments();
-		Thread.sleep(3000);
-		apbc.ClickOnsearchKeyword(BrokerNewPaymentTest.al.get(0));
-		Thread.sleep(2000);
-		apbc.getPaymentID();
-		Thread.sleep(2000);
-		apbc.clickSearch();
-		Thread.sleep(2000);
-		apbc.searchKeyword();
-		Thread.sleep(2000);
-		apbc.clickSearch1();
-		Thread.sleep(2000);
-		apbc.clickgridcollapse();
-		Thread.sleep(2000);
-		apbc.clickPayByCheck();
-		Thread.sleep(2000);
-		apbc.selectTerms();
-		Thread.sleep(3000);
-		
+		adminLogObj.ClickOnSearchBox(BrokerLoginPage.bemail);
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLogObj.getClickonSearchButton()));
+		adminLogObj.ClickOnSearchButton();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLogObj.getDoubleClickID()));
+		adminLogObj.DoubleClickID();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminPayByCheckObj.getLink_Payments()));
+		adminPayByCheckObj.clickPayments();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminCancelPayByCheckObj.getFieldSearch()));
+		log.info(adminCancelPayByCheckObj);
+		adminCancelPayByCheckObj.ClickOnsearchKeyword(adminCancelPayByCheckObj.getPaymentID1().getText());
+		// acpbc.ClickOnsearchKeywordterm(BrokerNewPaymentTest.al.get(0));
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminCancelPayByCheckObj.getPaymentIdElement()));
+		adminCancelPayByCheckObj.getPaymentID();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminCancelPayByCheckObj.getLink_Search()));
+		adminCancelPayByCheckObj.clickSearch();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminCancelPayByCheckObj.getSearchKeyword()));
+		adminCancelPayByCheckObj.searchKeyword();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminCancelPayByCheckObj.getBtn_Search()));
+		adminCancelPayByCheckObj.clickSearch1();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminCancelPayByCheckObj.getGrid_collapse()));
+		adminCancelPayByCheckObj.clickgridcollapse();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminCancelPayByCheckObj.getBtn_PayByCheck()));
+		adminCancelPayByCheckObj.clickPayByCheck();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminCancelPayByCheckObj.getSelect_Terms()));
+		adminCancelPayByCheckObj.selectTerms();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminCancelPayByCheckObj.getSelect_Terms()));
+		adminCancelPayByCheckObj.selectTermsTermPayment();
 	}
-		@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData",priority=19)
-		public void carrierPaymenowPayByCheck(String EnterDOTNnumber,String ContactName) throws InterruptedException {
-		apbc.EnterDOTNnumber(EnterDOTNnumber);
-		Thread.sleep(3000);
-		apbc.ContactName(ContactName);
-		Thread.sleep(3000);
-		apbc.clickPayByChecksubmit();
-		Thread.sleep(3000);
-		apbc.clickAddCheckNumber();
-		Thread.sleep(2000);
-		apbc.ClickOnEnterCheckNumber();
-		Thread.sleep(2000);
-		//al.AdminLogOut();
-		//Thread.sleep(2000);
-	
 
-	} */
-		
-		@Test(dataProvider = "getAdminLoginData")
-		public void verifyAdminPayByCheckTermPayment(String Username, String pass) throws InterruptedException, AWTException {
-			Thread.sleep(1000);
-			adminHomePageObj.AdminURL(); 
-			Thread.sleep(2000);
-			adminLogObj.adminUserPass(Username, pass);
-			adminLogObj.adminLogin();
-			Thread.sleep(1000);
-			adminLogObj.ClickOnCustomersTab();
-			Thread.sleep(1000);
-			log.info(BrokerLoginPage.bemail);
-			adminLogObj.ClickOnSearchBox(BrokerLoginPage.bemail);
-			Thread.sleep(1000);
-			adminLogObj.ClickOnSearchButton();
-			Thread.sleep(1000);
-			adminLogObj.DoubleClickID();
-			Thread.sleep(1000);
-			adminPayByCheckObj.clickPayments();
-			Thread.sleep(3000);
-			log.info(adminCancelPayByCheckObj);
-			adminCancelPayByCheckObj.ClickOnsearchKeyword(adminCancelPayByCheckObj.getPaymentId1().getText());
-			//acpbc.ClickOnsearchKeywordterm(BrokerNewPaymentTest.al.get(0));
-			Thread.sleep(2000);
-			adminCancelPayByCheckObj.getPaymentID();
-			Thread.sleep(2000);
-			adminCancelPayByCheckObj.clickSearch();
-			Thread.sleep(2000);
-			adminCancelPayByCheckObj.searchKeyword();
-			Thread.sleep(2000);
-			adminCancelPayByCheckObj.clickSearch1();
-			Thread.sleep(2000);
-			adminCancelPayByCheckObj.clickgridcollapse();
-			Thread.sleep(2000);
-			adminCancelPayByCheckObj.clickPayByCheck();
-			Thread.sleep(2000);
-			adminCancelPayByCheckObj.selectTerms();
-			Thread.sleep(2000);
-			adminCancelPayByCheckObj.selectTermsTermPayment();
-			Thread.sleep(3000);
-			
-		}
-			@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData", dependsOnMethods = "verifyAdminPayByCheckTermPayment")
-			public void carrierTermPaymentPayByCheck(String EnterDOTNnumber,String ContactName) throws InterruptedException {
-			adminCancelPayByCheckObj.EnterDOTNnumber(EnterDOTNnumber);
-			Thread.sleep(3000);
-			adminCancelPayByCheckObj.ContactName(ContactName);
-			Thread.sleep(3000);
-			adminCancelPayByCheckObj.clickPayByChecksubmit();
-			Thread.sleep(3000);
-			adminCancelPayByCheckObj.clickCancelPayByCheck();
-			/*apbc.clickAddCheckNumber();
-			Thread.sleep(2000);
-			apbc.ClickOnEnterCheckNumber();
-			Thread.sleep(2000);*/
-			
-			
+	@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData", dependsOnMethods = "verifyAdminPayByCheckTermPayment")
+	public void carrierTermPaymentPayByCheck(String EnterDOTNnumber, String ContactName) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(adminCancelPayByCheckObj.getTxt_DOT()));
+		adminCancelPayByCheckObj.EnterDOTNnumber(EnterDOTNnumber);
 
-		}
+		wait.until(ExpectedConditions.elementToBeClickable(adminCancelPayByCheckObj.getTxt_ContactName()));
+		adminCancelPayByCheckObj.ContactName(ContactName);
 
-	
+		wait.until(ExpectedConditions.elementToBeClickable(adminCancelPayByCheckObj.getBtn_paybychksubmit()));
+		adminCancelPayByCheckObj.clickPayByChecksubmit();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminCancelPayByCheckObj.getBtn_CancelPayByCheck()));
+		adminCancelPayByCheckObj.clickCancelPayByCheck();
+		/*
+		 * apbc.clickAddCheckNumber();
+		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		 * apbc.ClickOnEnterCheckNumber();
+		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		 */
+
+	}
+
 }

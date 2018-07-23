@@ -3,6 +3,7 @@ import java.awt.AWTException;
 import java.io.IOException;
 import java.util.List;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -62,33 +63,33 @@ public class BrokerBulkUploadPaymentsUnmatchedCarrierTest extends TestBase
 	@Test(dependsOnMethods = "verifyBulkUploadPaymentsmatched")
 	public void verifynewPayment() throws InterruptedException {
 		bbmp.newPayment();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 	
 
 	@Test(dependsOnMethods = "verifynewPayment")
 	public void verifyUploadFile() throws InterruptedException, IOException, AWTException {
 		bbmp.UploadFile();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 	
 		
 	@Test(dependsOnMethods = "verifyUploadFile")
 	public void verifyClickimport() throws InterruptedException, IOException {
 		bbmp.Clickimport();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 	
 	@Test(dependsOnMethods = "verifyClickimport")
 	public void verifyClickschpayment() throws InterruptedException, IOException {
 		bbmp.Clickschpayment();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 		
 	@Test(dependsOnMethods = "verifyClickschpayment")
 	public void verifyClickGridDown() throws InterruptedException, IOException {
 		bbmp.ClickGridDown();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 	
 	/*@Test( priority = 8)

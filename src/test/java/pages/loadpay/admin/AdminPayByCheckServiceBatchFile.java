@@ -4,6 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
@@ -110,7 +111,7 @@ public class AdminPayByCheckServiceBatchFile  extends TestBase{
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", lnk_DailyCheckPaymentFiles);
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 }
 	
@@ -121,7 +122,7 @@ public class AdminPayByCheckServiceBatchFile  extends TestBase{
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_ShowPaymentsForBatch);
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 			
 	}
@@ -138,7 +139,7 @@ public class AdminPayByCheckServiceBatchFile  extends TestBase{
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_Send);
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 			
 	}
@@ -146,23 +147,23 @@ public class AdminPayByCheckServiceBatchFile  extends TestBase{
 	/*public void ClickOnsearchKeywordterm(String invoice) throws InterruptedException
 	{		
 		FieldSearch.click();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			FieldSearch.sendKeys(invoice);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		FieldSearch.sendKeys(Keys.RETURN);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			
 	}
 	
 	
 	public void getPaymentID() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		paymentidd = paymentid.getText();
 		log.info(paymentidd);
 }
 	
 	public void clickSearch() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", link_Search);
 
@@ -170,12 +171,12 @@ public class AdminPayByCheckServiceBatchFile  extends TestBase{
 	
 	public void searchKeyword() throws InterruptedException
 	{		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		searchKeyword.click();
 		searchKeyword.sendKeys(paymentidd);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		searchKeyword.sendKeys(Keys.RETURN);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			
 	}
 	
@@ -184,7 +185,7 @@ public class AdminPayByCheckServiceBatchFile  extends TestBase{
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_Search);
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(x5000);
 
 }
 	
@@ -192,7 +193,7 @@ public class AdminPayByCheckServiceBatchFile  extends TestBase{
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", grid_collapse);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 }
 	
@@ -200,7 +201,7 @@ public class AdminPayByCheckServiceBatchFile  extends TestBase{
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_PayByCheck);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	
 }
 	
@@ -209,7 +210,7 @@ public class AdminPayByCheckServiceBatchFile  extends TestBase{
 		 select_Terms.click();
 		  Select pay = new Select(select_Terms);
 			pay.selectByIndex( 1 );
-			Thread.sleep(3000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		    
 	  }
 	 
@@ -218,7 +219,7 @@ public class AdminPayByCheckServiceBatchFile  extends TestBase{
 		 select_Terms.click();
 		  Select pay = new Select(select_Terms);
 			pay.selectByIndex( 2 );
-			Thread.sleep(3000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		    
 	  }
 	 
@@ -237,7 +238,7 @@ public class AdminPayByCheckServiceBatchFile  extends TestBase{
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].click();", btn_paybychksubmit);
-			Thread.sleep(2000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		
 	}*/
 }

@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -83,11 +84,11 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 	}
 
 	@Test(description = "LP-5422 Carrier - Send Carrier Email Notification When PayMeNow Selected", dependsOnMethods = {
-			"verifyCarrierLogin"}, dataProvider = "getoutlookLoginData")
+			"verifyCarrierLogin" }, dataProvider = "getoutlookLoginData")
 	public void verifyCarrierNextDayPaymenowEmailNotification(String un, String pwd)
 			throws InterruptedException, AWTException {
 		// verify PayMeNow tab
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(carrierpaymenowemailobj.getPaymenowtab()));
 		Assert.assertTrue(carrierpaymenowemailobj.paymenowtab.isDisplayed(), "PayMeNow tab is NOT available");
 		// verify Scheduled tab
 		Assert.assertTrue(carrierpaymenowemailobj.scheduledpaymetstab.isDisplayed(),
@@ -97,9 +98,8 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 
 		carriernexdayachobj.clickPaymenow();
 		carriernexdayachobj.clickSelectButton();
-		Thread.sleep(1000);
 		carriernexdayachobj.clickConfirmButton();
-		Thread.sleep(1000);
+
 		// switch to new window
 		carrierpaymenowemailobj.openandSwitchToNewWindow(1);
 		outloginobj.outlookLogin(un, pwd);
@@ -116,11 +116,11 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 	}
 
 	@Test(description = "LP-5422 Carrier - Send Carrier Email Notification When PayMeNow Selected", dependsOnMethods = {
-			"verifyCarrierNextDayPaymenowEmailNotification"}, dataProvider = "getoutlookLoginData")
+			"verifyCarrierNextDayPaymenowEmailNotification" }, dataProvider = "getoutlookLoginData")
 	public void verifyCarrierSameDayPaymenowEmailNotification(String un, String pwd)
 			throws InterruptedException, AWTException {
 		// verify PayMeNow tab
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(carrierpaymenowemailobj.paymenowtab.isDisplayed(), "PayMeNow tab is NOT available");
 		// verify Scheduled tab
 		Assert.assertTrue(carrierpaymenowemailobj.scheduledpaymetstab.isDisplayed(),
@@ -130,9 +130,9 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 
 		carriersamedayachobj.clickPaymenow();
 		carriersamedayachobj.clickSelectButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		carriersamedayachobj.clickConfirmButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		// switch to new window
 		carrierpaymenowemailobj.openandSwitchToNewWindow(1);
 		driver.get(super.getProperties().getProperty("outlookurl"));
@@ -153,7 +153,7 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 	public void verifyCarrierWireTransferPaymenowEmailNotification(String un, String pwd)
 			throws InterruptedException, AWTException {
 		// verify PayMeNow tab
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(carrierpaymenowemailobj.paymenowtab.isDisplayed(), "PayMeNow tab is NOT available");
 		// verify Scheduled tab
 		Assert.assertTrue(carrierpaymenowemailobj.scheduledpaymetstab.isDisplayed(),
@@ -163,9 +163,9 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 
 		carrierwiretransferobj.clickPaymenow();
 		carrierwiretransferobj.clickSelectButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		carrierwiretransferobj.clickConfirmButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		// switch to new window
 		carrierpaymenowemailobj.openandSwitchToNewWindow(1);
 		driver.get(super.getProperties().getProperty("outlookurl"));
@@ -186,7 +186,7 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 	public void verifyCarrierFuelCardPaymenowEmailNotification(String fleet_accountnbr, String fts_accountnbr)
 			throws InterruptedException, AWTException {
 		// verify PayMeNow tab
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(carrierpaymenowemailobj.paymenowtab.isDisplayed(), "PayMeNow tab is NOT available");
 		// verify Scheduled tab
 		Assert.assertTrue(carrierpaymenowemailobj.scheduledpaymetstab.isDisplayed(),
@@ -202,29 +202,29 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 		carrierpaymenowfuelcardobj.clicksubmit();
 
 		carrierpaymenowfuelcardobj.clickfuelcardsubmit();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		carrierpaymenowfuelcardobj.clickConfirmButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		carrierpaymenowfuelcardobj.clickPaidTab();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		carrierpaymenowfuelcardobj.clickpaymenowtab();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		carrierpaymenowfuelcardobj.clickPaymenow();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		carrierpaymenowfuelcardobj.clickSelectButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		carrierpaymenowfuelcardobj.clickaddnewcard();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		carrierpaymenowfuelcardobj.clickFTS();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		carrierpaymenowfuelcardobj.input_accountnbr(fts_accountnbr);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		carrierpaymenowfuelcardobj.clicksubmit();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		carrierpaymenowfuelcardobj.clickfuelcardsubmit();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		carrierpaymenowfuelcardobj.clickConfirmButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 	}
 
@@ -246,7 +246,7 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 			driver.close();
 			carrierpaymenowemailobj.switchToNewWindow(0);
 			carrierloginobj.CarrierLogout();
-			Thread.sleep(2000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		}
 	}
 
@@ -269,7 +269,7 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 		brokernewpayobj.invoiceNumber(invoiceno);
 		brokernewpayobj.loadId(loadid);
 		brokernewpayobj.clickShedulePayment();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	@Test(description = "LP-5422 Carrier - Send Carrier Email Notification When PayMeNow Selected", dependsOnMethods = {
@@ -282,33 +282,33 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 		adminloginobj.ClickOnCustomersTab();
 		adminloginobj.ClickOnSearchBox(brokerUN);
 		adminloginobj.ClickOnSearchButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminloginobj.DoubleClickID();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminpaybycheck.clickPayments();
 		adminpaybycheck.ClickOnsearchKeyword(invoice);
 		adminpaybycheck.getPaymentID();
 		adminpaybycheck.clickSearch();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminpaybycheck.searchKeyword();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminpaybycheck.clickSearch1();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminpaybycheck.clickgridcollapse();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminpaybycheck.clickPayByCheck();
 		adminpaybycheck.selectTerms();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
-	@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData", dependsOnMethods = {"verifyPayByCheckPaymenow"} )
+	@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData", dependsOnMethods = { "verifyPayByCheckPaymenow" })
 	public void carrierPaymenowPayByCheck(String EnterDOTNnumber, String ContactName) throws InterruptedException {
 		adminpaybycheck.EnterDOTNnumber(EnterDOTNnumber);
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminpaybycheck.ContactName(ContactName);
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminpaybycheck.clickPayByChecksubmit();
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	@Test(description = "LP-5422 Carrier - Send Carrier Email Notification When PayMeNow Selected", dependsOnMethods = {
@@ -324,7 +324,7 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 			carrieroutlookobj.enterEmail(super.getProperties().getProperty("email"));
 			carrierpaymenowemailobj.switchToNewWindow(3);
 			carrierpaymenowemailobj.outlookSearchInbox("PayMeNow Payment Notification", carrierUN, "Check");
-			Thread.sleep(2000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		}
 	}
 

@@ -285,19 +285,19 @@ public class BrokerScheduledPaymentsTabTest extends TestBase {
 	public void BrokerScheduledPaymentsTab() throws InterruptedException
 	{
 		bsp.clickpaymenTypeLink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bsp.clickAnticipatedPullDate();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bsp.clickPayToDate();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bsp.clickAmount();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bsp.clickCarrier();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bsp.clickinvoice();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bsp.clickLoadID();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}*/
 
 	public void verifySchedulePaymentsTabElementsDisplayed() {

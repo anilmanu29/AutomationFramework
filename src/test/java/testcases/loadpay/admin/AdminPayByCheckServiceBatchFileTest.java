@@ -3,6 +3,7 @@ package testcases.loadpay.admin;
 import java.awt.AWTException;
 import java.io.IOException;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -40,16 +41,16 @@ public class AdminPayByCheckServiceBatchFileTest extends TestBase {
 
 	@Test(dataProvider = "getAdminLoginData")
 	public void verifyAdminPayByCheckServiceBatchFile(String Username, String pass) throws InterruptedException, AWTException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		ahp.AdminURL(); 
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		al.adminUserPass(Username, pass);
 		al.adminLogin();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		apbcf.clickDailyCheckPaymentFiles();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		apbcf.ClickShowPaymentsForBatch();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		apbcf.EnterEmailID(BrokerNewPaymentTest.email);
 		apbcf.ClickSendButton();
 		al.AdminLogOut();

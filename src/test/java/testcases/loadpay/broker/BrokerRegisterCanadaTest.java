@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -45,18 +46,18 @@ public class BrokerRegisterCanadaTest extends TestBase {
 
 		if (Dotnumber == null) {
 			brc.companyname(CompanyName);
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		} else {
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			brc.dotnumber(Dotnumber);
 		}
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brc.doingbussiness(DoingBussinessAS);
 		brc.selectType();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Select type = new Select(driver.findElement(By.xpath(".//*[@id='EntityType']")));
 		type.selectByVisibleText("C Corporation");
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brc.countrydropdown(country, state);
 
 		// Select countryof = new Select( driver.findElement( By.xpath(
@@ -65,35 +66,35 @@ public class BrokerRegisterCanadaTest extends TestBase {
 		// countryof.selectByIndex( 0 );
 
 		// r.stateofincorporation();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		// Select stateof = new Select( driver.findElement( By.xpath(
 		// ".//*[@id='IncorporationState']" ) ) );
 		//
 		// stateof.selectByVisibleText( "California" );
 		emailid = brc.BrokerEmail(Email);
 		brc.confirmEmail(ConfirmEmail);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brc.iCertifyClick();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brc.paymentTerm();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brc.next();
 		if (Dotnumber == null) {
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			brc.originCountry(ocountry, States);
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			brc.ZipCode(ZipCode1);
 			brc.address(Address);
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			brc.city(City);
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		} else {
 			brc.originCountry(ocountry, States);
 			brc.ZipCode(ZipCode1);
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		}
 
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		// r.country();
 
 		// Select country = new Select( driver.findElement( By.xpath(
@@ -110,31 +111,31 @@ public class BrokerRegisterCanadaTest extends TestBase {
 
 		// state.selectByVisibleText( "CA" );
 
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brc.submit();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brc.ContactFirstName(FirstNames);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brc.LastName(LastName);
 		brc.Phone(PhoneNumber);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		pwd = brc.Password(Password);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		driver.findElement(By.xpath(".//*[@id='Registration_User_Password']"));
 		brc.ConfirmPassword(ConfirmPassword);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brc.Next();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brc.AccountName(NameonAccount);
 		brc.BankingAccount(BankAccountNumber);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brc.BankingRouting(RoutingNumber);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brc.ConfirmBankingAccount(ConfirmbankAccountNumber);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brc.submit();
 		log.info("Broker Register Completed...");
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		log.info("BrokerRegisterSuccessfully");
 
 	}

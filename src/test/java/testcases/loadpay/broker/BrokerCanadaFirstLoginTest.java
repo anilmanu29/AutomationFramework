@@ -1,4 +1,5 @@
 package testcases.loadpay.broker;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -25,7 +26,7 @@ public class BrokerCanadaFirstLoginTest extends TestBase{
 	public void loginTest() throws InterruptedException
 	{
 		loginPage.brokerfirstLogin();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	
 	}
 

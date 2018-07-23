@@ -6,28 +6,22 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.carrier.CarrierCanadaFirstLogin;
 
-public class CarrierCanadaFirstLoginTest extends TestBase{
+public class CarrierCanadaFirstLoginTest extends TestBase {
 	CarrierCanadaFirstLogin loginPage;
-	
-	public CarrierCanadaFirstLoginTest()
-	{
+
+	public CarrierCanadaFirstLoginTest() {
 		super();
 	}
-	
+
 	@BeforeClass
-	public void setUp()
-	{
+	public void setUp() {
 		initialization();
-		loginPage = new CarrierCanadaFirstLogin();	
+		loginPage = new CarrierCanadaFirstLogin();
 	}
 
 	@Test()
-	public void loginTest() throws InterruptedException
-	{
+	public void loginTest() throws InterruptedException {
 		loginPage.carrierfirstLogin();
-		Thread.sleep(2000);
-	
 	}
-
 
 }

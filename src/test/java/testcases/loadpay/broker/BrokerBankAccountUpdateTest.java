@@ -2,6 +2,7 @@ package testcases.loadpay.broker;
 
 import java.io.IOException;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -38,23 +39,23 @@ public class BrokerBankAccountUpdateTest extends TestBase {
 	@Test(dataProvider = "getBrokerBankingData", dependsOnMethods = "brokerLogin")
 	public void brokerAddNewBusinessBankAccount(String accname, String routingnum, String accnum, String confirmaccnum)
 			throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickAccountlink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickBankingLink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickAddNewBankAccountLink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterAccountName(accname);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		routingnumber = bb.enterRoutingNumber(routingnum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterAccountNumber(accnum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterConfirmAccountNumber(confirmaccnum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickSaveButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		// Assert.assertEquals(bb.verifyAccountName(), accname);
 		// Assert.assertEquals(bb.verifyRoutingNumber(), routingnum);
 
@@ -64,31 +65,31 @@ public class BrokerBankAccountUpdateTest extends TestBase {
 	public void brokerRemoveBusinessBankAccount() throws InterruptedException {
 
 		bb.clickRemoveButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	@Test(dataProvider = "getBrokerBankingData", dependsOnMethods = "brokerRemoveBusinessBankAccount")
 	public void brokerAddNewPersonalCheckingBankAccount(String accname, String routingnum, String accnum,
 			String confirmaccnum) throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickAccountlink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickBankingLink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickAddNewBankAccountLink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterAccountName(accname);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		routingnumber = bb.enterRoutingNumber(routingnum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterAccountNumber(accnum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterConfirmAccountNumber(confirmaccnum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickPersonalCheckingRadioButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickSaveButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		// Assert.assertEquals(bb.verifyAccountName(), accname);
 		// Assert.assertEquals(bb.verifyRoutingNumber(), routingnum);
 
@@ -98,33 +99,33 @@ public class BrokerBankAccountUpdateTest extends TestBase {
 	public void brokerRemovePersonalCheckingBankAccount() throws InterruptedException {
 
 		bb.clickRemoveButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	@Test(dataProvider = "getBrokerBankingData", dependsOnMethods = "brokerRemovePersonalCheckingBankAccount")
 	public void brokerAddNewPersonalSavingsBankAccount(String accname, String routingnum, String accnum,
 			String confirmaccnum) throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickAccountlink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickBankingLink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickAddNewBankAccountLink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterAccountName(accname);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		routingnumber = bb.enterRoutingNumber(routingnum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterAccountNumber(accnum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterConfirmAccountNumber(confirmaccnum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickPersonalCheckingRadioButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickPersonalSavinggRadioButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickSaveButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		// Assert.assertEquals(bb.verifyAccountName(), accname);
 		// Assert.assertEquals(bb.verifyRoutingNumber(), routingnum);
 
@@ -134,7 +135,7 @@ public class BrokerBankAccountUpdateTest extends TestBase {
 	public void brokerRemovePersonalSavingsgBankAccount() throws InterruptedException {
 
 		bb.clickRemoveButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 }

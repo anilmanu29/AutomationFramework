@@ -62,108 +62,91 @@ public class CarrierBanking extends TestBase {
 	}
 
 	public void clickAccountlink() throws InterruptedException {
-		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_account));
 		js.executeScript("arguments[0].click();", lnk_account);
 	}
 
 	public void clickBankingLink() throws InterruptedException {
-		Thread.sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_banking));
 		js.executeScript("arguments[0].click();", lnk_banking);
 	}
 
 	public void clickAddNewBankAccountLink() throws InterruptedException {
-		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_addnewbankaccount));
 		js.executeScript("arguments[0].click();", lnk_addnewbankaccount);
 	}
 
 	public String enterAccountName(String accname) throws InterruptedException {
-		// Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(field_accountname));
 		field_accountname.sendKeys(accname);
 		return accname;
 	}
 
 	public void enterRoutingNumber(String routingnum) throws InterruptedException {
-		// Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(field_routnumber));
 		field_routnumber.sendKeys(routingnum);
 	}
 
 	public void enterAccountNumber(String accnum) throws InterruptedException {
-		// Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(field_accnum));
 		field_accnum.sendKeys(accnum);
 	}
 
 	public void enterConfirmAccountNumber(String confirmaccnum) throws InterruptedException {
-		// Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(field_confirmaccnum));
 		field_confirmaccnum.sendKeys(confirmaccnum);
 	}
 
 	public void clickPersonalCheckingRadioButton() throws InterruptedException {
-		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(radiobtn_personalchecking));
 		js.executeScript("arguments[0].click();", radiobtn_personalchecking);
 	}
 
 	public void clickPersonalSavinggRadioButton() throws InterruptedException {
-		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(radiobtn_personalsaving));
 		js.executeScript("arguments[0].click();", radiobtn_personalsaving);
 	}
 
 	public void clickSaveButton() throws InterruptedException {
-		// Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(button_save));
 		js.executeScript("arguments[0].click();", button_save);
 	}
 
 	public String verifyAccountName() throws InterruptedException {
-		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(accname));
 		return accname.getText();
 	}
 
 	public String verifyRoutingNumber() throws InterruptedException {
-		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(routingnum));
 		return routingnum.getText();
 	}
 
 	public void clickSetDefault() throws InterruptedException {
-		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(button_satdefault));
 		js.executeScript("arguments[0].click();", button_satdefault);
 		wait.until(ExpectedConditions.alertIsPresent());
 		driver.switchTo().alert().accept();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		driver.navigate().refresh();
-		Thread.sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_banking));
 		js.executeScript("arguments[0].click();", lnk_banking);
-		Thread.sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(button_satdefault));
 		js.executeScript("arguments[0].click();", button_satdefault);
 		wait.until(ExpectedConditions.alertIsPresent());
 		driver.switchTo().alert().accept();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		driver.navigate().refresh();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_banking));
 		js.executeScript("arguments[0].click();", lnk_banking);
 	}
 
 	public void clickRemoveButton() throws InterruptedException {
-		Thread.sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(button_remove));
 		js.executeScript("arguments[0].click();", button_remove);
 		wait.until(ExpectedConditions.alertIsPresent());
 		driver.switchTo().alert().accept();
-		Thread.sleep(1000);
 	}
 
 }

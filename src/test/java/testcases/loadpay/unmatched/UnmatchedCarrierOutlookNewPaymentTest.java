@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.io.IOException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -13,8 +14,8 @@ import pages.loadpay.outlook.outlooklogin;
 import pages.loadpay.unmatched.UnmatchedCarrierOutlookNewPayment;
 
 public class UnmatchedCarrierOutlookNewPaymentTest extends TestBase {
-	
-	UnmatchedCarrierOutlookNewPayment outlookk;
+
+	UnmatchedCarrierOutlookNewPayment umCarrierOutlookObj;
 	outlooklogin outlook;
 	public static String pwd;
 
@@ -27,7 +28,7 @@ public class UnmatchedCarrierOutlookNewPaymentTest extends TestBase {
 
 		initialization();
 		outlook = new outlooklogin();
-		outlookk = new UnmatchedCarrierOutlookNewPayment();
+		umCarrierOutlookObj = new UnmatchedCarrierOutlookNewPayment();
 	}
 
 	@Test(dataProvider = "getoutlookLoginData")
@@ -37,122 +38,110 @@ public class UnmatchedCarrierOutlookNewPaymentTest extends TestBase {
 
 	@Test(dependsOnMethods = "login")
 	public void outlookloginTest() throws InterruptedException, AWTException {
-		outlookk.clickPopUp();
-		outlookk.clickOpenMailBox();
-		outlookk.enterEmail(super.getProperties().getProperty("email"));
-		//outlookk.clickOpen();
-		outlookk.handleNewInbox();
-		outlookk.switchtoCarrieregistration();
-		outlookk.unmatchedCarrierRegistration();
-	
-	} 
-	 @Test(dataProvider ="getCarrierRegisterData", dependsOnMethods = "outlookloginTest")
-	  public void CarrierRegister( String Dotnumber, String CompanyName, String DoingBussinessAS, String Email, String ConfirmEmail, String ZipCode1, String Address, String City,
-	      String FirstNames, String LastName, String PhoneNumber, String Password, String ConfirmPassword, String NameonAccount, String RoutingNumber, String BankAccountNumber,
-	      String ConfirmbankAccountNumber ) throws IOException, InterruptedException
-	  {
-	   
-		 
-		 outlookk.companyname( CompanyName );
+		umCarrierOutlookObj.clickPopUp();
+		umCarrierOutlookObj.clickOpenMailBox();
+		umCarrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
+		// umCarrierOutlookObj.clickOpen();
+		umCarrierOutlookObj.handleNewInbox();
+		umCarrierOutlookObj.switchtoCarrieregistration();
+		umCarrierOutlookObj.unmatchedCarrierRegistration();
 
-		Thread.sleep(1000);
-		
-		outlookk.doingbussiness( DoingBussinessAS );
-	    
-	    
-		outlookk.selectType();
+	}
 
-		Thread.sleep(1000);
-		
-	    Select type = new Select( driver.findElement( By.xpath( ".//*[@id='EntityType']" ) ) );
-	    
-	    type.selectByVisibleText( "C Corporation" );
-	  
-	    outlookk.countryofincorporation();
+	@Test(dataProvider = "getCarrierRegisterData", dependsOnMethods = "outlookloginTest")
+	public void CarrierRegister(String Dotnumber, String CompanyName, String DoingBussinessAS, String Email,
+			String ConfirmEmail, String ZipCode1, String Address, String City, String FirstNames, String LastName,
+			String PhoneNumber, String Password, String ConfirmPassword, String NameonAccount, String RoutingNumber,
+			String BankAccountNumber, String ConfirmbankAccountNumber) throws IOException, InterruptedException {
 
-		Thread.sleep(1000);
-		
-	    Select countryof = new Select( driver.findElement( By.xpath( ".//*[@id='IncorporationCountry']" ) ) );
-	    
-	    countryof.selectByIndex( 0 );
-	    
-	    outlookk.stateofincorporation();
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getCompanyName()));
+		umCarrierOutlookObj.companyname(CompanyName);
 
-		Thread.sleep(1000);
-		
-	    Select stateof = new Select( driver.findElement( By.xpath( ".//*[@id='IncorporationState']" ) ) );
-	    
-	    stateof.selectByVisibleText( "California" );
-	   
-//	     outlookk.CarrierEmail(Email);
-//	    
-//	 
-//	     outlookk.confirmEmail( ConfirmEmail );
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getDoingbussiness()));
+		umCarrierOutlookObj.doingbussiness(DoingBussinessAS);
 
-		Thread.sleep(1000);
-		outlookk.iCertifyClick();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getTypeofEntity()));
+		umCarrierOutlookObj.selectType();
 
-		Thread.sleep(1000);
-		outlookk.next();
+		Select type = new Select(driver.findElement(By.xpath(".//*[@id='EntityType']")));
+		type.selectByVisibleText("C Corporation");
 
-		Thread.sleep(1000);
-		
-		outlookk.ZipCode( ZipCode1 );
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getCountryIncorporation()));
+		umCarrierOutlookObj.countryofincorporation();
 
-		Thread.sleep(1000);
-		
-		outlookk.country();
+		Select countryof = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationCountry']")));
+		countryof.selectByIndex(0);
 
-		Thread.sleep(1000);
-		
-	    Select country = new Select( driver.findElement( By.xpath( ".//*[@id='OriginCountry']" ) ) );
-	    country.selectByVisibleText( "USA" );
-	    
-	    outlookk.address( Address );
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getStateIncorporation()));
+		umCarrierOutlookObj.stateofincorporation();
 
-		Thread.sleep(1000);
-		
-		outlookk.city( City );
-	    
-		outlookk.State();
+		Select stateof = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationState']")));
+		stateof.selectByVisibleText("California");
 
-		Thread.sleep(1000);
-		
-	    Select state = new Select( driver.findElement( By.xpath( ".//*[@id='State']" ) ) );
-	    
-	    state.selectByVisibleText( "CA" );
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getIcertify()));
+		umCarrierOutlookObj.iCertifyClick();
 
-		Thread.sleep(1000);
-		outlookk.submit();
-		Thread.sleep(1000);
-		outlookk.ContactFirstName(FirstNames);
-		Thread.sleep(1000);
-		outlookk.LastName(LastName);
-		outlookk.Phone(PhoneNumber);
-	    Thread.sleep(1000);
-	   pwd=  outlookk.Password(Password);
-	    Thread.sleep(1000);
-	    driver.findElement(By.xpath(".//*[@id='Registration_User_Password']"));
-	    outlookk.ConfirmPassword(ConfirmPassword);
-	  	Thread.sleep(1000);
-	  	outlookk.Next();
-	  	Thread.sleep(1000);
-	  	outlookk.AccountName(NameonAccount);
-	  	outlookk.BankingAccount(BankAccountNumber);
-		Thread.sleep(1000);
-		outlookk.BankingRouting(RoutingNumber);
-		Thread.sleep(1000);
-		Thread.sleep(1000);
-		outlookk.ConfirmBankingAccount(ConfirmbankAccountNumber);
-		Thread.sleep(1000);
-		Thread.sleep(1000);
-		outlookk.submit();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getNext()));
+		umCarrierOutlookObj.next();
 
-	  
-	  }
-	
-	
-	
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getZipCode()));
+		umCarrierOutlookObj.ZipCode(ZipCode1);
+
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getCountry()));
+		umCarrierOutlookObj.country();
+
+		Select country = new Select(driver.findElement(By.xpath(".//*[@id='OriginCountry']")));
+		country.selectByVisibleText("USA");
+
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getAddress()));
+		umCarrierOutlookObj.address(Address);
+
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getCity()));
+		umCarrierOutlookObj.city(City);
+
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getState()));
+		umCarrierOutlookObj.State();
+
+		Select state = new Select(driver.findElement(By.xpath(".//*[@id='State']")));
+		state.selectByVisibleText("CA");
+
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getSubmit()));
+		umCarrierOutlookObj.submit();
+
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getContactFirstName()));
+		umCarrierOutlookObj.ContactFirstName(FirstNames);
+
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getLastName()));
+		umCarrierOutlookObj.LastName(LastName);
+
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getPhone()));
+		umCarrierOutlookObj.Phone(PhoneNumber);
+
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getPasswordd()));
+		pwd = umCarrierOutlookObj.Password(Password);
+
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getConfirmPassword()));
+		driver.findElement(By.xpath(".//*[@id='Registration_User_Password']"));
+		umCarrierOutlookObj.ConfirmPassword(ConfirmPassword);
+
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getNext()));
+		umCarrierOutlookObj.Next();
+
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getAccountName()));
+		umCarrierOutlookObj.AccountName(NameonAccount);
+
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getBankingAccount()));
+		umCarrierOutlookObj.BankingAccount(BankAccountNumber);
+
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getBankingRouting()));
+		umCarrierOutlookObj.BankingRouting(RoutingNumber);
+
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getConfirmBankingAccount()));
+		umCarrierOutlookObj.ConfirmBankingAccount(ConfirmbankAccountNumber);
+
+		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getSubmit()));
+		umCarrierOutlookObj.submit();
+
+	}
+
 }

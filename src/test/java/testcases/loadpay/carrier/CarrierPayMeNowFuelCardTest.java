@@ -1,5 +1,6 @@
 package testcases.loadpay.carrier;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -34,52 +35,56 @@ public class CarrierPayMeNowFuelCardTest extends TestBase {
 
 	}
 
-	@Test(dataProvider = "getCarrierFuelcardaccountNumbersData",dependsOnMethods = {"loginTest"})
-	public void carrierPaymenowFuelCard(String fleet_accountnbr,String fts_accountnbr) throws InterruptedException {
-		
+	@Test(dataProvider = "getCarrierFuelcardaccountNumbersData", dependsOnMethods = { "loginTest" })
+	public void carrierPaymenowFuelCard(String fleet_accountnbr, String fts_accountnbr) throws InterruptedException {
+
 		cfot.clickPaymenow();
-		Thread.sleep(2000);
-		/*cfot.clickPaymenowicon();
-		Thread.sleep(2000);*/
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		/*
+		 * cfot.clickPaymenowicon();
+		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		 */
 		cfot.clickSelectButton();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cfot.clickaddnewcard();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cfot.clickfleetone();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cfot.input_accountnbr(fleet_accountnbr);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cfot.clicksubmit();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cfot.clickfuelcardsubmit();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cfot.clickConfirmButton();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cfot.clickPaidTab();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cfot.clickpaymenowtab();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cfot.clickPaymenow();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cfot.clickSelectButton();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cfot.clickaddnewcard();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cfot.clickFTS();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cfot.input_accountnbr(fts_accountnbr);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cfot.clicksubmit();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cfot.clickfuelcardsubmit();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cfot.clickConfirmButton();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cfot.clickPaidTab();
-		Thread.sleep(2000);
-		/*cw.gettotalpaiyAmount();
-		Thread.sleep(2000);
-		cw.verifywiretransfer();*/
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		/*
+		 * cw.gettotalpaiyAmount();
+		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		 * cw.verifywiretransfer();
+		 */
 	}
 
 }

@@ -110,15 +110,15 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 	public void activatePaymentTerms() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(accountlink));
 		js.executeScript("arguments[0].click();", accountlink);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(paymenttermslink));
 		js.executeScript("arguments[0].click();", paymenttermslink);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(paymenttermscheckbox));
 		log.info(paymenttermscheckbox.isSelected());
 		if (paymenttermscheckbox.isSelected()) {
 			js.executeScript("arguments[0].click();", chargesenderradiobutton);
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			js.executeScript("arguments[0].click();", updatebutton);
 
 		}
@@ -126,9 +126,9 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 		else {
 
 			js.executeScript("arguments[0].click();", paymenttermscheckbox);
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			js.executeScript("arguments[0].click();", chargesenderradiobutton);
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			js.executeScript("arguments[0].click();", updatebutton);
 		}
 
@@ -137,21 +137,21 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 	public void verifyPaymentTermsAdmin(String un, String pwd) throws AWTException, InterruptedException {
 
 		((JavascriptExecutor) driver).executeScript("window.open();");
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		ahp.AdminURL();
 		adminloginobj.adminUserPass(un, pwd);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminloginobj.adminLogin();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminloginobj.ClickOnCustomersTab();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminloginobj.ClickOnSearchBox(BrokerPaymentTermsChargeSenderTest.brokeremailid);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminloginobj.ClickOnSearchButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminloginobj.DoubleClickID();
 		wait.until(ExpectedConditions.elementToBeClickable(paymenttermslink));
 		js.executeScript("arguments[0].click();", paymenttermslink);
@@ -169,13 +169,13 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 		adminpercentagefield.sendKeys(numberAsString);
 		wait.until(ExpectedConditions.elementToBeClickable(submittbutton));
 		js.executeScript("arguments[0].click();", submittbutton);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		driver.switchTo().window(tabs.get(0));
 		driver.navigate().refresh();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(paymenttermslink));
 		js.executeScript("arguments[0].click();", paymenttermslink);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 	}
 
@@ -183,7 +183,7 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 		driver.switchTo().window(tabs.get(1));
 		wait.until(ExpectedConditions.elementToBeClickable(adminpaymenttermeditbutton));
 		js.executeScript("arguments[0].click();", adminpaymenttermeditbutton);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(adminflatfeeradiobutton));
 		js.executeScript("arguments[0].click();", adminflatfeeradiobutton);
 		wait.until(ExpectedConditions.elementToBeClickable(adminflatfeefield));
@@ -191,13 +191,13 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 		adminflatfeefield.sendKeys(numberAsString);
 		wait.until(ExpectedConditions.elementToBeClickable(submittbutton));
 		js.executeScript("arguments[0].click();", submittbutton);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		driver.switchTo().window(tabs.get(0));
 		driver.navigate().refresh();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(paymenttermslink));
 		js.executeScript("arguments[0].click();", paymenttermslink);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	public void resetStatusFlatFeeValuse() throws InterruptedException {
@@ -208,12 +208,12 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 		js.executeScript("arguments[0].click();", adminpercentageradiobutton);
 		wait.until(ExpectedConditions.elementToBeClickable(adminpercentagefield));
 		adminpercentagefield.clear();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminpercentagefield.sendKeys(defaultpercentagevalue);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(submittbutton));
 		js.executeScript("arguments[0].click();", submittbutton);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		driver.close();
 		driver.switchTo().window(tabs.get(0));
 
@@ -229,15 +229,15 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 		// create new payment
 		// brokerPaymentObj = new BrokerNewPayment();
 		brokerPaymentObj.newPayment();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.carrierEmail(carrierEmail);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.amount(paymentAmount);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.invoiceNumber(invoiceNum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.loadId(loadId);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		// wait.until(ExpectedConditions.elementToBeClickable(scheduledate));
 		act.doubleClick(scheduledate).build().perform();
 		wait.until(ExpectedConditions.elementToBeClickable(prevdatepicker));
@@ -245,18 +245,18 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(tomorrowdate));
 		js.executeScript("arguments[0].click();", tomorrowdate);
 		brokerPaymentObj.clickShedulePayment();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.clickShedulePaymenttab();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.searchCarrier(carrierEmail);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.clickSearchButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)", "");
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.verifyInvoiceNumber(invoiceNum, paymentAmount);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		// verify payment status
 		Assert.assertTrue(brokerPaymentObj.verifyPaymentStatus().equals(paymentStatus), "Payment Status not equal!");
 	}
@@ -265,22 +265,22 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 	{
 		wait.until(ExpectedConditions.elementToBeClickable(accountlink));
 		js.executeScript("arguments[0].click();", accountlink);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(paymenttermslink));
 		js.executeScript("arguments[0].click();", paymenttermslink);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(paymenttermscheckbox));
 		if (paymenttermscheckbox.isSelected()) {
 			wait.until(ExpectedConditions.elementToBeClickable(chargerecipientradiobutton));
 			js.executeScript("arguments[0].click();", chargerecipientradiobutton);
 			js.executeScript("arguments[0].click();", paymenttermscheckbox);
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			js.executeScript("arguments[0].click();", updatebutton);
 
 		}
 
 		else {
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			js.executeScript("arguments[0].click();", updatebutton);
 		}
 		

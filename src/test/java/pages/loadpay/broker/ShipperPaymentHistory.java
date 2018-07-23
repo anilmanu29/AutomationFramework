@@ -174,7 +174,7 @@ public class ShipperPaymentHistory extends TestBase {
 		Assert.assertTrue(currentmonthstatus.getAttribute("aria-expanded").contains("true"), "Month should be Expanded");
 		wait.until(ExpectedConditions.elementToBeClickable(monthup));
 		js.executeScript("arguments[0].click();", monthup);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		
 			}
 
@@ -188,7 +188,7 @@ public class ShipperPaymentHistory extends TestBase {
 			
 			js.executeScript("arguments[0].click();", payment);
 			Assert.assertTrue(payment.getAttribute("aria-expanded").contains("true"), "Payment should be expanded");
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			js.executeScript("window.scrollBy(0,40)", "");
 			js.executeScript("arguments[0].click();", payment);
 			//Assert.assertTrue(payment.getAttribute("aria-expanded").contains("false"), "Payment should be collapsed");		
@@ -209,7 +209,7 @@ public class ShipperPaymentHistory extends TestBase {
 		js.executeScript("window.scrollBy(0,-250)", "");
 		if(filtercheckbox.isSelected())
 		{
-			Thread.sleep(2000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			js.executeScript("arguments[0].click();", filtercheckbox);
 		}
 		else
@@ -219,7 +219,7 @@ public class ShipperPaymentHistory extends TestBase {
 			WebElement loadingGif = driver.findElement(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div/div[2]/img"));
 			while(loadingGif.isDisplayed())
 			{
-				Thread.sleep(3000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				log.info("Waiting for Loading Gif to disappear!");
 		
 			}
@@ -236,7 +236,7 @@ public class ShipperPaymentHistory extends TestBase {
 	
 	public void clickFilterCheckbox(WebElement element, String paymentstatus) throws InterruptedException
 	{
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		js.executeScript("arguments[0].click();", element);
 		
@@ -244,7 +244,7 @@ public class ShipperPaymentHistory extends TestBase {
 			WebElement loadingGif = driver.findElement(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div/div[2]/img"));
 			while(loadingGif.isDisplayed())
 			{
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				log.info("Waiting for Loading Gif to disappear!");
 		
 			}
@@ -256,14 +256,14 @@ public class ShipperPaymentHistory extends TestBase {
 			}
 
 		try {
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			if(!driver.findElement(By.xpath(".//*[@role='alert']")).isDisplayed())
 							
 //				try {
 //				if(monthup.isDisplayed())
 //				{
 //						js.executeScript("arguments[0].click();", monthup);
-//						Thread.sleep(1000);
+//						wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 //					
 //				}
 //				}
@@ -277,11 +277,11 @@ public class ShipperPaymentHistory extends TestBase {
 				for(WebElement month : monthslist)
 				{
 					js.executeScript("arguments[0].click();", month);
-					Thread.sleep(2000);
+					wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 //					for (WebElement payment : payments) {
 //						
 //						js.executeScript("arguments[0].click();", payment);
-//						Thread.sleep(2000);
+//						wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 //						//Assert.assertTrue(paymenowpaymentstatus.getText().contains(paymentstatus), "The Payment status should be"+ paymentstatus);
 //						js.executeScript("window.scrollBy(0,80)", "");
 //						js.executeScript("arguments[0].click();", payment);
@@ -309,7 +309,7 @@ public class ShipperPaymentHistory extends TestBase {
 			WebElement loadingGif = driver.findElement(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div/div[2]/img"));
 			while(loadingGif.isDisplayed())
 			{
-				Thread.sleep(3000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				log.info("Waiting for Loading Gif to disappear!");
 		
 			}
@@ -331,7 +331,7 @@ public class ShipperPaymentHistory extends TestBase {
 			WebElement loadingGif = driver.findElement(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div/div[2]/img"));
 			while(loadingGif.isDisplayed())
 			{
-				Thread.sleep(3000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				log.info("Waiting for Loading Gif to disappear!");
 		
 			}
@@ -352,7 +352,7 @@ public class ShipperPaymentHistory extends TestBase {
 			WebElement loadingGif = driver.findElement(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div/div[2]/img"));
 			while(loadingGif.isDisplayed())
 			{
-				Thread.sleep(3000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				log.info("Waiting for Loading Gif to disappear!");
 		
 			}
@@ -370,26 +370,26 @@ public class ShipperPaymentHistory extends TestBase {
 		amountrangeto.clear();
 		amountrangeto.sendKeys(maxamt);
 		wait.until(ExpectedConditions.elementToBeClickable(startdateInputField));
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		startdateInputField.clear();
 		//act.moveToElement(startdateInputField).click().perform();
 		startdateInputField.sendKeys(begindate);
 		startdateInputField.sendKeys(Keys.TAB);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		enddate.clear();
 		enddate.sendKeys(enddatee);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		enddate.sendKeys(Keys.TAB);
 		//js.executeScript("arguments[0].click();", enddateselect);
 		js.executeScript("arguments[0].click();", searchbuttonn);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		
 		if(numofmonthgrids.size() > 1)
 		{
 			for(WebElement monthup : monthsup)
 			{
 				js.executeScript("arguments[0].click();", monthup);
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			}
 			
 			for(WebElement month : monthslist)
@@ -401,11 +401,11 @@ public class ShipperPaymentHistory extends TestBase {
 					
 					js.executeScript("arguments[0].click();", payment);
 					Assert.assertTrue(payment.getAttribute("aria-expanded").contains("true"), "Payment should be expanded");
-					Thread.sleep(1000);
+					wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 					js.executeScript("window.scrollBy(0,80)", "");
 					js.executeScript("arguments[0].click();", payment);
 			}
-				Thread.sleep(3000);	
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));	
 				js.executeScript("window.scrollBy(0,200)", "");
 				
 			}	
@@ -416,7 +416,7 @@ public class ShipperPaymentHistory extends TestBase {
 					
 					js.executeScript("arguments[0].click();", payment);
 					Assert.assertTrue(payment.getAttribute("aria-expanded").contains("true"), "Payment should be expanded");
-					Thread.sleep(1000);
+					wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 					js.executeScript("window.scrollBy(0,80)", "");
 					js.executeScript("arguments[0].click();", payment);
 			}
@@ -435,11 +435,11 @@ public class ShipperPaymentHistory extends TestBase {
 			
 			wait.until(ExpectedConditions.elementToBeClickable(exportstartdate));
 			exportstartdate.clear();
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			exportstartdate.sendKeys(exportbasicstartdate);
 			exportstartdate.sendKeys(Keys.TAB);
 			exportenddate.clear();
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			exportenddate.sendKeys(exportbasicenddate);
 			exportenddate.sendKeys(Keys.TAB);
 
@@ -461,16 +461,16 @@ public class ShipperPaymentHistory extends TestBase {
 		public void clickArrowExportButton() throws InterruptedException
 		{
 		
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			
 			for (WebElement arrowexport : arrowexportbutton) {
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				wait.until(ExpectedConditions.elementToBeClickable(arrowexport));
 				js.executeScript("arguments[0].click();", arrowexport);
 				
 				act.moveToElement(currentmonth).click().perform();
 				
-				Thread.sleep(3000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			}
 	
 			

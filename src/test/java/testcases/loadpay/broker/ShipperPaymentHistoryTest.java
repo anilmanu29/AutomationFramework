@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -14,12 +15,12 @@ import pages.loadpay.broker.ShipperPaymentHistory;
 import util.TestUtil;
 
 public class ShipperPaymentHistoryTest extends TestBase {
-	
+
 	ShipperPaymentHistory shipperpaymenthistoryobj;
 	BrokerLoginPage brokerloginobj;
 	ArrayList<String> tabs;
-	String brokerUN ="";
-	String brokerPWD ="";
+	String brokerUN = "";
+	String brokerPWD = "";
 
 	public ShipperPaymentHistoryTest() {
 		super();
@@ -27,7 +28,7 @@ public class ShipperPaymentHistoryTest extends TestBase {
 
 	@BeforeClass
 	public void setUp() throws IOException, AWTException {
-		
+
 		initialization();
 		shipperpaymenthistoryobj = new ShipperPaymentHistory();
 		brokerloginobj = new BrokerLoginPage();
@@ -35,115 +36,119 @@ public class ShipperPaymentHistoryTest extends TestBase {
 
 	@Test(description = "LP-3481 Shipper - Payment History", dataProvider = "getBrokerLoginData")
 	public void verifyCarrierLogin(String user, String pass) throws InterruptedException {
-		brokerUN=user;
-		brokerPWD=pass;
+		brokerUN = user;
+		brokerPWD = pass;
 		brokerloginobj.Brokerlogin(brokerUN, brokerPWD);
 	}
 
-	@Test(description = "LP-3481 Shipper - Payment History", dependsOnMethods= {"verifyCarrierLogin"})
+	@Test(description = "LP-3481 Shipper - Payment History", dependsOnMethods = { "verifyCarrierLogin" })
 	public void verifyBrokerPaymentHistoryElements() throws InterruptedException {
 		Assert.assertTrue(shipperpaymenthistoryobj.paymenthistorylink.isDisplayed(),
 				"Payment History is NOT available");
-		//click paymenthistory link
+		// click paymenthistory link
 		shipperpaymenthistoryobj.clickPaymentHistorylink();
-		//verify Paymenthistory fields
+		// verify Paymenthistory fields
 		Assert.assertTrue(shipperpaymenthistoryobj.allbutton.isDisplayed(), "All button NOT found");
 		Assert.assertTrue(shipperpaymenthistoryobj.searchbutton.isDisplayed(), "Serch button NOT found");
 		Assert.assertTrue(shipperpaymenthistoryobj.exportbutton.isDisplayed(), "Export button NOT found");
 		Assert.assertTrue(shipperpaymenthistoryobj.filters.isDisplayed(), "Filters  NOT found");
 		Assert.assertTrue(shipperpaymenthistoryobj.currentmonth.isDisplayed(), "Current Month NOT found");
-		
+
 		Assert.assertTrue(shipperpaymenthistoryobj.statuscolumn.isDisplayed(), "Status column NOT found");
 		Assert.assertTrue(shipperpaymenthistoryobj.payselectioncolumn.isDisplayed(), "Pay Selection column NOT found");
 		Assert.assertTrue(shipperpaymenthistoryobj.amountcolumn.isDisplayed(), "Amount column  NOT found");
 		Assert.assertTrue(shipperpaymenthistoryobj.carriercolumn.isDisplayed(), "Carrier column NOT found");
 		Assert.assertTrue(shipperpaymenthistoryobj.loadidcolumn.isDisplayed(), "Load Id column NOT found");
 	}
-		
-			
-	@Test(description = "LP-3481 Shipper - Payment History", dependsOnMethods= {"verifyBrokerPaymentHistoryElements"})
+
+	@Test(description = "LP-3481 Shipper - Payment History", dependsOnMethods = {
+			"verifyBrokerPaymentHistoryElements" })
 	public void verifyMonthsExpandRolledup() throws InterruptedException {
 		shipperpaymenthistoryobj.clickCurrentMonth();
-		//verifyng months can be expanded
-		Assert.assertTrue(shipperpaymenthistoryobj.currentmonthstatus.getAttribute("aria-expanded").contains("false"), "Month should be rolled up");
-		
-		
+		// verifyng months can be expanded
+		Assert.assertTrue(shipperpaymenthistoryobj.currentmonthstatus.getAttribute("aria-expanded").contains("false"),
+				"Month should be rolled up");
+
 	}
-	
-	@Test(description = "LP-3481 Shipper - Payment History", dependsOnMethods= {"verifyMonthsExpandRolledup"})
+
+	@Test(description = "LP-3481 Shipper - Payment History", dependsOnMethods = { "verifyMonthsExpandRolledup" })
 	public void verifyPaymentssExpandRolledup() throws InterruptedException {
-		//verifyng payments can be expanded/rolled up
-		shipperpaymenthistoryobj.expandcollapsePayments();	
+		// verifyng payments can be expanded/rolled up
+		shipperpaymenthistoryobj.expandcollapsePayments();
 	}
-	
-	
-	@Test(description = "LP-3481 Shipper - Payment History", dependsOnMethods= {"verifyPaymentssExpandRolledup"} )
+
+	@Test(description = "LP-3481 Shipper - Payment History", dependsOnMethods = { "verifyPaymentssExpandRolledup" })
 	public void verifyFiltersFunctionality() throws InterruptedException {
 		shipperpaymenthistoryobj.filtercheckboxes();
-		//verify PayMEnow filter
+		// verify PayMEnow filter
 		shipperpaymenthistoryobj.clickFilterCheckbox(shipperpaymenthistoryobj.paymenowcheckbox, "PayMeNow");
-		//verify Paid filter
+		// verify Paid filter
 		shipperpaymenthistoryobj.clickFilterCheckbox(shipperpaymenthistoryobj.paidcheckbox, "ISSUED");
-		//verify Failed filter
+		// verify Failed filter
 		shipperpaymenthistoryobj.clickFilterCheckbox(shipperpaymenthistoryobj.failedcheckbox, "PAYMENT FAILED");
-		//verify Cancelled filter
+		// verify Cancelled filter
 		shipperpaymenthistoryobj.clickFilterCheckbox(shipperpaymenthistoryobj.cancelledcheckbox, "PAYMENT CANCELLED");
 		shipperpaymenthistoryobj.filtercheckboxes();
 	}
-	
-	@Test(description = "LP-3481 Shipper - Payment History", dataProvider="getBrokerPaymentHistoryData", dependsOnMethods= {"verifyFiltersFunctionality"})
-	public void verifySearchFunctionality(String amt, String carrier, String loadid, String maxamt, String startdate, String enddate) throws InterruptedException {
-		
-		//clean up excel formatting if it exists
+
+	@Test(description = "LP-3481 Shipper - Payment History", dataProvider = "getBrokerPaymentHistoryData", dependsOnMethods = {
+			"verifyFiltersFunctionality" })
+	public void verifySearchFunctionality(String amt, String carrier, String loadid, String maxamt, String startdate,
+			String enddate) throws InterruptedException {
+
+		// clean up excel formatting if it exists
 		amt = TestUtil.removeDecimalZeroFormat(amt);
 		loadid = TestUtil.removeDecimalZeroFormat(loadid);
 		maxamt = TestUtil.removeDecimalZeroFormat(maxamt);
-		
-		//click search button
+
+		// click search button
 		shipperpaymenthistoryobj.clickSearchButton();
-		//verify elements in the search
+		// verify elements in the search
 		Assert.assertTrue(shipperpaymenthistoryobj.searchfield.isDisplayed(), "Search field NOT found");
 		Assert.assertTrue(shipperpaymenthistoryobj.searchbuttonn.isDisplayed(), "Search button  NOT found");
 		Assert.assertTrue(shipperpaymenthistoryobj.advancedsearchlink.isDisplayed(), "Advanced Search link NOT found");
-		//verify search for amount
+		// verify search for amount
 		shipperpaymenthistoryobj.searchAction(amt);
-		//verify search for Broker
+		// verify search for Broker
 		shipperpaymenthistoryobj.searchAction(carrier);
-		//verify search for LoadID
+		// verify search for LoadID
 		shipperpaymenthistoryobj.searchAction(loadid);
 		shipperpaymenthistoryobj.searchfield.clear();
-		shipperpaymenthistoryobj.searchbuttonn.click();	
-		//verify Advanced search functionality
+		shipperpaymenthistoryobj.searchbuttonn.click();
+		// verify Advanced search functionality
 		shipperpaymenthistoryobj.AdvancedSearchLinkAction(amt, maxamt, startdate, enddate);
-		//shipperpaymenthistoryobj.verifyAdvancedSearchPayments();
-		
+		// shipperpaymenthistoryobj.verifyAdvancedSearchPayments();
+
 	}
-	
-	@Test(description = "LP-3472 Carrier - Payment History", dataProvider="getBrokerPaymentHistoryData", dependsOnMethods= {"verifySearchFunctionality"})
-	public void verifyExportFunctionality(String amt, String carrier, String loadid, String maxamt, String startdate, String enddate) throws InterruptedException {
-			//verify Export with Basic (radio button) option
-			shipperpaymenthistoryobj.clickExportButton();
-			Assert.assertTrue(shipperpaymenthistoryobj.exportstartdate.isDisplayed(), "Export Start Date field NOT found");
-			Assert.assertTrue(shipperpaymenthistoryobj.exportenddate.isDisplayed(), "Export End Date field NOT found");
-			Assert.assertTrue(shipperpaymenthistoryobj.basicradiobutton.isDisplayed(), "Basic Radio button NOT found");
-			Assert.assertTrue(shipperpaymenthistoryobj.detailedradiobutton.isDisplayed(), "Detailed Radio button NOT found");
-			Assert.assertTrue(shipperpaymenthistoryobj.reportexportbutton.isDisplayed(), "Report Export button NOT found");
-			shipperpaymenthistoryobj.clickandEnterExportstartandEnddate(startdate, enddate);
-			shipperpaymenthistoryobj.clickRadioButton(shipperpaymenthistoryobj.basicradiobutton);
-			shipperpaymenthistoryobj.clickReportExportButton();
-			Thread.sleep(3000);
-			//verify Export with Detailed (radio button) option
-			shipperpaymenthistoryobj.clickandEnterExportstartandEnddate(startdate, enddate);
-			shipperpaymenthistoryobj.clickRadioButton(shipperpaymenthistoryobj.detailedradiobutton);
-			shipperpaymenthistoryobj.clickReportExportButton();
-			Thread.sleep(1000);
-			
-			//verify export by Arrow
-			shipperpaymenthistoryobj.filterss.click();
-			shipperpaymenthistoryobj.clickArrowExportButton();
-			
-			//sleep for 2 minute to allow time to verify csv files
-			Thread.sleep(20000);
+
+	@Test(description = "LP-3472 Carrier - Payment History", dataProvider = "getBrokerPaymentHistoryData", dependsOnMethods = {
+			"verifySearchFunctionality" })
+	public void verifyExportFunctionality(String amt, String carrier, String loadid, String maxamt, String startdate,
+			String enddate) throws InterruptedException {
+		// verify Export with Basic (radio button) option
+		shipperpaymenthistoryobj.clickExportButton();
+		Assert.assertTrue(shipperpaymenthistoryobj.exportstartdate.isDisplayed(), "Export Start Date field NOT found");
+		Assert.assertTrue(shipperpaymenthistoryobj.exportenddate.isDisplayed(), "Export End Date field NOT found");
+		Assert.assertTrue(shipperpaymenthistoryobj.basicradiobutton.isDisplayed(), "Basic Radio button NOT found");
+		Assert.assertTrue(shipperpaymenthistoryobj.detailedradiobutton.isDisplayed(),
+				"Detailed Radio button NOT found");
+		Assert.assertTrue(shipperpaymenthistoryobj.reportexportbutton.isDisplayed(), "Report Export button NOT found");
+		shipperpaymenthistoryobj.clickandEnterExportstartandEnddate(startdate, enddate);
+		shipperpaymenthistoryobj.clickRadioButton(shipperpaymenthistoryobj.basicradiobutton);
+		shipperpaymenthistoryobj.clickReportExportButton();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		// verify Export with Detailed (radio button) option
+		shipperpaymenthistoryobj.clickandEnterExportstartandEnddate(startdate, enddate);
+		shipperpaymenthistoryobj.clickRadioButton(shipperpaymenthistoryobj.detailedradiobutton);
+		shipperpaymenthistoryobj.clickReportExportButton();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
+		// verify export by Arrow
+		shipperpaymenthistoryobj.filterss.click();
+		shipperpaymenthistoryobj.clickArrowExportButton();
+
+		// sleep for 2 minute to allow time to verify csv files
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
-	
-}	
+
+}

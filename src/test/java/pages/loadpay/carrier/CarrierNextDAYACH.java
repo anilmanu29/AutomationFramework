@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
 
-
 public class CarrierNextDAYACH extends TestBase {
 
 	WebDriverWait wait = null;
@@ -19,19 +18,18 @@ public class CarrierNextDAYACH extends TestBase {
 	String amtnextdayach;
 	String amtbeforepaidsameday;
 	float amtbeforesamedayach;
-	 String amtnextdayachh;
-	 String amtnxtdayach;
-	 float amttnextdayach;
-	 float total;
-	 String totalamount;
-	 String totalamountt;
-	 String amtbeforepaidsmday;
-	 String amtbefore ;
-	 String paymenowfe;
-	 String paymenow;
-	 String paymenowfeee;
-	 float paymenowf;
-	 
+	String amtnextdayachh;
+	String amtnxtdayach;
+	float amttnextdayach;
+	float total;
+	String totalamount;
+	String totalamountt;
+	String amtbeforepaidsmday;
+	String amtbefore;
+	String paymenowfe;
+	String paymenow;
+	String paymenowfeee;
+	float paymenowf;
 
 	@FindBy(xpath = "//*[@class='getpaid']")
 	private WebElement btn_paymenow;
@@ -44,77 +42,68 @@ public class CarrierNextDAYACH extends TestBase {
 
 	@FindBy(xpath = "//*[@class='title ng-binding'][text()='PAID']")
 	private WebElement tab_paid;
-	
+
 	@FindBy(xpath = "//*[@id='angularScope']/div[2]/div/div[3]/ul/li[3]/a/div/div[1]/div[2]/span[1]")
 	private WebElement paidamt;
-	
+
 	@FindBy(xpath = "//*[@id='paymentOptionsDiv']/div[2]/div[1]/div[3]/p/span")
 	private WebElement nextdaydayamt;
-	
+
 	@FindBy(xpath = ".//*[@id='paymentOptionsDiv']/div[3]/div[1]/div[5]/span[3]//following::text()[1]")
 	private WebElement paymenowfee;
-	
+
 	@FindBy(xpath = ".//*[@id='angularScope']/div[2]/div/div[3]/ul/li[1]/a/div/div/div[2]/span[2]")
 	private WebElement paymenowtab;
-	
-	
-	
-	
 
 	public CarrierNextDAYACH() {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 30);
 		act = new Actions(driver);
 	}
-	
 
-	public void  getAmount() throws InterruptedException {
-		Thread.sleep(2000);
+	public void getAmount() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(paidamt));
 		amtbeforepaidsameday = paidamt.getText();
-		 amtbeforepaidsmday = amtbeforepaidsameday.replaceAll("\\$", "");
-		 amtbefore = amtbeforepaidsmday.replaceAll(",", "");	
-		 amtbeforesamedayach = Float.parseFloat(amtbefore);
-		 System.out.println(amtbeforesamedayach);
+		amtbeforepaidsmday = amtbeforepaidsameday.replaceAll("\\$", "");
+		amtbefore = amtbeforepaidsmday.replaceAll(",", "");
+		amtbeforesamedayach = Float.parseFloat(amtbefore);
+		System.out.println(amtbeforesamedayach);
 	}
-	
-	
+
 	public void clickPaymenow() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_paymenow));
 		btn_paymenow.click();
 	}
 
-
 	public void getnextdayAmount() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(nextdaydayamt));
 		amtnextdayach = nextdaydayamt.getText();
 		amtnextdayachh = amtnextdayach.replaceAll("\\$", "");
-		amtnxtdayach = amtnextdayachh.replaceAll(",", "");	
+		amtnxtdayach = amtnextdayachh.replaceAll(",", "");
 		amttnextdayach = Float.parseFloat(amtnxtdayach);
-		 System.out.println(amttnextdayach);	
-		 
-//		paymenowfe =paymenowfee.getText();
-//		paymenow=paymenowfe.replaceAll("\\$", "");
-//		paymenowfeee= paymenow.replaceAll(",", "");
-//		paymenowf = Float.parseFloat(paymenowfeee);
-//		 System.out.println(paymenowf);	
-//		 
-//		 achtransfees= 	achtransfee.getText();
-//		 achtrafee= achtransfees.replaceAll("\\$", "");
-//		achfee =  achtrafee.replaceAll(",", "");
-//		achtrans = Float.parseFloat(achfee);
-//		System.out.println(achtrans);
-		
-		 
-		 
+		System.out.println(amttnextdayach);
+
+		// paymenowfe =paymenowfee.getText();
+		// paymenow=paymenowfe.replaceAll("\\$", "");
+		// paymenowfeee= paymenow.replaceAll(",", "");
+		// paymenowf = Float.parseFloat(paymenowfeee);
+		// System.out.println(paymenowf);
+		//
+		// achtransfees= achtransfee.getText();
+		// achtrafee= achtransfees.replaceAll("\\$", "");
+		// achfee = achtrafee.replaceAll(",", "");
+		// achtrans = Float.parseFloat(achfee);
+		// System.out.println(achtrans);
+
 	}
-	
+
 	public void clickSelectButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_selectnextdayach));
 		btn_selectnextdayach.click();
 	}
 
 	public void clickConfirmButton() throws InterruptedException {
-		act.pause(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(btn_confirm));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_confirm);
 	}
@@ -123,23 +112,20 @@ public class CarrierNextDAYACH extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(tab_paid));
 		act.moveToElement(tab_paid).click().perform();
 	}
-	
+
 	public void gettotalpaiyAmount() throws InterruptedException {
-		//wait.until(ExpectedConditions.elementToBeClickable(paidamt));
-		Thread.sleep(1000);
-		 totalamt = paidamt.getText();
-		 totalamount =  totalamt.replaceAll("\\$", "");
-		 totalamountt =	totalamount.replaceAll(",", "");	
-		 total = Float.parseFloat(totalamountt);
-		 System.out.println(total);	
-		 
-		
+		wait.until(ExpectedConditions.elementToBeClickable(paidamt));
+		totalamt = paidamt.getText();
+		totalamount = totalamt.replaceAll("\\$", "");
+		totalamountt = totalamount.replaceAll(",", "");
+		total = Float.parseFloat(totalamountt);
+		System.out.println(total);
+
 	}
+
 	public void verifyNextDayach() throws InterruptedException {
-		Thread.sleep(1000);
 		amttnextdayach = (total - amtbeforesamedayach);
 		System.out.println(amttnextdayach);
-	
+
 	}
 }
-

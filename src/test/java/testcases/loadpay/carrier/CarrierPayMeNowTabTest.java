@@ -1,4 +1,6 @@
 package testcases.loadpay.carrier;
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -11,50 +13,44 @@ public class CarrierPayMeNowTabTest extends TestBase {
 	CarrierPayMeNowTab cp;
 	CarrierLoginPage lp;
 
-	
 	/*-------Initializing driver---------*/
-	
-	public CarrierPayMeNowTabTest()
-	{
+
+	public CarrierPayMeNowTabTest() {
 		super();
 	}
-	
+
 	@BeforeClass
-	public void setUp()
-	{
-		
+	public void setUp() {
+
 		initialization();
-		lp= new CarrierLoginPage();
-		cp = new CarrierPayMeNowTab();	
-		
+		lp = new CarrierLoginPage();
+		cp = new CarrierPayMeNowTab();
+
 	}
-	
-	
-	@Test(dataProvider="getCarrierLoginData")
-	public void loginCarrier(String un, String pwd) throws InterruptedException
-	{
-		lp=new CarrierLoginPage();
+
+	@Test(dataProvider = "getCarrierLoginData")
+	public void loginCarrier(String un, String pwd) throws InterruptedException {
+		lp = new CarrierLoginPage();
 		lp.Carrierlogin(un, pwd);
-			
+
 	}
-	
-	@Test(dependsOnMethods = {"loginCarrier"})
-	public void carrierPaymeNow() throws InterruptedException
-	{
+
+	@Test(dependsOnMethods = { "loginCarrier" })
+	public void carrierPaymeNow() throws InterruptedException {
 		cp.clickPaymenow();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cp.days();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cp.Amount();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cp.Payer();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cp.Invoice();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cp.LoadID();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cp.ScheduledDate();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 }

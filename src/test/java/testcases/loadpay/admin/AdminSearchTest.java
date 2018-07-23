@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -43,13 +44,13 @@ public class AdminSearchTest extends TestBase
 	public void adminLogin(String Username,String pass) throws AWTException, InterruptedException
 	{		
 		adminHomePage.AdminURL();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminUN = Username;
 		adminPW = pass;
 		adminLoginPage.adminUserPass(adminUN, adminPW);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminLoginPage.adminLogin();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 	
 	//click search tab on left pane
@@ -313,7 +314,7 @@ public class AdminSearchTest extends TestBase
 		
 		while(loadingGif.isDisplayed())
 		{
-			Thread.sleep(3000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			log.info("Waiting for Loading Gif to disappear!");
 		}
 		

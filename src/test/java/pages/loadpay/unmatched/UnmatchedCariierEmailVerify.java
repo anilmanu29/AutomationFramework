@@ -53,36 +53,38 @@ public class UnmatchedCariierEmailVerify extends TestBase {
 	@FindBy(xpath = "//div[@id='page-main']//child::*[text()='Email Verified']")
 	WebElement emailverifymessage;
 
-//	@FindBy(xpath = "html/body/div[2]/div/div[3]/div[3]/div/div[1]/div[2]/div[4]/div/div/div[1]/div/div/button")
-//	WebElement fieldsearch;
-	
+	// @FindBy(xpath =
+	// "html/body/div[2]/div/div[3]/div[3]/div/div[1]/div[2]/div[4]/div/div/div[1]/div/div/button")
+	// WebElement fieldsearch;
+
 	@FindBy(xpath = "//button[@type='button'][@aria-label='Activate Search Textbox']")
 	WebElement fieldsearch;
-//	
-//	@FindBy(xpath = "html/body/div[2]/div/div[3]/div[3]/div/div[1]/div[2]/div[4]/div/div/div[1]/div/div/div/div[1]/form/div/input")
-//	WebElement fieldsearchinput;
-	
+	//
+	// @FindBy(xpath =
+	// "html/body/div[2]/div/div[3]/div[3]/div/div[1]/div[2]/div[4]/div/div/div[1]/div/div/div/div[1]/form/div/input")
+	// WebElement fieldsearchinput;
+
 	@FindBy(xpath = "//input[@aria-label='Search. Press Enter to Start Searching.']")
 	WebElement fieldsearchinput;
-	
+
 	@FindBy(xpath = ".//*[contains(@class,'lvHighlightAllClass')]//following::*[text()='Verify your email address']")
 	WebElement verifyImailMail;
 
-//	@FindBy(xpath = "//div[@role='option']//child::span[2]")
-//	WebElement keyword;
-	
+	// @FindBy(xpath = "//div[@role='option']//child::span[2]")
+	// WebElement keyword;
+
 	@FindBy(xpath = "//button[@aria-label='Start search']")
 	WebElement btnsearch;
-	
+
 	@FindBy(xpath = "//*[contains(@class,'lvHighlightAllClass')][text()='Verify your email address']")
 	WebElement verifyEmail;
-	
+
 	@FindBy(xpath = "//span[text()='Search contacts and directory']")
 	WebElement buttonsearchcontacts;
-	
+
 	@FindBy(xpath = "//*[@role='menuitemradio'][text()='Unread']")
 	WebElement lnkunread;
-	
+
 	@FindBy(xpath = "//*[@id='ItemHeader.ToContainer']/div/div/div/span/span/div/span[2]")
 	WebElement emailid;
 
@@ -95,11 +97,11 @@ public class UnmatchedCariierEmailVerify extends TestBase {
 	}
 
 	public void clickPopUp() throws InterruptedException {
-		Thread.sleep(4000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		fieldSearchMail.click();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		haspopup.click();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	public void clickOpenMailBox() {
@@ -107,86 +109,86 @@ public class UnmatchedCariierEmailVerify extends TestBase {
 		js.executeScript("arguments[0].click();", lnkopenanothermail);
 
 	}
-	
+
 	public void enterEmail(String email) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(fieldTextbox));
 		fieldTextbox.sendKeys(email);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		try {
 			buttonsearchcontacts.click();
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			buttonOpen.click();
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			searchSuggestion.click();
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			buttonOpen.click();
 		}
-	} 
-
-	/*public void enterEmail(String email) throws InterruptedException {
-		fieldTextbox.sendKeys(email);
-		Thread.sleep(1000);
-		searchSuggestion.click();
-	}*/
-
-	/*public void clickOpen() {
-		buttonOpen.click();
 	}
-*/
+
+	/*
+	 * public void enterEmail(String email) throws InterruptedException {
+	 * fieldTextbox.sendKeys(email);
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * searchSuggestion.click(); }
+	 */
+
+	/*
+	 * public void clickOpen() { buttonOpen.click(); }
+	 */
 	public void handleNewInbox() throws InterruptedException {
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		Thread.sleep(6000);
-		
-		
-		//List<WebElement> list = driver.findElements(By.xpath("//*[contains(@class,'lvHighlightAllClass')][text()='Verify your email address']"));
-		List<WebElement> list = driver.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
-		for(WebElement e : list)
-		{
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
+		// List<WebElement> list =
+		// driver.findElements(By.xpath("//*[contains(@class,'lvHighlightAllClass')][text()='Verify
+		// your email address']"));
+		List<WebElement> list = driver
+				.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
+		for (WebElement e : list) {
 			e.click();
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			log.info(emailid.getText());
-			if(emailid.getText().equalsIgnoreCase(BrokerPaymentforUnmatchedCarrierTest.al.get(0)+";"))
-			{
-				Thread.sleep(1000);
+			if (emailid.getText().equalsIgnoreCase(BrokerPaymentforUnmatchedCarrierTest.al.get(0) + ";")) {
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				linkVerify.click();
 				break;
 			}
-			
-		}
-		
-	/*	JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", fieldsearch);
-		Thread.sleep(1000);
-		fieldsearchinput.sendKeys(CarrierRegisterTest.email);
-		Thread.sleep(1000);
-		JavascriptExecutor jc = (JavascriptExecutor) driver;
-		jc.executeScript("arguments[0].click();", btnsearch);
-		Thread.sleep(3000);
-		//fieldsearchinput.sendKeys(Keys.ENTER);
-		JavascriptExecutor jk = (JavascriptExecutor) driver;
-		jk.executeScript("arguments[0].click();", verifyEmail);
-		Thread.sleep(2000);*/
-		//verifyEmail.click();
-		Thread.sleep(2000);
-//		JavascriptExecutor jl = (JavascriptExecutor) driver;
-//		jl.executeScript("arguments[0].click();", linkVerify);
-		//linkVerify.click();
 
+		}
+
+		/*
+		 * JavascriptExecutor js = (JavascriptExecutor) driver;
+		 * js.executeScript("arguments[0].click();", fieldsearch);
+		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		 * fieldsearchinput.sendKeys(CarrierRegisterTest.email);
+		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		 * JavascriptExecutor jc = (JavascriptExecutor) driver;
+		 * jc.executeScript("arguments[0].click();", btnsearch);
+		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		 * //fieldsearchinput.sendKeys(Keys.ENTER); JavascriptExecutor jk =
+		 * (JavascriptExecutor) driver; jk.executeScript("arguments[0].click();",
+		 * verifyEmail);
+		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		 */
+		// verifyEmail.click();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		// JavascriptExecutor jl = (JavascriptExecutor) driver;
+		// jl.executeScript("arguments[0].click();", linkVerify);
+		// linkVerify.click();
 
 	}
 
 	public void verifyConfirmationMessage() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(2));
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(emailverifymessage.isDisplayed());
 		driver.close();
 		driver.switchTo().window(tabs.get(1));
 
-	} 
+	}
 
 }

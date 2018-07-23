@@ -153,13 +153,12 @@ public class UnmatchedCarrierOutlookNewPayment extends TestBase {
 	WebElement ConfirmBankingAccount;
 	@FindBy(xpath = "//input[@type='submit']")
 	WebElement submit2;
-	
+
 	@FindBy(xpath = "//*[@role='menuitemradio'][text()='Unread']")
 	WebElement lnkunread;
-	
+
 	@FindBy(xpath = "//*[@id='ItemHeader.ToContainer']/div/div/div/span/span/div/span[2]")
 	WebElement emailid;
-	
 
 	// Initializing the Page Objects:
 	public UnmatchedCarrierOutlookNewPayment() throws IOException {
@@ -171,12 +170,11 @@ public class UnmatchedCarrierOutlookNewPayment extends TestBase {
 	}
 
 	public void clickPopUp() throws InterruptedException {
-		// Thread.sleep(4000);
+		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(fieldSearchMail));
 		fieldSearchMail.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(haspopup));
 		haspopup.click();
-		Thread.sleep(1000);
 	}
 
 	public void clickOpenMailBox() {
@@ -188,27 +186,29 @@ public class UnmatchedCarrierOutlookNewPayment extends TestBase {
 	public void enterEmail(String email) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(fieldTextbox));
 		fieldTextbox.sendKeys(email);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(buttonsearchcontacts));
 		try {
 			buttonsearchcontacts.click();
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
 			buttonOpen.click();
 		} catch (Exception e) {
 			searchSuggestion.click();
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
 			buttonOpen.click();
 		}
 	}
 
 	/*
 	 * public void enterEmail(String email) throws InterruptedException {
-	 * fieldTextbox.sendKeys(email); Thread.sleep(1000); searchSuggestion.click(); }
+	 * fieldTextbox.sendKeys(email);
+	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	 * searchSuggestion.click(); }
 	 */
 
 	/*
 	 * public void clickOpen() { buttonOpen.click(); }
 	 */
-	
+
 	public void handleNewInbox() throws InterruptedException {
 		Thread.sleep(2000);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
@@ -216,56 +216,49 @@ public class UnmatchedCarrierOutlookNewPayment extends TestBase {
 		Thread.sleep(6000);
 		driver.navigate().refresh();
 		Thread.sleep(4000);
-		
-		
-List<WebElement> list = driver.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
-		
-		for(WebElement e: list)
-		{
-			Thread.sleep(1000);
+
+		List<WebElement> list = driver
+				.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
+
+		for (WebElement e : list) {
+			wait.until(ExpectedConditions.elementToBeClickable(e));
 			e.click();
-			Thread.sleep(1000);
 			log.info(list.size());
-			Thread.sleep(1000);
-			//log.info(BrokerPaymentforUnmatchedCarrierTest.al.get(1)+";");
+			wait.until(ExpectedConditions.elementToBeClickable(emailid));
+			// log.info(BrokerPaymentforUnmatchedCarrierTest.al.get(1)+";");
 			log.info(emailid.getText());
-			if(emailid.getText().equalsIgnoreCase(BrokerPaymentforUnmatchedCarrierTest.al.get(1)+";"))
-			{
-				Thread.sleep(1000);
+			if (emailid.getText().equalsIgnoreCase(BrokerPaymentforUnmatchedCarrierTest.al.get(1) + ";")) {
+				wait.until(ExpectedConditions.elementToBeClickable(linkVerify));
 				linkVerify.click();
 				break;
 			}
-			
+
 		}
-		
-		
-		
-		
-		
-		
-		
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].click();", fieldsearch);
-//		Thread.sleep(1000);
-//		fieldsearchinput.sendKeys(BrokerPaymentforUnmatchedCarrierTest.umemail);
-//		Thread.sleep(1000);
-//		//fieldsearchinput.sendKeys(Keys.ENTER);
-//		 JavascriptExecutor jc = (JavascriptExecutor) driver;
-//		 jc.executeScript("arguments[0].click();", btnsearch);
-//		Thread.sleep(5000);
-		//fieldsearchinput.sendKeys(Keys.ENTER);
-		//Thread.sleep(3000);
-	/*	verifyEmail.click();
-		Thread.sleep(2000);
-		linkVerify.click();*/
+
+		// JavascriptExecutor js = (JavascriptExecutor) driver;
+		// js.executeScript("arguments[0].click();", fieldsearch);
+		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		// fieldsearchinput.sendKeys(BrokerPaymentforUnmatchedCarrierTest.umemail);
+		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		// //fieldsearchinput.sendKeys(Keys.ENTER);
+		// JavascriptExecutor jc = (JavascriptExecutor) driver;
+		// jc.executeScript("arguments[0].click();", btnsearch);
+		// wait.until(ExpectedConditions.elementToBeClickable(x5000);
+		// fieldsearchinput.sendKeys(Keys.ENTER);
+		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		/*
+		 * verifyEmail.click();
+		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		 * linkVerify.click();
+		 */
 
 	}
 
 	public void switchtoCarrieregistration() throws InterruptedException {
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(2));
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 	}
 
 	public void unmatchedCarrierRegistration() throws InterruptedException {
@@ -400,6 +393,357 @@ List<WebElement> list = driver.findElements(By.xpath("//*[@class='ms-font-l lvHi
 
 	public void Finish() {
 		submit2.click();
+	}
+
+	// GETTERS
+	/**
+	 * @return the userName
+	 */
+	public WebElement getUserName() {
+		return UserName;
+	}
+
+	/**
+	 * @return the loginButton
+	 */
+	public WebElement getLoginButton() {
+		return loginButton;
+	}
+
+	/**
+	 * @return the password
+	 */
+	public WebElement getPassword() {
+		return Password;
+	}
+
+	/**
+	 * @return the haspopup
+	 */
+	public WebElement getHaspopup() {
+		return haspopup;
+	}
+
+	/**
+	 * @return the lnkopenanothermail
+	 */
+	public WebElement getLnkopenanothermail() {
+		return lnkopenanothermail;
+	}
+
+	/**
+	 * @return the fieldSearchMail
+	 */
+	public WebElement getFieldSearchMail() {
+		return fieldSearchMail;
+	}
+
+	/**
+	 * @return the fieldTextbox
+	 */
+	public WebElement getFieldTextbox() {
+		return fieldTextbox;
+	}
+
+	/**
+	 * @return the searchSuggestion
+	 */
+	public WebElement getSearchSuggestion() {
+		return searchSuggestion;
+	}
+
+	/**
+	 * @return the buttonOpen
+	 */
+	public WebElement getButtonOpen() {
+		return buttonOpen;
+	}
+
+	/**
+	 * @return the linkVerify
+	 */
+	public WebElement getLinkVerify() {
+		return linkVerify;
+	}
+
+	/**
+	 * @return the emailverifymessage
+	 */
+	public WebElement getEmailverifymessage() {
+		return emailverifymessage;
+	}
+
+	/**
+	 * @return the fieldsearch
+	 */
+	public WebElement getFieldsearch() {
+		return fieldsearch;
+	}
+
+	/**
+	 * @return the fieldsearchinput
+	 */
+	public WebElement getFieldsearchinput() {
+		return fieldsearchinput;
+	}
+
+	/**
+	 * @return the verifyImailMail
+	 */
+	public WebElement getVerifyImailMail() {
+		return verifyImailMail;
+	}
+
+	/**
+	 * @return the btnsearch
+	 */
+	public WebElement getBtnsearch() {
+		return btnsearch;
+	}
+
+	/**
+	 * @return the verifyEmail
+	 */
+	public WebElement getVerifyEmail() {
+		return verifyEmail;
+	}
+
+	/**
+	 * @return the buttonsearchcontacts
+	 */
+	public WebElement getButtonsearchcontacts() {
+		return buttonsearchcontacts;
+	}
+
+	/**
+	 * @return the btn_carrier
+	 */
+	public WebElement getBtn_carrier() {
+		return btn_carrier;
+	}
+
+	/**
+	 * @return the dotnumber
+	 */
+	public WebElement getDotnumber() {
+		return Dotnumber;
+	}
+
+	/**
+	 * @return the companyName
+	 */
+	public WebElement getCompanyName() {
+		return CompanyName;
+	}
+
+	/**
+	 * @return the doingbussiness
+	 */
+	public WebElement getDoingbussiness() {
+		return doingbussiness;
+	}
+
+	/**
+	 * @return the typeofEntity
+	 */
+	public WebElement getTypeofEntity() {
+		return TypeofEntity;
+	}
+
+	/**
+	 * @return the countryIncorporation
+	 */
+	public WebElement getCountryIncorporation() {
+		return countryIncorporation;
+	}
+
+	/**
+	 * @return the stateIncorporation
+	 */
+	public WebElement getStateIncorporation() {
+		return stateIncorporation;
+	}
+
+	/**
+	 * @return the email
+	 */
+	public WebElement getEmail() {
+		return Email;
+	}
+
+	/**
+	 * @return the confirmEmail
+	 */
+	public WebElement getConfirmEmail() {
+		return confirmEmail;
+	}
+
+	/**
+	 * @return the icertify
+	 */
+	public WebElement getIcertify() {
+		return Icertify;
+	}
+
+	/**
+	 * @return the paymentTerms
+	 */
+	public WebElement getPaymentTerms() {
+		return PaymentTerms;
+	}
+
+	/**
+	 * @return the next
+	 */
+	public WebElement getNext() {
+		return Next;
+	}
+
+	/**
+	 * @return the zipCode
+	 */
+	public WebElement getZipCode() {
+		return ZipCode;
+	}
+
+	/**
+	 * @return the country
+	 */
+	public WebElement getCountry() {
+		return Country;
+	}
+
+	/**
+	 * @return the address
+	 */
+	public WebElement getAddress() {
+		return address;
+	}
+
+	/**
+	 * @return the city
+	 */
+	public WebElement getCity() {
+		return city;
+	}
+
+	/**
+	 * @return the state
+	 */
+	public WebElement getState() {
+		return State;
+	}
+
+	/**
+	 * @return the submit
+	 */
+	public WebElement getSubmit() {
+		return submit;
+	}
+
+	/**
+	 * @return the contactFirstName
+	 */
+	public WebElement getContactFirstName() {
+		return ContactFirstName;
+	}
+
+	/**
+	 * @return the lastName
+	 */
+	public WebElement getLastName() {
+		return LastName;
+	}
+
+	/**
+	 * @return the phone
+	 */
+	public WebElement getPhone() {
+		return Phone;
+	}
+
+	/**
+	 * @return the ext
+	 */
+	public WebElement getExt() {
+		return Ext;
+	}
+
+	/**
+	 * @return the mobile
+	 */
+	public WebElement getMobile() {
+		return Mobile;
+	}
+
+	/**
+	 * @return the passwordd
+	 */
+	public WebElement getPasswordd() {
+		return Passwordd;
+	}
+
+	/**
+	 * @return the confirmPassword
+	 */
+	public WebElement getConfirmPassword() {
+		return ConfirmPassword;
+	}
+
+	/**
+	 * @return the submit1
+	 */
+	public WebElement getSubmit1() {
+		return submit1;
+	}
+
+	/**
+	 * @return the accountName
+	 */
+	public WebElement getAccountName() {
+		return AccountName;
+	}
+
+	/**
+	 * @return the bankingRouting
+	 */
+	public WebElement getBankingRouting() {
+		return BankingRouting;
+	}
+
+	/**
+	 * @return the bankingAccount
+	 */
+	public WebElement getBankingAccount() {
+		return BankingAccount;
+	}
+
+	/**
+	 * @return the confirmBankingAccount
+	 */
+	public WebElement getConfirmBankingAccount() {
+		return ConfirmBankingAccount;
+	}
+
+	/**
+	 * @return the submit2
+	 */
+	public WebElement getSubmit2() {
+		return submit2;
+	}
+
+	/**
+	 * @return the lnkunread
+	 */
+	public WebElement getLnkunread() {
+		return lnkunread;
+	}
+
+	/**
+	 * @return the emailid
+	 */
+	public WebElement getEmailid() {
+		return emailid;
 	}
 
 }

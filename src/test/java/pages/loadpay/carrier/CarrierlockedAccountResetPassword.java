@@ -76,10 +76,10 @@ public class CarrierlockedAccountResetPassword extends TestBase {
 		Integer retryCount = 0;
 		Integer maxRetryCount = 300;
 		
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(2));
-		Thread.sleep(6000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 		WebElement searchField = driver.findElement(By.xpath("//span[text()='Search mail and people']"));
 		searchField.click();
@@ -87,7 +87,7 @@ public class CarrierlockedAccountResetPassword extends TestBase {
 		searchInput = driver.findElement(By.xpath("//input[@aria-label='Search. Press Enter to Start Searching.']"));
 		searchButton = driver.findElement(By.xpath("//button[@aria-label='Start search']"));
 
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		searchInput.sendKeys(emailaddress);
 		searchButton.click();
 
@@ -96,7 +96,7 @@ public class CarrierlockedAccountResetPassword extends TestBase {
 		
 		while ((infoMessage.isDisplayed() || checkEmailTimeStamp(hour, minutes)) && (retryCount < maxRetryCount)) {
 			searchButton.click();
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
 			retryCount++;
 		}
@@ -107,25 +107,25 @@ public class CarrierlockedAccountResetPassword extends TestBase {
 		log.info("Email ID text: " + emailid.getText());
 		Assert.assertTrue(emailid.getText().equalsIgnoreCase(emailaddress + ";"), "Email ID not found!");
 
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	public void handleUpdatedEmailInbox(String emailaddress) throws InterruptedException {
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 		List<WebElement> list = driver
 				.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
 
 		for (WebElement e : list) {
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			e.click();
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			log.info(emailid.getText());
 			if (emailid.getText().equalsIgnoreCase(emailaddress + ";")) {
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				wait.until(ExpectedConditions.elementToBeClickable(buttonresetpassword));
 				js.executeScript("arguments[0].click();", buttonresetpassword);
-				Thread.sleep(2000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				break;
 			}
 

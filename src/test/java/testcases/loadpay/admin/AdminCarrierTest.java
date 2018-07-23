@@ -2,6 +2,7 @@ package testcases.loadpay.admin;
 import java.awt.AWTException;
 import java.io.IOException;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -42,11 +43,11 @@ public class AdminCarrierTest extends TestBase
 	public void adminLogin(String Username,String pass) throws IOException, InterruptedException, AWTException
 	{		
 		a.adminUserPass(Username, pass);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		a.adminLogin();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		a.ClickOnCustomersTab();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		if(BrokerPaymentforUnmatchedCarrierTest.umemail!=null)
 		{
 			a.ClickOnSearchBox(BrokerPaymentforUnmatchedCarrierTest.umemail);
@@ -54,19 +55,19 @@ public class AdminCarrierTest extends TestBase
 		else
 		{
 		a.ClickOnSearchBox(CarrierRegisterTest.email);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		}
 		a.ClickOnSearchButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 		a.DoubleClickID();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 		a.StatusIDDropDown();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 		a.UpdateButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 		a.AdminLogOut();
 	

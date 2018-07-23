@@ -14,6 +14,16 @@
     
     	<!-- <class name="testcases.BrokerBulkUploadPaymentErrorsTest"></class> -->
     	
+    	
+    	 <!-- Script for Jira Ticket LP-6328-LoadPay - Selenium Test - Integration - Handshake with RTF_Carrier -->
+    
+    	<class name="testcases.HandshakewithRTF_CarrierTest"></class>
+    	
+    	
+    <!-- Script for Jira Ticket LP-6327-LoadPay - Selenium Test - Integration - Handshake with RTF_Broker -->
+    
+    	<class name="testcases.HandshakewithRTFBrokerTest"></class>
+    	
     
 	<!-- Script for Jira Ticket LP-6363 LoadPay - Selenium Test - Broker - Cannot create advance payment to unmatched carrier-->
     
@@ -22,7 +32,33 @@
     	
     <!-- Script for Jira Ticket LP-6365 LoadPay - Selenium Test - Broker - Disable copy / paste functionality for add and confirm bank account-->
     	
-    	<class name="testcases.BrokerDisableCopyPasteConfirmBankAccountTest"></class>
+    	<!-- <class name="testcases.BrokerDisableCopyPasteConfirmBankAccountTest"></class> -->
+    	
+    	<!-- Script for Jira Ticket LP-6230 LoadPay - Selenium Test -Admin Wire Transfer-->
+    	
+    	<!-- <class name="testcases.AdminWireTransferTest"></class> -->
+    	
+    	 <!--  Script for Jira Ticket LP-6364 - LoadPay - Selenium Test - Broker - 10% Limit Email Alert
+   NEED TO UPDATE FOLLOWING WORKSHEETS - BROKER REGISTRATION, BROKER NEW PAYMENT NEEDS NEW PAYMENT FOR $930.00, CARRIER LOGIN THAT THE PAYMENT WAS SCHEDULED TO, BROKER LOGIN WITH BROKER THAT HAS BEEN REGISTERED -->
+     <!--    <class name="testcases.BrokerRegisterTest"></class>  --><!-- Will use data from BrokerRegister Worksheet -->
+    	 <!-- BROKER REGSITRATON TEST UPDATED TO DO ADMIN ACTIVATION, OUTLOOK ACTIVATION, DEPOSIT VALIDATION, AND ACCEPT T&C's 
+		ADMIN BROKER TEST UPDATED TO GIVE CREDIT -  CreditAmount worksheet   --> 	
+	<!-- 	<class name="testcases.AdminBrokerTest"></class> -->
+		<!-- BROKER SCHEDULES NEW PAYMENT -->
+	<!-- 	<class name="testcases.BrokerNewPaymentTest"></class> -->
+		<!-- CARRIER DOES PAYMENOW ON THE PAYMENT -->
+	<!-- 	<class name="testcases.CarrierNextDAYACHTest"></class> -->
+		<!-- LOG BROKER BACK IN TO SEE CREDIT AND VIEW 10% LIMIT EMAIL -->
+	<!-- 	<class name="testcases.BrokerViewCreditLessThan1000Test"></class> -->
+		
+		<!-- Script for Jira Tickets LP-6500  LoadPay - Selenium Test - Carrier_PayMeNow on Unmatched_Fuel Card -->
+
+	<!-- 		<class name="testcases.BrokerPaymentforUnmatchedCarrierTest"></class>
+			<class name="testcases.UnmatchedCarrierOutlookTest"></class>
+		 	<class name="testcases.UnmatchedCariierEmailVerifyWiretRansferTest"></class>
+		 	<class name="testcases.UnmatchedCarrierAdminTest"></class>
+		 	<class name="testcases.CarrierFirstLoginTest"></class>
+		 	<class name="testcases.UnmatchedCarrierPayMeNowFuelCardTest"></class> -->
     
     </classes>
   </test> 

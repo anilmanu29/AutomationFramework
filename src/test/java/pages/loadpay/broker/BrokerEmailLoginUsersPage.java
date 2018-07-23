@@ -60,7 +60,7 @@ public class BrokerEmailLoginUsersPage extends TestBase {
   }
 
   public void goToEmailLoginUsers() throws InterruptedException {
-    Thread.sleep(2000);
+    wait.until(ExpectedConditions.elementToBeClickable(tempElement));
     wait.until(ExpectedConditions.elementToBeClickable(emailLoginUsers));
     js.executeScript("arguments[0].click();", emailLoginUsers);
     emailLoginUsers.click();

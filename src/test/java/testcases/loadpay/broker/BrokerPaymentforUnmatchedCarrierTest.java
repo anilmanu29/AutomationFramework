@@ -3,6 +3,7 @@ package testcases.loadpay.broker;
 import java.util.ArrayList;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -58,32 +59,32 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase
 	public void brokernewPayment(String cemail, String invoiceno, String loadid, String amt, String payto, String ein) throws InterruptedException {
 		
 		bp.newPayment();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bp.carrierEmail(cemail);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bp.amount(amt);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		invoiceNum = bp.invoiceNumber(invoiceno);
 		in.add(invoiceNum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bp.loadId(loadid);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bp.companyName(payto);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bp.clickShedulePayment();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bp.clickShedulePaymenttab();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		umemail =	bp.searchCarrier(cemail);
 		al.add(umemail);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bp.clickSearchButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,250)", "");
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		 bp.verifyInvoiceNumber(invoiceno,amt);
-		 Thread.sleep(1000);
+		 wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		einno =  bp.getEin(ein);
 		//Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
 		log.info(bp.verifyPaymentStatus());

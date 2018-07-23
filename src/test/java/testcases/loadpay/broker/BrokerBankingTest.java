@@ -3,6 +3,7 @@ package testcases.loadpay.broker;
 import java.awt.AWTException;
 import java.io.IOException;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -42,219 +43,219 @@ public class BrokerBankingTest extends TestBase {
 	@Test(dataProvider = "getBrokerBankingData", dependsOnMethods = "brokerLogin")
 	public void brokerAddNewBusinessBankAccount(String accname, String routingnum, String accnum, String confirmaccnum)
 			throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickAccountlink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickBankingLink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickAddNewBankAccountLink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		acountname = bb.enterAccountName(accname);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterRoutingNumber(routingnum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterAccountNumber(accnum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterConfirmAccountNumber(confirmaccnum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickSaveButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		// Assert.assertEquals(bb.verifyAccountName(), accname);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		// Assert.assertEquals(bb.verifyRoutingNumber(), routingnum);
 
 	}
 
 	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = "brokerAddNewBusinessBankAccount")
 	public void verifyBrokerBusinessBankAccount(String Username, String pass) throws InterruptedException, AWTException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.verifyBankAccount();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		al.adminUserPass(Username, pass);
 		al.adminLogin();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		al.ClickOnCustomersTab();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		log.info(BrokerLoginPage.bemail);
 		al.ClickOnSearchBox(BrokerLoginPage.bemail);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		al.ClickOnSearchButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		al.DoubleClickID();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickAdminBankingLink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		log.info(bb.getPennyVerificationAmount());
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		al.AdminLogOut();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.closeTab();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickVerifyLink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterAmount();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickVerifyButton();
 
 	}
 
 	@Test(dependsOnMethods = "verifyBrokerBusinessBankAccount")
 	public void brokerBusinessBankAccountSetdefault() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickSetDefault();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 	}
 
 	@Test(dependsOnMethods = "brokerBusinessBankAccountSetdefault")
 	public void brokerBusinessRemoveBankAccount() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickRemoveButton();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 	
 	@Test(dataProvider = "getBrokerBankingData", dependsOnMethods = "brokerBusinessRemoveBankAccount")
 	public void brokerAddNewPersonalCheckingBankAccount(String accname, String routingnum, String accnum, String confirmaccnum)
 			throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickAddNewBankAccountLink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		acountname = bb.enterAccountName(accname);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterRoutingNumber(routingnum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterAccountNumber(accnum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterConfirmAccountNumber(confirmaccnum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickPersonalCheckingRadioButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickSaveButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		// Assert.assertEquals(bb.verifyAccountName(), accname);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		// Assert.assertEquals(bb.verifyRoutingNumber(), routingnum);
 
 	}
 
 	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = "brokerAddNewPersonalCheckingBankAccount")
 	public void verifyBrokerPersonalCheckingBankAccount(String Username, String pass) throws InterruptedException, AWTException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.verifyBankAccount();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		al.adminUserPass(Username, pass);
 		al.adminLogin();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		al.ClickOnCustomersTab();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		log.info(BrokerLoginPage.bemail);
 		al.ClickOnSearchBox(BrokerLoginPage.bemail);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		al.ClickOnSearchButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		al.DoubleClickID();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickAdminBankingLink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		log.info(bb.getPennyVerificationAmount());
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		al.AdminLogOut();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.closeTab();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickVerifyLink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterAmount();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickVerifyButton();
 
 	}
 
 	@Test(dependsOnMethods = "verifyBrokerPersonalCheckingBankAccount")
 	public void brokerPersonalCheckingBankAccountSetdefault() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickSetDefault();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 	}
 
 	@Test(dependsOnMethods = "brokerPersonalCheckingBankAccountSetdefault")
 	public void brokerRemovePersonalCheckingBankAccount() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickRemoveButton();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 	
 	@Test(dataProvider = "getBrokerBankingData", dependsOnMethods = "brokerRemovePersonalCheckingBankAccount")
 	public void brokerAddNewPersonalSavingsBankAccount(String accname, String routingnum, String accnum, String confirmaccnum)
 			throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickAddNewBankAccountLink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		acountname = bb.enterAccountName(accname);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterRoutingNumber(routingnum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterAccountNumber(accnum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterConfirmAccountNumber(confirmaccnum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickPersonalSavinggRadioButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickSaveButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		// Assert.assertEquals(bb.verifyAccountName(), accname);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		// Assert.assertEquals(bb.verifyRoutingNumber(), routingnum);
 
 	}
 
 	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = "brokerAddNewPersonalSavingsBankAccount")
 	public void verifyBrokerPersonalSavingsBankAccount(String Username, String pass) throws InterruptedException, AWTException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.verifyBankAccount();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		al.adminUserPass(Username, pass);
 		al.adminLogin();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		al.ClickOnCustomersTab();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		log.info(BrokerLoginPage.bemail);
 		al.ClickOnSearchBox(BrokerLoginPage.bemail);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		al.ClickOnSearchButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		al.DoubleClickID();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickAdminBankingLink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		log.info(bb.getPennyVerificationAmount());
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		al.AdminLogOut();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.closeTab();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickVerifyLink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.enterAmount();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickVerifyButton();
 
 	}
 
 	@Test(dependsOnMethods = "verifyBrokerPersonalSavingsBankAccount")
 	public void brokerPersonalSavingsBankAccountSetdefault() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickSetDefault();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 	}
 
 	@Test(dependsOnMethods = "brokerPersonalSavingsBankAccountSetdefault")
 	public void brokerRemovePersonalSavingsBankAccount() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		bb.clickRemoveButton();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 

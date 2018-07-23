@@ -35,120 +35,98 @@ public class CarrierBankingTest extends TestBase {
 	@Test(dataProvider = "getCarrierBankingData", dependsOnMethods = "loginCarrier")
 	public void carrierAddNewBusinessBankAccount(String accname, String routingnum, String accnum, String confirmaccnum)
 			throws InterruptedException {
-		Thread.sleep(1000);
 		cb.clickAccountlink();
-		Thread.sleep(1000);
 		cb.clickBankingLink();
-		Thread.sleep(1000);
 		cb.clickAddNewBankAccountLink();
-		Thread.sleep(1000);
 		cb.enterAccountName(accname);
-		Thread.sleep(1000);
 		cb.enterRoutingNumber(routingnum);
-		Thread.sleep(1000);
 		cb.enterAccountNumber(accnum);
-		Thread.sleep(1000);
 		cb.enterConfirmAccountNumber(confirmaccnum);
-		Thread.sleep(1000);
 		cb.clickSaveButton();
-		Thread.sleep(1000);
-		//Assert.assertEquals(cb.verifyAccountName(), accname);
-		Thread.sleep(1000);
-		//Assert.assertEquals(cb.verifyRoutingNumber(), routingnum);
+		// Assert.assertEquals(cb.verifyAccountName(), accname);
+		// Assert.assertEquals(cb.verifyRoutingNumber(), routingnum);
 
 	}
 
 	@Test(dependsOnMethods = "carrierAddNewBusinessBankAccount")
 	public void carrierBusinessAccountSetdefault() throws InterruptedException {
-		Thread.sleep(1000);
 		cb.clickSetDefault();
-		Thread.sleep(2000);
-
 	}
 
 	@Test(dependsOnMethods = "carrierBusinessAccountSetdefault")
 	public void carrierBusinessRemoveBankAccount() throws InterruptedException {
 		cb.clickRemoveButton();
-		Thread.sleep(2000);
 	}
-	
+
 	@Test(dataProvider = "getCarrierBankingData", dependsOnMethods = "carrierBusinessRemoveBankAccount")
-	public void carrierAddNewPersonalCheckingBankAccount(String accname, String routingnum, String accnum, String confirmaccnum)
-			throws InterruptedException {
-		Thread.sleep(1000);
+	public void carrierAddNewPersonalCheckingBankAccount(String accname, String routingnum, String accnum,
+			String confirmaccnum) throws InterruptedException {
 		cb.clickAddNewBankAccountLink();
-		Thread.sleep(1000);
 		cb.enterAccountName(accname);
-		Thread.sleep(1000);
 		cb.enterRoutingNumber(routingnum);
-		Thread.sleep(1000);
+
 		cb.enterAccountNumber(accnum);
-		Thread.sleep(1000);
+
 		cb.enterConfirmAccountNumber(confirmaccnum);
-		Thread.sleep(1000);
+
 		cb.clickPersonalCheckingRadioButton();
-		Thread.sleep(1000);
+
 		cb.clickSaveButton();
-		Thread.sleep(1000);
-		//Assert.assertEquals(cb.verifyAccountName(), accname);
-		Thread.sleep(1000);
-		//Assert.assertEquals(cb.verifyRoutingNumber(), routingnum);
+
+		// Assert.assertEquals(cb.verifyAccountName(), accname);
+
+		// Assert.assertEquals(cb.verifyRoutingNumber(), routingnum);
 
 	}
 
 	@Test(dependsOnMethods = "carrierAddNewPersonalCheckingBankAccount")
 	public void carrierPersonalCheckingAccountSetdefault() throws InterruptedException {
-		Thread.sleep(1000);
+
 		cb.clickSetDefault();
-		Thread.sleep(2000);
 
 	}
 
 	@Test(dependsOnMethods = "carrierPersonalCheckingAccountSetdefault")
 	public void carrierPersonalCheckingRemoveBankAccount() throws InterruptedException {
 		cb.clickRemoveButton();
-		Thread.sleep(2000);
+
 	}
-	
+
 	@Test(dataProvider = "getCarrierBankingData", dependsOnMethods = "carrierPersonalCheckingRemoveBankAccount")
-	public void carrierAddNewPersonalSavingsBankAccount(String accname, String routingnum, String accnum, String confirmaccnum)
-			throws InterruptedException {
-		Thread.sleep(1000);
+	public void carrierAddNewPersonalSavingsBankAccount(String accname, String routingnum, String accnum,
+			String confirmaccnum) throws InterruptedException {
+
 		cb.clickAddNewBankAccountLink();
-		Thread.sleep(1000);
+
 		cb.enterAccountName(accname);
-		Thread.sleep(1000);
+
 		cb.enterRoutingNumber(routingnum);
-		Thread.sleep(1000);
+
 		cb.enterAccountNumber(accnum);
-		Thread.sleep(1000);
+
 		cb.enterConfirmAccountNumber(confirmaccnum);
-		Thread.sleep(1000);
+
 		cb.clickPersonalSavinggRadioButton();
-		Thread.sleep(1000);
+
 		cb.clickSaveButton();
-		Thread.sleep(1000);
-		//Assert.assertEquals(cb.verifyAccountName(), accname);
-		Thread.sleep(1000);
-		//Assert.assertEquals(cb.verifyRoutingNumber(), routingnum);
+
+		// Assert.assertEquals(cb.verifyAccountName(), accname);
+
+		// Assert.assertEquals(cb.verifyRoutingNumber(), routingnum);
 
 	}
 
 	@Test(dependsOnMethods = "carrierAddNewPersonalSavingsBankAccount")
 	public void carrierPersonalSavingsAccountSetdefault() throws InterruptedException {
-		Thread.sleep(1000);
+
 		cb.clickSetDefault();
-		Thread.sleep(2000);
 
 	}
 
 	@Test(dependsOnMethods = "carrierPersonalSavingsAccountSetdefault")
 	public void carrierPersonalSavingsRemoveBankAccount() throws InterruptedException {
 		cb.clickRemoveButton();
-		Thread.sleep(2000);
+
 	}
-	
-	
-	
 
 }

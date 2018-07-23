@@ -72,7 +72,7 @@ public class CarrierPayMeNowEmailNotification extends TestBase {
 		WebElement searchInput;
 		WebElement searchButton;
 		WebElement emailid;
-		Thread.sleep(7000);
+		Thread.sleep(5000);
 		WebElement searchField = driver.findElement(By.xpath("//span[text()='Search mail and people']"));
 		wait.until(ExpectedConditions.elementToBeClickable(searchField));
 		searchField.click();
@@ -80,34 +80,32 @@ public class CarrierPayMeNowEmailNotification extends TestBase {
 		searchInput = driver.findElement(By.xpath("//input[@aria-label='Search. Press Enter to Start Searching.']"));
 		searchButton = driver.findElement(By.xpath("//button[@aria-label='Start search']"));
 
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(searchButton));
 		searchInput.sendKeys(searchtext);
 		searchButton.click();
-		Thread.sleep(1000);
 
 		String paymenttypemessagee = "";
 
 		while ((!paymenttypemessagee.contains(paymenttypetext))) {
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(searchButton));
 			searchButton.click();
-			Thread.sleep(2000);
 			paymenttypemessagee = driver.findElement(By.xpath(
 					"//table/tbody/tr[1]/td/table[2]/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/span/strong[3]"))
 					.getText();
 
 		}
-		Thread.sleep(2000);
+
 		List<WebElement> list = driver.findElements(By.xpath(".//*[text()='PayMeNow Payment Notification']"));
 		emailid = driver.findElement(By.xpath("//*[@id='ItemHeader.ToContainer']/div/div/div/span/span/div/span[2]"));
 		for (WebElement e : list) {
-			Thread.sleep(2000);
+			wait.until(ExpectedConditions.elementToBeClickable(e));
 
 			js.executeScript("arguments[0].click();", e);
 			// e.click();
-			Thread.sleep(3000);
-			//log.info(emailid.getText());
+			wait.until(ExpectedConditions.elementToBeClickable(emailid));
+			// log.info(emailid.getText());
 			if (emailid.getText().equalsIgnoreCase(emailaddress + ";")) {
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(paymenttype));
 				log.info(paymenttype.getText());
 				Assert.assertTrue(paymenttype.getText().equalsIgnoreCase(paymenttypetext),
 						"Payment type text not found!");
@@ -115,7 +113,47 @@ public class CarrierPayMeNowEmailNotification extends TestBase {
 			}
 
 		}
+	}
 
-		Thread.sleep(1000);
+	/**
+	 * @return the paymenowtab
+	 */
+	public WebElement getPaymenowtab() {
+		return paymenowtab;
+	}
+
+	/**
+	 * @return the scheduledpaymetstab
+	 */
+	public WebElement getScheduledpaymetstab() {
+		return scheduledpaymetstab;
+	}
+
+	/**
+	 * @return the paidtab
+	 */
+	public WebElement getPaidtab() {
+		return paidtab;
+	}
+
+	/**
+	 * @return the paidamt
+	 */
+	public WebElement getPaidamt() {
+		return paidamt;
+	}
+
+	/**
+	 * @return the nextdaydayamt
+	 */
+	public WebElement getNextdaydayamt() {
+		return nextdaydayamt;
+	}
+
+	/**
+	 * @return the paymenowfee
+	 */
+	public WebElement getPaymenowfee() {
+		return paymenowfee;
 	}
 }

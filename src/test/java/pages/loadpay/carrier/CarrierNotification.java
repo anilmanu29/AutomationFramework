@@ -2,6 +2,7 @@ package pages.loadpay.carrier;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import base.TestBase;
 
@@ -37,15 +38,15 @@ public class CarrierNotification extends TestBase
 	
 	public void clickNotifications() throws InterruptedException
 	{
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	lnk_notifications.click();
-	Thread.sleep(1000);
+	wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	notificationgrid.click();
 	}
 	
 	public String carrierInvoice() throws InterruptedException
 	{
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		String cinvoice = carrierinvoicedetail.getText();
 		return cinvoice;
 	}

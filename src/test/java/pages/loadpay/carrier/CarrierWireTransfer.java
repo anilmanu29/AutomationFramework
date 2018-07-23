@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
 
-
 public class CarrierWireTransfer extends TestBase {
 
 	WebDriverWait wait = null;
@@ -19,23 +18,23 @@ public class CarrierWireTransfer extends TestBase {
 	String amtwiretransfer;
 	String amtbeforepaidsameday;
 	float amtbeforesamedayach;
-	 String amtwiretrsfr;
-	 String amtsmdayach;
-	 float amttwiretransfer;
-	 float total;
-	 String totalamount;
-	 String totalamountt;
-	 String amtbeforepaidsmday;
-	 String amtbefore ;
-	 String paymenowfe;
-	 String paymenow;
-	 String paymenowfeee;
-	 float paymenowf;
+	String amtwiretrsfr;
+	String amtsmdayach;
+	float amttwiretransfer;
+	float total;
+	String totalamount;
+	String totalamountt;
+	String amtbeforepaidsmday;
+	String amtbefore;
+	String paymenowfe;
+	String paymenow;
+	String paymenowfeee;
+	float paymenowf;
 
-	@FindBy(xpath= "//a[contains(@href,'#/Payments/PayMeNow')]")
+	@FindBy(xpath = "//a[contains(@href,'#/Payments/PayMeNow')]")
 	WebElement PayMeNowTab;
 
-	 @FindBy(xpath = "//*[@class='getpaid']")
+	@FindBy(xpath = "//*[@class='getpaid']")
 	private WebElement btn_paymenow;
 
 	@FindBy(xpath = "//*[@id='paymentOptionsDiv']/div[2]/div[1]/div[8]/input[1]")
@@ -64,13 +63,12 @@ public class CarrierWireTransfer extends TestBase {
 
 	@FindBy(xpath = "//input[contains(@type,'submit')]")
 	WebElement loginBtn;
-	
+
 	@FindBy(xpath = "//*[@id='angularScope']/div[2]/div/div[3]/ul/li[3]/a/div/div[1]/div[2]/span[1]")
 	private WebElement paidamt;
-	
+
 	@FindBy(xpath = "//*[@id='paymentOptionsDiv']/div[4]/div[1]/div[3]/p/span")
 	WebElement wiretransframt;
-	
 
 	public CarrierWireTransfer() {
 		PageFactory.initElements(driver, this);
@@ -78,16 +76,14 @@ public class CarrierWireTransfer extends TestBase {
 		act = new Actions(driver);
 	}
 
-
-	
-	public void  getAmount() throws InterruptedException {
-		 Thread.sleep(2000);
-		 amtbeforepaidsameday = paidamt.getText();
-		 amtbeforepaidsmday = amtbeforepaidsameday.replaceAll("\\$", "");
-		 amtbefore = amtbeforepaidsmday.replaceAll(",", "");	
-		 System.out.println(amtbeforepaidsmday);
-		 amtbeforesamedayach = Float.parseFloat(amtbefore);
-		 System.out.println(amtbeforesamedayach);
+	public void getAmount() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(paidamt));
+		amtbeforepaidsameday = paidamt.getText();
+		amtbeforepaidsmday = amtbeforepaidsameday.replaceAll("\\$", "");
+		amtbefore = amtbeforepaidsmday.replaceAll(",", "");
+		System.out.println(amtbeforepaidsmday);
+		amtbeforesamedayach = Float.parseFloat(amtbefore);
+		System.out.println(amtbeforesamedayach);
 	}
 
 	public void clickPaymenow() throws InterruptedException {
@@ -95,14 +91,14 @@ public class CarrierWireTransfer extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_paymenow));
 		btn_paymenow.click();
 	}
-	
+
 	public void getwiretransferAmount() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(wiretransframt));
 		amtwiretransfer = wiretransframt.getText();
 		amtwiretrsfr = amtwiretransfer.replaceAll("\\$", "");
-		 amtsmdayach = amtwiretrsfr.replaceAll(",", "");	
-		 amttwiretransfer = Float.parseFloat(amtsmdayach);
-		 System.out.println(amttwiretransfer);
+		amtsmdayach = amtwiretrsfr.replaceAll(",", "");
+		amttwiretransfer = Float.parseFloat(amtsmdayach);
+		System.out.println(amttwiretransfer);
 	}
 
 	public void clickSelectButton() throws InterruptedException {
@@ -121,23 +117,21 @@ public class CarrierWireTransfer extends TestBase {
 		act.moveToElement(tab_paid).click().perform();
 
 	}
-	
+
 	public void gettotalpaiyAmount() throws InterruptedException {
-		//wait.until(ExpectedConditions.elementToBeClickable(paidamt));
-		Thread.sleep(1000);
-		 totalamt = paidamt.getText();
-		 totalamount =  totalamt.replaceAll("\\$", "");
-		 totalamountt =	totalamount.replaceAll(",", "");	
-		 total = Float.parseFloat(totalamountt);
-		 System.out.println(total);	
-		 
-		
+		wait.until(ExpectedConditions.elementToBeClickable(paidamt));
+		totalamt = paidamt.getText();
+		totalamount = totalamt.replaceAll("\\$", "");
+		totalamountt = totalamount.replaceAll(",", "");
+		total = Float.parseFloat(totalamountt);
+		System.out.println(total);
+
 	}
+
 	public void verifywiretransfer() throws InterruptedException {
-		Thread.sleep(1000);
 		amttwiretransfer = (total - amtbeforesamedayach);
 		System.out.println(amttwiretransfer);
-	
+
 	}
 
 	public void goToPayMeNowTab() {

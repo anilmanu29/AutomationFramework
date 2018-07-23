@@ -2,12 +2,15 @@ package testcases.loadpay.broker;
 
 import java.awt.AWTException;
 import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import base.TestBase;
 import pages.loadpay.broker.BrokerBanking;
 import pages.loadpay.broker.BrokerDisableCopyPasteConfirmBankAccount;
@@ -49,58 +52,58 @@ public class BrokerDisableCopyPasteConfirmBankAccountTest extends TestBase {
 		brokerregisterobj.shipperRegister();
 		if (Dotnumber == null) {
 			brokerregisterobj.companyname(CompanyName);
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		} else {
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			brokerregisterobj.dotnumber(Dotnumber);
 		}
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerregisterobj.doingbussiness(DoingBussinessAS);
 		brokerregisterobj.selectType();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Select type = new Select(driver.findElement(By.xpath(".//*[@id='EntityType']")));
 		type.selectByVisibleText("C Corporation");
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerregisterobj.countrydropdown(country, state);
 		brokerregisterobj.BrokerEmail(Email);
 		brokerregisterobj.confirmEmail(ConfirmEmail);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerregisterobj.iCertifyClick();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerregisterobj.paymentTerm();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerregisterobj.next();
 		if (Dotnumber == null) {
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			brokerregisterobj.originCountry(ocountry, States);
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			brokerregisterobj.ZipCode(ZipCode1);
 			brokerregisterobj.address(Address);
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			brokerregisterobj.city(City);
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		} else {
 			brokerregisterobj.originCountry(ocountry, States);
 			brokerregisterobj.ZipCode(ZipCode1);
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		}
 
 		brokerregisterobj.submit();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerregisterobj.ContactFirstName(FirstNames);
 		brokerregisterobj.LastName(LastName);
 		brokerregisterobj.Phone(PhoneNumber);
 		brokerregisterobj.Password(Password);
 		driver.findElement(By.xpath("//*[@id='Registration_User_Password']"));
 		brokerregisterobj.ConfirmPassword(ConfirmPassword);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerregisterobj.Next();
 		brokerregisterobj.AccountName(NameonAccount);
 		brokerregisterobj.BankingRouting(RoutingNumber);
 		brokerregisterobj.BankingAccount(BankAccountNumber);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerdisablecopypasteconfirmbankaccountobj.verifyCopyPasteforTypeofAccount();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(
 				brokerdisablecopypasteconfirmbankaccountobj.geterrorMessage().contains("Account Number do not match"),
 				"Validation NOT found");
@@ -148,11 +151,11 @@ public class BrokerDisableCopyPasteConfirmBankAccountTest extends TestBase {
 			String confirmaccnum) throws InterruptedException {
 
 		brokerbankingobj.clickAccountlink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerbankingobj.clickBankingLink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerbankingobj.clickAddNewBankAccountLink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerdisablecopypasteconfirmbankaccountobj.verifyCopyPasteforTyesofAccount(accname, routingnum, accnum);
 		Assert.assertEquals(brokerdisablecopypasteconfirmbankaccountobj.getConfirmAccountNumber(), "",
 				"Copy/paste is happening");

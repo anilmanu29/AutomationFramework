@@ -47,7 +47,7 @@ public CarrierPayMeNowTab() {
 
 public void clickPaymenow() throws InterruptedException {
 	//wait.until(ExpectedConditions.elementToBeClickable(paymenow));
-	Thread.sleep(2000);
+	wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	
 	paymenow.click();
 	

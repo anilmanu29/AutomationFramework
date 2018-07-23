@@ -33,7 +33,6 @@ public class CarrierParentChildRelationships extends TestBase {
 	public static String pwd;
 	int j;
 
-
 	@FindBy(xpath = "//a[text()='Account']")
 	private WebElement linkaccount;
 
@@ -155,15 +154,15 @@ public class CarrierParentChildRelationships extends TestBase {
 	}
 
 	public void clickAccountLink() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(linkaccount));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		js.executeScript("arguments[0].click();", linkaccount);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	public void clickEmailLink() throws InterruptedException {
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(emaillink));
 		js.executeScript("arguments[0].click();", emaillink);
 	}
@@ -197,7 +196,7 @@ public class CarrierParentChildRelationships extends TestBase {
 
 	public void enablePaymentAccess() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(paymentaccesslabel));
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		if (paymentaccesslabel.getText().contains("Disabled")) {
 			js.executeScript("arguments[0].click();", paymentaccesbutton);
 		}
@@ -223,16 +222,16 @@ public class CarrierParentChildRelationships extends TestBase {
 
 	public void enterSearchText(String searchText) throws InterruptedException {
 		searchInputField.clear();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		searchInputField.sendKeys(searchText);
 	}
 
 	public void outlookLogin(String un, String pwd) throws InterruptedException {
 		((JavascriptExecutor) driver).executeScript("window.open()");
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		try {
 			outlooklog.outlookLogin(un, pwd);
 			brokeroutlook.clickPopUp();
@@ -243,15 +242,15 @@ public class CarrierParentChildRelationships extends TestBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tab.get(2));
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 	}
 
 	public List<String> getFirstRowData() throws InterruptedException {
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		List<String> dataElements = new ArrayList<String>();
 		List<WebElement> webElements = driver.findElements(By.xpath("//table/tbody/tr/td//child::p[3]//child::span"));
 
@@ -264,39 +263,39 @@ public class CarrierParentChildRelationships extends TestBase {
 	}
 
 	public void getVerificationCodeData() throws InterruptedException {
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 		List<WebElement> list = driver
 				.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
 		for (WebElement element : list) {
-			Thread.sleep(2000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			element.click();
 			log.info(CarrierParentChildRelationshipsTest.nemail);
 			log.info(emailid.getText());
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			if (emailid.getText().equalsIgnoreCase(CarrierParentChildRelationshipsTest.nemail + ";")) {
 				firstRowData = getFirstRowData();
-				Thread.sleep(2000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				break;
 			}
 		}
 		driver.close();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tab.get(1));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		driver.close();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		ArrayList<String> tabb = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabb.get(0));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 	}
 
 	public void enterVerificationCode() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(verifyemaillink));
 		js.executeScript("arguments[0].click();", verifyemaillink);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(textfield1));
 		textfield1.click();
 		textfield1.sendKeys(firstRowData.get(0));
@@ -305,7 +304,7 @@ public class CarrierParentChildRelationships extends TestBase {
 		textfield4.sendKeys(firstRowData.get(3));
 		textfield5.sendKeys(firstRowData.get(4));
 		textfield6.sendKeys(firstRowData.get(5));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	public void clickVerifyButton() throws InterruptedException {
@@ -315,8 +314,7 @@ public class CarrierParentChildRelationships extends TestBase {
 		js.executeScript("arguments[0].click();", logoffbutton);
 
 	}
-	
-	
+
 	public void carrierLogOut() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(logoffbutton));
 		js.executeScript("arguments[0].click();", logoffbutton);
@@ -324,38 +322,37 @@ public class CarrierParentChildRelationships extends TestBase {
 	}
 
 	public String resetPassword(String newwd, String confpwd) throws InterruptedException {
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 		ArrayList<String> newtabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(newtabs.get(2));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		List<WebElement> list = driver
 				.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
 		for (WebElement element : list) {
-			Thread.sleep(2000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			element.click();
 			log.info(CarrierParentChildRelationshipsTest.nemail);
 			log.info(emailid.getText());
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			if (emailid.getText().equalsIgnoreCase(CarrierParentChildRelationshipsTest.nemail + ";")) {
 				wait.until(ExpectedConditions.elementToBeClickable(buttonresetpassword));
 				js.executeScript("arguments[0].click();", buttonresetpassword);
-				Thread.sleep(2000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				break;
 			}
 		}
 
 		ArrayList<String> newtab = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(newtab.get(3));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(newpasswordfield));
 		newpasswordfield.sendKeys(newwd);
-	  	confirmpassword.sendKeys(confpwd);
+		confirmpassword.sendKeys(confpwd);
 		wait.until(ExpectedConditions.elementToBeClickable(submitbutton));
 		js.executeScript("arguments[0].click();", submitbutton);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		return confpwd;
-
 
 	}
 
@@ -364,11 +361,11 @@ public class CarrierParentChildRelationships extends TestBase {
 		log.info(CarrierParentChildRelationshipsTest.nemail);
 		int count = accountemailids.size();
 		for (int i = 0; i < count; i++) {
-			Thread.sleep(2000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			if (accountemailids.get(i).getText().equalsIgnoreCase(CarrierParentChildRelationshipsTest.nemail)) {
 				log.info(CarrierParentChildRelationshipsTest.nemail);
 				log.info(i);
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 				j = i;
 
@@ -386,11 +383,11 @@ public class CarrierParentChildRelationships extends TestBase {
 
 		int count = accountemailids.size();
 		for (int i = 0; i < count; i++) {
-			Thread.sleep(2000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			if (accountemailids.get(i).getText().equalsIgnoreCase(CarrierParentChildRelationshipsTest.nemail)) {
 				log.info(CarrierParentChildRelationshipsTest.nemail);
 				log.info(i);
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 				j = i;
 
@@ -406,11 +403,11 @@ public class CarrierParentChildRelationships extends TestBase {
 
 		int count = accountemailids.size();
 		for (int i = 0; i < count; i++) {
-			Thread.sleep(2000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			if (accountemailids.get(i).getText().equalsIgnoreCase(CarrierParentChildRelationshipsTest.nemail)) {
 				log.info(CarrierParentChildRelationshipsTest.nemail);
 				log.info(i);
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 				j = i;
 

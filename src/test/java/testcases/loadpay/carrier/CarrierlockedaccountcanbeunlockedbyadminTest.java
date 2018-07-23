@@ -3,6 +3,7 @@ package testcases.loadpay.carrier;
 import java.awt.AWTException;
 import java.io.IOException;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -12,81 +13,74 @@ import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.Carrierlockedaccountcanbeunlockedbyadmin;
 
-public class CarrierlockedaccountcanbeunlockedbyadminTest extends TestBase
-{
+public class CarrierlockedaccountcanbeunlockedbyadminTest extends TestBase {
 	Carrierlockedaccountcanbeunlockedbyadmin Claua;
 	AdminHomePage adminHomePage;
 	AdminLogin adminLogin;
 	CarrierLoginPage loginPage;
 	public static String aemail;
-	
-	public CarrierlockedaccountcanbeunlockedbyadminTest()
-	{
+
+	public CarrierlockedaccountcanbeunlockedbyadminTest() {
 		super();
 	}
-	
-	@BeforeClass		
-	public void setUp() throws IOException
-	{
+
+	@BeforeClass
+	public void setUp() throws IOException {
 		initialization();
-		adminHomePage = new AdminHomePage();	
+		adminHomePage = new AdminHomePage();
 		adminLogin = new AdminLogin();
-		Claua= new Carrierlockedaccountcanbeunlockedbyadmin();
+		Claua = new Carrierlockedaccountcanbeunlockedbyadmin();
 		loginPage = new CarrierLoginPage();
 	}
-	
+
 	@Test(dataProvider = "getCarrierlockedaccountAdminUnlockData")
-	public void carrierLoginTest(String user, String pass, String wrongpass) throws InterruptedException
-	{
+	public void carrierLoginTest(String user, String pass, String wrongpass) throws InterruptedException {
 		aemail = user;
 		Claua.Carrierloginlock(user, pass, wrongpass);
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
-	
-	@Test(dependsOnMethods = {"carrierLoginTest"})
-	public void switchToAdminURL() throws AWTException, InterruptedException
-	{
+
+	@Test(dependsOnMethods = { "carrierLoginTest" })
+	public void switchToAdminURL() throws AWTException, InterruptedException {
 		adminHomePage.AdminURL();
 	}
-	
-	@Test(dataProvider="getAdminLoginData", dependsOnMethods = {"switchToAdminURL"})
-	public void adminCancelLockout(String Username,String pass) throws InterruptedException, AWTException
-	{
+
+	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = { "switchToAdminURL" })
+	public void adminCancelLockout(String Username, String pass) throws InterruptedException, AWTException {
 		adminLogin.adminUserPass(Username, pass);
-		Thread.sleep(1000);
-		
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		adminLogin.adminLogin();
-		Thread.sleep(1000);
-		
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		adminLogin.ClickOnCustomersTab();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 		adminLogin.ClickOnSearchBox(aemail);
-		Thread.sleep(1000);
-		
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		adminLogin.ClickOnSearchButton();
-		Thread.sleep(1000);
-		
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		adminLogin.clickCustomerId();
-		Thread.sleep(1000);
-		
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		adminLogin.clickeditloginuser();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 		adminLogin.clickCancelLockout();
-		Thread.sleep(1000);
-		
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		adminLogin.AdminLogOut();
-		Thread.sleep(1000);
-	}	
-	
-	@Test(dataProvider="getCarrierlockedaccountAdminUnlockData", dependsOnMethods = {"adminCancelLockout"})
-	public void loginAsCarrierUnlocked(String user, String pass, String wrongpass) throws InterruptedException
-	{
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	}
+
+	@Test(dataProvider = "getCarrierlockedaccountAdminUnlockData", dependsOnMethods = { "adminCancelLockout" })
+	public void loginAsCarrierUnlocked(String user, String pass, String wrongpass) throws InterruptedException {
 		driver.get(super.getProperties().getProperty("url"));
 		loginPage.Carrierlogin(user, pass);
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		loginPage.CarrierLogout();
-		
-	} 
+
+	}
 }

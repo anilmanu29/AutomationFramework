@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import base.TestBase;
 
@@ -106,16 +107,16 @@ public class ShipperSchedulePayment extends TestBase
 	public void newPayment() throws InterruptedException
 	{
 		lnk_newpayment.click();
-		//Thread.sleep(2000);
+		//wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 	
 	/*-------Carrier email---------*/
 	public void carrierEmail(String cemail) throws InterruptedException
 	{
 		field_carrieremail.click();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		field_carrieremail.sendKeys(cemail);
-		//Thread.sleep(1000);
+		//wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 	
 	/*-------Amount---------*/
@@ -149,7 +150,7 @@ public class ShipperSchedulePayment extends TestBase
 	public void clickShedulePayment() throws InterruptedException
 	{
 		button_schedule.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		if(popup_ok.isDisplayed())
 		{
 			popup_ok.click();
@@ -161,7 +162,7 @@ public class ShipperSchedulePayment extends TestBase
 	public void clickShedulePaymenttab() throws InterruptedException
 	{
 		tab_shedulepayment.click();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		
 	}
 	/*-------Search Carrier---------*/
@@ -173,7 +174,7 @@ public class ShipperSchedulePayment extends TestBase
 	public void clickSearchButton() throws InterruptedException
 	{
 		btn_search.click();
-		//Thread.sleep(2000);
+		//wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 	/*-------verify payment---------*/
 	public String verifyPaymentStatus()
@@ -186,7 +187,7 @@ public class ShipperSchedulePayment extends TestBase
 		public float verifyscheduledPayment() throws InterruptedException
 		{
 		
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			paymentstatus.click();
 			String scheduledamount = amount.getText();
 			 schedule= scheduledamount.replaceAll("\\$", "");
@@ -208,7 +209,7 @@ public class ShipperSchedulePayment extends TestBase
 
 	                    
 
-	              Thread.sleep(1000);
+	              wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 	        List<WebElement>invoicenumcount = List_payment;
 
@@ -230,7 +231,7 @@ public class ShipperSchedulePayment extends TestBase
 
 	                           invoicenumcount.get(i).click();
 
-	                           Thread.sleep(1000);
+	                           wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 	                           scheduledamount = amount.getText();
 

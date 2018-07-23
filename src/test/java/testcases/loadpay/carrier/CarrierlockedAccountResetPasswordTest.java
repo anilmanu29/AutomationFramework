@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.TimeZone;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -37,7 +38,7 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 	CarrierParentChildRelationships carrierparentchildobject;
 	CarrierLoginPage carrierloginobj;
 	ArrayList<String> tabs;
-	
+
 	Date currentTime;
 	String formattedDate = "";
 	Long longTime;
@@ -90,7 +91,7 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 		TimeZone tz = Calendar.getInstance().getTimeZone();
 		String currentTimeZone = tz.getDisplayName();
 		log.info(currentTimeZone);
-		
+
 		formatter = new SimpleDateFormat("HH:mm");
 		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
 		longTime = currentTime.getTime();
@@ -98,7 +99,7 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 		timeArray = formattedDate.split(":");
 		currentHour = timeArray[0];
 		currentMinutes = timeArray[1];
-		
+
 		log.info("\n\n\n===============================");
 		log.info("Current date: " + longTime);
 		log.info("Formatted date: " + formattedDate);
@@ -111,7 +112,7 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 	@Test(description = "LP-5415 Carriercanresetpasswordwhenaccountislocked_verifyPasswordResetEmail", dataProvider = "getoutlookLoginData", dependsOnMethods = "verifyLockedAccountResetPassword")
 	public void verifyCarrierEmailInOutlookTest(String un, String pwd) throws InterruptedException {
 		((JavascriptExecutor) driver).executeScript("window.open();");
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
 
@@ -120,7 +121,7 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 			carrierOutlookObj.clickPopUp();
 			carrierOutlookObj.clickOpenMailBox();
 			carrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
-			Thread.sleep(4000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			carrierlockaccounrsetpwdtobj.outlookSearchInbox(aemail, currentHour, currentMinutes);
 			carrierlockaccounrsetpwdtobj.handleUpdatedEmailInbox(aemail);
 		} catch (AWTException e) {
@@ -131,23 +132,23 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 	@Test(description = "LP-5415 Carriercanresetpasswordwhenaccountislocked_verifyPasswordResetEmail", dataProvider = "getCarrierParentChildPasswordData", dependsOnMethods = "verifyCarrierEmailInOutlookTest")
 	public void verifyResetPassword(String nwpwd, String confmpwd, String forcepwd, String confirmforcepwd)
 			throws InterruptedException {
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(carrierparentchildobject.newpasswordfield.isDisplayed(),
 				"New Password field is NOT Displayed");
 		Assert.assertTrue(carrierparentchildobject.confirmpassword.isDisplayed(),
 				"Confirm Password field is NOT Displayed");
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		newpwd = nwpwd;
 		carrierparentchildobject.newpasswordfield.sendKeys(nwpwd);
 		carrierparentchildobject.confirmpassword.sendKeys(confmpwd);
 		carrierparentchildobject.submitbutton.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	@Test(description = "LP-5415 Carriercanresetpasswordwhenaccountislocked_verifyPasswordResetEmail", dependsOnMethods = "verifyResetPassword")
 	public void verifyCarrierLoginWithNewPassword() throws InterruptedException {
 		carrierloginobj.Carrierlogin(aemail, newpwd);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(carrierlockaccounrsetpwdtobj.btn_logout.isDisplayed(),
 				"Carrier should be Logged with NEW Password");
 		carrierloginobj.CarrierLogout();

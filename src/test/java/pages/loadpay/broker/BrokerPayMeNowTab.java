@@ -38,7 +38,7 @@ public class BrokerPayMeNowTab extends TestBase {
 	}
 
 	public void openAccountTab() throws InterruptedException {
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		accountTab.click();
 	}
 

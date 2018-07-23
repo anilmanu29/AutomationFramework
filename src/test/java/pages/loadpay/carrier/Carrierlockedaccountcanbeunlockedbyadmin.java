@@ -3,6 +3,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import base.TestBase;
 
@@ -41,10 +42,10 @@ public class Carrierlockedaccountcanbeunlockedbyadmin extends TestBase{
 		{
 			UserName.clear();
 				UserName.sendKeys(un);
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				Password.clear();
 				Password.sendKeys(wrgpwd);
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		//loginBtn.click();
 		    	JavascriptExecutor js = (JavascriptExecutor)driver;
 		    	js.executeScript("arguments[0].click();", loginBtn);

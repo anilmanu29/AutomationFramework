@@ -74,7 +74,7 @@ public class BrokerLoginPage extends TestBase{
 
 	public void verificationBrokerLogout() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_logout));
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		btn_logout.click();
 	}
 

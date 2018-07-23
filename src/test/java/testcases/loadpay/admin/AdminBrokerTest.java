@@ -16,6 +16,7 @@ public class AdminBrokerTest extends TestBase
 	AdminHomePage h;
 	AdminLogin a;
 	Select s; 
+	String CreditAmount = "";
 	
 	public AdminBrokerTest()
 	{
@@ -30,7 +31,13 @@ public class AdminBrokerTest extends TestBase
 		a= new AdminLogin();
 		}
 	
-	@Test(description = "Switch to admin URL")
+	@Test(description = "Get Credit Amount" ,dataProvider="getExtendedCreditAmount")
+	public void getExtendedCreditAmount(String Amount) throws IOException, AWTException, InterruptedException
+	{
+	CreditAmount = Amount;
+	}
+	
+	@Test(description = "Switch to admin URL" ,dependsOnMethods = "getExtendedCreditAmount")
 	public void Home() throws IOException, AWTException, InterruptedException
 	{
 	h.AdminURL();
@@ -58,6 +65,15 @@ public class AdminBrokerTest extends TestBase
 		Thread.sleep(1000);
 
 		a.UpdateButton();
+		Thread.sleep(1000);
+		
+		a.ClickOnCreditTab();
+		Thread.sleep(1000);
+		
+		a.EnterExtendedCredit(CreditAmount);
+		Thread.sleep(1000);
+		
+		a.ClickOnCreditSubmitButton();
 		Thread.sleep(1000);
 
 		a.AdminLogOut();

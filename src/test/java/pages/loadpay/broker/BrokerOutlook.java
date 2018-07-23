@@ -99,11 +99,11 @@ public class BrokerOutlook extends TestBase {
 	}
 
 	public void clickPopUp() throws InterruptedException {
-		Thread.sleep(4000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		fieldSearchMail.click();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		haspopup.click();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	public void clickOpenMailBox() {
@@ -115,22 +115,22 @@ public class BrokerOutlook extends TestBase {
 	public void enterEmail(String email) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(fieldTextbox));
 		fieldTextbox.sendKeys(email);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		try {
 			buttonsearchcontacts.click();
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			buttonOpen.click();
 		}
 		catch(Exception e) {
 			searchSuggestion.click();
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			buttonOpen.click();
 		}
 	} 
 
 	/*public void enterEmail(String email) throws InterruptedException {
 		fieldTextbox.sendKeys(email);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		searchSuggestion.click();
 	}*/
 
@@ -139,10 +139,10 @@ public class BrokerOutlook extends TestBase {
 	}
 */
 	public void handleNewInbox() throws InterruptedException {
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		Thread.sleep(6000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		
 		
 		
@@ -150,13 +150,13 @@ public class BrokerOutlook extends TestBase {
 		List<WebElement> list = driver.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
 		for(WebElement e : list)
 		{
-			Thread.sleep(2000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			e.click();
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			log.info(emailid.getText());
 			if(emailid.getText().equalsIgnoreCase(BrokerRegisterTest.emailid+";"))
 			{
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				linkVerify.click();
 				break;
 			}
@@ -167,18 +167,18 @@ public class BrokerOutlook extends TestBase {
 		
 		/*JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", fieldsearch);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		fieldsearchinput.sendKeys(BrokerRegisterTest.emailid);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		JavascriptExecutor jc = (JavascriptExecutor) driver;
 		jc.executeScript("arguments[0].click();", btnsearch);
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		//fieldsearchinput.sendKeys(Keys.ENTER);
 		JavascriptExecutor jk = (JavascriptExecutor) driver;
 		jk.executeScript("arguments[0].click();", verifyEmail);
-		Thread.sleep(2000);*/
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));*/
 //		verifyEmail.click();
-//		Thread.sleep(2000);
+//		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 //		JavascriptExecutor jl = (JavascriptExecutor) driver;
 //		jl.executeScript("arguments[0].click();", linkVerify);
 		//linkVerify.click();
@@ -187,40 +187,40 @@ public class BrokerOutlook extends TestBase {
 
 
 	public void handleResetPasswordEmailInbox(String EmailAddress) throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
    /* ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
     driver.switchTo().window(tabs.get(1));
-    Thread.sleep(2000);*/
+    wait.until(ExpectedConditions.elementToBeClickable(tempElement));*/
 		driver.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
 		log.info(emailid.getText());
 		if (emailid.getText().equalsIgnoreCase(EmailAddress + ";")) {
-			Thread.sleep(3000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			resetPasswordButton.click();
-			Thread.sleep(2000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 			driver.switchTo().window(tabs.get(2));
-			Thread.sleep(2000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 		}
 	}
 
 	public void handleUpdatedEmailInbox(String updatedEmailAddress) throws InterruptedException {
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		Thread.sleep(6000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		
 		List<WebElement> list = driver.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
 
 		for(WebElement e : list)
 		{
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			e.click();
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			log.info(emailid.getText());
 			if(emailid.getText().equalsIgnoreCase(updatedEmailAddress +";"))
 			{
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				verifyEmailLink.click();
 				break;
 			}
@@ -229,10 +229,10 @@ public class BrokerOutlook extends TestBase {
 	}
 
 	public void verifyConfirmationMessage() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(2));
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(emailverifymessage.isDisplayed());
 		driver.close();
 		driver.switchTo().window(tabs.get(1));
@@ -248,10 +248,10 @@ public class BrokerOutlook extends TestBase {
 		Integer retryCount = 0;
 		Integer maxRetryCount = 300;
 		
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		Thread.sleep(6000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		
 		WebElement searchField = driver.findElement(By.xpath("//span[text()='Search mail and people']"));
 		searchField.click();
@@ -259,7 +259,7 @@ public class BrokerOutlook extends TestBase {
 		searchInput = driver.findElement(By.xpath("//input[@aria-label='Search. Press Enter to Start Searching.']"));
 		searchButton = driver.findElement(By.xpath("//button[@aria-label='Start search']"));
 		
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		searchInput.sendKeys(updatedBrokerEmailAddress);
 		searchButton.click();
 		
@@ -268,18 +268,18 @@ public class BrokerOutlook extends TestBase {
 		
 		while ((infoMessage.isDisplayed() || checkEmailTimeStamp(hour, minutes)) && (retryCount < maxRetryCount)) {
 			searchButton.click();
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
 			retryCount++;
 		}
 		
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		emailid = driver.findElement(By.xpath("//*[@id='ItemHeader.ToContainer']/div/div/div/span/span/div/span[2]"));
 		
 		log.info("Email ID text: " + emailid.getText());
 		//Assert.assertTrue(emailid.getText().equalsIgnoreCase(updatedBrokerEmailAddress+";"), "Email ID not found!");
 			
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 	
 	private Boolean checkEmailTimeStamp(String hour, String minutes)

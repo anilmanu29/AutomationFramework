@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import base.TestBase;
 
@@ -105,16 +106,16 @@ public class ShipperAdvancePayment extends TestBase {
 	/*-------New Payment---------*/
 	public void newPayment() throws InterruptedException {
 		lnk_newpayment.click();
-		// Thread.sleep(2000);
+		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	/*-------Carrier email---------*/
 	public void carrierEmail(String cemail) throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		field_carrieremail.click();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		field_carrieremail.sendKeys(cemail);
-		// Thread.sleep(1000);
+		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	/*-------Amount---------*/
@@ -148,13 +149,13 @@ public class ShipperAdvancePayment extends TestBase {
 	/*-------schedule paymet---------*/
 	public void clickShedulePayment() throws InterruptedException {
 		button_schedule.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 	}
 
 	/*-------schedule payment tab---------*/
 	public void clickShedulePaymenttab() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", tab_shedulepayment);
 		
@@ -169,7 +170,7 @@ public class ShipperAdvancePayment extends TestBase {
 	/*-------Search button---------*/
 	public void clickSearchButton() throws InterruptedException {
 		btn_search.click();
-		// Thread.sleep(2000);
+		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	/*-------verify payment---------*/
@@ -182,7 +183,7 @@ public class ShipperAdvancePayment extends TestBase {
 	/*-------verify amount---------*/
 	public float verifyscheduledPayment() throws InterruptedException {
 
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		paymentstatus.click();
 		String scheduledamount = amount.getText();
 		schedule = scheduledamount.replaceAll("\\$", "");
@@ -198,7 +199,7 @@ public class ShipperAdvancePayment extends TestBase {
 	public void verifyScheduledDate(String paymentdate, String loadidd) throws InterruptedException
 
 	{
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 		List<WebElement> loadiidscount = loadids;
 
@@ -216,7 +217,7 @@ public class ShipperAdvancePayment extends TestBase {
 			{
 				log.info(expectedloadid);
 				loadids.get(i).click();
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				scheduledate = expectedscheduldate.getText();
 				//Assert.assertEquals(scheduledate, paymentdate);
 

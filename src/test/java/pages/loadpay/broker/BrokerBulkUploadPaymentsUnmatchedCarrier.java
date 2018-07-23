@@ -129,7 +129,7 @@ public class BrokerBulkUploadPaymentsUnmatchedCarrier extends TestBase
 	public void newPayment() throws InterruptedException
 	{
 		lnk_newpayment.click();
-		//Thread.sleep(2000);
+		//wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 	
 
@@ -138,7 +138,7 @@ public class BrokerBulkUploadPaymentsUnmatchedCarrier extends TestBase
 	public void ClickUpload() throws InterruptedException, IOException
 	{
 		link_Upload.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		
 	}
 	
@@ -152,7 +152,7 @@ public class BrokerBulkUploadPaymentsUnmatchedCarrier extends TestBase
 		Runtime.getRuntime().exec("C:\\Users\\anilkumarb\\Desktop\\AutoIT\\FileUpload.exe");
 		
 		
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		
 	}*/
 	
@@ -171,7 +171,7 @@ public class BrokerBulkUploadPaymentsUnmatchedCarrier extends TestBase
 
 		// Create object of Robot class
 		 Robot robot = new Robot();
-		 Thread.sleep(1000);
+		 wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		      
 		  // Press Enter
 		 robot.keyPress(KeyEvent.VK_ENTER);
@@ -192,7 +192,7 @@ public class BrokerBulkUploadPaymentsUnmatchedCarrier extends TestBase
 
 		// Release Enter
 		 robot.keyRelease(KeyEvent.VK_ENTER);
-		 Thread.sleep(1000);
+		 wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 		
 		
@@ -216,7 +216,7 @@ public class BrokerBulkUploadPaymentsUnmatchedCarrier extends TestBase
 	public void Clickschpayment() throws InterruptedException, IOException
 	{
 		link_schpaymnt.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		
 	}
 	
@@ -224,7 +224,7 @@ public class BrokerBulkUploadPaymentsUnmatchedCarrier extends TestBase
 	public void ClickGridDown() throws InterruptedException, IOException
 	{
 		link_griddown.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		
 	}
 	
@@ -260,7 +260,7 @@ public class BrokerBulkUploadPaymentsUnmatchedCarrier extends TestBase
 
 	public void enterSearchText(String searchText) throws InterruptedException {
 		searchInputField.clear();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		searchInputField.sendKeys(searchText);
 	}
 
@@ -275,7 +275,7 @@ public class BrokerBulkUploadPaymentsUnmatchedCarrier extends TestBase
 	}
 
 	public List<String> getFirstRowData() throws InterruptedException{
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		List<String> dataElements = new ArrayList<String>();
 		List <WebElement> webElements = driver.findElements(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div/div/div[3]/div"));
 		

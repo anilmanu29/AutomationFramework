@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -11,114 +12,105 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.carrier.CarrierRegisterCanada;
 
-
-public class CarrierRegisterCanadaTest  extends TestBase
-{
+public class CarrierRegisterCanadaTest extends TestBase {
 	CarrierRegisterCanada cr;
-	  Select type;
-	  Select stateof;
-	  Select payment;
-	  Select state;
-	  Select country;
-	  Select Payments;
-	  WebElement PaymentTerms;
-	  public static String cemail; 
-	  public static String password;
-	  
-		public CarrierRegisterCanadaTest()
-		{
-			super();
-		}
-	  
-	  @BeforeClass
-		public void setUp()
-		{
-			
-			initialization();
-			cr = new CarrierRegisterCanada(); 
-		}
+	Select type;
+	Select stateof;
+	Select payment;
+	Select state;
+	Select country;
+	Select Payments;
+	WebElement PaymentTerms;
+	public static String cemail;
+	public static String password;
 
-	  @Test(dataProvider ="getCarrierData")
-	  public void CarrierRegister( String Dotnumber, String CompanyName, String DoingBussinessAS, String Email, String ConfirmEmail, String country, String state, String ZipCode1, String Address, String City, String ocountry, String States,
-	      String FirstNames, String LastName, String PhoneNumber, String Password, String ConfirmPassword, String NameonAccount, String RoutingNumber, String BankAccountNumber,
-	      String ConfirmbankAccountNumber ) throws IOException, InterruptedException
-	  {
-	   
-	    cr.signup();
-	    cr.CarrierRegister();
-	    Thread.sleep(1000);
-	   if(Dotnumber==null)
-	   {
-		   cr.company(CompanyName);
-		   Thread.sleep(1000);
-	   }
-	   else
-	   {
-		   Thread.sleep(1000);
-		   cr.dotnumber(Dotnumber);
-	    	
-	   }
-	   Thread.sleep(1000);
-	   	cr.doingbussiness( DoingBussinessAS );
-	    cr.selectType();
-	    Thread.sleep(1000);
-		Select type = new Select( driver.findElement( By.xpath( ".//*[@id='EntityType']" ) ) );
-	    type.selectByVisibleText( "C Corporation" );
-		Thread.sleep(1000);
+	public CarrierRegisterCanadaTest() {
+		super();
+	}
+
+	@BeforeClass
+	public void setUp() {
+
+		initialization();
+		cr = new CarrierRegisterCanada();
+	}
+
+	@Test(dataProvider = "getCarrierData")
+	public void CarrierRegister(String Dotnumber, String CompanyName, String DoingBussinessAS, String Email,
+			String ConfirmEmail, String country, String state, String ZipCode1, String Address, String City,
+			String ocountry, String States, String FirstNames, String LastName, String PhoneNumber, String Password,
+			String ConfirmPassword, String NameonAccount, String RoutingNumber, String BankAccountNumber,
+			String ConfirmbankAccountNumber) throws IOException, InterruptedException {
+
+		cr.signup();
+		cr.CarrierRegister();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		if (Dotnumber == null) {
+			cr.company(CompanyName);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		} else {
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			cr.dotnumber(Dotnumber);
+
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		cr.doingbussiness(DoingBussinessAS);
+		cr.selectType();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Select type = new Select(driver.findElement(By.xpath(".//*[@id='EntityType']")));
+		type.selectByVisibleText("C Corporation");
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cr.countrydropdown(country, state);
-		Thread.sleep(1000);
-		cemail =  cr.CarrierEmail(Email);
-	    cr.confirmEmail( ConfirmEmail );
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		cemail = cr.CarrierEmail(Email);
+		cr.confirmEmail(ConfirmEmail);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cr.iCertifyClick();
-		Thread.sleep(1000);
-	    cr.next();
-	    Thread.sleep(1000);
-	    if(Dotnumber==null)
-	    {
-			
-			Thread.sleep(1000);
-			 cr.originCountry(ocountry, States);
-			Thread.sleep(1000);
-			cr.ZipCode( ZipCode1 );
-			cr.address( Address );
-			Thread.sleep(1000);
-			cr.city( City );
-			Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		cr.next();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		if (Dotnumber == null) {
 
-		  }
-		   else
-		   {
-			  cr.originCountry(ocountry, States);
-			  cr.ZipCode( ZipCode1 );
-			  Thread.sleep(1000);
-			}
-		Thread.sleep(1000);
-	    cr.submit();
-		Thread.sleep(1000);
-	    cr.ContactFirstName(FirstNames);
-		Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			cr.originCountry(ocountry, States);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			cr.ZipCode(ZipCode1);
+			cr.address(Address);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			cr.city(City);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
+		} else {
+			cr.originCountry(ocountry, States);
+			cr.ZipCode(ZipCode1);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		cr.submit();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		cr.ContactFirstName(FirstNames);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cr.LastName(LastName);
 		cr.Phone(PhoneNumber);
-	    Thread.sleep(1000);
-	    password =  cr.Password( Password );
-	    Thread.sleep(1000);
-	    driver.findElement(By.xpath(".//*[@id='Registration_User_Password']"));
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		password = cr.Password(Password);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		driver.findElement(By.xpath(".//*[@id='Registration_User_Password']"));
 		cr.ConfirmPassword(ConfirmPassword);
-	  	Thread.sleep(1000);
-	  	cr.Next();
-	  	Thread.sleep(1000);
-	  	cr.AccountName(NameonAccount);
-	  	cr.BankingAccount(BankAccountNumber);
-		Thread.sleep(1000);
-	  	cr.BankingRouting(RoutingNumber);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		cr.Next();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		cr.AccountName(NameonAccount);
+		cr.BankingAccount(BankAccountNumber);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		cr.BankingRouting(RoutingNumber);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cr.ConfirmBankingAccount(ConfirmbankAccountNumber);
-		Thread.sleep(1000);
-		Thread.sleep(1000);
-	    cr.submit();
-		Thread.sleep(1000);
-  
-	  }
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		cr.submit();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
+	}
 
 }

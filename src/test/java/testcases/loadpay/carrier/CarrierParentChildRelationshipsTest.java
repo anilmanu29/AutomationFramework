@@ -1,16 +1,18 @@
 package testcases.loadpay.carrier;
 
-
 import java.awt.AWTException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import base.TestBase;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
@@ -26,29 +28,28 @@ import pages.loadpay.carrier.CarrierSameDAYACH;
 import pages.loadpay.carrier.CarrierWireTransfer;
 import testcases.loadpay.broker.BrokerNewPaymentTest;
 
-
 public class CarrierParentChildRelationshipsTest extends TestBase {
 	CarrierLoginPage loginPage;
 	BrokerLoginPage brokerlogin;
-	BrokerNewPayment bp;
+	BrokerNewPayment brokerNewPaymentObj;
 	CarrierParentChildRelationships carrierchildrelation;
 	CarrierSameDAYACH carriersamedayach;
 	CarrierNextDAYACH carriernextdayach;
 	CarrierWireTransfer carrierwiretransferach;
 	CarrierPaymeNowFuelCard carrierpaymenowfuelcard;
+	BrokerOutlook brokeroutlook;
+	AdminHomePage adminHomePageObj;
+	AdminLogin adminLoginObj;
+	AdminPayByCheck adminPayByCheckObj;
+
+	public String invoicenum;;
+	public static ArrayList<String> arraylist;
 	List<String> firstRowData = null;
 	List<String> lastRowData = null;
+	String pwd;
 	JavascriptExecutor jse;
 	String searchForInvoice = "";
 	public static String nemail;
-	BrokerOutlook brokeroutlook;
-	String pwd;
-	AdminHomePage ahp;
-	AdminLogin all;
-	AdminPayByCheck apbc;
-	public String invoicenum;;
-	// static String invoice;
-	 public static ArrayList<String> arraylist;
 
 	public CarrierParentChildRelationshipsTest() {
 		super();
@@ -66,10 +67,10 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		carrierwiretransferach = new CarrierWireTransfer();
 		carrierpaymenowfuelcard = new CarrierPaymeNowFuelCard();
 		brokerlogin = new BrokerLoginPage();
-		bp = new BrokerNewPayment();
-		all = new AdminLogin();
-		ahp = new AdminHomePage(); 
-		apbc=new AdminPayByCheck();
+		brokerNewPaymentObj = new BrokerNewPayment();
+		adminLoginObj = new AdminLogin();
+		adminHomePageObj = new AdminHomePage();
+		adminPayByCheckObj = new AdminPayByCheck();
 		arraylist = new ArrayList<String>();
 	}
 
@@ -107,14 +108,14 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 	}
 
 	//
-	@Test(dataProvider = "getoutlookLoginData",dependsOnMethods = { "verifyAddChildAccount" } )
+	@Test(dataProvider = "getoutlookLoginData", dependsOnMethods = { "verifyAddChildAccount" })
 	public void verifyEmailAddress(String un, String pwd) throws InterruptedException {
 		carrierchildrelation.outlookLogin(un, pwd);
 		carrierchildrelation.getVerificationCodeData();
 		carrierchildrelation.enterVerificationCode();
 		carrierchildrelation.clickVerifyButton();
 		((JavascriptExecutor) driver).executeScript("window.open()");
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
 		driver.get(super.getProperties().getProperty("outlookurl"));
@@ -138,79 +139,47 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		carriersamedayach.getAmount();
 		carriersamedayach.clickPaymenow();
 		carriersamedayach.getsamedayAmount();
-		Thread.sleep(2000);
 		carriersamedayach.clickSelectButton();
-		Thread.sleep(2000);
 		carriersamedayach.clickConfirmButton();
-		Thread.sleep(2000);
 		carriersamedayach.gettotalpaiyAmount();
-		Thread.sleep(2000);
-		
-		 carriernextdayach.getAmount();
-		 carriernextdayach.clickPaymenow();
-		 Thread.sleep(3000);
-		 carriernextdayach.clickSelectButton();
-		 Thread.sleep(3000);
-		 carriernextdayach.clickConfirmButton();
-		 Thread.sleep(3000);
-		 carriernextdayach.gettotalpaiyAmount();
-		 Thread.sleep(3000);
-		
-		 carrierwiretransferach.getAmount();
-		 Thread.sleep(2000);
-		 carrierwiretransferach.clickPaymenow();
-		 Thread.sleep(2000);
-		 carrierwiretransferach.clickSelectButton();
-		 Thread.sleep(2000);
-		 carrierwiretransferach.clickConfirmButton();
-		 Thread.sleep(2000);
-		 carrierwiretransferach.gettotalpaiyAmount();
-		 Thread.sleep(2000);
-		
-		 carrierpaymenowfuelcard.clickPaymenow();
-		 Thread.sleep(2000);
-		 carrierpaymenowfuelcard.clickSelectButton();
-		 Thread.sleep(2000);
-		 carrierpaymenowfuelcard.clickaddnewcard();
-		 Thread.sleep(2000);
-		 carrierpaymenowfuelcard.clickfleetone();
-		 Thread.sleep(2000);
-		 carrierpaymenowfuelcard.input_accountnbr(fleet_accountnbr);
-		 Thread.sleep(2000);
-		 carrierpaymenowfuelcard.clicksubmit();
-		 Thread.sleep(2000);
-		 carrierpaymenowfuelcard.clickfuelcardsubmit();
-		 Thread.sleep(2000);
-		 carrierpaymenowfuelcard.clickConfirmButton();
-		 Thread.sleep(2000);
-		 carrierpaymenowfuelcard.clickPaidTab();
-		 Thread.sleep(2000);
-		 carrierpaymenowfuelcard.clickpaymenowtab();
-		 Thread.sleep(2000);
-		 carrierpaymenowfuelcard.clickPaymenow();
-		 Thread.sleep(2000);
-		 carrierpaymenowfuelcard.clickSelectButton();
-		 Thread.sleep(2000);
-		 carrierpaymenowfuelcard.clickaddnewcard();
-		 Thread.sleep(2000);
-		 carrierpaymenowfuelcard.clickFTS();
-		 Thread.sleep(2000);
-		 carrierpaymenowfuelcard.input_accountnbr(fts_accountnbr);
-		 Thread.sleep(2000);
-		 carrierpaymenowfuelcard.clicksubmit();
-		 Thread.sleep(2000);
-		 carrierpaymenowfuelcard.clickfuelcardsubmit();
-		 Thread.sleep(2000);
-		 carrierpaymenowfuelcard.clickConfirmButton();
-		 Thread.sleep(2000);
-		 carrierpaymenowfuelcard.clickPaidTab();
-		 //Thread.sleep(2000);
-		
+
+		carriernextdayach.getAmount();
+		carriernextdayach.clickPaymenow();
+		carriernextdayach.clickSelectButton();
+		carriernextdayach.clickConfirmButton();
+		carriernextdayach.gettotalpaiyAmount();
+
+		carrierwiretransferach.getAmount();
+		carrierwiretransferach.clickPaymenow();
+		carrierwiretransferach.clickSelectButton();
+		carrierwiretransferach.clickConfirmButton();
+		carrierwiretransferach.gettotalpaiyAmount();
+
+		carrierpaymenowfuelcard.clickPaymenow();
+		carrierpaymenowfuelcard.clickSelectButton();
+		carrierpaymenowfuelcard.clickaddnewcard();
+		carrierpaymenowfuelcard.clickfleetone();
+		carrierpaymenowfuelcard.input_accountnbr(fleet_accountnbr);
+		carrierpaymenowfuelcard.clicksubmit();
+		carrierpaymenowfuelcard.clickfuelcardsubmit();
+		carrierpaymenowfuelcard.clickConfirmButton();
+		carrierpaymenowfuelcard.clickPaidTab();
+		carrierpaymenowfuelcard.clickpaymenowtab();
+		carrierpaymenowfuelcard.clickPaymenow();
+		carrierpaymenowfuelcard.clickSelectButton();
+		carrierpaymenowfuelcard.clickaddnewcard();
+		carrierpaymenowfuelcard.clickFTS();
+		carrierpaymenowfuelcard.input_accountnbr(fts_accountnbr);
+		carrierpaymenowfuelcard.clicksubmit();
+		carrierpaymenowfuelcard.clickfuelcardsubmit();
+		carrierpaymenowfuelcard.clickConfirmButton();
+		carrierpaymenowfuelcard.clickPaidTab();
+
 		driver.close();
 		Thread.sleep(1000);
 		ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tab.get(2));
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		driver.close();
 		Thread.sleep(1000);
 		ArrayList<String> tabb = new ArrayList<String>(driver.getWindowHandles());
@@ -222,12 +191,12 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 
 	}
 
-	@Test(dataProvider = "getCarrierLoginData", dependsOnMethods = {"verifyChildAccountLogin"})
+	@Test(dataProvider = "getCarrierLoginData", dependsOnMethods = { "verifyChildAccountLogin" })
 	public void loginCarrier(String un, String pwd) throws InterruptedException {
 		loginPage.Carrierlogin(un, pwd);
 	}
 
-	@Test(dataProvider = "getCarrierParentChildPasswordData", dependsOnMethods = {"loginCarrier"})
+	@Test(dataProvider = "getCarrierParentChildPasswordData", dependsOnMethods = { "loginCarrier" })
 	public void verifyForcedPasswordReset(String pwd, String confpwd, String forcepwd, String confirmforcepwd)
 			throws InterruptedException {
 		carrierchildrelation.clickAccountLink();
@@ -245,7 +214,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 
 	}
 
-	@Test(dataProvider = "getCarrierParentChildData", dependsOnMethods = {"verifyForcedPasswordReset"})
+	@Test(dataProvider = "getCarrierParentChildData", dependsOnMethods = { "verifyForcedPasswordReset" })
 	public void verifyEditAccountTest(String fn, String ln, String email, String nemailid) throws InterruptedException {
 		carrierchildrelation.clickAccountLink();
 		carrierchildrelation.clickEmailLink();
@@ -256,177 +225,139 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		carrierchildrelation.carrierLogOut();
 	}
 
-	@Test(dataProvider="getBrokerLoginData", dependsOnMethods = {"verifyEditAccountTest"})
-	public void loginTest(String user,String pass) throws InterruptedException
-	{
-		
+	@Test(dataProvider = "getBrokerLoginData", dependsOnMethods = { "verifyEditAccountTest" })
+	public void loginTest(String user, String pass) throws InterruptedException {
+
 		brokerlogin.Brokerlogin(user, pass);
-	
+
 	}
-	@Test(dataProvider="getPaymentData", dependsOnMethods = {"loginTest"})
-	public void brokernewPayment(String cemail, String invoiceno, String loadid, String amt) throws InterruptedException {
-		
-		bp = new BrokerNewPayment();
-		bp.newPayment();
-		Thread.sleep(1000);
-		BrokerNewPaymentTest.email =  bp.carrierEmail(cemail);
-		Thread.sleep(1000);
-		bp.amount(amt);
-		Thread.sleep(1000);
-		invoicenum = bp.invoiceNumber(invoiceno);
+
+	@Test(dataProvider = "getPaymentData", dependsOnMethods = { "loginTest" })
+	public void brokernewPayment(String cemail, String invoiceno, String loadid, String amt)
+			throws InterruptedException {
+
+		brokerNewPaymentObj = new BrokerNewPayment();
+		brokerNewPaymentObj.newPayment();
+		BrokerNewPaymentTest.email = brokerNewPaymentObj.carrierEmail(cemail);
+
+		brokerNewPaymentObj.amount(amt);
+
+		invoicenum = brokerNewPaymentObj.invoiceNumber(invoiceno);
 		arraylist.add(invoicenum);
-		Thread.sleep(1000);
-		bp.loadId(loadid);
-		Thread.sleep(1000);
-		//bp.advanceCheckbox();
-		//Thread.sleep(1000);
-		bp.clickShedulePayment();
-		Thread.sleep(1000);
-		bp.clickShedulePaymenttab();
-		Thread.sleep(1000);
-		bp.searchCarrier(cemail);
-		Thread.sleep(1000);
-		bp.clickSearchButton();
-		Thread.sleep(1000);
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
+
+		brokerNewPaymentObj.loadId(loadid);
+		brokerNewPaymentObj.clickShedulePayment();
+		brokerNewPaymentObj.clickShedulePaymenttab();
+		brokerNewPaymentObj.searchCarrier(cemail);
+		brokerNewPaymentObj.clickSearchButton();
+
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)", "");
 		Thread.sleep(1000);
-		 bp.verifyInvoiceNumber(invoiceno,amt);
-		 Thread.sleep(1000);
-		//Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
-		log.info(bp.verifyPaymentStatus());
-		//bp.logout();
+
+		brokerNewPaymentObj.verifyInvoiceNumber(invoiceno, amt);
+		log.info(brokerNewPaymentObj.verifyPaymentStatus());
+		brokerNewPaymentObj.logout();
 	}
-	
 
-
-
-	
-	
-	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = {"brokernewPayment"})
+	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = { "brokernewPayment" })
 	public void verifyAdminPayByCheck(String Username, String pass) throws InterruptedException, AWTException {
-		bp.logout();
-		Thread.sleep(1000);
-		ahp.AdminURL(); 
-		Thread.sleep(2000);
-		all.adminUserPass(Username, pass);
-		all.adminLogin();
-		Thread.sleep(1000);
-		all.ClickOnCustomersTab();
-		Thread.sleep(1000);
+
+		adminHomePageObj.AdminURL();
+
+		adminLoginObj.adminUserPass(Username, pass);
+		adminLoginObj.adminLogin();
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getCustomerTab()));
+		adminLoginObj.ClickOnCustomersTab();
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getSearch()));
 		log.info(BrokerLoginPage.bemail);
-		all.ClickOnSearchBox(BrokerLoginPage.bemail);
-		Thread.sleep(1000);
-		all.ClickOnSearchButton();
-		Thread.sleep(1000);
-		all.DoubleClickID();
-		Thread.sleep(1000);
-		apbc.clickPayments();
-		Thread.sleep(3000);
-		//log.info(BrokerNewPaymentTest.al.get(0));
-		apbc.ClickOnsearchKeyword(CarrierParentChildRelationshipsTest.arraylist.get(0));
-		Thread.sleep(2000);
-		apbc.getPaymentID();
-		Thread.sleep(2000);
-		apbc.clickSearch();
-		Thread.sleep(2000);
-		apbc.searchKeyword();
-		Thread.sleep(2000);
-		apbc.clickSearch1();
-		Thread.sleep(2000);
-		apbc.clickgridcollapse();
-		Thread.sleep(2000);
-		apbc.clickPayByCheck();
-		Thread.sleep(2000);
-		apbc.selectTerms();
-		Thread.sleep(3000);
-		
-	}
-		@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData",dependsOnMethods = {"verifyAdminPayByCheck"})
-		public void carrierPaymenowPayByCheck(String EnterDOTNnumber,String ContactName) throws InterruptedException {
-		apbc.EnterDOTNnumber(EnterDOTNnumber);
-		Thread.sleep(3000);
-		apbc.ContactName(ContactName);
-		Thread.sleep(3000);
-		apbc.clickPayByChecksubmit();
-		Thread.sleep(3000);
-		all.AdminLogOut();
-	
+		adminLoginObj.ClickOnSearchBox(BrokerLoginPage.bemail);
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getClickonSearchButton()));
+		adminLoginObj.ClickOnSearchButton();
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getDoubleClickID()));
+		adminLoginObj.DoubleClickID();
+
+		adminPayByCheckObj.clickPayments();
+		adminPayByCheckObj.ClickOnsearchKeyword(CarrierParentChildRelationshipsTest.arraylist.get(0));
+		adminPayByCheckObj.getPaymentID();
+		adminPayByCheckObj.clickSearch();
+		adminPayByCheckObj.searchKeyword();
+		adminPayByCheckObj.clickSearch1();
+		adminPayByCheckObj.clickgridcollapse();
+		adminPayByCheckObj.clickPayByCheck();
+		adminPayByCheckObj.selectTerms();
 
 	}
-		
-		@Test(dataProvider = "getAdminLoginData", dependsOnMethods = {"carrierPaymenowPayByCheck"})
-		public void verifyAdminPayByCheckTermPayment(String Username, String pass) throws InterruptedException, AWTException {
-			Thread.sleep(1000);
-			ahp.AdminURL(); 
-			Thread.sleep(2000);
-			all.adminUserPass(Username, pass);
-			all.adminLogin();
-			Thread.sleep(1000);
-			all.ClickOnCustomersTab();
-			Thread.sleep(1000);
-			log.info(BrokerLoginPage.bemail);
-			all.ClickOnSearchBox(BrokerLoginPage.bemail);
-			Thread.sleep(1000);
-			all.ClickOnSearchButton();
-			Thread.sleep(1000);
-			all.DoubleClickID();
-			Thread.sleep(1000);
-			apbc.clickPayments();
-			Thread.sleep(3000);
-			apbc.ClickOnsearchKeywordterm(CarrierParentChildRelationshipsTest.arraylist.get(1));
-			Thread.sleep(2000);
-			apbc.getPaymentID();
-			Thread.sleep(2000);
-			apbc.clickSearch();
-			Thread.sleep(2000);
-			apbc.searchKeyword();
-			Thread.sleep(2000);
-			apbc.clickSearch1();
-			Thread.sleep(2000);
-			apbc.clickgridcollapse();
-			Thread.sleep(2000);
-			apbc.clickPayByCheck();
-			Thread.sleep(2000);
-			apbc.selectTerms();
-			Thread.sleep(2000);
-			apbc.selectTermsTermPayment();
-			Thread.sleep(3000);
-			
-		}
-			@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData",dependsOnMethods = {"verifyAdminPayByCheckTermPayment"})
-			public void carrierTermPaymentPayByCheck(String EnterDOTNnumber,String ContactName) throws InterruptedException {
-			apbc.EnterDOTNnumber(EnterDOTNnumber);
-			Thread.sleep(3000);
-			apbc.ContactName(ContactName);
-			Thread.sleep(3000);
-			apbc.clickPayByChecksubmit();
-			Thread.sleep(3000);
-			all.AdminLogOut();
-			
-		}
 
-			@Test(dataProvider = "getCarrierLoginData", dependsOnMethods = {"carrierTermPaymentPayByCheck"})
-			public void verifyDeleteChildAccountTest(String un, String password) throws InterruptedException {
-			driver.get(super.getProperties().getProperty("url"));
-			loginPage.Carrierlogin(un, password);
-			carrierchildrelation.clickAccountLink();
-			carrierchildrelation.clickEmailLink();
-			carrierchildrelation.deleteChildAccount();
-			
-			}
-	
-		
-		
-	
+	@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData", dependsOnMethods = { "verifyAdminPayByCheck" })
+	public void carrierPaymenowPayByCheck(String EnterDOTNnumber, String ContactName) throws InterruptedException {
+		adminPayByCheckObj.EnterDOTNnumber(EnterDOTNnumber);
+		adminPayByCheckObj.ContactName(ContactName);
+		adminPayByCheckObj.clickPayByChecksubmit();
+		adminLoginObj.AdminLogOut();
+
+	}
+
+	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = { "carrierPaymenowPayByCheck" })
+	public void verifyAdminPayByCheckTermPayment(String Username, String pass)
+			throws InterruptedException, AWTException {
+
+		adminHomePageObj.AdminURL();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getUserName()));
+		adminLoginObj.adminUserPass(Username, pass);
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getLoginBtn()));
+		adminLoginObj.adminLogin();
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getCustomerTab()));
+		adminLoginObj.ClickOnCustomersTab();
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getSearch()));
+		log.info(BrokerLoginPage.bemail);
+		adminLoginObj.ClickOnSearchBox(BrokerLoginPage.bemail);
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getClickonSearchButton()));
+		adminLoginObj.ClickOnSearchButton();
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getDoubleClickID()));
+		adminLoginObj.DoubleClickID();
+
+		adminPayByCheckObj.clickPayments();
+		adminPayByCheckObj.ClickOnsearchKeyword(CarrierParentChildRelationshipsTest.arraylist.get(1));
+		adminPayByCheckObj.getPaymentID();
+		adminPayByCheckObj.clickSearch();
+		adminPayByCheckObj.searchKeyword();
+		adminPayByCheckObj.clickSearch1();
+		adminPayByCheckObj.clickgridcollapse();
+		adminPayByCheckObj.clickPayByCheck();
+		adminPayByCheckObj.selectTerms();
+		adminPayByCheckObj.selectTermsTermPayment();
+
+	}
+
+	@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData", dependsOnMethods = {
+			"verifyAdminPayByCheckTermPayment" })
+	public void carrierTermPaymentPayByCheck(String EnterDOTNnumber, String ContactName) throws InterruptedException {
+		adminPayByCheckObj.EnterDOTNnumber(EnterDOTNnumber);
+		adminPayByCheckObj.ContactName(ContactName);
+		adminPayByCheckObj.clickPayByChecksubmit();
+		adminLoginObj.AdminLogOut();
+
+	}
+
+	@Test(dataProvider = "getCarrierLoginData", dependsOnMethods = { "carrierTermPaymentPayByCheck" })
+	public void verifyDeleteChildAccountTest(String un, String password) throws InterruptedException {
+		driver.get(super.getProperties().getProperty("url"));
+		loginPage.Carrierlogin(un, password);
+		carrierchildrelation.clickAccountLink();
+		carrierchildrelation.clickEmailLink();
+		carrierchildrelation.deleteChildAccount();
+
+	}
+
 	public void verifyEmailAddress(String nemailid) throws InterruptedException {
-		Thread.sleep(1000);
+
 		List<WebElement> list = driver.findElements(By.xpath("//div[@class='ellipsis ng-binding']"));
 		for (WebElement e : list) {
-			Thread.sleep(2000);
+			wait.until(ExpectedConditions.elementToBeClickable(e));
 			// log.info(e.getText());
 			if (e.getText().contains(nemailid)) {
-				Thread.sleep(1000);
 				Assert.assertTrue(e.getText().contains(nemailid));
 				break;
 			}

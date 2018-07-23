@@ -1,5 +1,6 @@
 package testcases.loadpay.carrier;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -38,20 +39,20 @@ public class CarrierSameDayACHTest extends TestBase {
 	public void carrierPaymenowSameDayACH() throws InterruptedException {
 		cs.getAmount();
 		cs.clickPaymenow();
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cs.getsamedayAmount();
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cs.clickSelectButton();
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cs.clickConfirmButton();
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cs.clickPaidTab();
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cs.gettotalpaiyAmount();
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		cs.verifySamedayach();
-		Thread.sleep(3000);
-		
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 	}
 
 }

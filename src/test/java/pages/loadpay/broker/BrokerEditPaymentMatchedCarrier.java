@@ -1,6 +1,7 @@
 package pages.loadpay.broker;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
@@ -48,28 +49,28 @@ public class BrokerEditPaymentMatchedCarrier extends TestBase
 		//create new payment
 		brokerPaymentObj = new BrokerNewPayment();
 		brokerPaymentObj.newPayment();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.carrierEmail(carrierEmail);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.amount(paymentAmount);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.invoiceNumber(invoiceNum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.loadId(loadId);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.clickShedulePayment();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.clickShedulePaymenttab();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.searchInvoice(invoiceNum);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.clickSearchButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,250)", "");
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.verifyInvoiceNumber(invoiceNum,paymentAmount);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		
 		//verify payment status
 		Assert.assertTrue(brokerPaymentObj.verifyPaymentStatus().equals(paymentStatus), "Payment Status not equal!");
@@ -78,7 +79,7 @@ public class BrokerEditPaymentMatchedCarrier extends TestBase
 	public void verifyEditableFieldsEnabled() throws InterruptedException
 	{
 		brokerPaymentObj.clickEditIcon();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		
 		//Verify all editable fields are enabled
 		SoftAssert softAssert = new SoftAssert();
@@ -155,65 +156,65 @@ public class BrokerEditPaymentMatchedCarrier extends TestBase
 		String updatedFuelSurcharge) throws InterruptedException
 	{
 		brokerPaymentObj.setField_CarrierEmail(updatedCarrierEmail);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_PayTo(updatedPayTo);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_CarrierDOT(updatedCarrierDOT);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_InvoiceRecd(updatedInvoiceRecd);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_ScheduleDate(updatedScheduleDate);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_PaymentAmount(updatedPaymentAmount);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_InvoiceNum(updatedInvoiceNumber);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_LoadID(updatedLoadID);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_Memo(updatedMemo);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setCheckbox_AdvancePayment(updatedAdvancedPayment);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setDropdown_OriginCountry(updatedOriginCountry);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setDropdown_OriginState(updatedOriginState);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_OriginCity(updatedOriginCity);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_OriginZip(updatedOriginZIP);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setDropdown_DestinationCountry(updatedDestinationCountry);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setDropdown_DestinationState(updatedDestinationState);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_DestinationCity(updatedDestinationCity);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_DestinationZip(updatedDestinationZIP);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setDropdown_TrailerType(updatedTrailerType);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_Miles(updatedMiles);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_PickupDate(updatedPickupDate);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_DeliveryDate(updatedDeliveryDate);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_Commodity(updatedCommodity);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_Length(updatedLength);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_Width(updatedWidth);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_Height(updatedHeight);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_Weight(updatedWeight);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_NumberOfStops(updatedNumOfStops);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.setField_FuelSurcharge(updatedFuelSurcharge);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.clickShedulePayment();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.searchInvoice(updatedInvoiceNumber);
 		Assert.assertTrue(brokerPaymentObj.isEditIconEnabled(), "Edit icon not found for updated payment");
 	}

@@ -82,7 +82,7 @@ public BrokerScheduledPaymentsTab() {
 
 public void clickpaymenTypeLink() throws InterruptedException {
 	wait.until(ExpectedConditions.elementToBeClickable(click_paymenType));
-	Thread.sleep(2000);
+	wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	click_paymenType.click();
 	
 }
@@ -120,7 +120,7 @@ public void clickLoadID() throws InterruptedException {
 
 public void enterSearchText(String searchText) throws InterruptedException {
 	searchInputField.clear();
-	Thread.sleep(1000);
+	wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	searchInputField.sendKeys(searchText);
 }
 
@@ -135,7 +135,7 @@ public void clickFirstRow() throws InterruptedException {
 }
 
 public List<String> getFirstRowData() throws InterruptedException{
-	Thread.sleep(2000);
+	wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	List<String> dataElements = new ArrayList<String>();
 	List <WebElement> webElements = driver.findElements(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div/div/div[3]/div"));
 	

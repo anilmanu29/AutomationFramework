@@ -81,11 +81,11 @@ public class BrokerProcessedTab extends TestBase {
 	}
 
 	public void clickProcessedTab() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(processedtab));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		js.executeScript("arguments[0].click();", processedtab);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	public void clickPaySelectionColumn() throws InterruptedException {
@@ -134,7 +134,7 @@ public class BrokerProcessedTab extends TestBase {
 	
 	public void enterSearchText(String searchText) throws InterruptedException {
 		searchInputField.clear();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		searchInputField.sendKeys(searchText);
 	}
 	
@@ -149,7 +149,7 @@ public class BrokerProcessedTab extends TestBase {
 	}
 	
 	public List<String> getFirstRowData() throws InterruptedException{
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		List<String> dataElements = new ArrayList<String>();
 		List <WebElement> webElements = driver.findElements(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div/div/div[3]/div"));
 		

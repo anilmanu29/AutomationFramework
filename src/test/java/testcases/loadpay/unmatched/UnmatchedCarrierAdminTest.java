@@ -3,6 +3,7 @@ package testcases.loadpay.unmatched;
 import java.awt.AWTException;
 import java.io.IOException;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -12,69 +13,67 @@ import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
 
-public class UnmatchedCarrierAdminTest extends TestBase
-{
-	AdminHomePage h;
-	AdminLogin a;
-	Select s; 
-	
-	public UnmatchedCarrierAdminTest()
-	{
+public class UnmatchedCarrierAdminTest extends TestBase {
+	AdminHomePage adminHomePageObj;
+	AdminLogin adminLoginObj;
+	Select s;
+
+	public UnmatchedCarrierAdminTest() {
 		super();
 	}
-	
-	@BeforeClass		
-	public void setUp() throws IOException, AWTException 
-		{
+
+	@BeforeClass
+	public void setUp() throws IOException, AWTException {
 		initialization();
-		h= new AdminHomePage();	
-		a= new AdminLogin();
-		}
-	
-	@Test()
-	public void Home() throws IOException, AWTException, InterruptedException
-	{
-	log.info(BrokerPaymentforUnmatchedCarrierTest.umemail);
-	h.AdminURL();
+		adminHomePageObj = new AdminHomePage();
+		adminLoginObj = new AdminLogin();
 	}
-	
-	@Test(dataProvider="getAdminLoginData", dependsOnMethods = "Home")
-	public void adminLogin(String Username,String pass) throws IOException, InterruptedException, AWTException
-	{		
-		a.adminUserPass(Username, pass);
-		Thread.sleep(1000);
-		a.adminLogin();
-		Thread.sleep(1000);
-		a.ClickOnCustomersTab();
-		Thread.sleep(1000);
-		
-		a.ClickOnSearchBox(BrokerPaymentforUnmatchedCarrierTest.al.get(1));
-		
-		
-		
-//		if(BrokerPaymentforUnmatchedCarrierTest.umemail!=null)
-//		{
-//			a.ClickOnSearchBox(BrokerPaymentforUnmatchedCarrierTest.umemail);
-//		}
-//		else
-//		{
-//		a.ClickOnSearchBox(CarrierRegisterTest.email);
-//		Thread.sleep(1000);
-//		}
-		a.ClickOnSearchButton();
-		Thread.sleep(1000);
 
-		a.DoubleClickID();
-		Thread.sleep(1000);
+	@Test()
+	public void Home() throws IOException, AWTException, InterruptedException {
+		log.info(BrokerPaymentforUnmatchedCarrierTest.umemail);
+		adminHomePageObj.AdminURL();
+	}
 
-		a.StatusIDDropDown();
-		Thread.sleep(1000);
+	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = "Home")
+	public void adminLogin(String Username, String pass) throws IOException, InterruptedException, AWTException {
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getUserName()));
+		adminLoginObj.adminUserPass(Username, pass);
 
-		a.UpdateButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getLoginBtn()));
+		adminLoginObj.adminLogin();
 
-		a.AdminLogOut();
-	
-	}	 
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getCustomerTab()));
+		adminLoginObj.ClickOnCustomersTab();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getSearch()));
+		adminLoginObj.ClickOnSearchBox(BrokerPaymentforUnmatchedCarrierTest.al.get(1));
+
+		// if(BrokerPaymentforUnmatchedCarrierTest.umemail!=null)
+		// {
+		// a.ClickOnSearchBox(BrokerPaymentforUnmatchedCarrierTest.umemail);
+		// }
+		// else
+		// {
+		// a.ClickOnSearchBox(CarrierRegisterTest.email);
+		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		// }
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getClickonSearchButton()));
+		adminLoginObj.ClickOnSearchButton();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getDoubleClickID()));
+		adminLoginObj.DoubleClickID();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getCustomersatatusIdDropDown()));
+		adminLoginObj.StatusIDDropDown();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getUpdateButton()));
+		adminLoginObj.UpdateButton();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getLogOut()));
+		adminLoginObj.AdminLogOut();
+
+	}
 
 }

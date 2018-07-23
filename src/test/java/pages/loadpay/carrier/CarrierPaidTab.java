@@ -56,7 +56,7 @@ public class CarrierPaidTab extends TestBase {
 
 	public void clickPaidTab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(paidTab));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		paidTab.click();
 	}
 	
@@ -96,7 +96,7 @@ public class CarrierPaidTab extends TestBase {
 	}
 	
 	public List<String> getFirstRowData() throws InterruptedException{
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		List<String> dataElements = new ArrayList<String>();
 		List <WebElement> webElements = driver.findElements(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div/div/div[3]/div"));
 		
@@ -109,7 +109,7 @@ public class CarrierPaidTab extends TestBase {
 	}
 	
 	public Integer getRowCount() throws InterruptedException{
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		WebElement recordCount = driver.findElement(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/ul/li[3]/a/div/div[1]/div[1]/span[1]"));
 		
 		log.info("String Record count: " + recordCount.getText());

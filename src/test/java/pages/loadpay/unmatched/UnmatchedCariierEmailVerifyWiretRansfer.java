@@ -95,11 +95,11 @@ public class UnmatchedCariierEmailVerifyWiretRansfer extends TestBase {
 	}
 
 	public void clickPopUp() throws InterruptedException {
-		Thread.sleep(4000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		fieldSearchMail.click();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		haspopup.click();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	public void clickOpenMailBox() {
@@ -111,22 +111,22 @@ public class UnmatchedCariierEmailVerifyWiretRansfer extends TestBase {
 	public void enterEmail(String email) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(fieldTextbox));
 		fieldTextbox.sendKeys(email);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		try {
 			buttonsearchcontacts.click();
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			buttonOpen.click();
 		}
 		catch(Exception e) {
 			searchSuggestion.click();
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			buttonOpen.click();
 		}
 	} 
 
 	/*public void enterEmail(String email) throws InterruptedException {
 		fieldTextbox.sendKeys(email);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		searchSuggestion.click();
 	}*/
 
@@ -135,23 +135,23 @@ public class UnmatchedCariierEmailVerifyWiretRansfer extends TestBase {
 	}
 */
 	public void handleNewInbox() throws InterruptedException {
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		Thread.sleep(6000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		
 		//List<WebElement> list = driver.findElements(By.xpath(".//*[contains(@class, 'lvHighlightSubjectClass')]"));
 		List<WebElement> list = driver.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
 		
 		for(WebElement e : list)
 		{
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			e.click();
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			log.info(emailid.getText());
 			if(emailid.getText().equalsIgnoreCase(BrokerPaymentforUnmatchedCarrierTest.al.get(1)+";"))
 			{
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				linkVerify.click();
 				break;
 			}
@@ -161,18 +161,18 @@ public class UnmatchedCariierEmailVerifyWiretRansfer extends TestBase {
 		
 	/*	JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", fieldsearch);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		fieldsearchinput.sendKeys(CarrierRegisterTest.email);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		JavascriptExecutor jc = (JavascriptExecutor) driver;
 		jc.executeScript("arguments[0].click();", btnsearch);
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		//fieldsearchinput.sendKeys(Keys.ENTER);
 		JavascriptExecutor jk = (JavascriptExecutor) driver;
 		jk.executeScript("arguments[0].click();", verifyEmail);
-		Thread.sleep(2000);*/
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));*/
 	/*	verifyEmail.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		JavascriptExecutor jl = (JavascriptExecutor) driver;
 		jl.executeScript("arguments[0].click();", linkVerify);*/
 		//linkVerify.click();
@@ -181,10 +181,10 @@ public class UnmatchedCariierEmailVerifyWiretRansfer extends TestBase {
 	}
 
 	public void verifyConfirmationMessage() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(2));
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(emailverifymessage.isDisplayed());
 		driver.close();
 		driver.switchTo().window(tabs.get(1));

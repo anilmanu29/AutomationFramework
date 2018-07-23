@@ -195,13 +195,13 @@ public class ShipperCompleteAccountModule extends TestBase {
 	}
 
 	public void clickAccountlink() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_account));
 		js.executeScript("arguments[0].click();", lnk_account);
 	}
 	
 	public void clickCompanylink() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_Company));
 		js.executeScript("arguments[0].click();", lnk_Company);
 	}
@@ -219,19 +219,19 @@ public class ShipperCompleteAccountModule extends TestBase {
 	
 	
 	public void clickCompanyUpdate() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(companyupdate));
 		js.executeScript("arguments[0].click();", companyupdate);
 	}
 	
 	public void clickContactlink() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_Contact));
 		js.executeScript("arguments[0].click();", lnk_Contact);
 	}
 	
 	public void clickAddNewContact() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		//wait.until(ExpectedConditions.elementToBeClickable(clcik_AddNewContact));
 		js.executeScript("arguments[0].click();", clcik_AddNewContact);
 	}
@@ -273,19 +273,19 @@ public class ShipperCompleteAccountModule extends TestBase {
 	  }
 	
 	public void clicksavelink() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		/*wait.until(ExpectedConditions.elementToBeClickable(click_Save));*/
 		js.executeScript("arguments[0].click();", click_Save);
 	}
 	
 	public void clickContactUpdatelink() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(click_ContactUpdate));
 		js.executeScript("arguments[0].click();", click_ContactUpdate);
 	}
 	
 	public void clickdeletecontactlink() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(click_DeleteContact));
 		js.executeScript("arguments[0].click();", click_DeleteContact);
 		
@@ -294,32 +294,32 @@ public class ShipperCompleteAccountModule extends TestBase {
 	}
 	
 	public void clickAccount1link() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(Click_Account1));
 		js.executeScript("arguments[0].click();", Click_Account1);
 	}
 	
 	
 	public void clickNotificationlink() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_Notifications));
 		js.executeScript("arguments[0].click();", lnk_Notifications);
 	}
 	
 	public void checkNotifyByWithdrwallink() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(check_NotifyByWithdrawal));
 		js.executeScript("arguments[0].click();", check_NotifyByWithdrawal);
 	}
 	
 	public void clickUpdatebuttonlink() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(click_updatebtn));
 		js.executeScript("arguments[0].click();", click_updatebtn);
 	}
 	
 	public void uncheckNotifyByWithdrawallink() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(uncheck_NotifyByWithdrawal));
 		js.executeScript("arguments[0].click();", uncheck_NotifyByWithdrawal);
 		text_saved.getText();
@@ -327,7 +327,7 @@ public class ShipperCompleteAccountModule extends TestBase {
 	}
 	
 	public void clickcreditlink() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_Credit));
 		js.executeScript("arguments[0].click();", lnk_Credit);
 	}
@@ -339,13 +339,13 @@ public class ShipperCompleteAccountModule extends TestBase {
 	  }
 	
 	public void clickupdatelink() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(click_Update));
 		js.executeScript("arguments[0].click();", click_Update);
 	}
 	
 	public void clickPaymentTermlink() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(click_PaymentTerm));
 		js.executeScript("arguments[0].click();", click_PaymentTerm);
 		
@@ -355,19 +355,19 @@ public class ShipperCompleteAccountModule extends TestBase {
 	}
 	
 	public void clickBrokerpaymeNowUpdatelink() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(Click_BrokerpaymeNowUpdate));
 		js.executeScript("arguments[0].click();", Click_BrokerpaymeNowUpdate);
 	}
 	
 	public void clickmycreditlink() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_MyCredit));
 		js.executeScript("arguments[0].click();", lnk_MyCredit);
 	}
 	
 	public void clickpaymenowlink() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(link_paymeNow));
 		js.executeScript("arguments[0].click();", link_paymeNow);
 		
@@ -375,31 +375,31 @@ public class ShipperCompleteAccountModule extends TestBase {
 	}
 	
 	public void checkpaymenowenroll() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(check_PMNEnrolled));
 		js.executeScript("arguments[0].click();", check_PMNEnrolled);
 	}
 	
 	public void clickbrokerpaymeupdatelink() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(click_brokpaymeupdate));
 		js.executeScript("arguments[0].click();", click_brokpaymeupdate);
 	}
 	
 	public void clickadminpaymenowlink() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(click_adminpaymenow));
 		js.executeScript("arguments[0].click();", click_adminpaymenow);
 	}
 	
 	public void uncheckpaymenowenroll() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(ucheck_adminPMNEnrolled));
 		js.executeScript("arguments[0].click();", ucheck_adminPMNEnrolled);
 	}
 	
 	public void clickadminupdate() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(click_adminupdate));
 		js.executeScript("arguments[0].click();", click_adminupdate);
 	}

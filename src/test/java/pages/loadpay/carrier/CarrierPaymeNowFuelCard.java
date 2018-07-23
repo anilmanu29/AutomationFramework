@@ -167,7 +167,7 @@ public class CarrierPaymeNowFuelCard extends TestBase {
 	
 	/*public void gettotalpaiyAmount() throws InterruptedException {
 		//wait.until(ExpectedConditions.elementToBeClickable(paidamt));
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		 totalamt = paidamt.getText();
 		 totalamount =  totalamt.replaceAll("\\$", "");
 		 totalamountt =	totalamount.replaceAll(",", "");	
@@ -177,7 +177,7 @@ public class CarrierPaymeNowFuelCard extends TestBase {
 		
 	}
 	public void verifywiretransfer() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		amttwiretransfer = (total - amtbeforesamedayach);
 		log.info(amttwiretransfer);
 	

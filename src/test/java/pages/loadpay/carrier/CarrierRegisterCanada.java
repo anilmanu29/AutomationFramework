@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -157,7 +158,7 @@ public class CarrierRegisterCanada  extends TestBase {
 	  }
 
 	public void selectType() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		TypeofEntity.click();
 
 	}
@@ -172,7 +173,7 @@ public class CarrierRegisterCanada  extends TestBase {
 			if (countryname.equalsIgnoreCase(cname)) {
 				slc.selectByVisibleText(countryname);
 				sls.selectByVisibleText(state);
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				break;
 			}
 			}

@@ -3,6 +3,7 @@ package testcases.loadpay.broker;
 import java.awt.AWTException;
 import java.io.IOException;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -21,7 +22,6 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 	AdminLogin adminlogin;
 	String Dot = "1234567";
 	String EIN = "123456789";
-	
 
 	/*-------Initiadminloginizing driver---------*/
 
@@ -36,259 +36,250 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 		shippercompleteaccountmodule = new ShipperCompleteAccountModule();
 		brokerlogin = new BrokerLoginPage();
 		adminlogin = new AdminLogin();
-		adminhomepage = new AdminHomePage(); 
+		adminhomepage = new AdminHomePage();
 	}
 
 	@Test(dataProvider = "getBrokerLoginData")
 	public void VerifybrokerLogin(String un, String pwd) throws InterruptedException {
 		brokerlogin = new BrokerLoginPage();
 		brokerlogin.Brokerlogin(un, pwd);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		shippercompleteaccountmodule.clickAccountlink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.lnk_account.isDisplayed());
-		
+
 		shippercompleteaccountmodule.clickCompanylink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.lnk_Company.isDisplayed());
-		
+
 		shippercompleteaccountmodule.enterDotnumber(Dot);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 		shippercompleteaccountmodule.enterEinnumber(EIN);
-		Thread.sleep(1000);
-		
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		shippercompleteaccountmodule.clickCompanyUpdate();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.companyupdate.isDisplayed());
 	}
-	
-	@Test(dataProvider = "getAdminLoginData",dependsOnMethods = {"VerifybrokerLogin"})
+
+	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = { "VerifybrokerLogin" })
 	public void verifyAdminAccountModule(String Username, String pass) throws InterruptedException, AWTException {
-		Thread.sleep(1000);
-		adminhomepage.AdminURL(); 
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		adminhomepage.AdminURL();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminlogin.adminUserPass(Username, pass);
 		adminlogin.adminLogin();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminlogin.ClickOnCustomersTab();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(adminlogin.CustomerTab.isDisplayed());
-		
+
 		log.info(BrokerLoginPage.bemail);
 		adminlogin.ClickOnSearchBox(BrokerLoginPage.bemail);
-		Thread.sleep(1000);
-		
-		adminlogin.ClickOnSearchButton();
-		Thread.sleep(1000);
-		Assert.assertTrue(adminlogin.ClickonSearchButton.isDisplayed());
-		
-		
-		adminlogin.DoubleClickID();
-		Thread.sleep(6000);
-		//Assert.assertTrue(adminlogin.DoubleClickID.isDisplayed());
-		
-		
-		}
-	
-	@Test(dataProvider = "getShipperCompleteAccModuleData",dependsOnMethods = {"verifyAdminAccountModule"})
-	public void verifyContactDetails(String un, String pwd,String ContactFN, String ContactLN,String contactemail, String ContactPN,String Contactextension,String ContactMobileNumber,String ContactFax) throws InterruptedException {
-		driver.get(super.getProperties().getProperty("url"));
-		/*brokerlogin = new BrokerLoginPage();
-		brokerlogin.Brokerlogin(un, pwd);
-		Thread.sleep(1000);*/
-		shippercompleteaccountmodule.clickAccountlink();
-		Thread.sleep(1000);
-		Assert.assertTrue(shippercompleteaccountmodule.lnk_account.isDisplayed());
-		
-		shippercompleteaccountmodule.clickContactlink();
-		Thread.sleep(1000);
-		Assert.assertTrue(shippercompleteaccountmodule.lnk_Contact.isDisplayed());
-		
-		shippercompleteaccountmodule.clickAddNewContact();
-		Thread.sleep(1000);
-		Assert.assertTrue(shippercompleteaccountmodule.clcik_AddNewContact.isDisplayed());
-		
-		
-		shippercompleteaccountmodule.enterContactFirstName(ContactFN);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
-		shippercompleteaccountmodule.enterContactlastName(ContactLN );
-		Thread.sleep(1000);
-		
-		shippercompleteaccountmodule.enterContactemail(contactemail );
-		Thread.sleep(1000);
-		Assert.assertTrue(shippercompleteaccountmodule.Contact_Email.isDisplayed());
-		
-		
-		shippercompleteaccountmodule.enterContactphonenum(ContactPN );
-		Thread.sleep(1000);
-		
-		shippercompleteaccountmodule.enterContactExtension(Contactextension );
-		Thread.sleep(1000);
-		
-		shippercompleteaccountmodule.enterContactMobileNumber(ContactMobileNumber );
-		Thread.sleep(1000);
-		
-		shippercompleteaccountmodule.enterContactFax(ContactFax );
-		Thread.sleep(1000);
-		
-		shippercompleteaccountmodule.clicksavelink();
-		Thread.sleep(1000);
-		Assert.assertTrue(shippercompleteaccountmodule.click_Save.isDisplayed());
-		
-		
-		/*shippercompleteaccountmodule.clickdeletecontactlink();
-		Thread.sleep(1000);*/
-		
-		shippercompleteaccountmodule.clickContactUpdatelink();
-		Thread.sleep(1000);
-		Assert.assertTrue(shippercompleteaccountmodule.click_ContactUpdate.isDisplayed());
-		
-		
+		adminlogin.ClickOnSearchButton();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Assert.assertTrue(adminlogin.ClickonSearchButton.isDisplayed());
+
+		adminlogin.DoubleClickID();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		// Assert.assertTrue(adminlogin.DoubleClickID.isDisplayed());
+
 	}
-	
-	@Test(dependsOnMethods = {"verifyContactDetails"})
+
+	@Test(dataProvider = "getShipperCompleteAccModuleData", dependsOnMethods = { "verifyAdminAccountModule" })
+	public void verifyContactDetails(String un, String pwd, String ContactFN, String ContactLN, String contactemail,
+			String ContactPN, String Contactextension, String ContactMobileNumber, String ContactFax)
+			throws InterruptedException {
+		driver.get(super.getProperties().getProperty("url"));
+		/*
+		 * brokerlogin = new BrokerLoginPage(); brokerlogin.Brokerlogin(un, pwd);
+		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		 */
+		shippercompleteaccountmodule.clickAccountlink();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Assert.assertTrue(shippercompleteaccountmodule.lnk_account.isDisplayed());
+
+		shippercompleteaccountmodule.clickContactlink();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Assert.assertTrue(shippercompleteaccountmodule.lnk_Contact.isDisplayed());
+
+		shippercompleteaccountmodule.clickAddNewContact();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Assert.assertTrue(shippercompleteaccountmodule.clcik_AddNewContact.isDisplayed());
+
+		shippercompleteaccountmodule.enterContactFirstName(ContactFN);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
+		shippercompleteaccountmodule.enterContactlastName(ContactLN);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
+		shippercompleteaccountmodule.enterContactemail(contactemail);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Assert.assertTrue(shippercompleteaccountmodule.Contact_Email.isDisplayed());
+
+		shippercompleteaccountmodule.enterContactphonenum(ContactPN);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
+		shippercompleteaccountmodule.enterContactExtension(Contactextension);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
+		shippercompleteaccountmodule.enterContactMobileNumber(ContactMobileNumber);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
+		shippercompleteaccountmodule.enterContactFax(ContactFax);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
+		shippercompleteaccountmodule.clicksavelink();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Assert.assertTrue(shippercompleteaccountmodule.click_Save.isDisplayed());
+
+		/*
+		 * shippercompleteaccountmodule.clickdeletecontactlink();
+		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		 */
+
+		shippercompleteaccountmodule.clickContactUpdatelink();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Assert.assertTrue(shippercompleteaccountmodule.click_ContactUpdate.isDisplayed());
+
+	}
+
+	@Test(dependsOnMethods = { "verifyContactDetails" })
 	public void verifyNotifications() throws InterruptedException {
 		driver.get(super.getProperties().getProperty("url"));
 		shippercompleteaccountmodule.clickAccountlink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.lnk_account.isDisplayed());
-		
+
 		shippercompleteaccountmodule.clickNotificationlink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.lnk_Notifications.isDisplayed());
-		
-		
+
 		shippercompleteaccountmodule.checkNotifyByWithdrwallink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.check_NotifyByWithdrawal.isDisplayed());
-		
-		
+
 		shippercompleteaccountmodule.clickUpdatebuttonlink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.click_updatebtn.isDisplayed());
-		
-		
+
 		shippercompleteaccountmodule.uncheckNotifyByWithdrawallink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.uncheck_NotifyByWithdrawal.isDisplayed());
-		
-		
+
 	}
-	
-	
-	@Test(dataProvider = "getAdminLoginshipperaccountmoduleData",dependsOnMethods = {"verifyNotifications"})
+
+	@Test(dataProvider = "getAdminLoginshipperaccountmoduleData", dependsOnMethods = { "verifyNotifications" })
 	public void verifyCredit(String ExtendedCredit) throws InterruptedException, AWTException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		driver.get(super.getProperties().getProperty("AdminURL"));
-		adminhomepage.AdminURL(); 
-		Thread.sleep(2000);
+		adminhomepage.AdminURL();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminlogin.ClickOnCustomersTab();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		log.info(BrokerLoginPage.bemail);
 		adminlogin.ClickOnSearchBox(BrokerLoginPage.bemail);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminlogin.ClickOnSearchButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminlogin.DoubleClickID();
-		Thread.sleep(6000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		shippercompleteaccountmodule.clickcreditlink();
-		Thread.sleep(6000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.lnk_Credit.isDisplayed());
-		
+
 		shippercompleteaccountmodule.enterExtendedCredit(ExtendedCredit);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.text_ExtendedCredit.isDisplayed());
-		
+
 		shippercompleteaccountmodule.clickupdatelink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.click_Update.isDisplayed());
-		
-		}
-	
-	
-	@Test(dependsOnMethods = {"verifyCredit"})
+
+	}
+
+	@Test(dependsOnMethods = { "verifyCredit" })
 	public void verifybrokercredit() throws InterruptedException {
 		driver.get(super.getProperties().getProperty("url"));
 		shippercompleteaccountmodule.clickAccountlink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.lnk_account.isDisplayed());
-		
+
 		shippercompleteaccountmodule.clickmycreditlink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.lnk_MyCredit.isDisplayed());
-	
+
 	}
-	
-	@Test(dependsOnMethods = {"verifybrokercredit"})
+
+	@Test(dependsOnMethods = { "verifybrokercredit" })
 	public void verifybrokerPayMeNow() throws InterruptedException {
 		driver.get(super.getProperties().getProperty("url"));
 		shippercompleteaccountmodule.clickAccountlink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.lnk_account.isDisplayed());
-		
+
 		shippercompleteaccountmodule.clickpaymenowlink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.link_paymeNow.isDisplayed());
-		
+
 		shippercompleteaccountmodule.checkpaymenowenroll();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.check_PMNEnrolled.isDisplayed());
-		
+
 		shippercompleteaccountmodule.clickPaymentTermlink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.click_PaymentTerm.isDisplayed());
-		
+
 		shippercompleteaccountmodule.clickBrokerpaymeNowUpdatelink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.Click_BrokerpaymeNowUpdate.isDisplayed());
-			
+
 	}
-	
-	@Test(dependsOnMethods = {"verifybrokerPayMeNow"})
+
+	@Test(dependsOnMethods = { "verifybrokerPayMeNow" })
 	public void verifyAdminPaymeNow() throws InterruptedException, AWTException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		driver.get(super.getProperties().getProperty("AdminURL"));
-		adminhomepage.AdminURL(); 
-		Thread.sleep(2000);
+		adminhomepage.AdminURL();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminlogin.ClickOnCustomersTab();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		log.info(BrokerLoginPage.bemail);
 		adminlogin.ClickOnSearchBox(BrokerLoginPage.bemail);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminlogin.ClickOnSearchButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminlogin.DoubleClickID();
-		Thread.sleep(6000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		shippercompleteaccountmodule.clickadminpaymenowlink();
-		Thread.sleep(6000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.click_adminpaymenow.isDisplayed());
-		
+
 		shippercompleteaccountmodule.uncheckpaymenowenroll();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.ucheck_adminPMNEnrolled.isDisplayed());
-		
+
 		shippercompleteaccountmodule.clickPaymentTermlink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.click_PaymentTerm.isDisplayed());
-		
+
 		shippercompleteaccountmodule.clickadminupdate();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(shippercompleteaccountmodule.click_adminupdate.isDisplayed());
-		
-		}
-	
-	@Test(dependsOnMethods = {"verifyAdminPaymeNow"})
+
+	}
+
+	@Test(dependsOnMethods = { "verifyAdminPaymeNow" })
 	public void verifybrokerPayMeNowupdate() throws InterruptedException {
 		driver.get(super.getProperties().getProperty("url"));
 		shippercompleteaccountmodule.clickAccountlink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		shippercompleteaccountmodule.clickpaymenowlink();
-		Thread.sleep(3000);
-		
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 	}
-	
-	
-	
+
 }

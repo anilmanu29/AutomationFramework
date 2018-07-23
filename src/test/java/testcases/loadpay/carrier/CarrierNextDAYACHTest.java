@@ -9,7 +9,7 @@ import pages.loadpay.carrier.CarrierNextDAYACH;
 
 public class CarrierNextDAYACHTest extends TestBase {
 
-	CarrierNextDAYACH ns;
+	CarrierNextDAYACH carrierNextDayObj;
 	CarrierLoginPage loginPage;
 
 	/*-------Initializing driver---------*/
@@ -22,7 +22,7 @@ public class CarrierNextDAYACHTest extends TestBase {
 
 		initialization();
 		loginPage = new CarrierLoginPage();
-		ns = new CarrierNextDAYACH();
+		carrierNextDayObj = new CarrierNextDAYACH();
 	}
 	/*-------Initializing driver---------*/
 
@@ -36,22 +36,15 @@ public class CarrierNextDAYACHTest extends TestBase {
 
 	@Test(dependsOnMethods = "loginTest")
 	public void carrierPaymenowNextDAYACH() throws InterruptedException {
-		ns.getAmount();
-		ns.clickPaymenow();
-		Thread.sleep(3000);
-		ns.getnextdayAmount();
-		Thread.sleep(3000);
-		ns.clickSelectButton();
-		Thread.sleep(3000);
-		ns.clickConfirmButton();
-		Thread.sleep(3000);
-		ns.clickPaidTab();
-		Thread.sleep(3000);
-		ns.gettotalpaiyAmount();
-		Thread.sleep(3000);
-		ns.verifyNextDayach();
-		Thread.sleep(3000);
-		
+		carrierNextDayObj.getAmount();
+		carrierNextDayObj.clickPaymenow();
+		carrierNextDayObj.getnextdayAmount();
+		carrierNextDayObj.clickSelectButton();
+		carrierNextDayObj.clickConfirmButton();
+		carrierNextDayObj.clickPaidTab();
+		carrierNextDayObj.gettotalpaiyAmount();
+		carrierNextDayObj.verifyNextDayach();
+
 	}
 
 }

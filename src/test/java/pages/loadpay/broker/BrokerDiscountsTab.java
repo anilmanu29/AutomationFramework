@@ -82,11 +82,11 @@ public class BrokerDiscountsTab extends TestBase {
 	}
 
 	public void clickDiscountsTab() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(discountstab));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		js.executeScript("arguments[0].click();", discountstab);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	public void clickCarrierColumn() throws InterruptedException {
@@ -102,7 +102,7 @@ public class BrokerDiscountsTab extends TestBase {
 
 	public void enterSearchText(String searchText) throws InterruptedException {
 		searchInputField.clear();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		searchInputField.sendKeys(searchText);
 	}
 
@@ -117,7 +117,7 @@ public class BrokerDiscountsTab extends TestBase {
 	}
 
 	public List<String> getFirstRowData() throws InterruptedException {
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		List<String> dataElements = new ArrayList<String>();
 		List<WebElement> webElements = driver.findElements(
 				By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div/div/div[3]/div"));

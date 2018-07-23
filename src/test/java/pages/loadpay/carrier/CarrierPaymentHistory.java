@@ -174,12 +174,12 @@ public class CarrierPaymentHistory extends TestBase {
 
 	public void clickCurrentMonth() throws InterruptedException {
 		// "Month should be Expanded");
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(firstmonth));
 		for (WebElement payment : payments) {
 			js.executeScript("arguments[0].click();", payment);
 			Assert.assertTrue(payment.getAttribute("aria-expanded").contains("true"), "Payment should be expanded");
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			js.executeScript("window.scrollBy(0,80)", "");
 			js.executeScript("arguments[0].click();", payment);
 			// Assert.assertTrue(payment.getAttribute("aria-expanded").contains("false"),
@@ -188,10 +188,10 @@ public class CarrierPaymentHistory extends TestBase {
 
 		wait.until(ExpectedConditions.elementToBeClickable(monthup));
 		js.executeScript("arguments[0].click();", monthup);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 		for (WebElement monthstatus : currentmonthstatus) {
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			Assert.assertTrue(monthstatus.getAttribute("aria-expanded").contains("false"), "Month should be Collapsed");
 		}
 	}
@@ -199,7 +199,7 @@ public class CarrierPaymentHistory extends TestBase {
 	public void expandcollapseMonths() throws InterruptedException {
 
 		for (WebElement month : monthslist) {
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			js.executeScript("arguments[0].click();", month);
 		}
 		js.executeScript("arguments[0].click();", firstmonth);
@@ -214,7 +214,7 @@ public class CarrierPaymentHistory extends TestBase {
 
 				js.executeScript("arguments[0].click();", payment);
 				Assert.assertTrue(payment.getAttribute("aria-expanded").contains("true"), "Payment should be expanded");
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				js.executeScript("window.scrollBy(0,40)", "");
 				js.executeScript("arguments[0].click();", payment);
 				// Assert.assertTrue(payment.getAttribute("aria-expanded").contains("false"),
@@ -233,13 +233,13 @@ public class CarrierPaymentHistory extends TestBase {
 		for (WebElement filtercheckbox : filtercheckboxes) {
 			js.executeScript("window.scrollBy(0,-250)", "");
 			if (filtercheckbox.isSelected()) {
-				Thread.sleep(2000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				js.executeScript("arguments[0].click();", filtercheckbox);
 				try {
 					WebElement loadingGif = driver
 							.findElement(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div/div[2]/img"));
 					while (loadingGif.isDisplayed()) {
-						Thread.sleep(3000);
+						wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 						log.info("Waiting for Loading Gif to disappear!");
 
 					}
@@ -254,7 +254,7 @@ public class CarrierPaymentHistory extends TestBase {
 					WebElement loadingGif = driver
 							.findElement(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div/div[2]/img"));
 					while (loadingGif.isDisplayed()) {
-						Thread.sleep(3000);
+						wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 						log.info("Waiting for Loading Gif to disappear!");
 
 					}
@@ -268,7 +268,7 @@ public class CarrierPaymentHistory extends TestBase {
 	}
 
 	public void clickFilterCheckbox(WebElement element, String paymentstatus) throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		js.executeScript("arguments[0].click();", element);
 
@@ -276,7 +276,7 @@ public class CarrierPaymentHistory extends TestBase {
 			WebElement loadingGif = driver
 					.findElement(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div/div[2]/img"));
 			while (loadingGif.isDisplayed()) {
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				log.info("Waiting for Loading Gif to disappear!");
 
 			}
@@ -286,14 +286,14 @@ public class CarrierPaymentHistory extends TestBase {
 		}
 
 		try {
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			if (!driver.findElement(By.xpath(".//*[@role='alert']")).isDisplayed())
 
 				// try {
 				// if(monthup.isDisplayed())
 				// {
 				// js.executeScript("arguments[0].click();", monthup);
-				// Thread.sleep(1000);
+				// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				//
 				// }
 				// }
@@ -304,7 +304,7 @@ public class CarrierPaymentHistory extends TestBase {
 				//
 				for (WebElement month : monthslist) {
 					js.executeScript("arguments[0].click();", month);
-					Thread.sleep(2000);
+					wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				}
 
 			js.executeScript("arguments[0].click();", element);
@@ -323,7 +323,7 @@ public class CarrierPaymentHistory extends TestBase {
 			WebElement loadingGif = driver
 					.findElement(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div/div[2]/img"));
 			while (loadingGif.isDisplayed()) {
-				Thread.sleep(3000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				log.info("Waiting for Loading Gif to disappear!");
 
 			}
@@ -335,20 +335,20 @@ public class CarrierPaymentHistory extends TestBase {
 	}
 
 	public void searchAction(String searchtext) throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(searchfield));
 		searchfield.clear();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		searchfield.click();
 		searchfield.sendKeys(searchtext);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		js.executeScript("arguments[0].click();", searchbuttonn);
 		
 		try {
 			WebElement loadingGif = driver
 					.findElement(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div/div[2]/img"));
 			while (loadingGif.isDisplayed()) {
-				Thread.sleep(3000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				log.info("Waiting for Loading Gif to disappear!");
 
 			}
@@ -360,13 +360,13 @@ public class CarrierPaymentHistory extends TestBase {
 		if (numofmonthgrids.size() > 1) {
 			for (WebElement monthup : monthsup) {
 				js.executeScript("arguments[0].click();", monthup);
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			}
 
 			for (WebElement month : monthslist) {
 
 				js.executeScript("arguments[0].click();", month);
-				Thread.sleep(3000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				js.executeScript("window.scrollBy(0,200)", "");
 
 			}
@@ -374,7 +374,7 @@ public class CarrierPaymentHistory extends TestBase {
 		
 		
 		try {
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		if(numofmonthgrids.size() == 1 && monthdown.isDisplayed())
 		{
 			js.executeScript("arguments[0].click();", monthdown);
@@ -396,7 +396,7 @@ public class CarrierPaymentHistory extends TestBase {
 			WebElement loadingGif = driver
 					.findElement(By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div/div[2]/img"));
 			while (loadingGif.isDisplayed()) {
-				Thread.sleep(3000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				log.info("Waiting for Loading Gif to disappear!");
 
 			}
@@ -412,31 +412,31 @@ public class CarrierPaymentHistory extends TestBase {
 		amountrangeto.clear();
 		amountrangeto.sendKeys(maxamt);
 		wait.until(ExpectedConditions.elementToBeClickable(startdateInputField));
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		startdateInputField.clear();
 		// act.moveToElement(startdateInputField).click().perform();
 		startdateInputField.sendKeys(begindate);
 		startdateInputField.sendKeys(Keys.TAB);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		enddate.clear();
 		enddate.sendKeys(enddatee);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		enddate.sendKeys(Keys.TAB);
 		// js.executeScript("arguments[0].click();", enddateselect);
 		js.executeScript("arguments[0].click();", searchbuttonn);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 		if (numofmonthgrids.size() > 1) {
 			for (WebElement monthup : monthsup) {
-				Thread.sleep(2000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				js.executeScript("arguments[0].click();", monthup);
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			}
 
 			for (WebElement month : monthslist) {
 
 				js.executeScript("arguments[0].click();", month);
-				Thread.sleep(3000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				js.executeScript("window.scrollBy(0,200)", "");
 
 			}
@@ -445,7 +445,7 @@ public class CarrierPaymentHistory extends TestBase {
 //
 //				js.executeScript("arguments[0].click();", payment);
 //				Assert.assertTrue(payment.getAttribute("aria-expanded").contains("true"), "Payment should be expanded");
-//				Thread.sleep(1000);
+//				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 //				js.executeScript("window.scrollBy(0,80)", "");
 //				js.executeScript("arguments[0].click();", payment);
 //			}
@@ -463,11 +463,11 @@ public class CarrierPaymentHistory extends TestBase {
 
 		wait.until(ExpectedConditions.elementToBeClickable(exportstartdate));
 		exportstartdate.clear();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		exportstartdate.sendKeys(exportbasicstartdate);
 		exportstartdate.sendKeys(Keys.TAB);
 		exportenddate.clear();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		exportenddate.sendKeys(exportbasicenddate);
 		exportenddate.sendKeys(Keys.TAB);
 
@@ -485,15 +485,15 @@ public class CarrierPaymentHistory extends TestBase {
 	}
 
 	public void clickArrowExportButton() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		for (WebElement arrowexport : arrowexportbutton) {
-			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			wait.until(ExpectedConditions.elementToBeClickable(arrowexport));
 			js.executeScript("arguments[0].click();", arrowexport);
 
 			act.moveToElement(filterss).click().perform();
 
-			Thread.sleep(3000);
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		}
 	}
 }

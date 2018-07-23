@@ -1,10 +1,16 @@
 package testcases.loadpay.admin;
 
-import base.TestBase;
+import java.awt.AWTException;
+import java.io.IOException;
+import java.util.ArrayList;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import base.TestBase;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.admin.AdminWireTransfer;
@@ -13,10 +19,6 @@ import pages.loadpay.broker.BrokerNewPayment;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierWireTransfer;
 import testcases.loadpay.broker.BrokerNewPaymentTest;
-
-import java.awt.*;
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class AdminWireTransferTest extends TestBase {
     AdminHomePage adminHomePage;
@@ -67,31 +69,31 @@ public class AdminWireTransferTest extends TestBase {
     public void brokerNewPayment(String cemail, String invoiceno, String loadid, String amt) throws InterruptedException {
         log.info("Create new Payment ");
         brokerNewPayment.newPayment();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         brokerNewPayment.carrierEmail(cemail);
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         brokerNewPayment.amount(amt);
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         invoice = brokerNewPayment.invoiceNumber(invoiceno);
         invoiceList.add(invoice);
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         brokerNewPayment.loadId(loadid);
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         //bp.advanceCheckbox();
-        //Thread.sleep(1000);
+        //wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         brokerNewPayment.clickShedulePayment();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         brokerNewPayment.clickShedulePaymenttab();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         brokerNewPayment.searchCarrier(cemail);
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         brokerNewPayment.clickSearchButton();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0,250)", "");
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         brokerNewPayment.verifyInvoiceNumber(invoiceno, amt);
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         //Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
         System.out.println(brokerNewPayment.verifyPaymentStatus());
 
@@ -102,10 +104,10 @@ public class AdminWireTransferTest extends TestBase {
     public void carrierLogin(String un, String pwd) throws InterruptedException {
         brokerNewPayment.logout();
         log.info("Broker LogOut");
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         carrierLoginPage.Carrierlogin(un, pwd);
         log.info("Carrier Login");
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
     }
 
@@ -113,27 +115,27 @@ public class AdminWireTransferTest extends TestBase {
     @Test(dependsOnMethods = "carrierLogin")
     public void performPaymeNow() throws InterruptedException {
         carrierWireTransfer.getAmount();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         carrierWireTransfer.clickPaymenow();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         carrierWireTransfer.getwiretransferAmount();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         carrierWireTransfer.clickSelectButton();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         carrierWireTransfer.clickConfirmButton();
         log.info("Perform Carrier Wire Transfer");
-        Thread.sleep(3000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         carrierWireTransfer.getAmount();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         carrierWireTransfer.clickPaymenow();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         carrierWireTransfer.getwiretransferAmount();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         carrierWireTransfer.clickSelectButton();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         carrierWireTransfer.clickConfirmButton();
         log.info("Perform Carrier Wire Transfer");
-        Thread.sleep(3000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         carrierLoginPage.CarrierLogout();
         log.info("Carrier LogOut");
     }
@@ -141,83 +143,83 @@ public class AdminWireTransferTest extends TestBase {
     /*------Login as Admin And Verify Wire Transfer------------*/
     @Test(dataProvider = "getAdminLoginData", dependsOnMethods = "performPaymeNow")
     public void goToAdminPage(String Username, String pass) throws InterruptedException, AWTException {
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminHomePage.AdminURL();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminLogin.adminUserPass(Username, pass);
         adminLogin.adminLogin();
         log.info("Admin Login");
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminLogin.ClickOnCustomersTab();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         System.out.println(BrokerLoginPage.bemail);
         adminLogin.ClickOnSearchBox(BrokerLoginPage.bemail);
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminLogin.ClickOnSearchButton();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminLogin.DoubleClickID();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.clickPayments();
-        Thread.sleep(3000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.ClickOnsearchKeywordterm(invoiceList.get(0));
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.getPaymentID();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.clickSearch();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.searchKeyword();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.clickSearch1();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.clickgridcollapse();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.clickWireTransferButton();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.markOFacCheckbox();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.enterWireTransferConfirmationNumber();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.confirmWireTransfer();
         log.info("Confirm Wire Transfer");
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.verifyPaymentIssued();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
         /*------- Go To Admin and Fail Payment------*/
         adminLogin.ClickOnCustomersTab();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         System.out.println(BrokerLoginPage.bemail);
         adminLogin.ClickOnSearchBox(BrokerLoginPage.bemail);
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminLogin.ClickOnSearchButton();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminLogin.DoubleClickID();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.clickPayments();
-        Thread.sleep(3000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.ClickOnsearchKeywordterm(invoiceList.get(1));
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.getPaymentID();
         log.info("Get Payment id for second payment");
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.clickSearch();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.searchKeyword();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.clickSearch1();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.clickgridcollapse();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.clickWireTransferButton();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.enterWireTransferConfirmationNumber();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.clickFailedWireTransferButton();
         log.info("Fail payment");
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminWireTransfer.verifyPaymentFailed();
         log.info("Confirm Wire Transfer Failed");
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(tempElement));
         adminLogin.AdminLogOut();
     }
 

@@ -1,6 +1,6 @@
 package testcases.loadpay.carrier;
 
-  import java.awt.AWTException;
+import java.awt.AWTException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.Properties;
 import java.util.TimeZone;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -26,187 +27,175 @@ import pages.loadpay.carrier.ResetPassword;
 import pages.loadpay.outlook.outlooklogin;
 
 public class CarrierLoginPageResetPasswordTest extends TestBase {
-  CarrierPasswordSetupResetPage CarrierPasswordSetupResetPage;
-  CarrierLoginPage carrierLoginPage;
-  public static Properties prop;
-  ResetPassword resetPassword;
-  AdminLogin adminlogin;
-  AdminHomePage adminHomePage;
-  AdminLogin adminLoginPage;
-  AdminEditEmailCarrier adminEmailPage;
-  CarrierOutlook carrierOutlook;
-  outlooklogin outlookLogin;
-  outlooklogin outlookLoginObj;
+	CarrierPasswordSetupResetPage CarrierPasswordSetupResetPage;
+	public static Properties prop;
+	ResetPassword resetPassword;
+	AdminHomePage adminHomePage;
+	AdminLogin adminLoginPage;
+	AdminEditEmailCarrier adminEmailPage;
+	outlooklogin outlookLoginObj;
 	CarrierLoginPage carrierLoginObj;
 	CarrierOutlook carrierOutlookObj;
 	CarrierRegisterPage carrierRegisterObj;
-  public static String emailid;
-  Date currentTime;
-  String formattedDate = "";
-  Long longTime;
-  DateFormat formatter;
-  String currentHour = "";
-  String currentMinutes = "";
-  String timeArray[] = new String[2];
-  String originalCarrierEmailAddress = "";
-  String updatedCarrierEmailAddress = "";
+	public static String emailid;
+	Date currentTime;
+	String formattedDate = "";
+	Long longTime;
+	DateFormat formatter;
+	String currentHour = "";
+	String currentMinutes = "";
+	String timeArray[] = new String[2];
+	String originalCarrierEmailAddress = "";
+	String updatedCarrierEmailAddress = "";
 	String originalCarrierPassword = "";
 	String updatedCarrierPassword = "";
 	String adminUN = "";
 	String adminPW = "";
-	
-	
 
+	public CarrierLoginPageResetPasswordTest() {
+		super();
 
-  public CarrierLoginPageResetPasswordTest() {
-    super();
+	}
 
-  }
+	@BeforeClass
+	public void setUp() throws IOException, InterruptedException {
+		initialization();
+		adminHomePage = new AdminHomePage();
+		adminLoginPage = new AdminLogin();
+		adminEmailPage = new AdminEditEmailCarrier();
+		carrierLoginObj = new CarrierLoginPage();
+		resetPassword = new ResetPassword();
+		outlookLoginObj = new outlooklogin();
+		carrierOutlookObj = new CarrierOutlook();
+		CarrierPasswordSetupResetPage = new CarrierPasswordSetupResetPage();
+		currentTime = new Date();
+	}
 
-  @BeforeClass
-  public void setUp() throws IOException, InterruptedException {
-    initialization();
-	adminHomePage = new AdminHomePage();	
-	adminLoginPage = new AdminLogin();
-	adminEmailPage = new AdminEditEmailCarrier();
-	carrierLoginPage = new CarrierLoginPage();
-    resetPassword = new ResetPassword();
-    outlookLogin = new outlooklogin();
-   carrierOutlook = new CarrierOutlook();
-    CarrierPasswordSetupResetPage = new CarrierPasswordSetupResetPage();
-    currentTime = new Date();
-    adminlogin = new AdminLogin();
-    
-    
+	@Test(description = "LP-5024 ")
+	public void openCarrierLoginPage() throws InterruptedException {
+		carrierLoginObj.forgotPasswordButton();
 
-  }
+	}
 
-  @Test(description = "LP-5024 ")
-  public void openCarrierLoginPage() throws InterruptedException {
-    Thread.sleep(1000);
-    carrierLoginPage.forgotPasswordButton();
+	@Test(dataProvider = "getCarrierForgotPasswordData", dependsOnMethods = { "openCarrierLoginPage" })
+	public void proceedWithResetPassword(String UserName, String EmailAddress, String NewPassword,
+			String ConfirmPassword) throws InterruptedException {
 
-  }
+		resetPassword.enterUserName(UserName);
+		resetPassword.clickResetPassword();
+		Assert.assertEquals(resetPassword.verificationPage(), "Thank you. An email has been sent.");
 
-  @Test(dataProvider = "getCarrierForgotPasswordData", dependsOnMethods = {"openCarrierLoginPage"})
-  public void proceedWithResetPassword(String UserName, String EmailAddress, String NewPassword, String ConfirmPassword) throws InterruptedException {
-    Thread.sleep(2000);
-    resetPassword.enterUserName(UserName);
-    Thread.sleep(1000);
-    resetPassword.clickResetPassword();
-    Assert.assertEquals(resetPassword.verificationPage(), "Thank you. An email has been sent.");
+		/////////////////////////////////////////////////////////////////
+		TimeZone tz = Calendar.getInstance().getTimeZone();
+		String currentTimeZone = tz.getDisplayName();
+		log.info(currentTimeZone);
 
-	/////////////////////////////////////////////////////////////////
-	TimeZone tz = Calendar.getInstance().getTimeZone();
-	String currentTimeZone = tz.getDisplayName();
-	log.info(currentTimeZone);
-	
-	formatter = new SimpleDateFormat("HH:mm");
-	formatter.setTimeZone(TimeZone.getTimeZone("MST"));
-	longTime = currentTime.getTime();
-	formattedDate = formatter.format(longTime);
-	timeArray = formattedDate.split(":");
-	currentHour = timeArray[0];
-	currentMinutes = timeArray[1];
-	
-	log.info("\n\n\n===============================");
-	log.info("Current date: " + longTime);
-	log.info("Formatted date: " + formattedDate);
-	log.info("Current Hour: " + currentHour);
-	log.info("Current Minutes: " + currentMinutes);
-	log.info("\n\n\n===============================");
-	//////////////////////////////////////////////////////////////////
+		formatter = new SimpleDateFormat("HH:mm");
+		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
+		longTime = currentTime.getTime();
+		formattedDate = formatter.format(longTime);
+		timeArray = formattedDate.split(":");
+		currentHour = timeArray[0];
+		currentMinutes = timeArray[1];
 
-  }
+		log.info("\n\n\n===============================");
+		log.info("Current date: " + longTime);
+		log.info("Formatted date: " + formattedDate);
+		log.info("Current Hour: " + currentHour);
+		log.info("Current Minutes: " + currentMinutes);
+		log.info("\n\n\n===============================");
+		//////////////////////////////////////////////////////////////////
 
-  @Test(dataProvider = "getoutlookLoginData", dependsOnMethods = {"proceedWithResetPassword"})
-  public void login(String un, String pwd) throws InterruptedException, AWTException {
-    outlookLogin.outlookLogin(un, pwd);
-  }
+	}
 
-  @Test(dataProvider = "getCarrierForgotPasswordData", dependsOnMethods = {"login"})
-  public void outlookloginTest(String UserName, String EmailAddress, String NewPassword, String ConfirmPassword) throws InterruptedException {
-	  carrierOutlook.clickPopUp();
-    EmailAddress = EmailAddress.trim();
-    carrierOutlook.clickOpenMailBox();
-    carrierOutlook.enterEmail(super.getProperties().getProperty("email"));
-    carrierOutlook.outlookSearchInbox(EmailAddress, currentHour, currentMinutes);
-    carrierOutlook.handleResetPasswordEmailInbox(EmailAddress);
-    CarrierPasswordSetupResetPage.enterNewPassword(NewPassword);
-    CarrierPasswordSetupResetPage.confirmNewPassword(ConfirmPassword);
-    CarrierPasswordSetupResetPage.clickSubmitButton();
-    carrierLoginPage.carrierVerificationLogin(UserName, NewPassword);
-    //CarrierLoginPage.verificationCarrierLogout();
-  }
-  
-  
-  @Test(dataProvider="getAdminLoginData",dependsOnMethods = {"outlookloginTest"})
-  public void ResetPasswordEmail(String Username,String pass) throws InterruptedException, AWTException
-	{
-		//search-for and reset the updated email address to the original email address
-	  adminHomePage.AdminURL();
-		Thread.sleep(1000);
+	@Test(dataProvider = "getoutlookLoginData", dependsOnMethods = { "proceedWithResetPassword" })
+	public void login(String un, String pwd) throws InterruptedException, AWTException {
+		outlookLoginObj.outlookLogin(un, pwd);
+	}
+
+	@Test(dataProvider = "getCarrierForgotPasswordData", dependsOnMethods = { "login" })
+	public void outlookloginTest(String UserName, String EmailAddress, String NewPassword, String ConfirmPassword)
+			throws InterruptedException {
+		carrierOutlookObj.clickPopUp();
+		EmailAddress = EmailAddress.trim();
+		carrierOutlookObj.clickOpenMailBox();
+		carrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
+		carrierOutlookObj.outlookSearchInbox(EmailAddress, currentHour, currentMinutes);
+		carrierOutlookObj.handleResetPasswordEmailInbox(EmailAddress);
+		CarrierPasswordSetupResetPage.enterNewPassword(NewPassword);
+		CarrierPasswordSetupResetPage.confirmNewPassword(ConfirmPassword);
+		CarrierPasswordSetupResetPage.clickSubmitButton();
+		carrierLoginObj.carrierVerificationLogin(UserName, NewPassword);
+	}
+
+	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = { "outlookloginTest" })
+	public void ResetPasswordEmail(String Username, String pass) throws InterruptedException, AWTException {
+		// search-for and reset the updated email address to the original email address
+		adminHomePage.AdminURL();
+
 		adminUN = Username;
 		adminPW = pass;
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginPage.getUserName()));
 		adminLoginPage.adminUserPass(adminUN, adminPW);
-		Thread.sleep(1000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginPage.getLoginBtn()));
 		adminLoginPage.adminLogin();
-		Thread.sleep(1000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginPage.getCustomerTab()));
 		adminLoginPage.ClickOnCustomersTab();
-		Thread.sleep(1000);
-		Assert.assertTrue(adminlogin.CustomerTab.isDisplayed());
-		log.info(carrierLoginPage.cemail);
-		adminlogin.ClickOnSearchBox(carrierLoginPage.cemail);
-		Thread.sleep(1000);
-		adminlogin.ClickOnSearchButton();
-		Thread.sleep(1000);
-		Assert.assertTrue(adminlogin.ClickonSearchButton.isDisplayed());
-		adminlogin.DoubleClickID();
-		Thread.sleep(6000);
-		adminlogin.clickeditloginuser();
-		Thread.sleep(6000);
-		adminlogin.click_AdminResetPassword();
-		Thread.sleep(6000);
-		adminlogin.clickAdmin_ResetpwdConfirm();
-		Thread.sleep(6000);
-		}
-  
-  @Test(dataProvider = "getoutlookLoginData", dependsOnMethods = "ResetPasswordEmail")
-  public void outlogin(String un, String pwd) throws InterruptedException, AWTException {
-   // outlookLogin.outlookLogin(un, pwd);
-	  driver.get(super.getProperties().getProperty("outlookurl"));
-  }
-  
-  @Test(dataProvider = "getAdminforcepasswordData", dependsOnMethods = {"outlogin"})
-  public void AdminforcepasswordData(String UserName, String EmailAddress, String NewPassword, String ConfirmPassword) throws InterruptedException {
-	  carrierOutlook.clickPopUp();
-    EmailAddress = EmailAddress.trim();
-    carrierOutlook.clickOpenMailBox();
-    carrierOutlook.enterEmail(super.getProperties().getProperty("email"));
-    carrierOutlook.outlookSearchInboxforcareer(EmailAddress, currentHour, currentMinutes);
-    carrierOutlook.handleResetPasswordEmailInbox(EmailAddress);
-    Thread.sleep(2000);
-    ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-	driver.switchTo().window(tabs.get(4));
-	Thread.sleep(2000);
-    CarrierPasswordSetupResetPage.enterNewPassword(NewPassword);
-    CarrierPasswordSetupResetPage.confirmNewPassword(ConfirmPassword);
-    CarrierPasswordSetupResetPage.clickSubmitButton();
-    Thread.sleep(2000);
-    carrierLoginPage.verificationCarrierLogout();
-    carrierLoginPage.carrierVerificationLogin(UserName, NewPassword);
-    carrierLoginPage.verificationCarrierLogout();
-    Thread.sleep(2000);
-    
-    
-  }
-  
-  
-  
+
+		Assert.assertTrue(adminLoginPage.CustomerTab.isDisplayed());
+		log.info(carrierLoginObj.cemail);
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginPage.getSearch()));
+		adminLoginPage.ClickOnSearchBox(carrierLoginObj.cemail);
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginPage.getClickonSearchButton()));
+		adminLoginPage.ClickOnSearchButton();
+		Assert.assertTrue(adminLoginPage.ClickonSearchButton.isDisplayed());
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginPage.getDoubleClickID()));
+		adminLoginPage.DoubleClickID();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginPage.getEditloginuser()));
+		adminLoginPage.clickeditloginuser();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginPage.getClickAdmin_ResetPassword()));
+		adminLoginPage.click_AdminResetPassword();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginPage.getClick_AdminResetpwdConfirm()));
+		adminLoginPage.clickAdmin_ResetpwdConfirm();
+	}
+
+	@Test(dataProvider = "getoutlookLoginData", dependsOnMethods = "ResetPasswordEmail")
+	public void outlogin(String un, String pwd) throws InterruptedException, AWTException {
+		// outlookLogin.outlookLogin(un, pwd);
+		driver.get(super.getProperties().getProperty("outlookurl"));
+	}
+
+	@Test(dataProvider = "getAdminforcepasswordData", dependsOnMethods = { "outlogin" })
+	public void AdminforcepasswordData(String UserName, String EmailAddress, String NewPassword, String ConfirmPassword)
+			throws InterruptedException {
+		carrierOutlookObj.clickPopUp();
+		EmailAddress = EmailAddress.trim();
+		carrierOutlookObj.clickOpenMailBox();
+		carrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
+		carrierOutlookObj.outlookSearchInboxforcareer(EmailAddress, currentHour, currentMinutes);
+		carrierOutlookObj.handleResetPasswordEmailInbox(EmailAddress);
+
+		Thread.sleep(2000);
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(4));
+		Thread.sleep(2000);
+
+		CarrierPasswordSetupResetPage.enterNewPassword(NewPassword);
+		CarrierPasswordSetupResetPage.confirmNewPassword(ConfirmPassword);
+		CarrierPasswordSetupResetPage.clickSubmitButton();
+		carrierLoginObj.verificationCarrierLogout();
+		carrierLoginObj.carrierVerificationLogin(UserName, NewPassword);
+		carrierLoginObj.verificationCarrierLogout();
+
+	}
+
 }
-
-
-
-
-
-

@@ -3,14 +3,15 @@ package testcases.loadpay.broker;
 import java.io.IOException;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import base.TestBase;
 import pages.loadpay.broker.BrokerAdvancePaymenttoUnmatchedCarrier;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerNewPayment;
-
 
 public class BrokerAdvancePaymenttoUnmatchedCarrierTest extends TestBase {
 
@@ -31,7 +32,7 @@ public class BrokerAdvancePaymenttoUnmatchedCarrierTest extends TestBase {
 		brokerpaymentobj = new BrokerNewPayment();
 		brokeradvancepaymentobj = new BrokerAdvancePaymenttoUnmatchedCarrier();
 	}
-	
+
 	/*-------Login to Load Pay as Broker---------*/
 
 	@Test(dataProvider = "getBrokerLoginData")
@@ -43,8 +44,8 @@ public class BrokerAdvancePaymenttoUnmatchedCarrierTest extends TestBase {
 	/*-------Scheduling New Payment as a Broker---------*/
 
 	@Test(dataProvider = "getPaymentDataforUnmatchcarrier", dependsOnMethods = "loginBroker")
-	public void verifyBrokerPayment(String cemail, String invoiceno, String loadid, String amt, String payto, String ein)
-			throws InterruptedException, InvalidFormatException, IOException {
+	public void verifyBrokerPayment(String cemail, String invoiceno, String loadid, String amt, String payto,
+			String ein) throws InterruptedException, InvalidFormatException, IOException {
 		// create a new payment
 		brokerpaymentobj.newPayment();
 		brokerpaymentobj.setField_CarrierEmail(cemail);
@@ -53,7 +54,7 @@ public class BrokerAdvancePaymenttoUnmatchedCarrierTest extends TestBase {
 		brokerpaymentobj.setField_LoadID(loadid);
 		brokerpaymentobj.setField_PaymentAmount(amt);
 		brokeradvancepaymentobj.clickAdvancePaymentCheckbox();
-		brokeradvancepaymentobj.clickScheduleButton();	
+		brokeradvancepaymentobj.clickScheduleButton();
 	}
 
 	@Test(dependsOnMethods = "verifyBrokerPayment")
@@ -65,7 +66,7 @@ public class BrokerAdvancePaymenttoUnmatchedCarrierTest extends TestBase {
 						+ "The Carrier has not yet verified a bank account with LoadPay. "
 						+ "Please let your Carrier know that without bank verification there is a risk of delay in payment.",
 				"Error message is NOT displayed");
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 }

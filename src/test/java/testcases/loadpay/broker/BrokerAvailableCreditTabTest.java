@@ -1,4 +1,5 @@
 package testcases.loadpay.broker;
+
 import java.awt.AWTException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,76 +7,67 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import org.testng.Assert;
 import pages.loadpay.broker.BrokerAvailableCreditTab;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.outlook.outlooklogin;
 
-
 public class BrokerAvailableCreditTabTest extends TestBase {
 
 	BrokerAvailableCreditTab brokeravailablecredittab;
-	BrokerLoginPage brokerloginpage; 
+	BrokerLoginPage brokerloginpage;
 	BrokerOutlook brokeroutlook;
 	outlooklogin outlooklog;
-	
-	
-	
+
 	/*-------Initializing driver---------*/
-	
-	public BrokerAvailableCreditTabTest()
-	{
+
+	public BrokerAvailableCreditTabTest() {
 		super();
 	}
-	
+
 	@BeforeClass
-	public void setUp() throws IOException
-	{
-		
+	public void setUp() throws IOException {
+
 		initialization();
 		brokeravailablecredittab = new BrokerAvailableCreditTab();
 		brokerloginpage = new BrokerLoginPage();
 		brokeroutlook = new BrokerOutlook();
 		outlooklog = new outlooklogin();
-		
-		
+
 	}
-	
-	
-	@Test(description = "LP-5398 Broker Request Additional Credit Login", dataProvider="getBrokerLoginData")
-	public void loginBrokerTest(String un, String pwd) throws InterruptedException
-	{
+
+	@Test(description = "LP-5398 Broker Request Additional Credit Login", dataProvider = "getBrokerLoginData")
+	public void loginBrokerTest(String un, String pwd) throws InterruptedException {
 		brokerloginpage.Brokerlogin(un, pwd);
-					
+
 	}
-	
+
 	@Test(description = "LP-5398 Broker Request Additional Credit Credit Tab", dependsOnMethods = "loginBrokerTest")
-	public void ClickBrokerAvailableCreditTabTest() throws InterruptedException
-	{
+	public void ClickBrokerAvailableCreditTabTest() throws InterruptedException {
 		brokeravailablecredittab.clickAvailableCreditTab();
 	}
+
 	@Test(description = "LP-5398 Broker Request Additional Credit Click Credit Button", dependsOnMethods = "ClickBrokerAvailableCreditTabTest")
-	public void RequestAdditionalCreditButtonTest() throws InterruptedException
-	{
+	public void RequestAdditionalCreditButtonTest() throws InterruptedException {
 		brokeravailablecredittab.clickRequestAdditionalCreditButton();
 	}
+
 	@Test(description = "LP-5398 Broker Request Additional Credit Pop Up", dependsOnMethods = "RequestAdditionalCreditButtonTest")
-	public void RequestAdditionalCreditPopUpTest() throws InterruptedException
-	{
+	public void RequestAdditionalCreditPopUpTest() throws InterruptedException {
 		brokeravailablecredittab.clickCloseButton();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerloginpage.BrokerLogout();
 	}
-	
+
 	@Test(description = "LP-5398 Broker Request Additional Credit Outlook Login", dataProvider = "getoutlookLoginData", dependsOnMethods = "RequestAdditionalCreditPopUpTest")
-	public void BrokerOutlookTest(String un, String pwd) throws InterruptedException
-	{
-		
+	public void BrokerOutlookTest(String un, String pwd) throws InterruptedException {
+
 		try {
 			outlooklog.outlookLogin(un, pwd);
 			brokeroutlook.clickPopUp();
@@ -87,32 +79,27 @@ public class BrokerAvailableCreditTabTest extends TestBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}	
-	public Boolean SearchInbox(String SearchText) throws InterruptedException
-	{
-		Thread.sleep(2000);
+	}
+
+	public Boolean SearchInbox(String SearchText) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		Thread.sleep(6000);
-		
-		
-		List<WebElement> list = driver.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
-		for(WebElement e : list)
-		{
-			Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
+		List<WebElement> list = driver
+				.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
+		for (WebElement e : list) {
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			e.click();
-			Thread.sleep(1000);
-			//log.info(e.getText());
-			if(e.getText().contains(SearchText))
-			{
+			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			// log.info(e.getText());
+			if (e.getText().contains(SearchText)) {
 				return true;
 			}
-			
+
 		}
-		
+
 		return false;
 	}
 }
-
-
-

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -23,13 +24,11 @@ public class BrokerPaymentTermsChargeRecipientTest extends TestBase {
 	AdminHomePage adminhomepage;
 	BrokerNewPayment BrokerNewPayment;
 	AdminLogin adminlogin;
-	 public static String email;
-	 public static ArrayList<String> al;
-	 static String invoice;
+	public static String email;
+	public static ArrayList<String> al;
+	static String invoice;
 	String Dot = "1234567";
 	String EIN = "123456789";
-	
-	
 
 	/*-------Initiadminloginizing driver---------*/
 
@@ -53,104 +52,99 @@ public class BrokerPaymentTermsChargeRecipientTest extends TestBase {
 	public void VerifybrokerLogin(String un, String pwd) throws InterruptedException {
 		brokerlogin = new BrokerLoginPage();
 		brokerlogin.Brokerlogin(un, pwd);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		BrokerPaymentTermsChargeRecipient.clickAccountlink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(BrokerPaymentTermsChargeRecipient.lnk_account.isDisplayed());
-		
+
 		BrokerPaymentTermsChargeRecipient.clickPaymentTerms();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(BrokerPaymentTermsChargeRecipient.Click_PaymentTerms.isDisplayed());
-		
-		
+
 		BrokerPaymentTermsChargeRecipient.clickpaymentenroll();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(BrokerPaymentTermsChargeRecipient.check_paymentenroll.isDisplayed());
-		
+
 		BrokerPaymentTermsChargeRecipient.clickChargeRecipient();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(BrokerPaymentTermsChargeRecipient.click_ChargeRecipient.isDisplayed());
-		
+
 		BrokerPaymentTermsChargeRecipient.clickpaymentTermUpdate();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(BrokerPaymentTermsChargeRecipient.click_paymentTermUpdate.isDisplayed());
-		
-		
+
 	}
-	
-	@Test(dataProvider = "getAdminLoginData",dependsOnMethods = {"VerifybrokerLogin"})
+
+	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = { "VerifybrokerLogin" })
 	public void verifyAdminPaymentTerm(String Username, String pass) throws InterruptedException, AWTException {
-		Thread.sleep(1000);
-		adminhomepage.AdminURL(); 
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		adminhomepage.AdminURL();
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminlogin.adminUserPass(Username, pass);
 		adminlogin.adminLogin();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminlogin.ClickOnCustomersTab();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(adminlogin.CustomerTab.isDisplayed());
-		
+
 		log.info(BrokerLoginPage.bemail);
 		adminlogin.ClickOnSearchBox(BrokerLoginPage.bemail);
-		Thread.sleep(1000);
-		
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		adminlogin.ClickOnSearchButton();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(adminlogin.ClickonSearchButton.isDisplayed());
-		
+
 		adminlogin.DoubleClickID();
-		Thread.sleep(6000);
-		//Assert.assertTrue(adminlogin.DoubleClickID.isDisplayed());
-		
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		// Assert.assertTrue(adminlogin.DoubleClickID.isDisplayed());
+
 		BrokerPaymentTermsChargeRecipient.clickAdminPaymentTerms();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		Assert.assertTrue(BrokerPaymentTermsChargeRecipient.Click_AdminPaymentTerms.isDisplayed());
-		
-		}
-	
-	@Test(dataProvider="getPaymentData", dependsOnMethods = "verifyAdminPaymentTerm")
-	public void brokernewPayment(String cemail, String invoiceno, String loadid, String amt) throws InterruptedException {
+
+	}
+
+	@Test(dataProvider = "getPaymentData", dependsOnMethods = "verifyAdminPaymentTerm")
+	public void brokernewPayment(String cemail, String invoiceno, String loadid, String amt)
+			throws InterruptedException {
 		driver.get(super.getProperties().getProperty("url"));
 		BrokerNewPayment = new BrokerNewPayment();
 		BrokerNewPayment.newPayment();
-		Thread.sleep(1000);
-		email= BrokerNewPayment.carrierEmail(cemail);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		email = BrokerNewPayment.carrierEmail(cemail);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		BrokerNewPayment.amount(amt);
-		Thread.sleep(1000);
-		invoice = 	BrokerNewPayment.invoiceNumber(invoiceno);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		invoice = BrokerNewPayment.invoiceNumber(invoiceno);
 		al.add(invoice);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		BrokerNewPayment.loadId(loadid);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		BrokerPaymentTermsChargeRecipient.clickpaymentdatelink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		BrokerPaymentTermsChargeRecipient.clickpredatelink();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		BrokerPaymentTermsChargeRecipient.clicknextdatelink();
-		Thread.sleep(1000);
-		//bp.advanceCheckbox();
-		//Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		// bp.advanceCheckbox();
+		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		BrokerNewPayment.clickShedulePayment();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		BrokerNewPayment.clickShedulePaymenttab();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		BrokerNewPayment.searchCarrier(cemail);
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		BrokerNewPayment.clickSearchButton();
-		Thread.sleep(1000);
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)", "");
-		Thread.sleep(1000);
-		BrokerNewPayment.verifyInvoiceNumber(invoiceno,amt);
-		 Thread.sleep(1000);
-		//Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		BrokerNewPayment.verifyInvoiceNumber(invoiceno, amt);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		// Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
 		log.info(BrokerNewPayment.verifyPaymentStatus());
-		//bp.logout();
+		// bp.logout();
 	}
-		
-	}
-	
-	
-	
 
+}

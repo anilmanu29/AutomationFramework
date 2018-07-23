@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import base.TestBase;
 
@@ -98,15 +99,15 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 	/*-------New Payment---------*/
 	public void newPayment() throws InterruptedException {
 		lnk_newpayment.click();
-		// Thread.sleep(2000);
+		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	/*-------Carrier email---------*/
 	public void carrierEmail(String cemail) throws InterruptedException {
 		field_carrieremail.click();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		field_carrieremail.sendKeys(cemail);
-		// Thread.sleep(1000);
+		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	/*-------Amount---------*/
@@ -141,7 +142,7 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 	/*-------schedule paymet---------*/
 	public void clickShedulePayment() throws InterruptedException {
 		button_schedule.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 	}
 
@@ -159,7 +160,7 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 	/*-------Search button---------*/
 	public void clickSearchButton() throws InterruptedException {
 		btn_search.click();
-		// Thread.sleep(2000);
+		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	/*-------verify payment---------*/
@@ -172,7 +173,7 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 	/*-------verify amount---------*/
 	public String verifyscheduledPayment() throws InterruptedException {
 
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		paymentstatus.click();
 		String scheduledamount = amount.getText();
 		log.info(scheduledamount);
@@ -184,7 +185,7 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 
 	{
 
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 		List<WebElement> invoicenumcount = List_payment;
 
@@ -206,7 +207,7 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 
 				invoicenumcount.get(i).click();
 
-				Thread.sleep(1000);
+				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 				scheduledamount = amount.getText();
 

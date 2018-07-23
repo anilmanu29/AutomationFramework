@@ -31,16 +31,16 @@ public class BrokerAvailableCreditTab extends TestBase{
 	} 
 	
 	public void clickAvailableCreditTab() throws InterruptedException
-	{	Thread.sleep(2000);
+	{	wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(AvailableCreditTab));
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		AvailableCreditTab.click();		
 	}
 	
 	public void clickRequestAdditionalCreditButton() throws InterruptedException
 	{
 		wait.until(ExpectedConditions.elementToBeClickable(RequestAdditionalCreditButton));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		RequestAdditionalCreditButton.click();
   
 	}
@@ -48,7 +48,7 @@ public class BrokerAvailableCreditTab extends TestBase{
 	{
 		
 		wait.until(ExpectedConditions.elementToBeClickable(CloseButton));
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		CloseButton.click();		
 	}
 	

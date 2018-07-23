@@ -1,23 +1,24 @@
 package pages.loadpay.broker;
+
 import java.util.List;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import base.TestBase;
 
-public class BrokerNewPayment extends TestBase
-{
-	String  payment_status = "Verified";
+public class BrokerNewPayment extends TestBase {
+	String payment_status = "Verified";
 	String payment_statuss = "Unmatched:";
 	String load;
-	String    scheduledamount;
+	String scheduledamount;
 	public static float totalamounnt;
 	String schedule;
 	String scheduleamt;
-	
+
 	@FindBy(xpath = "//a[text()='New Payment']")
 	private WebElement lnk_newpayment;
 
@@ -29,308 +30,289 @@ public class BrokerNewPayment extends TestBase
 
 	@FindBy(id = "CarrierEmail")
 	private WebElement field_CarrierEmail;
-	
+
 	@FindBy(id = "CompanyName")
 	private WebElement field_PayTo;
-	
+
 	@FindBy(id = "CarrierDOT")
 	private WebElement field_CarrierDOT;
-	
+
 	@FindBy(id = "PaymentDate")
 	private WebElement field_ScheduleDate;
 
 	@FindBy(id = "PaymentAmount")
 	private WebElement field_PaymentAmount;
-	
+
 	@FindBy(id = "InvoiceNumber")
 	private WebElement field_InvoiceNum;
 
 	@FindBy(id = "LoadNumber")
 	private WebElement field_LoadID;
-	
+
 	@FindBy(id = "InvoiceDate")
 	private WebElement field_InvoiceRecd;
-	
+
 	@FindBy(id = "Memo")
 	private WebElement field_Memo;
-	
+
 	@FindBy(id = "AdvancePayment")
 	private WebElement checkbox_AdvancePayment;
-	
+
 	@FindBy(xpath = "//input[@value='Schedule']")
 	private WebElement button_schedule;
-	
+
 	@FindBy(id = "OriginCountry")
 	private WebElement dropdown_OriginCountry;
-	
+
 	@FindBy(id = "OriginCity")
 	private WebElement field_OriginCity;
-	
+
 	@FindBy(id = "OriginProvinceId")
 	private WebElement dropdown_OriginState;
-	
+
 	@FindBy(id = "OriginZipCode")
 	private WebElement field_OriginZip;
-	
+
 	@FindBy(id = "DestinationCountry")
 	private WebElement dropdown_DestinationCountry;
-	
+
 	@FindBy(id = "DestinationCity")
 	private WebElement field_DestinationCity;
-	
+
 	@FindBy(id = "DestinationProvinceId")
 	private WebElement dropdown_DestinationState;
-	
+
 	@FindBy(id = "DestinationZipCode")
 	private WebElement field_DestinationZip;
-	
+
 	@FindBy(id = "TrailerTypeId")
 	private WebElement dropdown_TrailerType;
-	
+
 	@FindBy(id = "Miles")
 	private WebElement field_Miles;
-	
+
 	@FindBy(id = "PickupDate")
 	private WebElement field_PickupDate;
-	
+
 	@FindBy(id = "DeliveryDate")
 	private WebElement field_DeliveryDate;
-	
+
 	@FindBy(id = "Commodity")
 	private WebElement field_Commodity;
-	
+
 	@FindBy(id = "Length")
 	private WebElement field_Length;
-	
+
 	@FindBy(id = "Width")
 	private WebElement field_Width;
-	
+
 	@FindBy(id = "Height")
 	private WebElement field_Height;
-	
+
 	@FindBy(id = "Weight")
 	private WebElement field_Weight;
-	
+
 	@FindBy(id = "NumberOfStops")
 	private WebElement field_NumberOfStops;
-	
+
 	@FindBy(id = "FuelSurcharge")
 	private WebElement field_FuelSurcharge;
-	
-	@FindBy(id="UserName")
+
+	@FindBy(id = "UserName")
 	private WebElement field_username;
-	
-	@FindBy(id="Password")
+
+	@FindBy(id = "Password")
 	private WebElement field_password;
-	
+
 	@FindBy(xpath = "//input[@value='Login']")
 	private WebElement button_login;
-	
+
 	@FindBy(id = "searchKeyword")
 	private WebElement field_searchbox;
-	
+
 	@FindBy(xpath = "//input[@value='Search']")
 	private WebElement btn_search;
-	
+
 	@FindBy(xpath = "//button[@type='button'][text()='OK']")
 	private WebElement popup_ok;
-	
-//	@FindBy(xpath = "//div[@class='col-md-10 content']//child::span[1]")
-//	private WebElement paymentstatus;
-	
+
+	// @FindBy(xpath = "//div[@class='col-md-10 content']//child::span[1]")
+	// private WebElement paymentstatus;
+
 	@FindBy(xpath = "//div[contains(@class,'carrierPayment ')]//child::span[@class='ng-scope']")
 	private WebElement paymentstatus;
-	
+
 	@FindBy(xpath = "//*[@id=\"angularScope\"]/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div/div/div[3]/div/div[1]/div/div[5]/div/i")
 	private WebElement row;
-	
+
 	@FindBy(xpath = ".//*[@id='searchKeyword']//following::div[@class='col-md-2 content ng-binding'][1]")
 	private WebElement amount;
-	
+
 	@FindBy(xpath = "//div[@class='carrierPayment ng-scope']//child::div[5]/div/span")
 	private static WebElement invoicenumber;
-	
+
 	@FindBy(xpath = "//div[@class='carrierPayment ng-scope']//child::div[6]/div/span")
 	private static WebElement loadidd;
-	
+
 	@FindBy(xpath = "//*[text()='remove_circle']")
 	private WebElement btn_cancelpayment;
-	
+
 	@FindBy(xpath = "//a[text()='Logoff']")
 	private WebElement btn_logout;
-	
-	@FindBy(xpath="//*[@class='carrierPayment ng-scope']/div/div[5]/div")
-	List< WebElement> List_payment;
-	
-	@FindBy(xpath="//*[text()[contains(., 'mode_edit')]]")
+
+	@FindBy(xpath = "//*[@class='carrierPayment ng-scope']/div/div[5]/div")
+	List<WebElement> List_payment;
+
+	@FindBy(xpath = "//*[text()[contains(., 'mode_edit')]]")
 	private WebElement editPaymentIcon;
 
-	
 	/*-------PageFactory---------*/
-	
-	public BrokerNewPayment()
-	{
+
+	public BrokerNewPayment() {
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	/*-------New Payment---------*/
-	public void newPayment() throws InterruptedException
-	{
+	public void newPayment() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(lnk_newpayment));
 		lnk_newpayment.click();
-		//Thread.sleep(2000);
 	}
-	
+
 	/*-------Carrier email---------*/
-	public String  carrierEmail(String cemail) throws InterruptedException
-	{
+	public String carrierEmail(String cemail) throws InterruptedException {
 		field_CarrierEmail.click();
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(field_CarrierEmail));
 		field_CarrierEmail.sendKeys(cemail);
 		return cemail;
-		//Thread.sleep(1000);
 	}
-	
+
 	/*-------Amount---------*/
-	public String amount(String amt)  
-	{
+	public String amount(String amt) {
 		field_PaymentAmount.sendKeys(amt);
 		return amt;
 	}
-	
+
 	/*-------Invoice number---------*/
-	public String invoiceNumber(String invoiceno)  
-	{
-		field_InvoiceNum.sendKeys(invoiceno);	
+	public String invoiceNumber(String invoiceno) {
+		field_InvoiceNum.sendKeys(invoiceno);
 		return invoiceno;
 	}
 
 	/*-------load id---------*/
-	public String loadId(String loadid)  
-	{
+	public String loadId(String loadid) {
 		field_LoadID.sendKeys(loadid);
 		return loadid;
 	}
-	
+
 	/*-------advance checkbox---------*/
-	public void advanceCheckbox()
-	{
+	public void advanceCheckbox() {
+		wait.until(ExpectedConditions.elementToBeClickable(checkbox_AdvancePayment));
 		checkbox_AdvancePayment.click();
 	}
-	
+
 	/*-------schedule payment---------*/
-	public void clickShedulePayment() throws InterruptedException
-	{
+	public void clickShedulePayment() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(button_schedule));
 		button_schedule.click();
-		Thread.sleep(2000);
 	}
-	
+
 	/*-------schedule payment tab---------*/
-	public void clickShedulePaymenttab()
-	{
+	public void clickShedulePaymenttab() {
+		wait.until(ExpectedConditions.elementToBeClickable(tab_shedulepayment));
 		tab_shedulepayment.click();
 	}
+
 	/*-------Search Carrier---------*/
-	public void searchCarrier(String cemail)
-	{
+	public void searchCarrier(String cemail) {
 		field_searchbox.sendKeys(cemail);
 	}
-	
+
 	/*-------Search Invoice---------*/
-	public void searchInvoice(String invoiceNum)
-	{
+	public void searchInvoice(String invoiceNum) {
 		field_searchbox.sendKeys(invoiceNum);
 	}
-	
+
 	/*-------Click Edit Icon---------*/
-	public void clickEditIcon()
-	{
+	public void clickEditIcon() {
+		wait.until(ExpectedConditions.elementToBeClickable(editPaymentIcon));
 		editPaymentIcon.click();
 	}
-	
+
 	/*-------Edit Icon Enabled---------*/
-	public Boolean isEditIconEnabled()
-	{
+	public Boolean isEditIconEnabled() {
 		return editPaymentIcon.isEnabled();
 	}
-	
+
 	/*-------Search button---------*/
-	public void clickSearchButton() throws InterruptedException
-	{
+	public void clickSearchButton() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(btn_search));
 		btn_search.click();
-		//Thread.sleep(2000);
 	}
+
 	/*-------verify payment---------*/
-	public String verifyPaymentStatus()
-	{
+	public String verifyPaymentStatus() {
 		String actualpaystatus = paymentstatus.getText();
 		return actualpaystatus;
 
 	}
+
 	/*-------verify amount---------*/
-	public float verifyscheduledPayment() throws InterruptedException
-	{
-	
-		Thread.sleep(1000);
+	public float verifyscheduledPayment() throws InterruptedException {
+
+		wait.until(ExpectedConditions.elementToBeClickable(paymentstatus));
 		paymentstatus.click();
 		String scheduledamount = amount.getText();
-		 schedule= scheduledamount.replaceAll("\\$", "");
-		scheduleamt =  schedule.replaceAll(",", "");
+		schedule = scheduledamount.replaceAll("\\$", "");
+		scheduleamt = schedule.replaceAll(",", "");
 		totalamounnt = Float.parseFloat(scheduleamt);
 		log.info(totalamounnt);
 		log.info(scheduledamount);
-		return totalamounnt;			
+		return totalamounnt;
 	}
-	
-		/*-------verify invoicenumber---------*/
-   public void verifyInvoiceNumber(String invoicenum, String amt) throws InterruptedException
-   {
-	   Thread.sleep(1000);
-	   List<WebElement>invoicenumcount = List_payment;
-	   
-	   //log.info(invoicenumcount);
-	   log.info("Total Sceduled Payments:"+invoicenumcount.size());
-	   
-	   for(int i=0; i<invoicenumcount.size();i++)
-	   {
 
-    	 String invoice = invoicenumcount.get(i).getText();
+	/*-------verify invoicenumber---------*/
+	public void verifyInvoiceNumber(String invoicenum, String amt) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(List_payment.get(0)));
+		List<WebElement> invoicenumcount = List_payment;
 
-    	 if(invoice.contains(invoicenum))
-    	 {
+		// log.info(invoicenumcount);
+		log.info("Total Sceduled Payments:" + invoicenumcount.size());
 
-           log.info(invoice);
-           invoicenumcount.get(i).click();
-           Thread.sleep(1000);
+		for (int i = 0; i < invoicenumcount.size(); i++) {
 
-           scheduledamount = amount.getText();
+			String invoice = invoicenumcount.get(i).getText();
 
-           if(scheduledamount.contains(amt))
-           {
-                  log.info("Amount is :"+ ""+ scheduledamount);
-           }
+			if (invoice.contains(invoicenum)) {
 
-           break;
-         }
-    	 
-	   }
-   }
-		
+				log.info(invoice);
+				invoicenumcount.get(i).click();
+				wait.until(ExpectedConditions.elementToBeClickable(amount));
 
-		
-		/*-------verify loadid---------*/		
-	public String verifyLoadId()
-	{
-		String  load = loadidd.getText();
+				scheduledamount = amount.getText();
+
+				if (scheduledamount.contains(amt)) {
+					log.info("Amount is :" + "" + scheduledamount);
+				}
+
+				break;
+			}
+
+		}
+	}
+
+	/*-------verify loadid---------*/
+	public String verifyLoadId() {
+		String load = loadidd.getText();
 		log.info(load);
 		return load;
-	}	
-	
-	public void logout()
-	{
+	}
+
+	public void logout() {
+		wait.until(ExpectedConditions.elementToBeClickable(btn_logout));
 		btn_logout.click();
 	}
 
-	//GETTERS AND SETTERS
+	// GETTERS AND SETTERS
 	public WebElement getField_CarrierEmail() {
 		return field_CarrierEmail;
 	}
@@ -421,15 +403,12 @@ public class BrokerNewPayment extends TestBase
 	}
 
 	public void setCheckbox_AdvancePayment(String advancePayment) {
-		
-		if(advancePayment.equalsIgnoreCase("true") && !this.checkbox_AdvancePayment.isSelected())
-		{
+
+		if (advancePayment.equalsIgnoreCase("true") && !this.checkbox_AdvancePayment.isSelected()) {
+			this.checkbox_AdvancePayment.click();
+		} else if (advancePayment.equalsIgnoreCase("false") && this.checkbox_AdvancePayment.isSelected()) {
 			this.checkbox_AdvancePayment.click();
 		}
-		else if(advancePayment.equalsIgnoreCase("false") && this.checkbox_AdvancePayment.isSelected())
-		{
-			this.checkbox_AdvancePayment.click();
-		}	
 	}
 
 	public WebElement getDropdown_OriginCountry() {
@@ -602,5 +581,4 @@ public class BrokerNewPayment extends TestBase
 		this.field_FuelSurcharge.sendKeys(fuelSurcharge);
 	}
 
-	
 }
