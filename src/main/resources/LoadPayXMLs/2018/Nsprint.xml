@@ -59,6 +59,15 @@
 		 	<class name="testcases.UnmatchedCarrierAdminTest"></class>
 		 	<class name="testcases.CarrierFirstLoginTest"></class>
 		 	<class name="testcases.UnmatchedCarrierPayMeNowFuelCardTest"></class> -->
+		 	
+		 	<!-- Script for Jira Ticket LP-6369 LoadPay -Selenium Test- Broker - Cannot Register Duplicate Email-->
+
+         <class name="testcases.BrokerCanNotRegisterDuplicateEmail"></class>
+         
+            <!-- Script for Jira Ticket LP-6367 LoadPay - Selenium Test - Carrier - Cannot Register Duplicate Email-->
+
+        <class name="testcases.CarrierCanNotRegisterDuplicateEmail"></class>
+         
     
     </classes>
   </test> 

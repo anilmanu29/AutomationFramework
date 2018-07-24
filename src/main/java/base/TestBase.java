@@ -249,6 +249,18 @@ public class TestBase {
 		return read.getCellData(loadPayTestDataFilePath, "CarrierSchedulePaymentTabData");
 	}
 
+	@DataProvider
+	public Object[][] getBrokerCanNotRegisterDuplicateEmailData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "BrokerDuplicateEmail");
+	}
+
+	@DataProvider
+	public Object[][] getCarrierCanNotRegisterDuplicateEmailData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "CarrierDuplicateEmail");
+	}
+
 	@AfterClass
 	public void quit() {
 		driver.quit();
