@@ -104,88 +104,86 @@ public class AdminWireTransfer extends TestBase {
 	}
 
 	public void clickPayments() throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(link_Payments));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", link_Payments);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 	}
 
 	public void ClickOnsearchKeyword(String invoice) throws InterruptedException {
 		FieldSearch.click();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 		FieldSearch.sendKeys(invoice);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 		FieldSearch.sendKeys(Keys.RETURN);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 
 	}
 
 	public void ClickOnsearchKeywordterm(String invoice) throws InterruptedException {
 		FieldSearch.click();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 		FieldSearch.sendKeys(invoice);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 		FieldSearch.sendKeys(Keys.RETURN);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 
 	}
 
 	public void getPaymentID() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(paymentid));
 		paymentidd = paymentid.getText();
 		System.out.println(paymentidd);
 	}
 
 	public void clickSearch() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(link_Search));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", link_Search);
 
 	}
 
 	public void searchKeyword() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(searchKeyword));
 		searchKeyword.click();
 		searchKeyword.sendKeys(paymentidd);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(searchKeyword));
 		searchKeyword.sendKeys(Keys.RETURN);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(searchKeyword));
 
 	}
 
 	public void clickSearch1() throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(btn_Search));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_Search);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 	}
 
 	public void clickgridcollapse() throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(grid_collapse));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", grid_collapse);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-
 	}
 
 	public void clickWireTransferButton() throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(buttonWireTransfer));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", buttonWireTransfer);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	public void markOFacCheckbox() {
+		wait.until(ExpectedConditions.elementToBeClickable(ofacCheckbox));
 		ofacCheckbox.click();
 	}
 
 	public void enterWireTransferConfirmationNumber() {
+		wait.until(ExpectedConditions.visibilityOf(wireTransferConfirmationNumberField));
 		wireTransferConfirmationNumberField.sendKeys("12345600");
 	}
 
 	public void confirmWireTransfer() {
+		wait.until(ExpectedConditions.elementToBeClickable(confirmWireTransferButton));
 		confirmWireTransferButton.click();
 	}
 
@@ -196,7 +194,7 @@ public class AdminWireTransfer extends TestBase {
 	}
 
 	public void clickFailedWireTransferButton() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(failedWireTransferButton));
 		failedWireTransferButton.click();
 		Alert alert = driver.switchTo().alert();
 		alert.accept();

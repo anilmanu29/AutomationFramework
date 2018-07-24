@@ -53,16 +53,8 @@ public class UnmatchedCariierEmailVerify extends TestBase {
 	@FindBy(xpath = "//div[@id='page-main']//child::*[text()='Email Verified']")
 	WebElement emailverifymessage;
 
-	// @FindBy(xpath =
-	// "html/body/div[2]/div/div[3]/div[3]/div/div[1]/div[2]/div[4]/div/div/div[1]/div/div/button")
-	// WebElement fieldsearch;
-
 	@FindBy(xpath = "//button[@type='button'][@aria-label='Activate Search Textbox']")
 	WebElement fieldsearch;
-	//
-	// @FindBy(xpath =
-	// "html/body/div[2]/div/div[3]/div[3]/div/div[1]/div[2]/div[4]/div/div/div[1]/div/div/div/div[1]/form/div/input")
-	// WebElement fieldsearchinput;
 
 	@FindBy(xpath = "//input[@aria-label='Search. Press Enter to Start Searching.']")
 	WebElement fieldsearchinput;
@@ -97,11 +89,10 @@ public class UnmatchedCariierEmailVerify extends TestBase {
 	}
 
 	public void clickPopUp() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(fieldSearchMail));
 		fieldSearchMail.click();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(haspopup));
 		haspopup.click();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	public void clickOpenMailBox() {
@@ -113,78 +104,44 @@ public class UnmatchedCariierEmailVerify extends TestBase {
 	public void enterEmail(String email) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(fieldTextbox));
 		fieldTextbox.sendKeys(email);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(buttonsearchcontacts));
 		try {
 			buttonsearchcontacts.click();
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
 			buttonOpen.click();
 		} catch (Exception e) {
+			wait.until(ExpectedConditions.elementToBeClickable(searchSuggestion));
 			searchSuggestion.click();
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
 			buttonOpen.click();
 		}
 	}
 
-	/*
-	 * public void enterEmail(String email) throws InterruptedException {
-	 * fieldTextbox.sendKeys(email);
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * searchSuggestion.click(); }
-	 */
-
-	/*
-	 * public void clickOpen() { buttonOpen.click(); }
-	 */
 	public void handleNewInbox() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(5000);
 
-		// List<WebElement> list =
-		// driver.findElements(By.xpath("//*[contains(@class,'lvHighlightAllClass')][text()='Verify
-		// your email address']"));
 		List<WebElement> list = driver
 				.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
 		for (WebElement e : list) {
 			e.click();
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			wait.until(ExpectedConditions.elementToBeClickable(e));
 			log.info(emailid.getText());
 			if (emailid.getText().equalsIgnoreCase(BrokerPaymentforUnmatchedCarrierTest.al.get(0) + ";")) {
-				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+				wait.until(ExpectedConditions.elementToBeClickable(linkVerify));
 				linkVerify.click();
 				break;
 			}
-
 		}
-
-		/*
-		 * JavascriptExecutor js = (JavascriptExecutor) driver;
-		 * js.executeScript("arguments[0].click();", fieldsearch);
-		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		 * fieldsearchinput.sendKeys(CarrierRegisterTest.email);
-		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		 * JavascriptExecutor jc = (JavascriptExecutor) driver;
-		 * jc.executeScript("arguments[0].click();", btnsearch);
-		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		 * //fieldsearchinput.sendKeys(Keys.ENTER); JavascriptExecutor jk =
-		 * (JavascriptExecutor) driver; jk.executeScript("arguments[0].click();",
-		 * verifyEmail);
-		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		 */
-		// verifyEmail.click();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		// JavascriptExecutor jl = (JavascriptExecutor) driver;
-		// jl.executeScript("arguments[0].click();", linkVerify);
-		// linkVerify.click();
-
 	}
 
 	public void verifyConfirmationMessage() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(2));
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(emailverifymessage));
 		Assert.assertTrue(emailverifymessage.isDisplayed());
 		driver.close();
 		driver.switchTo().window(tabs.get(1));

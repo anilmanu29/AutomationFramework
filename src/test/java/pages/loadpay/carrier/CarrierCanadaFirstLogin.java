@@ -9,32 +9,32 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import base.TestBase;
 import testcases.loadpay.carrier.CarrierRegisterCanadaTest;
 
-public class CarrierCanadaFirstLogin extends TestBase{
-	
+public class CarrierCanadaFirstLogin extends TestBase {
+
 	WebDriverWait wait = null;
 
-	//Page Factory - OR:
-	@FindBy(id="EIN")
+	// Page Factory - OR:
+	@FindBy(id = "EIN")
 	WebElement field_ein;
-	
-	@FindBy(id="ControlAmount")
+
+	@FindBy(id = "ControlAmount")
 	WebElement field_loadpaydepositeamt;
-	
-	@FindBy(xpath="//input[@value='Next']")
+
+	@FindBy(xpath = "//input[@value='Next']")
 	WebElement button_next;
-	
-	@FindBy(id="AcceptedTerms")
+
+	@FindBy(id = "AcceptedTerms")
 	WebElement checkboxaccept;
-	
+
 	@FindBy(id = "EmailTerms")
 	private WebElement checkboxemail;
-	
+
 	@FindBy(xpath = "//input[@value='Finish']")
 	private WebElement btn_finish;
-	
+
 	@FindBy(xpath = "//button[text()='Close']")
 	private WebElement btn_close;
-	
+
 	@FindBy(xpath = "//input[@id='UserName']")
 	WebElement UserName;
 
@@ -43,17 +43,15 @@ public class CarrierCanadaFirstLogin extends TestBase{
 
 	@FindBy(xpath = "//input[contains(@type,'submit')]")
 	WebElement loginBtn;
-	
-	//Initializing the Page Objects:
-	public CarrierCanadaFirstLogin()
-	{
+
+	// Initializing the Page Objects:
+	public CarrierCanadaFirstLogin() {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 30);
 	}
-	
-	//Actions:
-	public String validateLoginPageTitle()
-	{
+
+	// Actions:
+	public String validateLoginPageTitle() {
 		return driver.getTitle();
 	}
 
@@ -61,11 +59,9 @@ public class CarrierCanadaFirstLogin extends TestBase{
 		wait.until(ExpectedConditions.elementToBeClickable(UserName));
 		UserName.sendKeys(CarrierRegisterCanadaTest.cemail);
 		Password.sendKeys(CarrierRegisterCanadaTest.password);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
 		loginBtn.click();
-		
+
 	}
-
-
 
 }

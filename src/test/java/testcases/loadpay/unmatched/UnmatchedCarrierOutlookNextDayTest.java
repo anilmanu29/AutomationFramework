@@ -11,11 +11,11 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import pages.loadpay.outlook.outlooklogin;
-import pages.loadpay.unmatched.UnmatchedCarrierOutlookNexdDay;
+import pages.loadpay.unmatched.UnmatchedCarrierOutlookNextDay;
 
 public class UnmatchedCarrierOutlookNextDayTest extends TestBase {
 
-	UnmatchedCarrierOutlookNexdDay umCarrierOutlookObj;
+	UnmatchedCarrierOutlookNextDay umCarrierOutlookObj;
 	outlooklogin outlook;
 	public static String pwd;
 
@@ -28,7 +28,7 @@ public class UnmatchedCarrierOutlookNextDayTest extends TestBase {
 
 		initialization();
 		outlook = new outlooklogin();
-		umCarrierOutlookObj = new UnmatchedCarrierOutlookNexdDay();
+		umCarrierOutlookObj = new UnmatchedCarrierOutlookNextDay();
 	}
 
 	@Test(dataProvider = "getoutlookLoginData")

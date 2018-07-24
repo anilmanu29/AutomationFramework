@@ -55,25 +55,14 @@ public class CarrierOutlook extends TestBase {
 	@FindBy(xpath = "//table/tbody/tr/td//child::a[text()='Verify Email ']")
 	WebElement verifyEmailLink;
 
-	// @FindBy(xpath =
-	// "html/body/div[2]/div/div[3]/div[3]/div/div[1]/div[2]/div[4]/div/div/div[1]/div/div/button")
-	// WebElement fieldsearch;
-
 	@FindBy(xpath = "//button[@type='button'][@aria-label='Activate Search Textbox']")
 	WebElement fieldsearch;
-	//
-	// @FindBy(xpath =
-	// "html/body/div[2]/div/div[3]/div[3]/div/div[1]/div[2]/div[4]/div/div/div[1]/div/div/div/div[1]/form/div/input")
-	// WebElement fieldsearchinput;
 
 	@FindBy(xpath = "//input[@aria-label='Search. Press Enter to Start Searching.']")
 	WebElement fieldsearchinput;
 
 	@FindBy(xpath = ".//*[contains(@class,'lvHighlightAllClass')]//following::*[text()='Verify your email address']")
 	WebElement verifyImailMail;
-
-	// @FindBy(xpath = "//div[@role='option']//child::span[2]")
-	// WebElement keyword;
 
 	@FindBy(xpath = "//table/tbody/tr/td//child::a[text()='Reset Your Password ']")
 	WebElement resetPasswordButton;
@@ -129,24 +118,12 @@ public class CarrierOutlook extends TestBase {
 		}
 	}
 
-	/*
-	 * public void enterEmail(String email) throws InterruptedException {
-	 * fieldTextbox.sendKeys(email);
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * searchSuggestion.click(); }
-	 */
-
-	/*
-	 * public void clickOpen() { buttonOpen.click(); }
-	 */
 	public void handleNewInbox() throws InterruptedException {
 		Thread.sleep(2000);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
 		Thread.sleep(8000);
 
-		// List<WebElement> list = driver.findElements(By.xpath(".//*[contains(@class,
-		// 'lvHighlightSubjectClass')]"));
 		List<WebElement> list = driver
 				.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
 
@@ -160,28 +137,7 @@ public class CarrierOutlook extends TestBase {
 				linkVerify.click();
 				break;
 			}
-
 		}
-
-		/*
-		 * JavascriptExecutor js = (JavascriptExecutor) driver;
-		 * js.executeScript("arguments[0].click();", fieldsearch);
-		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		 * fieldsearchinput.sendKeys(CarrierRegisterTest.email);
-		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		 * JavascriptExecutor jc = (JavascriptExecutor) driver;
-		 * jc.executeScript("arguments[0].click();", btnsearch);
-		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		 * //fieldsearchinput.sendKeys(Keys.ENTER); JavascriptExecutor jk =
-		 * (JavascriptExecutor) driver; jk.executeScript("arguments[0].click();",
-		 * verifyEmail); wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		 */
-		// verifyEmail.click();
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		// JavascriptExecutor jl = (JavascriptExecutor) driver;
-		// jl.executeScript("arguments[0].click();", linkVerify);
-		// linkVerify.click();
-
 	}
 
 	public void handleResetPasswordEmailInbox(String EmailAddress) throws InterruptedException {

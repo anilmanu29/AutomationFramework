@@ -85,14 +85,12 @@ public class BrokerBanking extends TestBase {
 
 	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[2]/div/div/div[1]/div/div/div/p[9]/span")
 	private List<WebElement> lists;
-	
+
 	@FindBy(xpath = "//input[@value='checking']")
 	private WebElement radiobtn_personalchecking;
 
 	@FindBy(xpath = "//input[@value='savings']")
 	private WebElement radiobtn_personalsaving;
-
-	// *[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[2]/div/div/div[1]/div/div/div/p[9]/span
 
 	public BrokerBanking() throws IOException {
 		PageFactory.initElements(driver, this);
@@ -102,109 +100,94 @@ public class BrokerBanking extends TestBase {
 	}
 
 	public void clickAccountlink() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_account));
 		js.executeScript("arguments[0].click();", lnk_account);
 	}
 
 	public void clickBankingLink() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_banking));
 		js.executeScript("arguments[0].click();", lnk_banking);
 	}
 
 	public void clickAddNewBankAccountLink() throws InterruptedException {
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_addnewbankaccount));
 		js.executeScript("arguments[0].click();", lnk_addnewbankaccount);
 	}
 
 	public String enterAccountName(String accname) throws InterruptedException {
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(field_accountname));
 		field_accountname.sendKeys(accname);
 		return accname;
 	}
 
 	public void enterRoutingNumber(String routingnum) throws InterruptedException {
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(field_routnumber));
 		field_routnumber.sendKeys(routingnum);
 	}
 
 	public void enterAccountNumber(String accnum) throws InterruptedException {
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(field_accnum));
 		field_accnum.sendKeys(accnum);
 	}
 
 	public void enterConfirmAccountNumber(String confirmaccnum) throws InterruptedException {
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(field_confirmaccnum));
 		field_confirmaccnum.sendKeys(confirmaccnum);
 	}
-	
+
 	public void clickPersonalCheckingRadioButton() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(radiobtn_personalchecking));
 		js.executeScript("arguments[0].click();", radiobtn_personalchecking);
 	}
 
 	public void clickPersonalSavinggRadioButton() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(radiobtn_personalsaving));
 		js.executeScript("arguments[0].click();", radiobtn_personalsaving);
 	}
 
 	public void clickSaveButton() throws InterruptedException {
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(button_save));
 		js.executeScript("arguments[0].click();", button_save);
 	}
 
 	public String verifyAccountName() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(accname));
 		return accname.getText();
 	}
 
 	public String verifyRoutingNumber() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(routingnum));
 		return routingnum.getText();
 	}
 
 	public void verifyBankAccount() throws InterruptedException, AWTException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 		((JavascriptExecutor) driver).executeScript("window.open();");
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 		tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 		ahp.AdminURL();
 	}
 
 	public void clickAdminBankingLink() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_adminbanking));
 		js.executeScript("arguments[0].click();", lnk_adminbanking);
 	}
 
 	public String getPennyVerificationAmount() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 
 		int count = banking.size();
 		for (int i = 0; i < count; i++) {
 			if (banking.get(i).getText().equalsIgnoreCase(BrokerBankingTest.acountname)) {
 				log.info(BrokerBankingTest.acountname);
-				
+
 				j = i;
 				break;
 			}
 		}
 
-		// List<WebElement> lists =
-		// driver.findElements(By.xpath("//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[2]/div/div/div[1]/div/div/div/p[9]/span"));
 		log.info(lists.size());
 		log.info(lists.get(j).getText());
 		pennyamt = lists.get(j).getText();
@@ -225,68 +208,62 @@ public class BrokerBanking extends TestBase {
 
 	public void closeTab() throws InterruptedException {
 		driver.close();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 		driver.switchTo().window(tabs.get(0));
 	}
 
 	public void clickVerifyLink() throws InterruptedException {
 		js.executeScript("window.scrollBy(0,250)");
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_verify));
 		js.executeScript("arguments[0].click();", lnk_verify);
 
 	}
 
 	public void enterAmount() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(field_amount));
 		js.executeScript("arguments[0].click();", field_amount);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(field_amount));
 		log.info(pennyamounts);
 		field_amount.sendKeys(pennyamounts);
 	}
 
 	public void clickVerifyButton() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(btn_verify));
 		js.executeScript("arguments[0].click();", btn_verify);
 	}
 
 	public void clickSetDefault() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(button_satdefault));
 		js.executeScript("arguments[0].click();", button_satdefault);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 		wait.until(ExpectedConditions.alertIsPresent());
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 		driver.switchTo().alert().accept();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 		driver.navigate().refresh();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_banking));
 		js.executeScript("arguments[0].click();", lnk_banking);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		wait.until(ExpectedConditions.elementToBeClickable(button_satdefault));
 		js.executeScript("arguments[0].click();", button_satdefault);
 		wait.until(ExpectedConditions.alertIsPresent());
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 		driver.switchTo().alert().accept();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 		driver.navigate().refresh();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_banking));
 		js.executeScript("arguments[0].click();", lnk_banking);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 	}
 
 	public void clickRemoveButton() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		// wait.until(ExpectedConditions.elementToBeClickable(button_remove));
+		wait.until(ExpectedConditions.elementToBeClickable(button_remove));
 		js.executeScript("arguments[0].click();", button_remove);
 		wait.until(ExpectedConditions.alertIsPresent());
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 		driver.switchTo().alert().accept();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 	}
 
 }

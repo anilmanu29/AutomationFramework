@@ -73,13 +73,14 @@ public class BrokerDisableCopyPasteConfirmBankAccount extends TestBase {
 	}
 
 	public void copyBankAccountNumber(WebElement element) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(element));
 		element.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_C);
 		robot.keyRelease(KeyEvent.VK_C);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 	}
 
 	public void pasteBankAccountNumber(WebElement element) {
@@ -169,16 +170,16 @@ public class BrokerDisableCopyPasteConfirmBankAccount extends TestBase {
 			js.executeScript("arguments[0].click();", checkbox);
 			clearTextField(getAccountNameField());
 			brokerbankingobj.enterAccountName(accname);
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			Thread.sleep(1000);
 			clearTextField(getRoutingNumberField());
 			brokerbankingobj.enterRoutingNumber(routingnum);
 			clearTextField(getAccountNumberField());
 			brokerbankingobj.enterAccountNumber(accnum);
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			Thread.sleep(1000);
 			copyBankAccountNumber(getAccountNumberField());
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			Thread.sleep(1000);
 			pasteBankAccountNumber(getConfirmAccountNumberField());
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			Thread.sleep(1000);
 			Assert.assertEquals(getConfirmAccountNumber(), "", "Copy/paste is happening");
 			if (button_save.isEnabled()) {
 				js.executeScript("arguments[0].click();", button_save);
@@ -194,18 +195,11 @@ public class BrokerDisableCopyPasteConfirmBankAccount extends TestBase {
 
 		for (WebElement checkbox : businesscheckboxes) {
 			js.executeScript("arguments[0].click();", checkbox);
-			// clearTextField(getAccountNameField());
-			// brokerbankingobj.enterAccountName(accname);
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-			// clearTextField(getRoutingNumberField());
-			// brokerbankingobj.enterRoutingNumber(routingnum);
-			// clearTextField(getAccountNumberField());
-			// brokerbankingobj.enterAccountNumber(accnum);
-			// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			Thread.sleep(1000);
 			copyBankAccountNumber(getAccountNumberField());
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			Thread.sleep(1000);
 			pasteBankAccountNumber(getConfirmAccountNumberField());
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			Thread.sleep(1000);
 			Assert.assertEquals(getConfirmAccountNumber(), "", "Copy/paste is happening");
 			if (button_submit.isEnabled()) {
 				js.executeScript("arguments[0].click();", button_submit);
@@ -226,16 +220,16 @@ public class BrokerDisableCopyPasteConfirmBankAccount extends TestBase {
 			js.executeScript("arguments[0].click();", checkbox);
 			clearTextField(getAccountNameField());
 			brokerbankingobj.enterAccountName(accname);
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			Thread.sleep(1000);
 			clearTextField(getRoutingNumberField());
 			brokerbankingobj.enterRoutingNumber(routingnum);
 			clearTextField(getAccountNumberField());
 			brokerbankingobj.enterAccountNumber(accnum);
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			Thread.sleep(1000);
 			copyBankAccountNumber(getAccountNumberField());
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			Thread.sleep(1000);
 			pasteBankAccountNumber(getConfirmAccountNumberField());
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			Thread.sleep(1000);
 			Assert.assertEquals(getConfirmAccountNumber(), "", "Copy/paste is happening");
 			Assert.assertTrue(!getNextButton().isEnabled(), "NextButton is Enabled");
 

@@ -233,28 +233,6 @@ public class UnmatchedCarrierAdminCancelPayByCheck extends TestBase {
 		driver.switchTo().alert().accept();
 		wait.until(ExpectedConditions.elementToBeClickable(btn_CancelPayByCheck));
 	}
-	/*
-	 * public void clickAddCheckNumber() throws InterruptedException {
-	 * 
-	 * JavascriptExecutor js = (JavascriptExecutor) driver;
-	 * js.executeScript("arguments[0].click();", btn_UpdateCheckNumber);
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * 
-	 * } public void ClickOnEnterCheckNumber() throws InterruptedException { String
-	 * CheckNumber = "1234567890"; EnterCheckNumber.click();
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * EnterCheckNumber.sendKeys(CheckNumber);
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * ReenterCheckNumber.sendKeys(CheckNumber);
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));;
-	 * CheckNumberSubmit.click();
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement)); WebElement
-	 * CheckNum =
-	 * driver.findElement(By.xpath("//*[contains(text(),'1234567890')]"));
-	 * log.info(CheckNum.getText());
-	 * 
-	 * }
-	 */
 
 	/**
 	 * @return the paymentidd

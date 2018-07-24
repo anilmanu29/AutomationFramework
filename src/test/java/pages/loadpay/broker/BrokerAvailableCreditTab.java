@@ -9,47 +9,42 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
 
-public class BrokerAvailableCreditTab extends TestBase{
-	
+public class BrokerAvailableCreditTab extends TestBase {
+
 	public static String bemail;
 	WebDriverWait wait = null;
 	Actions act = null;
-	
+
 	@FindBy(xpath = "//*[text()='AVAILABLE CREDIT']")
 	WebElement AvailableCreditTab;
-	
-	@FindBy(xpath="//button[text()='REQUEST ADDITIONAL CREDIT']")
+
+	@FindBy(xpath = "//button[text()='REQUEST ADDITIONAL CREDIT']")
 	WebElement RequestAdditionalCreditButton;
 
-	@FindBy(xpath="//button[text()='Close']")
+	@FindBy(xpath = "//button[text()='Close']")
 	WebElement CloseButton;
-			
+
 	public BrokerAvailableCreditTab() {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 30);
 		act = new Actions(driver);
-	} 
-	
-	public void clickAvailableCreditTab() throws InterruptedException
-	{	wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	}
+
+	public void clickAvailableCreditTab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(AvailableCreditTab));
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		AvailableCreditTab.click();		
+		AvailableCreditTab.click();
 	}
-	
-	public void clickRequestAdditionalCreditButton() throws InterruptedException
-	{
+
+	public void clickRequestAdditionalCreditButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(RequestAdditionalCreditButton));
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		RequestAdditionalCreditButton.click();
-  
+
 	}
-	public void clickCloseButton() throws InterruptedException
-	{
-		
+
+	public void clickCloseButton() throws InterruptedException {
+
 		wait.until(ExpectedConditions.elementToBeClickable(CloseButton));
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		CloseButton.click();		
+		CloseButton.click();
 	}
-	
+
 }

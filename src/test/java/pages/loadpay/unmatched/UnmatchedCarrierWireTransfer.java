@@ -20,18 +20,18 @@ public class UnmatchedCarrierWireTransfer extends TestBase {
 	String amtwiretransfer;
 	String amtbeforepaidsameday;
 	float amtbeforesamedayach;
-	 String amtwiretrsfr;
-	 String amtsmdayach;
-	 float amttwiretransfer;
-	 float total;
-	 String totalamount;
-	 String totalamountt;
-	 String amtbeforepaidsmday;
-	 String amtbefore ;
-	 String paymenowfe;
-	 String paymenow;
-	 String paymenowfeee;
-	 float paymenowf;
+	String amtwiretrsfr;
+	String amtsmdayach;
+	float amttwiretransfer;
+	float total;
+	String totalamount;
+	String totalamountt;
+	String amtbeforepaidsmday;
+	String amtbefore;
+	String paymenowfe;
+	String paymenow;
+	String paymenowfeee;
+	float paymenowf;
 
 	@FindBy(xpath = "//*[@class='getpaid']")
 	private WebElement btn_paymenow;
@@ -62,40 +62,33 @@ public class UnmatchedCarrierWireTransfer extends TestBase {
 
 	@FindBy(xpath = "//input[contains(@type,'submit')]")
 	WebElement loginBtn;
-	
+
 	@FindBy(xpath = "//*[@id='angularScope']/div[2]/div/div[3]/ul/li[3]/a/div/div[1]/div[2]/span[1]")
 	private WebElement paidamt;
-	
+
 	@FindBy(xpath = "//*[@id='paymentOptionsDiv']/div[4]/div[1]/div[3]/p/span")
 	WebElement wiretransframt;
-	
 
 	public UnmatchedCarrierWireTransfer() {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 30);
 		act = new Actions(driver);
 	}
-	
-	 
-		public void carrierLogin() {
-			UserName.sendKeys(BrokerPaymentforUnmatchedCarrierTest.al.get(1));
-			Password.sendKeys(UnmatchedCarrierOutlookTest.pwd);
-			loginBtn.click();
-		} 
-	 
-	 
-			
-	 
 
-	
-	public void  getAmount() throws InterruptedException {
-		 wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		 amtbeforepaidsameday = paidamt.getText();
-		 amtbeforepaidsmday = amtbeforepaidsameday.replaceAll("\\$", "");
-		 amtbefore = amtbeforepaidsmday.replaceAll(",", "");	
-		 log.info(amtbeforepaidsmday);
-		 amtbeforesamedayach = Float.parseFloat(amtbefore);
-		 log.info(amtbeforesamedayach);
+	public void carrierLogin() {
+		UserName.sendKeys(BrokerPaymentforUnmatchedCarrierTest.al.get(1));
+		Password.sendKeys(UnmatchedCarrierOutlookTest.pwd);
+		loginBtn.click();
+	}
+
+	public void getAmount() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(paidamt));
+		amtbeforepaidsameday = paidamt.getText();
+		amtbeforepaidsmday = amtbeforepaidsameday.replaceAll("\\$", "");
+		amtbefore = amtbeforepaidsmday.replaceAll(",", "");
+		log.info(amtbeforepaidsmday);
+		amtbeforesamedayach = Float.parseFloat(amtbefore);
+		log.info(amtbeforesamedayach);
 	}
 
 	public void clickPaymenow() throws InterruptedException {
@@ -103,14 +96,14 @@ public class UnmatchedCarrierWireTransfer extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_paymenow));
 		btn_paymenow.click();
 	}
-	
+
 	public void getwiretransferAmount() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(wiretransframt));
 		amtwiretransfer = wiretransframt.getText();
 		amtwiretrsfr = amtwiretransfer.replaceAll("\\$", "");
-		 amtsmdayach = amtwiretrsfr.replaceAll(",", "");	
-		 amttwiretransfer = Float.parseFloat(amtsmdayach);
-		 log.info(amttwiretransfer);
+		amtsmdayach = amtwiretrsfr.replaceAll(",", "");
+		amttwiretransfer = Float.parseFloat(amtsmdayach);
+		log.info(amttwiretransfer);
 	}
 
 	public void clickSelectButton() throws InterruptedException {
@@ -129,23 +122,21 @@ public class UnmatchedCarrierWireTransfer extends TestBase {
 		act.moveToElement(tab_paid).click().perform();
 
 	}
-	
+
 	public void gettotalpaiyAmount() throws InterruptedException {
-		//wait.until(ExpectedConditions.elementToBeClickable(paidamt));
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		 totalamt = paidamt.getText();
-		 totalamount =  totalamt.replaceAll("\\$", "");
-		 totalamountt =	totalamount.replaceAll(",", "");	
-		 total = Float.parseFloat(totalamountt);
-		 log.info(total);	
-		 
-		
+		wait.until(ExpectedConditions.elementToBeClickable(paidamt));
+		totalamt = paidamt.getText();
+		totalamount = totalamt.replaceAll("\\$", "");
+		totalamountt = totalamount.replaceAll(",", "");
+		total = Float.parseFloat(totalamountt);
+		log.info(total);
+
 	}
+
 	public void verifywiretransfer() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		amttwiretransfer = (total - amtbeforesamedayach);
 		log.info(amttwiretransfer);
-	
+
 	}
 
 }

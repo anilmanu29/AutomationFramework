@@ -170,7 +170,6 @@ public class UnmatchedCarrierOutlookNewPayment extends TestBase {
 	}
 
 	public void clickPopUp() throws InterruptedException {
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(fieldSearchMail));
 		fieldSearchMail.click();
 		wait.until(ExpectedConditions.elementToBeClickable(haspopup));
@@ -198,17 +197,6 @@ public class UnmatchedCarrierOutlookNewPayment extends TestBase {
 		}
 	}
 
-	/*
-	 * public void enterEmail(String email) throws InterruptedException {
-	 * fieldTextbox.sendKeys(email);
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * searchSuggestion.click(); }
-	 */
-
-	/*
-	 * public void clickOpen() { buttonOpen.click(); }
-	 */
-
 	public void handleNewInbox() throws InterruptedException {
 		Thread.sleep(2000);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
@@ -232,26 +220,7 @@ public class UnmatchedCarrierOutlookNewPayment extends TestBase {
 				linkVerify.click();
 				break;
 			}
-
 		}
-
-		// JavascriptExecutor js = (JavascriptExecutor) driver;
-		// js.executeScript("arguments[0].click();", fieldsearch);
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		// fieldsearchinput.sendKeys(BrokerPaymentforUnmatchedCarrierTest.umemail);
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		// //fieldsearchinput.sendKeys(Keys.ENTER);
-		// JavascriptExecutor jc = (JavascriptExecutor) driver;
-		// jc.executeScript("arguments[0].click();", btnsearch);
-		// wait.until(ExpectedConditions.elementToBeClickable(x5000);
-		// fieldsearchinput.sendKeys(Keys.ENTER);
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		/*
-		 * verifyEmail.click();
-		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		 * linkVerify.click();
-		 */
-
 	}
 
 	public void switchtoCarrieregistration() throws InterruptedException {

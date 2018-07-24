@@ -47,10 +47,10 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 
 	@FindBy(xpath = "//label[text()='Charge Sender:']//child::input[@name='PaymentTermChargeType']")
 	public WebElement chargesenderradiobutton;
-	
+
 	@FindBy(xpath = "//label[text()='Charge Recipient:']//child::input[@name='PaymentTermChargeType']")
 	public WebElement chargerecipientradiobutton;
-	
+
 	@FindBy(xpath = "//*[@id='formPaymentTerms']/div/div/div[3]/input")
 	public WebElement updatebutton;
 
@@ -76,8 +76,8 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 	public WebElement adminflatfeefield;
 
 	@FindBy(id = "btnUpdatePaymentTerms")
-	public WebElement submittbutton;	
-	
+	public WebElement submittbutton;
+
 	@FindBy(id = "BrokerFees")
 	public WebElement brokerfee;
 
@@ -110,25 +110,24 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 	public void activatePaymentTerms() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(accountlink));
 		js.executeScript("arguments[0].click();", accountlink);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(paymenttermslink));
 		js.executeScript("arguments[0].click();", paymenttermslink);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(paymenttermscheckbox));
 		log.info(paymenttermscheckbox.isSelected());
 		if (paymenttermscheckbox.isSelected()) {
+			wait.until(ExpectedConditions.elementToBeClickable(chargesenderradiobutton));
 			js.executeScript("arguments[0].click();", chargesenderradiobutton);
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			wait.until(ExpectedConditions.elementToBeClickable(updatebutton));
 			js.executeScript("arguments[0].click();", updatebutton);
 
 		}
 
 		else {
-
+			wait.until(ExpectedConditions.elementToBeClickable(paymenttermscheckbox));
 			js.executeScript("arguments[0].click();", paymenttermscheckbox);
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			wait.until(ExpectedConditions.elementToBeClickable(chargesenderradiobutton));
 			js.executeScript("arguments[0].click();", chargesenderradiobutton);
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			wait.until(ExpectedConditions.elementToBeClickable(updatebutton));
 			js.executeScript("arguments[0].click();", updatebutton);
 		}
 
@@ -137,23 +136,16 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 	public void verifyPaymentTermsAdmin(String un, String pwd) throws AWTException, InterruptedException {
 
 		((JavascriptExecutor) driver).executeScript("window.open();");
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 		tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		ahp.AdminURL();
 		adminloginobj.adminUserPass(un, pwd);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminloginobj.adminLogin();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminloginobj.ClickOnCustomersTab();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminloginobj.ClickOnSearchBox(BrokerPaymentTermsChargeSenderTest.brokeremailid);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminloginobj.ClickOnSearchButton();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminloginobj.DoubleClickID();
-		wait.until(ExpectedConditions.elementToBeClickable(paymenttermslink));
 		js.executeScript("arguments[0].click();", paymenttermslink);
 	}
 
@@ -169,21 +161,17 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 		adminpercentagefield.sendKeys(numberAsString);
 		wait.until(ExpectedConditions.elementToBeClickable(submittbutton));
 		js.executeScript("arguments[0].click();", submittbutton);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 		driver.switchTo().window(tabs.get(0));
 		driver.navigate().refresh();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(paymenttermslink));
 		js.executeScript("arguments[0].click();", paymenttermslink);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-
 	}
 
 	public void editPaymentTermsPercentageFlatFee() throws InterruptedException {
 		driver.switchTo().window(tabs.get(1));
 		wait.until(ExpectedConditions.elementToBeClickable(adminpaymenttermeditbutton));
 		js.executeScript("arguments[0].click();", adminpaymenttermeditbutton);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(adminflatfeeradiobutton));
 		js.executeScript("arguments[0].click();", adminflatfeeradiobutton);
 		wait.until(ExpectedConditions.elementToBeClickable(adminflatfeefield));
@@ -191,13 +179,10 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 		adminflatfeefield.sendKeys(numberAsString);
 		wait.until(ExpectedConditions.elementToBeClickable(submittbutton));
 		js.executeScript("arguments[0].click();", submittbutton);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		driver.switchTo().window(tabs.get(0));
 		driver.navigate().refresh();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(paymenttermslink));
 		js.executeScript("arguments[0].click();", paymenttermslink);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	public void resetStatusFlatFeeValuse() throws InterruptedException {
@@ -208,12 +193,10 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 		js.executeScript("arguments[0].click();", adminpercentageradiobutton);
 		wait.until(ExpectedConditions.elementToBeClickable(adminpercentagefield));
 		adminpercentagefield.clear();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		adminpercentagefield.sendKeys(defaultpercentagevalue);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(submittbutton));
 		js.executeScript("arguments[0].click();", submittbutton);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 		driver.close();
 		driver.switchTo().window(tabs.get(0));
 
@@ -229,64 +212,49 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 		// create new payment
 		// brokerPaymentObj = new BrokerNewPayment();
 		brokerPaymentObj.newPayment();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.carrierEmail(carrierEmail);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.amount(paymentAmount);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.invoiceNumber(invoiceNum);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.loadId(loadId);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		// wait.until(ExpectedConditions.elementToBeClickable(scheduledate));
+		wait.until(ExpectedConditions.elementToBeClickable(scheduledate));
 		act.doubleClick(scheduledate).build().perform();
 		wait.until(ExpectedConditions.elementToBeClickable(prevdatepicker));
 		js.executeScript("arguments[0].click();", prevdatepicker);
 		wait.until(ExpectedConditions.elementToBeClickable(tomorrowdate));
 		js.executeScript("arguments[0].click();", tomorrowdate);
 		brokerPaymentObj.clickShedulePayment();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.clickShedulePaymenttab();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.searchCarrier(carrierEmail);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.clickSearchButton();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)", "");
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerPaymentObj.verifyInvoiceNumber(invoiceNum, paymentAmount);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		// verify payment status
 		Assert.assertTrue(brokerPaymentObj.verifyPaymentStatus().equals(paymentStatus), "Payment Status not equal!");
 	}
 
-	public void uncheckEnablePaymentTerms() throws InterruptedException
-	{
+	public void uncheckEnablePaymentTerms() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(accountlink));
 		js.executeScript("arguments[0].click();", accountlink);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(paymenttermslink));
 		js.executeScript("arguments[0].click();", paymenttermslink);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(paymenttermscheckbox));
+
 		if (paymenttermscheckbox.isSelected()) {
 			wait.until(ExpectedConditions.elementToBeClickable(chargerecipientradiobutton));
 			js.executeScript("arguments[0].click();", chargerecipientradiobutton);
+			wait.until(ExpectedConditions.elementToBeClickable(paymenttermscheckbox));
 			js.executeScript("arguments[0].click();", paymenttermscheckbox);
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			wait.until(ExpectedConditions.elementToBeClickable(updatebutton));
 			js.executeScript("arguments[0].click();", updatebutton);
 
 		}
 
 		else {
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			wait.until(ExpectedConditions.elementToBeClickable(updatebutton));
 			js.executeScript("arguments[0].click();", updatebutton);
 		}
-		
-		
+
 	}
-	
-	
-	
+
 }

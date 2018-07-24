@@ -105,39 +105,44 @@ public class ShipperAdvancePayment extends TestBase {
 
 	/*-------New Payment---------*/
 	public void newPayment() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(lnk_newpayment));
 		lnk_newpayment.click();
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	/*-------Carrier email---------*/
 	public void carrierEmail(String cemail) throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(field_carrieremail));
 		field_carrieremail.click();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		field_carrieremail.sendKeys(cemail);
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	/*-------Amount---------*/
 	public String amount(String amt) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_amount));
+		field_amount.clear();
 		field_amount.sendKeys(amt);
 		return amt;
 	}
 
 	/*-------Invoicenumber---------*/
 	public String invoiceNumber(String invoiceno) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_invoicenum));
+		field_invoicenum.clear();
 		field_invoicenum.sendKeys(invoiceno);
 		return invoiceno;
 	}
 
 	/*-------load id---------*/
 	public String loadId(String loadid) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_loadid));
+		field_loadid.clear();
 		field_loadid.sendKeys(loadid);
 		return loadid;
 	}
 
 	/*-------advance checkbox---------*/
 	public void advanceCheckbox() {
+		wait.until(ExpectedConditions.elementToBeClickable(checkbox_advance));
 		checkbox_advance.click();
 	}
 
@@ -148,42 +153,40 @@ public class ShipperAdvancePayment extends TestBase {
 
 	/*-------schedule paymet---------*/
 	public void clickShedulePayment() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(button_schedule));
 		button_schedule.click();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-
 	}
 
 	/*-------schedule payment tab---------*/
 	public void clickShedulePaymenttab() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		JavascriptExecutor js = (JavascriptExecutor)driver;
+		wait.until(ExpectedConditions.elementToBeClickable(tab_shedulepayment));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", tab_shedulepayment);
-		
-		//tab_shedulepayment.click();
 	}
 
 	/*-------Search Carrier---------*/
 	public void searchCarrier(String cemail) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_searchbox));
+		field_searchbox.clear();
 		field_searchbox.sendKeys(cemail);
 	}
 
 	/*-------Search button---------*/
 	public void clickSearchButton() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(btn_search));
 		btn_search.click();
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	/*-------verify payment---------*/
 	public String verifyPaymentStatus() {
 		String actualpaystatus = paymentstatus.getText();
 		return actualpaystatus;
-
 	}
 
 	/*-------verify amount---------*/
 	public float verifyscheduledPayment() throws InterruptedException {
 
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(paymentstatus));
 		paymentstatus.click();
 		String scheduledamount = amount.getText();
 		schedule = scheduledamount.replaceAll("\\$", "");
@@ -196,14 +199,9 @@ public class ShipperAdvancePayment extends TestBase {
 	}
 	/*-------verify invoicenumber---------*/
 
-	public void verifyScheduledDate(String paymentdate, String loadidd) throws InterruptedException
-
-	{
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	public void verifyScheduledDate(String paymentdate, String loadidd) throws InterruptedException {
 
 		List<WebElement> loadiidscount = loadids;
-
-		// log.info(invoicenumcount);
 
 		log.info("Total loadids :" + loadiidscount.size());
 
@@ -217,9 +215,9 @@ public class ShipperAdvancePayment extends TestBase {
 			{
 				log.info(expectedloadid);
 				loadids.get(i).click();
-				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+				wait.until(ExpectedConditions.elementToBeClickable(expectedscheduldate));
 				scheduledate = expectedscheduldate.getText();
-				//Assert.assertEquals(scheduledate, paymentdate);
+				// Assert.assertEquals(scheduledate, paymentdate);
 
 				if (scheduledate.equalsIgnoreCase(paymentdate))
 
@@ -243,6 +241,7 @@ public class ShipperAdvancePayment extends TestBase {
 	}
 
 	public void logout() {
+		wait.until(ExpectedConditions.elementToBeClickable(btn_logout));
 		btn_logout.click();
 	}
 

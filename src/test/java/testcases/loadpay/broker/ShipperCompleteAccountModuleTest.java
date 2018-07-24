@@ -108,7 +108,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 
 		shippercompleteaccountmodule.clickAddNewContact();
 		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		Assert.assertTrue(shippercompleteaccountmodule.clcik_AddNewContact.isDisplayed());
+		Assert.assertTrue(shippercompleteaccountmodule.clickAddNewContact.isDisplayed());
 
 		shippercompleteaccountmodule.enterContactFirstName(ContactFN);
 		wait.until(ExpectedConditions.elementToBeClickable(tempElement));

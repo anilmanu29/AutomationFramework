@@ -38,16 +38,18 @@ public class BrokerPayMeNowTab extends TestBase {
 	}
 
 	public void openAccountTab() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(accountTab));
 		accountTab.click();
 	}
 
 	public void openPayMeNowTab() {
+		wait.until(ExpectedConditions.elementToBeClickable(payMeNowTab));
 		payMeNowTab.click();
 
 	}
 
 	public void enrollPayMeNow() {
+		wait.until(ExpectedConditions.elementToBeClickable(enrollInPayMeNow));
 		enrollInPayMeNow.click();
 
 	}

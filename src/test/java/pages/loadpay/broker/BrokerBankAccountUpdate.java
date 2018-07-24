@@ -14,7 +14,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import base.TestBase;
 import testcases.loadpay.broker.BrokerBankAccountUpdateTest;
 
-
 public class BrokerBankAccountUpdate extends TestBase {
 	WebDriverWait wait = null;
 	JavascriptExecutor js;
@@ -22,7 +21,7 @@ public class BrokerBankAccountUpdate extends TestBase {
 	String amount;
 	String pennyamount;
 	String pennyamountt;
-	int j=0;
+	int j = 0;
 	String pennyamt;
 	String pennyamounts;
 	String pennyamoun;
@@ -61,7 +60,7 @@ public class BrokerBankAccountUpdate extends TestBase {
 	private WebElement routingnum;
 
 	@FindBy(xpath = "//button[text()='Remove']")
-	private  List<WebElement> button_remove;
+	private List<WebElement> button_remove;
 
 	@FindBy(xpath = "//a[@class='btn btn-link menuOption'][contains(text(),'Banking')]")
 	private WebElement lnk_adminbanking;
@@ -83,13 +82,12 @@ public class BrokerBankAccountUpdate extends TestBase {
 
 	@FindBy(xpath = "//button[text()='Remove']//preceding::b[3]")
 	private List<WebElement> lists;
-	
+
 	@FindBy(xpath = "//input[@value='checking']")
 	private WebElement radiobtn_personalchecking;
 
 	@FindBy(xpath = "//input[@value='savings']")
 	private WebElement radiobtn_personalsaving;
-
 
 	public BrokerBankAccountUpdate() throws IOException {
 		PageFactory.initElements(driver, this);
@@ -98,98 +96,82 @@ public class BrokerBankAccountUpdate extends TestBase {
 	}
 
 	public void clickAccountlink() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_account));
 		js.executeScript("arguments[0].click();", lnk_account);
 	}
 
 	public void clickBankingLink() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_banking));
 		js.executeScript("arguments[0].click();", lnk_banking);
 	}
 
 	public void clickAddNewBankAccountLink() throws InterruptedException {
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_addnewbankaccount));
 		js.executeScript("arguments[0].click();", lnk_addnewbankaccount);
 	}
 
 	public String enterAccountName(String accname) throws InterruptedException {
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(field_accountname));
 		field_accountname.sendKeys(accname);
 		return accname;
 	}
 
 	public String enterRoutingNumber(String routingnum) throws InterruptedException {
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(field_routnumber));
 		field_routnumber.sendKeys(routingnum);
 		return routingnum;
 	}
 
 	public void enterAccountNumber(String accnum) throws InterruptedException {
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(field_accnum));
 		field_accnum.sendKeys(accnum);
 	}
 
 	public void enterConfirmAccountNumber(String confirmaccnum) throws InterruptedException {
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(field_confirmaccnum));
 		field_confirmaccnum.sendKeys(confirmaccnum);
 	}
-	
+
 	public void clickPersonalCheckingRadioButton() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(radiobtn_personalchecking));
 		js.executeScript("arguments[0].click();", radiobtn_personalchecking);
 	}
 
 	public void clickPersonalSavinggRadioButton() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(radiobtn_personalsaving));
 		js.executeScript("arguments[0].click();", radiobtn_personalsaving);
 	}
 
 	public void clickSaveButton() throws InterruptedException {
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(button_save));
 		js.executeScript("arguments[0].click();", button_save);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	public String verifyAccountName() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(accname));
 		return accname.getText();
 	}
 
 	public String verifyRoutingNumber() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(routingnum));
 		return routingnum.getText();
 	}
 
-
 	public void clickRemoveButton() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		for (int i = 0; i < lists.size(); i++) {
 			if (lists.get(i).getText().equalsIgnoreCase(BrokerBankAccountUpdateTest.routingnumber)) {
-				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				log.info(BrokerBankAccountUpdateTest.routingnumber);
-				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-				 j=i;
-				
+				j = i;
+
 				break;
 			}
 		}
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-			button_remove.get(j).click();
-			wait.until(ExpectedConditions.alertIsPresent());
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-			driver.switchTo().alert().accept();			
-		
+		wait.until(ExpectedConditions.elementToBeClickable(button_remove.get(j)));
+		button_remove.get(j).click();
+		wait.until(ExpectedConditions.alertIsPresent());
+		Thread.sleep(2000);
+		driver.switchTo().alert().accept();
+
 	}
 }

@@ -180,26 +180,29 @@ public class BrokerNewPayment extends TestBase {
 
 	/*-------Carrier email---------*/
 	public String carrierEmail(String cemail) throws InterruptedException {
-		field_CarrierEmail.click();
 		wait.until(ExpectedConditions.elementToBeClickable(field_CarrierEmail));
+		field_CarrierEmail.click();
 		field_CarrierEmail.sendKeys(cemail);
 		return cemail;
 	}
 
 	/*-------Amount---------*/
 	public String amount(String amt) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_PaymentAmount));
 		field_PaymentAmount.sendKeys(amt);
 		return amt;
 	}
 
 	/*-------Invoice number---------*/
 	public String invoiceNumber(String invoiceno) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_InvoiceNum));
 		field_InvoiceNum.sendKeys(invoiceno);
 		return invoiceno;
 	}
 
 	/*-------load id---------*/
 	public String loadId(String loadid) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_LoadID));
 		field_LoadID.sendKeys(loadid);
 		return loadid;
 	}
@@ -224,11 +227,13 @@ public class BrokerNewPayment extends TestBase {
 
 	/*-------Search Carrier---------*/
 	public void searchCarrier(String cemail) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_searchbox));
 		field_searchbox.sendKeys(cemail);
 	}
 
 	/*-------Search Invoice---------*/
 	public void searchInvoice(String invoiceNum) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_searchbox));
 		field_searchbox.sendKeys(invoiceNum);
 	}
 
@@ -318,6 +323,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_CarrierEmail(String carrierEmail) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_CarrierEmail));
 		this.field_CarrierEmail.clear();
 		this.field_CarrierEmail.sendKeys(carrierEmail);
 	}
@@ -327,6 +333,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_PayTo(String payTo) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_PayTo));
 		this.field_PayTo.clear();
 		this.field_PayTo.sendKeys(payTo);
 	}
@@ -336,6 +343,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_CarrierDOT(String carrierDOT) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_CarrierDOT));
 		this.field_CarrierDOT.clear();
 		this.field_CarrierDOT.sendKeys(carrierDOT);
 	}
@@ -345,6 +353,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_ScheduleDate(String scheduleDate) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_ScheduleDate));
 		this.field_ScheduleDate.clear();
 		this.field_ScheduleDate.click();
 		this.field_ScheduleDate.sendKeys(scheduleDate);
@@ -356,6 +365,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_PaymentAmount(String paymentAmount) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_PaymentAmount));
 		this.field_PaymentAmount.clear();
 		this.field_PaymentAmount.sendKeys(paymentAmount);
 	}
@@ -365,6 +375,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_InvoiceNum(String invoiceNum) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_InvoiceNum));
 		this.field_InvoiceNum.clear();
 		this.field_InvoiceNum.sendKeys(invoiceNum);
 	}
@@ -374,6 +385,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_LoadID(String loadID) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_LoadID));
 		this.field_LoadID.clear();
 		this.field_LoadID.sendKeys(loadID);
 	}
@@ -383,6 +395,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_InvoiceRecd(String invoiceRecd) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_InvoiceRecd));
 		this.field_InvoiceRecd.clear();
 		this.field_InvoiceRecd.click();
 		this.field_InvoiceRecd.sendKeys(invoiceRecd);
@@ -394,6 +407,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_Memo(String memo) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_Memo));
 		this.field_Memo.clear();
 		this.field_Memo.sendKeys(memo);
 	}
@@ -403,6 +417,8 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setCheckbox_AdvancePayment(String advancePayment) {
+
+		wait.until(ExpectedConditions.elementToBeClickable(checkbox_AdvancePayment));
 
 		if (advancePayment.equalsIgnoreCase("true") && !this.checkbox_AdvancePayment.isSelected()) {
 			this.checkbox_AdvancePayment.click();
@@ -416,6 +432,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setDropdown_OriginCountry(String originCountry) {
+		wait.until(ExpectedConditions.elementToBeClickable(dropdown_OriginCountry));
 		this.dropdown_OriginCountry.sendKeys(originCountry);
 	}
 
@@ -424,6 +441,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_OriginCity(String originCity) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_OriginCity));
 		this.field_OriginCity.clear();
 		this.field_OriginCity.sendKeys(originCity);
 	}
@@ -433,6 +451,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setDropdown_OriginState(String originState) {
+		wait.until(ExpectedConditions.elementToBeClickable(dropdown_OriginState));
 		this.dropdown_OriginState.sendKeys(originState);
 	}
 
@@ -441,6 +460,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_OriginZip(String originZip) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_OriginZip));
 		this.field_OriginZip.clear();
 		this.field_OriginZip.sendKeys(originZip);
 	}
@@ -450,6 +470,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setDropdown_DestinationCountry(String destinationCountry) {
+		wait.until(ExpectedConditions.elementToBeClickable(dropdown_DestinationCountry));
 		this.dropdown_DestinationCountry.sendKeys(destinationCountry);
 	}
 
@@ -458,6 +479,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_DestinationCity(String destinationCity) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_DestinationCity));
 		this.field_DestinationCity.clear();
 		this.field_DestinationCity.sendKeys(destinationCity);
 	}
@@ -467,6 +489,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setDropdown_DestinationState(String destinationState) {
+		wait.until(ExpectedConditions.elementToBeClickable(dropdown_DestinationState));
 		this.dropdown_DestinationState.sendKeys(destinationState);
 	}
 
@@ -475,6 +498,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_DestinationZip(String destinationZip) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_DestinationZip));
 		this.field_DestinationZip.clear();
 		this.field_DestinationZip.sendKeys(destinationZip);
 	}
@@ -484,6 +508,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setDropdown_TrailerType(String trailerType) {
+		wait.until(ExpectedConditions.elementToBeClickable(dropdown_TrailerType));
 		this.dropdown_TrailerType.sendKeys(trailerType);
 	}
 
@@ -492,6 +517,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_Miles(String miles) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_Miles));
 		this.field_Miles.clear();
 		this.field_Miles.sendKeys(miles);
 	}
@@ -501,6 +527,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_PickupDate(String pickupDate) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_PickupDate));
 		this.field_PickupDate.clear();
 		this.field_PickupDate.click();
 		this.field_PickupDate.sendKeys(pickupDate);
@@ -512,6 +539,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_DeliveryDate(String deliveryDate) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_DeliveryDate));
 		this.field_DeliveryDate.clear();
 		this.field_DeliveryDate.click();
 		this.field_DeliveryDate.sendKeys(deliveryDate);
@@ -523,6 +551,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_Commodity(String commodity) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_Commodity));
 		this.field_Commodity.clear();
 		this.field_Commodity.sendKeys(commodity);
 	}
@@ -532,6 +561,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_Length(String length) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_Length));
 		this.field_Length.clear();
 		this.field_Length.sendKeys(length);
 	}
@@ -541,6 +571,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_Width(String width) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_Width));
 		this.field_Width.clear();
 		this.field_Width.sendKeys(width);
 	}
@@ -550,6 +581,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_Height(String height) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_Height));
 		this.field_Height.clear();
 		this.field_Height.sendKeys(height);
 	}
@@ -559,6 +591,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_Weight(String weight) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_Weight));
 		this.field_Weight.clear();
 		this.field_Weight.sendKeys(weight);
 	}
@@ -568,6 +601,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_NumberOfStops(String numberOfStops) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_NumberOfStops));
 		this.field_NumberOfStops.clear();
 		this.field_NumberOfStops.sendKeys(numberOfStops);
 	}
@@ -577,6 +611,7 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	public void setField_FuelSurcharge(String fuelSurcharge) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_FuelSurcharge));
 		this.field_FuelSurcharge.clear();
 		this.field_FuelSurcharge.sendKeys(fuelSurcharge);
 	}

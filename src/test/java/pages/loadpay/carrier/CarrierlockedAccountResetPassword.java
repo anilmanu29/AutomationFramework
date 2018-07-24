@@ -75,57 +75,52 @@ public class CarrierlockedAccountResetPassword extends TestBase {
 		WebElement infoMessage;
 		Integer retryCount = 0;
 		Integer maxRetryCount = 300;
-		
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
+		Thread.sleep(1000);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(2));
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 
 		WebElement searchField = driver.findElement(By.xpath("//span[text()='Search mail and people']"));
+		wait.until(ExpectedConditions.elementToBeClickable(searchField));
 		searchField.click();
 
 		searchInput = driver.findElement(By.xpath("//input[@aria-label='Search. Press Enter to Start Searching.']"));
 		searchButton = driver.findElement(By.xpath("//button[@aria-label='Start search']"));
 
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(searchInput));
 		searchInput.sendKeys(emailaddress);
+		wait.until(ExpectedConditions.elementToBeClickable(searchButton));
 		searchButton.click();
 
 		infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
 		log.info("Info message text: " + infoMessage.getText());
-		
+
 		while ((infoMessage.isDisplayed() || checkEmailTimeStamp(hour, minutes)) && (retryCount < maxRetryCount)) {
+			wait.until(ExpectedConditions.elementToBeClickable(searchButton));
 			searchButton.click();
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
 			retryCount++;
 		}
-		
 
 		emailid = driver.findElement(By.xpath("//*[@id='ItemHeader.ToContainer']/div/div/div/span/span/div/span[2]"));
 
 		log.info("Email ID text: " + emailid.getText());
 		Assert.assertTrue(emailid.getText().equalsIgnoreCase(emailaddress + ";"), "Email ID not found!");
-
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	public void handleUpdatedEmailInbox(String emailaddress) throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-
 		List<WebElement> list = driver
 				.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
 
 		for (WebElement e : list) {
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			wait.until(ExpectedConditions.elementToBeClickable(e));
 			e.click();
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			wait.until(ExpectedConditions.elementToBeClickable(emailid));
 			log.info(emailid.getText());
 			if (emailid.getText().equalsIgnoreCase(emailaddress + ";")) {
-				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				wait.until(ExpectedConditions.elementToBeClickable(buttonresetpassword));
 				js.executeScript("arguments[0].click();", buttonresetpassword);
-				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				break;
 			}
 
@@ -134,9 +129,8 @@ public class CarrierlockedAccountResetPassword extends TestBase {
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(3));
 	}
-	
-	private Boolean checkEmailTimeStamp(String hour, String minutes)
-	{
+
+	private Boolean checkEmailTimeStamp(String hour, String minutes) {
 		WebElement emailTimeStamp;
 		String emailTime = "";
 		Integer approximateHour = 0;
@@ -144,32 +138,29 @@ public class CarrierlockedAccountResetPassword extends TestBase {
 		Integer actualHour = 0;
 		Integer actualMinutes = 0;
 		String[] timeParser;
-		
+
 		emailTimeStamp = driver.findElement(By.id("ItemHeader.DateReceivedLabel"));
 		emailTime = emailTimeStamp.getText();
-		emailTime = emailTime.substring(emailTime.length()-8, emailTime.length());
+		emailTime = emailTime.substring(emailTime.length() - 8, emailTime.length());
 		log.info("\n\n\nEmail time: " + emailTime);
 		timeParser = emailTime.split(":");
 		timeParser[0] = timeParser[0].trim();
 		timeParser[1] = timeParser[1].trim();
 		timeParser[1] = timeParser[1].substring(0, 2);
-		
+
 		approximateHour = Integer.parseInt(hour);
 		approximateMinutes = Integer.parseInt(minutes);
 		log.info("Approx Hours: " + approximateHour);
 		log.info("Approx Minutes: " + approximateMinutes);
-		
+
 		actualHour = Integer.parseInt(timeParser[0]);
 		actualMinutes = Integer.parseInt(timeParser[1]);
 		log.info("Actual Hours: " + actualHour);
 		log.info("Actual Minutes: " + actualMinutes);
-		
-		if((approximateHour != actualHour) || (actualMinutes < approximateMinutes))
-		{
-			return true;	
-		}
-		else
-		{
+
+		if ((approximateHour != actualHour) || (actualMinutes < approximateMinutes)) {
+			return true;
+		} else {
 			return false;
 		}
 	}

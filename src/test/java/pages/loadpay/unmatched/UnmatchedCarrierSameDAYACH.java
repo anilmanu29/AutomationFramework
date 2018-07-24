@@ -12,7 +12,6 @@ import base.TestBase;
 import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
 import testcases.loadpay.unmatched.UnmatchedCarrierOutlooksameDayTest;
 
-
 public class UnmatchedCarrierSameDAYACH extends TestBase {
 
 	WebDriverWait wait = null;
@@ -21,19 +20,18 @@ public class UnmatchedCarrierSameDAYACH extends TestBase {
 	String amtsamedayach;
 	String amtbeforepaidsameday;
 	float amtbeforesamedayach;
-	 String amtsamedayachh;
-	 String amtsmdayach;
-	 float amttsamedayach;
-	 float total;
-	 String totalamount;
-	 String totalamountt;
-	 String amtbeforepaidsmday;
-	 String amtbefore ;
-	 String paymenowfe;
-	 String paymenow;
-	 String paymenowfeee;
-	 float paymenowf;
-	 
+	String amtsamedayachh;
+	String amtsmdayach;
+	float amttsamedayach;
+	float total;
+	String totalamount;
+	String totalamountt;
+	String amtbeforepaidsmday;
+	String amtbefore;
+	String paymenowfe;
+	String paymenow;
+	String paymenowfeee;
+	float paymenowf;
 
 	@FindBy(xpath = ".//*[@class='getpaid']")
 	private WebElement btn_paymenow;
@@ -46,19 +44,19 @@ public class UnmatchedCarrierSameDAYACH extends TestBase {
 
 	@FindBy(xpath = "//*[@class='title ng-binding'][text()='PAID']")
 	private WebElement tab_paid;
-	
+
 	@FindBy(xpath = "//*[@id='angularScope']/div[2]/div/div[3]/ul/li[3]/a/div/div[1]/div[2]/span[1]")
 	private WebElement paidamt;
-	
+
 	@FindBy(xpath = "//*[@id='paymentOptionsDiv']/div[3]/div[1]/div[3]/p/span")
 	private WebElement samedayamt;
-	
+
 	@FindBy(xpath = ".//*[@id='paymentOptionsDiv']/div[3]/div[1]/div[5]/span[3]//following::text()[1]")
 	private WebElement paymenowfee;
-	
+
 	@FindBy(xpath = ".//*[@id='angularScope']/div[2]/div/div[3]/ul/li[1]/a/div/div/div[2]/span[2]")
 	private WebElement paymenowtab;
-	
+
 	@FindBy(xpath = "//input[@id='UserName']")
 	WebElement UserName;
 
@@ -67,62 +65,43 @@ public class UnmatchedCarrierSameDAYACH extends TestBase {
 
 	@FindBy(xpath = "//input[contains(@type,'submit')]")
 	WebElement loginBtn;
-	
-	
+
 	public UnmatchedCarrierSameDAYACH() {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 30);
 		act = new Actions(driver);
 	}
-	
+
 	public void carrierLogin() {
 		UserName.sendKeys(BrokerPaymentforUnmatchedCarrierTest.al.get(0));
 		Password.sendKeys(UnmatchedCarrierOutlooksameDayTest.pwd);
 		loginBtn.click();
-	} 
- 
-	
-	public void  getAmount() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		amtbeforepaidsameday = paidamt.getText();
-		 amtbeforepaidsmday = amtbeforepaidsameday.replaceAll("\\$", "");
-		 amtbefore = amtbeforepaidsmday.replaceAll(",", "");	
-		 log.info(amtbeforepaidsmday);
-		 amtbeforesamedayach = Float.parseFloat(amtbefore);
-		 log.info(amtbeforesamedayach);
 	}
-	
-	
+
+	public void getAmount() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(paidamt));
+		amtbeforepaidsameday = paidamt.getText();
+		amtbeforepaidsmday = amtbeforepaidsameday.replaceAll("\\$", "");
+		amtbefore = amtbeforepaidsmday.replaceAll(",", "");
+		log.info(amtbeforepaidsmday);
+		amtbeforesamedayach = Float.parseFloat(amtbefore);
+		log.info(amtbeforesamedayach);
+	}
+
 	public void clickPaymenow() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_paymenow));
 		btn_paymenow.click();
 	}
 
-
 	public void getsamedayAmount() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(samedayamt));
-		 amtsamedayach = samedayamt.getText();
-		 amtsamedayachh = amtsamedayach.replaceAll("\\$", "");
-		 amtsmdayach = amtsamedayachh.replaceAll(",", "");	
-		 amttsamedayach = Float.parseFloat(amtsmdayach);
-		 log.info(amttsamedayach);	
-		 
-//		paymenowfe =paymenowfee.getText();
-//		paymenow=paymenowfe.replaceAll("\\$", "");
-//		paymenowfeee= paymenow.replaceAll(",", "");
-//		paymenowf = Float.parseFloat(paymenowfeee);
-//		 log.info(paymenowf);	
-//		 
-//		 achtransfees= 	achtransfee.getText();
-//		 achtrafee= achtransfees.replaceAll("\\$", "");
-//		achfee =  achtrafee.replaceAll(",", "");
-//		achtrans = Float.parseFloat(achfee);
-//		log.info(achtrans);
-		
-		 
-		 
+		amtsamedayach = samedayamt.getText();
+		amtsamedayachh = amtsamedayach.replaceAll("\\$", "");
+		amtsmdayach = amtsamedayachh.replaceAll(",", "");
+		amttsamedayach = Float.parseFloat(amtsmdayach);
+		log.info(amttsamedayach);
 	}
-	
+
 	public void clickSelectButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_selectnextdayach));
 		btn_selectnextdayach.click();
@@ -138,23 +117,19 @@ public class UnmatchedCarrierSameDAYACH extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(tab_paid));
 		act.moveToElement(tab_paid).click().perform();
 	}
-	
+
 	public void gettotalpaiyAmount() throws InterruptedException {
-		//wait.until(ExpectedConditions.elementToBeClickable(paidamt));
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		 totalamt = paidamt.getText();
-		 totalamount =  totalamt.replaceAll("\\$", "");
-		 totalamountt =	totalamount.replaceAll(",", "");	
-		 total = Float.parseFloat(totalamountt);
-		 log.info(total);	
-		 
-		
+		wait.until(ExpectedConditions.elementToBeClickable(paidamt));
+		totalamt = paidamt.getText();
+		totalamount = totalamt.replaceAll("\\$", "");
+		totalamountt = totalamount.replaceAll(",", "");
+		total = Float.parseFloat(totalamountt);
+		log.info(total);
 	}
+
 	public void verifySamedayach() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		amttsamedayach = (total - amtbeforesamedayach);
 		log.info(amttsamedayach);
-	
+
 	}
 }
-

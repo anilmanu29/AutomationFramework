@@ -56,25 +56,14 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 	@FindBy(xpath = "//div[@id='page-main']//child::*[text()='Email Verified']")
 	WebElement emailverifymessage;
 
-	// @FindBy(xpath =
-	// "html/body/div[2]/div/div[3]/div[3]/div/div[1]/div[2]/div[4]/div/div/div[1]/div/div/button")
-	// WebElement fieldsearch;
-
 	@FindBy(xpath = "//button[@type='button'][@aria-label='Activate Search Textbox']")
 	WebElement fieldsearch;
-	//
-	// @FindBy(xpath =
-	// "html/body/div[2]/div/div[3]/div[3]/div/div[1]/div[2]/div[4]/div/div/div[1]/div/div/div/div[1]/form/div/input")
-	// WebElement fieldsearchinput;
 
 	@FindBy(xpath = "//input[@aria-label='Search. Press Enter to Start Searching.']")
 	WebElement fieldsearchinput;
 
 	@FindBy(xpath = ".//*[contains(@class,'lvHighlightAllClass')]//following::*[text()='Verify your email address']")
 	WebElement verifyImailMail;
-
-	// @FindBy(xpath = "//div[@role='option']//child::span[2]")
-	// WebElement keyword;
 
 	@FindBy(xpath = "//button[@aria-label='Start search']")
 	WebElement btnsearch;
@@ -89,20 +78,28 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 	WebElement btn_carrier;
 
 	WebElement Dotnumber;
+
 	@FindBy(xpath = ".//*[@id='Name'] ")
 	WebElement CompanyName;
+
 	@FindBy(xpath = ".//*[@id='DoingBusinessAs'] ")
 	WebElement doingbussiness;
+
 	@FindBy(xpath = ".//*[@id='EntityType']")
 	WebElement TypeofEntity;
+
 	@FindBy(xpath = ".//*[@id='IncorporationCountry'] ")
 	WebElement countryIncorporation;
+
 	@FindBy(xpath = ".//*[@id='IncorporationState']")
 	WebElement stateIncorporation;
+
 	@FindBy(xpath = ".//*[@id='Registration_User_UserName']")
 	WebElement Email;
+
 	@FindBy(xpath = " .//*[@id='Registration_User_UserNameConfirm']")
 	WebElement confirmEmail;
+
 	@FindBy(xpath = " .//*[@id='ICertify']")
 	WebElement Icertify;
 
@@ -111,33 +108,46 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 
 	@FindBy(xpath = ".//*[@id='formCompany']/div/div[12]/div/div/input ")
 	WebElement Next;
+
 	@FindBy(xpath = "//input[@id='ZipCode']")
 	WebElement ZipCode;
+
 	@FindBy(xpath = "//select[@id='OriginCountry']")
 	WebElement Country;
+
 	@FindBy(xpath = "//input[@id='StreetAddress']")
 	WebElement address;
+
 	@FindBy(xpath = "//input[@id='City']")
 	WebElement city;
+
 	@FindBy(xpath = "//select[@id='State']")
 	WebElement State;
+
 	@FindBy(xpath = "//input[@type='submit']")
 	WebElement submit;
 
 	@FindBy(xpath = "//input[@id='ContactFirstName']")
 	WebElement ContactFirstName;
+
 	@FindBy(xpath = "//input[contains(@id,'LastName')]")
 	WebElement LastName;
+
 	@FindBy(xpath = "//input[contains(@id,'Phone')]")
 	WebElement Phone;
+
 	@FindBy(xpath = "//input[contains(@id,'Ext')]")
 	WebElement Ext;
+
 	@FindBy(xpath = "//input[contains(@id,'Mobile')]")
 	WebElement Mobile;
+
 	@FindBy(xpath = "//input[contains(@id,'Password')]")
 	WebElement Passwordd;
+
 	@FindBy(xpath = "//input[contains(@id,'ConfirmPassword')]")
 	WebElement ConfirmPassword;
+
 	@FindBy(xpath = "//input[@type='submit']")
 	WebElement submit1;
 
@@ -149,8 +159,10 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 
 	@FindBy(xpath = "//input[@id='BankingAccount']")
 	WebElement BankingAccount;
+
 	@FindBy(xpath = "//input[@id='ConfirmBankingAccount']")
 	WebElement ConfirmBankingAccount;
+
 	@FindBy(xpath = "//input[@type='submit']")
 	WebElement submit2;
 
@@ -170,7 +182,6 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 	}
 
 	public void clickPopUp() throws InterruptedException {
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(fieldSearchMail));
 		fieldSearchMail.click();
 		wait.until(ExpectedConditions.elementToBeClickable(haspopup));
@@ -198,17 +209,6 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 		}
 	}
 
-	/*
-	 * public void enterEmail(String email) throws InterruptedException {
-	 * fieldTextbox.sendKeys(email);
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * searchSuggestion.click(); }
-	 */
-
-	/*
-	 * public void clickOpen() { buttonOpen.click(); }
-	 */
-
 	public void handleNewInbox() throws InterruptedException {
 		Thread.sleep(1000);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
@@ -231,26 +231,7 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 				linkVerify.click();
 				break;
 			}
-
 		}
-
-		// JavascriptExecutor js = (JavascriptExecutor) driver;
-		// js.executeScript("arguments[0].click();", fieldsearch);
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		// fieldsearchinput.sendKeys(BrokerPaymentforUnmatchedCarrierTest.umemail);
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		// //fieldsearchinput.sendKeys(Keys.ENTER);
-		// JavascriptExecutor jc = (JavascriptExecutor) driver;
-		// jc.executeScript("arguments[0].click();", btnsearch);
-		// wait.until(ExpectedConditions.elementToBeClickable(x5000);
-		// fieldsearchinput.sendKeys(Keys.ENTER);
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		/*
-		 * verifyEmail.click();
-		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		 * linkVerify.click();
-		 */
-
 	}
 
 	public void switchtoCarrieregistration() throws InterruptedException {
@@ -267,6 +248,7 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 
 	public void dotnumber(String Dot) {
 		wait.until(ExpectedConditions.elementToBeClickable(Dotnumber));
+		Dotnumber.clear();
 		Dotnumber.sendKeys(Dot);
 	}
 

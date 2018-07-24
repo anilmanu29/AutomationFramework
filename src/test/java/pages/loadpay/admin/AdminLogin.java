@@ -72,67 +72,83 @@ public class AdminLogin extends TestBase {
 	}
 
 	public void adminUserPass(String Username, String pass) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(UserName));
 		UserName.sendKeys(Username);
+		wait.until(ExpectedConditions.elementToBeClickable(Password));
 		Password.sendKeys(pass);
 
 	}
 
 	public void adminLogin() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
 		loginBtn.click();
 	}
 
 	public void AdminLogOut() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(logOut));
 		logOut.click();
 	}
 
 	public void ClickOnCreditTab() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(CreditTab));
 		CreditTab.click();
 	}
 
 	public void ClickOnCreditSubmitButton() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(CreditSubmit));
 		CreditSubmit.click();
 	}
 
 	public void EnterExtendedCredit(String CreditAmount) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(ExtendedCredit));
 		ExtendedCredit.click();
 		ExtendedCredit.clear();
 		ExtendedCredit.sendKeys(CreditAmount);
 	}
 
 	public void ClickOnCustomersTab() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(CustomerTab));
 		CustomerTab.click();
 	}
 
 	public void ClickOnSearchBox(String keyword) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(search));
 		search.click();
 		search.sendKeys(keyword);
 	}
 
 	public void ClickOnSearchButton() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(ClickonSearchButton));
 		ClickonSearchButton.click();
 	}
 
 	public void DoubleClickID() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(DoubleClickID));
 		DoubleClickID.click();
 	}
 
 	public void clickCustomerId() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(CustomerId));
 		CustomerId.click();
 	}
 
 	public void clickeditloginuser() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(editloginuser));
 		editloginuser.click();
 	}
 
 	public void click_AdminResetPassword() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(clickAdmin_ResetPassword));
 		clickAdmin_ResetPassword.click();
 	}
 
 	public void clickAdmin_ResetpwdConfirm() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(click_AdminResetpwdConfirm));
 		click_AdminResetpwdConfirm.click();
 	}
 
 	public void clickCancelLockout() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(CancelLockout));
 		CancelLockout.click();
 	}
 
@@ -145,6 +161,7 @@ public class AdminLogin extends TestBase {
 	}
 
 	public void UpdateButton() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(updateButton));
 		updateButton.click();
 	}
 

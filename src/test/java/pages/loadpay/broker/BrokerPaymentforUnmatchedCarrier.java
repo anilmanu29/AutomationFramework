@@ -98,69 +98,73 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 
 	/*-------New Payment---------*/
 	public void newPayment() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(lnk_newpayment));
 		lnk_newpayment.click();
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	/*-------Carrier email---------*/
 	public void carrierEmail(String cemail) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(field_carrieremail));
 		field_carrieremail.click();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		field_carrieremail.sendKeys(cemail);
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	/*-------Amount---------*/
 	public String amount(String amt) throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(field_amount));
 		field_amount.sendKeys(amt);
 		return amt;
 	}
 
 	/*-------Invoicenumber---------*/
 	public String invoiceNumber(String invoiceno) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_invoicenum));
 		field_invoicenum.sendKeys(invoiceno);
 		return invoiceno;
 	}
 
 	/*-------load id---------*/
 	public String loadId(String loadid) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_loadid));
 		field_loadid.sendKeys(loadid);
 		return loadid;
 	}
 
 	public void companyName(String payto) {
+		wait.until(ExpectedConditions.elementToBeClickable(companyname));
 		companyname.sendKeys(payto);
 
 	}
 
 	/*-------advance checkbox---------*/
 	public void advanceCheckbox() {
+		wait.until(ExpectedConditions.elementToBeClickable(checkbox_advance));
 		checkbox_advance.click();
 	}
 
 	/*-------schedule paymet---------*/
 	public void clickShedulePayment() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(button_schedule));
 		button_schedule.click();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-
 	}
 
 	/*-------schedule payment tab---------*/
 	public void clickShedulePaymenttab() {
+		wait.until(ExpectedConditions.elementToBeClickable(tab_shedulepayment));
 		tab_shedulepayment.click();
 	}
 
 	/*-------Search Carrier---------*/
 	public String searchCarrier(String cemail) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_searchbox));
 		field_searchbox.sendKeys(cemail);
 		return cemail;
 	}
 
 	/*-------Search button---------*/
 	public void clickSearchButton() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(btn_search));
 		btn_search.click();
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	/*-------verify payment---------*/
@@ -173,7 +177,7 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 	/*-------verify amount---------*/
 	public String verifyscheduledPayment() throws InterruptedException {
 
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(paymentstatus));
 		paymentstatus.click();
 		String scheduledamount = amount.getText();
 		log.info(scheduledamount);
@@ -181,49 +185,29 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 	}
 	/*-------verify invoicenumber---------*/
 
-	public void verifyInvoiceNumber(String invoicenum, String amt) throws InterruptedException
-
-	{
-
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	public void verifyInvoiceNumber(String invoicenum, String amt) throws InterruptedException {
 
 		List<WebElement> invoicenumcount = List_payment;
-
-		// log.info(invoicenumcount);
-
 		log.info("Total Sceduled Payments:" + invoicenumcount.size());
 
-		for (int i = 0; i < invoicenumcount.size(); i++)
-
-		{
-
+		for (int i = 0; i < invoicenumcount.size(); i++) {
 			String invoice = invoicenumcount.get(i).getText();
 
-			if (invoice.contains(invoicenum))
-
-			{
+			if (invoice.contains(invoicenum)) {
 
 				log.info(invoice);
-
 				invoicenumcount.get(i).click();
 
-				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-
+				wait.until(ExpectedConditions.elementToBeClickable(amount));
 				scheduledamount = amount.getText();
 
-				if (scheduledamount.contains(amt))
-
-				{
-
+				if (scheduledamount.contains(amt)) {
 					log.info("Amount is :" + "" + scheduledamount);
-
 				}
 
 				break;
-
 			}
 		}
-
 	}
 
 	/*-------verify loadid---------*/
@@ -239,6 +223,5 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 		return ein;
 
 	}
-	
-	
+
 }

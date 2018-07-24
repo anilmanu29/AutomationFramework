@@ -56,25 +56,14 @@ public class UnmatchedCarrierOutlook extends TestBase {
 	@FindBy(xpath = "//div[@id='page-main']//child::*[text()='Email Verified']")
 	WebElement emailverifymessage;
 
-	// @FindBy(xpath =
-	// "html/body/div[2]/div/div[3]/div[3]/div/div[1]/div[2]/div[4]/div/div/div[1]/div/div/button")
-	// WebElement fieldsearch;
-
 	@FindBy(xpath = "//button[@type='button'][@aria-label='Activate Search Textbox']")
 	WebElement fieldsearch;
-	//
-	// @FindBy(xpath =
-	// "html/body/div[2]/div/div[3]/div[3]/div/div[1]/div[2]/div[4]/div/div/div[1]/div/div/div/div[1]/form/div/input")
-	// WebElement fieldsearchinput;
 
 	@FindBy(xpath = "//input[@aria-label='Search. Press Enter to Start Searching.']")
 	WebElement fieldsearchinput;
 
 	@FindBy(xpath = ".//*[contains(@class,'lvHighlightAllClass')]//following::*[text()='Verify your email address']")
 	WebElement verifyImailMail;
-
-	// @FindBy(xpath = "//div[@role='option']//child::span[2]")
-	// WebElement keyword;
 
 	@FindBy(xpath = "//button[@aria-label='Start search']")
 	WebElement btnsearch;
@@ -89,20 +78,28 @@ public class UnmatchedCarrierOutlook extends TestBase {
 	WebElement btn_carrier;
 
 	WebElement Dotnumber;
+
 	@FindBy(xpath = ".//*[@id='Name'] ")
 	WebElement CompanyName;
+
 	@FindBy(xpath = ".//*[@id='DoingBusinessAs'] ")
 	WebElement doingbussiness;
+
 	@FindBy(xpath = ".//*[@id='EntityType']")
 	WebElement TypeofEntity;
+
 	@FindBy(xpath = ".//*[@id='IncorporationCountry'] ")
 	WebElement countryIncorporation;
+
 	@FindBy(xpath = ".//*[@id='IncorporationState']")
 	WebElement stateIncorporation;
+
 	@FindBy(xpath = ".//*[@id='Registration_User_UserName']")
 	WebElement Email;
+
 	@FindBy(xpath = " .//*[@id='Registration_User_UserNameConfirm']")
 	WebElement confirmEmail;
+
 	@FindBy(xpath = " .//*[@id='ICertify']")
 	WebElement Icertify;
 
@@ -111,33 +108,46 @@ public class UnmatchedCarrierOutlook extends TestBase {
 
 	@FindBy(xpath = ".//*[@id='formCompany']/div/div[12]/div/div/input ")
 	WebElement Next;
+
 	@FindBy(xpath = "//input[@id='ZipCode']")
 	WebElement ZipCode;
+
 	@FindBy(xpath = "//select[@id='OriginCountry']")
 	WebElement Country;
+
 	@FindBy(xpath = "//input[@id='StreetAddress']")
 	WebElement address;
+
 	@FindBy(xpath = "//input[@id='City']")
 	WebElement city;
+
 	@FindBy(xpath = "//select[@id='State']")
 	WebElement State;
+
 	@FindBy(xpath = "//input[@type='submit']")
 	WebElement submit;
 
 	@FindBy(xpath = "//input[@id='ContactFirstName']")
 	WebElement ContactFirstName;
+
 	@FindBy(xpath = "//input[contains(@id,'LastName')]")
 	WebElement LastName;
+
 	@FindBy(xpath = "//input[contains(@id,'Phone')]")
 	WebElement Phone;
+
 	@FindBy(xpath = "//input[contains(@id,'Ext')]")
 	WebElement Ext;
+
 	@FindBy(xpath = "//input[contains(@id,'Mobile')]")
 	WebElement Mobile;
+
 	@FindBy(xpath = "//input[contains(@id,'Password')]")
 	WebElement Passwordd;
+
 	@FindBy(xpath = "//input[contains(@id,'ConfirmPassword')]")
 	WebElement ConfirmPassword;
+
 	@FindBy(xpath = "//input[@type='submit']")
 	WebElement submit1;
 
@@ -149,8 +159,10 @@ public class UnmatchedCarrierOutlook extends TestBase {
 
 	@FindBy(xpath = "//input[@id='BankingAccount']")
 	WebElement BankingAccount;
+
 	@FindBy(xpath = "//input[@id='ConfirmBankingAccount']")
 	WebElement ConfirmBankingAccount;
+
 	@FindBy(xpath = "//input[@type='submit']")
 	WebElement submit2;
 
@@ -170,7 +182,6 @@ public class UnmatchedCarrierOutlook extends TestBase {
 	}
 
 	public void clickPopUp() throws InterruptedException {
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		wait.until(ExpectedConditions.elementToBeClickable(fieldSearchMail));
 		fieldSearchMail.click();
 		wait.until(ExpectedConditions.elementToBeClickable(haspopup));
@@ -178,6 +189,7 @@ public class UnmatchedCarrierOutlook extends TestBase {
 	}
 
 	public void clickOpenMailBox() {
+		wait.until(ExpectedConditions.elementToBeClickable(lnkopenanothermail));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", lnkopenanothermail);
 
@@ -197,17 +209,6 @@ public class UnmatchedCarrierOutlook extends TestBase {
 			buttonOpen.click();
 		}
 	}
-
-	/*
-	 * public void enterEmail(String email) throws InterruptedException {
-	 * fieldTextbox.sendKeys(email);
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * searchSuggestion.click(); }
-	 */
-
-	/*
-	 * public void clickOpen() { buttonOpen.click(); }
-	 */
 
 	public void handleNewInbox() throws InterruptedException {
 		Thread.sleep(1000);
@@ -232,26 +233,7 @@ public class UnmatchedCarrierOutlook extends TestBase {
 				linkVerify.click();
 				break;
 			}
-
 		}
-
-		// JavascriptExecutor js = (JavascriptExecutor) driver;
-		// js.executeScript("arguments[0].click();", fieldsearch);
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		// fieldsearchinput.sendKeys(BrokerPaymentforUnmatchedCarrierTest.umemail);
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		// //fieldsearchinput.sendKeys(Keys.ENTER);
-		// JavascriptExecutor jc = (JavascriptExecutor) driver;
-		// jc.executeScript("arguments[0].click();", btnsearch);
-		// wait.until(ExpectedConditions.elementToBeClickable(x5000);
-		// fieldsearchinput.sendKeys(Keys.ENTER);
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		/*
-		 * verifyEmail.click();
-		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		 * linkVerify.click();
-		 */
-
 	}
 
 	public void switchtoCarrieregistration() throws InterruptedException {
@@ -268,46 +250,60 @@ public class UnmatchedCarrierOutlook extends TestBase {
 
 	public void dotnumber(String Dot) {
 		wait.until(ExpectedConditions.elementToBeClickable(Dotnumber));
+		Dotnumber.clear();
 		Dotnumber.sendKeys(Dot);
 	}
 
 	public void companyname(String Company) {
+		wait.until(ExpectedConditions.elementToBeClickable(CompanyName));
+		CompanyName.clear();
 		CompanyName.sendKeys(Company);
 	}
 
 	public void doingbussiness(String doingBussiness) {
+		wait.until(ExpectedConditions.elementToBeClickable(doingbussiness));
+		doingbussiness.clear();
 		doingbussiness.sendKeys(doingBussiness);
 	}
 
 	public void selectType() {
+		wait.until(ExpectedConditions.elementToBeClickable(TypeofEntity));
 		TypeofEntity.click();
 
 	}
 
 	public void countryofincorporation() {
+		wait.until(ExpectedConditions.elementToBeClickable(countryIncorporation));
 		countryIncorporation.click();
 	}
 
 	public void stateofincorporation() {
+		wait.until(ExpectedConditions.elementToBeClickable(stateIncorporation));
 		stateIncorporation.click();
 	}
 
 	public String CarrierEmail(String email) {
+		wait.until(ExpectedConditions.elementToBeClickable(Email));
+		Email.clear();
 		Email.sendKeys(email);
 
 		return email;
 	}
 
 	public void confirmEmail(String ConfirmEmail) {
+		wait.until(ExpectedConditions.elementToBeClickable(confirmEmail));
+		confirmEmail.clear();
 		confirmEmail.sendKeys(ConfirmEmail);
 
 	}
 
 	public void iCertifyClick() {
+		wait.until(ExpectedConditions.elementToBeClickable(Icertify));
 		Icertify.click();
 	}
 
 	public void paymentTerm() {
+		wait.until(ExpectedConditions.elementToBeClickable(PaymentTerms));
 		PaymentTerms.click();
 		Select pay = new Select(PaymentTerms);
 
@@ -316,82 +312,107 @@ public class UnmatchedCarrierOutlook extends TestBase {
 	}
 
 	public void next() {
+		wait.until(ExpectedConditions.elementToBeClickable(Next));
 		Next.click();
 	}
 
 	public void ZipCode(String ZipCode1) {
+		wait.until(ExpectedConditions.elementToBeClickable(ZipCode));
 		ZipCode.sendKeys(ZipCode1);
 	}
 
 	public void country() {
+		wait.until(ExpectedConditions.elementToBeClickable(Country));
 		Country.click();
 	}
 
 	public void address(String Address) {
+		wait.until(ExpectedConditions.elementToBeClickable(address));
+		address.clear();
 		address.sendKeys(Address);
 	}
 
 	public void city(String City) {
+		wait.until(ExpectedConditions.elementToBeClickable(city));
+		city.clear();
 		city.sendKeys(City);
 	}
 
 	public void State() {
+		wait.until(ExpectedConditions.elementToBeClickable(State));
+		State.clear();
 		State.sendKeys();
 	}
 
 	public void submit() {
-
+		wait.until(ExpectedConditions.elementToBeClickable(submit));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", submit);
-
-		// submit.click();
 	}
 
 	public void ContactFirstName(String FirstName) {
+		wait.until(ExpectedConditions.elementToBeClickable(ContactFirstName));
+		ContactFirstName.clear();
 		ContactFirstName.sendKeys(FirstName);
 	}
 
 	public void LastName(String lastName) {
+		wait.until(ExpectedConditions.elementToBeClickable(LastName));
+		LastName.clear();
 		LastName.sendKeys(lastName);
 	}
 
 	public void Phone(String PhoneNumber) {
+		wait.until(ExpectedConditions.elementToBeClickable(Phone));
+		Phone.clear();
 		Phone.sendKeys(PhoneNumber);
 	}
 
 	public String Password(String pass) {
+		wait.until(ExpectedConditions.elementToBeClickable(Passwordd));
+		Passwordd.clear();
 		Passwordd.sendKeys(pass);
 		return pass;
 	}
 
 	public void ConfirmPassword(String confirmpass) {
+		wait.until(ExpectedConditions.elementToBeClickable(ConfirmPassword));
+		ConfirmPassword.clear();
 		ConfirmPassword.sendKeys(confirmpass);
 	}
 
 	public void Next() {
+		wait.until(ExpectedConditions.elementToBeClickable(submit1));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", submit1);
-
-		// submit1.click();
 	}
 
 	public void AccountName(String NameonAccount) {
+		wait.until(ExpectedConditions.elementToBeClickable(AccountName));
+		AccountName.clear();
 		AccountName.sendKeys(NameonAccount);
 	}
 
 	public void BankingRouting(String routingNumber) {
+		wait.until(ExpectedConditions.elementToBeClickable(BankingRouting));
+		BankingRouting.clear();
 		BankingRouting.sendKeys(routingNumber);
 	}
 
 	public void BankingAccount(String BankAccountNumber) {
+		wait.until(ExpectedConditions.elementToBeClickable(BankingAccount));
+		BankingAccount.clear();
 		BankingAccount.sendKeys(BankAccountNumber);
 	}
 
 	public void ConfirmBankingAccount(String ConfirmBankAccountNumber) {
+		wait.until(ExpectedConditions.elementToBeClickable(ConfirmBankingAccount));
+		ConfirmBankingAccount.clear();
 		ConfirmBankingAccount.sendKeys(ConfirmBankAccountNumber);
 	}
 
 	public void Finish() {
+		wait.until(ExpectedConditions.elementToBeClickable(submit2));
 		submit2.click();
 	}
 

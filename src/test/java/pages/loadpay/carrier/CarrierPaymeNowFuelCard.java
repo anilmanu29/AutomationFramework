@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
 
-
 public class CarrierPaymeNowFuelCard extends TestBase {
 
 	WebDriverWait wait = null;
@@ -19,25 +18,27 @@ public class CarrierPaymeNowFuelCard extends TestBase {
 	String amtwiretransfer;
 	String amtbeforepaidsameday;
 	float amtbeforesamedayach;
-	 String amtwiretrsfr;
-	 String amtsmdayach;
-	 float amttwiretransfer;
-	 float total;
-	 String totalamount;
-	 String totalamountt;
-	 String amtbeforepaidsmday;
-	 String amtbefore ;
-	 String paymenowfe;
-	 String paymenow;
-	 String paymenowfeee;
-	 float paymenowf;
+	String amtwiretrsfr;
+	String amtsmdayach;
+	float amttwiretransfer;
+	float total;
+	String totalamount;
+	String totalamountt;
+	String amtbeforepaidsmday;
+	String amtbefore;
+	String paymenowfe;
+	String paymenow;
+	String paymenowfeee;
+	float paymenowf;
 
 	@FindBy(xpath = "//*[@class='getpaid']")
 	private WebElement btn_paymenow;
-	
-/*	@FindBy(xpath = ".//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div/div/div[2]/div/div[1]/div/div[2]/div")
-	private WebElement btn_paymenowicon;
-	*/
+
+	/*
+	 * @FindBy(xpath =
+	 * ".//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div/div/div[2]/div/div[1]/div/div[2]/div")
+	 * private WebElement btn_paymenowicon;
+	 */
 
 	@FindBy(xpath = "//span[text()='FUEL CARD']//following::input[@type='submit'][2]")
 	private WebElement btn_selectfuelcard;
@@ -50,19 +51,19 @@ public class CarrierPaymeNowFuelCard extends TestBase {
 
 	@FindBy(xpath = ".//button[text()='Add New Card']")
 	private WebElement btn_addnewcard;
-	
+
 	@FindBy(xpath = "//input[@value='fleetone']")
 	private WebElement rbtn_fleetone;
-	
+
 	@FindBy(id = "accountnbr")
 	private WebElement inp_accountnbr;
-	
+
 	@FindBy(xpath = "//button[@type='submit']")
 	private WebElement btn_submit;
-	
+
 	@FindBy(xpath = "//*[@type='button'][text()='SUBMIT']")
 	private WebElement btn_fuelcardsubmit;
-	
+
 	@FindBy(xpath = "//a[text()='Logoff']")
 	private WebElement btn_logout;
 
@@ -77,13 +78,13 @@ public class CarrierPaymeNowFuelCard extends TestBase {
 
 	@FindBy(xpath = "//input[contains(@type,'submit')]")
 	WebElement loginBtn;
-	
+
 	@FindBy(xpath = "//*[@id='angularScope']/div[2]/div/div[3]/ul/li[3]/a/div/div[1]/div[2]/span[1]")
 	private WebElement paidamt;
-	
+
 	@FindBy(xpath = "//*[@class='PMN']")
 	WebElement paymenowtab;
-	
+
 	@FindBy(xpath = ".//input[@value='efs']")
 	WebElement rbtn_fts;
 
@@ -93,52 +94,42 @@ public class CarrierPaymeNowFuelCard extends TestBase {
 		act = new Actions(driver);
 	}
 
-
 	public void clickPaymenow() throws InterruptedException {
 		driver.navigate().refresh();
 		wait.until(ExpectedConditions.elementToBeClickable(btn_paymenow));
 		btn_paymenow.click();
 	}
-	/*public void clickPaymenowicon() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(btn_paymenowicon));
-		btn_paymenowicon.click();
-	}
-	*/
-	
 
 	public void clickSelectButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_selectfuelcard));
 		btn_selectfuelcard.click();
 	}
-	
+
 	public void clickaddnewcard() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_addnewcard));
 		btn_addnewcard.click();
 	}
-	
+
 	public void clickfleetone() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(rbtn_fleetone));
 		rbtn_fleetone.click();
 	}
-	
-	
+
 	public void input_accountnbr(String accountnbr) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(inp_accountnbr));
 		inp_accountnbr.sendKeys(accountnbr);
 	}
-	
+
 	public void clicksubmit() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_submit));
 		btn_submit.click();
 	}
-	
+
 	public void clickfuelcardsubmit() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_fuelcardsubmit));
 		btn_fuelcardsubmit.click();
 	}
-	
-	
-	
+
 	public void clickConfirmButton() throws InterruptedException {
 		act.pause(1000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -150,37 +141,16 @@ public class CarrierPaymeNowFuelCard extends TestBase {
 		act.moveToElement(tab_paid).click().perform();
 
 	}
-	
+
 	public void clickpaymenowtab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(paymenowtab));
 		act.moveToElement(paymenowtab).click().perform();
 
 	}
-	
+
 	public void clickFTS() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(rbtn_fts));
 		act.moveToElement(rbtn_fts).click().perform();
 
 	}
-	
-	
-	
-	/*public void gettotalpaiyAmount() throws InterruptedException {
-		//wait.until(ExpectedConditions.elementToBeClickable(paidamt));
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		 totalamt = paidamt.getText();
-		 totalamount =  totalamt.replaceAll("\\$", "");
-		 totalamountt =	totalamount.replaceAll(",", "");	
-		 total = Float.parseFloat(totalamountt);
-		 log.info(total);	
-		 
-		
-	}
-	public void verifywiretransfer() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		amttwiretransfer = (total - amtbeforesamedayach);
-		log.info(amttwiretransfer);
-	
-	}*/
-
 }

@@ -127,26 +127,35 @@ public class BrokerRegisterCanada extends TestBase {
 	}
 
 	public void signup() {
+		wait.until(ExpectedConditions.elementToBeClickable(buttonsignup));
 		buttonsignup.click();
 	}
 
 	public void shipperRegister() {
+		wait.until(ExpectedConditions.elementToBeClickable(buttonbrokersignup));
 		buttonbrokersignup.click();
 	}
 
 	public void dotnumber(String Dot) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_dotnumber));
+		field_dotnumber.clear();
 		field_dotnumber.sendKeys(Dot);
 	}
 
 	public void companyname(String Company) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_companyname));
+		field_companyname.clear();
 		field_companyname.sendKeys(Company);
 	}
 
 	public void doingbussiness(String doingBussiness) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_doingbussiness));
+		field_doingbussiness.clear();
 		field_doingbussiness.sendKeys(doingBussiness);
 	}
 
 	public void selectType() {
+		wait.until(ExpectedConditions.elementToBeClickable(dropdowntypeofentity));
 		dropdowntypeofentity.click();
 
 	}
@@ -161,42 +170,50 @@ public class BrokerRegisterCanada extends TestBase {
 			if (countryname.equalsIgnoreCase(cname)) {
 				slc.selectByVisibleText(countryname);
 				sls.selectByVisibleText(state);
-				wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 				break;
 			}
 		}
 	}
 
 	public String BrokerEmail(String email) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_email));
+		field_email.clear();
 		field_email.sendKeys(email);
 		return email;
 	}
 
 	public void confirmEmail(String ConfirmEmail) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_confirmemail));
+		field_confirmemail.clear();
 		field_confirmemail.sendKeys(ConfirmEmail);
 
 	}
 
 	public void iCertifyClick() {
+		wait.until(ExpectedConditions.elementToBeClickable(checkboxicertify));
 		checkboxicertify.click();
 	}
 
 	public void paymentTerm() {
+		wait.until(ExpectedConditions.elementToBeClickable(paymentTerms));
 		paymentTerms.click();
 		Select pay = new Select(paymentTerms);
 		pay.selectByIndex(2);
 	}
 
 	public void next() {
+		wait.until(ExpectedConditions.elementToBeClickable(buttonnext));
 		buttonnext.click();
 	}
 
 	public void ZipCode(String ZipCode1) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_zipCode));
 		field_zipCode.clear();
 		field_zipCode.sendKeys(ZipCode1);
 	}
 
 	public void originCountry(String country, String stat) {
+		wait.until(ExpectedConditions.elementToBeClickable(originCountrydropdown));
 		sloc = new Select(originCountrydropdown);
 		sloc.selectByVisibleText(country);
 		slos = new Select(originstate);
@@ -205,73 +222,97 @@ public class BrokerRegisterCanada extends TestBase {
 	}
 
 	public void country() {
+		wait.until(ExpectedConditions.elementToBeClickable(Country));
 		Country.click();
 	}
 
 	public void address(String Address) {
+		wait.until(ExpectedConditions.elementToBeClickable(address));
+		address.clear();
 		address.sendKeys(Address);
 	}
 
 	public void city(String City) {
+		wait.until(ExpectedConditions.elementToBeClickable(city));
+		city.clear();
 		city.sendKeys(City);
 	}
 
 	public void State() {
+		wait.until(ExpectedConditions.elementToBeClickable(State));
+		State.clear();
 		State.sendKeys();
 	}
 
 	public void submit() {
-
+		wait.until(ExpectedConditions.elementToBeClickable(submit));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", submit);
-
-		// submit.click();
 	}
 
 	public void ContactFirstName(String FirstName) {
+		wait.until(ExpectedConditions.elementToBeClickable(ContactFirstName));
+		ContactFirstName.clear();
 		ContactFirstName.sendKeys(FirstName);
 	}
 
 	public void LastName(String lastName) {
+		wait.until(ExpectedConditions.elementToBeClickable(LastName));
+		LastName.clear();
 		LastName.sendKeys(lastName);
 	}
 
 	public void Phone(String PhoneNumber) {
+		wait.until(ExpectedConditions.elementToBeClickable(Phone));
+		Phone.clear();
 		Phone.sendKeys(PhoneNumber);
 	}
 
 	public String Password(String pass) {
+		wait.until(ExpectedConditions.elementToBeClickable(Password));
+		Password.clear();
 		Password.sendKeys(pass);
 		return pass;
 	}
 
 	public void ConfirmPassword(String confirmpass) {
+		wait.until(ExpectedConditions.elementToBeClickable(ConfirmPassword));
+		ConfirmPassword.clear();
 		ConfirmPassword.sendKeys(confirmpass);
 	}
 
 	public void Next() {
-
+		wait.until(ExpectedConditions.elementToBeClickable(submit1));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", submit1);
 	}
 
 	public void AccountName(String NameonAccount) {
+		wait.until(ExpectedConditions.elementToBeClickable(AccountName));
+		AccountName.clear();
 		AccountName.sendKeys(NameonAccount);
 	}
 
 	public void BankingRouting(String routingNumber) {
+		wait.until(ExpectedConditions.elementToBeClickable(BankingRouting));
+		BankingRouting.clear();
 		BankingRouting.sendKeys(routingNumber);
 	}
 
 	public void BankingAccount(String BankAccountNumber) {
+		wait.until(ExpectedConditions.elementToBeClickable(BankingAccount));
+		BankingAccount.clear();
 		BankingAccount.sendKeys(BankAccountNumber);
 	}
 
 	public void ConfirmBankingAccount(String ConfirmBankAccountNumber) {
+		wait.until(ExpectedConditions.elementToBeClickable(ConfirmBankingAccount));
+		ConfirmBankingAccount.clear();
 		ConfirmBankingAccount.sendKeys(ConfirmBankAccountNumber);
 	}
 
 	public void Finish() {
+		wait.until(ExpectedConditions.elementToBeClickable(submit2));
 		submit2.click();
 	}
 
