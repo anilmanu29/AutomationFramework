@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -54,47 +53,47 @@ public class ShipperAdvancePaymentTest extends TestBase {
 			throws InterruptedException, InvalidFormatException, IOException {
 
 		bp.newPayment();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		bp.carrierEmail(cemail);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		bp.amount(amt);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		bp.invoiceNumber(invoiceno);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		loadidd = bp.loadId(loadid);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		bp.advanceCheckbox();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		paymentdate = bp.getPaymentDate();
 		log.info(paymentdate);
 		bp.clickShedulePayment();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		bp.clickShedulePaymenttab();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		bp.searchCarrier(cemail);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		bp.clickSearchButton();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		/*
 		 * JavascriptExecutor jse = (JavascriptExecutor)driver;
 		 * jse.executeScript("window.scrollBy(0,250)", "");
-		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		 * 
 		 */
 		// Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
 		// log.info(bp.verifyPaymentStatus());
 		bp.logout();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 	}
 
 	@Test(dataProvider = "getCarrierLoginData", dependsOnMethods = "brokernewPayment")
 	public void loginTest(String user, String pass) throws InterruptedException {
 
 		loginPage.Carrierlogin(user, pass);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		bp.verifyScheduledDate(paymentdate, loadidd);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)", "");
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 	}
 
 }

@@ -1,6 +1,5 @@
 package testcases.loadpay.carrier;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -38,19 +37,19 @@ public class CarrierWireTransferTest extends TestBase {
 	@Test(dependsOnMethods = "loginTest")
 	public void carrierPaymenowWirTransfer() throws InterruptedException {
 		cw.getAmount();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		cw.clickPaymenow();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		cw.getwiretransferAmount();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		cw.clickSelectButton();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		cw.clickConfirmButton();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		cw.clickPaidTab();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		cw.gettotalpaiyAmount();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		cw.verifywiretransfer();
 	}
 

@@ -4,7 +4,6 @@ import java.awt.AWTException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -125,18 +124,18 @@ public class CarrierPaymentHistoryTest extends TestBase {
 		carrierpaymenthistory.clickandEnterExportstartandEnddate(datefrom, dateto);
 		carrierpaymenthistory.clickRadioButton(carrierpaymenthistory.basicradiobutton);
 		carrierpaymenthistory.clickReportExportButton();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		// verify Export with Detailed (radio button) option
 		carrierpaymenthistory.clickandEnterExportstartandEnddate(datefrom, dateto);
 		carrierpaymenthistory.clickRadioButton(carrierpaymenthistory.detailedradiobutton);
 		carrierpaymenthistory.clickReportExportButton();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		// verify export by Arrow
 		// carrierpaymenthistory.currentmonth.click();
 		carrierpaymenthistory.clickArrowExportButton();
 
 		// sleep for 2 minute to allow time to verify csv files
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(120000);
 	}
 
 }

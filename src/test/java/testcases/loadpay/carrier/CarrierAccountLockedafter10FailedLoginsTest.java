@@ -3,7 +3,6 @@ package testcases.loadpay.carrier;
 import java.awt.AWTException;
 import java.io.IOException;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -40,9 +39,6 @@ public class CarrierAccountLockedafter10FailedLoginsTest extends TestBase {
 	public void loginTest(String user, String pass, String wrongpass) throws InterruptedException {
 		aemail = user;
 		Calck.Carrierloginlock(user, pass, wrongpass);
-		// verifyCarrierAccLockTabElementsDisplayed();
-
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 	}
 

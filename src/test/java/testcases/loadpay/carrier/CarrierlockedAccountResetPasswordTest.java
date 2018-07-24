@@ -10,7 +10,6 @@ import java.util.Date;
 import java.util.TimeZone;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -112,7 +111,7 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 	@Test(description = "LP-5415 Carriercanresetpasswordwhenaccountislocked_verifyPasswordResetEmail", dataProvider = "getoutlookLoginData", dependsOnMethods = "verifyLockedAccountResetPassword")
 	public void verifyCarrierEmailInOutlookTest(String un, String pwd) throws InterruptedException {
 		((JavascriptExecutor) driver).executeScript("window.open();");
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(1000);
 		tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
 
@@ -121,7 +120,6 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 			carrierOutlookObj.clickPopUp();
 			carrierOutlookObj.clickOpenMailBox();
 			carrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			carrierlockaccounrsetpwdtobj.outlookSearchInbox(aemail, currentHour, currentMinutes);
 			carrierlockaccounrsetpwdtobj.handleUpdatedEmailInbox(aemail);
 		} catch (AWTException e) {
@@ -132,23 +130,23 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 	@Test(description = "LP-5415 Carriercanresetpasswordwhenaccountislocked_verifyPasswordResetEmail", dataProvider = "getCarrierParentChildPasswordData", dependsOnMethods = "verifyCarrierEmailInOutlookTest")
 	public void verifyResetPassword(String nwpwd, String confmpwd, String forcepwd, String confirmforcepwd)
 			throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		Assert.assertTrue(carrierparentchildobject.newpasswordfield.isDisplayed(),
 				"New Password field is NOT Displayed");
 		Assert.assertTrue(carrierparentchildobject.confirmpassword.isDisplayed(),
 				"Confirm Password field is NOT Displayed");
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		newpwd = nwpwd;
 		carrierparentchildobject.newpasswordfield.sendKeys(nwpwd);
 		carrierparentchildobject.confirmpassword.sendKeys(confmpwd);
 		carrierparentchildobject.submitbutton.click();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 	}
 
 	@Test(description = "LP-5415 Carriercanresetpasswordwhenaccountislocked_verifyPasswordResetEmail", dependsOnMethods = "verifyResetPassword")
 	public void verifyCarrierLoginWithNewPassword() throws InterruptedException {
 		carrierloginobj.Carrierlogin(aemail, newpwd);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		Assert.assertTrue(carrierlockaccounrsetpwdtobj.btn_logout.isDisplayed(),
 				"Carrier should be Logged with NEW Password");
 		carrierloginobj.CarrierLogout();

@@ -1,8 +1,8 @@
 package testcases.loadpay.broker;
+
 import java.util.ArrayList;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -10,79 +10,75 @@ import base.TestBase;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerNewPayment;
 
-public class BrokerNewPaymentTest extends TestBase 
-{
-	
+public class BrokerNewPaymentTest extends TestBase {
+
 	BrokerNewPayment bp;
 	BrokerLoginPage bl;
-	String  payment_status = "Verified";
-	 static String invoice;
-	 public static ArrayList<String> al;
-	 public static String email;
-	
+	String payment_status = "Verified";
+	static String invoice;
+	public static ArrayList<String> al;
+	public static String email;
+
 	/*-------Initializing driver---------*/
-	public BrokerNewPaymentTest()
-	{
+	public BrokerNewPaymentTest() {
 		super();
 	}
-	
+
 	@BeforeClass
-	public void setUp()
-	{
-		
+	public void setUp() {
+
 		initialization();
-		bl = new BrokerLoginPage();	
+		bl = new BrokerLoginPage();
 		bp = new BrokerNewPayment();
 		al = new ArrayList<String>();
 	}
 	/*-------Initializing driver---------*/
-	
+
 	/*-------Login to Load Pay as Broker---------*/
-	
-	
-	@Test(dataProvider="getBrokerLoginData")
-	public void loginBroker(String un, String pwd)
-	{
-		bl= new BrokerLoginPage();
+
+	@Test(dataProvider = "getBrokerLoginData")
+	public void loginBroker(String un, String pwd) {
+		bl = new BrokerLoginPage();
 		bl.Brokerlogin(un, pwd);
-		
+
 	}
-	
+
 	/*-------Scheduling New Payment as a Broker---------*/
-	
-	@Test(dataProvider="getPaymentData", dependsOnMethods = "loginBroker")
-	public void brokernewPayment(String cemail, String invoiceno, String loadid, String amt) throws InterruptedException {
-		
+
+	@Test(dataProvider = "getPaymentData", dependsOnMethods = "loginBroker")
+	public void brokernewPayment(String cemail, String invoiceno, String loadid, String amt)
+			throws InterruptedException {
+
 		bp = new BrokerNewPayment();
 		bp.newPayment();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		email= bp.carrierEmail(cemail);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
+		email = bp.carrierEmail(cemail);
+
 		bp.amount(amt);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		invoice = 	bp.invoiceNumber(invoiceno);
+
+		invoice = bp.invoiceNumber(invoiceno);
 		al.add(invoice);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		bp.loadId(loadid);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		//bp.advanceCheckbox();
-		//wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
+		// bp.advanceCheckbox();
+		//
 		bp.clickShedulePayment();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		bp.clickShedulePaymenttab();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		bp.searchCarrier(cemail);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		bp.clickSearchButton();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
+
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)", "");
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		 bp.verifyInvoiceNumber(invoiceno,amt);
-		 wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		//Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
+
+		bp.verifyInvoiceNumber(invoiceno, amt);
+
+		// Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
 		log.info(bp.verifyPaymentStatus());
-		//bp.logout();
+		// bp.logout();
 	}
 
 }

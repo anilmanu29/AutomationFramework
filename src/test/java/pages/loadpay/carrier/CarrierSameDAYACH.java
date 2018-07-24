@@ -34,12 +34,6 @@ public class CarrierSameDAYACH extends TestBase {
 	@FindBy(xpath = "//*[@class='getpaid']")
 	private WebElement btn_paymenow;
 
-	/*
-	 * @FindBy(xpath =
-	 * "//span[text()='SAME DAY ACH']//following::input[@value='Select'][1]")
-	 * private WebElement btn_selectnextdayach;
-	 */
-
 	@FindBy(xpath = "//*[@id='paymentOptionsDiv']/div[1]/div[1]/div[7]/span/text()[4]//following::*[@value='Select'][1]")
 	private WebElement btn_selectsamedayach;
 
@@ -88,18 +82,6 @@ public class CarrierSameDAYACH extends TestBase {
 		amtsmdayach = amtsamedayachh.replaceAll(",", "");
 		amttsamedayach = Float.parseFloat(amtsmdayach);
 		System.out.println(amttsamedayach);
-
-		// paymenowfe =paymenowfee.getText();
-		// paymenow=paymenowfe.replaceAll("\\$", "");
-		// paymenowfeee= paymenow.replaceAll(",", "");
-		// paymenowf = Float.parseFloat(paymenowfeee);
-		// System.out.println(paymenowf);
-		//
-		// achtransfees= achtransfee.getText();
-		// achtrafee= achtransfees.replaceAll("\\$", "");
-		// achfee = achtrafee.replaceAll(",", "");
-		// achtrans = Float.parseFloat(achfee);
-		// System.out.println(achtrans);
 
 	}
 

@@ -214,7 +214,7 @@ public class BrokerRegister extends TestBase {
 	}
 
 	public void submit() {
-
+		wait.until(ExpectedConditions.visibilityOf(submit));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", submit);
 
@@ -247,7 +247,7 @@ public class BrokerRegister extends TestBase {
 	}
 
 	public void Next() {
-
+		wait.until(ExpectedConditions.visibilityOf(submit1));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", submit1);
 	}

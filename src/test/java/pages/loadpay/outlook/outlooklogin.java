@@ -8,6 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import base.TestBase;
 
@@ -32,11 +33,12 @@ public class outlooklogin extends TestBase {
 	public void outlookLogin(String un, String pwd) throws AWTException, InterruptedException {
 
 		driver.get(super.getProperties().getProperty("outlookurl"));
+		wait.until(ExpectedConditions.elementToBeClickable(UserName));
 		UserName.sendKeys(un);
 		Password.sendKeys(pwd);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		wait.until(ExpectedConditions.elementToBeClickable(signin));
 		js.executeScript("arguments[0].click();", signin);
 	}
-
 
 }

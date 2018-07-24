@@ -2,7 +2,6 @@ package testcases.loadpay.carrier;
 
 import java.util.List;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -53,7 +52,6 @@ public class CarrierSchedulePaymentTest extends TestBase {
 	@Test(dependsOnMethods = "loginCarrier")
 	public void verifyScheduledPaymentsTabTest() throws InterruptedException {
 		// click Paid Tab
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		carrierschedulepayment.clickScheduledPaymentsTab();
 
 		// Assert search bar, search button, and table columns are displayed

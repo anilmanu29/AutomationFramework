@@ -52,8 +52,10 @@ public class CarrierRegisterCanada extends TestBase {
 
 	@FindBy(xpath = ".//*[@id='Registration_User_UserName']")
 	WebElement Email;
+
 	@FindBy(xpath = " .//*[@id='Registration_User_UserNameConfirm']")
 	WebElement confirmEmail;
+
 	@FindBy(xpath = " .//*[@id='ICertify']")
 	WebElement Icertify;
 
@@ -62,16 +64,22 @@ public class CarrierRegisterCanada extends TestBase {
 
 	@FindBy(xpath = ".//*[@id='formCompany']/div/div[12]/div/div/input ")
 	WebElement Next;
+
 	@FindBy(xpath = "//input[@id='ZipCode']")
 	WebElement ZipCode;
+
 	@FindBy(xpath = "//select[@id='OriginCountry']")
 	WebElement Country;
+
 	@FindBy(xpath = "//input[@id='StreetAddress']")
 	WebElement address;
+
 	@FindBy(xpath = "//input[@id='City']")
 	WebElement city;
+
 	@FindBy(xpath = "//select[@id='State']")
 	WebElement State;
+
 	@FindBy(xpath = ".//*[@id='formAddress']//child::input[@type='submit']")
 	WebElement submit;
 

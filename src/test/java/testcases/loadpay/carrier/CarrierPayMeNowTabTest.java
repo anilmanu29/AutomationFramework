@@ -1,6 +1,5 @@
 package testcases.loadpay.carrier;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -38,19 +37,19 @@ public class CarrierPayMeNowTabTest extends TestBase {
 	@Test(dependsOnMethods = { "loginCarrier" })
 	public void carrierPaymeNow() throws InterruptedException {
 		cp.clickPaymenow();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		cp.days();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		cp.Amount();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		cp.Payer();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		cp.Invoice();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		cp.LoadID();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		cp.ScheduledDate();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 	}
 
 }

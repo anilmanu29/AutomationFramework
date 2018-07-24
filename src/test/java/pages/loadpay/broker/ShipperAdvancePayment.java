@@ -64,9 +64,6 @@ public class ShipperAdvancePayment extends TestBase {
 	@FindBy(xpath = "//button[@type='button'][text()='OK']")
 	private WebElement popup_ok;
 
-	// @FindBy(xpath = "//div[@class='col-md-10 content']//child::span[1]")
-	// private WebElement paymentstatus;
-
 	@FindBy(xpath = "//div[contains(@class,'carrierPayment ')]//child::span[@class='ng-scope']")
 	private WebElement paymentstatus;
 

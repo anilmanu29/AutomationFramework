@@ -97,6 +97,7 @@ public class BrokerOutlook extends TestBase {
 	}
 
 	public void clickOpenMailBox() {
+		wait.until(ExpectedConditions.elementToBeClickable(lnkopenanothermail));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", lnkopenanothermail);
 

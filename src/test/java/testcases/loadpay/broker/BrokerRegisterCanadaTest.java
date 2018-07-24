@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -46,18 +45,18 @@ public class BrokerRegisterCanadaTest extends TestBase {
 
 		if (Dotnumber == null) {
 			brc.companyname(CompanyName);
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		} else {
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 			brc.dotnumber(Dotnumber);
 		}
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		brc.doingbussiness(DoingBussinessAS);
 		brc.selectType();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		Select type = new Select(driver.findElement(By.xpath(".//*[@id='EntityType']")));
 		type.selectByVisibleText("C Corporation");
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		brc.countrydropdown(country, state);
 
 		// Select countryof = new Select( driver.findElement( By.xpath(
@@ -66,35 +65,34 @@ public class BrokerRegisterCanadaTest extends TestBase {
 		// countryof.selectByIndex( 0 );
 
 		// r.stateofincorporation();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		// Select stateof = new Select( driver.findElement( By.xpath(
 		// ".//*[@id='IncorporationState']" ) ) );
 		//
 		// stateof.selectByVisibleText( "California" );
 		emailid = brc.BrokerEmail(Email);
 		brc.confirmEmail(ConfirmEmail);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		brc.iCertifyClick();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		brc.paymentTerm();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		brc.next();
 		if (Dotnumber == null) {
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 			brc.originCountry(ocountry, States);
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 			brc.ZipCode(ZipCode1);
 			brc.address(Address);
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 			brc.city(City);
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		} else {
 			brc.originCountry(ocountry, States);
 			brc.ZipCode(ZipCode1);
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		}
 
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		// r.country();
 
 		// Select country = new Select( driver.findElement( By.xpath(
@@ -111,31 +109,30 @@ public class BrokerRegisterCanadaTest extends TestBase {
 
 		// state.selectByVisibleText( "CA" );
 
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brc.submit();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		brc.ContactFirstName(FirstNames);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		brc.LastName(LastName);
 		brc.Phone(PhoneNumber);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		pwd = brc.Password(Password);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		driver.findElement(By.xpath(".//*[@id='Registration_User_Password']"));
 		brc.ConfirmPassword(ConfirmPassword);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		brc.Next();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		brc.AccountName(NameonAccount);
 		brc.BankingAccount(BankAccountNumber);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		brc.BankingRouting(RoutingNumber);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		brc.ConfirmBankingAccount(ConfirmbankAccountNumber);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		brc.submit();
 		log.info("Broker Register Completed...");
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		log.info("BrokerRegisterSuccessfully");
 
 	}

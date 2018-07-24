@@ -222,7 +222,6 @@ public class BrokerBanking extends TestBase {
 	public void enterAmount() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(field_amount));
 		js.executeScript("arguments[0].click();", field_amount);
-		wait.until(ExpectedConditions.elementToBeClickable(field_amount));
 		log.info(pennyamounts);
 		field_amount.sendKeys(pennyamounts);
 	}

@@ -7,7 +7,6 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -60,35 +59,23 @@ public class BrokerBulkUploadPaymentErrorsTest extends TestBase {
 	@Test(dependsOnMethods = "verifyBrokerBulkUploadPaymentErrors")
 	public void verifynewPayment() throws InterruptedException {
 		BrokerBulkUploadPaymentErrors.newPayment();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	@Test(dependsOnMethods = "verifynewPayment")
 	public void verifyUploadErrorFile() throws InterruptedException, IOException, AWTException {
 		BrokerBulkUploadPaymentErrors.UploadFileforError();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 	@Test(dependsOnMethods = "verifyUploadErrorFile")
 	public void verifyClickimportgrayedout() throws InterruptedException, IOException {
 		BrokerBulkUploadPaymentErrors.Clickimport();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		/*
-		 * Actions action = new Actions(driver);
-		 * 
-		 * action.moveToElement(driver.findElement(By.xpath(
-		 * ".//*[@id='angularScope']/div[2]/div/div[3]/div/div[2]/div[2]/div[1]/div/div[2]/table/tbody/tr[1]/td[4]"
-		 * ))).click().clickAndHold();
-		 */
+
 		Actions ToolTip1 = new Actions(driver);
 		WebElement alttext = driver.findElement(By.xpath(
 				".//*[@id='angularScope']/div[2]/div/div[3]/div/div[2]/div[2]/div[1]/div/div[2]/table/tbody/tr[1]/td[4]"));
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		ToolTip1.clickAndHold(alttext).perform();
 		String ToolTipText = alttext.getAttribute("title");
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		log.info("ToolTipText: " + ToolTipText);
-		/* Assert.assertEquals(ToolTipText, "title"); */
 
 	}
 

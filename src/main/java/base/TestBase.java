@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit;
 import org.apache.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -35,8 +34,6 @@ public class TestBase {
 	public static WebDriverWait wait = null;
 	public final String loadPayTestDataFilePath = System.getProperty(userDirectory)
 			+ "/src/main/java/testdata/LoadPay/LoadPayTestData.xlsx";
-
-	public WebElement tempElement;
 
 	public TestBase() {
 		try {

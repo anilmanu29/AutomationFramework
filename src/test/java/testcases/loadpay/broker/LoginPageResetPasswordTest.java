@@ -8,7 +8,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -54,7 +53,6 @@ public class LoginPageResetPasswordTest extends TestBase {
 
 	@Test(description = "LP-5025 ")
 	public void openBrokerLoginPage() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerLoginPage.forgotPasswordButton();
 
 	}
@@ -62,9 +60,7 @@ public class LoginPageResetPasswordTest extends TestBase {
 	@Test(dataProvider = "getBrokerForgotPassword", dependsOnMethods = "openBrokerLoginPage")
 	public void proceedWithResetPassword(String UserName, String EmailAddress, String NewPassword,
 			String ConfirmPassword) throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		resetPassword.enterUserName(UserName);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		resetPassword.clickResetPassword();
 		Assert.assertEquals(resetPassword.verificationPage(), "Thank you. An email has been sent.");
 

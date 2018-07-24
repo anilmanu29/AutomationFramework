@@ -34,12 +34,6 @@ public class CarrierPaymeNowFuelCard extends TestBase {
 	@FindBy(xpath = "//*[@class='getpaid']")
 	private WebElement btn_paymenow;
 
-	/*
-	 * @FindBy(xpath =
-	 * ".//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div/div/div[2]/div/div[1]/div/div[2]/div")
-	 * private WebElement btn_paymenowicon;
-	 */
-
 	@FindBy(xpath = "//span[text()='FUEL CARD']//following::input[@type='submit'][2]")
 	private WebElement btn_selectfuelcard;
 
