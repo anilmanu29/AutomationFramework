@@ -135,6 +135,7 @@ public class CarrierWireTransfer extends TestBase {
 	}
 
 	public void goToPayMeNowTab() {
+		wait.until(ExpectedConditions.elementToBeClickable(PayMeNowTab));
 		PayMeNowTab.click();
 	}
 }

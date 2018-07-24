@@ -26,7 +26,7 @@ public class BrokerLoginTest extends TestBase {
 
 		loginPage.Brokerlogin(user, pass);
 
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(loginPage.getBtn_logout()));
 		loginPage.BrokerLogout();
 	}
 

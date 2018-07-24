@@ -40,64 +40,6 @@ public class AdminCancelPayByCheckTest extends TestBase {
 
 	}
 
-	/*
-	 * @Test(dataProvider = "getAdminLoginData", priority =18 ) public void
-	 * verifyAdminPayByCheck(String Username, String pass) throws
-	 * InterruptedException, AWTException {
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement)); ahp.AdminURL();
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * al.adminUserPass(Username, pass); al.adminLogin();
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * al.ClickOnCustomersTab();
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * log.info(BrokerLoginPage.bemail);
-	 * al.ClickOnSearchBox(BrokerLoginPage.bemail);
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * al.ClickOnSearchButton();
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * al.DoubleClickID();
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * apbc.clickPayments();
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * apbc.ClickOnsearchKeyword(BrokerNewPaymentTest.al.get(0));
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * apbc.getPaymentID();
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * apbc.clickSearch();
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * apbc.searchKeyword();
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * apbc.clickSearch1();
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * apbc.clickgridcollapse();
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * apbc.clickPayByCheck();
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * apbc.selectTerms();
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * 
-	 * }
-	 * 
-	 * @Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData",priority=19)
-	 * public void carrierPaymenowPayByCheck(String EnterDOTNnumber,String
-	 * ContactName) throws InterruptedException {
-	 * apbc.EnterDOTNnumber(EnterDOTNnumber);
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * apbc.ContactName(ContactName);
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * apbc.clickPayByChecksubmit();
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * apbc.clickAddCheckNumber();
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * apbc.ClickOnEnterCheckNumber();
-	 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * //al.AdminLogOut();
-	 * //wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-	 * 
-	 * 
-	 * }
-	 */
-
 	@Test(dataProvider = "getAdminLoginData")
 	public void verifyAdminPayByCheckTermPayment(String Username, String pass)
 			throws InterruptedException, AWTException {
@@ -128,7 +70,6 @@ public class AdminCancelPayByCheckTest extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(adminCancelPayByCheckObj.getFieldSearch()));
 		log.info(adminCancelPayByCheckObj);
 		adminCancelPayByCheckObj.ClickOnsearchKeyword(adminCancelPayByCheckObj.getPaymentID1().getText());
-		// acpbc.ClickOnsearchKeywordterm(BrokerNewPaymentTest.al.get(0));
 
 		wait.until(ExpectedConditions.elementToBeClickable(adminCancelPayByCheckObj.getPaymentIdElement()));
 		adminCancelPayByCheckObj.getPaymentID();
@@ -168,13 +109,6 @@ public class AdminCancelPayByCheckTest extends TestBase {
 
 		wait.until(ExpectedConditions.elementToBeClickable(adminCancelPayByCheckObj.getBtn_CancelPayByCheck()));
 		adminCancelPayByCheckObj.clickCancelPayByCheck();
-		/*
-		 * apbc.clickAddCheckNumber();
-		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		 * apbc.ClickOnEnterCheckNumber();
-		 * wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		 */
-
 	}
 
 }

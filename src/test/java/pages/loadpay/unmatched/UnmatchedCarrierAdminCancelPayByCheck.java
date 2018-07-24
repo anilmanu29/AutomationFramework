@@ -76,37 +76,15 @@ public class UnmatchedCarrierAdminCancelPayByCheck extends TestBase {
 	@FindBy(xpath = "//div[@class='carrierPayment']//child::div[9]//child::span")
 	WebElement paymentid;
 
-	// @FindBy(xpath = "//button[contains(@ng-click,'UpdateCheckNumber();')]")
-	// private WebElement btn_UpdateCheckNumber; // Button to click Add Check Number
-
 	@FindBy(xpath = "//button[contains(@ng-click,'CancelPayByCheck();')]")
 	private WebElement btn_CancelPayByCheck; // Button to click to cancel paybycheck - Term Payment Only
-
-	/*
-	 * @FindBy(xpath = "//*[@id='checkNo']") WebElement EnterCheckNumber;
-	 * //EnterCheckNumber
-	 * 
-	 * @FindBy(xpath = "//*[@id='reEnterCheckNo']") WebElement ReenterCheckNumber;
-	 * //ReenterCheckNumber
-	 * 
-	 * @FindBy(xpath = "//*[@id='formAddCheckNo']/div/div[3]/input") WebElement
-	 * CheckNumberSubmit; //Click submit for Check Number
-	 */
 
 	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[4]/div/div[2]/div/div[2]/div/div/div[1]/div/div[9]/span")
 	WebElement PaymentId1;
 
-	// @FindBy(xpath =
-	// "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[4]/div/div[2]/div/div[3]/div/div/div[1]/div/div[9]/span")
-	// WebElement PaymentId2;
-
 	public WebElement getPaymentId1() {
 		return PaymentId1;
 	}
-
-	// public WebElement getPaymentId2() {
-	// return PaymentId2;
-	// }
 
 	// Initializing the Page Objects:
 	public UnmatchedCarrierAdminCancelPayByCheck() {
@@ -120,31 +98,23 @@ public class UnmatchedCarrierAdminCancelPayByCheck extends TestBase {
 	}
 
 	public void clickPayments() throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(link_Payments));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", link_Payments);
-		wait.until(ExpectedConditions.elementToBeClickable(link_Payments));
-
 	}
 
 	public void ClickOnsearchKeyword(String invoice) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 		FieldSearch.click();
-		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 		FieldSearch.sendKeys(invoice);
-		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 		FieldSearch.sendKeys(Keys.RETURN);
-		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
-
 	}
 
 	public void ClickOnsearchKeywordterm(String invoice) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 		FieldSearch.click();
-		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 		FieldSearch.sendKeys(invoice);
-		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 		FieldSearch.sendKeys(Keys.RETURN);
-		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
-
 	}
 
 	public void getPaymentID() throws InterruptedException {
@@ -164,74 +134,64 @@ public class UnmatchedCarrierAdminCancelPayByCheck extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(searchKeyword));
 		searchKeyword.click();
 		searchKeyword.sendKeys(paymentidd);
-		wait.until(ExpectedConditions.elementToBeClickable(searchKeyword));
 		searchKeyword.sendKeys(Keys.RETURN);
-		wait.until(ExpectedConditions.elementToBeClickable(searchKeyword));
-
 	}
 
 	public void clickSearch1() throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(btn_Search));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_Search);
-		wait.until(ExpectedConditions.elementToBeClickable(btn_Search));
-
 	}
 
 	public void clickgridcollapse() throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(grid_collapse));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", grid_collapse);
-		wait.until(ExpectedConditions.elementToBeClickable(grid_collapse));
 
 	}
 
 	public void clickPayByCheck() throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(btn_PayByCheck));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_PayByCheck);
-		wait.until(ExpectedConditions.elementToBeClickable(btn_PayByCheck));
-
 	}
 
 	public void selectTerms() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(select_Terms));
 		select_Terms.click();
 		Select pay = new Select(select_Terms);
 		pay.selectByIndex(1);
-		wait.until(ExpectedConditions.elementToBeClickable(select_Terms));
-
 	}
 
 	public void selectTermsTermPayment() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(select_Terms));
 		select_Terms.click();
 		Select pay = new Select(select_Terms);
 		pay.selectByIndex(2);
-		wait.until(ExpectedConditions.elementToBeClickable(select_Terms));
 	}
 
 	public void EnterDOTNnumber(String EnterDOTNnumber) {
+		wait.until(ExpectedConditions.elementToBeClickable(txt_DOT));
 		txt_DOT.sendKeys(EnterDOTNnumber);
 	}
 
 	public void ContactName(String ContactName) {
+		wait.until(ExpectedConditions.elementToBeClickable(txt_ContactName));
 		txt_ContactName.sendKeys(ContactName);
 	}
 
 	public void clickPayByChecksubmit() throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(btn_paybychksubmit));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_paybychksubmit);
-		wait.until(ExpectedConditions.elementToBeClickable(btn_paybychksubmit));
 
 	}
 
 	public void clickCancelPayByCheck() throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(btn_CancelPayByCheck));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_CancelPayByCheck);
-		wait.until(ExpectedConditions.elementToBeClickable(btn_CancelPayByCheck));
 		driver.switchTo().alert().accept();
-		wait.until(ExpectedConditions.elementToBeClickable(btn_CancelPayByCheck));
 	}
 
 	/**

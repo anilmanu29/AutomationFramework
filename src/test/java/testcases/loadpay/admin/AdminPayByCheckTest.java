@@ -4,7 +4,6 @@ import java.awt.AWTException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -56,104 +55,102 @@ public class AdminPayByCheckTest extends TestBase {
 
 	@Test(dataProvider = "getAdminLoginData")
 	public void verifyAdminPayByCheck(String Username, String pass) throws InterruptedException, AWTException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		ahp.AdminURL();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		al.adminUserPass(Username, pass);
 		al.adminLogin();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		al.ClickOnCustomersTab();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		log.info(brokerUsername);
 		al.ClickOnSearchBox(brokerUsername);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		al.ClickOnSearchButton();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		al.DoubleClickID();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.clickPayments();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.ClickOnsearchKeyword(brokerInvoices.get(0));
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.getPaymentID();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.clickSearch();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.searchKeyword();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.clickSearch1();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.clickgridcollapse();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.clickPayByCheck();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.selectTerms();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 	}
 
 	@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData", dependsOnMethods = "verifyAdminPayByCheck")
 	public void carrierPaymenowPayByCheck(String EnterDOTNnumber, String ContactName) throws InterruptedException {
 		apbc.EnterDOTNnumber(EnterDOTNnumber);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.ContactName(ContactName);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.clickPayByChecksubmit();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.clickAddCheckNumber();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.ClickOnEnterCheckNumber();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 	}
 
 	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = "carrierPaymenowPayByCheck")
 	public void verifyAdminPayByCheckTermPayment(String Username, String pass)
 			throws InterruptedException, AWTException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		al.ClickOnCustomersTab();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		log.info(brokerUsername);
 		al.ClickOnSearchBox(brokerUsername);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		al.ClickOnSearchButton();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		al.DoubleClickID();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.clickPayments();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.ClickOnsearchKeyword(brokerInvoices.get(1));
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.getPaymentID();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.clickSearch();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.searchKeyword();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.clickSearch1();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.clickgridcollapse();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.clickPayByCheck();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.selectTerms();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.selectTermsTermPayment();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 
 	}
 
 	@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData", dependsOnMethods = "verifyAdminPayByCheckTermPayment")
 	public void carrierTermPaymentPayByCheck(String EnterDOTNnumber, String ContactName) throws InterruptedException {
 		apbc.EnterDOTNnumber(EnterDOTNnumber);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.ContactName(ContactName);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.clickPayByChecksubmit();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.clickAddCheckNumber();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbc.ClickOnEnterCheckNumber();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 	}
 
 }

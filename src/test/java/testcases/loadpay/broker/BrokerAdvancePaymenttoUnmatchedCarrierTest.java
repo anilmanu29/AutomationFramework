@@ -3,7 +3,6 @@ package testcases.loadpay.broker;
 import java.io.IOException;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -66,7 +65,6 @@ public class BrokerAdvancePaymenttoUnmatchedCarrierTest extends TestBase {
 						+ "The Carrier has not yet verified a bank account with LoadPay. "
 						+ "Please let your Carrier know that without bank verification there is a risk of delay in payment.",
 				"Error message is NOT displayed");
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 	}
 
 }

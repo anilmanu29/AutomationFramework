@@ -61,7 +61,7 @@ public class BrokerAvailableCreditTabTest extends TestBase {
 	@Test(description = "LP-5398 Broker Request Additional Credit Pop Up", dependsOnMethods = "RequestAdditionalCreditButtonTest")
 	public void RequestAdditionalCreditPopUpTest() throws InterruptedException {
 		brokeravailablecredittab.clickCloseButton();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		wait.until(ExpectedConditions.elementToBeClickable(brokerloginpage.getBtn_logout()));
 		brokerloginpage.BrokerLogout();
 	}
 
@@ -82,17 +82,16 @@ public class BrokerAvailableCreditTabTest extends TestBase {
 	}
 
 	public Boolean SearchInbox(String SearchText) throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(2000);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		Thread.sleep(6000);
 
 		List<WebElement> list = driver
 				.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
 		for (WebElement e : list) {
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+			wait.until(ExpectedConditions.elementToBeClickable(e));
 			e.click();
-			wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 			// log.info(e.getText());
 			if (e.getText().contains(SearchText)) {
 				return true;

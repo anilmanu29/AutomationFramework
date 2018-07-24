@@ -1,6 +1,6 @@
 package testcases.loadpay.broker;
 
-  import java.awt.AWTException;
+import java.awt.AWTException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -21,99 +21,94 @@ import pages.loadpay.carrier.ResetPassword;
 import pages.loadpay.outlook.outlooklogin;
 
 public class LoginPageResetPasswordTest extends TestBase {
-  BrokerPasswordSetupResetPage brokerPasswordSetupResetPage;
-  BrokerLoginPage brokerLoginPage;
-  ResetPassword resetPassword;
-  BrokerOutlook brokerOutlook;
-  outlooklogin outlookLogin;
-  public static String emailid;
-  Date currentTime;
-  String formattedDate = "";
-  Long longTime;
-  DateFormat formatter;
-  String currentHour = "";
-  String currentMinutes = "";
-  String timeArray[] = new String[2];
+	BrokerPasswordSetupResetPage brokerPasswordSetupResetPage;
+	BrokerLoginPage brokerLoginPage;
+	ResetPassword resetPassword;
+	BrokerOutlook brokerOutlook;
+	outlooklogin outlookLogin;
+	public static String emailid;
+	Date currentTime;
+	String formattedDate = "";
+	Long longTime;
+	DateFormat formatter;
+	String currentHour = "";
+	String currentMinutes = "";
+	String timeArray[] = new String[2];
 
+	public LoginPageResetPasswordTest() {
+		super();
 
-  public LoginPageResetPasswordTest() {
-    super();
+	}
 
-  }
+	@BeforeClass
+	public void setUp() throws IOException, InterruptedException {
+		initialization();
+		brokerLoginPage = new BrokerLoginPage();
+		resetPassword = new ResetPassword();
+		outlookLogin = new outlooklogin();
+		brokerOutlook = new BrokerOutlook();
+		brokerPasswordSetupResetPage = new BrokerPasswordSetupResetPage();
+		currentTime = new Date();
 
-  @BeforeClass
-  public void setUp() throws IOException, InterruptedException {
-    initialization();
-    brokerLoginPage = new BrokerLoginPage();
-    resetPassword = new ResetPassword();
-    outlookLogin = new outlooklogin();
-    brokerOutlook = new BrokerOutlook();
-    brokerPasswordSetupResetPage = new BrokerPasswordSetupResetPage();
-    currentTime = new Date();
+	}
 
-  }
+	@Test(description = "LP-5025 ")
+	public void openBrokerLoginPage() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		brokerLoginPage.forgotPasswordButton();
 
-  @Test(description = "LP-5025 ")
-  public void openBrokerLoginPage() throws InterruptedException {
-    wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-    brokerLoginPage.forgotPasswordButton();
+	}
 
-  }
+	@Test(dataProvider = "getBrokerForgotPassword", dependsOnMethods = "openBrokerLoginPage")
+	public void proceedWithResetPassword(String UserName, String EmailAddress, String NewPassword,
+			String ConfirmPassword) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		resetPassword.enterUserName(UserName);
+		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+		resetPassword.clickResetPassword();
+		Assert.assertEquals(resetPassword.verificationPage(), "Thank you. An email has been sent.");
 
-  @Test(dataProvider = "getBrokerForgotPassword", dependsOnMethods = "openBrokerLoginPage")
-  public void proceedWithResetPassword(String UserName, String EmailAddress, String NewPassword, String ConfirmPassword) throws InterruptedException {
-    wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-    resetPassword.enterUserName(UserName);
-    wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-    resetPassword.clickResetPassword();
-    Assert.assertEquals(resetPassword.verificationPage(), "Thank you. An email has been sent.");
+		/////////////////////////////////////////////////////////////////
+		TimeZone tz = Calendar.getInstance().getTimeZone();
+		String currentTimeZone = tz.getDisplayName();
+		log.info(currentTimeZone);
 
-	/////////////////////////////////////////////////////////////////
-	TimeZone tz = Calendar.getInstance().getTimeZone();
-	String currentTimeZone = tz.getDisplayName();
-	log.info(currentTimeZone);
-	
-	formatter = new SimpleDateFormat("HH:mm");
-	formatter.setTimeZone(TimeZone.getTimeZone("MST"));
-	longTime = currentTime.getTime();
-	formattedDate = formatter.format(longTime);
-	timeArray = formattedDate.split(":");
-	currentHour = timeArray[0];
-	currentMinutes = timeArray[1];
-	
-	log.info("\n\n\n===============================");
-	log.info("Current date: " + longTime);
-	log.info("Formatted date: " + formattedDate);
-	log.info("Current Hour: " + currentHour);
-	log.info("Current Minutes: " + currentMinutes);
-	log.info("\n\n\n===============================");
-	//////////////////////////////////////////////////////////////////
+		formatter = new SimpleDateFormat("HH:mm");
+		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
+		longTime = currentTime.getTime();
+		formattedDate = formatter.format(longTime);
+		timeArray = formattedDate.split(":");
+		currentHour = timeArray[0];
+		currentMinutes = timeArray[1];
 
-  }
+		log.info("\n\n\n===============================");
+		log.info("Current date: " + longTime);
+		log.info("Formatted date: " + formattedDate);
+		log.info("Current Hour: " + currentHour);
+		log.info("Current Minutes: " + currentMinutes);
+		log.info("\n\n\n===============================");
+		//////////////////////////////////////////////////////////////////
 
-  @Test(dataProvider = "getoutlookLoginData", dependsOnMethods = "proceedWithResetPassword")
-  public void login(String un, String pwd) throws InterruptedException, AWTException {
-    outlookLogin.outlookLogin(un, pwd);
-  }
+	}
 
-  @Test(dataProvider = "getBrokerForgotPassword", dependsOnMethods = "login")
-  public void outlookloginTest(String UserName, String EmailAddress, String NewPassword, String ConfirmPassword) throws InterruptedException {
-    brokerOutlook.clickPopUp();
-    EmailAddress = EmailAddress.trim();
-    brokerOutlook.clickOpenMailBox();
-    brokerOutlook.enterEmail(super.getProperties().getProperty("email"));
-    brokerOutlook.outlookSearchInbox(EmailAddress, currentHour, currentMinutes);
-    brokerOutlook.handleResetPasswordEmailInbox(EmailAddress);
-    brokerPasswordSetupResetPage.enterNewPassword(NewPassword);
-    brokerPasswordSetupResetPage.confirmNewPassword(ConfirmPassword);
-    brokerPasswordSetupResetPage.clickSubmitButton();
-    brokerLoginPage.brokerVerificationLogin(UserName, NewPassword);
-    brokerLoginPage.verificationBrokerLogout();
-  }
+	@Test(dataProvider = "getoutlookLoginData", dependsOnMethods = "proceedWithResetPassword")
+	public void login(String un, String pwd) throws InterruptedException, AWTException {
+		outlookLogin.outlookLogin(un, pwd);
+	}
+
+	@Test(dataProvider = "getBrokerForgotPassword", dependsOnMethods = "login")
+	public void outlookloginTest(String UserName, String EmailAddress, String NewPassword, String ConfirmPassword)
+			throws InterruptedException {
+		brokerOutlook.clickPopUp();
+		EmailAddress = EmailAddress.trim();
+		brokerOutlook.clickOpenMailBox();
+		brokerOutlook.enterEmail(super.getProperties().getProperty("email"));
+		brokerOutlook.outlookSearchInbox(EmailAddress, currentHour, currentMinutes);
+		brokerOutlook.handleResetPasswordEmailInbox(EmailAddress);
+		brokerPasswordSetupResetPage.enterNewPassword(NewPassword);
+		brokerPasswordSetupResetPage.confirmNewPassword(ConfirmPassword);
+		brokerPasswordSetupResetPage.clickSubmitButton();
+		brokerLoginPage.brokerVerificationLogin(UserName, NewPassword);
+		brokerLoginPage.BrokerLogout();
+	}
 }
-
-
-
-
-
-

@@ -3,7 +3,6 @@ package testcases.loadpay.unmatched;
 import java.awt.AWTException;
 import java.io.IOException;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -37,40 +36,14 @@ public class UnmatchedCarrierAdminSameDayTest extends TestBase {
 
 	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = "Home")
 	public void adminLogin(String Username, String pass) throws IOException, InterruptedException, AWTException {
-		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getUserName()));
 		adminLoginObj.adminUserPass(Username, pass);
-
-		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getLoginBtn()));
 		adminLoginObj.adminLogin();
-
-		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getCustomerTab()));
 		adminLoginObj.ClickOnCustomersTab();
-
-		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getSearch()));
 		adminLoginObj.ClickOnSearchBox(BrokerPaymentforUnmatchedCarrierTest.al.get(0));
-
-		// if(BrokerPaymentforUnmatchedCarrierTest.umemail!=null)
-		// {
-		// a.ClickOnSearchBox(BrokerPaymentforUnmatchedCarrierTest.umemail);
-		// }
-		// else
-		// {
-		// a.ClickOnSearchBox(CarrierRegisterTest.email);
-		// wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		// }
-		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getClickonSearchButton()));
 		adminLoginObj.ClickOnSearchButton();
-
-		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getDoubleClickID()));
 		adminLoginObj.DoubleClickID();
-
-		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getCustomersatatusIdDropDown()));
 		adminLoginObj.StatusIDDropDown();
-
-		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getUpdateButton()));
 		adminLoginObj.UpdateButton();
-
-		wait.until(ExpectedConditions.elementToBeClickable(adminLoginObj.getLogOut()));
 		adminLoginObj.AdminLogOut();
 
 	}

@@ -3,7 +3,6 @@ package testcases.loadpay.admin;
 import java.awt.AWTException;
 import java.io.IOException;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -19,7 +18,6 @@ public class AdminPayByCheckServiceBatchFileTest extends TestBase {
 	AdminLogin al;
 	AdminPayByCheckServiceBatchFile apbcf;
 	public static String acountname;
-	
 
 	/*-------Initializing driver---------*/
 
@@ -31,32 +29,29 @@ public class AdminPayByCheckServiceBatchFileTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
-		
+
 		al = new AdminLogin();
-		ahp = new AdminHomePage(); 
-		apbcf=new AdminPayByCheckServiceBatchFile();
+		ahp = new AdminHomePage();
+		apbcf = new AdminPayByCheckServiceBatchFile();
 	}
 
-	
-
 	@Test(dataProvider = "getAdminLoginData")
-	public void verifyAdminPayByCheckServiceBatchFile(String Username, String pass) throws InterruptedException, AWTException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
-		ahp.AdminURL(); 
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+	public void verifyAdminPayByCheckServiceBatchFile(String Username, String pass)
+			throws InterruptedException, AWTException {
+
+		ahp.AdminURL();
+
 		al.adminUserPass(Username, pass);
 		al.adminLogin();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbcf.clickDailyCheckPaymentFiles();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbcf.ClickShowPaymentsForBatch();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		apbcf.EnterEmailID(BrokerNewPaymentTest.email);
 		apbcf.ClickSendButton();
 		al.AdminLogOut();
-		
+
 	}
 
-		
-	
 }

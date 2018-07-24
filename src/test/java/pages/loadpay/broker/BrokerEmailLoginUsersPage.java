@@ -73,14 +73,16 @@ public class BrokerEmailLoginUsersPage extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(changePasswordButton));
 		js.executeScript("arguments[0].click();", changePasswordButton);
 		changePasswordButton.click();
-		changePasswordButton.click();
 	}
 
 	public void clicCurrentPasswordField() {
+		wait.until(ExpectedConditions.elementToBeClickable(currentPasswordField));
 		currentPasswordField.click();
 	}
 
 	public void enterCurrentPassword(String CurrentPassword) {
+		wait.until(ExpectedConditions.elementToBeClickable(currentPasswordField));
+		currentPasswordField.clear();
 		currentPasswordField.sendKeys(CurrentPassword);
 	}
 
@@ -90,6 +92,8 @@ public class BrokerEmailLoginUsersPage extends TestBase {
 	}
 
 	public void enterNewPassword(String NewPassword) {
+		wait.until(ExpectedConditions.elementToBeClickable(newPasswordField));
+		newPasswordField.clear();
 		newPasswordField.sendKeys(NewPassword);
 	}
 
@@ -99,6 +103,8 @@ public class BrokerEmailLoginUsersPage extends TestBase {
 	}
 
 	public void enterConfirmNewPasswordField(String ConfirmNewPassword) {
+		wait.until(ExpectedConditions.elementToBeClickable(confirmNewPasswordField));
+		confirmNewPasswordField.clear();
 		confirmNewPasswordField.sendKeys(ConfirmNewPassword);
 	}
 
@@ -116,8 +122,4 @@ public class BrokerEmailLoginUsersPage extends TestBase {
 		return logOff.isDisplayed();
 
 	}
-
-	/*
-	 * public boolean lastFourPasswords() { return errorMesssage.isDisplayed(); }
-	 */
 }

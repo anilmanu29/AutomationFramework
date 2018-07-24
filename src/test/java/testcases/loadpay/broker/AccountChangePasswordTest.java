@@ -4,7 +4,6 @@ import static org.testng.Assert.assertEquals;
 
 import java.io.IOException;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -45,12 +44,9 @@ public class AccountChangePasswordTest extends TestBase {
 		log.info(CurrentPassword);
 		log.info(NewPassword);
 		brokEmailLogUsePage.openAccountTab();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokEmailLogUsePage.goToEmailLoginUsers();
 		brokEmailLogUsePage.openPasswordAccountSecurityLink();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokEmailLogUsePage.clickChangePasswordButton();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokEmailLogUsePage.clicCurrentPasswordField();
 		brokEmailLogUsePage.enterCurrentPassword(CurrentPassword);
 		brokEmailLogUsePage.clickNewPasswordField();
@@ -59,19 +55,8 @@ public class AccountChangePasswordTest extends TestBase {
 		brokEmailLogUsePage.enterConfirmNewPasswordField(ConfirmNewPassword);
 		brokEmailLogUsePage.clickUpdateButton();
 		assertEquals(brokEmailLogUsePage.verificationMessage(), "Saved", "Password isn't saved");
-		// assertEquals(brokEmailLogUsePage.lastFourPasswords(), "Your new Password
-		// cannot be any of your last four Passwords.", "Your new Password cannot be any
-		// of your last four Passwords");
-		/*
-		 * if(brokEmailLogUsePage.lastFourPasswords()==true) {
-		 * brokerLoginPage.BrokerLogout(); } else {
-		 * 
-		 * }
-		 */
-
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		brokerLoginPage.BrokerLogout();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 	}
 
 	@Test(dataProvider = "getBrokerChangePasswordData", dependsOnMethods = "changePasswordVerification")
@@ -79,7 +64,6 @@ public class AccountChangePasswordTest extends TestBase {
 			String ConfirmNewPassword) throws InterruptedException {
 		wait = new WebDriverWait(driver, 30);
 		brokerLoginPage.brokerVerificationLogin(UserName, NewPassword);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
 		assertEquals(brokEmailLogUsePage.logOffButton(), true, "User is unable to login with New Password");
 	}
 }

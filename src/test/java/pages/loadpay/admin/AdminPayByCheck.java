@@ -101,23 +101,17 @@ public class AdminPayByCheck extends TestBase {
 	}
 
 	public void clickPayments() throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(link_Payments));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", link_Payments);
-		wait.until(ExpectedConditions.elementToBeClickable(link_Payments));
 
 	}
 
 	public void ClickOnsearchKeyword(String invoice) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 		FieldSearch.click();
-		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
-
 		FieldSearch.sendKeys(invoice);
-		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
-
 		FieldSearch.sendKeys(Keys.RETURN);
-		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
-
 	}
 
 	public void getPaymentID() throws InterruptedException {
@@ -144,67 +138,61 @@ public class AdminPayByCheck extends TestBase {
 	}
 
 	public void clickSearch1() throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(btn_Search));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_Search);
-		wait.until(ExpectedConditions.elementToBeClickable(btn_Search));
-
 	}
 
 	public void clickgridcollapse() throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(grid_collapse));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", grid_collapse);
-		wait.until(ExpectedConditions.elementToBeClickable(grid_collapse));
 
 	}
 
 	public void clickPayByCheck() throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(btn_PayByCheck));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_PayByCheck);
-		wait.until(ExpectedConditions.elementToBeClickable(btn_PayByCheck));
-
 	}
 
 	public void selectTerms() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(select_Terms));
 		select_Terms.click();
 		Select pay = new Select(select_Terms);
 		pay.selectByIndex(1);
-		wait.until(ExpectedConditions.elementToBeClickable(select_Terms));
-
 	}
 
 	public void selectTermsTermPayment() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(select_Terms));
 		select_Terms.click();
 		Select pay = new Select(select_Terms);
 		pay.selectByIndex(2);
-		wait.until(ExpectedConditions.elementToBeClickable(select_Terms));
-
 	}
 
 	public void EnterDOTNnumber(String EnterDOTNnumber) {
+		wait.until(ExpectedConditions.elementToBeClickable(txt_DOT));
+		txt_DOT.clear();
 		txt_DOT.sendKeys(EnterDOTNnumber);
 	}
 
 	public void ContactName(String ContactName) {
+		wait.until(ExpectedConditions.elementToBeClickable(txt_ContactName));
+		txt_ContactName.clear();
 		txt_ContactName.sendKeys(ContactName);
 	}
 
 	public void clickPayByChecksubmit() throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(btn_paybychksubmit));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_paybychksubmit);
-		wait.until(ExpectedConditions.elementToBeClickable(btn_paybychksubmit));
 
 	}
 
 	public void clickAddCheckNumber() throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(btn_UpdateCheckNumber));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_UpdateCheckNumber);
-		wait.until(ExpectedConditions.elementToBeClickable(btn_UpdateCheckNumber));
-
 	}
 
 	public void ClickOnEnterCheckNumber() throws InterruptedException {

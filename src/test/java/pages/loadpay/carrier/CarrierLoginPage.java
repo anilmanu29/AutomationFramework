@@ -67,8 +67,8 @@ public class CarrierLoginPage extends TestBase {
 	 * @throws InterruptedException
 	 */
 	public void setEinField(String EIN) throws InterruptedException {
-		einField.clear();
 		wait.until(ExpectedConditions.elementToBeClickable(einField));
+		einField.clear();
 		einField.sendKeys(EIN);
 	}
 
@@ -119,7 +119,7 @@ public class CarrierLoginPage extends TestBase {
 
 	public void Carrierlogin(String un, String pwd) {
 		cemail = un;
-
+		wait.until(ExpectedConditions.elementToBeClickable(UserName));
 		UserName.sendKeys(un);
 		Password.sendKeys(pwd);
 		// loginBtn.click();
@@ -130,10 +130,10 @@ public class CarrierLoginPage extends TestBase {
 
 	public void carrierVerificationLogin(String UserName, String NewPassword) {
 		cemail = UserName;
-		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
+		wait.until(ExpectedConditions.elementToBeClickable(Password));
 		this.UserName.sendKeys(UserName);
 		Password.sendKeys(NewPassword);
-		// loginBtn.click();
+		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", loginBtn);
 	}

@@ -6,7 +6,6 @@ import java.io.IOException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -54,41 +53,41 @@ public class AdminPayMeNowLockTest extends TestBase {
 	public void verifyLockPayMeNowStatus(String Username, String pass)
 			throws InterruptedException, AWTException, IOException, InvalidFormatException {
 		admHomePage.AdminURL();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		admLogin.adminUserPass(Username, pass);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		admLogin.adminLogin();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		admLogin.ClickOnCustomersTab();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		admLogin.ClickOnSearchBox(brokerUserName);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		admLogin.ClickOnSearchButton();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		admLogin.DoubleClickID();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		admPayMeNowTab.openPayMeNowTab();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		admPayMeNowTab.clickEnrollInPayMeNow();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		admPayMeNowTab.clickLockPaymeNowStatusButton();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		admPayMeNowTab.clickUpdateButton();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		admLogin.AdminLogOut();
 
 	}
 
 	@Test(description = "LP-4683 AdminPayMeNowLockTest_verifyBrokerCannotOptOutPayMeNow", dataProvider = "getBrokerLoginData", dependsOnMethods = "verifyLockPayMeNowStatus")
 	public void verifyBrokerCannotOptOutPayMeNow(String un, String pwd) throws InterruptedException, AWTException {
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		driver.get(super.getProperties().getProperty("url"));
 		brokLoginPage.Brokerlogin(un, pwd);
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		brokerPayMeNowTab.openAccountTab();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		brokerPayMeNowTab.openPayMeNowTab();
-		wait.until(ExpectedConditions.elementToBeClickable(tempElement));
+
 		checkbox = driver.findElement(By.id("PMNEnrolled"));
 		if (!checkbox.isEnabled()) {
 			log.info("Enroll in PayMeNow is Disabled");

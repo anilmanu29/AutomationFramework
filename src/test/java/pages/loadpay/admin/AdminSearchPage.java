@@ -61,8 +61,6 @@ public class AdminSearchPage extends TestBase {
 	@FindBy(xpath = (".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div"))
 	WebElement firstRowData;
 
-	// @FindBy(xpath =
-	// (".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[22]/div[1]/h3/span"))
 	@FindBy(xpath = ("//span[contains(text(),'Total Count')]"))
 	WebElement totalRecordCount;
 
@@ -76,6 +74,7 @@ public class AdminSearchPage extends TestBase {
 	 * click the searchPageLink
 	 */
 	public void clickSearchPageLink() {
+		wait.until(ExpectedConditions.elementToBeClickable(searchPageLink));
 		searchPageLink.click();
 	}
 
@@ -83,6 +82,7 @@ public class AdminSearchPage extends TestBase {
 	 * click the searchPageLink
 	 */
 	public void clickSearchButton() {
+		wait.until(ExpectedConditions.elementToBeClickable(searchButton));
 		searchButton.click();
 	}
 
@@ -91,6 +91,7 @@ public class AdminSearchPage extends TestBase {
 	 *            the searchInputField to set
 	 */
 	public void setSearchInputField(String searchText) {
+		wait.until(ExpectedConditions.elementToBeClickable(searchInputField));
 		searchInputField.clear();
 		searchInputField.sendKeys(searchText);
 		searchInputField.sendKeys(Keys.TAB);
@@ -101,6 +102,7 @@ public class AdminSearchPage extends TestBase {
 	 *            the amountFromInputField to set
 	 */
 	public void setAmountFromInputField(String amount) {
+		wait.until(ExpectedConditions.elementToBeClickable(amountFromInputField));
 		amountFromInputField.clear();
 		amountFromInputField.sendKeys(amount);
 		amountFromInputField.sendKeys(Keys.TAB);
@@ -111,6 +113,7 @@ public class AdminSearchPage extends TestBase {
 	 *            the amountToInputField to set
 	 */
 	public void setAmountToInputField(String amount) {
+		wait.until(ExpectedConditions.elementToBeClickable(amountToInputField));
 		amountToInputField.clear();
 		amountToInputField.sendKeys(amount);
 		amountToInputField.sendKeys(Keys.TAB);
@@ -154,6 +157,7 @@ public class AdminSearchPage extends TestBase {
 	 *            the allCheckBox to set
 	 */
 	public void clickAllCheckBox() {
+		wait.until(ExpectedConditions.elementToBeClickable(allCheckBox));
 		allCheckBox.click();
 	}
 
@@ -169,6 +173,7 @@ public class AdminSearchPage extends TestBase {
 	 *            the unmatchedCheckBox to set
 	 */
 	public void clickUnmatchedCheckBox() {
+		wait.until(ExpectedConditions.elementToBeClickable(unmatchedCheckBox));
 		unmatchedCheckBox.click();
 	}
 
@@ -184,6 +189,7 @@ public class AdminSearchPage extends TestBase {
 	 *            the notScheduledCheckBox to set
 	 */
 	public void clickNotScheduledCheckBox() {
+		wait.until(ExpectedConditions.elementToBeClickable(notScheduledCheckBox));
 		notScheduledCheckBox.click();
 	}
 
@@ -199,6 +205,7 @@ public class AdminSearchPage extends TestBase {
 	 *            the scheduledCheckBox to set
 	 */
 	public void clickScheduledCheckBox() {
+		wait.until(ExpectedConditions.elementToBeClickable(scheduledCheckBox));
 		scheduledCheckBox.click();
 	}
 
@@ -214,6 +221,7 @@ public class AdminSearchPage extends TestBase {
 	 *            the paidCheckBox to set
 	 */
 	public void clickPaidCheckBox() {
+		wait.until(ExpectedConditions.elementToBeClickable(paidCheckBox));
 		paidCheckBox.click();
 	}
 
@@ -229,6 +237,7 @@ public class AdminSearchPage extends TestBase {
 	 *            the errorCheckBox to set
 	 */
 	public void clickErrorCheckBox() {
+		wait.until(ExpectedConditions.elementToBeClickable(errorCheckBox));
 		errorCheckBox.click();
 	}
 
@@ -244,6 +253,7 @@ public class AdminSearchPage extends TestBase {
 	 *            the canceledCheckBox to set
 	 */
 	public void clickCanceledCheckBox() {
+		wait.until(ExpectedConditions.elementToBeClickable(canceledCheckBox));
 		canceledCheckBox.click();
 	}
 
