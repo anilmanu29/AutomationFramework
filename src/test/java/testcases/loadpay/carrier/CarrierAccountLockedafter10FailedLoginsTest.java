@@ -25,7 +25,7 @@ public class CarrierAccountLockedafter10FailedLoginsTest extends TestBase {
 
 	public CarrierAccountLockedafter10FailedLoginsTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -35,6 +35,7 @@ public class CarrierAccountLockedafter10FailedLoginsTest extends TestBase {
 		a = new AdminLogin();
 		Calck = new CarrierAccountLockedafter10FailedLogins();
 		loginPage = new CarrierLoginPage();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getCarrierlockedaccountAdminUnlockData")

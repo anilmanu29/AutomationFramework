@@ -57,7 +57,6 @@ public class AdminEditEmailCarrierTest extends TestBase {
 
 	public AdminEditEmailCarrierTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass
@@ -73,6 +72,7 @@ public class AdminEditEmailCarrierTest extends TestBase {
 		currentTime = new Date();
 		log = Logger.getLogger(Log.class.getName());
 		log.info("Test Set Up");
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@AfterClass

@@ -16,7 +16,7 @@ public class CarrierPayMeNowFuelCardTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public CarrierPayMeNowFuelCardTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -25,6 +25,7 @@ public class CarrierPayMeNowFuelCardTest extends TestBase {
 		initialization();
 		loginPage = new CarrierLoginPage();
 		cfot = new CarrierPaymeNowFuelCard();
+		wait = new WebDriverWait(driver, 30);
 	}
 	/*-------Initializing driver---------*/
 

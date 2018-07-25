@@ -16,7 +16,7 @@ public class CarrierNextDAYACHTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public CarrierNextDAYACHTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -25,6 +25,7 @@ public class CarrierNextDAYACHTest extends TestBase {
 		initialization();
 		loginPage = new CarrierLoginPage();
 		carrierNextDayObj = new CarrierNextDAYACH();
+		wait = new WebDriverWait(driver, 30);
 	}
 	/*-------Initializing driver---------*/
 

@@ -14,7 +14,7 @@ public class UnmatchedCarrierPayMeNowFuelCardTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public UnmatchedCarrierPayMeNowFuelCardTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -22,6 +22,7 @@ public class UnmatchedCarrierPayMeNowFuelCardTest extends TestBase {
 
 		initialization();
 		UnmatchedCarrierFuelCard = new UnmatchedCarrierPaymeNowFuelCard();
+		wait = new WebDriverWait(driver, 30);
 	}
 	/*-------Initializing driver---------*/
 

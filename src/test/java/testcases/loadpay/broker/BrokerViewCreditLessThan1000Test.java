@@ -25,7 +25,7 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 
 	public BrokerViewCreditLessThan1000Test() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -35,7 +35,7 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 		CreditLessThan1000 = new BrokerViewCreditLessThan1000();
 		brokeroutlook = new BrokerOutlook();
 		outlooklog = new outlooklogin();
-
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getBrokerLoginData")

@@ -54,7 +54,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 
 	public CarrierParentChildRelationshipsTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -74,6 +74,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		adminHomePageObj = new AdminHomePage();
 		adminPayByCheckObj = new AdminPayByCheck();
 		arraylist = new ArrayList<String>();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getCarrierLoginData")

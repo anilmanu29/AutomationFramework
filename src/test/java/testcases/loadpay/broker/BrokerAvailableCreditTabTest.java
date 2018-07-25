@@ -30,7 +30,7 @@ public class BrokerAvailableCreditTabTest extends TestBase {
 
 	public BrokerAvailableCreditTabTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -41,7 +41,7 @@ public class BrokerAvailableCreditTabTest extends TestBase {
 		brokerloginpage = new BrokerLoginPage();
 		brokeroutlook = new BrokerOutlook();
 		outlooklog = new outlooklogin();
-
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(description = "LP-5398 Broker Request Additional Credit Login", dataProvider = "getBrokerLoginData")

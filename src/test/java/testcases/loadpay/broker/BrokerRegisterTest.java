@@ -59,7 +59,7 @@ public class BrokerRegisterTest extends TestBase {
 
 	public BrokerRegisterTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -73,6 +73,7 @@ public class BrokerRegisterTest extends TestBase {
 		outlookLoginObj = new outlooklogin();
 		brokerOutlookObj = new BrokerOutlook();
 		currentTime = new Date();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getBrokerRegisterData")

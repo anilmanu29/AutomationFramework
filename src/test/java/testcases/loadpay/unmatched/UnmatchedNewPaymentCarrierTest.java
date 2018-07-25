@@ -13,13 +13,14 @@ public class UnmatchedNewPaymentCarrierTest extends TestBase {
 
 	public UnmatchedNewPaymentCarrierTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
 	public void setUp() {
 		initialization();
 		loginPage = new UnmatchedNewPaymentCarrier();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test()

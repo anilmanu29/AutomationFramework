@@ -27,14 +27,13 @@ public class AdminPayByCheckTest extends TestBase {
 
 	public AdminPayByCheckTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass
 	public void setUp() throws IOException {
 
 		initialization();
-
+		wait = new WebDriverWait(driver, 30);
 		al = new AdminLogin();
 		ahp = new AdminHomePage();
 		apbc = new AdminPayByCheck();

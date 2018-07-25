@@ -17,7 +17,7 @@ public class UnmatchedCarrierNextDayACHTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public UnmatchedCarrierNextDayACHTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -26,6 +26,7 @@ public class UnmatchedCarrierNextDayACHTest extends TestBase {
 		initialization();
 		loginPage = new CarrierLoginPage();
 		umCarrierObj = new UnmatchedCarrierNextDayACH();
+		wait = new WebDriverWait(driver, 30);
 	}
 	/*-------Initializing driver---------*/
 

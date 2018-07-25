@@ -19,7 +19,7 @@ public class CarrierNotificationTest extends TestBase {
 
 	public CarrierNotificationTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -28,6 +28,7 @@ public class CarrierNotificationTest extends TestBase {
 		initialization();
 		cn = new CarrierNotification();
 		cl = new CarrierLoginPage();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getCarrierLoginData")

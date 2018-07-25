@@ -24,7 +24,7 @@ public class ShipperPaymentHistoryTest extends TestBase {
 
 	public ShipperPaymentHistoryTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -33,6 +33,7 @@ public class ShipperPaymentHistoryTest extends TestBase {
 		initialization();
 		shipperpaymenthistoryobj = new ShipperPaymentHistory();
 		brokerloginobj = new BrokerLoginPage();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(description = "LP-3481 Shipper - Payment History", dataProvider = "getBrokerLoginData")

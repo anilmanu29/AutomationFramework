@@ -24,7 +24,6 @@ public class AdminPayByCheckServiceBatchFileTest extends TestBase {
 
 	public AdminPayByCheckServiceBatchFileTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass
@@ -35,6 +34,7 @@ public class AdminPayByCheckServiceBatchFileTest extends TestBase {
 		al = new AdminLogin();
 		ahp = new AdminHomePage();
 		apbcf = new AdminPayByCheckServiceBatchFile();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getAdminLoginData")

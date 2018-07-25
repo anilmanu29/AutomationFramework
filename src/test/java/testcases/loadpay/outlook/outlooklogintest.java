@@ -16,7 +16,7 @@ public class outlooklogintest extends TestBase {
 
 	public outlooklogintest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -24,7 +24,7 @@ public class outlooklogintest extends TestBase {
 
 		initialization();
 		loginPage = new outlooklogin();
-
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getoutlookLoginData")

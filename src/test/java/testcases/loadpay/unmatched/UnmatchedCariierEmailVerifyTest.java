@@ -17,7 +17,7 @@ public class UnmatchedCariierEmailVerifyTest extends TestBase {
 
 	public UnmatchedCariierEmailVerifyTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -26,6 +26,7 @@ public class UnmatchedCariierEmailVerifyTest extends TestBase {
 		initialization();
 		outlook = new outlooklogin();
 		outlookk = new UnmatchedCariierEmailVerify();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getoutlookLoginData")

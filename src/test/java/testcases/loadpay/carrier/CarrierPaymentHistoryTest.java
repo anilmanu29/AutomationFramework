@@ -25,7 +25,7 @@ public class CarrierPaymentHistoryTest extends TestBase {
 
 	public CarrierPaymentHistoryTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -34,6 +34,7 @@ public class CarrierPaymentHistoryTest extends TestBase {
 		initialization();
 		carrierpaymenthistory = new CarrierPaymentHistory();
 		carrierloginobj = new CarrierLoginPage();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(description = "LP-3472 Carrier - Payment History", dataProvider = "getCarrierLoginData")

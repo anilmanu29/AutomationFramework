@@ -18,7 +18,6 @@ public class BrokerPaymentTermsChargeSenderTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public BrokerPaymentTermsChargeSenderTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
 
 	}
 
@@ -26,6 +25,7 @@ public class BrokerPaymentTermsChargeSenderTest extends TestBase {
 	public void setUp() throws IOException {
 		initialization();
 		brokerPaymentTermsChargeSenderObj = new BrokerPaymentTermsChargeSender();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	/*-------Login to Load Pay as Broker---------*/

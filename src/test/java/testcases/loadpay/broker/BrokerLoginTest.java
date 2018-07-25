@@ -13,13 +13,14 @@ public class BrokerLoginTest extends TestBase {
 
 	public BrokerLoginTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
 	public void setUp() {
 
 		initialization();
+		wait = new WebDriverWait(driver, 30);
 		loginPage = new BrokerLoginPage();
 	}
 

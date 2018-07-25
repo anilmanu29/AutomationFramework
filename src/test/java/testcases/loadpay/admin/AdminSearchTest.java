@@ -26,7 +26,6 @@ public class AdminSearchTest extends TestBase {
 
 	public AdminSearchTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass
@@ -35,6 +34,7 @@ public class AdminSearchTest extends TestBase {
 		adminHomePage = new AdminHomePage();
 		adminLoginPage = new AdminLogin();
 		adminSearchPage = new AdminSearchPage();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	// login as admin

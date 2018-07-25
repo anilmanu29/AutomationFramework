@@ -29,7 +29,6 @@ public class BrokerDisableCopyPasteConfirmBankAccountTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public BrokerDisableCopyPasteConfirmBankAccountTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass
@@ -40,6 +39,7 @@ public class BrokerDisableCopyPasteConfirmBankAccountTest extends TestBase {
 		brokerdisablecopypasteconfirmbankaccountobj = new BrokerDisableCopyPasteConfirmBankAccount();
 		brokerbankingobj = new BrokerBanking();
 		js = (JavascriptExecutor) driver;
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getBrokerData")

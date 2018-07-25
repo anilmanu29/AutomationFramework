@@ -16,7 +16,7 @@ public class HandshakewithRTFCarrierTest extends TestBase {
 
 	public HandshakewithRTFCarrierTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -25,6 +25,7 @@ public class HandshakewithRTFCarrierTest extends TestBase {
 		initialization();
 		loginPage = new CarrierLoginPage();
 		rtfcarrier = new HandshakewithRTFCarrier();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getLoginHandshakewithRTF_CarrierDa")

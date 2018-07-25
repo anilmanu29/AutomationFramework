@@ -17,7 +17,7 @@ public class CarrierPayMeNowTabTest extends TestBase {
 
 	public CarrierPayMeNowTabTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -26,7 +26,7 @@ public class CarrierPayMeNowTabTest extends TestBase {
 		initialization();
 		lp = new CarrierLoginPage();
 		cp = new CarrierPayMeNowTab();
-
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getCarrierLoginData")

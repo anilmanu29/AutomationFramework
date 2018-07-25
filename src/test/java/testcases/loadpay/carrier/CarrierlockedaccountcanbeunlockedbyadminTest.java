@@ -22,7 +22,7 @@ public class CarrierlockedaccountcanbeunlockedbyadminTest extends TestBase {
 
 	public CarrierlockedaccountcanbeunlockedbyadminTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -32,6 +32,7 @@ public class CarrierlockedaccountcanbeunlockedbyadminTest extends TestBase {
 		adminLogin = new AdminLogin();
 		Claua = new Carrierlockedaccountcanbeunlockedbyadmin();
 		loginPage = new CarrierLoginPage();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getCarrierlockedaccountAdminUnlockData")

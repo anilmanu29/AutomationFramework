@@ -26,7 +26,7 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public BrokerPaymentforUnmatchedCarrierTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -37,6 +37,7 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 		bp = new BrokerPaymentforUnmatchedCarrier();
 		al = new ArrayList<String>();
 		in = new ArrayList<String>();
+		wait = new WebDriverWait(driver, 30);
 	}
 	/*-------Initializing driver---------*/
 

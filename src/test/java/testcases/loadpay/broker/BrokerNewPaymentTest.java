@@ -23,7 +23,7 @@ public class BrokerNewPaymentTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public BrokerNewPaymentTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -33,6 +33,7 @@ public class BrokerNewPaymentTest extends TestBase {
 		bl = new BrokerLoginPage();
 		bp = new BrokerNewPayment();
 		al = new ArrayList<String>();
+		wait = new WebDriverWait(driver, 30);
 	}
 	/*-------Initializing driver---------*/
 

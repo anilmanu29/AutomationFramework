@@ -26,7 +26,7 @@ public class BrokerBulkUploadPaymentsmatchedCarrierTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public BrokerBulkUploadPaymentsmatchedCarrierTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -35,7 +35,7 @@ public class BrokerBulkUploadPaymentsmatchedCarrierTest extends TestBase {
 		initialization();
 		loginPage = new BrokerLoginPage();
 		bbmp = new BrokerBulkUploadPaymentsmatchedCarrier();
-
+		wait = new WebDriverWait(driver, 30);
 	}
 	/*-------Initializing driver---------*/
 

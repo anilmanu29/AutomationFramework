@@ -16,7 +16,7 @@ public class CarrierSameDayACHTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public CarrierSameDayACHTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -25,6 +25,7 @@ public class CarrierSameDayACHTest extends TestBase {
 		initialization();
 		loginPage = new CarrierLoginPage();
 		cs = new CarrierSameDAYACH();
+		wait = new WebDriverWait(driver, 30);
 	}
 	/*-------Initializing driver---------*/
 

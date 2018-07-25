@@ -13,11 +13,13 @@ public class BrokerEditPaymentMatchedCarrierTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public BrokerEditPaymentMatchedCarrierTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
 	public void setUp() {
+		initialization();
+		wait = new WebDriverWait(driver, 30);
 		brokerEditPaymentMatchCarrierObj = new BrokerEditPaymentMatchedCarrier();
 		brokerEditPaymentMatchCarrierObj.setUp();
 	}

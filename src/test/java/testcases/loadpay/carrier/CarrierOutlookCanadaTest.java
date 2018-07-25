@@ -17,7 +17,7 @@ public class CarrierOutlookCanadaTest extends TestBase {
 
 	public CarrierOutlookCanadaTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -26,6 +26,7 @@ public class CarrierOutlookCanadaTest extends TestBase {
 		initialization();
 		outlook = new outlooklogin();
 		outlookk = new CarrierOutlookCanada();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getoutlookLoginData")

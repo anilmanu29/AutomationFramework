@@ -21,7 +21,6 @@ public class AdminBrokerTest extends TestBase {
 
 	public AdminBrokerTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass
@@ -29,6 +28,7 @@ public class AdminBrokerTest extends TestBase {
 		initialization();
 		h = new AdminHomePage();
 		a = new AdminLogin();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(description = "Get Credit Amount", dataProvider = "getExtendedCreditAmount")

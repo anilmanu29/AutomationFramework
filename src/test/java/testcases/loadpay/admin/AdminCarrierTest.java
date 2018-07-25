@@ -21,7 +21,6 @@ public class AdminCarrierTest extends TestBase {
 
 	public AdminCarrierTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass
@@ -29,6 +28,7 @@ public class AdminCarrierTest extends TestBase {
 		initialization();
 		h = new AdminHomePage();
 		a = new AdminLogin();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(description = "Switch to admin URL")

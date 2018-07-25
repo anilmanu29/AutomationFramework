@@ -23,7 +23,7 @@ public class BrokerBankingTest extends TestBase {
 
 	public BrokerBankingTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -33,6 +33,7 @@ public class BrokerBankingTest extends TestBase {
 		brokerBankingObj = new BrokerBanking();
 		brokerLoginObj = new BrokerLoginPage();
 		adminLoginObj = new AdminLogin();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getBrokerLoginData")

@@ -49,7 +49,7 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 
 	public CarrierlockedAccountResetPasswordTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -64,6 +64,7 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 		carrierparentchildobject = new CarrierParentChildRelationships();
 		carrierloginobj = new CarrierLoginPage();
 		currentTime = new Date();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(description = "LP-5415 Carriercanresetpasswordwhenaccountislocked_verifyCarrierAccountLocked", dataProvider = "getCarrierlockedaccountAdminUnlockData")

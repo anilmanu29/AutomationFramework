@@ -28,7 +28,6 @@ public class CarrierSchedulePaymentTest extends TestBase {
 
 	public CarrierSchedulePaymentTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass
@@ -37,7 +36,7 @@ public class CarrierSchedulePaymentTest extends TestBase {
 		initialization();
 		loginPage = new CarrierLoginPage();
 		carrierschedulepayment = new CarrierSchedulePayment();
-
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(description = "LP-3475 CarrierSchedulePaymentTabTest_Login", dataProvider = "getCarrierSchedulePaymentTabData")

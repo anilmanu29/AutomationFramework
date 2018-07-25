@@ -14,7 +14,7 @@ public class UnmatchedCarrierSameDayACHTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public UnmatchedCarrierSameDayACHTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -22,7 +22,7 @@ public class UnmatchedCarrierSameDayACHTest extends TestBase {
 
 		initialization();
 		usdach = new UnmatchedCarrierSameDAYACH();
-
+		wait = new WebDriverWait(driver, 30);
 	}
 	/*-------Initializing driver---------*/
 

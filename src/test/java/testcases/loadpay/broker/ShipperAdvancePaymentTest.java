@@ -26,7 +26,7 @@ public class ShipperAdvancePaymentTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public ShipperAdvancePaymentTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -36,6 +36,7 @@ public class ShipperAdvancePaymentTest extends TestBase {
 		bl = new BrokerLoginPage();
 		bp = new ShipperAdvancePayment();
 		loginPage = new CarrierLoginPage();
+		wait = new WebDriverWait(driver, 30);
 	}
 	/*-------Initializing driver---------*/
 

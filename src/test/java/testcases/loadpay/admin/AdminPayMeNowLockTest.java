@@ -29,7 +29,6 @@ public class AdminPayMeNowLockTest extends TestBase {
 
 	public AdminPayMeNowLockTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass
@@ -41,6 +40,7 @@ public class AdminPayMeNowLockTest extends TestBase {
 		admPayMeNowTab = new AdminPaymeNowTab();
 		brokerPayMeNowTab = new BrokerPayMeNowTab();
 		brokLoginPage = new BrokerLoginPage();
+		wait = new WebDriverWait(driver, 30);
 
 	}
 

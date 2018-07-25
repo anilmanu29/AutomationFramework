@@ -13,13 +13,14 @@ public class CarrierFirstLoginNextDayACHTest extends TestBase {
 
 	public CarrierFirstLoginNextDayACHTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
 	public void setUp() {
 		initialization();
 		loginPage = new CarrierFirstLoginNextDayACH();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test()

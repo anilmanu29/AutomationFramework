@@ -13,13 +13,14 @@ public class CarrierFirstLoginSameDayTest extends TestBase {
 
 	public CarrierFirstLoginSameDayTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
 	public void setUp() {
 		initialization();
 		loginPage = new CarrierFirstLoginSameDay();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test()

@@ -20,7 +20,7 @@ public class ShipperSchedulePaymentTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public ShipperSchedulePaymentTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -29,6 +29,7 @@ public class ShipperSchedulePaymentTest extends TestBase {
 		initialization();
 		bl = new BrokerLoginPage();
 		bp = new BrokerNewPayment();
+		wait = new WebDriverWait(driver, 30);
 	}
 	/*-------Initializing driver---------*/
 

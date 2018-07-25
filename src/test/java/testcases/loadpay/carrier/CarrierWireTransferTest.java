@@ -16,7 +16,7 @@ public class CarrierWireTransferTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public CarrierWireTransferTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -25,6 +25,7 @@ public class CarrierWireTransferTest extends TestBase {
 		initialization();
 		loginPage = new CarrierLoginPage();
 		cw = new CarrierWireTransfer();
+		wait = new WebDriverWait(driver, 30);
 	}
 	/*-------Initializing driver---------*/
 

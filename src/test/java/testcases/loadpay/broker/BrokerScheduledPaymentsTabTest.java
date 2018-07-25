@@ -24,7 +24,7 @@ public class BrokerScheduledPaymentsTabTest extends TestBase {
 
 	public BrokerScheduledPaymentsTabTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -33,7 +33,7 @@ public class BrokerScheduledPaymentsTabTest extends TestBase {
 		initialization();
 		loginPage = new BrokerLoginPage();
 		brokerschedulepaymentstab = new BrokerScheduledPaymentsTab();
-
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getBrokerSchedPaymentTabSearchData")

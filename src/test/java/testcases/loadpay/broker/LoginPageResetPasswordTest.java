@@ -37,7 +37,7 @@ public class LoginPageResetPasswordTest extends TestBase {
 
 	public LoginPageResetPasswordTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -49,6 +49,7 @@ public class LoginPageResetPasswordTest extends TestBase {
 		brokerOutlook = new BrokerOutlook();
 		brokerPasswordSetupResetPage = new BrokerPasswordSetupResetPage();
 		currentTime = new Date();
+		wait = new WebDriverWait(driver, 30);
 
 	}
 

@@ -26,7 +26,7 @@ public class CarrierCompleteAccountModuleTest extends TestBase {
 
 	public CarrierCompleteAccountModuleTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -37,6 +37,7 @@ public class CarrierCompleteAccountModuleTest extends TestBase {
 		loginPage = new CarrierLoginPage();
 		adminlogin = new AdminLogin();
 		adminhomepage = new AdminHomePage();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(description = "LP-3473 Carrier - Complete Account module", dataProvider = "getCarrierLoginData")

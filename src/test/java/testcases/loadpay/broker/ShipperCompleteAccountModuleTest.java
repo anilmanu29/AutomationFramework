@@ -27,7 +27,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 
 	public ShipperCompleteAccountModuleTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -38,6 +38,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 		brokerlogin = new BrokerLoginPage();
 		adminlogin = new AdminLogin();
 		adminhomepage = new AdminHomePage();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getBrokerLoginData")

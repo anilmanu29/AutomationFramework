@@ -22,7 +22,7 @@ public class UnmatchedCarrierOutlookNextDayTest extends TestBase {
 
 	public UnmatchedCarrierOutlookNextDayTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -31,6 +31,7 @@ public class UnmatchedCarrierOutlookNextDayTest extends TestBase {
 		initialization();
 		outlook = new outlooklogin();
 		umCarrierOutlookObj = new UnmatchedCarrierOutlookNextDay();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getoutlookLoginData")

@@ -17,7 +17,7 @@ public class UnmatchedNewPaymentCarrierOutlookTest extends TestBase {
 
 	public UnmatchedNewPaymentCarrierOutlookTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -26,6 +26,7 @@ public class UnmatchedNewPaymentCarrierOutlookTest extends TestBase {
 		initialization();
 		outlook = new outlooklogin();
 		outlookk = new UnmatchedNewPaymentCarrierOutlook();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getoutlookLoginData")

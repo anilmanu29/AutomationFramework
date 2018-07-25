@@ -34,7 +34,7 @@ public class BrokerPaymentTermsChargeRecipientTest extends TestBase {
 
 	public BrokerPaymentTermsChargeRecipientTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -47,6 +47,7 @@ public class BrokerPaymentTermsChargeRecipientTest extends TestBase {
 		adminhomepage = new AdminHomePage();
 		BrokerNewPayment = new BrokerNewPayment();
 		al = new ArrayList<String>();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getBrokerLoginData")

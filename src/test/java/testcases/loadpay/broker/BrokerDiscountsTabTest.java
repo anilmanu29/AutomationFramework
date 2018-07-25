@@ -21,7 +21,7 @@ public class BrokerDiscountsTabTest extends TestBase {
 
 	public BrokerDiscountsTabTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -29,6 +29,7 @@ public class BrokerDiscountsTabTest extends TestBase {
 		initialization();
 		loginPage = new BrokerLoginPage();
 		brokerdiscountsTab = new BrokerDiscountsTab();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getBrokerDiscountsTabSearchData")

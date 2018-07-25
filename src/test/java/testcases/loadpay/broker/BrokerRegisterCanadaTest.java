@@ -26,7 +26,7 @@ public class BrokerRegisterCanadaTest extends TestBase {
 
 	public BrokerRegisterCanadaTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -34,6 +34,7 @@ public class BrokerRegisterCanadaTest extends TestBase {
 
 		initialization();
 		brc = new BrokerRegisterCanada();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getBrokerData")

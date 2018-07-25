@@ -20,7 +20,7 @@ public class UnmatchedCarrierAdminNextDayTest extends TestBase {
 
 	public UnmatchedCarrierAdminNextDayTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -28,6 +28,7 @@ public class UnmatchedCarrierAdminNextDayTest extends TestBase {
 		initialization();
 		adminHomePageObj = new AdminHomePage();
 		adminLoginObj = new AdminLogin();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test()

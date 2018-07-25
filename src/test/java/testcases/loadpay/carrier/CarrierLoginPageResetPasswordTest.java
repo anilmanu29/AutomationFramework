@@ -55,7 +55,7 @@ public class CarrierLoginPageResetPasswordTest extends TestBase {
 
 	public CarrierLoginPageResetPasswordTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -70,6 +70,7 @@ public class CarrierLoginPageResetPasswordTest extends TestBase {
 		carrierOutlookObj = new CarrierOutlook();
 		CarrierPasswordSetupResetPage = new CarrierPasswordSetupResetPage();
 		currentTime = new Date();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(description = "LP-5024 ")

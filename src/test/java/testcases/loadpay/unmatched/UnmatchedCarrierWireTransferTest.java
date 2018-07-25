@@ -14,7 +14,7 @@ public class UnmatchedCarrierWireTransferTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public UnmatchedCarrierWireTransferTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -22,7 +22,7 @@ public class UnmatchedCarrierWireTransferTest extends TestBase {
 
 		initialization();
 		uct = new UnmatchedCarrierWireTransfer();
-
+		wait = new WebDriverWait(driver, 30);
 	}
 	/*-------Initializing driver---------*/
 

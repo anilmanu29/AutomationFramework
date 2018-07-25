@@ -19,7 +19,7 @@ public class AccountChangePasswordTest extends TestBase {
 
 	public AccountChangePasswordTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -28,7 +28,7 @@ public class AccountChangePasswordTest extends TestBase {
 		initialization();
 		brokerLoginPage = new BrokerLoginPage();
 		brokEmailLogUsePage = new BrokerEmailLoginUsersPage();
-
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getBrokerLoginData")

@@ -22,7 +22,7 @@ public class BrokerAdvancePaymenttoUnmatchedCarrierTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public BrokerAdvancePaymenttoUnmatchedCarrierTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -32,6 +32,7 @@ public class BrokerAdvancePaymenttoUnmatchedCarrierTest extends TestBase {
 		brokerloginobj = new BrokerLoginPage();
 		brokerpaymentobj = new BrokerNewPayment();
 		brokeradvancepaymentobj = new BrokerAdvancePaymenttoUnmatchedCarrier();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	/*-------Login to Load Pay as Broker---------*/

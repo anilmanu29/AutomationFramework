@@ -39,7 +39,6 @@ public class AdminWireTransferTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public AdminWireTransferTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass
@@ -56,6 +55,7 @@ public class AdminWireTransferTest extends TestBase {
 		invoiceList = new ArrayList<String>();
 		log = Logger.getLogger(AdminWireTransferTest.class.getName());
 		log.info("Test Set Up");
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	/*-------Login to Load Pay as Broker---------*/

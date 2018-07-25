@@ -53,7 +53,7 @@ public class AdminEditEmailBrokerTest extends TestBase {
 
 	public AdminEditEmailBrokerTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -67,6 +67,7 @@ public class AdminEditEmailBrokerTest extends TestBase {
 		brokerRegisterObj = new BrokerRegister();
 		brokerOutlookObj = new BrokerOutlook();
 		currentTime = new Date();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@AfterClass

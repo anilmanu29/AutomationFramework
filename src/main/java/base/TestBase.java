@@ -85,24 +85,6 @@ public class TestBase {
 	}
 
 	@DataProvider
-	public Object[][] getoutlookLoginData() throws InvalidFormatException, IOException {
-		ReadExcel read = new ReadExcel();
-		return read.getCellData(loadPayTestDataFilePath, "outlookLoginData");
-	}
-
-	@DataProvider
-	public Object[][] getAdminLoginData() throws InvalidFormatException, IOException {
-		ReadExcel read = new ReadExcel();
-		return read.getCellData(loadPayTestDataFilePath, "AdminLogin");
-	}
-
-	@DataProvider
-	public Object[][] getAdminSearchData() throws InvalidFormatException, IOException {
-		ReadExcel read = new ReadExcel();
-		return read.getCellData(loadPayTestDataFilePath, "AdminSearchData");
-	}
-
-	@DataProvider
 	public Object[][] getBrokerLoginData() throws InvalidFormatException, IOException {
 		ReadExcel read = new ReadExcel();
 		return read.getCellData(loadPayTestDataFilePath, "BrokerLoginData");
@@ -115,27 +97,33 @@ public class TestBase {
 	}
 
 	@DataProvider
-	public Object[][] getBrokerBankAccountData() throws InvalidFormatException, IOException {
+	public Object[][] getCarrierLoginData() throws InvalidFormatException, IOException {
 		ReadExcel read = new ReadExcel();
-		return read.getCellData(loadPayTestDataFilePath, "BankAccountDetailsForCopyPaste");
-	}
-
-	@DataProvider
-	public Object[][] getRTFLogindata() throws InvalidFormatException, IOException {
-		ReadExcel read = new ReadExcel();
-		return read.getCellData(loadPayTestDataFilePath, "RTFLogindata");
-	}
-
-	@DataProvider
-	public Object[][] getLoginHandshakewithRTF_CarrierDa() throws InvalidFormatException, IOException {
-		ReadExcel read = new ReadExcel();
-		return read.getCellData(loadPayTestDataFilePath, "LoginHandshakewithRTF_CarrierDa");
+		return read.getCellData(loadPayTestDataFilePath, "CarrierLoginData");
 	}
 
 	@DataProvider
 	public Object[][] getPaymentData() throws InvalidFormatException, IOException {
 		ReadExcel read = new ReadExcel();
 		return read.getCellData(loadPayTestDataFilePath, "BrokerNewPaymentData");
+	}
+
+	@DataProvider
+	public Object[][] getCarrierRegisterData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "CarrierRegisterData");
+	}
+
+	@DataProvider
+	public Object[][] getoutlookLoginData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "outlookLoginData");
+	}
+
+	@DataProvider
+	public Object[][] getAdminLoginData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "AdminLogin");
 	}
 
 	@DataProvider
@@ -148,36 +136,6 @@ public class TestBase {
 	public Object[][] getBrokerData() throws InvalidFormatException, IOException {
 		ReadExcel read = new ReadExcel();
 		return read.getCellData(loadPayTestDataFilePath, "BrokerRegisterCanada");
-	}
-
-	@DataProvider
-	public Object[][] getBrokerBankingData() throws InvalidFormatException, IOException {
-		ReadExcel read = new ReadExcel();
-		return read.getCellData(loadPayTestDataFilePath, "BrokerBankingData");
-	}
-
-	@DataProvider
-	public Object[][] getBrokerChangePasswordData() throws InvalidFormatException, IOException {
-		ReadExcel read = new ReadExcel();
-		return read.getCellData(loadPayTestDataFilePath, "BrokerChangePasswordData");
-	}
-
-	@DataProvider
-	public Object[][] getBrokerForgotPassword() throws InvalidFormatException, IOException {
-		ReadExcel read = new ReadExcel();
-		return read.getCellData(loadPayTestDataFilePath, "BrokerForgotPassword");
-	}
-
-	@DataProvider
-	public Object[][] getCarrierLoginData() throws InvalidFormatException, IOException {
-		ReadExcel read = new ReadExcel();
-		return read.getCellData(loadPayTestDataFilePath, "CarrierLoginData");
-	}
-
-	@DataProvider
-	public Object[][] getCarrierRegisterData() throws InvalidFormatException, IOException {
-		ReadExcel read = new ReadExcel();
-		return read.getCellData(loadPayTestDataFilePath, "CarrierRegisterData");
 	}
 
 	@DataProvider
@@ -196,6 +154,12 @@ public class TestBase {
 	public Object[][] getCarrierBankingData() throws InvalidFormatException, IOException {
 		ReadExcel read = new ReadExcel();
 		return read.getCellData(loadPayTestDataFilePath, "CarrierBankingData");
+	}
+
+	@DataProvider
+	public Object[][] getBrokerBankingData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "BrokerBankingData");
 	}
 
 	@DataProvider
@@ -244,6 +208,120 @@ public class TestBase {
 	public Object[][] getCarrierSchedulePaymentTabData() throws InvalidFormatException, IOException {
 		ReadExcel read = new ReadExcel();
 		return read.getCellData(loadPayTestDataFilePath, "CarrierSchedulePaymentTabData");
+	}
+
+	@DataProvider
+	public Object[][] getAdminSearchData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "AdminSearchData");
+	}
+
+	@DataProvider
+	public Object[][] getBrokerChangePasswordData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "BrokerChangePasswordData");
+	}
+
+	@DataProvider
+	public Object[][] getBrokerForgotPassword() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "BrokerForgotPassword");
+	}
+
+	@DataProvider
+	public Object[][] getCarrierPaymentHistoryData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "CarrierPaymentHistorydata");
+	}
+
+	@DataProvider
+	public Object[][] getBrokerPaymentHistoryData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "BrokerPaymentHistorydata");
+	}
+
+	@DataProvider
+	public Object[][] getShipperCompleteAccModuleData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "ShipperCompleteAccModuleData");
+	}
+
+	@DataProvider
+	public Object[][] getBrokerProcessedTabSearchData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "BrokerProcessedTabSearchData");
+	}
+
+	@DataProvider
+	public Object[][] getBrokerDiscountsTabSearchData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "BrokerDiscountsTabSearchData");
+	}
+
+	@DataProvider
+	public Object[][] getBrokerSchedPaymentTabSearchData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "BrokerSchedPaymentTabSearchData");
+	}
+
+	@DataProvider
+	public Object[][] getUpdatedPaymentData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "BrokerUpdatePaymentData");
+	}
+
+	@DataProvider
+	public Object[][] getAdminLoginshipperaccountmoduleData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "AdminLoginshipperaccountmodule");
+	}
+
+	@DataProvider
+	public Object[][] getCarrierChangePasswordData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "CarrierChangePasswordData");
+	}
+
+	@DataProvider
+	public Object[][] getCarrierForgotPasswordData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "CarrierForgotPasswordData");
+	}
+
+	@DataProvider
+	public Object[][] getCarrierLoginAccountModuleData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "CarrierLoginAccountModuleData");
+	}
+
+	@DataProvider
+	public Object[][] getAdminforcepasswordData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "AdminforcepasswordData");
+	}
+
+	@DataProvider
+	public Object[][] getBrokerBankAccountData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "BankAccountDetailsForCopyPaste");
+	}
+
+	@DataProvider
+	public Object[][] getRTFLogindata() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "RTFLogin");
+	}
+
+	@DataProvider
+	public Object[][] getExtendedCreditAmount() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "CreditAmount");
+	}
+
+	@DataProvider
+	public Object[][] getLoginHandshakewithRTF_CarrierDa() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "LoginHandshakewithRTF_CarrierDa");
 	}
 
 	@DataProvider

@@ -20,7 +20,7 @@ public class BrokerBankAccountUpdateTest extends TestBase {
 
 	public BrokerBankAccountUpdateTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -29,6 +29,7 @@ public class BrokerBankAccountUpdateTest extends TestBase {
 		initialization();
 		brokerBankAccountObj = new BrokerBankAccountUpdate();
 		brokerLoginPageObj = new BrokerLoginPage();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getBrokerLoginData")

@@ -26,7 +26,7 @@ public class HandshakewithRTFBrokerTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public HandshakewithRTFBrokerTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -36,6 +36,7 @@ public class HandshakewithRTFBrokerTest extends TestBase {
 		brokerregisterobj = new BrokerRegisterCanada();
 		brokerdisablecopypasteconfirmbankaccountobj = new BrokerDisableCopyPasteConfirmBankAccount();
 		handshakertfbrokeobj = new HandshakewithRTFBroker();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getRTFLogindata")

@@ -23,7 +23,7 @@ public class BrokerProcessedTabTest extends TestBase {
 
 	public BrokerProcessedTabTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -32,6 +32,7 @@ public class BrokerProcessedTabTest extends TestBase {
 		loginPage = new BrokerLoginPage();
 		brokerProcessedTab = new BrokerProcessedTab();
 		jse = (JavascriptExecutor) driver;
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getBrokerProcessedTabSearchData")

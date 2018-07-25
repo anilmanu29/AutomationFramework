@@ -17,7 +17,7 @@ public class BrokerOutlookTest extends TestBase {
 
 	public BrokerOutlookTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -26,6 +26,7 @@ public class BrokerOutlookTest extends TestBase {
 		initialization();
 		outlook = new outlooklogin();
 		outlookk = new BrokerOutlook();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getoutlookLoginData")

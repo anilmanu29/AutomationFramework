@@ -26,7 +26,7 @@ public class CarrierRegisterCanadaTest extends TestBase {
 
 	public CarrierRegisterCanadaTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -34,6 +34,7 @@ public class CarrierRegisterCanadaTest extends TestBase {
 
 		initialization();
 		cr = new CarrierRegisterCanada();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getCarrierData")

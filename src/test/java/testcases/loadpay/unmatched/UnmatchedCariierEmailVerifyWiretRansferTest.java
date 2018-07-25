@@ -17,7 +17,7 @@ public class UnmatchedCariierEmailVerifyWiretRansferTest extends TestBase {
 
 	public UnmatchedCariierEmailVerifyWiretRansferTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -26,6 +26,7 @@ public class UnmatchedCariierEmailVerifyWiretRansferTest extends TestBase {
 		initialization();
 		outlook = new outlooklogin();
 		outlookk = new UnmatchedCariierEmailVerifyWiretRansfer();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getoutlookLoginData")

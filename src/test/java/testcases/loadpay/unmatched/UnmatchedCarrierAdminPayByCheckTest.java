@@ -28,14 +28,14 @@ public class UnmatchedCarrierAdminPayByCheckTest extends TestBase {
 
 	public UnmatchedCarrierAdminPayByCheckTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
 	public void setUp() throws IOException {
 
 		initialization();
-
+		wait = new WebDriverWait(driver, 30);
 		adminLoginObj = new AdminLogin();
 		adminHomePageObj = new AdminHomePage();
 		adminPayByCheckObj = new AdminPayByCheck();

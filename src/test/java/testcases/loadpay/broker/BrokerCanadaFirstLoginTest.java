@@ -12,13 +12,14 @@ public class BrokerCanadaFirstLoginTest extends TestBase {
 
 	public BrokerCanadaFirstLoginTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
 	public void setUp() {
 		initialization();
 		loginPage = new BrokerCanadaFirstLogin();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(description = "Login as broker for first time")

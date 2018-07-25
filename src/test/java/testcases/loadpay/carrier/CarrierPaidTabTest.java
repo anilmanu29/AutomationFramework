@@ -23,7 +23,7 @@ public class CarrierPaidTabTest extends TestBase {
 
 	public CarrierPaidTabTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -31,6 +31,7 @@ public class CarrierPaidTabTest extends TestBase {
 		initialization();
 		loginPage = new CarrierLoginPage();
 		carrierPaidTab = new CarrierPaidTab();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(description = "LP-3476 CarrierPaidTabTest_Login", dataProvider = "getCarrierPaidTabData")

@@ -51,7 +51,7 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 
 	public CarrierPayMeNowEmailNotificationTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -74,7 +74,7 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 		adminhomepageobj = new AdminHomePage();
 		adminloginobj = new AdminLogin();
 		adminpaybycheck = new AdminPayByCheck();
-
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(description = "LP-5422 Carrier - Send Carrier Email Notification When PayMeNow Selected", dataProvider = "getCarrierLoginData")

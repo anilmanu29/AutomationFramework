@@ -15,7 +15,7 @@ public class CarrierLoginTest extends TestBase {
 
 	public CarrierLoginTest() {
 		super();
-		wait = new WebDriverWait(driver, 30);
+
 	}
 
 	@BeforeClass
@@ -23,6 +23,7 @@ public class CarrierLoginTest extends TestBase {
 
 		initialization();
 		loginPage = new CarrierLoginPage();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(dataProvider = "getCarrierLoginData")
