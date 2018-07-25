@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -36,7 +37,7 @@ public class LoginPageResetPasswordTest extends TestBase {
 
 	public LoginPageResetPasswordTest() {
 		super();
-
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass

@@ -2,6 +2,7 @@ package testcases.loadpay.carrier;
 
 import java.io.IOException;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -16,6 +17,7 @@ public class CarrierCanNotRegisterDuplicateEmail extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException {
 		initialization();
+		wait = new WebDriverWait(driver, 30);
 		carrierRegisterPage = new CarrierRegisterPage();
 
 	}

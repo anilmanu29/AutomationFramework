@@ -3,6 +3,7 @@ package testcases.loadpay.broker;
 import java.util.List;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -18,10 +19,11 @@ public class BrokerProcessedTabTest extends TestBase {
 	List<String> firstRowData = null;
 	List<String> lastRowData = null;
 	JavascriptExecutor jse;
-	String searchForInvoice, searchforcompanyname, searchforLoadID, searchforAmount, searchforDate  = "";
+	String searchForInvoice, searchforcompanyname, searchforLoadID, searchforAmount, searchforDate = "";
 
 	public BrokerProcessedTabTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass
@@ -33,8 +35,9 @@ public class BrokerProcessedTabTest extends TestBase {
 	}
 
 	@Test(dataProvider = "getBrokerProcessedTabSearchData")
-	public void loadBrokerSearchData(String companyName, String pullDate, String searchAmount, String invoiceNumber, String loadID) throws InterruptedException {
-	
+	public void loadBrokerSearchData(String companyName, String pullDate, String searchAmount, String invoiceNumber,
+			String loadID) throws InterruptedException {
+
 		searchForInvoice = invoiceNumber;
 		searchForInvoice = TestUtil.removeDecimalZeroFormat(searchForInvoice);
 		searchforcompanyname = companyName;
@@ -45,8 +48,8 @@ public class BrokerProcessedTabTest extends TestBase {
 		searchforDate = pullDate;
 		searchforDate = searchforDate.replace("'", "");
 	}
-	
-	@Test(dataProvider = "getBrokerLoginData", dependsOnMethods = {"loadBrokerSearchData"})
+
+	@Test(dataProvider = "getBrokerLoginData", dependsOnMethods = { "loadBrokerSearchData" })
 	public void loginAsBroker(String un, String pwd) throws InterruptedException {
 		// login as broker
 		loginPage.Brokerlogin(un, pwd);
@@ -202,7 +205,7 @@ public class BrokerProcessedTabTest extends TestBase {
 		brokerProcessedTab.clickFirstRow();
 		// get the data elements from the first row displayed
 		firstRowData = brokerProcessedTab.getFirstRowData();
-		
+
 		// get the data elements from the first row displayed, sorted in reverse
 		// click LoadID sort from default to ascending
 		brokerProcessedTab.clickLoadIDColumn();
@@ -210,9 +213,10 @@ public class BrokerProcessedTabTest extends TestBase {
 		brokerProcessedTab.clickFirstRow();
 		// get the data elements from the first row displayed
 		lastRowData = brokerProcessedTab.getFirstRowData();
-		
+
 		// compare to the database when sorted by given column-Descending
-		//Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal when sorted by  LoadID!");
+		// Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal
+		// when sorted by LoadID!");
 	}
 
 	@Test(dependsOnMethods = { "verifyLoadIDSortTest" })
@@ -228,11 +232,11 @@ public class BrokerProcessedTabTest extends TestBase {
 				"Matching text [" + searchforcompanyname + "] NOT found in [" + firstRowData + "]");
 
 	}
-	
+
 	@Test(dependsOnMethods = { "verifyCompanySearchTest" })
 	public void verifyInvoiceSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
-		
+
 		brokerProcessedTab.enterSearchText(searchForInvoice);
 		brokerProcessedTab.clickSearchButton();
 		// click first row to expand
@@ -243,11 +247,11 @@ public class BrokerProcessedTabTest extends TestBase {
 				"Matching text [" + searchForInvoice + "] NOT found in [" + firstRowData + "]");
 
 	}
-	
+
 	@Test(dependsOnMethods = { "verifyInvoiceSearchTest" })
 	public void verifyLoadIDSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
-		
+
 		brokerProcessedTab.enterSearchText(searchforLoadID);
 		brokerProcessedTab.clickSearchButton();
 		// click first row to expand
@@ -258,7 +262,7 @@ public class BrokerProcessedTabTest extends TestBase {
 				"Matching text [" + searchforLoadID + "] NOT found in [" + firstRowData + "]");
 
 	}
-	
+
 	@Test(dependsOnMethods = { "verifyLoadIDSearchTest" })
 	public void verifyAmountSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
@@ -272,11 +276,11 @@ public class BrokerProcessedTabTest extends TestBase {
 				"First row of data appears to be empty - size = " + firstRowData.size());
 
 	}
-	
+
 	@Test(dependsOnMethods = { "verifyAmountSearchTest" })
 	public void verifyDateSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
-		
+
 		brokerProcessedTab.enterSearchText(searchforDate);
 		brokerProcessedTab.clickSearchButton();
 		// click first row to expand
@@ -286,8 +290,6 @@ public class BrokerProcessedTabTest extends TestBase {
 		Assert.assertTrue(!firstRowData.isEmpty(),
 				"First row of data appears to be empty - size = " + firstRowData.size());
 	}
-	
-
 
 	public void verifyProcessTabElementsDisplayed() {
 

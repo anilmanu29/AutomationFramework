@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -38,6 +39,7 @@ public class AdminWireTransferTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public AdminWireTransferTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass

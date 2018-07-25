@@ -50,6 +50,7 @@ public class CarrierLoginPage extends TestBase {
 	// Initializing the Page Objects:
 	public CarrierLoginPage() {
 		PageFactory.initElements(driver, this);
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	// Actions:

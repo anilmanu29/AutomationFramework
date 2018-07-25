@@ -3,6 +3,7 @@ package testcases.loadpay.admin;
 import java.awt.AWTException;
 import java.io.IOException;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -23,6 +24,7 @@ public class AdminPayByCheckServiceBatchFileTest extends TestBase {
 
 	public AdminPayByCheckServiceBatchFileTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass

@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -24,6 +25,7 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 
 	public BrokerViewCreditLessThan1000Test() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass
@@ -40,12 +42,11 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 	public void loginTest(String user, String pass) throws InterruptedException {
 
 		CreditLessThan1000.Brokerlogin(user, pass);
-		Thread.sleep(3000);
 		CreditLessThan1000.AvailableCreditTab();
-		Thread.sleep(5000);
 		CreditLessThan1000.BrokerLogout();
 	}
 
+	@SuppressWarnings("static-access")
 	@Test(description = "Broker Sees 10% Notification Email in Outlook", dataProvider = "getoutlookLoginData", dependsOnMethods = "loginTest")
 	public void BrokerOutlookTest(String un, String pwd) throws InterruptedException {
 
@@ -63,7 +64,6 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 	}
 
 	public void SearchInbox(String SearchText) throws InterruptedException {
-		Thread.sleep(2000);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
 		Thread.sleep(6000);

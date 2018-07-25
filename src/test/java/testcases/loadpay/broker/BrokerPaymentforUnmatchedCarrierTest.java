@@ -3,6 +3,7 @@ package testcases.loadpay.broker;
 import java.util.ArrayList;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -25,6 +26,7 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public BrokerPaymentforUnmatchedCarrierTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass

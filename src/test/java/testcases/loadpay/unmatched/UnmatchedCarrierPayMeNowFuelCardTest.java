@@ -1,5 +1,6 @@
 package testcases.loadpay.unmatched;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -13,6 +14,7 @@ public class UnmatchedCarrierPayMeNowFuelCardTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public UnmatchedCarrierPayMeNowFuelCardTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass
@@ -29,50 +31,50 @@ public class UnmatchedCarrierPayMeNowFuelCardTest extends TestBase {
 	public void carrierPaymenowFuelCard(String fleet_accountnbr, String fts_accountnbr) throws InterruptedException {
 
 		UnmatchedCarrierFuelCard.carrierLogin();
-		Thread.sleep(2000);
+
 		UnmatchedCarrierFuelCard.clickPaymenow();
-		Thread.sleep(2000);
+
 		/*
-		 * cfot.clickPaymenowicon(); Thread.sleep(2000);
+		 * cfot.clickPaymenowicon();
 		 */
 		UnmatchedCarrierFuelCard.clickSelectButton();
-		Thread.sleep(2000);
+
 		UnmatchedCarrierFuelCard.clickaddnewcard();
-		Thread.sleep(2000);
+
 		UnmatchedCarrierFuelCard.clickfleetone();
-		Thread.sleep(2000);
+
 		UnmatchedCarrierFuelCard.input_accountnbr(fleet_accountnbr);
-		Thread.sleep(2000);
+
 		UnmatchedCarrierFuelCard.clicksubmit();
-		Thread.sleep(2000);
+
 		UnmatchedCarrierFuelCard.clickfuelcardsubmit();
-		Thread.sleep(2000);
+
 		UnmatchedCarrierFuelCard.clickConfirmButton();
-		Thread.sleep(2000);
+
 		UnmatchedCarrierFuelCard.clickPaidTab();
-		Thread.sleep(2000);
+
 		UnmatchedCarrierFuelCard.clickpaymenowtab();
-		Thread.sleep(2000);
+
 		UnmatchedCarrierFuelCard.clickPaymenow();
-		Thread.sleep(2000);
+
 		UnmatchedCarrierFuelCard.clickSelectButton();
-		Thread.sleep(2000);
+
 		UnmatchedCarrierFuelCard.clickaddnewcard();
-		Thread.sleep(2000);
+
 		UnmatchedCarrierFuelCard.clickFTS();
-		Thread.sleep(2000);
+
 		UnmatchedCarrierFuelCard.input_accountnbr(fts_accountnbr);
-		Thread.sleep(2000);
+
 		UnmatchedCarrierFuelCard.clicksubmit();
-		Thread.sleep(2000);
+
 		UnmatchedCarrierFuelCard.clickfuelcardsubmit();
-		Thread.sleep(2000);
+
 		UnmatchedCarrierFuelCard.clickConfirmButton();
-		Thread.sleep(2000);
+
 		UnmatchedCarrierFuelCard.clickPaidTab();
-		Thread.sleep(2000);
+
 		/*
-		 * cw.gettotalpaiyAmount(); Thread.sleep(2000); cw.verifywiretransfer();
+		 * cw.gettotalpaiyAmount(); cw.verifywiretransfer();
 		 */
 	}
 

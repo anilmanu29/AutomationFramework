@@ -12,6 +12,7 @@ import java.util.TimeZone;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -58,6 +59,7 @@ public class BrokerRegisterTest extends TestBase {
 
 	public BrokerRegisterTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass
@@ -87,7 +89,6 @@ public class BrokerRegisterTest extends TestBase {
 		// clicking on carrier Register
 		r.shipperRegister();
 		r.companyname(CompanyName);
-
 		r.doingbussiness(DoingBussinessAS);
 		r.selectType();
 
@@ -112,7 +113,7 @@ public class BrokerRegisterTest extends TestBase {
 
 		r.paymentTerm();
 
-		r.next();
+		r.clickNextBtnOnCompanyForm();
 
 		r.ZipCode(ZipCode1);
 
@@ -130,7 +131,7 @@ public class BrokerRegisterTest extends TestBase {
 		Select state = new Select(driver.findElement(By.xpath(".//*[@id='State']")));
 		state.selectByVisibleText("CA");
 
-		r.submit();
+		r.clickNextBtnOnAddressForm();
 
 		r.ContactFirstName(FirstNames);
 
@@ -142,7 +143,7 @@ public class BrokerRegisterTest extends TestBase {
 		driver.findElement(By.xpath(".//*[@id='Registration_User_Password']"));
 		r.ConfirmPassword(ConfirmPassword);
 
-		r.Next();
+		r.clickNextBtnOnContactForm();
 
 		r.AccountName(NameonAccount);
 		r.BankingAccount(BankAccountNumber);
@@ -151,7 +152,7 @@ public class BrokerRegisterTest extends TestBase {
 
 		r.ConfirmBankingAccount(ConfirmbankAccountNumber);
 
-		r.submit();
+		r.clickNextBtnOnBankingForm();
 		log.info(" Broker Register Completed...");
 	}
 

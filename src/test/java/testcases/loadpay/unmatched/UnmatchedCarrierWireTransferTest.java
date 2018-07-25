@@ -1,5 +1,6 @@
 package testcases.loadpay.unmatched;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -8,20 +9,20 @@ import pages.loadpay.unmatched.UnmatchedCarrierWireTransfer;
 
 public class UnmatchedCarrierWireTransferTest extends TestBase {
 
-
 	UnmatchedCarrierWireTransfer uct;
 
 	/*-------Initializing driver---------*/
 	public UnmatchedCarrierWireTransferTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass
 	public void setUp() {
 
 		initialization();
-		uct= new UnmatchedCarrierWireTransfer();
-	
+		uct = new UnmatchedCarrierWireTransfer();
+
 	}
 	/*-------Initializing driver---------*/
 
@@ -29,7 +30,7 @@ public class UnmatchedCarrierWireTransferTest extends TestBase {
 
 	@Test()
 	public void carrierPaymenowWirTransfer() throws InterruptedException {
-		uct.carrierLogin(); 
+		uct.carrierLogin();
 		uct.getAmount();
 		uct.clickPaymenow();
 		uct.getwiretransferAmount();
@@ -38,6 +39,6 @@ public class UnmatchedCarrierWireTransferTest extends TestBase {
 		uct.clickPaidTab();
 		uct.gettotalpaiyAmount();
 		uct.verifywiretransfer();
-	} 
+	}
 
 }

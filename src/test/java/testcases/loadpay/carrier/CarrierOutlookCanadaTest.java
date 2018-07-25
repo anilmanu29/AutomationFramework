@@ -3,6 +3,7 @@ package testcases.loadpay.carrier;
 import java.awt.AWTException;
 import java.io.IOException;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -16,6 +17,7 @@ public class CarrierOutlookCanadaTest extends TestBase {
 
 	public CarrierOutlookCanadaTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass
@@ -36,11 +38,10 @@ public class CarrierOutlookCanadaTest extends TestBase {
 		outlookk.clickPopUp();
 		outlookk.clickOpenMailBox();
 		outlookk.enterEmail(super.getProperties().getProperty("email"));
-		//outlookk.clickOpen();
+		// outlookk.clickOpen();
 		outlookk.handleNewInbox();
 		outlookk.verifyConfirmationMessage();
 
 	}
- 
 
 }

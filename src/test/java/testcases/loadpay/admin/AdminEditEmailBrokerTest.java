@@ -12,6 +12,7 @@ import java.util.TimeZone;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -52,6 +53,7 @@ public class AdminEditEmailBrokerTest extends TestBase {
 
 	public AdminEditEmailBrokerTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass
@@ -142,7 +144,7 @@ public class AdminEditEmailBrokerTest extends TestBase {
 
 		brokerRegisterObj.paymentTerm();
 
-		brokerRegisterObj.next();
+		brokerRegisterObj.clickNextBtnOnCompanyForm();
 
 		brokerRegisterObj.ZipCode(ZipCode1);
 
@@ -160,7 +162,7 @@ public class AdminEditEmailBrokerTest extends TestBase {
 		state = new Select(driver.findElement(By.xpath(".//*[@id='State']")));
 		state.selectByVisibleText("CA");
 
-		brokerRegisterObj.submit();
+		brokerRegisterObj.clickNextBtnOnAddressForm();
 
 		brokerRegisterObj.ContactFirstName(FirstName);
 
@@ -172,7 +174,7 @@ public class AdminEditEmailBrokerTest extends TestBase {
 
 		brokerRegisterObj.ConfirmPassword(ConfirmPassword);
 
-		brokerRegisterObj.Next();
+		brokerRegisterObj.clickNextBtnOnContactForm();
 
 		brokerRegisterObj.AccountName(NameOnAccount);
 
@@ -182,7 +184,7 @@ public class AdminEditEmailBrokerTest extends TestBase {
 
 		brokerRegisterObj.ConfirmBankingAccount(ConfirmbankAccountNumber);
 
-		brokerRegisterObj.submit();
+		brokerRegisterObj.clickNextBtnOnBankingForm();
 
 		log.debug("Broker Registration Completed...");
 	}

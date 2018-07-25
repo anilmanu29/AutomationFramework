@@ -1,5 +1,6 @@
 package testcases.loadpay.unmatched;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -12,6 +13,7 @@ public class UnmatchedNewPaymentCarrierTest extends TestBase {
 
 	public UnmatchedNewPaymentCarrierTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass

@@ -51,6 +51,7 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 
 	public CarrierPayMeNowEmailNotificationTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass

@@ -142,6 +142,7 @@ public class CarrierRegisterCanada extends TestBase {
 
 	public CarrierRegisterCanada() {
 		PageFactory.initElements(driver, this);
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	public void signup() {

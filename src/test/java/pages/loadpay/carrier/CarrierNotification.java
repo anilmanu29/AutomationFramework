@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
 
@@ -32,6 +33,7 @@ public class CarrierNotification extends TestBase {
 
 	public CarrierNotification() {
 		PageFactory.initElements(driver, this);
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	public void clickNotifications() throws InterruptedException {

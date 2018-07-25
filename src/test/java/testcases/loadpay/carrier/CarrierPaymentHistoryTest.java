@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -24,6 +25,7 @@ public class CarrierPaymentHistoryTest extends TestBase {
 
 	public CarrierPaymentHistoryTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass

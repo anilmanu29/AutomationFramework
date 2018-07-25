@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
@@ -83,6 +84,7 @@ public class HandshakewithRTFCarrier extends TestBase {
 	// Initializing the Page Objects:
 	public HandshakewithRTFCarrier() {
 		PageFactory.initElements(driver, this);
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	// Actions:
@@ -100,12 +102,13 @@ public class HandshakewithRTFCarrier extends TestBase {
 	 * @throws InterruptedException
 	 */
 	public void setEinField(String EIN) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(einField));
 		einField.clear();
-		Thread.sleep(1000);
 		einField.sendKeys(EIN);
 	}
 
 	public void clickEinNextButton() {
+		wait.until(ExpectedConditions.elementToBeClickable(einNextButton));
 		einNextButton.click();
 	}
 
@@ -128,6 +131,7 @@ public class HandshakewithRTFCarrier extends TestBase {
 	}
 
 	public void clickFinishButton() {
+		wait.until(ExpectedConditions.elementToBeClickable(finishButton));
 		finishButton.click();
 	}
 
@@ -139,6 +143,7 @@ public class HandshakewithRTFCarrier extends TestBase {
 	}
 
 	public void clickConfirmationPopupCloseButton() {
+		wait.until(ExpectedConditions.elementToBeClickable(confirmationPopupCloseBtn));
 		confirmationPopupCloseBtn.click();
 	}
 
@@ -148,7 +153,7 @@ public class HandshakewithRTFCarrier extends TestBase {
 
 	public void Carrierlogin(String un, String pwd) {
 		cemail = un;
-
+		wait.until(ExpectedConditions.elementToBeClickable(UserName));
 		UserName.sendKeys(un);
 		Password.sendKeys(pwd);
 		// loginBtn.click();
@@ -157,6 +162,7 @@ public class HandshakewithRTFCarrier extends TestBase {
 	}
 
 	public void carrierVerificationLogin(String UserName, String NewPassword) {
+		wait.until(ExpectedConditions.elementToBeClickable(Password));
 		cemail = UserName;
 		this.UserName.sendKeys(UserName);
 		Password.sendKeys(NewPassword);
@@ -173,6 +179,8 @@ public class HandshakewithRTFCarrier extends TestBase {
 
 		action.moveToElement(element).build().perform();
 
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+
 		driver.findElement(By.linkText("Load Pay")).click();
 
 		/*
@@ -185,7 +193,7 @@ public class HandshakewithRTFCarrier extends TestBase {
 	}
 
 	public void RTFCarrierlogin(String un, String pwd) {
-
+		wait.until(ExpectedConditions.elementToBeClickable(Enter_RTFUsername));
 		Enter_RTFUsername.sendKeys(un);
 		Enter_RTFPassword.sendKeys(pwd);
 		// loginBtn.click();
@@ -194,41 +202,41 @@ public class HandshakewithRTFCarrier extends TestBase {
 	}
 
 	public void CarrierLogout() {
+		wait.until(ExpectedConditions.elementToBeClickable(btn_logout));
 		btn_logout.click();
 	}
 
 	public void verificationCarrierLogout() throws InterruptedException {
-		// wait.until(ExpectedConditions.elementToBeClickable(btn_logout));
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(btn_logout));
 		btn_logout.click();
 	}
 
 	public void click_LoginButton() throws InterruptedException {
-		/* wait.until(ExpectedConditions.elementToBeClickable(Click_Login)); */
+		wait.until(ExpectedConditions.elementToBeClickable(Click_Login));
 		Click_Login.click();
 	}
 
 	public void click_alert() throws InterruptedException {
-		/* wait.until(ExpectedConditions.elementToBeClickable(Click_accept)); */
+		wait.until(ExpectedConditions.elementToBeClickable(Click_accept));
 		Click_accept.click();
 	}
 
 	public void clickRtflogout() throws InterruptedException {
-		/* wait.until(ExpectedConditions.elementToBeClickable(Click_accept)); */
+		wait.until(ExpectedConditions.elementToBeClickable(Click_rtflogout));
 		Click_rtflogout.click();
 	}
 
 	public void clickUnlinkMyUploadAccount() throws InterruptedException {
-		/*
-		 * wait.until(ExpectedConditions.elementToBeClickable(
-		 * Click_UnlinkMyUploadAccount));
-		 */
+
+		wait.until(ExpectedConditions.elementToBeClickable(Click_UnlinkMyUploadAccount));
+
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", Click_UnlinkMyUploadAccount);
 
 	}
 
 	public void forgotPasswordButton() {
+		wait.until(ExpectedConditions.elementToBeClickable(Click_UnlinkMyUploadAccount));
 		forgotPassword.click();
 	}
 

@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -25,6 +26,7 @@ public class ShipperAdvancePaymentTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public ShipperAdvancePaymentTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass

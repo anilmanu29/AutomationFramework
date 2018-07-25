@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
 
@@ -94,6 +95,7 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 
 	public BrokerPaymentforUnmatchedCarrier() {
 		PageFactory.initElements(driver, this);
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	/*-------New Payment---------*/

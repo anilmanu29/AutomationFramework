@@ -33,7 +33,7 @@ public class BrokerLoginPage extends TestBase {
 	public BrokerLoginPage() {
 
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 10);
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	// Actions:

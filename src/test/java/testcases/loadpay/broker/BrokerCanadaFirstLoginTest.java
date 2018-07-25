@@ -1,5 +1,6 @@
 package testcases.loadpay.broker;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -11,6 +12,7 @@ public class BrokerCanadaFirstLoginTest extends TestBase {
 
 	public BrokerCanadaFirstLoginTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass

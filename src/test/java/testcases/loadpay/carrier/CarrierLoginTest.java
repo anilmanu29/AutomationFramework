@@ -1,6 +1,7 @@
 package testcases.loadpay.carrier;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -14,6 +15,7 @@ public class CarrierLoginTest extends TestBase {
 
 	public CarrierLoginTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass

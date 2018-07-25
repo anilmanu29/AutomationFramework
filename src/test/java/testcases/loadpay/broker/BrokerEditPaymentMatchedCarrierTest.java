@@ -1,90 +1,69 @@
 package testcases.loadpay.broker;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
 import pages.loadpay.broker.BrokerEditPaymentMatchedCarrier;
 
-public class BrokerEditPaymentMatchedCarrierTest extends TestBase 
-{
+public class BrokerEditPaymentMatchedCarrierTest extends TestBase {
 	BrokerEditPaymentMatchedCarrier brokerEditPaymentMatchCarrierObj;
-	
+
 	/*-------Initializing driver---------*/
-	public BrokerEditPaymentMatchedCarrierTest()
-	{
+	public BrokerEditPaymentMatchedCarrierTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
-	
+
 	@BeforeClass
-	public void setUp()
-	{
+	public void setUp() {
 		brokerEditPaymentMatchCarrierObj = new BrokerEditPaymentMatchedCarrier();
 		brokerEditPaymentMatchCarrierObj.setUp();
 	}
-	
-	
+
 	/*-------Login to Load Pay as Broker---------*/
-	@Test(description="LP-5393 BrokerEditPayment_MatchedCarrier_Login", dataProvider="getBrokerLoginData")
-	public void loginAsBrokerTest(String un, String pwd)
-	{
+	@Test(description = "LP-5393 BrokerEditPayment_MatchedCarrier_Login", dataProvider = "getBrokerLoginData")
+	public void loginAsBrokerTest(String un, String pwd) {
 		brokerEditPaymentMatchCarrierObj.loginAsBroker(un, pwd);
 		log.info("loginAsBrokerTest - Passed");
 	}
-	
+
 	/*-------Scheduling New Payment as a Broker---------*/
-	@Test(description="LP-5393 BrokerEditPayment_MatchedCarrier_CreateNewPayment", dependsOnMethods =  {"loginAsBrokerTest"}, dataProvider="getPaymentData")
+	@Test(description = "LP-5393 BrokerEditPayment_MatchedCarrier_CreateNewPayment", dependsOnMethods = {
+			"loginAsBrokerTest" }, dataProvider = "getPaymentData")
 	public void brokerCreateNewPaymentTest(String cE, String iN, String lId, String pA) throws InterruptedException {
-		
+
 		brokerEditPaymentMatchCarrierObj.brokerCreateNewPayment(cE, iN, lId, pA);
 		log.info("brokerCreateNewPaymentTest - Passed");
 	}
-	
-	@Test(description="LP-5393 BrokerEditPayment_MatchedCarrier_VerifyEditableFieldsEnabled", dependsOnMethods =  {"brokerCreateNewPaymentTest"})
-	public void verifyEditableFieldsEnabledTest() throws InterruptedException
-	{
+
+	@Test(description = "LP-5393 BrokerEditPayment_MatchedCarrier_VerifyEditableFieldsEnabled", dependsOnMethods = {
+			"brokerCreateNewPaymentTest" })
+	public void verifyEditableFieldsEnabledTest() throws InterruptedException {
 		brokerEditPaymentMatchCarrierObj.verifyEditableFieldsEnabled();
 		log.info("verifyEditableFieldsEnabledTest - Passed");
 	}
-	
-	@Test(description="LP-5393 BrokerEditPayment_MatchedCarrier_UpdatePaymentDetails", dependsOnMethods =  {"verifyEditableFieldsEnabledTest"}, dataProvider="getUpdatedPaymentData")
-	public void updatePaymentDetailsTest(
-		String updatedCarrierEmail,
-		String updatedPayTo,
-		String updatedCarrierDOT,
-		String updatedScheduleDate,
-		String updatedPaymentAmount,
-		String updatedInvoiceNumber,
-		String updatedLoadID,
-		String updatedInvoiceRecd,
-		String updatedMemo,
-		String updatedAdvancedPayment,
-		String updatedOriginCountry,
-		String updatedOriginState,
-		String updatedOriginCity,
-		String updatedOriginZIP,
-		String updatedDestinationCountry,
-		String updatedDestinationState,
-		String updatedDestinationCity,
-		String updatedDestinationZIP,
-		String updatedTrailerType,
-		String updatedMiles,
-		String updatedPickupDate,
-		String updatedDeliveryDate,
-		String updatedCommodity,
-		String updatedLength,
-		String updatedWidth,
-		String updatedHeight,
-		String updatedWeight,
-		String updatedNumOfStops,
-		String updatedFuelSurcharge) throws InterruptedException
-	{
-		brokerEditPaymentMatchCarrierObj.updatePaymentDetails(
-				updatedCarrierEmail, updatedPayTo, updatedCarrierDOT, updatedScheduleDate, updatedPaymentAmount, updatedInvoiceNumber, updatedLoadID, 
-				updatedInvoiceRecd, updatedMemo, updatedAdvancedPayment, updatedOriginCountry, updatedOriginState, updatedOriginCity, updatedOriginZIP, 
-				updatedDestinationCountry, updatedDestinationState, updatedDestinationCity, updatedDestinationZIP, updatedTrailerType, updatedMiles, updatedPickupDate, 
-				updatedDeliveryDate, updatedCommodity, updatedLength, updatedWidth, updatedHeight, updatedWeight, updatedNumOfStops, updatedFuelSurcharge);
-		
+
+	@Test(description = "LP-5393 BrokerEditPayment_MatchedCarrier_UpdatePaymentDetails", dependsOnMethods = {
+			"verifyEditableFieldsEnabledTest" }, dataProvider = "getUpdatedPaymentData")
+	public void updatePaymentDetailsTest(String updatedCarrierEmail, String updatedPayTo, String updatedCarrierDOT,
+			String updatedScheduleDate, String updatedPaymentAmount, String updatedInvoiceNumber, String updatedLoadID,
+			String updatedInvoiceRecd, String updatedMemo, String updatedAdvancedPayment, String updatedOriginCountry,
+			String updatedOriginState, String updatedOriginCity, String updatedOriginZIP,
+			String updatedDestinationCountry, String updatedDestinationState, String updatedDestinationCity,
+			String updatedDestinationZIP, String updatedTrailerType, String updatedMiles, String updatedPickupDate,
+			String updatedDeliveryDate, String updatedCommodity, String updatedLength, String updatedWidth,
+			String updatedHeight, String updatedWeight, String updatedNumOfStops, String updatedFuelSurcharge)
+			throws InterruptedException {
+		brokerEditPaymentMatchCarrierObj.updatePaymentDetails(updatedCarrierEmail, updatedPayTo, updatedCarrierDOT,
+				updatedScheduleDate, updatedPaymentAmount, updatedInvoiceNumber, updatedLoadID, updatedInvoiceRecd,
+				updatedMemo, updatedAdvancedPayment, updatedOriginCountry, updatedOriginState, updatedOriginCity,
+				updatedOriginZIP, updatedDestinationCountry, updatedDestinationState, updatedDestinationCity,
+				updatedDestinationZIP, updatedTrailerType, updatedMiles, updatedPickupDate, updatedDeliveryDate,
+				updatedCommodity, updatedLength, updatedWidth, updatedHeight, updatedWeight, updatedNumOfStops,
+				updatedFuelSurcharge);
+
 		log.info("updatePaymentDetailsTest - Passed");
 	}
 }

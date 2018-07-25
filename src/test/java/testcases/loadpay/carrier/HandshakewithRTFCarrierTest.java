@@ -1,6 +1,5 @@
 package testcases.loadpay.carrier;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -14,10 +13,10 @@ public class HandshakewithRTFCarrierTest extends TestBase {
 	CarrierLoginPage loginPage;
 	HandshakewithRTFCarrier rtfcarrier;
 	String carrierUserName, carrierPassword, rtfUsername, rtfPassword;
-	WebDriver wait;
 
 	public HandshakewithRTFCarrierTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass
@@ -26,7 +25,6 @@ public class HandshakewithRTFCarrierTest extends TestBase {
 		initialization();
 		loginPage = new CarrierLoginPage();
 		rtfcarrier = new HandshakewithRTFCarrier();
-		WebDriverWait wait = new WebDriverWait(driver, 20);
 	}
 
 	@Test(dataProvider = "getLoginHandshakewithRTF_CarrierDa")

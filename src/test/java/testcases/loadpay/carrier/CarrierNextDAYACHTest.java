@@ -1,5 +1,6 @@
 package testcases.loadpay.carrier;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -15,6 +16,7 @@ public class CarrierNextDAYACHTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public CarrierNextDAYACHTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass

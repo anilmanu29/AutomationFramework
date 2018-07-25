@@ -39,7 +39,7 @@ public class BrokerViewCreditLessThan1000 extends TestBase {
 	public BrokerViewCreditLessThan1000() {
 
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 10);
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	// Actions:
@@ -48,6 +48,7 @@ public class BrokerViewCreditLessThan1000 extends TestBase {
 	}
 
 	public void Brokerlogin(String un, String pwd) {
+		wait.until(ExpectedConditions.elementToBeClickable(UserName));
 		UserName.sendKeys(un);
 		Password.sendKeys(pwd);
 		// loginBtn.click();
@@ -56,6 +57,7 @@ public class BrokerViewCreditLessThan1000 extends TestBase {
 	}
 
 	public void brokerVerificationLogin(String UserName, String NewPassword) {
+		wait.until(ExpectedConditions.elementToBeClickable(Password));
 		this.UserName.sendKeys(UserName);
 		Password.sendKeys(NewPassword);
 		// loginBtn.click();
@@ -64,22 +66,24 @@ public class BrokerViewCreditLessThan1000 extends TestBase {
 	}
 
 	public void BrokerLogout() {
+		wait.until(ExpectedConditions.elementToBeClickable(btn_logout));
 		btn_logout.click();
 	}
 
 	public void verificationBrokerLogout() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_logout));
-		Thread.sleep(3000);
 		btn_logout.click();
 	}
 
 	public void forgotPasswordButton() {
+		wait.until(ExpectedConditions.elementToBeClickable(forgotPassword));
 		forgotPassword.click();
 	}
 
 	public void AvailableCreditTab() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(AvailableCreditTab));
 		AvailableCreditTab.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(AvailableCreditText));
 		String AvailableCredit = AvailableCreditText.getText();
 		AvailableCredit = AvailableCredit.replace("$", "");
 		AvailableCredit = AvailableCredit.replace(",", "");

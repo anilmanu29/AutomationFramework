@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.io.IOException;
 import java.util.List;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -25,6 +26,7 @@ public class BrokerBulkUploadPaymentsmatchedCarrierTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public BrokerBulkUploadPaymentsmatchedCarrierTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass

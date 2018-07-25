@@ -1,5 +1,6 @@
 package testcases.loadpay.carrier;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -7,30 +8,28 @@ import base.TestBase;
 import pages.loadpay.carrier.CarrierFirstLoginSameDay;
 import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
 
-public class CarrierFirstLoginSameDayTest extends TestBase{
+public class CarrierFirstLoginSameDayTest extends TestBase {
 	CarrierFirstLoginSameDay loginPage;
-	
-	public CarrierFirstLoginSameDayTest()
-	{
+
+	public CarrierFirstLoginSameDayTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
-	
+
 	@BeforeClass
-	public void setUp()
-	{
+	public void setUp() {
 		initialization();
-		loginPage = new CarrierFirstLoginSameDay();	
+		loginPage = new CarrierFirstLoginSameDay();
 	}
 
 	@Test()
-	public void loginTest() throws InterruptedException
-	{
+	public void loginTest() throws InterruptedException {
 		loginPage.carrierfirstLogin();
 		loginPage.clickNext(BrokerPaymentforUnmatchedCarrierTest.einno);
 		loginPage.clickAcceptCheckbox();
 		loginPage.clickEmailcheckbox();
 		loginPage.clickFinish();
-		loginPage.clickClose();	
-	} 
+		loginPage.clickClose();
+	}
 
 }

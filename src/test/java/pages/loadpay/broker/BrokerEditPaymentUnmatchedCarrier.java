@@ -1,6 +1,7 @@
 package pages.loadpay.broker;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
@@ -20,6 +21,7 @@ public class BrokerEditPaymentUnmatchedCarrier extends TestBase {
 	/*-------Initializing driver---------*/
 	public BrokerEditPaymentUnmatchedCarrier() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	public void setUp() {

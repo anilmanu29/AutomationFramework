@@ -1,11 +1,11 @@
 package pages.loadpay.broker;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import base.TestBase;
@@ -48,9 +48,17 @@ public class BrokerRegister extends TestBase {
 	@FindBy(xpath = ".//*[@id='PMNTerm'] ")
 	WebElement PaymentTerms;
 
-	// @FindBy(xpath=".//*[@id='formCompany']/div/div[12]/div/div/input ")
-	@FindBy(xpath = "//input[contains(@value,'Next')]")
-	WebElement Next;
+	@FindBy(xpath = ".//*[@id='formCompany']/div/div[12]/div/div/input")
+	WebElement CompanyNextBtn;
+
+	@FindBy(xpath = ".//*[@id='formAddress']/div/div[4]/div/div[2]/input")
+	WebElement AddressNextBtn;
+
+	@FindBy(xpath = ".//*[@id='formContact']/div[2]/div/div[2]/input")
+	WebElement ContactNextBtn;
+
+	@FindBy(xpath = ".//*[@id='formBanking']/div/div[8]/div/div/div[2]/input")
+	WebElement BankingNextBtn;
 
 	@FindBy(xpath = "//input[@id='ZipCode']")
 	WebElement ZipCode;
@@ -66,9 +74,6 @@ public class BrokerRegister extends TestBase {
 
 	@FindBy(xpath = "//select[@id='State']")
 	WebElement State;
-
-	@FindBy(xpath = "//input[@type='submit']")
-	WebElement submit;
 
 	@FindBy(xpath = "//input[@id='ContactFirstName']")
 	WebElement ContactFirstName;
@@ -91,9 +96,6 @@ public class BrokerRegister extends TestBase {
 	@FindBy(xpath = "//input[contains(@id,'ConfirmPassword')]")
 	WebElement ConfirmPassword;
 
-	@FindBy(xpath = "//input[@type='submit']")
-	WebElement submit1;
-
 	@FindBy(xpath = "//input[contains(@id,'AccountName')]")
 	WebElement AccountName;
 
@@ -106,14 +108,12 @@ public class BrokerRegister extends TestBase {
 	@FindBy(xpath = "//input[@id='ConfirmBankingAccount']")
 	WebElement ConfirmBankingAccount;
 
-	@FindBy(xpath = "//input[@type='submit']")
-	WebElement submit2;
-
 	@FindBy(className = "close")
 	WebElement emailAddressAlreadyInUse;
 
 	public BrokerRegister() {
 		PageFactory.initElements(driver, this);
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	public void signup() {
@@ -174,18 +174,33 @@ public class BrokerRegister extends TestBase {
 		Icertify.click();
 	}
 
-	public void paymentTerm() {
+	public void paymentTerm() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(PaymentTerms));
 		PaymentTerms.click();
 		Select pay = new Select(PaymentTerms);
 
 		pay.selectByIndex(2);
-
+		Thread.sleep(2000);
 	}
 
-	public void next() {
-		wait.until(ExpectedConditions.elementToBeClickable(Next));
-		Next.click();
+	public void clickNextBtnOnCompanyForm() {
+		wait.until(ExpectedConditions.elementToBeClickable(CompanyNextBtn));
+		CompanyNextBtn.click();
+	}
+
+	public void clickNextBtnOnAddressForm() {
+		wait.until(ExpectedConditions.elementToBeClickable(AddressNextBtn));
+		AddressNextBtn.click();
+	}
+
+	public void clickNextBtnOnContactForm() {
+		wait.until(ExpectedConditions.elementToBeClickable(ContactNextBtn));
+		ContactNextBtn.click();
+	}
+
+	public void clickNextBtnOnBankingForm() {
+		wait.until(ExpectedConditions.elementToBeClickable(BankingNextBtn));
+		BankingNextBtn.click();
 	}
 
 	public void ZipCode(String ZipCode1) {
@@ -213,14 +228,6 @@ public class BrokerRegister extends TestBase {
 		State.sendKeys();
 	}
 
-	public void submit() {
-		wait.until(ExpectedConditions.visibilityOf(submit));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", submit);
-
-		// submit.click();
-	}
-
 	public void ContactFirstName(String FirstName) {
 		wait.until(ExpectedConditions.visibilityOf(ContactFirstName));
 		ContactFirstName.sendKeys(FirstName);
@@ -246,12 +253,6 @@ public class BrokerRegister extends TestBase {
 		ConfirmPassword.sendKeys(confirmpass);
 	}
 
-	public void Next() {
-		wait.until(ExpectedConditions.visibilityOf(submit1));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", submit1);
-	}
-
 	public void AccountName(String NameonAccount) {
 		wait.until(ExpectedConditions.visibilityOf(AccountName));
 		AccountName.sendKeys(NameonAccount);
@@ -270,11 +271,6 @@ public class BrokerRegister extends TestBase {
 	public void ConfirmBankingAccount(String ConfirmBankAccountNumber) {
 		wait.until(ExpectedConditions.visibilityOf(ConfirmBankingAccount));
 		ConfirmBankingAccount.sendKeys(ConfirmBankAccountNumber);
-	}
-
-	public void Finish() {
-		wait.until(ExpectedConditions.elementToBeClickable(submit2));
-		submit2.click();
 	}
 
 	public void verifyErrorMessage() {

@@ -19,6 +19,7 @@ public class CarrierAccountChangePasswordTest extends TestBase {
 
 	public CarrierAccountChangePasswordTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass

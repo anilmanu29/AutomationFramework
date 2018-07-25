@@ -67,7 +67,7 @@ public class AdminSearchPage extends TestBase {
 	// constructor
 	public AdminSearchPage() throws IOException {
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 10);
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	/**

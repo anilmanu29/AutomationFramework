@@ -3,6 +3,7 @@ package testcases.loadpay.broker;
 import java.awt.AWTException;
 import java.io.IOException;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -17,6 +18,7 @@ public class BrokerPaymentTermsChargeSenderTest extends TestBase {
 	/*-------Initializing driver---------*/
 	public BrokerPaymentTermsChargeSenderTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 
 	}
 

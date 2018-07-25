@@ -2,6 +2,7 @@ package testcases.loadpay.broker;
 
 import java.util.List;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -20,6 +21,7 @@ public class BrokerDiscountsTabTest extends TestBase {
 
 	public BrokerDiscountsTabTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass
@@ -28,10 +30,11 @@ public class BrokerDiscountsTabTest extends TestBase {
 		loginPage = new BrokerLoginPage();
 		brokerdiscountsTab = new BrokerDiscountsTab();
 	}
-	
+
 	@Test(dataProvider = "getBrokerDiscountsTabSearchData")
-	public void loadBrokerSearchData(String companyName, String pullDate, String searchAmount, String invoiceNumber, String loadID) throws InterruptedException {
-	
+	public void loadBrokerSearchData(String companyName, String pullDate, String searchAmount, String invoiceNumber,
+			String loadID) throws InterruptedException {
+
 		searchForInvoice = invoiceNumber;
 		searchForInvoice = TestUtil.removeDecimalZeroFormat(searchForInvoice);
 		searchforcompanyname = companyName;
@@ -43,7 +46,7 @@ public class BrokerDiscountsTabTest extends TestBase {
 		searchforDate = searchforDate.replace("'", "");
 	}
 
-	@Test(dataProvider = "getBrokerLoginData", dependsOnMethods = {"loadBrokerSearchData"})
+	@Test(dataProvider = "getBrokerLoginData", dependsOnMethods = { "loadBrokerSearchData" })
 	public void loginAsBroker(String un, String pwd) throws InterruptedException {
 		// login as broker
 		loginPage.Brokerlogin(un, pwd);
@@ -56,7 +59,7 @@ public class BrokerDiscountsTabTest extends TestBase {
 		verifyDiscountTabElementsDisplayed();
 	}
 
-	@Test(dependsOnMethods = {"verifyDiscountsTabTest" })
+	@Test(dependsOnMethods = { "verifyDiscountsTabTest" })
 	public void verifyCarrierSortTest() throws InterruptedException {
 		// TEST - Carrier
 		// click Carrier sort from default to ascending
@@ -75,7 +78,7 @@ public class BrokerDiscountsTabTest extends TestBase {
 		Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal when sorted by  Carrier!");
 	}
 
-	@Test(dependsOnMethods = {"verifyCarrierSortTest"})
+	@Test(dependsOnMethods = { "verifyCarrierSortTest" })
 	public void verifyLoadIDSortTest() throws InterruptedException {
 		// TEST - LoadID
 		// click LoadID sort from default to ascending
@@ -84,7 +87,7 @@ public class BrokerDiscountsTabTest extends TestBase {
 		brokerdiscountsTab.clickFirstRow();
 		// get the data elements from the first row displayed
 		firstRowData = brokerdiscountsTab.getFirstRowData();
-		
+
 		// click LoadID sort from default to ascending
 		brokerdiscountsTab.clickLoadIDColumn();
 		// click first row to expand
@@ -92,10 +95,11 @@ public class BrokerDiscountsTabTest extends TestBase {
 		// get the data elements from the first row displayed
 		lastRowData = brokerdiscountsTab.getFirstRowData();
 		// compare to the database when sorted by given column-Descending
-		//Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal when sorted by  LoadID!");
+		// Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal
+		// when sorted by LoadID!");
 	}
 
-	@Test(dependsOnMethods = {"verifyLoadIDSortTest"})
+	@Test(dependsOnMethods = { "verifyLoadIDSortTest" })
 	public void verifyInvoiceSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		brokerdiscountsTab.enterSearchText(searchforcompanyname);
@@ -108,8 +112,8 @@ public class BrokerDiscountsTabTest extends TestBase {
 				"Matching text [" + searchforcompanyname + "] NOT found in [" + firstRowData + "]");
 
 	}
-	
-	@Test(dependsOnMethods = {"verifyInvoiceSearchTest"})
+
+	@Test(dependsOnMethods = { "verifyInvoiceSearchTest" })
 	public void verifyCompanyNameSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		brokerdiscountsTab.enterSearchText(searchForInvoice);
@@ -122,9 +126,8 @@ public class BrokerDiscountsTabTest extends TestBase {
 				"Matching text [" + searchForInvoice + "] NOT found in [" + firstRowData + "]");
 
 	}
-	
-	
-	@Test(dependsOnMethods = {"verifyCompanyNameSearchTest"})
+
+	@Test(dependsOnMethods = { "verifyCompanyNameSearchTest" })
 	public void verifyLoadIDSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		brokerdiscountsTab.enterSearchText(searchforLoadID);
@@ -137,9 +140,8 @@ public class BrokerDiscountsTabTest extends TestBase {
 				"Matching text [" + searchforLoadID + "] NOT found in [" + firstRowData + "]");
 
 	}
-	
-	
-	@Test(dependsOnMethods = {"verifyLoadIDSearchTest"})
+
+	@Test(dependsOnMethods = { "verifyLoadIDSearchTest" })
 	public void verifyDateSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		brokerdiscountsTab.enterSearchText(searchforDate);
@@ -152,8 +154,8 @@ public class BrokerDiscountsTabTest extends TestBase {
 				"First row of data appears to be empty - size = " + firstRowData.size());
 
 	}
-	
-	@Test(dependsOnMethods = {"verifyDateSearchTest"})
+
+	@Test(dependsOnMethods = { "verifyDateSearchTest" })
 	public void verifyAmountSearchTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		brokerdiscountsTab.enterSearchText(searchforAmount);

@@ -3,6 +3,7 @@ package testcases.loadpay.carrier;
 import java.awt.AWTException;
 import java.io.IOException;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -21,6 +22,7 @@ public class CarrierlockedaccountcanbeunlockedbyadminTest extends TestBase {
 
 	public CarrierlockedaccountcanbeunlockedbyadminTest() {
 		super();
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	@BeforeClass

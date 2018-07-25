@@ -66,7 +66,7 @@ public class BrokerDisableCopyPasteConfirmBankAccount extends TestBase {
 	public BrokerDisableCopyPasteConfirmBankAccount() throws AWTException, IOException {
 		PageFactory.initElements(driver, this);
 		js = (JavascriptExecutor) driver;
-		wait = new WebDriverWait(driver, 20);
+		wait = new WebDriverWait(driver, 30);
 		act = new Actions(driver);
 		robot = new Robot();
 		brokerbankingobj = new BrokerBanking();

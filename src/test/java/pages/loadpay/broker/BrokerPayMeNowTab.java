@@ -32,7 +32,7 @@ public class BrokerPayMeNowTab extends TestBase {
 
 	public BrokerPayMeNowTab() throws IOException {
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 10);
+		wait = new WebDriverWait(driver, 30);
 		act = new Actions(driver);
 		js = (JavascriptExecutor) driver;
 	}

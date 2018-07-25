@@ -116,12 +116,10 @@ public class AdminCancelPayByCheck extends TestBase {
 	}
 
 	public void ClickOnsearchKeyword(String invoice) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 		FieldSearch.click();
-		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 		FieldSearch.sendKeys(invoice);
-		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 		FieldSearch.sendKeys(Keys.RETURN);
-		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 
 	}
 

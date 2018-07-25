@@ -10,49 +10,47 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import base.TestBase;
 
 public class CarrierPasswordSetupResetPage extends TestBase {
-  WebDriverWait wait;
-  JavascriptExecutor js;
+	WebDriverWait wait;
+	JavascriptExecutor js;
 
-  @FindBy(id = "User_Password")
-  WebElement newPasswordField;
+	@FindBy(id = "User_Password")
+	WebElement newPasswordField;
 
-  @FindBy(id = "User_ConfirmPassword")
-  WebElement confirmPasswordField;
+	@FindBy(id = "User_ConfirmPassword")
+	WebElement confirmPasswordField;
 
-  @FindBy(xpath = "//input[@value='Submit']")
-  WebElement submitButton;
+	@FindBy(xpath = "//input[@value='Submit']")
+	WebElement submitButton;
 
-  @FindBy(xpath = "//input[contains(@type,'submit')]")
-  WebElement loginBtn;
+	@FindBy(xpath = "//input[contains(@type,'submit')]")
+	WebElement loginBtn;
 
+	public CarrierPasswordSetupResetPage() {
+		PageFactory.initElements(driver, this);
+		wait = new WebDriverWait(driver, 30);
+		js = (JavascriptExecutor) driver;
+	}
 
-  public CarrierPasswordSetupResetPage() {
-    PageFactory.initElements(driver, this);
-    wait = new WebDriverWait(driver, 10);
-    js = (JavascriptExecutor) driver;
-  }
+	public void enterNewPassword(String NewPassword) {
 
-  public void enterNewPassword(String NewPassword) {
-	  
-    wait.until(ExpectedConditions.visibilityOf(newPasswordField));
-    js.executeScript("arguments[0].click();", newPasswordField);
-    /*newPasswordField.click();*/
-    newPasswordField.sendKeys(NewPassword);
-  }
+		wait.until(ExpectedConditions.visibilityOf(newPasswordField));
+		js.executeScript("arguments[0].click();", newPasswordField);
+		/* newPasswordField.click(); */
+		newPasswordField.sendKeys(NewPassword);
+	}
 
-  public void confirmNewPassword(String ConfirmPassword) {
+	public void confirmNewPassword(String ConfirmPassword) {
 
-    wait.until(ExpectedConditions.visibilityOf(confirmPasswordField));
-    confirmPasswordField.click();
-    confirmPasswordField.sendKeys(ConfirmPassword);
+		wait.until(ExpectedConditions.visibilityOf(confirmPasswordField));
+		confirmPasswordField.click();
+		confirmPasswordField.sendKeys(ConfirmPassword);
 
-  }
+	}
 
-  public void clickSubmitButton() {
-    submitButton.click();
-    wait.until(ExpectedConditions.visibilityOf(loginBtn));
+	public void clickSubmitButton() {
+		submitButton.click();
+		wait.until(ExpectedConditions.visibilityOf(loginBtn));
 
-
-  }
+	}
 
 }

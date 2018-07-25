@@ -52,7 +52,7 @@ public class AdminEditEmailCarrier extends TestBase {
 
 	public AdminEditEmailCarrier() {
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 10);
+		wait = new WebDriverWait(driver, 30);
 	}
 
 	public void openEmailLoginUsersPage() {

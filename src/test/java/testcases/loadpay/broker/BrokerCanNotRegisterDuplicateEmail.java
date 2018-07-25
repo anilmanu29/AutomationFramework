@@ -2,6 +2,7 @@ package testcases.loadpay.broker;
 
 import java.io.IOException;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -19,6 +20,7 @@ public class BrokerCanNotRegisterDuplicateEmail extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException {
 		initialization();
+		wait = new WebDriverWait(driver, 30);
 		brokerRegister = new BrokerRegister();
 		brokerLoginPage = new BrokerLoginPage();
 	}
