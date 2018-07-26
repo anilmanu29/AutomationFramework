@@ -11,6 +11,7 @@ import java.util.TimeZone;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -26,7 +27,7 @@ import pages.loadpay.broker.BrokerRegister;
 import pages.loadpay.outlook.outlooklogin;
 
 public class BrokerRegisterTest extends TestBase {
-	BrokerRegister r;
+	BrokerRegister brokerRegistrationObj;
 	AdminHomePage adminHomePage;
 	AdminLogin adminLoginPage;
 	BrokerLoginPage loginPage;
@@ -66,7 +67,7 @@ public class BrokerRegisterTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
-		r = new BrokerRegister();
+		brokerRegistrationObj = new BrokerRegister();
 		adminHomePage = new AdminHomePage();
 		adminLoginPage = new AdminLogin();
 		loginPage = new BrokerLoginPage();
@@ -85,75 +86,66 @@ public class BrokerRegisterTest extends TestBase {
 		brokerUsername = Email;
 		brokerPassword = Password;
 
-		r.signup();
+		brokerRegistrationObj.signup();
 
 		// clicking on carrier Register
-		r.shipperRegister();
-		r.companyname(CompanyName);
-		r.doingbussiness(DoingBussinessAS);
-		r.selectType();
+		brokerRegistrationObj.shipperRegister();
+		brokerRegistrationObj.companyname(CompanyName);
+		brokerRegistrationObj.doingbussiness(DoingBussinessAS);
+		brokerRegistrationObj.selectType();
 
 		Select type = new Select(driver.findElement(By.xpath(".//*[@id='EntityType']")));
 		type.selectByVisibleText("C Corporation");
 
-		r.countryofincorporation();
+		brokerRegistrationObj.countryofincorporation();
 
 		Select countryof = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationCountry']")));
 		countryof.selectByIndex(0);
 
-		r.stateofincorporation();
+		brokerRegistrationObj.stateofincorporation();
 
 		Select stateof = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationState']")));
 		stateof.selectByVisibleText("California");
 
-		emailid = r.BrokerEmail(Email);
+		emailid = brokerRegistrationObj.BrokerEmail(Email);
+		brokerRegistrationObj.confirmEmail(ConfirmEmail);
+		brokerRegistrationObj.iCertifyClick();
+		brokerRegistrationObj.paymentTerm();
 
-		r.confirmEmail(ConfirmEmail);
+		brokerRegistrationObj.clickNextBtnOnCompanyForm();
 
-		r.iCertifyClick();
-
-		r.paymentTerm();
-
-		r.clickNextBtnOnCompanyForm();
-
-		r.ZipCode(ZipCode1);
-
-		r.country();
+		brokerRegistrationObj.ZipCode(ZipCode1);
+		brokerRegistrationObj.country();
 
 		Select country = new Select(driver.findElement(By.xpath(".//*[@id='OriginCountry']")));
 		country.selectByVisibleText("USA");
 
-		r.address(Address);
-
-		r.city(City);
-
-		r.State();
+		brokerRegistrationObj.address(Address);
+		brokerRegistrationObj.city(City);
+		brokerRegistrationObj.State();
 
 		Select state = new Select(driver.findElement(By.xpath(".//*[@id='State']")));
 		state.selectByVisibleText("CA");
 
-		r.clickNextBtnOnAddressForm();
+		brokerRegistrationObj.clickNextBtnOnAddressForm();
 
-		r.ContactFirstName(FirstNames);
+		brokerRegistrationObj.ContactFirstName(FirstNames);
+		brokerRegistrationObj.LastName(LastName);
+		brokerRegistrationObj.Phone(PhoneNumber);
+		brokerRegistrationObj.Password(Password);
+		brokerRegistrationObj.ConfirmPassword(ConfirmPassword);
 
-		r.LastName(LastName);
-		r.Phone(PhoneNumber);
+		brokerRegistrationObj.clickNextBtnOnContactForm();
 
-		r.Password(Password);
+		brokerRegistrationObj.AccountName(NameonAccount);
+		brokerRegistrationObj.BankingRouting(RoutingNumber);
+		brokerRegistrationObj.BankingAccount(BankAccountNumber);
+		brokerRegistrationObj.ConfirmBankingAccount(ConfirmbankAccountNumber);
 
-		driver.findElement(By.xpath(".//*[@id='Registration_User_Password']"));
-		r.ConfirmPassword(ConfirmPassword);
+		brokerRegistrationObj.clickNextBtnOnBankingForm();
 
-		r.clickNextBtnOnContactForm();
+		brokerRegistrationObj.verifyRegistrationConfirmationMessage();
 
-		r.AccountName(NameonAccount);
-		r.BankingAccount(BankAccountNumber);
-
-		r.BankingRouting(RoutingNumber);
-
-		r.ConfirmBankingAccount(ConfirmbankAccountNumber);
-
-		r.clickNextBtnOnBankingForm();
 		log.info(" Broker Register Completed...");
 	}
 
@@ -177,6 +169,13 @@ public class BrokerRegisterTest extends TestBase {
 
 		adminLoginPage.ClickOnSearchButton();
 
+		Thread.sleep(2000);
+
+		WebElement TotalCountElement = wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[2]/div/div[3]/div[1]/h3/span")));
+
+		Assert.assertTrue(TotalCountElement.getText().contains("1"), "Record count of 1 not found");
+
 		adminLoginPage.DoubleClickID();
 
 		adminLoginPage.StatusIDDropDown();
@@ -184,25 +183,25 @@ public class BrokerRegisterTest extends TestBase {
 		adminLoginPage.UpdateButton();
 
 		// add credit
-		WebElement adminCustomerCreditTab = driver.findElement(By.xpath("//a[contains(text(),'Credit')]"));
+		WebElement adminCustomerCreditTab = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Credit')]")));
 		adminCustomerCreditTab.click();
 
-		WebElement extendedCreditField = driver.findElement(By.id("ExtendedCredit"));
+		WebElement extendedCreditField = wait.until(ExpectedConditions.elementToBeClickable(By.id("ExtendedCredit")));
 		extendedCreditField.clear();
 		extendedCreditField.sendKeys("100000");
 
-		WebElement updateCreditButton = driver.findElement(By.xpath("//*[@id=\"formCredit\"]/div[3]/input"));
+		WebElement updateCreditButton = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"formCredit\"]/div[3]/input")));
 		updateCreditButton.click();
 
-		WebElement availableCreditLabel = driver.findElement(By.xpath("//*[@id=\"formCredit\"]/div[2]/label"));
-		Assert.assertTrue(availableCreditLabel.getText().contains("$100,000.00"), "Available credit amount not found!");
-
 		// go to banking tab and capture deposit amount
-		WebElement adminCustomerBankingTab = driver.findElement(By.xpath("//a[contains(text(),'Banking')]"));
+		WebElement adminCustomerBankingTab = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Banking')]")));
 		adminCustomerBankingTab.click();
 
-		WebElement adminCustomerDepositAmount = driver.findElement(By.xpath(
-				"//*[@id=\"angularScope\"]/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[2]/div/div/div[1]/div/div/div/p[9]/span"));
+		WebElement adminCustomerDepositAmount = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				"//*[@id=\"angularScope\"]/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[2]/div/div/div[1]/div/div/div/p[9]/span")));
 		depositAmount = adminCustomerDepositAmount.getText();
 		depositAmount = depositAmount.substring(depositAmount.length() - 2, depositAmount.length());
 		depositAmount = "0" + depositAmount;
@@ -246,28 +245,32 @@ public class BrokerRegisterTest extends TestBase {
 		driver.switchTo().window(tabs.get(1));
 
 		// enter EIN
-		WebElement einInputField = driver.findElement(By.xpath("//*[@id='EIN']"));
+		WebElement einInputField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='EIN']")));
 		einInputField.clear();
 		einInputField.sendKeys(EIN);
 
 		// enter deposit amount
-		WebElement depositAmtField = driver.findElement(By.xpath("//*[@id='ControlAmount']"));
+		WebElement depositAmtField = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ControlAmount']")));
 		depositAmtField.clear();
 		depositAmtField.sendKeys(depositAmount);
 
 		// click Next
-		WebElement nextButton = driver.findElement(By.xpath("//*[@id='formCompany']/input"));
+		WebElement nextButton = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='formCompany']/input")));
 		nextButton.click();
 
 		// accept terms and conditions
-		WebElement acceptTermsCheckBox = driver.findElement(By.xpath("//*[@id='AcceptedTerms']"));
+		WebElement acceptTermsCheckBox = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='AcceptedTerms']")));
 		acceptTermsCheckBox.click();
 
-		WebElement finishButton = driver.findElement(By.xpath("//*[@id='termsForm']/input"));
+		WebElement finishButton = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='termsForm']/input")));
 		finishButton.click();
 
-		WebElement confirmationPopup = driver
-				.findElement(By.xpath("//*[@id='angularScope']/div[3]/div/div/div[1]/div/p"));
+		WebElement confirmationPopup = wait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//*[@id='angularScope']/div[3]/div/div/div[1]/div/p")));
 		log.info("Confirmation message: " + confirmationPopup.getText());
 		Assert.assertTrue(
 				confirmationPopup.getText().contains("Your LoadPay™ registration has been completed successfully."),

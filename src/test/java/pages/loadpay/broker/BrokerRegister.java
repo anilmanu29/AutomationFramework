@@ -48,7 +48,7 @@ public class BrokerRegister extends TestBase {
 	@FindBy(xpath = ".//*[@id='PMNTerm'] ")
 	WebElement PaymentTerms;
 
-	@FindBy(xpath = ".//*[@id='formCompany']/div/div[12]/div/div/input")
+	@FindBy(xpath = ".//*[@id='formCompany']/div/div[13]/div/div/input")
 	WebElement CompanyNextBtn;
 
 	@FindBy(xpath = ".//*[@id='formAddress']/div/div[4]/div/div[2]/input")
@@ -107,6 +107,9 @@ public class BrokerRegister extends TestBase {
 
 	@FindBy(xpath = "//input[@id='ConfirmBankingAccount']")
 	WebElement ConfirmBankingAccount;
+
+	@FindBy(xpath = "//*[@id='angularScope']/div[4]/div[3]/div[5]/div/p[1]")
+	WebElement BrokerRegistrationConfirmation;
 
 	@FindBy(className = "close")
 	WebElement emailAddressAlreadyInUse;
@@ -178,9 +181,7 @@ public class BrokerRegister extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(PaymentTerms));
 		PaymentTerms.click();
 		Select pay = new Select(PaymentTerms);
-
 		pay.selectByIndex(2);
-		Thread.sleep(2000);
 	}
 
 	public void clickNextBtnOnCompanyForm() {
@@ -276,5 +277,10 @@ public class BrokerRegister extends TestBase {
 	public void verifyErrorMessage() {
 		wait.until(ExpectedConditions.visibilityOf(emailAddressAlreadyInUse));
 		Assert.assertTrue(emailAddressAlreadyInUse.isDisplayed(), "No error message is present");
+	}
+
+	public void verifyRegistrationConfirmationMessage() {
+		wait.until(ExpectedConditions.visibilityOf(BrokerRegistrationConfirmation));
+		Assert.assertTrue(BrokerRegistrationConfirmation.isDisplayed(), "No confirmation message is present");
 	}
 }

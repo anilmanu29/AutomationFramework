@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -202,7 +203,8 @@ public class BrokerOutlook extends TestBase {
 		driver.switchTo().window(tabs.get(1));
 		Thread.sleep(1000);
 
-		WebElement searchField = driver.findElement(By.xpath("//span[text()='Search mail and people']"));
+		WebElement searchField = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Search mail and people']")));
 		wait.until(ExpectedConditions.elementToBeClickable(searchField));
 		searchField.click();
 
@@ -218,9 +220,9 @@ public class BrokerOutlook extends TestBase {
 		infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
 		log.info("Info message text: " + infoMessage.getText());
 
-		while ((infoMessage.isDisplayed() || checkEmailTimeStamp(hour, minutes)) && (retryCount < maxRetryCount)) {
-			wait.until(ExpectedConditions.elementToBeClickable(searchButton));
-			searchButton.click();
+		while ((infoMessage.isDisplayed() || !checkEmailTimeStamp(hour, minutes)) && (retryCount < maxRetryCount)) {
+			Thread.sleep(5000);
+			searchInput.sendKeys(Keys.ENTER);
 			infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
 			retryCount++;
 		}
@@ -266,7 +268,7 @@ public class BrokerOutlook extends TestBase {
 		log.info("Actual Hours: " + actualHour);
 		log.info("Actual Minutes: " + actualMinutes);
 
-		if ((approximateHour != actualHour) || (actualMinutes < approximateMinutes)) {
+		if ((approximateHour == actualHour) || (actualMinutes <= approximateMinutes)) {
 			return true;
 		} else {
 			return false;
