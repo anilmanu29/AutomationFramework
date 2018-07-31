@@ -17,8 +17,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.DataProvider;
 
-import com.relevantcodes.extentreports.model.Log;
-
 import util.TestUtil;
 import util.WebEventListener;
 import utility.ReadExcel;
@@ -48,8 +46,11 @@ public class TestBase {
 	}
 
 	public static void initialization() {
-		log = Logger.getLogger(Log.class.getName());
+		log = Logger.getLogger(Logger.class.getName());
+
 		String browserName = prop.getProperty("browser");
+
+		log.info("Selecting browser type from configuration properties");
 
 		if (browserName.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver",
@@ -336,8 +337,27 @@ public class TestBase {
 		return read.getCellData(loadPayTestDataFilePath, "CarrierDuplicateEmail");
 	}
 
+	@DataProvider
+	public Object[][] getITSDispatchLogindata() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "ITSDispatchLoginData");
+	}
+
+	@DataProvider
+	public Object[][] getUpdatedBrokerPaymentData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "BrokerUpdatedPaymentData");
+	}
+
+	@DataProvider
+	public Object[][] getUpdatedCarrierPaymentData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "CarrierUpdatePaymentData");
+	}
+
 	@AfterClass
 	public void quit() {
+		log.info("END TEST\n\n");
 		driver.quit();
 	}
 }

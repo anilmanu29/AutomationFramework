@@ -1,7 +1,3 @@
-/*
- * @autor : ANILKUMAR
- * 
- */
 package extentreportlistener;
 
 import java.io.File;
@@ -26,17 +22,16 @@ import com.relevantcodes.extentreports.LogStatus;
 public class ExtentReporterNG implements IReporter {
 	private ExtentReports extent;
 
-	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,
-			String outputDirectory) {
-		String currentDir = System.getProperty("user.dir"); 
-		
+	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
+		String currentDir = System.getProperty("user.dir");
+
 		long currentTimeMillis = System.currentTimeMillis();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd,yyyy HH:mm");    
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd,yyyy HH:mm");
 		Date formattedDate = new Date(currentTimeMillis);
 		String currentDate = dateFormat.format(formattedDate);
-		
-		extent = new ExtentReports(currentDir + "/output/" + "/Reports/" + currentDate + File.separator
-				+ "Extent.html", true);
+
+		extent = new ExtentReports(currentDir + "/output/" + "/Reports/" + currentDate + File.separator + "Extent.html",
+				true);
 		for (ISuite suite : suites) {
 			Map<String, ISuiteResult> result = suite.getResults();
 
@@ -69,8 +64,7 @@ public class ExtentReporterNG implements IReporter {
 				if (result.getThrowable() != null) {
 					test.log(status, result.getThrowable());
 				} else {
-					test.log(status, "Test " + status.toString().toLowerCase()
-							+ "ed");
+					test.log(status, "Test " + status.toString().toLowerCase() + "ed");
 				}
 
 				extent.endTest(test);
@@ -83,27 +77,27 @@ public class ExtentReporterNG implements IReporter {
 		calendar.setTimeInMillis(millis);
 		return calendar.getTime();
 	}
-	
-	 @SuppressWarnings("unused")
+
+	@SuppressWarnings("unused")
 	private String millisToTimeConversion(long seconds) {
 
-	        final int MINUTES_IN_AN_HOUR = 60;
-	        final int SECONDS_IN_A_MINUTE = 60;
+		final int MINUTES_IN_AN_HOUR = 60;
+		final int SECONDS_IN_A_MINUTE = 60;
 
-	        int minutes = (int) (seconds / SECONDS_IN_A_MINUTE);
-	        seconds -= minutes * SECONDS_IN_A_MINUTE;
+		int minutes = (int) (seconds / SECONDS_IN_A_MINUTE);
+		seconds -= minutes * SECONDS_IN_A_MINUTE;
 
-	        int hours = minutes / MINUTES_IN_AN_HOUR;
-	        minutes -= hours * MINUTES_IN_AN_HOUR;
+		int hours = minutes / MINUTES_IN_AN_HOUR;
+		minutes -= hours * MINUTES_IN_AN_HOUR;
 
-	        return prefixZeroToDigit(hours) + ":" + prefixZeroToDigit(minutes) + ":" + prefixZeroToDigit((int)seconds);
-	    }
+		return prefixZeroToDigit(hours) + ":" + prefixZeroToDigit(minutes) + ":" + prefixZeroToDigit((int) seconds);
+	}
 
-	private String prefixZeroToDigit(int num){
-	        int number=num;
-	        if(number<=9)
-	            return "0"+number;
-	        else
-	            return ""+number;
-	    }
+	private String prefixZeroToDigit(int num) {
+		int number = num;
+		if (number <= 9)
+			return "0" + number;
+		else
+			return "" + number;
+	}
 }

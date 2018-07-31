@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierPaidTab;
+import util.TestUtil;
 
 public class CarrierPaidTabTest extends TestBase {
 	CarrierLoginPage loginPage;
@@ -43,6 +44,7 @@ public class CarrierPaidTabTest extends TestBase {
 		searchAmountText = amountText;
 		searchPayerText = payerText;
 		searchLoadIdText = loadIdText;
+		searchLoadIdText = TestUtil.removeDecimalZeroFormat(searchLoadIdText);
 
 		// Assert PayMeNow, Scheduled and Paid tabs exist
 		verifyCarrierTabsDisplayed();
@@ -76,12 +78,12 @@ public class CarrierPaidTabTest extends TestBase {
 		// TODO
 		// Uncomment Assertion when LP-3241 https://gojira.truckstop.com/browse/LP-3241
 		// is resolved
-		if (carrierPaidTab.getRowCount() > 1)
-			Assert.assertNotEquals(firstRowData, lastRowData,
-					"First Row Data: \n" + firstRowData + "\nLast Row Data: \n" + lastRowData);
+		// if (carrierPaidTab.getRowCount() > 1)
+		// Assert.assertNotEquals(firstRowData, lastRowData,
+		// "First Row Data: \n" + firstRowData + "\nLast Row Data: \n" + lastRowData);
 	}
 
-	@Test(description = "LP-3476 CarrierPaidTabTest_VerifyAmountSort", dependsOnMethods = { "verifyPaidTabTest" })
+	@Test(description = "LP-3476 CarrierPaidTabTest_VerifyAmountSort", dependsOnMethods = { "verifyStatusSortTest" })
 	public void verifyAmountSortTest() throws InterruptedException {
 		// TEST - AMOUNT SORT
 		// click Amount Column to change sort from default to ascending
@@ -102,7 +104,7 @@ public class CarrierPaidTabTest extends TestBase {
 					"First Row Data: \n" + firstRowData + "\nLast Row Data: \n" + lastRowData);
 	}
 
-	@Test(description = "LP-3476 CarrierPaidTabTest_VerifyPayerSort", dependsOnMethods = { "verifyPaidTabTest" })
+	@Test(description = "LP-3476 CarrierPaidTabTest_VerifyPayerSort", dependsOnMethods = { "verifyAmountSortTest" })
 	public void verifyPayerSortTest() throws InterruptedException {
 		// TEST - PAYER SORT
 		// click Payer Column to change sort from default to ascending
@@ -123,7 +125,7 @@ public class CarrierPaidTabTest extends TestBase {
 					"First Row Data: \n" + firstRowData + "\nLast Row Data: \n" + lastRowData);
 	}
 
-	@Test(description = "LP-3476 CarrierPaidTabTest_VerifyLoadIdSort", dependsOnMethods = { "verifyPaidTabTest" })
+	@Test(description = "LP-3476 CarrierPaidTabTest_VerifyLoadIdSort", dependsOnMethods = { "verifyPayerSortTest" })
 	public void verifyLoadIdSortTest() throws InterruptedException {
 		// TEST - LoadID SORT
 		// click LoadID Column to change sort from default to ascending
@@ -147,7 +149,7 @@ public class CarrierPaidTabTest extends TestBase {
 	// TODO
 	// Enable when LP-3241 https://gojira.truckstop.com/browse/LP-3241 is resolved
 	@Test(description = "LP-3476 CarrierPaidTabTest_VerifySearchStatus", enabled = false, dependsOnMethods = {
-			"verifyPaidTabTest" })
+			"verifyLoadIdSortTest" })
 	public void verifySearchStatusTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		carrierPaidTab.enterSearchText(searchStatusText);
@@ -159,7 +161,7 @@ public class CarrierPaidTabTest extends TestBase {
 		Assert.assertTrue(firstRowData.size() > 0, "No data rows found when searching by status");
 	}
 
-	@Test(description = "LP-3476 CarrierPaidTabTest_VerifySearchAmount", dependsOnMethods = { "verifyPaidTabTest" })
+	@Test(description = "LP-3476 CarrierPaidTabTest_VerifySearchAmount", dependsOnMethods = { "verifyLoadIdSortTest" })
 	public void verifySearchAmountTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		carrierPaidTab.enterSearchText(searchAmountText);
@@ -171,7 +173,7 @@ public class CarrierPaidTabTest extends TestBase {
 		Assert.assertTrue(firstRowData.size() > 0, "No data rows found when searching by amount");
 	}
 
-	@Test(description = "LP-3476 CarrierPaidTabTest_VerifySearchPayer", dependsOnMethods = { "verifyPaidTabTest" })
+	@Test(description = "LP-3476 CarrierPaidTabTest_VerifySearchPayer", dependsOnMethods = { "verifySearchAmountTest" })
 	public void verifySearchPayerTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		carrierPaidTab.enterSearchText(searchPayerText);
@@ -183,7 +185,7 @@ public class CarrierPaidTabTest extends TestBase {
 		Assert.assertTrue(firstRowData.size() > 0, "No data rows found when searching by payer");
 	}
 
-	@Test(description = "LP-3476 CarrierPaidTabTest_VerifySearchLoadId", dependsOnMethods = { "verifyPaidTabTest" })
+	@Test(description = "LP-3476 CarrierPaidTabTest_VerifySearchLoadId", dependsOnMethods = { "verifySearchPayerTest" })
 	public void verifySearchLoadIdTest() throws InterruptedException {
 		// TEST - SEARCH VERIFICATION
 		carrierPaidTab.enterSearchText(searchLoadIdText);

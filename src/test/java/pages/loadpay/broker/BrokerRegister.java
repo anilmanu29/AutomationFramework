@@ -18,6 +18,12 @@ public class BrokerRegister extends TestBase {
 	@FindBy(xpath = ".//*[@id='angularScope']/div[2]/div[3]/div/button[2]")
 	WebElement BrokersignupButton;
 
+	@FindBy(xpath = "//*[@id='MCType']")
+	WebElement motorCarrierSelector;
+
+	@FindBy(xpath = "//*[@id='MC']")
+	WebElement motorCarrierField;
+
 	@FindBy(xpath = ".//*[@id='DOT'] ")
 	WebElement Dotnumber;
 
@@ -282,5 +288,39 @@ public class BrokerRegister extends TestBase {
 	public void verifyRegistrationConfirmationMessage() {
 		wait.until(ExpectedConditions.visibilityOf(BrokerRegistrationConfirmation));
 		Assert.assertTrue(BrokerRegistrationConfirmation.isDisplayed(), "No confirmation message is present");
+	}
+
+	/**
+	 * @return the motorCarrierSelector
+	 */
+	public WebElement getMotorCarrierSelector() {
+		return motorCarrierSelector;
+	}
+
+	/**
+	 * @param motorCarrierSelector
+	 *            the motorCarrierSelector to set
+	 */
+	public void setMotorCarrierSelector(Integer motorCarrierIndex) {
+		wait.until(ExpectedConditions.elementToBeClickable(this.motorCarrierSelector));
+		Select motorCarrier = new Select(this.motorCarrierSelector);
+		motorCarrier.selectByIndex(motorCarrierIndex);
+	}
+
+	/**
+	 * @return the motorCarrierField
+	 */
+	public WebElement getMotorCarrierField() {
+		return motorCarrierField;
+	}
+
+	/**
+	 * @param motorCarrierField
+	 *            the motorCarrierField to set
+	 */
+	public void setMotorCarrierField(Integer motorCarrierNumber) {
+		wait.until(ExpectedConditions.elementToBeClickable(this.motorCarrierField));
+		this.motorCarrierField.clear();
+		this.motorCarrierField.sendKeys(motorCarrierNumber.toString());
 	}
 }

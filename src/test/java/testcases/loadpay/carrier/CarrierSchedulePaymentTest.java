@@ -11,6 +11,7 @@ import base.TestBase;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierPayMeNowTab;
 import pages.loadpay.carrier.CarrierSchedulePayment;
+import util.TestUtil;
 
 public class CarrierSchedulePaymentTest extends TestBase {
 
@@ -47,16 +48,17 @@ public class CarrierSchedulePaymentTest extends TestBase {
 		searchAmountText = amountText;
 		searchPayerText = payerText;
 		searchLoadIdText = loadIdText;
-
+		searchLoadIdText = TestUtil.removeDecimalZeroFormat(searchLoadIdText);
 	}
 
 	@Test(dependsOnMethods = "loginCarrier")
 	public void verifyScheduledPaymentsTabTest() throws InterruptedException {
 		// click Paid Tab
+		Thread.sleep(2000);
 		carrierschedulepayment.clickScheduledPaymentsTab();
 
 		// Assert search bar, search button, and table columns are displayed
-		// verifySchedulePaymentTabElementsDisplayed();
+		verifySchedulePaymentTabElementsDisplayed();
 	}
 
 	@Test(dependsOnMethods = "verifyScheduledPaymentsTabTest")
@@ -75,9 +77,9 @@ public class CarrierSchedulePaymentTest extends TestBase {
 		// get the data elements from the first row displayed
 		lastRowData = carrierschedulepayment.getFirstRowData();
 		// compare sorted data sets
-		// if(carrierschedulepayment.getRowCount() > 1)
-		// Assert.assertNotEquals(firstRowData, lastRowData, "First Row Data: \n" +
-		// firstRowData + "\nLast Row Data: \n" + lastRowData);
+		if (carrierschedulepayment.getRowCount() > 1)
+			Assert.assertNotEquals(firstRowData, lastRowData,
+					"First Row Data: \n" + firstRowData + "\nLast Row Data: \n" + lastRowData);
 	}
 
 	@Test(dependsOnMethods = "verifyDaysSortTest")
@@ -159,7 +161,8 @@ public class CarrierSchedulePaymentTest extends TestBase {
 		lastRowData = carrierschedulepayment.getFirstRowData();
 		// compare to the database when sorted by given column-Descending
 		if (carrierschedulepayment.getRowCount() > 1)
-			Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal when sorted by InvoiceNumber!");
+			Assert.assertNotEquals(firstRowData, lastRowData,
+					"First Row Data: \n" + firstRowData + "\nLast Row Data: \n" + lastRowData);
 	}
 
 	@Test(dependsOnMethods = "verifyInvoiceSortTest")
@@ -179,7 +182,9 @@ public class CarrierSchedulePaymentTest extends TestBase {
 		// get the data elements from the first row displayed
 		lastRowData = carrierschedulepayment.getFirstRowData();
 		// compare to the database when sorted by given column-Descending
-		Assert.assertTrue(lastRowData.size() > 0, "No data rows found when sorting by date");
+		if (carrierschedulepayment.getRowCount() > 1)
+			Assert.assertNotEquals(firstRowData, lastRowData,
+					"First Row Data: \n" + firstRowData + "\nLast Row Data: \n" + lastRowData);
 	}
 
 	// TODO
@@ -229,7 +234,7 @@ public class CarrierSchedulePaymentTest extends TestBase {
 		Assert.assertTrue(carrierschedulepayment.payerColumn.getText().contains("Payer"), "Payer Column not found");
 		Assert.assertTrue(carrierschedulepayment.loadIDColumn.getText().contains("Load ID"), "Load ID not found");
 		Assert.assertTrue(carrierschedulepayment.InvoiceColumn.getText().contains("Invoice #"), "Invoice # not found");
-		Assert.assertTrue(carrierschedulepayment.schdateColumn.getText().contains("Schedule Date"),
+		Assert.assertTrue(carrierschedulepayment.schdateColumn.getText().contains("Scheduled Date"),
 				"Schedule Date not found");
 		Assert.assertTrue(carrierschedulepayment.searchButton.isDisplayed(), "Search Button not found");
 		Assert.assertTrue(carrierschedulepayment.searchInputField.isDisplayed(), "Search Input Field not found");

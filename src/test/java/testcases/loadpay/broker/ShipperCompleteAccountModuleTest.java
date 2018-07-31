@@ -2,6 +2,7 @@ package testcases.loadpay.broker;
 
 import java.awt.AWTException;
 import java.io.IOException;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -52,6 +53,21 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 		shippercompleteaccountmodule.clickCompanylink();
 
 		Assert.assertTrue(shippercompleteaccountmodule.lnk_Company.isDisplayed());
+
+		// gets a better random seed for indexing
+		int randomNum = ThreadLocalRandom.current().nextInt(0, 30);
+
+		if (randomNum < 10)
+			randomNum = 0;
+		else if (randomNum < 20)
+			randomNum = 1;
+		else
+			randomNum = 2;
+
+		shippercompleteaccountmodule.setMotorCarrierSelector(randomNum);
+
+		randomNum = ThreadLocalRandom.current().nextInt(10000000, 99999999);
+		shippercompleteaccountmodule.setMotorCarrierField(randomNum);
 
 		shippercompleteaccountmodule.enterDotnumber(Dot);
 

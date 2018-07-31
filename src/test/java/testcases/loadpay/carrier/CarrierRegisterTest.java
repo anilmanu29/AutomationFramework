@@ -1,6 +1,7 @@
 package testcases.loadpay.carrier;
 
 import java.io.IOException;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,7 +14,7 @@ import base.TestBase;
 import pages.loadpay.carrier.CarrierRegisterPage;
 
 public class CarrierRegisterTest extends TestBase {
-	CarrierRegisterPage cr;
+	CarrierRegisterPage carrierRegistrationObj;
 	Select type;
 	Select stateof;
 	Select payment;
@@ -32,7 +33,7 @@ public class CarrierRegisterTest extends TestBase {
 	public void setUp() {
 
 		initialization();
-		cr = new CarrierRegisterPage();
+		carrierRegistrationObj = new CarrierRegisterPage();
 		wait = new WebDriverWait(driver, 30);
 	}
 
@@ -42,81 +43,96 @@ public class CarrierRegisterTest extends TestBase {
 			String PhoneNumber, String Password, String ConfirmPassword, String NameonAccount, String RoutingNumber,
 			String BankAccountNumber, String ConfirmbankAccountNumber) throws IOException, InterruptedException {
 
-		cr.signup();
+		carrierRegistrationObj.signup();
 
 		// clicking on carrier Register
 
-		cr.CarrierRegister();
+		carrierRegistrationObj.CarrierRegister();
 
-		cr.companyname(CompanyName);
+		// gets a better random seed for indexing
+		int randomNum = ThreadLocalRandom.current().nextInt(0, 30);
 
-		cr.doingbussiness(DoingBussinessAS);
+		if (randomNum < 10)
+			randomNum = 0;
+		else if (randomNum < 20)
+			randomNum = 1;
+		else
+			randomNum = 2;
 
-		cr.selectType();
+		carrierRegistrationObj.setMotorCarrierSelector(randomNum);
+
+		randomNum = ThreadLocalRandom.current().nextInt(10000000, 99999999);
+		carrierRegistrationObj.setMotorCarrierField(randomNum);
+
+		carrierRegistrationObj.companyname(CompanyName);
+
+		carrierRegistrationObj.doingbussiness(DoingBussinessAS);
+
+		carrierRegistrationObj.selectType();
 
 		Select type = new Select(driver.findElement(By.xpath(".//*[@id='EntityType']")));
 
 		type.selectByVisibleText("C Corporation");
 
-		cr.countryofincorporation();
+		carrierRegistrationObj.countryofincorporation();
 
 		Select countryof = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationCountry']")));
 
 		countryof.selectByIndex(0);
 
-		cr.stateofincorporation();
+		carrierRegistrationObj.stateofincorporation();
 
 		Select stateof = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationState']")));
 
 		stateof.selectByVisibleText("California");
 
-		email = cr.CarrierEmail(Email);
+		email = carrierRegistrationObj.CarrierEmail(Email);
 
-		cr.confirmEmail(ConfirmEmail);
+		carrierRegistrationObj.confirmEmail(ConfirmEmail);
 
-		cr.iCertifyClick();
+		carrierRegistrationObj.iCertifyClick();
 
-		cr.next();
+		carrierRegistrationObj.next();
 
-		cr.ZipCode(ZipCode1);
+		carrierRegistrationObj.ZipCode(ZipCode1);
 
-		cr.country();
+		carrierRegistrationObj.country();
 
 		Select country = new Select(driver.findElement(By.xpath(".//*[@id='OriginCountry']")));
 		country.selectByVisibleText("USA");
 
-		cr.address(Address);
+		carrierRegistrationObj.address(Address);
 
-		cr.city(City);
+		carrierRegistrationObj.city(City);
 
-		cr.State();
+		carrierRegistrationObj.State();
 
 		Select state = new Select(driver.findElement(By.xpath(".//*[@id='State']")));
 
 		state.selectByVisibleText("CA");
 
-		cr.submit();
+		carrierRegistrationObj.submit();
 
-		cr.ContactFirstName(FirstNames);
+		carrierRegistrationObj.ContactFirstName(FirstNames);
 
-		cr.LastName(LastName);
-		cr.Phone(PhoneNumber);
+		carrierRegistrationObj.LastName(LastName);
+		carrierRegistrationObj.Phone(PhoneNumber);
 
-		cr.Password(Password);
+		carrierRegistrationObj.Password(Password);
 
 		driver.findElement(By.xpath(".//*[@id='Registration_User_Password']"));
-		cr.ConfirmPassword(ConfirmPassword);
+		carrierRegistrationObj.ConfirmPassword(ConfirmPassword);
 
-		cr.Next();
+		carrierRegistrationObj.Next();
 
-		cr.AccountName(NameonAccount);
-		cr.BankingAccount(BankAccountNumber);
+		carrierRegistrationObj.AccountName(NameonAccount);
+		carrierRegistrationObj.BankingAccount(BankAccountNumber);
 
-		cr.BankingRouting(RoutingNumber);
+		carrierRegistrationObj.BankingRouting(RoutingNumber);
 
-		cr.ConfirmBankingAccount(ConfirmbankAccountNumber);
+		carrierRegistrationObj.ConfirmBankingAccount(ConfirmbankAccountNumber);
 
-		cr.submit();
+		carrierRegistrationObj.submit();
 		log.info("Carrier Registration Completed...");
 
 	}

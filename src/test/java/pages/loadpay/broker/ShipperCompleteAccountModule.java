@@ -37,7 +37,13 @@ public class ShipperCompleteAccountModule extends TestBase {
 	@FindBy(xpath = "//input[@name='EIN']")
 	public WebElement einnum;
 
-	@FindBy(xpath = "//*[@id='formCompany']/div/div[14]/input")
+	@FindBy(xpath = "//*[@id='MCType']")
+	WebElement motorCarrierSelector;
+
+	@FindBy(xpath = "//*[@id='MC']")
+	WebElement motorCarrierField;
+
+	@FindBy(xpath = "//*[@id='formCompany']/div/div[15]/input")
 	public WebElement companyupdate;
 
 	@FindBy(xpath = "//a[contains(text(),'Contact')]")
@@ -325,6 +331,40 @@ public class ShipperCompleteAccountModule extends TestBase {
 	public void clickadminupdate() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(click_adminupdate));
 		js.executeScript("arguments[0].click();", click_adminupdate);
+	}
+
+	/**
+	 * @return the motorCarrierSelector
+	 */
+	public WebElement getMotorCarrierSelector() {
+		return motorCarrierSelector;
+	}
+
+	/**
+	 * @param motorCarrierSelector
+	 *            the motorCarrierSelector to set
+	 */
+	public void setMotorCarrierSelector(Integer motorCarrierIndex) {
+		wait.until(ExpectedConditions.elementToBeClickable(this.motorCarrierSelector));
+		Select motorCarrier = new Select(this.motorCarrierSelector);
+		motorCarrier.selectByIndex(motorCarrierIndex);
+	}
+
+	/**
+	 * @return the motorCarrierField
+	 */
+	public WebElement getMotorCarrierField() {
+		return motorCarrierField;
+	}
+
+	/**
+	 * @param motorCarrierField
+	 *            the motorCarrierField to set
+	 */
+	public void setMotorCarrierField(Integer motorCarrierNumber) {
+		wait.until(ExpectedConditions.elementToBeClickable(this.motorCarrierField));
+		this.motorCarrierField.clear();
+		this.motorCarrierField.sendKeys(motorCarrierNumber.toString());
 	}
 
 }

@@ -2,6 +2,11 @@ package testcases.loadpay.broker;
 
 import java.awt.AWTException;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
@@ -12,8 +17,15 @@ import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.outlook.outlooklogin;
 
 public class BrokerOutlookTest extends TestBase {
-	BrokerOutlook outlookk;
+	BrokerOutlook brokerOutlookObj;
 	outlooklogin outlook;
+	Date currentTime;
+	String formattedDate = "";
+	Long longTime;
+	DateFormat formatter;
+	String currentHour = "";
+	String currentMinutes = "";
+	String timeArray[] = new String[2];
 
 	public BrokerOutlookTest() {
 		super();
@@ -25,8 +37,9 @@ public class BrokerOutlookTest extends TestBase {
 
 		initialization();
 		outlook = new outlooklogin();
-		outlookk = new BrokerOutlook();
+		brokerOutlookObj = new BrokerOutlook();
 		wait = new WebDriverWait(driver, 30);
+		currentTime = new Date();
 	}
 
 	@Test(dataProvider = "getoutlookLoginData")
@@ -36,13 +49,37 @@ public class BrokerOutlookTest extends TestBase {
 
 	@Test(dependsOnMethods = "login")
 	public void outlookloginTest() throws InterruptedException, AWTException {
-		outlookk.clickPopUp();
-		outlookk.clickOpenMailBox();
-		outlookk.enterEmail(super.getProperties().getProperty("email"));
+		brokerOutlookObj.clickPopUp();
+		brokerOutlookObj.clickOpenMailBox();
+		brokerOutlookObj.enterEmail(super.getProperties().getProperty("email"));
 		// outlookk.clickOpen();
-		outlookk.handleNewInbox();
-		outlookk.verifyConfirmationMessage();
+		getTimestamp();
+		brokerOutlookObj.outlookSearchInbox(BrokerRegisterTest.emailid, currentHour, currentMinutes);
+		brokerOutlookObj.handleNewInbox();
+		brokerOutlookObj.verifyConfirmationMessage();
 
+	}
+
+	public void getTimestamp() {
+		/////////////////////////////////////////////////////////////////
+		TimeZone tz = Calendar.getInstance().getTimeZone();
+		String currentTimeZone = tz.getDisplayName();
+		System.out.println(currentTimeZone);
+
+		formatter = new SimpleDateFormat("HH:mm");
+		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
+		longTime = currentTime.getTime();
+		formattedDate = formatter.format(longTime);
+		timeArray = formattedDate.split(":");
+		currentHour = timeArray[0];
+		currentMinutes = timeArray[1];
+
+		System.out.println("\n\n\n===============================");
+		System.out.println("Current date: " + longTime);
+		System.out.println("Formatted date: " + formattedDate);
+		System.out.println("Current Hour: " + currentHour);
+		System.out.println("Current Minutes: " + currentMinutes);
+		System.out.println("===============================");
 	}
 
 }

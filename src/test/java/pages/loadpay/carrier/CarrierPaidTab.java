@@ -45,7 +45,7 @@ public class CarrierPaidTab extends TestBase {
 	@FindBy(xpath = "//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div/div/div[1]/div/input[2]")
 	public WebElement searchButton;
 
-	@FindBy(xpath = "//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div/div/div[3]/div/div[1]")
+	@FindBy(xpath = "//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div/div/div[4]/div/div[1]")
 	public WebElement expandCollapseFirstRow;
 
 	public CarrierPaidTab() {
@@ -99,7 +99,9 @@ public class CarrierPaidTab extends TestBase {
 
 		List<String> dataElements = new ArrayList<String>();
 		List<WebElement> webElements = driver.findElements(
-				By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div/div/div[3]/div"));
+				// By.xpath("//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div/div/div[3]/div"));
+				By.xpath(
+						"//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div/div/div[4]/div/div[1]"));
 
 		for (WebElement element : webElements) {
 
