@@ -116,12 +116,14 @@ public class AdminLogin extends TestBase {
 	public void ClickOnSearchBox(String keyword) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(search));
 		search.click();
+		search.clear();
 		search.sendKeys(keyword);
 	}
 
 	public void ClickOnSearchButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(ClickonSearchButton));
 		ClickonSearchButton.click();
+		Thread.sleep(2000);
 	}
 
 	public void DoubleClickID() throws InterruptedException {
@@ -155,10 +157,9 @@ public class AdminLogin extends TestBase {
 	}
 
 	public void StatusIDDropDown() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(getCustomersatatusIdDropDown()));
+		wait.until(ExpectedConditions.elementToBeClickable(CustomersatatusIdDropDown));
 		CustomersatatusIdDropDown.click();
-		s = new Select((CustomersatatusIdDropDown));
-		/* s.deselectByVisibleText("Active"); */
+		s = new Select(CustomersatatusIdDropDown);
 		s.selectByVisibleText("Active");
 	}
 

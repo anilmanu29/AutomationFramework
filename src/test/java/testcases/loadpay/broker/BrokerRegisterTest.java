@@ -1,5 +1,6 @@
 package testcases.loadpay.broker;
 
+import java.awt.AWTException;
 import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -11,10 +12,14 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import pages.loadpay.admin.AdminHomePage;
+import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.broker.BrokerRegister;
 
 public class BrokerRegisterTest extends TestBase {
 	BrokerRegister brokerRegistrationObj;
+	AdminLogin adminLoginPage;
+	AdminHomePage adminHomePage;
 
 	Select type;
 	Select stateof;
@@ -30,6 +35,7 @@ public class BrokerRegisterTest extends TestBase {
 	String brokerPassword;
 	String outlookUsername;
 	String outlookPassword;
+	public static String depositAmount = "";
 
 	public BrokerRegisterTest() {
 		super();
@@ -41,6 +47,8 @@ public class BrokerRegisterTest extends TestBase {
 
 		initialization();
 		brokerRegistrationObj = new BrokerRegister();
+		adminLoginPage = new AdminLogin();
+		adminHomePage = new AdminHomePage();
 		wait = new WebDriverWait(driver, 30);
 	}
 
@@ -131,5 +139,30 @@ public class BrokerRegisterTest extends TestBase {
 		brokerRegistrationObj.verifyRegistrationConfirmationMessage();
 
 		log.info(" Broker Register Completed...");
+	}
+
+	@Test(description = "Complete Broker Registration after first login", dataProvider = "getAdminLoginData", dependsOnMethods = "BrokerRegister")
+	public void loginAndVerifyNewBrokerAccount(String adminUser, String adminPass)
+			throws InterruptedException, AWTException {
+		adminHomePage.AdminURL();
+		adminLoginPage.adminUserPass(adminUser, adminPass);
+		adminLoginPage.adminLogin();
+		adminLoginPage.ClickOnCustomersTab();
+		adminLoginPage.ClickOnSearchBox(brokerUsername);
+		adminLoginPage.ClickOnSearchButton();
+		adminLoginPage.DoubleClickID();
+		adminLoginPage.StatusIDDropDown();
+		adminLoginPage.UpdateButton();
+
+		// go to banking tab and capture deposit amount
+		WebElement adminCustomerBankingTab = driver.findElement(By.xpath("//a[contains(text(),'Banking')]"));
+		adminCustomerBankingTab.click();
+
+		WebElement adminCustomerDepositAmount = driver.findElement(By.xpath(
+				"//*[@id=\"angularScope\"]/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[2]/div/div/div[1]/div/div/div/p[9]/span"));
+		depositAmount = adminCustomerDepositAmount.getText();
+		depositAmount = depositAmount.substring(depositAmount.length() - 2, depositAmount.length());
+		depositAmount = "0" + depositAmount;
+		log.info("Captured deposit amount: " + depositAmount);
 	}
 }

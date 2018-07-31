@@ -3,9 +3,9 @@
 <suite name="Automation Test Suite">
 
   <listeners>
-   <listener class-name = "extentReportListener.ExtentReporterNG"/>
-   <listener class-name = "TestNGCustomReportListener.TestNGCustomReportListener"/>
-   </listeners>
+   	<listener class-name = "extentreportlistener.ExtentReporterNG"/>
+   	<listener class-name = "testngcustomreportlistener.TestNGCustomReportListener"/>
+  </listeners>
    
 	<test name=" Test Cases">
     <classes>

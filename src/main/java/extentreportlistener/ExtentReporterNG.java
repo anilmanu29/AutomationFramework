@@ -23,12 +23,13 @@ public class ExtentReporterNG implements IReporter {
 	private ExtentReports extent;
 
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
-		String currentDir = System.getProperty("user.dir");
 
 		long currentTimeMillis = System.currentTimeMillis();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd,yyyy HH:mm");
 		Date formattedDate = new Date(currentTimeMillis);
 		String currentDate = dateFormat.format(formattedDate);
+
+		String currentDir = System.getProperty("user.dir");
 
 		extent = new ExtentReports(currentDir + "/output/" + "/Reports/" + currentDate + File.separator + "Extent.html",
 				true);
