@@ -7,49 +7,35 @@
    	<listener class-name = "testngcustomreportlistener.TestNGCustomReportListener"/>
   </listeners>
    
-	<test name=" Test Cases">
+	<test name="L Sprint Test Cases">
     <classes>
     
-    <!-- Script for Jira Ticket LP-5410 - LoadPay - LoadPay - Selenium Test - Carrier - parent/child relationships -->
-    
-    	<!-- <class name="testcases.CarrierParentChildRelationshipsTest"></class> -->
+    	<!-- Script for Jira Ticket LP-5410 - LoadPay - LoadPay - Selenium Test - Carrier - parent/child relationships -->
+    		<!-- <class name="testcases.loadpay.carrier.CarrierParentChildRelationshipsTest"></class> -->	
 		
 		<!-- Script for Jira Ticket LP-5405 - LoadPay - Selenium Test - Broker Processed Tab AdminPayByCheck -->
-		
-		     <!-- <class name="testcases.BrokerProcessedTabTest"></class> -->
+		     <!-- <class name="testcases.loadpay.broker.BrokerProcessedTabTest"></class> -->
 	
-		<!-- Script for Jira Ticket LP-5404 - LoadPay - Selenium Test - Broker DiscountsTab -->
-		 	
-		 	<!--  <class name="testcases.BrokerDiscountsTabTest"></class>  -->
+		<!-- Script for Jira Ticket LP-5404 - LoadPay - Selenium Test - Broker DiscountsTab --> 	
+		 	<!--  <class name="testcases.loadpay.broker.BrokerDiscountsTabTest"></class>  -->
 		
 		<!-- Script for Jira Ticket LP-5406 - LoadPay - Selenium Test - Broker Scheduled Payments Tab -->
+		 	 <!-- <class name="testcases.loadpay.broker.BrokerScheduledPaymentsTabTest"></class> -->
+		 	 
+		 <!-- Script for Jira Ticket   LoadPay - Selenium Test - Admin PayMeNow LockTest  Yurii-->		 	 
+		 	  <!-- <class name="testcases.loadpay.admin.AdminPayMeNowLockTest"></class> -->
+		 	 
+		 <!-- Script for Jira Ticket   LoadPay - Selenium Test - Broker Available Credit Tab Test  JASON-->	 	 
+		 	<!-- <class name="testcases.loadpay.broker.BrokerAvailableCreditTabTest"></class>
+		 	 	<class name="testcases.loadpay.broker.BrokerBulkUploadPaymentsmatchedCarrierTest"></class> 
+		 	 	<class name="testcases.loadpay.broker.BrokerBulkUploadPaymentsUnmatchedCarrierTest"></class>
+			 	<class name="testcases.loadpay.carrier.CarrierlockedaccountcanbeunlockedbyadminTest"></class> -->
 		
-		 	 <!-- <class name="testcases.BrokerScheduledPaymentsTabTest"></class> -->
-		 	 
-		 	 <!-- Script for Jira Ticket   LoadPay - Selenium Test - Admin PayMeNow LockTest  Yurii-->
-		 	 
-		 	  <!-- <class name="testcases.AdminPayMeNowLockTest"></class> -->
-		 	 
-		 	 <!-- Script for Jira Ticket   LoadPay - Selenium Test - Broker Available Credit Tab Test  JASON-->
-		 	 
-		 	 <!-- <class name="testcases.BrokerAvailableCreditTabTest"></class> -->
-		 	 
-		 	 <!-- <class name="testcases.BrokerBulkUploadPaymentsmatchedCarrierTest"></class> 
-		 	 <class name="testcases.BrokerBulkUploadPaymentsUnmatchedCarrierTest"></class>  -->
-		
-		 
-		<!--  <class name="testcases.CarrierlockedaccountcanbeunlockedbyadminTest"></class> -->
-		
-		
-		   <!--   <class name="testcases.AdminEditEmailBrokerTest"></class> 
-		 	 <class name="testcases.AdminEditEmailCarrierTest"></class> -->
-		 	
-		 	<!--  <class name="testcases.AdminPayMeNowUnlockTest"></class> -->
-		 	
-		 	 <class name="testcases.BrokerEditPaymentMatchedCarrierTest"></class>
-		 	 <!-- <class name="testcases.BrokerEditPaymentUnmatchedCarrierTest"></class> -->
-		 	
-
+			<!-- <class name="testcases.loadpay.admin.AdminEditEmailBrokerTest"></class> 
+		 	 	<class name="testcases.loadpay.admin.AdminEditEmailCarrierTest"></class>
+		 	 	<class name="testcases.loadpay.admin.AdminPayMeNowUnlockTest"></class>
+		 	 	<class name="testcases.loadpay.broker.BrokerEditPaymentMatchedCarrierTest"></class>
+		 	 	<class name="testcases.loadpay.broker.BrokerEditPaymentUnmatchedCarrierTest"></class> -->
 
     </classes>
   </test> 

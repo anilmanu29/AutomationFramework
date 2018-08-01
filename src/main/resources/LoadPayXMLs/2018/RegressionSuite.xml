@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Automation Test Suite">
+
+  <listeners>
+   	<listener class-name = "extentreportlistener.ExtentReporterNG"/>
+   	<listener class-name = "testngcustomreportlistener.TestNGCustomReportListener"/>
+  </listeners>
+   
+
+	
+
+    <suite-files>
+    
+        <suite-file path="src/main/resources/LoadPayXMLs/2018/Hsprint.xml"></suite-file>
+        <suite-file path="src/main/resources/LoadPayXMLs/2018/Isprint.xml"></suite-file>
+        <suite-file path="src/main/resources/LoadPayXMLs/2018/Jsprint.xml"></suite-file>
+        <suite-file path="src/main/resources/LoadPayXMLs/2018/Ksprint.xml"></suite-file>
+        <suite-file path="src/main/resources/LoadPayXMLs/2018/Lsprint.xml"></suite-file>
+        <suite-file path="src/main/resources/LoadPayXMLs/2018/Msprint.xml"></suite-file>
+        <suite-file path="src/main/resources/LoadPayXMLs/2018/Nsprint.xml"></suite-file>
+        <suite-file path="src/main/resources/LoadPayXMLs/2018/Osprint.xml"></suite-file>
+                   
+    </suite-files>
+</suite>
+
+

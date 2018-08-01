@@ -7,31 +7,24 @@
    	<listener class-name = "testngcustomreportlistener.TestNGCustomReportListener"/>
   </listeners>
    
-	<test name=" Test Cases">
-	
-	 
-	
+	<test name="Test Cases">
 		<classes>
 	
-	<!-- Broker Register -->
-	
-	      <!--   <class name="testcases.BrokerRegisterTest"></class>
-	         <class name="testcases.outlooklogintest"/>
-	        <class name="testcases.BrokerLoginTest"></class>
-			<class name="testcases.BrokerNewPaymentTest"></class> -->
+			<!-- Broker Register -->
 			
+			 <!--   <class name="testcases.loadpay.broker.BrokerRegisterTest"></class>
+			        <class name="testcases.loadpay.outlookoutlooklogintest"/>
+			        <class name="testcases.loadpay.broker.BrokerLoginTest"></class>
+					<class name="testcases.loadpay.broker.BrokerNewPaymentTest"></class> -->
 			 
-			 
-			 
-	<!-- Carrier Register -->
-	       <!--   <class name="testcases.CarrierRegisterTest"></class>
-	         <class name="testcases.CarrierOutlookTest"></class>
-	         <class name="testcases.CarrierLoginTest"></class>
-		    <class name="testcases.CarrierNotificationTest"></class> -->
-	       
-	        
-	        
-	        
+					 
+			<!-- Carrier Register -->
+			
+			 <!--   <class name="testcases.loadpay.carrier.CarrierRegisterTest"></class>
+			        <class name="testcases.loadpay.carrier.CarrierOutlookTest"></class>
+			        <class name="testcases.loadpay.carrier.CarrierLoginTest"></class>
+				    <class name="testcases.loadpay.carrier.CarrierNotificationTest"></class> -->
+		  
 		</classes>
 	</test>
 </suite>

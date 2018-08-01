@@ -7,42 +7,32 @@
    	<listener class-name = "testngcustomreportlistener.TestNGCustomReportListener"/>
   </listeners>
    
-	<test name=" Test Cases">
+	<test name="K Sprint Test Cases">
     <classes>
-
- 
-	
-		 			
+ 			
 		<!-- Script for Jira Tickets LP-5424  AdminPayByCheck  Anil-->
 		 	
-		<!--     <class name="testcases.BrokerNewPaymentTest"></class>
-		    <class name="testcases.AdminPayByCheckTest"></class>
-		 	<class name="testcases.BrokerPaymentforUnmatchedCarrierTest"></class>
-		 	<class name="testcases.UnmatchedCarrierAdminPayByCheckTest"></class> -->
-		 	
-		 	
-		 
-		 	
-		 		 	
-		 <!--    Script for Jira Tickets LP-3495 - Carrier Banking     -->
-		 		<!-- <class name="testcases.CarrierBankingTest"></class> -->
+	   <!--	<class name="testcases.loadpay.broker.BrokerNewPaymentTest"></class>
+		    <class name="testcases.loadpay.admin.AdminPayByCheckTest"></class>
+		 	<class name="testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest"></class>
+		 	<class name="testcases.loadpay.unmatched.UnmatchedCarrierAdminPayByCheckTest"></class> -->
+
+ 	
+			<!-- Script for Jira Tickets LP-3495 - Carrier Banking     -->
+		 	<!-- <class name="testcases.loadpay.carrier.CarrierBankingTest"></class> -->
 		 		
 		 	
-		 <!--    Script for Jira Tickets LP-LP-5408 - Broker Banking     -->
-		 	<!-- <class name="testcases.BrokerBankingTest"></class> -->
+		 	<!--  Script for Jira Tickets LP-LP-5408 - Broker Banking     -->
+		 	<!-- <class name="testcases.loadpay.broker.BrokerBankingTest"></class> -->
 		 	
-		 	<!--    Script for Jira Tickets LP-LP-5391 - BrokerBankAccountUpdate     -->
-		 	
-		 	<!-- <class name="testcases.BrokerBankAccountUpdateTest"></class> -->
+		 	<!--  Script for Jira Tickets LP-LP-5391 - BrokerBankAccountUpdate     -->
+		 	<!-- <class name="testcases.loadpay.broker.BrokerBankAccountUpdateTest"></class> -->
 		 	 
- 	     <!-- Script for Jira Tickets LP-5424  AdminPayByCheckBatchFile  Anil-->
-		 	<!-- <class name="testcases.AdminPayByCheckServiceBatchFileTest"></class> -->
+ 	     	<!-- Script for Jira Tickets LP-5424  AdminPayByCheckBatchFile  Anil-->
+		 	<!-- <class name="testcases.loadpay.admin.AdminPayByCheckServiceBatchFileTest"></class> -->
 		 	
 		 	 <!-- Script for Jira Tickets LP-3476  Carrier_Paid Tab  Chris-->
-		 	<class name="testcases.CarrierPaidTabTest"></class>
-		 	
-		 	
-		 	
+		 	<class name="testcases.loadpay.carrier.CarrierPaidTabTest"></class>
 
     </classes>
   </test> 

@@ -7,24 +7,20 @@
    	<listener class-name = "testngcustomreportlistener.TestNGCustomReportListener"/>
   </listeners>
    
-	<test name=" Test Cases">
+	<test name="M Sprint Test Cases">
     <classes>
     
     <!-- Script for Jira Ticket LP-5416 - LoadPay - LoadPay - Selenium Test - Carrier account locked after 10 failed logins -->
-    
-    <!-- 	<class name="testcases.CarrierAccountLockedafter10FailedLoginsTest"></class> -->
+    	<!-- <class name="testcases.loadpay.carrier.CarrierAccountLockedafter10FailedLoginsTest"></class> -->
     	
-    	<!-- Script for Jira Ticket LP-5415 - LoadPay - LoadPay - Selenium Test -  Carrier can reset password when account is locked -->
+    <!-- Script for Jira Ticket LP-5415 - LoadPay - LoadPay - Selenium Test -  Carrier can reset password when account is locked -->	
+    	<!-- <class name="testcases.loadpay.carrier.CarrierlockedAccountResetPasswordTest"></class> -->
     	
-    <!-- 	<class name="testcases.CarrierlockedAccountResetPasswordTest"></class> -->
+    <!-- Script for Jira Ticket LP-5399 - LoadPay- Broker Payment Terms Charge Sender -->	
+    	<!-- <class name="testcases.loadpay.broker.BrokerPaymentTermsChargeSenderTest"></class> -->
     	
-    	<!-- Script for Jira Ticket LP-5399 - LoadPay- Broker Payment Terms Charge Sender -->
-    	
-    	<!-- <class name="testcases.BrokerPaymentTermsChargeSenderTest"></class> -->
-    	
-    		<!-- Script for Jira Ticket LP-5423 - LoadPay - Selenium Test - Admin - Search-->
-    	
-    	<class name="testcases.AdminSearchTest"></class>
+    <!-- Script for Jira Ticket LP-5423 - LoadPay - Selenium Test - Admin - Search-->	
+    	<class name="testcases.loadpay.admin.AdminSearchTest"></class>
     	
 	
     </classes>
