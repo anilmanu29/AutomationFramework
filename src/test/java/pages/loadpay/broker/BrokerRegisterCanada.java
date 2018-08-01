@@ -2,7 +2,6 @@ package pages.loadpay.broker;
 
 import java.util.List;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -52,9 +51,6 @@ public class BrokerRegisterCanada extends TestBase {
 	@FindBy(xpath = "//*[@id='PMNTerm'] ")
 	WebElement paymentTerms;
 
-	@FindBy(xpath = "//form[@id='formCompany']//child::input[@type='submit']")
-	WebElement buttonnext;
-
 	@FindBy(id = "ZipCode")
 	WebElement field_zipCode;
 
@@ -69,9 +65,6 @@ public class BrokerRegisterCanada extends TestBase {
 
 	@FindBy(xpath = "//select[@id='State']")
 	WebElement State;
-
-	@FindBy(xpath = "//input[@type='submit']")
-	WebElement submit;
 
 	@FindBy(xpath = "//input[@id='ContactFirstName']")
 	WebElement ContactFirstName;
@@ -93,9 +86,6 @@ public class BrokerRegisterCanada extends TestBase {
 	@FindBy(xpath = "//input[contains(@id,'ConfirmPassword')]")
 	WebElement ConfirmPassword;
 
-	@FindBy(xpath = "//input[@type='submit']")
-	WebElement submit1;
-
 	@FindBy(xpath = "//input[contains(@id,'AccountName')]")
 	WebElement AccountName;
 
@@ -108,9 +98,6 @@ public class BrokerRegisterCanada extends TestBase {
 	@FindBy(xpath = "//input[@id='ConfirmBankingAccount']")
 	WebElement ConfirmBankingAccount;
 
-	@FindBy(xpath = "//input[@type='submit']")
-	WebElement submit2;
-
 	@FindBy(id = "IncorporationCountry")
 	private WebElement dropdown_country;
 
@@ -122,6 +109,18 @@ public class BrokerRegisterCanada extends TestBase {
 
 	@FindBy(id = "OriginCountry")
 	WebElement originCountrydropdown;
+
+	@FindBy(xpath = ".//*[@id='formCompany']/div/div[13]/div/div/input")
+	WebElement CompanyNextBtn;
+
+	@FindBy(xpath = ".//*[@id='formAddress']/div/div[4]/div/div[2]/input")
+	WebElement AddressNextBtn;
+
+	@FindBy(xpath = ".//*[@id='formContact']/div[2]/div/div[2]/input")
+	WebElement ContactNextBtn;
+
+	@FindBy(xpath = ".//*[@id='formBanking']/div/div[8]/div/div/div[2]/input")
+	WebElement BankingNextBtn;
 
 	public BrokerRegisterCanada() {
 		PageFactory.initElements(driver, this);
@@ -203,9 +202,25 @@ public class BrokerRegisterCanada extends TestBase {
 		pay.selectByIndex(2);
 	}
 
-	public void next() {
-		wait.until(ExpectedConditions.elementToBeClickable(buttonnext));
-		buttonnext.click();
+	public void clickNextBtnOnCompanyForm() {
+		wait.until(ExpectedConditions.elementToBeClickable(CompanyNextBtn));
+		CompanyNextBtn.click();
+	}
+
+	public void clickNextBtnOnAddressForm() {
+		wait.until(ExpectedConditions.elementToBeClickable(AddressNextBtn));
+		AddressNextBtn.click();
+	}
+
+	public void clickNextBtnOnContactForm() {
+		wait.until(ExpectedConditions.elementToBeClickable(ContactNextBtn));
+		ContactNextBtn.click();
+	}
+
+	public void clickNextBtnOnBankingForm() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(BankingNextBtn));
+		Thread.sleep(1000);
+		BankingNextBtn.click();
 	}
 
 	public void ZipCode(String ZipCode1) {
@@ -246,12 +261,6 @@ public class BrokerRegisterCanada extends TestBase {
 		State.sendKeys();
 	}
 
-	public void submit() {
-		wait.until(ExpectedConditions.elementToBeClickable(submit));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", submit);
-	}
-
 	public void ContactFirstName(String FirstName) {
 		wait.until(ExpectedConditions.elementToBeClickable(ContactFirstName));
 		ContactFirstName.clear();
@@ -283,12 +292,6 @@ public class BrokerRegisterCanada extends TestBase {
 		ConfirmPassword.sendKeys(confirmpass);
 	}
 
-	public void Next() {
-		wait.until(ExpectedConditions.elementToBeClickable(submit1));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", submit1);
-	}
-
 	public void AccountName(String NameonAccount) {
 		wait.until(ExpectedConditions.elementToBeClickable(AccountName));
 		AccountName.clear();
@@ -312,10 +315,4 @@ public class BrokerRegisterCanada extends TestBase {
 		ConfirmBankingAccount.clear();
 		ConfirmBankingAccount.sendKeys(ConfirmBankAccountNumber);
 	}
-
-	public void Finish() {
-		wait.until(ExpectedConditions.elementToBeClickable(submit2));
-		submit2.click();
-	}
-
 }

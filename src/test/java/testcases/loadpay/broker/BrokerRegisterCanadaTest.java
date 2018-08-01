@@ -80,7 +80,8 @@ public class BrokerRegisterCanadaTest extends TestBase {
 
 		brc.paymentTerm();
 
-		brc.next();
+		brc.clickNextBtnOnCompanyForm();
+
 		if (Dotnumber == null) {
 
 			brc.originCountry(ocountry, States);
@@ -112,7 +113,7 @@ public class BrokerRegisterCanadaTest extends TestBase {
 
 		// state.selectByVisibleText( "CA" );
 
-		brc.submit();
+		brc.clickNextBtnOnAddressForm();
 
 		brc.ContactFirstName(FirstNames);
 
@@ -124,7 +125,7 @@ public class BrokerRegisterCanadaTest extends TestBase {
 		driver.findElement(By.xpath(".//*[@id='Registration_User_Password']"));
 		brc.ConfirmPassword(ConfirmPassword);
 
-		brc.Next();
+		brc.clickNextBtnOnContactForm();
 
 		brc.AccountName(NameonAccount);
 		brc.BankingAccount(BankAccountNumber);
@@ -133,11 +134,8 @@ public class BrokerRegisterCanadaTest extends TestBase {
 
 		brc.ConfirmBankingAccount(ConfirmbankAccountNumber);
 
-		brc.submit();
+		brc.clickNextBtnOnBankingForm();
 		log.info("Broker Register Completed...");
-
-		log.info("BrokerRegisterSuccessfully");
-
 	}
 
 }

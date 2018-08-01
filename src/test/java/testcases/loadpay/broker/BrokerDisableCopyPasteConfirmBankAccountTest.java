@@ -73,7 +73,8 @@ public class BrokerDisableCopyPasteConfirmBankAccountTest extends TestBase {
 
 		brokerregisterobj.paymentTerm();
 
-		brokerregisterobj.next();
+		brokerregisterobj.clickNextBtnOnCompanyForm();
+
 		if (Dotnumber == null) {
 
 			brokerregisterobj.originCountry(ocountry, States);
@@ -89,7 +90,7 @@ public class BrokerDisableCopyPasteConfirmBankAccountTest extends TestBase {
 
 		}
 
-		brokerregisterobj.submit();
+		brokerregisterobj.clickNextBtnOnAddressForm();
 
 		brokerregisterobj.ContactFirstName(FirstNames);
 		brokerregisterobj.LastName(LastName);
@@ -98,7 +99,8 @@ public class BrokerDisableCopyPasteConfirmBankAccountTest extends TestBase {
 		driver.findElement(By.xpath("//*[@id='Registration_User_Password']"));
 		brokerregisterobj.ConfirmPassword(ConfirmPassword);
 
-		brokerregisterobj.Next();
+		brokerregisterobj.clickNextBtnOnContactForm();
+
 		brokerregisterobj.AccountName(NameonAccount);
 		brokerregisterobj.BankingRouting(RoutingNumber);
 		brokerregisterobj.BankingAccount(BankAccountNumber);
