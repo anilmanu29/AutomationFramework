@@ -205,8 +205,9 @@ public class BrokerRegister extends TestBase {
 		ContactNextBtn.click();
 	}
 
-	public void clickNextBtnOnBankingForm() {
+	public void clickNextBtnOnBankingForm() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(BankingNextBtn));
+		Thread.sleep(1000);
 		BankingNextBtn.click();
 	}
 

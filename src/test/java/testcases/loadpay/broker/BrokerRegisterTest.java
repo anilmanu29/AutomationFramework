@@ -130,7 +130,6 @@ public class BrokerRegisterTest extends TestBase {
 
 		brokerRegistrationObj.AccountName(NameonAccount);
 		brokerRegistrationObj.BankingRouting(RoutingNumber);
-		brokerRegistrationObj.BankingRouting(RoutingNumber);
 		brokerRegistrationObj.BankingAccount(BankAccountNumber);
 		brokerRegistrationObj.ConfirmBankingAccount(ConfirmbankAccountNumber);
 
@@ -138,7 +137,7 @@ public class BrokerRegisterTest extends TestBase {
 
 		brokerRegistrationObj.verifyRegistrationConfirmationMessage();
 
-		log.info(" Broker Register Completed...");
+		log.info("Broker Register Completed...");
 	}
 
 	@Test(description = "Complete Broker Registration after first login", dataProvider = "getAdminLoginData", dependsOnMethods = "BrokerRegister")

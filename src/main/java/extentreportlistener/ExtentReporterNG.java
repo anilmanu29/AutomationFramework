@@ -24,15 +24,30 @@ public class ExtentReporterNG implements IReporter {
 
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
 
-		long currentTimeMillis = System.currentTimeMillis();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd,yyyy HH:mm");
-		Date formattedDate = new Date(currentTimeMillis);
-		String currentDate = dateFormat.format(formattedDate);
+		Calendar now = Calendar.getInstance();
+		int currentYear = now.get(Calendar.YEAR);
+		int currentMonth = now.get(Calendar.MONTH) + 1;
+
+		String strYear = Integer.toString(currentYear);
+		String strMonth = "";
+
+		if (currentMonth < 10)
+			strMonth = "0" + Integer.toString(currentMonth);
+
+		// (1) get today's date
+		Date today = Calendar.getInstance().getTime();
+
+		// (2) create a date "formatter" (the date format we want)
+		SimpleDateFormat formatter = new SimpleDateFormat("MM_dd_yyyy_hh_mm_ss");
+
+		// (3) create a new String using the date format we want
+		String fileName = formatter.format(today);
 
 		String currentDir = System.getProperty("user.dir");
 
-		extent = new ExtentReports(currentDir + "/output/" + "/Reports/" + currentDate + File.separator + "Extent.html",
-				true);
+		extent = new ExtentReports(
+				currentDir + "/output/Reports/" + strYear + "/" + strMonth + File.separator + fileName + "_Report.html",
+				false);
 		for (ISuite suite : suites) {
 			Map<String, ISuiteResult> result = suite.getResults();
 

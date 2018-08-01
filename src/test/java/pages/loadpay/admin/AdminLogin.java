@@ -111,6 +111,7 @@ public class AdminLogin extends TestBase {
 	public void ClickOnCustomersTab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CustomerTab));
 		CustomerTab.click();
+		Thread.sleep(2000);
 	}
 
 	public void ClickOnSearchBox(String keyword) throws InterruptedException {

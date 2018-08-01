@@ -35,6 +35,7 @@ public class BrokerLoginTest extends TestBase {
 		completeRegistration();
 
 		wait.until(ExpectedConditions.elementToBeClickable(loginPage.getBtn_logout()));
+		Thread.sleep(2000);
 		loginPage.BrokerLogout();
 	}
 

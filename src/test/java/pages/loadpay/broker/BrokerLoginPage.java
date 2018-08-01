@@ -61,8 +61,9 @@ public class BrokerLoginPage extends TestBase {
 		js.executeScript("arguments[0].click();", loginBtn);
 	}
 
-	public void BrokerLogout() {
+	public void BrokerLogout() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_logout));
+		Thread.sleep(2000);
 		btn_logout.click();
 	}
 
