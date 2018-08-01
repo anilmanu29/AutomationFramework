@@ -24,7 +24,7 @@ public class AdminPayByCheck extends TestBase {
 	WebElement field_loadpaydepositeamt;
 
 	@FindBy(xpath = ".//a[contains(text(),'Payments')]")
-	WebElement link_Payments;
+	public WebElement link_Payments;
 
 	@FindBy(xpath = "//a[@href='#/Search']")
 	WebElement link_Search;
@@ -54,7 +54,13 @@ public class AdminPayByCheck extends TestBase {
 	private WebElement btn_PayByCheck;
 
 	@FindBy(xpath = ".//*[@id='Terms']")
-	private WebElement select_Terms;
+	public WebElement select_Terms;
+
+	@FindBy(xpath = "//input[contains(@value,'Show Quote')]")
+	private WebElement click_ShowQuote;
+
+	@FindBy(xpath = "//button[@ng-click='ShowQuoteClose()']")
+	public WebElement ShowQuoteClose;
 
 	@FindBy(xpath = ".//*[@id='DOT']")
 	private WebElement txt_DOT;
@@ -124,6 +130,15 @@ public class AdminPayByCheck extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(link_Search));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", link_Search);
+
+	}
+
+	public void clickShowQuote() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(click_ShowQuote));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", click_ShowQuote);
+		wait.until(ExpectedConditions.elementToBeClickable(ShowQuoteClose));
+		ShowQuoteClose.click();
 
 	}
 

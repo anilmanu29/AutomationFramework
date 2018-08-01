@@ -32,7 +32,7 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 	private WebElement field_amount;
 
 	@FindBy(id = "InvoiceNumber")
-	private WebElement field_invoicenum;
+	public WebElement field_invoicenum;
 
 	@FindBy(id = "LoadNumber")
 	private static WebElement field_loadid;
@@ -56,7 +56,7 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 	private WebElement field_searchbox;
 
 	@FindBy(xpath = "//input[@value='Search']")
-	private WebElement btn_search;
+	public WebElement btn_search;
 
 	@FindBy(xpath = "//button[@type='button'][text()='OK']")
 	private WebElement popup_ok;

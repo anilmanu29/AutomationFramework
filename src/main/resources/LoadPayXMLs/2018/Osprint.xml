@@ -11,9 +11,11 @@
     <classes>
     
     <!-- Script for Jira Ticket LP-6466 - LoadPay - Selenium Test - Integration - Handshake with ITSDispatch -->
-    
     	<class name="testcases.loadpay.broker.HandshakewithITSDispatchTest"></class>
     	
+    	
+    <!-- Script for Jira Ticket LP-6351 - LoadPay - Selenium Test - Admin - Show Quote For Check_Unmatched Carrier -->
+    	<class name="testcases.loadpay.unmatched.ShowQuoteCheck_UnmatchedCarrierTest"></class>
     
     </classes>
   </test> 
