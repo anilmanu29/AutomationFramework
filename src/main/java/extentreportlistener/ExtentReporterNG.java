@@ -25,6 +25,7 @@ public class ExtentReporterNG implements IReporter {
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
 
 		Calendar now = Calendar.getInstance();
+
 		int currentYear = now.get(Calendar.YEAR);
 		int currentMonth = now.get(Calendar.MONTH) + 1;
 
@@ -38,7 +39,7 @@ public class ExtentReporterNG implements IReporter {
 		Date today = Calendar.getInstance().getTime();
 
 		// (2) create a date "formatter" (the date format we want)
-		SimpleDateFormat formatter = new SimpleDateFormat("MM_dd_yyyy_hh_mm_ss");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss_zzz");
 
 		// (3) create a new String using the date format we want
 		String fileName = formatter.format(today);
