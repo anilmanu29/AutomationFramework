@@ -96,11 +96,11 @@ public class BrokerOutlook extends TestBase {
 		haspopup.click();
 	}
 
-	public void clickOpenMailBox() {
+	public void clickOpenMailBox() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(lnkopenanothermail));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", lnkopenanothermail);
-
+		Thread.sleep(1000);
 	}
 
 	public void enterEmail(String email) throws InterruptedException {

@@ -64,7 +64,7 @@ public class BrokerOutlookTest extends TestBase {
 		/////////////////////////////////////////////////////////////////
 		TimeZone tz = Calendar.getInstance().getTimeZone();
 		String currentTimeZone = tz.getDisplayName();
-		System.out.println(currentTimeZone);
+		// System.out.println(currentTimeZone);
 
 		formatter = new SimpleDateFormat("HH:mm");
 		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
