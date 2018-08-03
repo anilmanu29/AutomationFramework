@@ -92,7 +92,7 @@ public class CarrierRegisterTest extends TestBase {
 
 		carrierRegistrationObj.iCertifyClick();
 
-		carrierRegistrationObj.next();
+		carrierRegistrationObj.clickNextBtnOnCompanyForm();
 
 		carrierRegistrationObj.ZipCode(ZipCode1);
 
@@ -111,7 +111,7 @@ public class CarrierRegisterTest extends TestBase {
 
 		state.selectByVisibleText("CA");
 
-		carrierRegistrationObj.submit();
+		carrierRegistrationObj.clickNextBtnOnAddressForm();
 
 		carrierRegistrationObj.ContactFirstName(FirstNames);
 
@@ -123,7 +123,7 @@ public class CarrierRegisterTest extends TestBase {
 		driver.findElement(By.xpath(".//*[@id='Registration_User_Password']"));
 		carrierRegistrationObj.ConfirmPassword(ConfirmPassword);
 
-		carrierRegistrationObj.Next();
+		carrierRegistrationObj.clickNextBtnOnContactForm();
 
 		carrierRegistrationObj.AccountName(NameonAccount);
 		carrierRegistrationObj.BankingAccount(BankAccountNumber);
@@ -132,7 +132,7 @@ public class CarrierRegisterTest extends TestBase {
 
 		carrierRegistrationObj.ConfirmBankingAccount(ConfirmbankAccountNumber);
 
-		carrierRegistrationObj.submit();
+		carrierRegistrationObj.clickNextBtnOnBankingForm();
 		log.info("Carrier Registration Completed...");
 
 	}

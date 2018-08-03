@@ -13,7 +13,7 @@ import base.TestBase;
 import pages.loadpay.carrier.CarrierRegisterCanada;
 
 public class CarrierRegisterCanadaTest extends TestBase {
-	CarrierRegisterCanada cr;
+	CarrierRegisterCanada canadaCarrierObj;
 	Select type;
 	Select stateof;
 	Select payment;
@@ -33,7 +33,7 @@ public class CarrierRegisterCanadaTest extends TestBase {
 	public void setUp() {
 
 		initialization();
-		cr = new CarrierRegisterCanada();
+		canadaCarrierObj = new CarrierRegisterCanada();
 		wait = new WebDriverWait(driver, 30);
 	}
 
@@ -44,70 +44,63 @@ public class CarrierRegisterCanadaTest extends TestBase {
 			String ConfirmPassword, String NameonAccount, String RoutingNumber, String BankAccountNumber,
 			String ConfirmbankAccountNumber) throws IOException, InterruptedException {
 
-		cr.signup();
-		cr.CarrierRegister();
+		canadaCarrierObj.signup();
+		canadaCarrierObj.CarrierRegister();
 
 		if (Dotnumber == null) {
-			cr.company(CompanyName);
+			canadaCarrierObj.company(CompanyName);
 
 		} else {
 
-			cr.dotnumber(Dotnumber);
+			canadaCarrierObj.dotnumber(Dotnumber);
 
 		}
 
-		cr.doingbussiness(DoingBussinessAS);
-		cr.selectType();
+		canadaCarrierObj.doingbussiness(DoingBussinessAS);
+		canadaCarrierObj.selectType();
 
 		Select type = new Select(driver.findElement(By.xpath(".//*[@id='EntityType']")));
 		type.selectByVisibleText("C Corporation");
 
-		cr.countrydropdown(country, state);
+		canadaCarrierObj.countrydropdown(country, state);
 
-		cemail = cr.CarrierEmail(Email);
-		cr.confirmEmail(ConfirmEmail);
+		cemail = canadaCarrierObj.CarrierEmail(Email);
+		canadaCarrierObj.confirmEmail(ConfirmEmail);
+		canadaCarrierObj.iCertifyClick();
 
-		cr.iCertifyClick();
-
-		cr.next();
+		canadaCarrierObj.clickNextBtnOnCompanyForm();
 
 		if (Dotnumber == null) {
 
-			cr.originCountry(ocountry, States);
-
-			cr.ZipCode(ZipCode1);
-			cr.address(Address);
-
-			cr.city(City);
+			canadaCarrierObj.originCountry(ocountry, States);
+			canadaCarrierObj.ZipCode(ZipCode1);
+			canadaCarrierObj.address(Address);
+			canadaCarrierObj.city(City);
 
 		} else {
-			cr.originCountry(ocountry, States);
-			cr.ZipCode(ZipCode1);
+			canadaCarrierObj.originCountry(ocountry, States);
+			canadaCarrierObj.ZipCode(ZipCode1);
 
 		}
 
-		cr.submit();
+		canadaCarrierObj.clickNextBtnOnAddressForm();
 
-		cr.ContactFirstName(FirstNames);
-
-		cr.LastName(LastName);
-		cr.Phone(PhoneNumber);
-
-		password = cr.Password(Password);
+		canadaCarrierObj.ContactFirstName(FirstNames);
+		canadaCarrierObj.LastName(LastName);
+		canadaCarrierObj.Phone(PhoneNumber);
+		password = canadaCarrierObj.Password(Password);
 
 		driver.findElement(By.xpath(".//*[@id='Registration_User_Password']"));
-		cr.ConfirmPassword(ConfirmPassword);
+		canadaCarrierObj.ConfirmPassword(ConfirmPassword);
 
-		cr.Next();
+		canadaCarrierObj.clickNextBtnOnContactForm();
 
-		cr.AccountName(NameonAccount);
-		cr.BankingAccount(BankAccountNumber);
+		canadaCarrierObj.AccountName(NameonAccount);
+		canadaCarrierObj.BankingAccount(BankAccountNumber);
+		canadaCarrierObj.BankingRouting(RoutingNumber);
+		canadaCarrierObj.ConfirmBankingAccount(ConfirmbankAccountNumber);
 
-		cr.BankingRouting(RoutingNumber);
-
-		cr.ConfirmBankingAccount(ConfirmbankAccountNumber);
-
-		cr.submit();
+		canadaCarrierObj.clickNextBtnOnBankingForm();
 
 	}
 

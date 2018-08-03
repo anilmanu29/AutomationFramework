@@ -144,7 +144,7 @@ public class AdminEditEmailCarrierTest extends TestBase {
 
 		carrierRegisterObj.iCertifyClick();
 
-		carrierRegisterObj.next();
+		carrierRegisterObj.clickNextBtnOnCompanyForm();
 
 		carrierRegisterObj.ZipCode(ZipCode1);
 
@@ -162,7 +162,7 @@ public class AdminEditEmailCarrierTest extends TestBase {
 		Select state = new Select(driver.findElement(By.xpath(".//*[@id='State']")));
 		state.selectByVisibleText("CA");
 
-		carrierRegisterObj.submit();
+		carrierRegisterObj.clickNextBtnOnAddressForm();
 
 		carrierRegisterObj.ContactFirstName(FirstNames);
 
@@ -174,7 +174,7 @@ public class AdminEditEmailCarrierTest extends TestBase {
 
 		carrierRegisterObj.ConfirmPassword(ConfirmPassword);
 
-		carrierRegisterObj.Next();
+		carrierRegisterObj.clickNextBtnOnContactForm();
 
 		carrierRegisterObj.AccountName(NameOnAccount);
 
@@ -184,7 +184,7 @@ public class AdminEditEmailCarrierTest extends TestBase {
 
 		carrierRegisterObj.ConfirmBankingAccount(ConfirmbankAccountNumber);
 
-		carrierRegisterObj.submit();
+		carrierRegisterObj.clickNextBtnOnBankingForm();
 
 		log.info(" Carrier Register Completed...");
 

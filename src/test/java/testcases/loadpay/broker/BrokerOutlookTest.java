@@ -4,7 +4,6 @@ import java.awt.AWTException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -61,11 +60,6 @@ public class BrokerOutlookTest extends TestBase {
 	}
 
 	public void getTimestamp() {
-		/////////////////////////////////////////////////////////////////
-		TimeZone tz = Calendar.getInstance().getTimeZone();
-		String currentTimeZone = tz.getDisplayName();
-		// System.out.println(currentTimeZone);
-
 		formatter = new SimpleDateFormat("HH:mm");
 		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
 		longTime = currentTime.getTime();

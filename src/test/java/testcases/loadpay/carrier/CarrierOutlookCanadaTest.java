@@ -2,6 +2,10 @@ package testcases.loadpay.carrier;
 
 import java.awt.AWTException;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
@@ -12,8 +16,16 @@ import pages.loadpay.carrier.CarrierOutlookCanada;
 import pages.loadpay.outlook.outlooklogin;
 
 public class CarrierOutlookCanadaTest extends TestBase {
-	CarrierOutlookCanada outlookk;
+	CarrierOutlookCanada carrierCAOutlookObj;
 	outlooklogin outlook;
+
+	Date currentTime;
+	String formattedDate = "";
+	Long longTime;
+	DateFormat formatter;
+	String currentHour = "";
+	String currentMinutes = "";
+	String timeArray[] = new String[2];
 
 	public CarrierOutlookCanadaTest() {
 		super();
@@ -25,8 +37,9 @@ public class CarrierOutlookCanadaTest extends TestBase {
 
 		initialization();
 		outlook = new outlooklogin();
-		outlookk = new CarrierOutlookCanada();
+		carrierCAOutlookObj = new CarrierOutlookCanada();
 		wait = new WebDriverWait(driver, 30);
+		currentTime = new Date();
 	}
 
 	@Test(dataProvider = "getoutlookLoginData")
@@ -36,13 +49,32 @@ public class CarrierOutlookCanadaTest extends TestBase {
 
 	@Test(dependsOnMethods = "login")
 	public void outlookloginTest() throws InterruptedException, AWTException {
-		outlookk.clickPopUp();
-		outlookk.clickOpenMailBox();
-		outlookk.enterEmail(super.getProperties().getProperty("email"));
+		carrierCAOutlookObj.clickPopUp();
+		carrierCAOutlookObj.clickOpenMailBox();
+		carrierCAOutlookObj.enterEmail(super.getProperties().getProperty("email"));
 		// outlookk.clickOpen();
-		outlookk.handleNewInbox();
-		outlookk.verifyConfirmationMessage();
+		getTimestamp();
+		carrierCAOutlookObj.outlookSearchInbox(CarrierRegisterCanadaTest.cemail, currentHour, currentMinutes);
+		carrierCAOutlookObj.handleNewInbox();
+		carrierCAOutlookObj.verifyConfirmationMessage();
 
+	}
+
+	public void getTimestamp() {
+		formatter = new SimpleDateFormat("HH:mm");
+		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
+		longTime = currentTime.getTime();
+		formattedDate = formatter.format(longTime);
+		timeArray = formattedDate.split(":");
+		currentHour = timeArray[0];
+		currentMinutes = timeArray[1];
+
+		log.info("\n\n\n===============================");
+		log.info("Current date: " + longTime);
+		log.info("Formatted date: " + formattedDate);
+		log.info("Current Hour: " + currentHour);
+		log.info("Current Minutes: " + currentMinutes);
+		log.info("===============================");
 	}
 
 }

@@ -2,7 +2,6 @@ package pages.loadpay.carrier;
 
 import java.util.List;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -62,8 +61,17 @@ public class CarrierRegisterCanada extends TestBase {
 	@FindBy(xpath = ".//*[@id='PMNTerm'] ")
 	WebElement PaymentTerms;
 
-	@FindBy(xpath = ".//*[@id='formCompany']/div/div[12]/div/div/input ")
-	WebElement Next;
+	@FindBy(xpath = ".//*[@id='formCompany']/div/div[12]/div/div/input")
+	WebElement CompanyNextBtn;
+
+	@FindBy(xpath = ".//*[@id='formAddress']/div/div[4]/div/div[2]/input")
+	WebElement AddressNextBtn;
+
+	@FindBy(xpath = ".//*[@id='formContact']/div[2]/div/div[2]/input")
+	WebElement ContactNextBtn;
+
+	@FindBy(xpath = ".//*[@id='formBanking']/div/div[8]/div/div/div[2]/input")
+	WebElement BankingNextBtn;
 
 	@FindBy(xpath = "//input[@id='ZipCode']")
 	WebElement ZipCode;
@@ -79,9 +87,6 @@ public class CarrierRegisterCanada extends TestBase {
 
 	@FindBy(xpath = "//select[@id='State']")
 	WebElement State;
-
-	@FindBy(xpath = ".//*[@id='formAddress']//child::input[@type='submit']")
-	WebElement submit;
 
 	@FindBy(xpath = "//input[@id='ContactFirstName']")
 	WebElement ContactFirstName;
@@ -104,9 +109,6 @@ public class CarrierRegisterCanada extends TestBase {
 	@FindBy(xpath = "//input[contains(@id,'ConfirmPassword')]")
 	WebElement ConfirmPassword;
 
-	@FindBy(xpath = "//input[@type='submit']")
-	WebElement submit1;
-
 	@FindBy(xpath = "//input[contains(@id,'AccountName')]")
 	WebElement AccountName;
 
@@ -118,9 +120,6 @@ public class CarrierRegisterCanada extends TestBase {
 
 	@FindBy(xpath = "//input[@id='ConfirmBankingAccount']")
 	WebElement ConfirmBankingAccount;
-
-	@FindBy(xpath = "//input[@type='submit']")
-	WebElement submit2;
 
 	@FindBy(xpath = ".//*[@id='OriginCountry']")
 	WebElement originCountry;
@@ -223,9 +222,25 @@ public class CarrierRegisterCanada extends TestBase {
 
 	}
 
-	public void next() {
-		wait.until(ExpectedConditions.elementToBeClickable(Next));
-		Next.click();
+	public void clickNextBtnOnCompanyForm() {
+		wait.until(ExpectedConditions.elementToBeClickable(CompanyNextBtn));
+		CompanyNextBtn.click();
+	}
+
+	public void clickNextBtnOnAddressForm() {
+		wait.until(ExpectedConditions.elementToBeClickable(AddressNextBtn));
+		AddressNextBtn.click();
+	}
+
+	public void clickNextBtnOnContactForm() {
+		wait.until(ExpectedConditions.elementToBeClickable(ContactNextBtn));
+		ContactNextBtn.click();
+	}
+
+	public void clickNextBtnOnBankingForm() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(BankingNextBtn));
+		Thread.sleep(1000);
+		BankingNextBtn.click();
 	}
 
 	public void ZipCode(String ZipCode1) {
@@ -255,16 +270,9 @@ public class CarrierRegisterCanada extends TestBase {
 		city.sendKeys(City);
 	}
 
-	public void submit() {
-		wait.until(ExpectedConditions.elementToBeClickable(submit));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", submit);
-
-	}
-
 	public void ContactFirstName(String FirstName) {
-		wait.until(ExpectedConditions.elementToBeClickable(city));
-		city.clear();
+		wait.until(ExpectedConditions.elementToBeClickable(ContactFirstName));
+		ContactFirstName.clear();
 		ContactFirstName.sendKeys(FirstName);
 	}
 
@@ -293,13 +301,6 @@ public class CarrierRegisterCanada extends TestBase {
 		ConfirmPassword.sendKeys(confirmpass);
 	}
 
-	public void Next() {
-		wait.until(ExpectedConditions.elementToBeClickable(submit1));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", submit1);
-
-	}
-
 	public void AccountName(String NameonAccount) {
 		wait.until(ExpectedConditions.elementToBeClickable(AccountName));
 		AccountName.clear();
@@ -322,11 +323,6 @@ public class CarrierRegisterCanada extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(ConfirmBankingAccount));
 		ConfirmBankingAccount.clear();
 		ConfirmBankingAccount.sendKeys(ConfirmBankAccountNumber);
-	}
-
-	public void Finish() {
-		wait.until(ExpectedConditions.elementToBeClickable(submit2));
-		submit2.click();
 	}
 
 }
