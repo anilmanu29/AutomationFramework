@@ -29,17 +29,42 @@ public class AdminLogin extends TestBase {
 	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[1]/div/nav/div[2]/ul/li[3]/a")
 	public WebElement CustomerTab;
 
+	@FindBy(xpath = ("//a[contains(text(),'Credit')]"))
+	WebElement CreditTab;
+
+	@FindBy(xpath = (".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[14]/div/div/table/tbody/tr[1]/td[3]/button"))
+	WebElement forwardfile;
+
+	@FindBy(xpath = (".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[12]/div/div/table/tbody/tr[1]/td[3]/button"))
+	WebElement carrierforwardfile;
+
+	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[14]/div/div/table/tbody/tr[1]/td[3]/a")
+	public WebElement paymnt_Historydownload;
+
+	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[12]/div/div/table/tbody/tr[1]/td[3]/a")
+	public WebElement paymnt_carrierHistorydownload;
+
+	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[13]")
+	WebElement PaymentHistory;
+
+	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[8]")
+	WebElement carrierPaymentHistory;
+
 	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr/td[1]/a")
 	WebElement CustomerId;
 
 	@FindBy(xpath = ".//*[@id='searchKeyword']")
-	WebElement search;
+	public WebElement search;
 
 	@FindBy(xpath = ".//*[@id='angularScope']/div[3]/div/div/div[2]/button[2]")
 	WebElement click_AdminResetpwdConfirm;
 
 	@FindBy(xpath = "//input[@value='Search']")
 	public WebElement ClickonSearchButton;
+
+	public @FindBy(xpath = ".//*[@id='emailTo']") WebElement emailTo;
+
+	public @FindBy(xpath = ".//*[@id='fwd436']/div/div[2]/button") WebElement carriersendemail;
 
 	@FindBy(xpath = "//a[contains(@class,'ng-binding')]")
 	public WebElement DoubleClickID;
@@ -64,9 +89,6 @@ public class AdminLogin extends TestBase {
 
 	@FindBy(xpath = "//*[@id='formCredit']/div[3]/input")
 	WebElement CreditSubmit;
-
-	@FindBy(xpath = ("//a[contains(text(),'Credit')]"))
-	WebElement CreditTab;
 
 	public AdminLogin() throws IOException {
 		PageFactory.initElements(driver, this);
@@ -127,6 +149,11 @@ public class AdminLogin extends TestBase {
 		Thread.sleep(2000);
 	}
 
+	public void ClickcarriersendemailToVerify() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(carriersendemail));
+		carriersendemail.click();
+	}
+
 	public void DoubleClickID() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(DoubleClickID));
 		DoubleClickID.click();
@@ -155,6 +182,49 @@ public class AdminLogin extends TestBase {
 	public void clickCancelLockout() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CancelLockout));
 		CancelLockout.click();
+	}
+
+	public void clickPaymentHistory() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(PaymentHistory));
+		PaymentHistory.click();
+	}
+
+	public void clickcarrierPaymentHistory() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(carrierPaymentHistory));
+		carrierPaymentHistory.click();
+	}
+
+	public void clickpaymnt_Historydownload() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(paymnt_Historydownload));
+		paymnt_Historydownload.click();
+		Thread.sleep(5000);
+	}
+
+	public void clickpaymntcarrierHistorydownload() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(paymnt_carrierHistorydownload));
+		paymnt_carrierHistorydownload.click();
+		Thread.sleep(5000);
+	}
+
+	public void clicforwardfile() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(forwardfile));
+		forwardfile.click();
+		Thread.sleep(6000);
+
+	}
+
+	public void cliccarrierforwardfile() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(carrierforwardfile));
+		carrierforwardfile.click();
+		Thread.sleep(6000);
+
+	}
+
+	public void EnterEmailTo(String keyword) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(emailTo));
+		emailTo.click();
+		emailTo.clear();
+		emailTo.sendKeys(keyword);
 	}
 
 	public void StatusIDDropDown() throws InterruptedException {
