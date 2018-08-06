@@ -45,7 +45,7 @@ public class BrokerNewPayment extends TestBase {
 	private WebElement field_PaymentAmount;
 
 	@FindBy(id = "InvoiceNumber")
-	private WebElement field_InvoiceNum;
+	public WebElement field_InvoiceNum;
 
 	@FindBy(id = "LoadNumber")
 	private WebElement field_LoadID;
@@ -132,7 +132,7 @@ public class BrokerNewPayment extends TestBase {
 	private WebElement field_searchbox;
 
 	@FindBy(xpath = "//input[@value='Search']")
-	private WebElement btn_search;
+	public WebElement btn_search;
 
 	@FindBy(xpath = "//button[@type='button'][text()='OK']")
 	private WebElement popup_ok;

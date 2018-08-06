@@ -38,7 +38,7 @@ public class CarrierOutlook extends TestBase {
 	WebElement fieldSearchMail;
 
 	@FindBy(xpath = "//input[@role='textbox']")
-	WebElement fieldTextbox;
+	public WebElement fieldTextbox;
 
 	@FindBy(xpath = "//*[@title='Loadpay Test All']")
 	WebElement searchSuggestion;
