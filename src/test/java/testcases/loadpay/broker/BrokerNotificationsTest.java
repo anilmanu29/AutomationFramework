@@ -43,7 +43,7 @@ public class BrokerNotificationsTest extends TestBase {
 
 	/*-------Scheduling New Payment as a Broker---------*/
 	@Test(description = "LP-6361 Broker Notifications", dependsOnMethods = {
-			"loginAsBrokerTest" }, dataProvider = "getBrokerNewPaymentData")
+			"loginAsBrokerTest" }, dataProvider = "getPaymentData")
 	public void brokerCreateNewPaymentTest(String cE, String iN, String lId, String pA) throws InterruptedException {
 
 		brokernotificationsobj.brokerCreateNewPayment(cE, iN, lId, pA);

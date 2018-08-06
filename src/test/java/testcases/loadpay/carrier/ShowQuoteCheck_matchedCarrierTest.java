@@ -75,7 +75,7 @@ public class ShowQuoteCheck_matchedCarrierTest extends TestBase {
 
 	/*-------Scheduling New Payment as a Broker---------*/
 
-	@Test(dataProvider = "getBrokerNewPaymentData", dependsOnMethods = "loginBroker")
+	@Test(dataProvider = "getPaymentData", dependsOnMethods = "loginBroker")
 	public void brokernewPayment(String cemail, String invoiceno, String loadid, String amt)
 			throws InterruptedException {
 
