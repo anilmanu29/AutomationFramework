@@ -70,29 +70,18 @@ public class BrokerEditPaymentAdminPaymentssubmenu extends TestBase {
 		// create new payment
 		brokerPaymentObj = new BrokerNewPayment();
 		brokerPaymentObj.newPayment();
-		Thread.sleep(1000);
 		brokerPaymentObj.carrierEmail(carrierEmail);
-		Thread.sleep(1000);
 		brokerPaymentObj.amount(paymentAmount);
-		Thread.sleep(1000);
 		invoiceNum = brokerPaymentObj.invoiceNumber(iN);
 		arraylist.add(invoiceNum);
-		Thread.sleep(1000);
 		brokerPaymentObj.loadId(loadId);
-		Thread.sleep(1000);
 		brokerPaymentObj.clickShedulePayment();
-		Thread.sleep(1000);
 		brokerPaymentObj.clickShedulePaymenttab();
-		Thread.sleep(1000);
 		brokerPaymentObj.searchInvoice(invoiceNum);
-		Thread.sleep(1000);
 		brokerPaymentObj.clickSearchButton();
-		Thread.sleep(1000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)", "");
-		Thread.sleep(1000);
 		brokerPaymentObj.verifyInvoiceNumber(invoiceNum, paymentAmount);
-		Thread.sleep(1000);
 
 		// verify payment status
 		Assert.assertTrue(brokerPaymentObj.verifyPaymentStatus().equals(paymentStatus), "Payment Status not equal!");
@@ -151,21 +140,13 @@ public class BrokerEditPaymentAdminPaymentssubmenu extends TestBase {
 			String updatedLoadID, String updatedCarrierDOT, String updatedScheduleDate, String updatedInvoiceRecd,
 			String updatedMemo) throws InterruptedException {
 		brokerPaymentObj.setField_CarrierEmail(updatedCarrierEmail);
-		Thread.sleep(1000);
 		brokerPaymentObj.setField_PayTo(updatedPayTo);
-		Thread.sleep(1000);
 		brokerPaymentObj.setField_CarrierDOT(updatedCarrierDOT);
-		Thread.sleep(1000);
 		brokerPaymentObj.setField_InvoiceRecd(updatedInvoiceRecd);
-		Thread.sleep(1000);
 		brokerPaymentObj.setField_ScheduleDate(updatedScheduleDate);
-		Thread.sleep(1000);
 		brokerPaymentObj.setField_InvoiceNum(updatedInvoiceNumber);
-		Thread.sleep(1000);
 		brokerPaymentObj.setField_LoadID(updatedLoadID);
-		Thread.sleep(1000);
 		brokerPaymentObj.setField_Memo(updatedMemo);
-		Thread.sleep(1000);
 		brokerPaymentObj.clickShedulePayment();
 		wait.until(ExpectedConditions.elementToBeClickable(alertmessage));
 		Assert.assertTrue(alertmessage.getText().contains("Updated Successfully!"), "Alert message NOT Displayed");
