@@ -2,6 +2,10 @@ package testcases.loadpay.unmatched;
 
 import java.awt.AWTException;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,12 +17,21 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.outlook.outlooklogin;
 import pages.loadpay.unmatched.UnmatchedCarrierOutlook;
+import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
 
 public class UnmatchedCarrierOutlookTest extends TestBase {
 
 	UnmatchedCarrierOutlook umCarrierOutlookObj;
 	outlooklogin outlook;
 	public static String pwd;
+
+	Date currentTime;
+	String formattedDate = "";
+	Long longTime;
+	DateFormat formatter;
+	String currentHour = "";
+	String currentMinutes = "";
+	String timeArray[] = new String[2];
 
 	public UnmatchedCarrierOutlookTest() {
 		super();
@@ -31,6 +44,7 @@ public class UnmatchedCarrierOutlookTest extends TestBase {
 		initialization();
 		outlook = new outlooklogin();
 		umCarrierOutlookObj = new UnmatchedCarrierOutlook();
+		currentTime = new Date();
 		wait = new WebDriverWait(driver, 30);
 	}
 
@@ -45,6 +59,9 @@ public class UnmatchedCarrierOutlookTest extends TestBase {
 		umCarrierOutlookObj.clickOpenMailBox();
 		umCarrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
 		// umCarrierOutlookObj.clickOpen();
+		getTimestamp();
+		umCarrierOutlookObj.outlookSearchInbox(BrokerPaymentforUnmatchedCarrierTest.al.get(1), currentHour,
+				currentMinutes);
 		umCarrierOutlookObj.handleNewInbox();
 		umCarrierOutlookObj.switchtoCarrieregistration();
 		umCarrierOutlookObj.unmatchedCarrierRegistration();
@@ -82,8 +99,7 @@ public class UnmatchedCarrierOutlookTest extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getIcertify()));
 		umCarrierOutlookObj.iCertifyClick();
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getNext()));
-		umCarrierOutlookObj.next();
+		umCarrierOutlookObj.clickNextBtnOnCompanyForm();
 
 		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getZipCode()));
 		umCarrierOutlookObj.ZipCode(ZipCode1);
@@ -101,13 +117,11 @@ public class UnmatchedCarrierOutlookTest extends TestBase {
 		umCarrierOutlookObj.city(City);
 
 		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getState()));
-		umCarrierOutlookObj.State();
 
 		Select state = new Select(driver.findElement(By.xpath(".//*[@id='State']")));
 		state.selectByVisibleText("CA");
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getSubmit()));
-		umCarrierOutlookObj.submit();
+		umCarrierOutlookObj.clickNextBtnOnAddressForm();
 
 		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getContactFirstName()));
 		umCarrierOutlookObj.ContactFirstName(FirstNames);
@@ -125,8 +139,7 @@ public class UnmatchedCarrierOutlookTest extends TestBase {
 		driver.findElement(By.xpath(".//*[@id='Registration_User_Password']"));
 		umCarrierOutlookObj.ConfirmPassword(ConfirmPassword);
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getNext()));
-		umCarrierOutlookObj.Next();
+		umCarrierOutlookObj.clickNextBtnOnContactForm();
 
 		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getAccountName()));
 		umCarrierOutlookObj.AccountName(NameonAccount);
@@ -140,9 +153,25 @@ public class UnmatchedCarrierOutlookTest extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getConfirmBankingAccount()));
 		umCarrierOutlookObj.ConfirmBankingAccount(ConfirmbankAccountNumber);
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getSubmit()));
-		umCarrierOutlookObj.submit();
+		umCarrierOutlookObj.clickNextBtnOnBankingForm();
 
+	}
+
+	public void getTimestamp() {
+		formatter = new SimpleDateFormat("HH:mm");
+		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
+		longTime = currentTime.getTime();
+		formattedDate = formatter.format(longTime);
+		timeArray = formattedDate.split(":");
+		currentHour = timeArray[0];
+		currentMinutes = timeArray[1];
+
+		log.info("\n\n\n===============================");
+		log.info("Current date: " + longTime);
+		log.info("Formatted date: " + formattedDate);
+		log.info("Current Hour: " + currentHour);
+		log.info("Current Minutes: " + currentMinutes);
+		log.info("===============================");
 	}
 
 }

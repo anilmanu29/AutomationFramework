@@ -64,7 +64,9 @@ public class AdminLogin extends TestBase {
 
 	public @FindBy(xpath = ".//*[@id='emailTo']") WebElement emailTo;
 
-	public @FindBy(xpath = ".//*[@id='fwd436']/div/div[2]/button") WebElement carriersendemail;
+	public @FindBy(xpath = ".//*[@id='fwd436']/div/div[2]/button") WebElement clickSendPaymentHistoryEmail;
+
+	public @FindBy(xpath = ".//*[@id='fwd436']/div/div[2]/button") WebElement clickCancelPaymentHistorySendEmail;
 
 	@FindBy(xpath = "//a[contains(@class,'ng-binding')]")
 	public WebElement DoubleClickID;
@@ -149,9 +151,14 @@ public class AdminLogin extends TestBase {
 		Thread.sleep(2000);
 	}
 
-	public void ClickcarriersendemailToVerify() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(carriersendemail));
-		carriersendemail.click();
+	public void ClickSendEmailToVerify() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(clickSendPaymentHistoryEmail));
+		clickSendPaymentHistoryEmail.click();
+	}
+
+	public void ClickCancelSendEmailToVerify() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(clickCancelPaymentHistorySendEmail));
+		clickCancelPaymentHistorySendEmail.click();
 	}
 
 	public void DoubleClickID() throws InterruptedException {

@@ -31,8 +31,8 @@ public class AdminPaymentHistoryTest extends TestBase {
 	WebElement checkbox;
 	String brokerUserName;
 	String brokerPassword;
-	BrokerOutlook outlookk;
-	CarrierOutlook carrieroutlookk;
+	BrokerOutlook brokerOutlookObj;
+	CarrierOutlook carierOutlookObj;
 	outlooklogin outlook;
 	Date currentTime;
 	String formattedDate = "";
@@ -59,10 +59,10 @@ public class AdminPaymentHistoryTest extends TestBase {
 		brokLoginPage = new BrokerLoginPage();
 		currentTime = new Date();
 		outlook = new outlooklogin();
-		outlookk = new BrokerOutlook();
+		brokerOutlookObj = new BrokerOutlook();
 		currentTime = new Date();
 		carrierloginPage = new CarrierLoginPage();
-		carrieroutlookk = new CarrierOutlook();
+		carierOutlookObj = new CarrierOutlook();
 
 	}
 
@@ -92,7 +92,10 @@ public class AdminPaymentHistoryTest extends TestBase {
 		admLogin.clickpaymnt_Historydownload();
 		admLogin.clicforwardfile();
 		admLogin.EnterEmailTo(brokerUserName);
-		admLogin.ClickcarriersendemailToVerify();
+
+		// TODO add cancel test and verify email is not sent
+
+		admLogin.ClickSendEmailToVerify();
 		admLogin.AdminLogOut();
 	}
 
@@ -103,13 +106,15 @@ public class AdminPaymentHistoryTest extends TestBase {
 
 	@Test(dependsOnMethods = "login")
 	public void outlookloginTest() throws InterruptedException, AWTException {
-		outlookk.clickPopUp();
-		outlookk.clickOpenMailBox();
-		outlookk.enterEmail(super.prop.getProperty("email"));
+		brokerOutlookObj.clickPopUp();
+		brokerOutlookObj.clickOpenMailBox();
+		brokerOutlookObj.enterEmail(super.prop.getProperty("email"));
 		// outlookk.clickOpen();
 		getTimestamp();
-		outlookk.outlookSearchInbox(brokerUserName, currentHour, currentMinutes);
-		outlookk.handleNewInbox();
+		brokerOutlookObj.outlookSearchInbox(brokerUserName, currentHour, currentMinutes);
+
+		// TODO look through inbox for attachment
+		brokerOutlookObj.handleNewInbox();
 
 	}
 
@@ -161,17 +166,17 @@ public class AdminPaymentHistoryTest extends TestBase {
 		admLogin.clickpaymntcarrierHistorydownload();
 		admLogin.cliccarrierforwardfile();
 		admLogin.EnterEmailTo(carrierUserName);
-		admLogin.ClickcarriersendemailToVerify();
+		admLogin.ClickSendEmailToVerify();
 		admLogin.AdminLogOut();
 	}
 
 	@Test(dataProvider = "getoutlookLoginData", dependsOnMethods = "verifyAdminPaymentHistoryStatuscarrier")
 	public void outlookcarrierloginTest(String un, String pwd) throws InterruptedException, AWTException {
 		driver.get(prop.getProperty("outlookurl"));
-		carrieroutlookk.clickPopUp();
-		carrieroutlookk.clickOpenMailBox();
-		carrieroutlookk.enterEmail(super.prop.getProperty("email"));
-		carrieroutlookk.outlookSearchInbox(carrierUserName, currentHour, currentMinutes);
+		carierOutlookObj.clickPopUp();
+		carierOutlookObj.clickOpenMailBox();
+		carierOutlookObj.enterEmail(super.prop.getProperty("email"));
+		carierOutlookObj.outlookSearchInbox(carrierUserName, currentHour, currentMinutes);
 
 		/* carrieroutlookk.handleNewInbox(); */
 		/* outlookk.verifyConfirmationMessage(); */
@@ -184,8 +189,8 @@ public class AdminPaymentHistoryTest extends TestBase {
 		Assert.assertTrue(admLogin.search.isDisplayed(), " Broker Email ID should not be found");
 		Assert.assertTrue(admLogin.paymnt_Historydownload.isDisplayed(), "Payment History Download not found");
 		Assert.assertTrue(admLogin.emailTo.isDisplayed(), "Email To not found");
-		Assert.assertTrue(outlookk.fieldTextbox.isDisplayed(), "Broker OutLook Email should not be found");
-		Assert.assertTrue(carrieroutlookk.fieldTextbox.isDisplayed(), "Carrier OutLook Email should not be found");
+		Assert.assertTrue(brokerOutlookObj.fieldTextbox.isDisplayed(), "Broker OutLook Email should not be found");
+		Assert.assertTrue(carierOutlookObj.fieldTextbox.isDisplayed(), "Carrier OutLook Email should not be found");
 
 	}
 
