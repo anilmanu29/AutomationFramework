@@ -225,6 +225,7 @@ public class BrokerNewPayment extends TestBase {
 	public void clickShedulePaymenttab() {
 		wait.until(ExpectedConditions.elementToBeClickable(tab_shedulepayment));
 		tab_shedulepayment.click();
+		wait.until(ExpectedConditions.elementToBeClickable(field_searchbox));
 	}
 
 	/*-------Search Carrier---------*/
