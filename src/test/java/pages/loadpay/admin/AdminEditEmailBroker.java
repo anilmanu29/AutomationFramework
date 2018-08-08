@@ -69,6 +69,7 @@ public class AdminEditEmailBroker extends TestBase {
 	public void clickRefreshButton() {
 		wait.until(ExpectedConditions.elementToBeClickable(refreshButton));
 		refreshButton.click();
+		wait.until(ExpectedConditions.elementToBeClickable(refreshButton));
 	}
 
 	public void clickEditEmailButton() {
@@ -84,6 +85,7 @@ public class AdminEditEmailBroker extends TestBase {
 	public void clickUpdateEmailEditButton() {
 		wait.until(ExpectedConditions.elementToBeClickable(updateEmailEditButton));
 		updateEmailEditButton.click();
+		wait.until(ExpectedConditions.elementToBeClickable(closeEmailConfirmationButton));
 	}
 
 	public void clickCloseEmailConfirmationButton() {

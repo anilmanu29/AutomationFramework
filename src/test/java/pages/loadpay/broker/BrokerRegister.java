@@ -251,9 +251,10 @@ public class BrokerRegister extends TestBase {
 		Phone.sendKeys(PhoneNumber);
 	}
 
-	public void Password(String pass) {
+	public String Password(String pass) {
 		wait.until(ExpectedConditions.visibilityOf(Password));
 		Password.sendKeys(pass);
+		return pass;
 	}
 
 	public void ConfirmPassword(String confirmpass) {
