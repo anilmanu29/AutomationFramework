@@ -68,7 +68,7 @@ public class AdminPayByCheck extends TestBase {
 	@FindBy(xpath = "//input[contains(@name,'ContactName')]")
 	private WebElement txt_ContactName;
 
-	@FindBy(xpath = "//input[contains(@value,'Submit')]")
+	@FindBy(xpath = "//*[@id='formPayByCheck']/div[1]/div[3]/input")
 	private WebElement btn_paybychksubmit;
 
 	@FindBy(xpath = "//input[@id='UserName']")

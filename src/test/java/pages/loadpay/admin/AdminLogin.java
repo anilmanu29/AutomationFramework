@@ -29,6 +29,9 @@ public class AdminLogin extends TestBase {
 	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[1]/div/nav/div[2]/ul/li[3]/a")
 	public WebElement CustomerTab;
 
+	@FindBy(xpath = (".//*[@id='updatebtnPayByInvoice']"))
+	WebElement click_updatebtnPayByInvoice;
+
 	@FindBy(xpath = ("//a[contains(text(),'Credit')]"))
 	WebElement CreditTab;
 
@@ -50,8 +53,14 @@ public class AdminLogin extends TestBase {
 	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[8]")
 	WebElement carrierPaymentHistory;
 
+	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[2]")
+	WebElement AdminBanking;
+
 	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr/td[1]/a")
 	WebElement CustomerId;
+
+	@FindBy(xpath = ".//*[@id='PayByInvoieStatus']")
+	public WebElement select_PayByInvoieStatus;
 
 	@FindBy(xpath = ".//*[@id='searchKeyword']")
 	public WebElement search;
@@ -63,6 +72,8 @@ public class AdminLogin extends TestBase {
 	public WebElement ClickonSearchButton;
 
 	public @FindBy(xpath = ".//*[@id='emailTo']") WebElement emailTo;
+
+	public @FindBy(xpath = ".//*[@id='editbtnPayByInvoice']") WebElement editbtnPayByInvoice;
 
 	public @FindBy(xpath = ".//*[@id='fwd436']/div/div[2]/button") WebElement clickSendPaymentHistoryEmail;
 
@@ -115,9 +126,43 @@ public class AdminLogin extends TestBase {
 		logOut.click();
 	}
 
+	public void Banking_editbtnPayByInvoice() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(editbtnPayByInvoice));
+		editbtnPayByInvoice.click();
+
+	}
+
+	public void clickupdatebtnPayByInvoice() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(click_updatebtnPayByInvoice));
+		click_updatebtnPayByInvoice.click();
+	}
+
+	public void selectPayByInvoieStatus() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(select_PayByInvoieStatus));
+		Thread.sleep(1000);
+		select_PayByInvoieStatus.click();
+		s = new Select((select_PayByInvoieStatus));
+		/* s.deselectByVisibleText("Active"); */
+		s.selectByVisibleText("Enabled");
+	}
+
+	public void DisablePayByInvoieStatus() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(select_PayByInvoieStatus));
+		Thread.sleep(1000);
+		select_PayByInvoieStatus.click();
+		s = new Select((select_PayByInvoieStatus));
+		/* s.deselectByVisibleText("Active"); */
+		s.selectByVisibleText("Disabled");
+	}
+
 	public void ClickOnCreditTab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CreditTab));
 		CreditTab.click();
+	}
+
+	public void click_AdminBanking() throws InterruptedException {
+
+		AdminBanking.click();
 	}
 
 	public void ClickOnCreditSubmitButton() throws InterruptedException {

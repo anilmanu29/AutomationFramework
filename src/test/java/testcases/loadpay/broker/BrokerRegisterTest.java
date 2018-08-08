@@ -30,6 +30,7 @@ public class BrokerRegisterTest extends TestBase {
 	WebElement PaymentTerms;
 
 	public static String emailid;
+	public static String pwd;
 
 	String brokerUsername;
 	String brokerPassword;

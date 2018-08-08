@@ -20,7 +20,7 @@
     	
   	 <!-- Script for Jira Ticket LP-5430 - LoadPay - Selenium Test - Admin - Payment sub menu -->
     
-    	<class name="testcases.loadpay.broker.BrokerEditPaymentAdminPaymentssubmenuTest"></class>
+		<!-- <class name="testcases.loadpay.broker.BrokerEditPaymentAdminPaymentssubmenuTest"></class> -->
     	
     <!-- Script for Jira Ticket LP-5428 - LoadPay - Selenium Test - Admin - Payment History-->
     	
@@ -33,6 +33,10 @@
     <!-- Script for Jira Ticket LP-LP-6361 -LoadPay - Selenium Test - Broker - Notifications-->
     	
     	<!-- <class name="testcases.loadpay.broker.BrokerNotificationsTest"></class> -->
+    	
+    <!-- Script for Jira Ticket LP-LP-6360 -LoadPay - Selenium Test - Broker - Schedule Payment without Bank Account When PayByInvoice Is Enabled-->
+    	
+    	<class name="testcases.SchpaymentwithoutBankAccountPayByInvoiceEnabledTest"></class>
     
     </classes>
   </test> 
