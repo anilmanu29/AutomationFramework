@@ -67,7 +67,7 @@ public class CarrierWireTransfer extends TestBase {
 	@FindBy(xpath = "//*[@id='angularScope']/div[2]/div/div[3]/ul/li[3]/a/div/div[1]/div[2]/span[1]")
 	private WebElement paidamt;
 
-	@FindBy(xpath = "//*[@id='paymentOptionsDiv']/div[4]/div[1]/div[3]/p/span")
+	@FindBy(xpath = "//*[@id='paymentOptionsDiv']/div[2]/div[1]/div[3]/p/span")
 	WebElement wiretransframt;
 
 	public CarrierWireTransfer() {

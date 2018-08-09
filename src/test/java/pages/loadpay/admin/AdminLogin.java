@@ -75,9 +75,9 @@ public class AdminLogin extends TestBase {
 
 	public @FindBy(xpath = ".//*[@id='editbtnPayByInvoice']") WebElement editbtnPayByInvoice;
 
-	public @FindBy(xpath = ".//*[@id='fwd436']/div/div[2]/button") WebElement clickSendPaymentHistoryEmail;
+	public @FindBy(xpath = ".//*[contains(@title, 'send email')]") WebElement clickSendPaymentHistoryEmail;
 
-	public @FindBy(xpath = ".//*[@id='fwd436']/div/div[2]/button") WebElement clickCancelPaymentHistorySendEmail;
+	public @FindBy(xpath = ".//*[contains(@title, 'cancel')]") WebElement clickCancelPaymentHistorySendEmail;
 
 	@FindBy(xpath = "//a[contains(@class,'ng-binding')]")
 	public WebElement DoubleClickID;

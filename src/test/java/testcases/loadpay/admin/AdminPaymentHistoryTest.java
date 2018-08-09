@@ -4,7 +4,6 @@ import java.awt.AWTException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -34,6 +33,7 @@ public class AdminPaymentHistoryTest extends TestBase {
 	BrokerOutlook brokerOutlookObj;
 	CarrierOutlook carierOutlookObj;
 	outlooklogin outlook;
+
 	Date currentTime;
 	String formattedDate = "";
 	Long longTime;
@@ -42,6 +42,7 @@ public class AdminPaymentHistoryTest extends TestBase {
 	String currentMinutes = "";
 	String timeArray[] = new String[2];
 	CarrierLoginPage carrierloginPage;
+
 	String carrierUserName;
 	String carrierPassword;
 
@@ -63,7 +64,6 @@ public class AdminPaymentHistoryTest extends TestBase {
 		currentTime = new Date();
 		carrierloginPage = new CarrierLoginPage();
 		carierOutlookObj = new CarrierOutlook();
-
 	}
 
 	@Test(dataProvider = "getBrokerLoginData")
@@ -76,17 +76,11 @@ public class AdminPaymentHistoryTest extends TestBase {
 	public void verifyAdminPaymentHistoryStatus(String Username, String pass)
 			throws InterruptedException, AWTException {
 		admHomePage.AdminURL();
-		Thread.sleep(1000);
 		admLogin.adminUserPass(Username, pass);
-		Thread.sleep(2000);
 		admLogin.adminLogin();
-		Thread.sleep(100);
 		admLogin.ClickOnCustomersTab();
-		Thread.sleep(1000);
 		admLogin.ClickOnSearchBox(brokerUserName);
-		Thread.sleep(1000);
 		admLogin.ClickOnSearchButton();
-		Thread.sleep(1000);
 		admLogin.DoubleClickID();
 		admLogin.clickPaymentHistory();
 		admLogin.clickpaymnt_Historydownload();
@@ -94,6 +88,8 @@ public class AdminPaymentHistoryTest extends TestBase {
 		admLogin.EnterEmailTo(brokerUserName);
 
 		// TODO add cancel test and verify email is not sent
+		// admLogin.ClickCancelSendEmailToVerify();
+		// verify email not sent to outlook
 
 		admLogin.ClickSendEmailToVerify();
 		admLogin.AdminLogOut();
@@ -109,35 +105,11 @@ public class AdminPaymentHistoryTest extends TestBase {
 		brokerOutlookObj.clickPopUp();
 		brokerOutlookObj.clickOpenMailBox();
 		brokerOutlookObj.enterEmail(super.prop.getProperty("email"));
-		// outlookk.clickOpen();
 		getTimestamp();
 		brokerOutlookObj.outlookSearchInbox(brokerUserName, currentHour, currentMinutes);
 
 		// TODO look through inbox for attachment
 		brokerOutlookObj.handleNewInbox();
-
-	}
-
-	public void getTimestamp() {
-		/////////////////////////////////////////////////////////////////
-		TimeZone tz = Calendar.getInstance().getTimeZone();
-		String currentTimeZone = tz.getDisplayName();
-		System.out.println(currentTimeZone);
-
-		formatter = new SimpleDateFormat("HH:mm");
-		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
-		longTime = currentTime.getTime();
-		formattedDate = formatter.format(longTime);
-		timeArray = formattedDate.split(":");
-		currentHour = timeArray[0];
-		currentMinutes = timeArray[1];
-
-		System.out.println("\n\n\n===============================");
-		System.out.println("Current date: " + longTime);
-		System.out.println("Formatted date: " + formattedDate);
-		System.out.println("Current Hour: " + currentHour);
-		System.out.println("Current Minutes: " + currentMinutes);
-		System.out.println("===============================");
 	}
 
 	@Test(dataProvider = "getCarrierLoginData", dependsOnMethods = "outlookloginTest")
@@ -150,17 +122,11 @@ public class AdminPaymentHistoryTest extends TestBase {
 	public void verifyAdminPaymentHistoryStatuscarrier(String Username, String pass)
 			throws InterruptedException, AWTException {
 		admHomePage.AdminURL();
-		Thread.sleep(1000);
 		admLogin.adminUserPass(Username, pass);
-		Thread.sleep(2000);
 		admLogin.adminLogin();
-		Thread.sleep(100);
 		admLogin.ClickOnCustomersTab();
-		Thread.sleep(1000);
 		admLogin.ClickOnSearchBox(carrierUserName);
-		Thread.sleep(1000);
 		admLogin.ClickOnSearchButton();
-		Thread.sleep(1000);
 		admLogin.DoubleClickID();
 		admLogin.clickcarrierPaymentHistory();
 		admLogin.clickpaymntcarrierHistorydownload();
@@ -184,14 +150,21 @@ public class AdminPaymentHistoryTest extends TestBase {
 	}
 
 	public void verifyAdminPaymentHistoryTestDisplayed() {
-
 		// Verify that the web elements for the AdminPaymentHistoryTest exist
 		Assert.assertTrue(admLogin.search.isDisplayed(), " Broker Email ID should not be found");
 		Assert.assertTrue(admLogin.paymnt_Historydownload.isDisplayed(), "Payment History Download not found");
 		Assert.assertTrue(admLogin.emailTo.isDisplayed(), "Email To not found");
 		Assert.assertTrue(brokerOutlookObj.fieldTextbox.isDisplayed(), "Broker OutLook Email should not be found");
 		Assert.assertTrue(carierOutlookObj.fieldTextbox.isDisplayed(), "Carrier OutLook Email should not be found");
-
 	}
 
+	public void getTimestamp() {
+		formatter = new SimpleDateFormat("HH:mm");
+		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
+		longTime = currentTime.getTime();
+		formattedDate = formatter.format(longTime);
+		timeArray = formattedDate.split(":");
+		currentHour = timeArray[0];
+		currentMinutes = timeArray[1];
+	}
 }
