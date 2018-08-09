@@ -137,6 +137,8 @@ public class AdminWireTransferTest extends TestBase {
 		carrierWireTransfer.clickConfirmButton();
 		log.info("Perform Carrier Wire Transfer");
 
+		Thread.sleep(1000);
+
 		carrierLoginPage.CarrierLogout();
 		log.info("Carrier LogOut");
 	}

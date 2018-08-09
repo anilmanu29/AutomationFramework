@@ -47,7 +47,7 @@ public class ExtentReporterNG implements IReporter {
 		String currentDir = System.getProperty("user.dir");
 
 		extent = new ExtentReports(
-				currentDir + "/output/Reports/" + strYear + "/" + strMonth + File.separator + fileName + "_Report.html",
+				currentDir + "/output/reports/" + strYear + "/" + strMonth + File.separator + fileName + "_Report.html",
 				false);
 		for (ISuite suite : suites) {
 			Map<String, ISuiteResult> result = suite.getResults();
