@@ -22,8 +22,8 @@ public class TestUtil extends TestBase {
 
 	public static final long PAGE_LOAD_TIMEOUT = 20;
 	public static final long IMPLICIT_WAIT = 20;
-	public static final String TESTDATA_SHEET_PATH = System.getProperty("user.dir") + "/src/main/java/com/ra"
-			+ "/qa/testdata/TestData.xlsx";
+	public static final String TESTDATA_SHEET_PATH = System.getProperty(userDirectory)
+			+ "/src/main/java/testdata/LoadPay/LoadPayTestData.xlsx";
 
 	Workbook book;
 	Sheet sheet;
