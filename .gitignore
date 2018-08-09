@@ -1,1 +1,6 @@
+/bin/
+/ApplicationLogs/
+/Test Reports/
 /target/
+/test-output/*
+/output/

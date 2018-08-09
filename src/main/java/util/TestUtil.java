@@ -59,11 +59,31 @@ public class TestUtil extends TestBase {
 
 	public void takeScreenshotAtEndOfTest() throws IOException {
 
+		Calendar now = Calendar.getInstance();
+
+		int currentYear = now.get(Calendar.YEAR);
+		int currentMonth = now.get(Calendar.MONTH) + 1;
+
+		String strYear = Integer.toString(currentYear);
+		String strMonth = "";
+
+		if (currentMonth < 10)
+			strMonth = "0" + Integer.toString(currentMonth);
+
+		// (1) get today's date
+		Date today = Calendar.getInstance().getTime();
+
+		// (2) create a date "formatter" (the date format we want)
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss_zzz");
+
+		// (3) create a new String using the date format we want
+		String fileName = formatter.format(today);
+
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		String currentDir = System.getProperty("user.dir");
 
-		FileUtils.copyFile(scrFile,
-				new File(currentDir + "/output/screenshots/" + System.currentTimeMillis() + ".png"));
+		FileUtils.copyFile(scrFile, new File(
+				currentDir + "/output/screenshots/" + strYear + "/" + strMonth + File.separator + fileName + ".png"));
 
 	}
 
