@@ -1,6 +1,9 @@
 package testcases.loadpay.broker;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -8,6 +11,7 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import pages.loadpay.broker.BrokerDownloadCSVFromScheduledPayments;
+import util.TestUtil;
 
 public class BrokerDownloadCSVFromScheduledPaymentsTest extends TestBase {
 
@@ -53,11 +57,21 @@ public class BrokerDownloadCSVFromScheduledPaymentsTest extends TestBase {
 	/*-------Verify CSV file Downloads ---------*/
 	@Test(description = "LP-6627 LoadPay Broker_DownloadCSVfrom_ScheduledPayments", dependsOnMethods = {
 			"verifyScheduledPaymentsTab" })
-	public void verifyDownloadCSVFile() throws InterruptedException {
+	public void verifyDownloadCSVFile() throws InterruptedException, IOException {
 		brokerdownloadcsvfromscheduledpaymentsbj.clickExportButton();
 
 		// sleep for 1 minute to allow time to verify csv files
-		Thread.sleep(60000);
+		Calendar currentDateTime = Calendar.getInstance();
+		Date currentDate = new Date(currentDateTime.getTimeInMillis());
+		SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
+		SimpleDateFormat monthFormat = new SimpleDateFormat("MM");
+		SimpleDateFormat dayFormat = new SimpleDateFormat("dd");
+
+		Assert.assertTrue(
+				TestUtil.verifyFileDownload("BrokerPaymentsExport-" + monthFormat.format(currentDate) + "-"
+						+ dayFormat.format(currentDate) + "-" + yearFormat.format(currentDate) + ".csv"),
+				"CSV download not found!");
+
 		System.out.println("verifyDownloadCSVFile - Passed");
 	}
 

@@ -98,17 +98,17 @@ public class TestUtil extends TestBase {
 
 	public static void DateFormatTestExample(String[] args) {
 		Calendar currentDateTime = Calendar.getInstance();
-		System.out.println("---------------------------------------------------");
-		System.out.println("-- Get Year/Month/Day/Hour/Minute using Calendar --");
-		System.out.println("---------------------------------------------------");
-		System.out.println("Year - Calendar [" + currentDateTime.get(Calendar.YEAR) + "]");
-		System.out.println("Month - Calendar [" + currentDateTime.get(Calendar.MONTH) + "]");
-		System.out.println("Day - Calendar [" + currentDateTime.get(Calendar.DAY_OF_MONTH) + "]");
-		System.out.println("Hour - Calendar [" + currentDateTime.get(Calendar.HOUR_OF_DAY) + "]");
-		System.out.println("Minute - Calendar [" + currentDateTime.get(Calendar.MINUTE) + "]");
-		System.out.println("-------------------------------------------------------------------------");
-		System.out.println("-- Get Year/Month/Day/Hour/Minute and Time Zone using SimpleDateFormat --");
-		System.out.println("-------------------------------------------------------------------------");
+		log.info("---------------------------------------------------");
+		log.info("-- Get Year/Month/Day/Hour/Minute using Calendar --");
+		log.info("---------------------------------------------------");
+		log.info("Year - Calendar [" + currentDateTime.get(Calendar.YEAR) + "]");
+		log.info("Month - Calendar [" + currentDateTime.get(Calendar.MONTH) + "]");
+		log.info("Day - Calendar [" + currentDateTime.get(Calendar.DAY_OF_MONTH) + "]");
+		log.info("Hour - Calendar [" + currentDateTime.get(Calendar.HOUR_OF_DAY) + "]");
+		log.info("Minute - Calendar [" + currentDateTime.get(Calendar.MINUTE) + "]");
+		log.info("-------------------------------------------------------------------------");
+		log.info("-- Get Year/Month/Day/Hour/Minute and Time Zone using SimpleDateFormat --");
+		log.info("-------------------------------------------------------------------------");
 		SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
 		SimpleDateFormat monthFormat = new SimpleDateFormat("MM");
 		SimpleDateFormat dayFormat = new SimpleDateFormat("dd");
@@ -117,12 +117,31 @@ public class TestUtil extends TestBase {
 		SimpleDateFormat timeZoneFormat = new SimpleDateFormat("zzz");
 
 		Date currentDate = new Date(currentDateTime.getTimeInMillis());
-		System.out.println("Year - SimpleDateFormat [" + yearFormat.format(currentDate) + "]");
-		System.out.println("Month - SimpleDateFormat [" + monthFormat.format(currentDate) + "]");
-		System.out.println("Day - SimpleDateFormat [" + dayFormat.format(currentDate) + "]");
-		System.out.println("Hour - SimpleDateFormat [" + hourFormat.format(currentDate) + "]");
-		System.out.println("Minute - SimpleDateFormat [" + minuteFormat.format(currentDate) + "]");
-		System.out.println("Time Zone - SimpleDateFormat [" + timeZoneFormat.format(currentDate) + "]");
+		log.info("Year - SimpleDateFormat [" + yearFormat.format(currentDate) + "]");
+		log.info("Month - SimpleDateFormat [" + monthFormat.format(currentDate) + "]");
+		log.info("Day - SimpleDateFormat [" + dayFormat.format(currentDate) + "]");
+		log.info("Hour - SimpleDateFormat [" + hourFormat.format(currentDate) + "]");
+		log.info("Minute - SimpleDateFormat [" + minuteFormat.format(currentDate) + "]");
+		log.info("Time Zone - SimpleDateFormat [" + timeZoneFormat.format(currentDate) + "]");
+	}
+
+	public static Boolean verifyFileDownload(String searchedFileName) {
+
+		String path = System.getProperty(userHome) + "\\Downloads";
+
+		File folder = new File(path);
+		File[] files = folder.listFiles();
+
+		log.info("Searched file name: " + searchedFileName);
+
+		for (File currentFile : files) {
+			log.info("Current file name: " + currentFile);
+			if (currentFile.getName().contains(searchedFileName)) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 }
