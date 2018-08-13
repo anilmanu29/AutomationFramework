@@ -28,6 +28,7 @@ public class TestBase {
 	protected static EventFiringWebDriver eDriver;
 	protected static WebEventListener eventListener;
 	protected static String userDirectory = "user.dir";
+	protected static String userHome = "user.home";
 	public static Logger log;
 	public static WebDriverWait wait = null;
 	public final String loadPayTestDataFilePath = System.getProperty(userDirectory)
