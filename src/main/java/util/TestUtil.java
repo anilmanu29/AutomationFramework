@@ -144,4 +144,15 @@ public class TestUtil extends TestBase {
 		return false;
 	}
 
+	public static Integer getFileCount() {
+		int fileCount = 0;
+		String path = System.getProperty(userHome) + "\\Downloads";
+
+		File folder = new File(path);
+		File[] files = folder.listFiles();
+		fileCount = files.length;
+
+		return fileCount;
+	}
+
 }

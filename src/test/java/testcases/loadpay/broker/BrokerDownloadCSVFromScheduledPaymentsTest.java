@@ -58,9 +58,23 @@ public class BrokerDownloadCSVFromScheduledPaymentsTest extends TestBase {
 	@Test(description = "LP-6627 LoadPay Broker_DownloadCSVfrom_ScheduledPayments", dependsOnMethods = {
 			"verifyScheduledPaymentsTab" })
 	public void verifyDownloadCSVFile() throws InterruptedException, IOException {
+		// get file count before export
+		int initialFileCount = TestUtil.getFileCount();
+
+		// click export button
 		brokerdownloadcsvfromscheduledpaymentsbj.clickExportButton();
 
-		// sleep for 1 minute to allow time to verify csv files
+		// get file count after export
+		int updatedFileCount = TestUtil.getFileCount();
+
+		// wait 1 second only if the file counts are still equal, then recheck the
+		// updated file count
+		while (updatedFileCount == initialFileCount) {
+			Thread.sleep(1000);
+			updatedFileCount = TestUtil.getFileCount();
+		}
+
+		// verify csv files
 		Calendar currentDateTime = Calendar.getInstance();
 		Date currentDate = new Date(currentDateTime.getTimeInMillis());
 		SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");

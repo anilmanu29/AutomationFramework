@@ -55,7 +55,20 @@ public class CarrierDownloadCSVFromScheduledPaymentsTest extends TestBase {
 	@Test(description = "LP-6628 LoadPay Carrier_DownloadCSVfrom_ScheduledPayments", dependsOnMethods = {
 			"verifyScheduledPaymentsTab" })
 	public void verifyDownloadCSVFile() throws InterruptedException {
+		// get file count before export
+		int initialFileCount = TestUtil.getFileCount();
+
 		carrierdownloadcsvfromscheduledpaymentsbj.clickExportButton();
+
+		// get file count after export
+		int updatedFileCount = TestUtil.getFileCount();
+
+		// wait 1 second only if the file counts are still equal, then recheck the
+		// updated file count
+		while (updatedFileCount == initialFileCount) {
+			Thread.sleep(1000);
+			updatedFileCount = TestUtil.getFileCount();
+		}
 
 		Calendar currentDateTime = Calendar.getInstance();
 		Date currentDate = new Date(currentDateTime.getTimeInMillis());

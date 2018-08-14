@@ -38,7 +38,7 @@ public class BrokerDownloadCSVFromScheduledPayments extends TestBase {
 
 	public void clickScheduledPaymetsTab() {
 		wait.until(ExpectedConditions.elementToBeClickable(scheduledpaymentstab));
-		js.executeScript("arguments[0].click();", scheduledpaymentstab);
+		scheduledpaymentstab.click();
 	}
 
 	public WebElement getExportButton() {
@@ -48,7 +48,8 @@ public class BrokerDownloadCSVFromScheduledPayments extends TestBase {
 
 	public void clickExportButton() {
 		wait.until(ExpectedConditions.elementToBeClickable(exportbutoon));
-		js.executeScript("arguments[0].click();", exportbutoon);
+		exportbutoon.click();
+
 	}
 
 }
