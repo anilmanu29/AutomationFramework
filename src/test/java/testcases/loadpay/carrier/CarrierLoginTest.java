@@ -53,6 +53,10 @@ public class CarrierLoginTest extends TestBase {
 					"Registration success message not found");
 			loginPage.clickConfirmationPopupCloseButton();
 		}
+
+		if (loginPage.getDonotshowagaincheckbox().isDisplayed()) {
+			loginPage.closePaymeNowPopUp();
+		}
 	}
 
 }

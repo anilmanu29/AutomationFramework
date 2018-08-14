@@ -1,6 +1,5 @@
 package pages.loadpay.carrier;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -46,6 +45,12 @@ public class CarrierLoginPage extends TestBase {
 
 	@FindBy(xpath = ("//a[contains(text(), 'Forgot Password?')]"))
 	WebElement forgotPassword;
+
+	@FindBy(xpath = "//input[contains(@ng-click, 'DoNotShowAutomaticPMNOptinChanged')]")
+	WebElement donotshowagaincheckbox;
+
+	@FindBy(xpath = "//button[text()='Save']")
+	WebElement savebutton;
 
 	// Initializing the Page Objects:
 	public CarrierLoginPage() {
@@ -125,8 +130,7 @@ public class CarrierLoginPage extends TestBase {
 		Password.sendKeys(pwd);
 		// loginBtn.click();
 		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", loginBtn);
+		loginBtn.click();
 	}
 
 	public void carrierVerificationLogin(String UserName, String NewPassword) {
@@ -135,8 +139,7 @@ public class CarrierLoginPage extends TestBase {
 		this.UserName.sendKeys(UserName);
 		Password.sendKeys(NewPassword);
 		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", loginBtn);
+		loginBtn.click();
 	}
 
 	public void CarrierLogout() {
@@ -152,6 +155,26 @@ public class CarrierLoginPage extends TestBase {
 	public void forgotPasswordButton() {
 		wait.until(ExpectedConditions.elementToBeClickable(forgotPassword));
 		forgotPassword.click();
+	}
+
+	public void closePaymeNowPopUp() {
+		try {
+			wait.until(ExpectedConditions.elementToBeClickable(donotshowagaincheckbox));
+			if (donotshowagaincheckbox.isDisplayed()) {
+				donotshowagaincheckbox.click();
+				wait.until(ExpectedConditions.elementToBeClickable(savebutton));
+				savebutton.click();
+			}
+		} catch (Exception e) {
+			log.info("Pop is NOT displayed");
+		}
+	}
+
+	/**
+	 * @return the donotshowagaincheckbox
+	 */
+	public WebElement getDonotshowagaincheckbox() {
+		return donotshowagaincheckbox;
 	}
 
 }
