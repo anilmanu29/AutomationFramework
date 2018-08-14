@@ -17,63 +17,39 @@
 		<class name="testcases.loadpay.broker.BrokerOutlookTest"></class>
 		<class name="testcases.loadpay.admin.AdminBrokerTest"></class>
 		<class name="testcases.loadpay.broker.BrokerLoginTest"></class>
-		<class name="testcases.loadpay.broker.BrokerBankingTest"></class>
-		<class name="testcases.loadpay.broker.BrokerBankAccountUpdateTest"></class>
-		<class name="testcases.loadpay.broker.ShipperSchedulePaymentTest"></class> 
-		<class name="testcases.loadpay.broker.ShipperAdvancePaymentTest"></class>
 		 
 
 		    	<!-- CARRIER REGRESSION TESTS -->
 		<!-- 		Carrier Register, Carrier Login -->
-		<!--         Broker New Payment (2 pamyments for carrier) -->
+		<!--         Broker New Payment (at least 5 pamyments for carrier) -->
 		<class name="testcases.loadpay.carrier.CarrierRegisterTest"></class>
 		<class name="testcases.loadpay.carrier.CarrierOutlookTest"></class>
 		<class name="testcases.loadpay.admin.AdminCarrierTest"></class>
 		<class name="testcases.loadpay.carrier.CarrierLoginTest"></class>
+				
 		<class name="testcases.loadpay.broker.BrokerNewPaymentTest"></class>
-		<class name="testcases.loadpay.carrier.CarrierWireTransferTest"></class>
-		<class name="testcases.loadpay.carrier.CarrierSchedulePaymentTest"></class>
+		
 		<class name="testcases.loadpay.carrier.CarrierSameDayACHTest"></class>
 		<class name="testcases.loadpay.carrier.CarrierNextDAYACHTest"></class>
-		<class name="testcases.loadpay.carrier.CarrierNotificationTest"></class>
 		<class name="testcases.loadpay.carrier.CarrierPayMeNowFuelCardTest"></class>
-		<class name="testcases.loadpay.carrier.CarrierPaidTabTest"></class>
-		<class name="testcases.loadpay.carrier.CarrierPayMeNowTabTest"></class>
-		<class name="testcases.loadpay.carrier.CarrierBankingTest"></class>
-
-		<!-- 		Broker/Carrier Register and login for Canada -->
-		<class name="testcases.loadpay.broker.BrokerRegisterCanadaTest"></class>
-		<class name="testcases.loadpay.broker.BrokerOutlookCanadaTest"></class>
-		<class name="testcases.loadpay.admin.AdminBrokerCanadaTest"></class>
-		<class name="testcases.loadpay.broker.BrokerCanadaFirstLoginTest"></class>	
-		<class name="testcases.loadpay.carrier.CarrierRegisterCanadaTest"></class>
-		<class name="testcases.loadpay.carrier.CarrierOutlookCanadaTest"></class>
-		<class name="testcases.loadpay.admin.AdminCarrierCanadaTest"></class>
-		<class name="testcases.loadpay.carrier.CarrierCanadaFirstLoginTest"></class>
+		<class name="testcases.loadpay.carrier.CarrierWireTransferTest"></class>
+		<class name="testcases.loadpay.admin.AdminPayByCheckTest"></class>
+	
+		<class name="testcases.loadpay.carrier.CarrierNotificationTest"></class>
+	
 		
 		
-			    <!--  Script for Jira Tickets LP-5421 UnmatchedCarrier-SAMEDAYACH      --> 
-	 	<class name="testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest"></class>
-	 	<class name="testcases.loadpay.unmatched.UnmatchedCarrierAdminPayByCheckTest"></class>
-   		<class name="testcases.loadpay.unmatched.UnmatchedCarrierOutlooksameDayTest"></class>
-	 	<class name="testcases.loadpay.unmatched.UnmatchedCariierEmailVerifyTest"></class>
-	 	<class name="testcases.loadpay.unmatched.UnmatchedCarrierAdminSameDayTest"></class>
-	 	<class name="testcases.loadpay.carrier.CarrierFirstLoginSameDayTest"></class>
-	 	<class name="testcases.loadpay.unmatched.UnmatchedCarrierSameDayACHTest"></class>
+		<class name="testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest"></class>
+		<class name="testcases.loadpay.unmatched.UnmatchedCarrierOutlookTest"></class>
+		<class name="testcases.loadpay.unmatched.UnmatchedCarrierAdminTest"></class>	
+		<class name="testcases.loadpay.unmatched.UnmatchedCarrierSameDayACHTest"></class>
+		<class name="testcases.loadpay.unmatched.UnmatchedCarrierNextDayACHTest"></class>
+		<class name="testcases.loadpay.unmatched.UnmatchedCarrierPayMeNowFuelCardTest"></class>
+		<class name="testcases.loadpay.unmatched.UnmatchedCarrierWireTransferTest"></class>
+		<class name="testcases.loadpay.unmatched.UnmatchedCarrierAdminPayByCheckTest"></class>
 		
-	  <!--   Script for Jira Tickets LP-5419 UnmatchedCarrier-WIRETRASFER    -->  
-	 	<class name="testcases.loadpay.unmatched.UnmatchedCarrierOutlookTest"></class>
-	 	<class name="testcases.loadpay.unmatched.UnmatchedCariierEmailVerifyWiretRansferTest"></class>
-	 	<class name="testcases.loadpay.unmatched.UnmatchedCarrierAdminTest"></class>
-	 	<class name="testcases.loadpay.carrier.CarrierFirstLoginTest"></class>
-	 	<class name="testcases.loadpay.unmatched.UnmatchedCarrierWireTransferTest"></class>
-		 	
 		
-		 	 
- 	  <!-- Script for Jira Tickets LP-5424  AdminPayByCheckBatchFile  Anil-->
-		<class name="testcases.loadpay.admin.AdminPayByCheckServiceBatchFileTest"></class>
-		 	
-
+		<class name="testcases.loadpay.carrier.CarrierParentChildRelationshipsTest"></class>
 		
     </classes>
   </test> 
