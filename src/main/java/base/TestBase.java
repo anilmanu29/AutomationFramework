@@ -355,6 +355,18 @@ public class TestBase {
 		return read.getCellData(loadPayTestDataFilePath, "CarrierUpdatePaymentData");
 	}
 
+	@DataProvider
+	public Object[][] getAdminPaymentsGreaterthan45Days() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "AdminPaymentsGreaterthan45Days");
+	}
+
+	@DataProvider
+	public Object[][] getpayementmorethan45daysData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "payementmorethan45daysData");
+	}
+
 	@AfterClass
 	public void quit() {
 		log.info("END TEST\n\n");
