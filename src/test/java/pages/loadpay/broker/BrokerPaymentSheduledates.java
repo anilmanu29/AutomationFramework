@@ -21,7 +21,7 @@ public class BrokerPaymentSheduledates extends TestBase {
 	String scheduleamt;
 
 	@FindBy(xpath = "//a[text()='New Payment']")
-	private WebElement lnk_newpayment;
+	public WebElement lnk_newpayment;
 
 	@FindBy(xpath = "//div[@class='total ng-scope notlast col-sm-6']//child::span[1]")
 	private WebElement tab_shedulepayment;

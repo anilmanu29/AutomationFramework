@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -16,6 +18,7 @@ import util.TestUtil;
 public class CarrierDownloadCSVFromScheduledPaymentsTest extends TestBase {
 
 	CarrierDownloadCSVFromScheduledPayments carrierdownloadcsvfromscheduledpaymentsbj;
+	String expectedFileName = "";
 
 	/*-------Initializing driver---------*/
 	public CarrierDownloadCSVFromScheduledPaymentsTest() {
@@ -76,11 +79,18 @@ public class CarrierDownloadCSVFromScheduledPaymentsTest extends TestBase {
 		SimpleDateFormat monthFormat = new SimpleDateFormat("MM");
 		SimpleDateFormat dayFormat = new SimpleDateFormat("dd");
 
-		Assert.assertTrue(
-				TestUtil.verifyFileDownload("CarrierPaymentsExport-" + monthFormat.format(currentDate) + "-"
-						+ dayFormat.format(currentDate) + "-" + yearFormat.format(currentDate) + ".csv"),
-				"CSV download not found!");
+		expectedFileName = "CarrierPaymentsExport-" + monthFormat.format(currentDate) + "-"
+				+ dayFormat.format(currentDate) + "-" + yearFormat.format(currentDate) + ".csv";
 
+		Assert.assertTrue(TestUtil.verifyFileDownload(expectedFileName), "CSV download not found!");
+
+	}
+
+	/*-------Verify CSV file contents ---------*/
+	@Test(description = "LP-6628 LoadPay Carrier_VerifyCSVContents", dependsOnMethods = { "verifyDownloadCSVFile" })
+	public void verifyCsvContents() throws InterruptedException, InvalidFormatException, IOException {
+		List<String[]> dataArray = TestUtil.getCsvContents(expectedFileName,
+				expectedFileName.substring(0, expectedFileName.length() - 4));
 	}
 
 }

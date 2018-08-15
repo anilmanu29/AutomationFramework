@@ -32,7 +32,7 @@ public class CarrierSameDAYACH extends TestBase {
 	float paymenowf;
 
 	@FindBy(xpath = "//*[@class='getpaid']")
-	private WebElement btn_paymenow;
+	public WebElement btn_paymenow;
 
 	@FindBy(xpath = "//*[@id='paymentOptionsDiv']/div[1]/div[1]/div[7]/span/text()[4]//following::*[@value='Select'][1]")
 	private WebElement btn_selectsamedayach;
