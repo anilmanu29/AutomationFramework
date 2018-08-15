@@ -182,6 +182,7 @@ public class AdminLogin extends TestBase {
 
 	public void Clickclosenotesbutton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(closenotesbutton));
+		Thread.sleep(2000);
 		closenotesbutton.click();
 
 	}
@@ -224,19 +225,32 @@ public class AdminLogin extends TestBase {
 		CreditSubmit.click();
 	}
 
-	public void select_greaterThan45daysId() throws InterruptedException {
+	public void selectGreaterThan45daysId_Enabled() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(selectgreaterThan45daysId));
 		selectgreaterThan45daysId.click();
 		Select pay = new Select(selectgreaterThan45daysId);
 		pay.selectByVisibleText("Enabled");
 	}
 
-	public void selectgreaterThan45daysId() throws InterruptedException {
+	public void selectGreaterThan45daysId_Disabled() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(selectgreaterThan45daysId));
 		selectgreaterThan45daysId.click();
 		Select pay = new Select(selectgreaterThan45daysId);
 		pay.selectByVisibleText("Disabled");
 	}
+
+	// public void selectGreaterThan45daysId(Boolean enabled) throws
+	// InterruptedException {
+	// wait.until(ExpectedConditions.elementToBeClickable(selectgreaterThan45daysId));
+	// selectgreaterThan45daysId.click();
+	// Select pay = new Select(selectgreaterThan45daysId);
+	//
+	// if (enabled) {
+	// pay.selectByVisibleText("Enabled");
+	// } else {
+	// pay.selectByVisibleText("Disabled");
+	// }
+	// }
 
 	public void EnterExtendedCredit(String CreditAmount) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(ExtendedCredit));

@@ -3,10 +3,13 @@ package util;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -15,6 +18,8 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+
+import com.opencsv.CSVReader;
 
 import base.TestBase;
 
@@ -25,6 +30,7 @@ public class TestUtil extends TestBase {
 	public static final String TESTDATA_SHEET_PATH = System.getProperty(userDirectory)
 			+ "/src/main/java/testdata/LoadPay/LoadPayTestData.xlsx";
 
+	public static String downloadsPath = System.getProperty(userHome) + "\\Downloads";
 	Workbook book;
 	Sheet sheet;
 
@@ -146,13 +152,39 @@ public class TestUtil extends TestBase {
 
 	public static Integer getFileCount() {
 		int fileCount = 0;
-		String path = System.getProperty(userHome) + "\\Downloads";
 
-		File folder = new File(path);
+		File folder = new File(downloadsPath);
 		File[] files = folder.listFiles();
 		fileCount = files.length;
 
 		return fileCount;
 	}
 
+	public static List<String[]> getCsvContents(String filePath, String worksheetName) throws IOException {
+
+		CSVReader csvReader = null;
+		List<String[]> list = null;
+		String fullPath = downloadsPath + "\\" + filePath;
+
+		try {
+			csvReader = new CSVReader(new FileReader(fullPath));
+			list = csvReader.readAll();
+
+			log.info("\n\n==============CSV CONTENTS====================");
+
+			for (int i = 0; i < list.size(); i++) {
+				log.info(Arrays.toString(list.get(i)));
+			}
+
+			log.info("\n==============================================\n");
+
+		} catch (FileNotFoundException e) {
+			log.info(e);
+		} finally {
+			if (csvReader != null)
+				csvReader.close();
+		}
+
+		return list;
+	}
 }
