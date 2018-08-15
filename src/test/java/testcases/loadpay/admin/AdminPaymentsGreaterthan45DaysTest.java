@@ -173,7 +173,7 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 		admLogin.Link_PayMeNowTm();
 		admLogin.clickuncheckpaymennow();
 		admLogin.ClickUpdatepaymenow();
-		admLogin.ClickCloseButon();
+		// admLogin.ClickCloseButon();
 		admLogin.AdminLogOut();
 		log.info("Verify Customer tab Link Passed");
 	}

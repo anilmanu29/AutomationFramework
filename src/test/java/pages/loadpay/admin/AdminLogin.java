@@ -171,19 +171,21 @@ public class AdminLogin extends TestBase {
 	public void Click_paymentterm45Submit() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(Clickpaymentterm45Submit));
 		Clickpaymentterm45Submit.click();
+		Thread.sleep(1000);
 
 	}
 
 	public void Clickverifysystemnote() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(verifysystemnote));
 		verifysystemnote.click();
+		Thread.sleep(1000);
 
 	}
 
 	public void Clickclosenotesbutton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(closenotesbutton));
-		Thread.sleep(2000);
 		closenotesbutton.click();
+		Thread.sleep(1000);
 
 	}
 
@@ -286,24 +288,25 @@ public class AdminLogin extends TestBase {
 	public void ClickUpdatepaymenow() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(Update_paymenow));
 		Update_paymenow.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 	}
 
 	public void ClickCloseButon() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CloseButon));
 		CloseButon.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 	}
 
 	public void ClickPaymentTerms() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(PaymentTerms));
-		Thread.sleep(2000);
 		PaymentTerms.click();
+		Thread.sleep(1000);
 	}
 
 	public void Click_Notes() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(clickNotes));
 		clickNotes.click();
+		Thread.sleep(1000);
 	}
 
 	public void ClickCancelSendEmailToVerify() throws InterruptedException {
