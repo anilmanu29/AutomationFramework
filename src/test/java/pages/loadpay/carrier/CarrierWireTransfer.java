@@ -107,7 +107,7 @@ public class CarrierWireTransfer extends TestBase {
 	}
 
 	public void clickConfirmButton() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(btn_confirm));
+		// wait.until(ExpectedConditions.elementToBeClickable(btn_confirm));
 		Thread.sleep(1000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_confirm);
