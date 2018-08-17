@@ -174,7 +174,7 @@ public class CarrierDisableCopyPasteConfirmBankAccount extends TestBase {
 			clearTextField(getAccountNumberField());
 			carrierbankingobj.enterAccountNumber(accnum);
 			copyBankAccountNumber(getAccountNumberField());
-			Thread.sleep(1000);
+			// Thread.sleep(1000);
 			pasteBankAccountNumber(getConfirmAccountNumberField());
 			Assert.assertEquals(getConfirmAccountNumber(), "", "Copy/paste is happening");
 			if (button_save.isEnabled()) {
