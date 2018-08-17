@@ -12,21 +12,20 @@
     
     <!-- Script for Jira Ticket LP-6627-LoadPay-Broker-Download .CSV from Scheduled Payments -->
     
-		<class name="testcases.loadpay.broker.BrokerDownloadCSVFromScheduledPaymentsTest"></class>
+		<!-- <class name="testcases.loadpay.broker.BrokerDownloadCSVFromScheduledPaymentsTest"></class> -->
 		
 	<!-- Script for Jira Ticket LP-6628-LoadPay-Carrier-Download .CSV from Scheduled Payments -->
     
-		<class name="testcases.loadpay.carrier.CarrierDownloadCSVFromScheduledPaymentsTest"></class>
+		<!-- <class name="testcases.loadpay.carrier.CarrierDownloadCSVFromScheduledPaymentsTest"></class> -->
 		
 	<!-- Script for Jira Ticket LP-6621-LoadPay - Selenium Test - Admin - Payments Greater than 45 Days -->
     
-		<class name="testcases.loadpay.admin.AdminPaymentsGreaterthan45DaysTest"></class>
+		<!-- <class name="testcases.loadpay.admin.AdminPaymentsGreaterthan45DaysTest"></class> -->
 		
 	<!-- Script for Jira Ticket LP-6366-LoadPay - Selenium Test - Carrier - Disable copy / paste functionality for add and confirm bank account -->
     
 		<class name="testcases.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccountTest"></class>
 		
-  
     </classes>
   </test> 
 </suite> 
