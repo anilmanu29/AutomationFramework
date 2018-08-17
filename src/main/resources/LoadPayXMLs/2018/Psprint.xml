@@ -22,6 +22,9 @@
     
 		<class name="testcases.loadpay.admin.AdminPaymentsGreaterthan45DaysTest"></class>
 		
+	<!-- Script for Jira Ticket LP-6366-LoadPay - Selenium Test - Carrier - Disable copy / paste functionality for add and confirm bank account -->
+    
+		<class name="testcases.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccountTest"></class>
 		
   
     </classes>
