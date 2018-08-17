@@ -26,6 +26,7 @@
     
 		<class name="testcases.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccountTest"></class>
 		
+		
     </classes>
   </test> 
 </suite> 
