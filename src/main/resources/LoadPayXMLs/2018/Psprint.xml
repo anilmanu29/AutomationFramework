@@ -12,11 +12,11 @@
     
     <!-- Script for Jira Ticket LP-6627-LoadPay-Broker-Download .CSV from Scheduled Payments -->
     
-		<class name="testcases.loadpay.broker.BrokerDownloadCSVFromScheduledPaymentsTest"></class>
+		<!-- <class name="testcases.loadpay.broker.BrokerDownloadCSVFromScheduledPaymentsTest"></class> -->
 		
 	<!-- Script for Jira Ticket LP-6628-LoadPay-Carrier-Download .CSV from Scheduled Payments -->
     
-		<class name="testcases.loadpay.carrier.CarrierDownloadCSVFromScheduledPaymentsTest"></class>
+		<!-- <class name="testcases.loadpay.carrier.CarrierDownloadCSVFromScheduledPaymentsTest"></class> -->
 		
 	<!-- Script for Jira Ticket LP-6621-LoadPay - Selenium Test - Admin - Payments Greater than 45 Days -->
     

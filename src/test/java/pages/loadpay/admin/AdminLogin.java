@@ -115,7 +115,7 @@ public class AdminLogin extends TestBase {
 	@FindBy(xpath = "//a[contains(@class,'ng-binding')]")
 	public WebElement DoubleClickID;
 
-	@FindBy(xpath = ".//*[@id='CustomerStatusId']")
+	@FindBy(id = "CustomerStatusId")
 	WebElement CustomersatatusIdDropDown;
 
 	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[7]")
