@@ -26,9 +26,13 @@
     
 		<class name="testcases.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccountTest"></class> 
 
-		<!-- Script for Jira Ticket LP-3494-LoadPay-Admin-Daily NACHA Payments File -->
+	<!-- Script for Jira Ticket LP-3494-LoadPay-Admin-Daily NACHA Payments File -->
     
 		<!-- <class name="testcases.loadpay.admin.AdminDailyNACHAPaymentsFileTest"></class> -->
+		
+	<!-- Script for Jira Ticket LP-6228-LoadPay-Admin-Customer Side Menu Search-->
+    
+		<!-- <class name="testcases.loadpay.admin.AdminCustomersSideMenuSearchTest"></class> -->
 	
     </classes>
   </test> 
