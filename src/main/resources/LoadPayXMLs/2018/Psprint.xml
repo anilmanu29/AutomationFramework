@@ -21,26 +21,15 @@
 	<!-- Script for Jira Ticket LP-6621-LoadPay - Selenium Test - Admin - Payments Greater than 45 Days -->
     
 		<!-- <class name="testcases.loadpay.admin.AdminPaymentsGreaterthan45DaysTest"></class> -->
-<<<<<<< HEAD
-=======
-		
+
 	<!-- Script for Jira Ticket LP-6366-LoadPay - Selenium Test - Carrier - Disable copy / paste functionality for add and confirm bank account -->
     
 		<class name="testcases.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccountTest"></class>
->>>>>>> branch 'Local_FrameWork_Shantesh' of https://git.truckstop.com/testing/SeleniumFramework.git
-		
-	<!-- Script for Jira Ticket LP-6366-LoadPay - Selenium Test - Carrier - Disable copy / paste functionality for add and confirm bank account -->
-    
-	<!-- <class name="testcases.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccountTest"></class> -->
-		
-<<<<<<< HEAD
+
 		<!-- Script for Jira Ticket LP-3494-LoadPay-Admin-Daily NACHA Payments File -->
     
 		<class name="testcases.loadpay.admin.AdminDailyNACHAPaymentsFileTest"></class>
-			
 	
-=======
->>>>>>> branch 'Local_FrameWork_Shantesh' of https://git.truckstop.com/testing/SeleniumFramework.git
     </classes>
   </test> 
 </suite> 
