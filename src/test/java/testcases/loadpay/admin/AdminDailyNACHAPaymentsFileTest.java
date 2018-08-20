@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -62,7 +64,7 @@ public class AdminDailyNACHAPaymentsFileTest extends TestBase {
 	/*-------Verify CSV file Downloads ---------*/
 	@Test(description = "LP-3494 LoadPay Admin_Daily_NACHA_Payments_File", dependsOnMethods = {
 			"verifyDailyNACHAPaymentFilesTest" })
-	public void verifyDownloadCSVFile() throws InterruptedException, IOException {
+	public void verifyDownloadCSVFileTest() throws InterruptedException, IOException {
 
 		{
 			// get file count before export
@@ -89,9 +91,20 @@ public class AdminDailyNACHAPaymentsFileTest extends TestBase {
 			SimpleDateFormat dayFormat = new SimpleDateFormat("dd");
 
 			expectedFileName = monthFormat.format(currentDate) + "-" + dayFormat.format(currentDate) + "-"
-					+ yearFormat.format(currentDate) + "_NACHAPaymentFile";
+					+ yearFormat.format(currentDate) + "_NACHAPaymentFile_"
+					+ admindailynachapaymentsfileobj.getNACHAID() + ".csv";
 			Assert.assertTrue(TestUtil.verifyFileDownload(expectedFileName), "CSV download not found!");
 			log.info("verifyDownloadCSVFile - Passed");
 		}
+
+	}
+
+	/*-------Verify CSV file contents ---------*/
+	@Test(description = "LP-3494 LoadPay Admin_Daily_NACHA_Payments_File", dependsOnMethods = {
+			"verifyDownloadCSVFileTest" })
+	public void verifyCsvContents() throws InterruptedException, InvalidFormatException, IOException {
+		List<String[]> dataArray = TestUtil.getCsvContents(expectedFileName,
+				expectedFileName.substring(0, expectedFileName.length() - 4));
+		log.info("verifyCsvContents - Passed");
 	}
 }

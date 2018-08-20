@@ -15,6 +15,8 @@ public class AdminDailyNACHAPaymentsFile extends TestBase {
 	BrokerLoginPage brokerLoginObj;
 	int mincount = 0;
 	int maxcount = 30;
+	String nachaname = "";
+	String nachaid = "";
 
 	@FindBy(xpath = "//*[@class='carrierPayment ng-scope']/div/div[5]/div")
 	List<WebElement> List_payment;
@@ -75,6 +77,12 @@ public class AdminDailyNACHAPaymentsFile extends TestBase {
 			// Thread.sleep(1000);
 			log.info("Spinner image is displayed");
 		}
+	}
+
+	public String getNACHAID() {
+		nachaname = filebutton.getText();
+		nachaid = nachaname.substring(3, 6);
+		return nachaid;
 	}
 
 	public WebElement getDownloadCSVLink() {
