@@ -14,19 +14,11 @@ import base.TestBase;
 import pages.loadpay.admin.AdminDailyNACHAPaymentsFile;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
-import pages.loadpay.broker.BrokerNewPayment;
-import pages.loadpay.broker.BrokerNotifications;
-import pages.loadpay.carrier.CarrierLoginPage;
-import pages.loadpay.carrier.CarrierNextDAYACH;
 import util.TestUtil;
 
 public class AdminDailyNACHAPaymentsFileTest extends TestBase {
 
 	AdminDailyNACHAPaymentsFile admindailynachapaymentsfileobj;
-	BrokerNewPayment brokernepaymentobj;
-	CarrierNextDAYACH carriernextdayachobj;
-	CarrierLoginPage carrierloginobj;
-	BrokerNotifications brokernotificationsobj;
 	AdminHomePage adminhomepage;
 	AdminLogin adminloginobj;
 	String expectedFileName = "";
@@ -40,10 +32,6 @@ public class AdminDailyNACHAPaymentsFileTest extends TestBase {
 	public void setUp() throws IOException {
 		initialization();
 		admindailynachapaymentsfileobj = new AdminDailyNACHAPaymentsFile();
-		brokernepaymentobj = new BrokerNewPayment();
-		carriernextdayachobj = new CarrierNextDAYACH();
-		carrierloginobj = new CarrierLoginPage();
-		brokernotificationsobj = new BrokerNotifications();
 		adminhomepage = new AdminHomePage();
 		adminloginobj = new AdminLogin();
 	}

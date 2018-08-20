@@ -23,7 +23,6 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 	CarrierRegisterCanada carrierregisterobj;
 	CarrierDisableCopyPasteConfirmBankAccount carrierdisablecopypasteconfirmbankaccountobj;
 	CarrierBanking carrierbankingobj;
-	Select typeofentity;
 	JavascriptExecutor js;
 
 	/*-------Initializing driver---------*/
@@ -93,6 +92,7 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 		Assert.assertTrue(
 				carrierdisablecopypasteconfirmbankaccountobj.geterrorMessage().contains("Account Number do not match"),
 				"ValidationMessage NOT found");
+		log.info("verifyCopyPasteConfirmBankAccountFieldforRegisterTest - Passed");
 
 	}
 
@@ -102,6 +102,7 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 			String accnumber, String confirmaccnumber) throws InterruptedException {
 		driver.get(prop.getProperty("url"));
 		carrierloginobj.Carrierlogin(carrieremail, password);
+		log.info("carrierLoginTest - Passed");
 	}
 
 	/*-------Verify Copy/Paste functionality for confirm bank account field for Carrier First Login---------*/
@@ -126,18 +127,20 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 		Assert.assertTrue(!carrierdisablecopypasteconfirmbankaccountobj.getNextButton().isEnabled(),
 				"Next button is enabled");
 		carrierloginobj.CarrierLogout();
+		log.info("verifyCopyPasteConfirmBankAccountFieldforExistingCarrierTest - Passed");
 	}
 
 	/*-------carrier login test---------*/
 	@Test(description = "LP-6366 LoadPay Carrier_Disable_copy/paste_functionality_for_add_and_confirmbankaccount", dataProvider = "getCarrierLoginData", dependsOnMethods = "verifyCopyPasteConfirmBankAccountFieldforExistingCarrierTest")
 	public void carrierLogin(String username, String password) throws InterruptedException, IOException {
 		carrierloginobj.Carrierlogin(username, password);
+		log.info("carrierLogin - Passed");
 	}
 
 	/*-------Verify Copy/Paste functionality for confirm bank account field for Adding Bank Account---------*/
 	@Test(description = "LP-6366 LoadPay Carrier_Disable_copy/paste_functionality_for_add_and_confirmbankaccount", dataProvider = "getCarrierBankingData", dependsOnMethods = "carrierLogin")
-	public void verifyCopyPasteBankAccountNumberinaddinBankAccountTest(String accname, String routingnum, String accnum,
-			String confirmaccnum) throws InterruptedException {
+	public void verifyCopyPasteBankAccountNumberinaddingBankAccountTest(String accname, String routingnum,
+			String accnum, String confirmaccnum) throws InterruptedException {
 		carrierbankingobj.clickAccountlink();
 		carrierbankingobj.clickBankingLink();
 		carrierbankingobj.clickAddNewBankAccountLink();
@@ -146,6 +149,7 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 				"Copy/paste is happening");
 		Assert.assertTrue(!carrierdisablecopypasteconfirmbankaccountobj.getSavebuton().isEnabled(),
 				"Save button is enabled");
+		log.info("verifyCopyPasteBankAccountNumberinaddingBankAccountTest - Passed");
 	}
 
 }

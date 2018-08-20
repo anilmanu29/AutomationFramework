@@ -9,7 +9,6 @@ import java.util.List;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,7 +19,6 @@ import base.TestBase;
 
 public class CarrierDisableCopyPasteConfirmBankAccount extends TestBase {
 
-	Actions act = null;
 	JavascriptExecutor js;
 	Robot robot;
 	CarrierBanking carrierbankingobj;
@@ -66,7 +64,6 @@ public class CarrierDisableCopyPasteConfirmBankAccount extends TestBase {
 		PageFactory.initElements(driver, this);
 		js = (JavascriptExecutor) driver;
 		wait = new WebDriverWait(driver, 30);
-		act = new Actions(driver);
 		robot = new Robot();
 		carrierbankingobj = new CarrierBanking();
 	}
@@ -182,9 +179,7 @@ public class CarrierDisableCopyPasteConfirmBankAccount extends TestBase {
 			} else {
 				Assert.assertTrue(!button_save.isEnabled(), "Save button is Disabled");
 			}
-
 		}
-
 	}
 
 	public void verifyCopyPasteforTypeofAccount() throws InterruptedException {
@@ -202,9 +197,7 @@ public class CarrierDisableCopyPasteConfirmBankAccount extends TestBase {
 			} else {
 				Assert.assertTrue(!button_submit.isEnabled(), "Submit button is Disabled");
 			}
-
 		}
-
 	}
 
 	public void verifyCopyPastefornrokerTypeofAccount(String accname, String routingnum, String accnum)
