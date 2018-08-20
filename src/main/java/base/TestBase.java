@@ -309,6 +309,12 @@ public class TestBase {
 	}
 
 	@DataProvider
+	public Object[][] getCarrierBankAccountData() throws InvalidFormatException, IOException {
+		ReadExcel read = new ReadExcel();
+		return read.getCellData(loadPayTestDataFilePath, "CarrierBankAccountDetails");
+	}
+
+	@DataProvider
 	public Object[][] getRTFLogindata() throws InvalidFormatException, IOException {
 		ReadExcel read = new ReadExcel();
 		return read.getCellData(loadPayTestDataFilePath, "RTFLogin");

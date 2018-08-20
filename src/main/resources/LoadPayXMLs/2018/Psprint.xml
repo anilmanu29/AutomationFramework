@@ -20,10 +20,16 @@
 		
 	<!-- Script for Jira Ticket LP-6621-LoadPay - Selenium Test - Admin - Payments Greater than 45 Days -->
     
-		<class name="testcases.loadpay.admin.AdminPaymentsGreaterthan45DaysTest"></class>
-		
-		
-  
+		<!-- <class name="testcases.loadpay.admin.AdminPaymentsGreaterthan45DaysTest"></class> -->
+
+	<!-- Script for Jira Ticket LP-6366-LoadPay - Carrier - Disable copy / paste functionality for add and confirm bank account -->
+    
+		<class name="testcases.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccountTest"></class> 
+
+		<!-- Script for Jira Ticket LP-3494-LoadPay-Admin-Daily NACHA Payments File -->
+    
+		<!-- <class name="testcases.loadpay.admin.AdminDailyNACHAPaymentsFileTest"></class> -->
+	
     </classes>
   </test> 
 </suite> 

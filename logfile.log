@@ -758,3 +758,943 @@
 2018-08-17 00:07:46,783 INFO  [Logger] END TEST
 
  
+2018-08-17 15:01:14,142 INFO  [Logger] Selecting browser type from configuration properties 
+2018-08-17 15:01:24,442 INFO  [Logger] Trying to find Element By : By.xpath: //a[text()='Sign Up'] 
+2018-08-17 15:01:24,474 INFO  [Logger] Found Element By : By.xpath: //a[text()='Sign Up'] 
+2018-08-17 15:01:24,542 INFO  [Logger] Trying to find Element By : By.xpath: //a[text()='Sign Up'] 
+2018-08-17 15:01:24,583 INFO  [Logger] Found Element By : By.xpath: //a[text()='Sign Up'] 
+2018-08-17 15:01:24,594 INFO  [Logger] Trying to find Element By : By.xpath: //a[text()='Sign Up'] 
+2018-08-17 15:01:24,631 INFO  [Logger] Found Element By : By.xpath: //a[text()='Sign Up'] 
+2018-08-17 15:01:24,631 INFO  [Logger] Trying to click on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //a[text()='Sign Up']] 
+2018-08-17 15:01:25,943 INFO  [Logger] Clicked on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //a[text()='Sign Up']] 
+2018-08-17 15:01:25,943 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='angularScope']/div[2]/div[3]/div/button[1] 
+2018-08-17 15:01:25,983 INFO  [Logger] Found Element By : By.xpath: .//*[@id='angularScope']/div[2]/div[3]/div/button[1] 
+2018-08-17 15:01:26,010 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='angularScope']/div[2]/div[3]/div/button[1] 
+2018-08-17 15:01:26,067 INFO  [Logger] Found Element By : By.xpath: .//*[@id='angularScope']/div[2]/div[3]/div/button[1] 
+2018-08-17 15:01:26,091 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='angularScope']/div[2]/div[3]/div/button[1] 
+2018-08-17 15:01:26,121 INFO  [Logger] Found Element By : By.xpath: .//*[@id='angularScope']/div[2]/div[3]/div/button[1] 
+2018-08-17 15:01:26,122 INFO  [Logger] Trying to click on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: .//*[@id='angularScope']/div[2]/div[3]/div/button[1]] 
+2018-08-17 15:01:26,184 INFO  [Logger] Clicked on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: .//*[@id='angularScope']/div[2]/div[3]/div/button[1]] 
+2018-08-17 15:01:26,184 INFO  [Logger] Trying to find Element By : By.id: Name 
+2018-08-17 15:01:26,217 INFO  [Logger] Found Element By : By.id: Name 
+2018-08-17 15:01:26,233 INFO  [Logger] Trying to find Element By : By.id: Name 
+2018-08-17 15:01:26,242 INFO  [Logger] Found Element By : By.id: Name 
+2018-08-17 15:01:26,253 INFO  [Logger] Trying to find Element By : By.id: Name 
+2018-08-17 15:01:26,262 INFO  [Logger] Found Element By : By.id: Name 
+2018-08-17 15:01:26,262 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: Name] 
+2018-08-17 15:01:26,283 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: Name] 
+2018-08-17 15:01:26,283 INFO  [Logger] Trying to find Element By : By.id: Name 
+2018-08-17 15:01:26,294 INFO  [Logger] Found Element By : By.id: Name 
+2018-08-17 15:01:26,295 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: Name] 
+2018-08-17 15:01:26,471 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: Name] 
+2018-08-17 15:01:26,472 INFO  [Logger] Trying to find Element By : By.id: DoingBusinessAs 
+2018-08-17 15:01:26,502 INFO  [Logger] Found Element By : By.id: DoingBusinessAs 
+2018-08-17 15:01:26,521 INFO  [Logger] Trying to find Element By : By.id: DoingBusinessAs 
+2018-08-17 15:01:26,530 INFO  [Logger] Found Element By : By.id: DoingBusinessAs 
+2018-08-17 15:01:26,542 INFO  [Logger] Trying to find Element By : By.id: DoingBusinessAs 
+2018-08-17 15:01:26,551 INFO  [Logger] Found Element By : By.id: DoingBusinessAs 
+2018-08-17 15:01:26,552 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: DoingBusinessAs] 
+2018-08-17 15:01:26,574 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: DoingBusinessAs] 
+2018-08-17 15:01:26,575 INFO  [Logger] Trying to find Element By : By.id: DoingBusinessAs 
+2018-08-17 15:01:26,584 INFO  [Logger] Found Element By : By.id: DoingBusinessAs 
+2018-08-17 15:01:26,585 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: DoingBusinessAs] 
+2018-08-17 15:01:26,651 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: DoingBusinessAs] 
+2018-08-17 15:01:26,651 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='EntityType'] 
+2018-08-17 15:01:26,669 INFO  [Logger] Found Element By : By.xpath: .//*[@id='EntityType'] 
+2018-08-17 15:01:26,687 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='EntityType'] 
+2018-08-17 15:01:26,698 INFO  [Logger] Found Element By : By.xpath: .//*[@id='EntityType'] 
+2018-08-17 15:01:26,712 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='EntityType'] 
+2018-08-17 15:01:26,722 INFO  [Logger] Found Element By : By.xpath: .//*[@id='EntityType'] 
+2018-08-17 15:01:26,722 INFO  [Logger] Trying to click on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: .//*[@id='EntityType']] 
+2018-08-17 15:01:26,809 INFO  [Logger] Clicked on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: .//*[@id='EntityType']] 
+2018-08-17 15:01:26,811 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='EntityType'] 
+2018-08-17 15:01:26,822 INFO  [Logger] Found Element By : By.xpath: .//*[@id='EntityType'] 
+2018-08-17 15:01:26,839 INFO  [Logger] Trying to find Element By : By.xpath: .//option[normalize-space(.) = "C Corporation"] 
+2018-08-17 15:01:26,859 INFO  [Logger] Found Element By : By.xpath: .//option[normalize-space(.) = "C Corporation"] 
+2018-08-17 15:01:26,874 INFO  [Logger] Trying to click on: [[[[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: .//*[@id='EntityType']]] -> xpath: .//option[normalize-space(.) = "C Corporation"]] 
+2018-08-17 15:01:26,917 INFO  [Logger] Clicked on: [[[[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: .//*[@id='EntityType']]] -> xpath: .//option[normalize-space(.) = "C Corporation"]] 
+2018-08-17 15:01:26,917 INFO  [Logger] Trying to find Element By : By.id: IncorporationCountry 
+2018-08-17 15:01:26,938 INFO  [Logger] Found Element By : By.id: IncorporationCountry 
+2018-08-17 15:01:26,948 INFO  [Logger] Trying to find Element By : By.id: IncorporationCountry 
+2018-08-17 15:01:26,957 INFO  [Logger] Found Element By : By.id: IncorporationCountry 
+2018-08-17 15:01:26,965 INFO  [Logger] Trying to find Element By : By.id: IncorporationState 
+2018-08-17 15:01:26,982 INFO  [Logger] Found Element By : By.id: IncorporationState 
+2018-08-17 15:01:26,988 INFO  [Logger] Trying to find Element By : By.id: IncorporationState 
+2018-08-17 15:01:26,997 INFO  [Logger] Found Element By : By.id: IncorporationState 
+2018-08-17 15:01:27,004 INFO  [Logger] Trying to find Element By : By.id: IncorporationCountry 
+2018-08-17 15:01:27,013 INFO  [Logger] Found Element By : By.id: IncorporationCountry 
+2018-08-17 15:01:27,013 INFO  [Logger] Trying to find Element By : By.tagName: option 
+2018-08-17 15:01:27,029 INFO  [Logger] Found Element By : By.tagName: option 
+2018-08-17 15:01:27,071 INFO  [Logger] Trying to find Element By : By.id: IncorporationCountry 
+2018-08-17 15:01:27,081 INFO  [Logger] Found Element By : By.id: IncorporationCountry 
+2018-08-17 15:01:27,081 INFO  [Logger] Trying to find Element By : By.xpath: .//option[normalize-space(.) = "Canada"] 
+2018-08-17 15:01:27,099 INFO  [Logger] Found Element By : By.xpath: .//option[normalize-space(.) = "Canada"] 
+2018-08-17 15:01:27,112 INFO  [Logger] Trying to click on: [[[[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: IncorporationCountry]] -> xpath: .//option[normalize-space(.) = "Canada"]] 
+2018-08-17 15:01:27,151 INFO  [Logger] Clicked on: [[[[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: IncorporationCountry]] -> xpath: .//option[normalize-space(.) = "Canada"]] 
+2018-08-17 15:01:27,151 INFO  [Logger] Trying to find Element By : By.id: IncorporationState 
+2018-08-17 15:01:27,160 INFO  [Logger] Found Element By : By.id: IncorporationState 
+2018-08-17 15:01:27,161 INFO  [Logger] Trying to find Element By : By.xpath: .//option[normalize-space(.) = "Yukon"] 
+2018-08-17 15:01:27,420 INFO  [Logger] Found Element By : By.xpath: .//option[normalize-space(.) = "Yukon"] 
+2018-08-17 15:01:27,434 INFO  [Logger] Trying to click on: [[[[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: IncorporationState]] -> xpath: .//option[normalize-space(.) = "Yukon"]] 
+2018-08-17 15:01:27,472 INFO  [Logger] Clicked on: [[[[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: IncorporationState]] -> xpath: .//option[normalize-space(.) = "Yukon"]] 
+2018-08-17 15:01:27,504 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='Registration_User_UserName'] 
+2018-08-17 15:01:27,523 INFO  [Logger] Found Element By : By.xpath: .//*[@id='Registration_User_UserName'] 
+2018-08-17 15:01:27,542 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='Registration_User_UserName'] 
+2018-08-17 15:01:27,553 INFO  [Logger] Found Element By : By.xpath: .//*[@id='Registration_User_UserName'] 
+2018-08-17 15:01:27,565 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='Registration_User_UserName'] 
+2018-08-17 15:01:27,574 INFO  [Logger] Found Element By : By.xpath: .//*[@id='Registration_User_UserName'] 
+2018-08-17 15:01:27,574 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: .//*[@id='Registration_User_UserName']] 
+2018-08-17 15:01:27,599 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: .//*[@id='Registration_User_UserName']] 
+2018-08-17 15:01:27,599 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='Registration_User_UserName'] 
+2018-08-17 15:01:27,609 INFO  [Logger] Found Element By : By.xpath: .//*[@id='Registration_User_UserName'] 
+2018-08-17 15:01:27,609 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: .//*[@id='Registration_User_UserName']] 
+2018-08-17 15:01:27,821 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: .//*[@id='Registration_User_UserName']] 
+2018-08-17 15:01:27,822 INFO  [Logger] Trying to find Element By : By.xpath:  .//*[@id='Registration_User_UserNameConfirm'] 
+2018-08-17 15:01:27,841 INFO  [Logger] Found Element By : By.xpath:  .//*[@id='Registration_User_UserNameConfirm'] 
+2018-08-17 15:01:27,858 INFO  [Logger] Trying to find Element By : By.xpath:  .//*[@id='Registration_User_UserNameConfirm'] 
+2018-08-17 15:01:27,867 INFO  [Logger] Found Element By : By.xpath:  .//*[@id='Registration_User_UserNameConfirm'] 
+2018-08-17 15:01:27,878 INFO  [Logger] Trying to find Element By : By.xpath:  .//*[@id='Registration_User_UserNameConfirm'] 
+2018-08-17 15:01:27,888 INFO  [Logger] Found Element By : By.xpath:  .//*[@id='Registration_User_UserNameConfirm'] 
+2018-08-17 15:01:27,888 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath:  .//*[@id='Registration_User_UserNameConfirm']] 
+2018-08-17 15:01:27,913 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath:  .//*[@id='Registration_User_UserNameConfirm']] 
+2018-08-17 15:01:27,913 INFO  [Logger] Trying to find Element By : By.xpath:  .//*[@id='Registration_User_UserNameConfirm'] 
+2018-08-17 15:01:27,923 INFO  [Logger] Found Element By : By.xpath:  .//*[@id='Registration_User_UserNameConfirm'] 
+2018-08-17 15:01:27,923 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath:  .//*[@id='Registration_User_UserNameConfirm']] 
+2018-08-17 15:01:28,135 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath:  .//*[@id='Registration_User_UserNameConfirm']] 
+2018-08-17 15:01:28,135 INFO  [Logger] Trying to find Element By : By.xpath:  .//*[@id='ICertify'] 
+2018-08-17 15:01:28,154 INFO  [Logger] Found Element By : By.xpath:  .//*[@id='ICertify'] 
+2018-08-17 15:01:28,171 INFO  [Logger] Trying to find Element By : By.xpath:  .//*[@id='ICertify'] 
+2018-08-17 15:01:28,180 INFO  [Logger] Found Element By : By.xpath:  .//*[@id='ICertify'] 
+2018-08-17 15:01:28,192 INFO  [Logger] Trying to find Element By : By.xpath:  .//*[@id='ICertify'] 
+2018-08-17 15:01:28,200 INFO  [Logger] Found Element By : By.xpath:  .//*[@id='ICertify'] 
+2018-08-17 15:01:28,201 INFO  [Logger] Trying to click on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath:  .//*[@id='ICertify']] 
+2018-08-17 15:01:28,253 INFO  [Logger] Clicked on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath:  .//*[@id='ICertify']] 
+2018-08-17 15:01:28,254 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='formCompany']/div/div[12]/div/div/input 
+2018-08-17 15:01:28,272 INFO  [Logger] Found Element By : By.xpath: .//*[@id='formCompany']/div/div[12]/div/div/input 
+2018-08-17 15:01:28,290 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='formCompany']/div/div[12]/div/div/input 
+2018-08-17 15:01:28,301 INFO  [Logger] Found Element By : By.xpath: .//*[@id='formCompany']/div/div[12]/div/div/input 
+2018-08-17 15:01:28,312 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='formCompany']/div/div[12]/div/div/input 
+2018-08-17 15:01:28,322 INFO  [Logger] Found Element By : By.xpath: .//*[@id='formCompany']/div/div[12]/div/div/input 
+2018-08-17 15:01:28,322 INFO  [Logger] Trying to click on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: .//*[@id='formCompany']/div/div[12]/div/div/input] 
+2018-08-17 15:01:28,394 INFO  [Logger] Clicked on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: .//*[@id='formCompany']/div/div[12]/div/div/input] 
+2018-08-17 15:01:28,394 INFO  [Logger] Trying to find Element By : By.id: OriginCountry 
+2018-08-17 15:01:28,412 INFO  [Logger] Found Element By : By.id: OriginCountry 
+2018-08-17 15:01:28,433 INFO  [Logger] Trying to find Element By : By.id: OriginCountry 
+2018-08-17 15:01:28,448 INFO  [Logger] Found Element By : By.id: OriginCountry 
+2018-08-17 15:01:28,454 INFO  [Logger] Trying to find Element By : By.id: OriginCountry 
+2018-08-17 15:01:28,463 INFO  [Logger] Found Element By : By.id: OriginCountry 
+2018-08-17 15:01:28,463 INFO  [Logger] Trying to find Element By : By.xpath: .//option[normalize-space(.) = "Canada"] 
+2018-08-17 15:01:28,479 INFO  [Logger] Found Element By : By.xpath: .//option[normalize-space(.) = "Canada"] 
+2018-08-17 15:01:28,492 INFO  [Logger] Trying to click on: [[[[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: OriginCountry]] -> xpath: .//option[normalize-space(.) = "Canada"]] 
+2018-08-17 15:01:28,531 INFO  [Logger] Clicked on: [[[[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: OriginCountry]] -> xpath: .//option[normalize-space(.) = "Canada"]] 
+2018-08-17 15:01:28,531 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='State'] 
+2018-08-17 15:01:28,547 INFO  [Logger] Found Element By : By.xpath: .//*[@id='State'] 
+2018-08-17 15:01:28,553 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='State'] 
+2018-08-17 15:01:28,561 INFO  [Logger] Found Element By : By.xpath: .//*[@id='State'] 
+2018-08-17 15:01:28,569 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='State'] 
+2018-08-17 15:01:28,577 INFO  [Logger] Found Element By : By.xpath: .//*[@id='State'] 
+2018-08-17 15:01:28,577 INFO  [Logger] Trying to find Element By : By.xpath: .//option[normalize-space(.) = "AB"] 
+2018-08-17 15:01:28,829 INFO  [Logger] Found Element By : By.xpath: .//option[normalize-space(.) = "AB"] 
+2018-08-17 15:01:28,881 INFO  [Logger] Trying to click on: [[[[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: .//*[@id='State']]] -> xpath: .//option[normalize-space(.) = "AB"]] 
+2018-08-17 15:01:28,928 INFO  [Logger] Clicked on: [[[[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: .//*[@id='State']]] -> xpath: .//option[normalize-space(.) = "AB"]] 
+2018-08-17 15:01:28,928 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='ZipCode'] 
+2018-08-17 15:01:28,945 INFO  [Logger] Found Element By : By.xpath: //input[@id='ZipCode'] 
+2018-08-17 15:01:28,962 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='ZipCode'] 
+2018-08-17 15:01:28,972 INFO  [Logger] Found Element By : By.xpath: //input[@id='ZipCode'] 
+2018-08-17 15:01:28,983 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='ZipCode'] 
+2018-08-17 15:01:28,993 INFO  [Logger] Found Element By : By.xpath: //input[@id='ZipCode'] 
+2018-08-17 15:01:28,993 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='ZipCode']] 
+2018-08-17 15:01:29,016 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='ZipCode']] 
+2018-08-17 15:01:29,016 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='ZipCode'] 
+2018-08-17 15:01:29,025 INFO  [Logger] Found Element By : By.xpath: //input[@id='ZipCode'] 
+2018-08-17 15:01:29,025 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='ZipCode']] 
+2018-08-17 15:01:29,078 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='ZipCode']] 
+2018-08-17 15:01:29,078 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='StreetAddress'] 
+2018-08-17 15:01:29,095 INFO  [Logger] Found Element By : By.xpath: //input[@id='StreetAddress'] 
+2018-08-17 15:01:29,113 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='StreetAddress'] 
+2018-08-17 15:01:29,122 INFO  [Logger] Found Element By : By.xpath: //input[@id='StreetAddress'] 
+2018-08-17 15:01:29,134 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='StreetAddress'] 
+2018-08-17 15:01:29,144 INFO  [Logger] Found Element By : By.xpath: //input[@id='StreetAddress'] 
+2018-08-17 15:01:29,144 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='StreetAddress']] 
+2018-08-17 15:01:29,169 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='StreetAddress']] 
+2018-08-17 15:01:29,169 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='StreetAddress'] 
+2018-08-17 15:01:29,179 INFO  [Logger] Found Element By : By.xpath: //input[@id='StreetAddress'] 
+2018-08-17 15:01:29,179 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='StreetAddress']] 
+2018-08-17 15:01:29,229 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='StreetAddress']] 
+2018-08-17 15:01:29,229 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='City'] 
+2018-08-17 15:01:29,246 INFO  [Logger] Found Element By : By.xpath: //input[@id='City'] 
+2018-08-17 15:01:29,263 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='City'] 
+2018-08-17 15:01:29,273 INFO  [Logger] Found Element By : By.xpath: //input[@id='City'] 
+2018-08-17 15:01:29,284 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='City'] 
+2018-08-17 15:01:29,292 INFO  [Logger] Found Element By : By.xpath: //input[@id='City'] 
+2018-08-17 15:01:29,293 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='City']] 
+2018-08-17 15:01:29,314 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='City']] 
+2018-08-17 15:01:29,314 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='City'] 
+2018-08-17 15:01:29,323 INFO  [Logger] Found Element By : By.xpath: //input[@id='City'] 
+2018-08-17 15:01:29,323 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='City']] 
+2018-08-17 15:01:29,375 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='City']] 
+2018-08-17 15:01:29,375 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='formAddress']/div/div[4]/div/div[2]/input 
+2018-08-17 15:01:29,391 INFO  [Logger] Found Element By : By.xpath: .//*[@id='formAddress']/div/div[4]/div/div[2]/input 
+2018-08-17 15:01:29,410 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='formAddress']/div/div[4]/div/div[2]/input 
+2018-08-17 15:01:29,421 INFO  [Logger] Found Element By : By.xpath: .//*[@id='formAddress']/div/div[4]/div/div[2]/input 
+2018-08-17 15:01:29,431 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='formAddress']/div/div[4]/div/div[2]/input 
+2018-08-17 15:01:29,441 INFO  [Logger] Found Element By : By.xpath: .//*[@id='formAddress']/div/div[4]/div/div[2]/input 
+2018-08-17 15:01:29,442 INFO  [Logger] Trying to click on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: .//*[@id='formAddress']/div/div[4]/div/div[2]/input] 
+2018-08-17 15:01:29,493 INFO  [Logger] Clicked on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: .//*[@id='formAddress']/div/div[4]/div/div[2]/input] 
+2018-08-17 15:01:29,493 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='ContactFirstName'] 
+2018-08-17 15:01:29,519 INFO  [Logger] Found Element By : By.xpath: //input[@id='ContactFirstName'] 
+2018-08-17 15:01:29,539 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='ContactFirstName'] 
+2018-08-17 15:01:29,547 INFO  [Logger] Found Element By : By.xpath: //input[@id='ContactFirstName'] 
+2018-08-17 15:01:29,561 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='ContactFirstName'] 
+2018-08-17 15:01:29,572 INFO  [Logger] Found Element By : By.xpath: //input[@id='ContactFirstName'] 
+2018-08-17 15:01:29,572 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='ContactFirstName']] 
+2018-08-17 15:01:29,593 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='ContactFirstName']] 
+2018-08-17 15:01:29,593 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='ContactFirstName'] 
+2018-08-17 15:01:29,602 INFO  [Logger] Found Element By : By.xpath: //input[@id='ContactFirstName'] 
+2018-08-17 15:01:29,602 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='ContactFirstName']] 
+2018-08-17 15:01:29,663 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='ContactFirstName']] 
+2018-08-17 15:01:29,663 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'LastName')] 
+2018-08-17 15:01:29,680 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'LastName')] 
+2018-08-17 15:01:29,696 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'LastName')] 
+2018-08-17 15:01:29,705 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'LastName')] 
+2018-08-17 15:01:29,716 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'LastName')] 
+2018-08-17 15:01:29,726 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'LastName')] 
+2018-08-17 15:01:29,727 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'LastName')]] 
+2018-08-17 15:01:29,749 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'LastName')]] 
+2018-08-17 15:01:29,749 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'LastName')] 
+2018-08-17 15:01:29,759 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'LastName')] 
+2018-08-17 15:01:29,759 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'LastName')]] 
+2018-08-17 15:01:29,799 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'LastName')]] 
+2018-08-17 15:01:29,799 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'Phone')] 
+2018-08-17 15:01:29,816 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'Phone')] 
+2018-08-17 15:01:29,834 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'Phone')] 
+2018-08-17 15:01:29,850 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'Phone')] 
+2018-08-17 15:01:29,874 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'Phone')] 
+2018-08-17 15:01:29,882 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'Phone')] 
+2018-08-17 15:01:29,882 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'Phone')]] 
+2018-08-17 15:01:29,910 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'Phone')]] 
+2018-08-17 15:01:29,910 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'Phone')] 
+2018-08-17 15:01:29,919 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'Phone')] 
+2018-08-17 15:01:29,919 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'Phone')]] 
+2018-08-17 15:01:29,998 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'Phone')]] 
+2018-08-17 15:01:29,998 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'Password')] 
+2018-08-17 15:01:30,015 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'Password')] 
+2018-08-17 15:01:30,032 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'Password')] 
+2018-08-17 15:01:30,042 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'Password')] 
+2018-08-17 15:01:30,052 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'Password')] 
+2018-08-17 15:01:30,063 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'Password')] 
+2018-08-17 15:01:30,063 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'Password')]] 
+2018-08-17 15:01:30,086 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'Password')]] 
+2018-08-17 15:01:30,086 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'Password')] 
+2018-08-17 15:01:30,098 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'Password')] 
+2018-08-17 15:01:30,099 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'Password')]] 
+2018-08-17 15:01:30,179 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'Password')]] 
+2018-08-17 15:01:30,179 INFO  [Logger] Trying to find Element By : By.xpath: //*[@id='Registration_User_Password'] 
+2018-08-17 15:01:30,196 INFO  [Logger] Found Element By : By.xpath: //*[@id='Registration_User_Password'] 
+2018-08-17 15:01:30,197 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'ConfirmPassword')] 
+2018-08-17 15:01:30,213 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'ConfirmPassword')] 
+2018-08-17 15:01:30,231 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'ConfirmPassword')] 
+2018-08-17 15:01:30,242 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'ConfirmPassword')] 
+2018-08-17 15:01:30,254 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'ConfirmPassword')] 
+2018-08-17 15:01:30,263 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'ConfirmPassword')] 
+2018-08-17 15:01:30,263 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'ConfirmPassword')]] 
+2018-08-17 15:01:30,284 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'ConfirmPassword')]] 
+2018-08-17 15:01:30,284 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'ConfirmPassword')] 
+2018-08-17 15:01:30,294 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'ConfirmPassword')] 
+2018-08-17 15:01:30,294 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'ConfirmPassword')]] 
+2018-08-17 15:01:30,367 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'ConfirmPassword')]] 
+2018-08-17 15:01:30,367 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='formContact']/div[2]/div/div[2]/input 
+2018-08-17 15:01:30,383 INFO  [Logger] Found Element By : By.xpath: .//*[@id='formContact']/div[2]/div/div[2]/input 
+2018-08-17 15:01:30,400 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='formContact']/div[2]/div/div[2]/input 
+2018-08-17 15:01:30,409 INFO  [Logger] Found Element By : By.xpath: .//*[@id='formContact']/div[2]/div/div[2]/input 
+2018-08-17 15:01:30,420 INFO  [Logger] Trying to find Element By : By.xpath: .//*[@id='formContact']/div[2]/div/div[2]/input 
+2018-08-17 15:01:30,428 INFO  [Logger] Found Element By : By.xpath: .//*[@id='formContact']/div[2]/div/div[2]/input 
+2018-08-17 15:01:30,428 INFO  [Logger] Trying to click on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: .//*[@id='formContact']/div[2]/div/div[2]/input] 
+2018-08-17 15:01:30,483 INFO  [Logger] Clicked on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: .//*[@id='formContact']/div[2]/div/div[2]/input] 
+2018-08-17 15:01:30,483 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'AccountName')] 
+2018-08-17 15:01:30,508 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'AccountName')] 
+2018-08-17 15:01:30,531 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'AccountName')] 
+2018-08-17 15:01:30,543 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'AccountName')] 
+2018-08-17 15:01:30,555 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'AccountName')] 
+2018-08-17 15:01:30,564 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'AccountName')] 
+2018-08-17 15:01:30,565 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'AccountName')]] 
+2018-08-17 15:01:30,592 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'AccountName')]] 
+2018-08-17 15:01:30,592 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@id,'AccountName')] 
+2018-08-17 15:01:30,612 INFO  [Logger] Found Element By : By.xpath: //input[contains(@id,'AccountName')] 
+2018-08-17 15:01:30,612 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'AccountName')]] 
+2018-08-17 15:01:30,668 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@id,'AccountName')]] 
+2018-08-17 15:01:30,668 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='BankingRouting'] 
+2018-08-17 15:01:30,683 INFO  [Logger] Found Element By : By.xpath: //input[@id='BankingRouting'] 
+2018-08-17 15:01:30,700 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='BankingRouting'] 
+2018-08-17 15:01:30,710 INFO  [Logger] Found Element By : By.xpath: //input[@id='BankingRouting'] 
+2018-08-17 15:01:30,720 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='BankingRouting'] 
+2018-08-17 15:01:30,729 INFO  [Logger] Found Element By : By.xpath: //input[@id='BankingRouting'] 
+2018-08-17 15:01:30,730 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='BankingRouting']] 
+2018-08-17 15:01:30,756 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='BankingRouting']] 
+2018-08-17 15:01:30,756 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='BankingRouting'] 
+2018-08-17 15:01:30,766 INFO  [Logger] Found Element By : By.xpath: //input[@id='BankingRouting'] 
+2018-08-17 15:01:30,766 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='BankingRouting']] 
+2018-08-17 15:01:30,827 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='BankingRouting']] 
+2018-08-17 15:01:30,827 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='BankingAccount'] 
+2018-08-17 15:01:30,843 INFO  [Logger] Found Element By : By.xpath: //input[@id='BankingAccount'] 
+2018-08-17 15:01:30,861 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='BankingAccount'] 
+2018-08-17 15:01:30,870 INFO  [Logger] Found Element By : By.xpath: //input[@id='BankingAccount'] 
+2018-08-17 15:01:30,884 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='BankingAccount'] 
+2018-08-17 15:01:30,894 INFO  [Logger] Found Element By : By.xpath: //input[@id='BankingAccount'] 
+2018-08-17 15:01:30,895 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='BankingAccount']] 
+2018-08-17 15:01:30,916 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='BankingAccount']] 
+2018-08-17 15:01:30,916 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='BankingAccount'] 
+2018-08-17 15:01:30,927 INFO  [Logger] Found Element By : By.xpath: //input[@id='BankingAccount'] 
+2018-08-17 15:01:30,927 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='BankingAccount']] 
+2018-08-17 15:01:30,998 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='BankingAccount']] 
+2018-08-17 15:01:30,998 INFO  [Logger] Trying to find Element By : By.xpath: //*[@name='formBanking']//child::input[@type='radio'] 
+2018-08-17 15:01:31,014 INFO  [Logger] Found Element By : By.xpath: //*[@name='formBanking']//child::input[@type='radio'] 
+2018-08-17 15:01:31,015 INFO  [Logger] Element value: window.scrollBy(0,100) 
+2018-08-17 15:01:31,021 INFO  [Logger] Element value: window.scrollBy(0,100) 
+2018-08-17 15:01:31,021 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:31,030 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:31,031 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:31,047 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:31,057 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:31,065 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:31,077 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:31,085 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:31,085 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:31,106 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:32,130 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:32,178 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:32,178 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:32,210 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:32,210 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:32,220 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:32,221 INFO  [Logger] Trying to click on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:32,287 INFO  [Logger] Clicked on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:32,287 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:32,297 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:32,306 INFO  [Logger] Trying to find Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Submit'] 
+2018-08-17 15:01:32,323 INFO  [Logger] Found Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Submit'] 
+2018-08-17 15:01:32,335 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:32,336 INFO  [Logger] Trying to find Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Submit'] 
+2018-08-17 15:01:32,345 INFO  [Logger] Found Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Submit'] 
+2018-08-17 15:01:32,355 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:32,355 INFO  [Logger] Trying to find Element By : By.xpath: //*[@class='error ng-scope'] 
+2018-08-17 15:01:32,377 INFO  [Logger] Found Element By : By.xpath: //*[@class='error ng-scope'] 
+2018-08-17 15:01:32,396 INFO  [Logger] Trying to find Element By : By.xpath: //*[@class='error ng-scope'] 
+2018-08-17 15:01:32,428 INFO  [Logger] Found Element By : By.xpath: //*[@class='error ng-scope'] 
+2018-08-17 15:01:32,445 INFO  [Logger] Element value: window.scrollBy(0,100) 
+2018-08-17 15:01:32,476 INFO  [Logger] Element value: window.scrollBy(0,100) 
+2018-08-17 15:01:32,476 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:32,477 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:32,477 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:32,486 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:32,526 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:32,542 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:32,557 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:32,573 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:32,573 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:32,604 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:33,606 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:33,638 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:33,638 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:33,655 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:33,655 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:33,669 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:33,669 INFO  [Logger] Trying to click on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:33,723 INFO  [Logger] Clicked on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:33,724 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:33,737 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:33,744 INFO  [Logger] Trying to find Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Submit'] 
+2018-08-17 15:01:33,757 INFO  [Logger] Found Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Submit'] 
+2018-08-17 15:01:33,769 INFO  [Logger] Trying to find Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Submit'] 
+2018-08-17 15:01:33,781 INFO  [Logger] Found Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Submit'] 
+2018-08-17 15:01:33,788 INFO  [Logger] Element value: window.scrollBy(0,100) 
+2018-08-17 15:01:33,793 INFO  [Logger] Element value: window.scrollBy(0,100) 
+2018-08-17 15:01:33,794 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:33,803 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:33,804 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:33,814 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:33,825 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:33,833 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:33,840 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:33,848 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:33,848 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:33,869 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:34,898 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:34,899 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:34,899 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:34,931 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:34,931 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:34,946 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:34,946 INFO  [Logger] Trying to click on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:35,014 INFO  [Logger] Clicked on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:35,015 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:35,027 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:35,034 INFO  [Logger] Trying to find Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Submit'] 
+2018-08-17 15:01:35,045 INFO  [Logger] Found Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Submit'] 
+2018-08-17 15:01:35,056 INFO  [Logger] Trying to find Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Submit'] 
+2018-08-17 15:01:35,069 INFO  [Logger] Found Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Submit'] 
+2018-08-17 15:01:35,080 INFO  [Logger] Trying to find Element By : By.xpath: //*[@class='error ng-scope'] 
+2018-08-17 15:01:35,094 INFO  [Logger] Found Element By : By.xpath: //*[@class='error ng-scope'] 
+2018-08-17 15:01:35,107 INFO  [Logger] Trying to find Element By : By.xpath: //*[@class='error ng-scope'] 
+2018-08-17 15:01:35,117 INFO  [Logger] Found Element By : By.xpath: //*[@class='error ng-scope'] 
+2018-08-17 15:01:35,318 INFO  [Logger] Before navigating to: 'https://stageapp.loadpay.com/Account/Login' 
+2018-08-17 15:01:35,692 INFO  [Logger] Navigated to:'https://stageapp.loadpay.com/Account/Login' 
+2018-08-17 15:01:35,693 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='UserName'] 
+2018-08-17 15:01:35,723 INFO  [Logger] Found Element By : By.xpath: //input[@id='UserName'] 
+2018-08-17 15:01:35,790 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='UserName'] 
+2018-08-17 15:01:35,856 INFO  [Logger] Found Element By : By.xpath: //input[@id='UserName'] 
+2018-08-17 15:01:35,891 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='UserName'] 
+2018-08-17 15:01:35,926 INFO  [Logger] Found Element By : By.xpath: //input[@id='UserName'] 
+2018-08-17 15:01:35,927 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='UserName']] 
+2018-08-17 15:01:36,097 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='UserName']] 
+2018-08-17 15:01:36,097 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='Password'] 
+2018-08-17 15:01:36,114 INFO  [Logger] Found Element By : By.xpath: //input[@id='Password'] 
+2018-08-17 15:01:36,114 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='Password']] 
+2018-08-17 15:01:36,169 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='Password']] 
+2018-08-17 15:01:36,169 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@type,'submit')] 
+2018-08-17 15:01:36,184 INFO  [Logger] Found Element By : By.xpath: //input[contains(@type,'submit')] 
+2018-08-17 15:01:36,201 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@type,'submit')] 
+2018-08-17 15:01:36,211 INFO  [Logger] Found Element By : By.xpath: //input[contains(@type,'submit')] 
+2018-08-17 15:01:36,223 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@type,'submit')] 
+2018-08-17 15:01:36,231 INFO  [Logger] Found Element By : By.xpath: //input[contains(@type,'submit')] 
+2018-08-17 15:01:36,232 INFO  [Logger] Trying to click on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@type,'submit')]] 
+2018-08-17 15:01:38,219 INFO  [Logger] Clicked on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@type,'submit')]] 
+2018-08-17 15:01:38,415 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:38,509 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:38,536 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:38,596 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:38,637 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:38,681 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:38,690 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:38,705 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:38,716 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:38,723 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:38,734 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:38,742 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:38,752 INFO  [Logger] Element value: window.scrollBy(0,100) 
+2018-08-17 15:01:38,758 INFO  [Logger] Element value: window.scrollBy(0,100) 
+2018-08-17 15:01:38,758 INFO  [Logger] Trying to find Element By : By.xpath: //*[@name='formBanking']//child::input[@type='radio'] 
+2018-08-17 15:01:38,767 INFO  [Logger] Found Element By : By.xpath: //*[@name='formBanking']//child::input[@type='radio'] 
+2018-08-17 15:01:38,767 INFO  [Logger] Element value: window.scrollBy(0,100) 
+2018-08-17 15:01:38,773 INFO  [Logger] Element value: window.scrollBy(0,100) 
+2018-08-17 15:01:38,773 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:38,788 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:38,789 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:38,800 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:38,810 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:38,818 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:38,826 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:38,835 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:38,844 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:38,852 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:38,859 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:38,866 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:38,866 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:38,999 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:39,000 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:39,010 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:39,018 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:39,028 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:39,037 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:39,044 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:39,044 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:39,144 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:39,144 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:39,152 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:39,170 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:39,178 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:39,186 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:39,194 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:39,194 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:39,216 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:39,216 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:39,226 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:39,238 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:39,247 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:39,255 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:39,263 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:39,263 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:39,330 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:39,330 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:39,341 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:39,359 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:39,368 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:39,375 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:39,383 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:39,383 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:39,406 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:39,406 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:39,416 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:39,426 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:39,433 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:39,441 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:39,450 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:39,451 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:39,511 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:39,511 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:39,519 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:39,529 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:39,536 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:39,543 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:39,551 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:39,551 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:39,574 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:40,613 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:40,614 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:40,614 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:40,650 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:40,650 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:40,660 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:40,661 INFO  [Logger] Trying to click on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:40,715 INFO  [Logger] Clicked on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:40,716 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:40,725 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:40,733 INFO  [Logger] Trying to find Element By : By.xpath: //input[@type='submit'][@value='Next'] 
+2018-08-17 15:01:40,750 INFO  [Logger] Found Element By : By.xpath: //input[@type='submit'][@value='Next'] 
+2018-08-17 15:01:40,763 INFO  [Logger] Element value: window.scrollBy(0,100) 
+2018-08-17 15:01:40,767 INFO  [Logger] Element value: window.scrollBy(0,100) 
+2018-08-17 15:01:40,767 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:40,778 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:40,778 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:40,788 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:40,801 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:40,811 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:40,818 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:40,827 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:40,835 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:40,857 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:40,888 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:40,889 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:40,889 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:40,922 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:40,922 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:40,937 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:40,951 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:40,961 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:40,969 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:40,979 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:40,979 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:41,049 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:41,049 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:41,056 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:41,066 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:41,075 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:41,083 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:41,092 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:41,092 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:41,106 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:41,106 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:41,115 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:41,124 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:41,132 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:41,138 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:41,146 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:41,146 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:41,201 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:41,201 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:41,213 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:41,222 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:41,232 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:41,238 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:41,247 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:41,247 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:41,260 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:41,260 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:41,269 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:41,279 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:41,288 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:41,296 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:41,306 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:41,306 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:41,354 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:41,354 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:41,363 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:41,374 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:41,382 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:41,389 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:41,397 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:41,398 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:41,418 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:42,458 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:42,459 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:42,459 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:42,492 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:42,492 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:42,501 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:42,501 INFO  [Logger] Trying to click on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:42,537 INFO  [Logger] Clicked on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:42,538 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:42,546 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:42,551 INFO  [Logger] Trying to find Element By : By.xpath: //input[@type='submit'][@value='Next'] 
+2018-08-17 15:01:42,560 INFO  [Logger] Found Element By : By.xpath: //input[@type='submit'][@value='Next'] 
+2018-08-17 15:01:42,568 INFO  [Logger] Element value: window.scrollBy(0,100) 
+2018-08-17 15:01:42,574 INFO  [Logger] Element value: window.scrollBy(0,100) 
+2018-08-17 15:01:42,574 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:42,584 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:42,585 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:42,594 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:42,605 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:42,612 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:42,620 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:42,628 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:42,638 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:42,646 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:42,654 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:42,663 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:42,663 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:42,677 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:42,677 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:42,688 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:42,697 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:42,707 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:42,714 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:42,723 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:42,723 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:42,784 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:42,784 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:42,792 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:42,801 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:42,809 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:42,817 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:42,826 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:42,826 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:42,839 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:42,839 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:42,848 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:42,860 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:42,870 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:42,876 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:42,886 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:42,886 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:42,940 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:42,940 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:42,951 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:42,965 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:42,975 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:42,981 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:42,989 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:42,989 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:43,003 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:43,003 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:43,011 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:43,021 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:43,029 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:43,037 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:43,046 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:43,046 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:43,089 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:43,089 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:43,096 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:43,105 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:43,113 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:43,120 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:43,127 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:43,128 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:43,145 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:44,185 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:44,186 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:44,186 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:44,218 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:44,218 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:44,233 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:44,233 INFO  [Logger] Trying to click on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:44,294 INFO  [Logger] Clicked on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:44,294 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:44,303 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:44,309 INFO  [Logger] Trying to find Element By : By.xpath: //input[@type='submit'][@value='Next'] 
+2018-08-17 15:01:44,318 INFO  [Logger] Found Element By : By.xpath: //input[@type='submit'][@value='Next'] 
+2018-08-17 15:01:44,326 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:44,334 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:44,340 INFO  [Logger] Trying to find Element By : By.xpath: //input[@type='submit'][@value='Next'] 
+2018-08-17 15:01:44,350 INFO  [Logger] Found Element By : By.xpath: //input[@type='submit'][@value='Next'] 
+2018-08-17 15:01:44,358 INFO  [Logger] Trying to find Element By : By.xpath: //a[text()='Logoff'] 
+2018-08-17 15:01:44,376 INFO  [Logger] Found Element By : By.xpath: //a[text()='Logoff'] 
+2018-08-17 15:01:44,403 INFO  [Logger] Trying to find Element By : By.xpath: //a[text()='Logoff'] 
+2018-08-17 15:01:44,435 INFO  [Logger] Found Element By : By.xpath: //a[text()='Logoff'] 
+2018-08-17 15:01:44,450 INFO  [Logger] Trying to find Element By : By.xpath: //a[text()='Logoff'] 
+2018-08-17 15:01:44,466 INFO  [Logger] Found Element By : By.xpath: //a[text()='Logoff'] 
+2018-08-17 15:01:44,466 INFO  [Logger] Trying to click on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //a[text()='Logoff']] 
+2018-08-17 15:01:45,121 INFO  [Logger] Clicked on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //a[text()='Logoff']] 
+2018-08-17 15:01:45,276 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='UserName'] 
+2018-08-17 15:01:45,485 INFO  [Logger] Found Element By : By.xpath: //input[@id='UserName'] 
+2018-08-17 15:01:45,535 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='UserName'] 
+2018-08-17 15:01:45,572 INFO  [Logger] Found Element By : By.xpath: //input[@id='UserName'] 
+2018-08-17 15:01:45,604 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='UserName'] 
+2018-08-17 15:01:45,619 INFO  [Logger] Found Element By : By.xpath: //input[@id='UserName'] 
+2018-08-17 15:01:45,619 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='UserName']] 
+2018-08-17 15:01:45,738 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='UserName']] 
+2018-08-17 15:01:45,738 INFO  [Logger] Trying to find Element By : By.xpath: //input[@id='Password'] 
+2018-08-17 15:01:45,753 INFO  [Logger] Found Element By : By.xpath: //input[@id='Password'] 
+2018-08-17 15:01:45,753 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='Password']] 
+2018-08-17 15:01:45,812 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[@id='Password']] 
+2018-08-17 15:01:45,812 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@type,'submit')] 
+2018-08-17 15:01:45,828 INFO  [Logger] Found Element By : By.xpath: //input[contains(@type,'submit')] 
+2018-08-17 15:01:45,845 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@type,'submit')] 
+2018-08-17 15:01:45,853 INFO  [Logger] Found Element By : By.xpath: //input[contains(@type,'submit')] 
+2018-08-17 15:01:45,864 INFO  [Logger] Trying to find Element By : By.xpath: //input[contains(@type,'submit')] 
+2018-08-17 15:01:45,873 INFO  [Logger] Found Element By : By.xpath: //input[contains(@type,'submit')] 
+2018-08-17 15:01:45,873 INFO  [Logger] Trying to click on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@type,'submit')]] 
+2018-08-17 15:01:46,758 INFO  [Logger] Clicked on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> xpath: //input[contains(@type,'submit')]] 
+2018-08-17 15:01:46,881 INFO  [Logger] Trying to find Element By : By.xpath: //a[text()='Account'] 
+2018-08-17 15:01:46,915 INFO  [Logger] Found Element By : By.xpath: //a[text()='Account'] 
+2018-08-17 15:01:47,008 INFO  [Logger] Trying to find Element By : By.xpath: //a[text()='Account'] 
+2018-08-17 15:01:47,073 INFO  [Logger] Found Element By : By.xpath: //a[text()='Account'] 
+2018-08-17 15:01:47,118 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:47,119 INFO  [Logger] Trying to find Element By : By.xpath: //a[text()='Account'] 
+2018-08-17 15:01:47,143 INFO  [Logger] Found Element By : By.xpath: //a[text()='Account'] 
+2018-08-17 15:01:47,162 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:47,162 INFO  [Logger] Trying to find Element By : By.xpath: //a[contains(text(),'Banking')] 
+2018-08-17 15:01:47,699 INFO  [Logger] Found Element By : By.xpath: //a[contains(text(),'Banking')] 
+2018-08-17 15:01:47,723 INFO  [Logger] Trying to find Element By : By.xpath: //a[contains(text(),'Banking')] 
+2018-08-17 15:01:47,731 INFO  [Logger] Found Element By : By.xpath: //a[contains(text(),'Banking')] 
+2018-08-17 15:01:47,742 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:47,742 INFO  [Logger] Trying to find Element By : By.xpath: //a[contains(text(),'Banking')] 
+2018-08-17 15:01:47,780 INFO  [Logger] Found Element By : By.xpath: //a[contains(text(),'Banking')] 
+2018-08-17 15:01:47,781 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:47,781 INFO  [Logger] Trying to find Element By : By.xpath: //div[@class='well myaccount ng-scope in collapse']//child::div[1]//child::a[1] 
+2018-08-17 15:01:47,810 INFO  [Logger] Found Element By : By.xpath: //div[@class='well myaccount ng-scope in collapse']//child::div[1]//child::a[1] 
+2018-08-17 15:01:47,827 INFO  [Logger] Trying to find Element By : By.xpath: //div[@class='well myaccount ng-scope in collapse']//child::div[1]//child::a[1] 
+2018-08-17 15:01:47,864 INFO  [Logger] Found Element By : By.xpath: //div[@class='well myaccount ng-scope in collapse']//child::div[1]//child::a[1] 
+2018-08-17 15:01:47,881 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:47,881 INFO  [Logger] Trying to find Element By : By.xpath: //div[@class='well myaccount ng-scope in collapse']//child::div[1]//child::a[1] 
+2018-08-17 15:01:47,891 INFO  [Logger] Found Element By : By.xpath: //div[@class='well myaccount ng-scope in collapse']//child::div[1]//child::a[1] 
+2018-08-17 15:01:47,904 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:47,904 INFO  [Logger] Trying to find Element By : By.xpath: //*[@name='formBanking']//child::input[@type='radio'] 
+2018-08-17 15:01:47,924 INFO  [Logger] Found Element By : By.xpath: //*[@name='formBanking']//child::input[@type='radio'] 
+2018-08-17 15:01:47,924 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:47,939 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:47,939 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:47,955 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:47,998 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:48,091 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:48,106 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:48,115 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:48,125 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:48,132 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:48,164 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:48,180 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:48,180 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:48,211 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:48,211 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:48,212 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:48,223 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:48,231 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:48,239 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:48,246 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:48,247 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:48,355 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:48,355 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:48,371 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:48,416 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:48,432 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:48,463 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:48,478 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:48,478 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:48,511 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:48,511 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:48,524 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:48,543 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:48,556 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:48,566 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:48,577 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:48,577 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:48,664 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:48,665 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:48,680 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:48,697 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:48,705 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:48,715 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:48,746 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:48,746 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:48,762 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:48,762 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:48,773 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:48,782 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:48,791 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:48,797 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:48,806 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:48,807 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:48,864 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:48,864 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:48,874 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:48,884 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:48,892 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:48,897 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:48,906 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:48,906 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:48,936 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:50,951 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:50,999 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:50,999 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:51,061 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:51,061 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:51,062 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:51,062 INFO  [Logger] Trying to click on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:51,133 INFO  [Logger] Clicked on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:51,134 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:51,154 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:51,159 INFO  [Logger] Trying to find Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Save'] 
+2018-08-17 15:01:51,176 INFO  [Logger] Found Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Save'] 
+2018-08-17 15:01:51,188 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:51,188 INFO  [Logger] Trying to find Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Save'] 
+2018-08-17 15:01:51,198 INFO  [Logger] Found Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Save'] 
+2018-08-17 15:01:51,211 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:51,211 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:51,227 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:51,227 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:51,236 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:51,246 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:51,255 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:51,293 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:51,308 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:51,324 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:51,339 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:51,355 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:51,371 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:51,371 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:51,387 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:51,387 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:51,399 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:51,409 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:51,419 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:51,425 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:51,434 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:51,435 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:51,529 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:51,529 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:51,540 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:51,551 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:51,560 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:51,566 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:51,574 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:51,574 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:51,586 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:51,586 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:51,594 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:51,603 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:51,610 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:51,616 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:51,624 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:51,624 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:51,690 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:51,690 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:51,702 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:51,719 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:51,727 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:51,734 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:51,742 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:51,742 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:51,757 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:51,757 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:51,771 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:51,780 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:51,789 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:51,794 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:51,803 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:51,803 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:51,860 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:51,860 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:51,869 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:51,879 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:51,890 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:51,897 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:51,906 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:51,906 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:51,923 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:53,957 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:54,067 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:54,067 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:54,083 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:54,083 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:54,084 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:54,084 INFO  [Logger] Trying to click on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:54,131 INFO  [Logger] Clicked on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:54,131 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:54,142 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:54,146 INFO  [Logger] Trying to find Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Save'] 
+2018-08-17 15:01:54,155 INFO  [Logger] Found Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Save'] 
+2018-08-17 15:01:54,162 INFO  [Logger] Trying to find Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Save'] 
+2018-08-17 15:01:54,170 INFO  [Logger] Found Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Save'] 
+2018-08-17 15:01:54,179 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:54,188 INFO  [Logger] Element value: arguments[0].click(); 
+2018-08-17 15:01:54,188 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:54,197 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:54,205 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:54,214 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:54,221 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:54,230 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:54,240 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:54,248 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:54,254 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:54,287 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:54,287 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:54,288 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:54,288 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:54,299 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:54,310 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:54,319 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:54,327 INFO  [Logger] Trying to find Element By : By.id: NameOnAccount 
+2018-08-17 15:01:54,334 INFO  [Logger] Found Element By : By.id: NameOnAccount 
+2018-08-17 15:01:54,334 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:54,430 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: NameOnAccount] 
+2018-08-17 15:01:54,430 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:54,437 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:54,449 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:54,456 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:54,464 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:54,471 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:54,471 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:54,485 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:54,485 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:54,495 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:54,504 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:54,512 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:54,517 INFO  [Logger] Trying to find Element By : By.id: BankingRouting 
+2018-08-17 15:01:54,531 INFO  [Logger] Found Element By : By.id: BankingRouting 
+2018-08-17 15:01:54,531 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:54,602 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingRouting] 
+2018-08-17 15:01:54,602 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:54,613 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:54,628 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:54,636 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:54,645 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:54,652 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:54,652 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:54,668 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:54,668 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:54,681 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:54,693 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:54,702 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:54,710 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:54,719 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:54,719 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:54,780 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:54,780 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:54,788 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:54,798 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:54,806 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:54,813 INFO  [Logger] Trying to find Element By : By.id: BankingAccount 
+2018-08-17 15:01:54,821 INFO  [Logger] Found Element By : By.id: BankingAccount 
+2018-08-17 15:01:54,821 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:54,839 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: BankingAccount] 
+2018-08-17 15:01:56,861 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:56,905 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:56,905 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:56,922 INFO  [Logger] Element value: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:56,922 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:56,931 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:56,931 INFO  [Logger] Trying to click on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:56,973 INFO  [Logger] Clicked on: [[ChromeDriver: chrome on XP (e338298c9ccd822ad0a1fc650d1416a5)] -> id: ConfirmBankingAccount] 
+2018-08-17 15:01:56,973 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:56,983 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:56,988 INFO  [Logger] Trying to find Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Save'] 
+2018-08-17 15:01:56,998 INFO  [Logger] Found Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Save'] 
+2018-08-17 15:01:57,006 INFO  [Logger] Trying to find Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Save'] 
+2018-08-17 15:01:57,018 INFO  [Logger] Found Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Save'] 
+2018-08-17 15:01:57,026 INFO  [Logger] Trying to find Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:57,038 INFO  [Logger] Found Element By : By.id: ConfirmBankingAccount 
+2018-08-17 15:01:57,042 INFO  [Logger] Trying to find Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Save'] 
+2018-08-17 15:01:57,052 INFO  [Logger] Found Element By : By.xpath: //form[@id='formBanking']//child::input[@value='Save'] 
+2018-08-17 15:01:57,060 INFO  [Logger] END TEST
+
+ 
