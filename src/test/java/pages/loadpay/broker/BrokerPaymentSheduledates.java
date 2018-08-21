@@ -19,15 +19,25 @@ public class BrokerPaymentSheduledates extends TestBase {
 	public static float totalamounnt;
 	String schedule;
 	String scheduleamt;
+	String anticipatedwidrawlDate;
 
 	@FindBy(xpath = "//a[text()='New Payment']")
 	public WebElement lnk_newpayment;
+
+	@FindBy(xpath = "//a[text()='Account']")
+	public WebElement lnk_Account;
+
+	@FindBy(xpath = ".//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[3]/div/div[1]/a[7]")
+	public WebElement lnk_PayMeNow;
 
 	@FindBy(xpath = "//div[@class='total ng-scope notlast col-sm-6']//child::span[1]")
 	private WebElement tab_shedulepayment;
 
 	@FindBy(xpath = "//div[@class='total ng-scope']//child::span[1]")
 	private WebElement creditvalue;
+
+	@FindBy(xpath = ".//*[@id='collapseDetails44901']/div[2]/div[2]")
+	private WebElement anticipatedwidrawldate;
 
 	@FindBy(id = "CarrierEmail")
 	private WebElement field_CarrierEmail;
@@ -218,6 +228,11 @@ public class BrokerPaymentSheduledates extends TestBase {
 		checkbox_AdvancePayment.click();
 	}
 
+	public void lnkMyAccount() {
+		wait.until(ExpectedConditions.elementToBeClickable(lnk_Account));
+		lnk_Account.click();
+	}
+
 	/*-------schedule payment---------*/
 	public void clickShedulePayment() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(button_schedule));
@@ -249,6 +264,11 @@ public class BrokerPaymentSheduledates extends TestBase {
 		editPaymentIcon.click();
 	}
 
+	public void clicklnk_PayMeNow() {
+		wait.until(ExpectedConditions.elementToBeClickable(lnk_PayMeNow));
+		lnk_PayMeNow.click();
+	}
+
 	/*-------Edit Icon Enabled---------*/
 	public Boolean isEditIconEnabled() {
 		return editPaymentIcon.isEnabled();
@@ -274,6 +294,12 @@ public class BrokerPaymentSheduledates extends TestBase {
 		String actualpaystatus = paymentstatus.getText();
 		return actualpaystatus;
 
+	}
+
+	public void getanticipatedwidrawlDate() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(anticipatedwidrawldate));
+		anticipatedwidrawlDate = anticipatedwidrawldate.getText();
+		log.info(anticipatedwidrawldate);
 	}
 
 	/*-------verify amount---------*/

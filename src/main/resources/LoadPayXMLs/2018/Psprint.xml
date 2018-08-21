@@ -24,7 +24,7 @@
 
 	<!-- Script for Jira Ticket LP-6366-LoadPay - Carrier - Disable copy / paste functionality for add and confirm bank account -->
     
-		<class name="testcases.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccountTest"></class> 
+		<!-- <class name="testcases.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccountTest"></class>  -->
 
 	<!-- Script for Jira Ticket LP-3494-LoadPay-Admin-Daily NACHA Payments File -->
     
@@ -32,7 +32,11 @@
 		
 	<!-- Script for Jira Ticket LP-6228-LoadPay-Admin-Customer Side Menu Search-->
     
-		<!-- <class name="testcases.loadpay.admin.AdminCustomersSideMenuSearchTest"></class> -->
+		<class name="testcases.loadpay.admin.AdminCustomersSideMenuSearchTest"></class>
+		
+			<!-- Script for Jira Ticket LP-5427-LoadPay - Selenium Test - Admin - Delay Debit-->
+    
+		<class name="testcases.loadpay.admin.AdminDelayDebitTest"></class>
 	
     </classes>
   </test> 
