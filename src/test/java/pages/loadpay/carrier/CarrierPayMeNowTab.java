@@ -41,6 +41,7 @@ public class CarrierPayMeNowTab extends TestBase {
 	}
 
 	public void clickPaymenow() throws InterruptedException {
+		Thread.sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(paymenow));
 		paymenow.click();
 	}

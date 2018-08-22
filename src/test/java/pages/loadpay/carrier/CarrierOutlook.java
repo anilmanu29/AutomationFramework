@@ -106,13 +106,17 @@ public class CarrierOutlook extends TestBase {
 	public void enterEmail(String email) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(fieldTextbox));
 		fieldTextbox.sendKeys(email);
-		wait.until(ExpectedConditions.elementToBeClickable(buttonsearchcontacts));
+
 		try {
+			wait.until(ExpectedConditions.elementToBeClickable(buttonsearchcontacts));
 			buttonsearchcontacts.click();
+			Thread.sleep(2000);
 			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
 			buttonOpen.click();
 		} catch (Exception e) {
+			wait.until(ExpectedConditions.elementToBeClickable(searchSuggestion));
 			searchSuggestion.click();
+			Thread.sleep(2000);
 			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
 			buttonOpen.click();
 		}

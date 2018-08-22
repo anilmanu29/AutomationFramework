@@ -104,14 +104,17 @@ public class UnmatchedCariierEmailVerify extends TestBase {
 	public void enterEmail(String email) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(fieldTextbox));
 		fieldTextbox.sendKeys(email);
-		wait.until(ExpectedConditions.elementToBeClickable(buttonsearchcontacts));
+
 		try {
+			wait.until(ExpectedConditions.elementToBeClickable(buttonsearchcontacts));
 			buttonsearchcontacts.click();
+			Thread.sleep(2000);
 			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
 			buttonOpen.click();
 		} catch (Exception e) {
 			wait.until(ExpectedConditions.elementToBeClickable(searchSuggestion));
 			searchSuggestion.click();
+			Thread.sleep(2000);
 			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
 			buttonOpen.click();
 		}
@@ -134,6 +137,97 @@ public class UnmatchedCariierEmailVerify extends TestBase {
 				linkVerify.click();
 				break;
 			}
+		}
+	}
+
+	public void outlookSearchInbox(String EmailAddress, String hour, String minutes) throws InterruptedException {
+		WebElement searchInput;
+		WebElement searchButton;
+		WebElement infoMessage;
+		WebElement emailid;
+		Integer retryCount = 0;
+		Integer maxRetryCount = 300;
+
+		Thread.sleep(1000);
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(1));
+		Thread.sleep(1000);
+
+		WebElement searchField = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Search mail and people']")));
+		wait.until(ExpectedConditions.elementToBeClickable(searchField));
+		searchField.click();
+
+		searchInput = driver.findElement(By.xpath("//input[@aria-label='Search. Press Enter to Start Searching.']"));
+		searchButton = driver.findElement(By.xpath("//button[@aria-label='Start search']"));
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchInput));
+		searchInput.sendKeys(EmailAddress);
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchButton));
+		searchButton.click();
+
+		infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
+		log.info("Info message text: " + infoMessage.getText());
+
+		while (infoMessage.isDisplayed() && (retryCount < maxRetryCount)) {
+			searchButton.click();
+			Thread.sleep(5000);
+			infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
+
+			if (!infoMessage.isDisplayed()) {
+				if (checkEmailTimeStamp(hour, minutes))
+					break;
+			}
+
+			retryCount++;
+		}
+
+		emailid = driver.findElement(By.xpath("//*[@id='ItemHeader.ToContainer']/div/div/div/span/span/div/span[2]"));
+
+		log.info("Email ID text: " + emailid.getText());
+	}
+
+	private Boolean checkEmailTimeStamp(String hour, String minutes) {
+		WebElement emailTimeStamp;
+		String emailTime = "";
+		Integer approximateHour = 0;
+		Integer approximateMinutes = 0;
+		Integer actualHour = 0;
+		Integer actualMinutes = 0;
+		String[] timeParser;
+
+		emailTimeStamp = driver.findElement(By.id("ItemHeader.DateReceivedLabel"));
+		emailTime = emailTimeStamp.getText();
+		emailTime = emailTime.substring(emailTime.length() - 8, emailTime.length());
+		log.info("\n\n\nEmail time: " + emailTime);
+		timeParser = emailTime.split(":");
+		timeParser[0] = timeParser[0].trim();
+		timeParser[1] = timeParser[1].trim();
+		timeParser[1] = timeParser[1].substring(0, 2);
+
+		approximateHour = Integer.parseInt(hour);
+		approximateMinutes = Integer.parseInt(minutes);
+
+		if (approximateHour > 12)
+			approximateHour -= 12;
+
+		log.info("Approx Hours: " + approximateHour);
+		log.info("Approx Minutes: " + approximateMinutes);
+
+		actualHour = Integer.parseInt(timeParser[0]);
+		actualMinutes = Integer.parseInt(timeParser[1]);
+
+		if (actualHour > 12)
+			actualHour -= 12;
+
+		log.info("Actual Hours: " + actualHour);
+		log.info("Actual Minutes: " + actualMinutes);
+
+		if ((approximateHour == actualHour) && (approximateMinutes <= actualMinutes)) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 

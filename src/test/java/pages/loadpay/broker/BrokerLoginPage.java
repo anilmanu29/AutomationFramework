@@ -49,6 +49,13 @@ public class BrokerLoginPage extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", loginBtn);
+
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void brokerVerificationLogin(String UserName, String NewPassword) {
