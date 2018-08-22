@@ -102,9 +102,10 @@ public class CarrierLoginPage extends TestBase {
 		return finishButton;
 	}
 
-	public void clickFinishButton() {
+	public void clickFinishButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(finishButton));
 		finishButton.click();
+		Thread.sleep(1000);
 	}
 
 	/**

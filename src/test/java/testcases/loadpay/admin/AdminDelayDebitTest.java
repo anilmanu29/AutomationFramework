@@ -3,12 +3,14 @@ package testcases.loadpay.admin;
 import java.awt.AWTException;
 import java.io.IOException;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -21,34 +23,46 @@ import pages.loadpay.admin.AdminCustomersSideMenuSearch;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.admin.AdminPayByCheck;
+import pages.loadpay.admin.AdminPaymeNowTab;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.broker.BrokerPaymentSheduledates;
 import pages.loadpay.broker.SchpaymentwithoutBankAccountPayByInvoiceEnabled;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.outlook.outlooklogin;
+import util.TestUtil;
 
 public class AdminDelayDebitTest extends TestBase {
+
 	SchpaymentwithoutBankAccountPayByInvoiceEnabled schpaymentwithoutBankAccountPayByInvoiceenabled;
+
+	CarrierLoginPage carrierloginPage;
+
 	BrokerPaymentSheduledates brokerPaymentSheduledates;
+	BrokerLoginPage brokerlogin;
+
+	BrokerOutlook brokerOutlookObj;
+	outlooklogin outlook;
+
 	AdminCustomersSideMenuSearch adminCustomersSideMenuSearch;
 	AdminCancelPayByCheck adminPayByCheckObj;
 	AdminHomePage admHomePage;
 	AdminLogin admLogin;
-	WebElement checkbox;
+	AdminPaymeNowTab admPayMeNowTab;
 	AdminPayByCheck adminExpand;
+
+	WebElement payMeNowCheckbox;
+
 	String payment_status = "Verified";
 	String brokerUsername;
 	String brokerPassword;
-	BrokerLoginPage brokerlogin;
-	String invoice;
-	ArrayList<String> invoiceList;
 	String email;
-	CarrierLoginPage carrierloginPage;
+	String emailid = "";
 	String carrierUserName;
 	String carrierPassword;
-	BrokerOutlook brokerOutlookObj;
-	outlooklogin outlook;
+	String invoice;
+	ArrayList<String> invoiceList;
+
 	Date currentTime;
 	String formattedDate = "";
 	Long longTime;
@@ -56,7 +70,6 @@ public class AdminDelayDebitTest extends TestBase {
 	String currentHour = "";
 	String currentMinutes = "";
 	String timeArray[] = new String[2];
-	String emailid = "";
 
 	/*-------Initializing driver---------*/
 	public AdminDelayDebitTest() {
@@ -69,18 +82,21 @@ public class AdminDelayDebitTest extends TestBase {
 		initialization();
 		admLogin = new AdminLogin();
 		admHomePage = new AdminHomePage();
-		brokerlogin = new BrokerLoginPage();
-		carrierloginPage = new CarrierLoginPage();
-		brokerlogin = new BrokerLoginPage();
-		invoiceList = new ArrayList<String>();
-		wait = new WebDriverWait(driver, 30);
+		admPayMeNowTab = new AdminPaymeNowTab();
 		adminExpand = new AdminPayByCheck();
+		adminPayByCheckObj = new AdminCancelPayByCheck();
+
+		brokerlogin = new BrokerLoginPage();
 		brokerPaymentSheduledates = new BrokerPaymentSheduledates();
+
+		carrierloginPage = new CarrierLoginPage();
+
 		adminCustomersSideMenuSearch = new AdminCustomersSideMenuSearch();
 		schpaymentwithoutBankAccountPayByInvoiceenabled = new SchpaymentwithoutBankAccountPayByInvoiceEnabled();
-		adminPayByCheckObj = new AdminCancelPayByCheck();
 		outlook = new outlooklogin();
 		brokerOutlookObj = new BrokerOutlook();
+
+		invoiceList = new ArrayList<String>();
 		wait = new WebDriverWait(driver, 30);
 		currentTime = new Date();
 	}
@@ -105,10 +121,20 @@ public class AdminDelayDebitTest extends TestBase {
 		admLogin.ClickOnSearchButton();
 		admLogin.DoubleClickID();
 		admLogin.StatusIDDropDown();
+
+		// click on pay me now and enable it
+		admPayMeNowTab.openPayMeNowTab();
+		admPayMeNowTab.clickEnrollInPayMeNow();
+		admPayMeNowTab.setTermDropdown("15");
+		admPayMeNowTab.clickUpdateButton();
+		admLogin.ClickOKButon();
+
+		// enable delay debit
 		admLogin.Link_delaydebit();
 		admLogin.ClickEditDelayDebit();
 		admLogin.select_DelayDebitEnabled();
 		admLogin.Click_UpdateDelayDebit();
+		admLogin.ClickOKButon();
 		admLogin.Link_PayMeNowTm();
 		admLogin.AdminLogOut();
 		log.info("Verify Customer tab Link Passed");
@@ -116,11 +142,10 @@ public class AdminDelayDebitTest extends TestBase {
 	}
 
 	@Test(description = "LP-5427 Admin - Delay Debit", dataProvider = "getBrokerLoginData", dependsOnMethods = "verifyDelayDebit")
-	public void loginBroker(String un, String pwd) {
+	public void loginBroker(String un, String pwd) throws InterruptedException {
 		driver.get(prop.getProperty("url"));
 		brokerlogin = new BrokerLoginPage();
 		brokerlogin.Brokerlogin(un, pwd);
-
 	}
 
 	@Test(description = "LP-5427 Admin - Delay Debit", dataProvider = "getPaymentData", dependsOnMethods = "loginBroker")
@@ -130,7 +155,12 @@ public class AdminDelayDebitTest extends TestBase {
 		brokerPaymentSheduledates = new BrokerPaymentSheduledates();
 		brokerPaymentSheduledates.lnkMyAccount();
 		brokerPaymentSheduledates.clicklnk_PayMeNow();
-		Assert.assertTrue(brokerPaymentSheduledates.lnk_newpayment.isDisplayed(), "newPayment Link if NOT Found!");
+		Assert.assertTrue(brokerPaymentSheduledates.lnk_PayMeNow.isDisplayed(), "PayMeNow Link NOT Found!");
+
+		// verify pay me now option is disabled (from admin action above)
+		payMeNowCheckbox = driver.findElement(By.xpath(".//*[@id='PMNEnrolled']"));
+		Assert.assertFalse(payMeNowCheckbox.isSelected(), "Pay Me Now link is enabled - should be disabled!");
+
 		brokerPaymentSheduledates.newPayment();
 		email = brokerPaymentSheduledates.carrierEmail(cemail);
 		brokerPaymentSheduledates.amount(amt);
@@ -143,7 +173,8 @@ public class AdminDelayDebitTest extends TestBase {
 	}
 
 	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = "brokernewPayment")
-	public void verifyAdminPayByCheck(String Username, String pass) throws InterruptedException, AWTException {
+	public void verifyAdminPayByCheck(String Username, String pass)
+			throws InterruptedException, AWTException, ParseException {
 
 		admHomePage.AdminURL();
 
@@ -162,9 +193,21 @@ public class AdminDelayDebitTest extends TestBase {
 		adminPayByCheckObj.searchKeyword();
 		adminPayByCheckObj.clickSearch1();
 		adminPayByCheckObj.clickgridcollaps();
+
 		Assert.assertTrue(brokerPaymentSheduledates.anticipatedwidrawldate.isDisplayed(),
 				"get text of Anticipated Date if NOT Found!");
-		brokerPaymentSheduledates.getanticipatedwidrawlDate();
+		String anticipatedWithdrawalDate = brokerPaymentSheduledates.getanticipatedwidrawlDate();
+		WebElement termDate = driver.findElement(By.xpath(
+				"//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/a/div/div[2]/div/b"));
+
+		Long termDateDiff = TestUtil.getDifferenceBetweenDates(termDate.getText(), anticipatedWithdrawalDate);
+		Assert.assertTrue(termDateDiff == 15, "Term Date difference from withdrawal date does not equal 15 days");
+
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		Date date = new Date();
+
+		Long totalDatediff = TestUtil.getDifferenceBetweenDates(dateFormat.format(date), anticipatedWithdrawalDate);
+		Assert.assertTrue(totalDatediff == 30, "Total Date difference does not equal 30 days");
 
 	}
 
@@ -175,12 +218,17 @@ public class AdminDelayDebitTest extends TestBase {
 		admLogin.ClickOnSearchBox(brokerUsername);
 		admLogin.ClickOnSearchButton();
 		admLogin.DoubleClickID();
-		admLogin.StatusIDDropDown();
+
+		admPayMeNowTab.openPayMeNowTab();
+		admPayMeNowTab.clickEnrollInPayMeNow();
+		admPayMeNowTab.setTermDropdown("15");
+		admPayMeNowTab.clickUpdateButton();
+		admLogin.ClickOKButon();
+
 		admLogin.Link_delaydebit();
-		admLogin.ClickEditDelayDebit();
-		admLogin.select_DelayDebitEnabled();
-		admLogin.Click_UpdateDelayDebit();
-		admLogin.Link_PayMeNowTm();
+		Assert.assertFalse(admLogin.isDelayedDebitSelected(),
+				"Delayed Debit is enabled - should be disabled when PayMenNow is enabled!");
+
 		admLogin.AdminLogOut();
 		log.info("Verify Customer tab Link Passed");
 
@@ -198,8 +246,20 @@ public class AdminDelayDebitTest extends TestBase {
 		brokerOutlookObj.enterEmail(super.prop.getProperty("email"));
 		getTimestamp();
 		brokerOutlookObj.outlookSearchInbox(brokerUsername, currentHour, currentMinutes);
-		brokerOutlookObj.handleNewInbox();
+		brokerOutlookObj.verifyEmailReceived("Your LoadPay account is now enrolled in PayMeNow.");
 
+	}
+
+	@Test(description = "LP-5427 Admin - Delay Debit", dependsOnMethods = "outlookloginTest")
+	public void verifypaymenow() {
+		driver.get(prop.getProperty("url"));
+		brokerPaymentSheduledates.lnkMyAccount();
+		brokerPaymentSheduledates.clicklnk_PayMeNow();
+		Assert.assertTrue(brokerPaymentSheduledates.lnk_PayMeNow.isDisplayed(), "PayMeNow Link NOT Found!");
+
+		// verify pay me now option is disabled (from admin action above)
+		payMeNowCheckbox = driver.findElement(By.xpath(".//*[@id='PMNEnrolled']"));
+		Assert.assertTrue(payMeNowCheckbox.isSelected(), "Pay Me Now link is enabled - should be disabled!");
 	}
 
 	public void getTimestamp() {
@@ -222,14 +282,6 @@ public class AdminDelayDebitTest extends TestBase {
 		System.out.println("Current Hour: " + currentHour);
 		System.out.println("Current Minutes: " + currentMinutes);
 		System.out.println("===============================");
-	}
-
-	@Test(description = "LP-5427 Admin - Delay Debit", dependsOnMethods = "outlookloginTest")
-	public void verifypaymenow() {
-		driver.get(prop.getProperty("url"));
-		brokerPaymentSheduledates.lnkMyAccount();
-		brokerPaymentSheduledates.clicklnk_PayMeNow();
-
 	}
 
 }

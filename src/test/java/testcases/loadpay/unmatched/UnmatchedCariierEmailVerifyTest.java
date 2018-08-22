@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.outlook.outlooklogin;
 import pages.loadpay.unmatched.UnmatchedCariierEmailVerify;
-import testcases.loadpay.carrier.CarrierRegisterTest;
+import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
 
 public class UnmatchedCariierEmailVerifyTest extends TestBase {
 	UnmatchedCariierEmailVerify outlookk;
@@ -55,7 +55,7 @@ public class UnmatchedCariierEmailVerifyTest extends TestBase {
 		outlookk.enterEmail(super.getProperties().getProperty("email"));
 		// outlookk.clickOpen();
 		getTimestamp();
-		outlookk.outlookSearchInbox(CarrierRegisterTest.email, currentHour, currentMinutes);
+		outlookk.outlookSearchInbox(BrokerPaymentforUnmatchedCarrierTest.al.get(0), currentHour, currentMinutes);
 		outlookk.handleNewInbox();
 		outlookk.verifyConfirmationMessage();
 

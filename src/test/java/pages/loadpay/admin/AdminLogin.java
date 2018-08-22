@@ -379,6 +379,7 @@ public class AdminLogin extends TestBase {
 	public void Click_UpdateDelayDebit() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(UpdateDelayDebit));
 		UpdateDelayDebit.click();
+		Thread.sleep(1000);
 	}
 
 	public void ClickCancelSendEmailToVerify() throws InterruptedException {
@@ -481,7 +482,7 @@ public class AdminLogin extends TestBase {
 		Thread.sleep(1000);
 		s = new Select(CustomersatatusIdDropDown);
 		s.selectByVisibleText("Active");
-
+		Thread.sleep(1000);
 	}
 
 	public void select_DelayDebitEnabled() throws InterruptedException {
@@ -501,6 +502,10 @@ public class AdminLogin extends TestBase {
 	 */
 	public WebElement getUserName() {
 		return UserName;
+	}
+
+	public Boolean isDelayedDebitSelected() {
+		return selectenabled.isSelected();
 	}
 
 	/**

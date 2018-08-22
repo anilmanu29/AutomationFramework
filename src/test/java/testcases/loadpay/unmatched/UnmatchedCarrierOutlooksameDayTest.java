@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.outlook.outlooklogin;
 import pages.loadpay.unmatched.UnmatchedCarrierOutlooksameDay;
-import testcases.loadpay.carrier.CarrierRegisterTest;
+import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
 
 public class UnmatchedCarrierOutlooksameDayTest extends TestBase {
 
@@ -61,7 +61,8 @@ public class UnmatchedCarrierOutlooksameDayTest extends TestBase {
 		umCarrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
 		// umCarrierOutlookObj.clickOpen();
 		getTimestamp();
-		umCarrierOutlookObj.outlookSearchInbox(CarrierRegisterTest.email, currentHour, currentMinutes);
+		umCarrierOutlookObj.outlookSearchInbox(BrokerPaymentforUnmatchedCarrierTest.al.get(0), currentHour,
+				currentMinutes);
 		umCarrierOutlookObj.handleNewInbox();
 		umCarrierOutlookObj.switchtoCarrieregistration();
 		umCarrierOutlookObj.unmatchedCarrierRegistration();
