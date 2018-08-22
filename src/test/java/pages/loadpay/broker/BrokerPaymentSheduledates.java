@@ -19,7 +19,7 @@ public class BrokerPaymentSheduledates extends TestBase {
 	public static float totalamounnt;
 	String schedule;
 	String scheduleamt;
-	String anticipatedwidrawlDate;
+	String anticipatedwidrawlDate = "";
 
 	@FindBy(xpath = "//a[text()='New Payment']")
 	public WebElement lnk_newpayment;
@@ -36,8 +36,8 @@ public class BrokerPaymentSheduledates extends TestBase {
 	@FindBy(xpath = "//div[@class='total ng-scope']//child::span[1]")
 	private WebElement creditvalue;
 
-	@FindBy(xpath = ".//*[@id='collapseDetails44901']/div[2]/div[2]")
-	private WebElement anticipatedwidrawldate;
+	@FindBy(xpath = ".//*[contains(@id, 'collapseDetails')]/div[2]/div[2]")
+	public WebElement anticipatedwidrawldate;
 
 	@FindBy(id = "CarrierEmail")
 	private WebElement field_CarrierEmail;

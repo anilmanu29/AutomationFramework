@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -23,33 +24,29 @@ import pages.loadpay.admin.AdminPayByCheck;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.broker.BrokerPaymentSheduledates;
+import pages.loadpay.broker.SchpaymentwithoutBankAccountPayByInvoiceEnabled;
 import pages.loadpay.carrier.CarrierLoginPage;
-import pages.loadpay.carrier.CarrierSameDAYACH;
-import pages.loadpay.carrier.CarrierWireTransfer;
 import pages.loadpay.outlook.outlooklogin;
 
 public class AdminDelayDebitTest extends TestBase {
-
+	SchpaymentwithoutBankAccountPayByInvoiceEnabled schpaymentwithoutBankAccountPayByInvoiceenabled;
 	BrokerPaymentSheduledates brokerPaymentSheduledates;
 	AdminCustomersSideMenuSearch adminCustomersSideMenuSearch;
 	AdminCancelPayByCheck adminPayByCheckObj;
 	AdminHomePage admHomePage;
 	AdminLogin admLogin;
-	CarrierWireTransfer carrierwireframe;
 	WebElement checkbox;
 	AdminPayByCheck adminExpand;
 	String payment_status = "Verified";
-	String brokerUserName;
+	String brokerUsername;
 	String brokerPassword;
 	BrokerLoginPage brokerlogin;
-	ArrayList<String> brokerInvoices;
 	String invoice;
 	ArrayList<String> invoiceList;
 	String email;
 	CarrierLoginPage carrierloginPage;
 	String carrierUserName;
 	String carrierPassword;
-	CarrierSameDAYACH carriersamedayach;
 	BrokerOutlook brokerOutlookObj;
 	outlooklogin outlook;
 	Date currentTime;
@@ -59,6 +56,7 @@ public class AdminDelayDebitTest extends TestBase {
 	String currentHour = "";
 	String currentMinutes = "";
 	String timeArray[] = new String[2];
+	String emailid = "";
 
 	/*-------Initializing driver---------*/
 	public AdminDelayDebitTest() {
@@ -73,13 +71,13 @@ public class AdminDelayDebitTest extends TestBase {
 		admHomePage = new AdminHomePage();
 		brokerlogin = new BrokerLoginPage();
 		carrierloginPage = new CarrierLoginPage();
-		carrierwireframe = new CarrierWireTransfer();
 		brokerlogin = new BrokerLoginPage();
 		invoiceList = new ArrayList<String>();
 		wait = new WebDriverWait(driver, 30);
 		adminExpand = new AdminPayByCheck();
 		brokerPaymentSheduledates = new BrokerPaymentSheduledates();
 		adminCustomersSideMenuSearch = new AdminCustomersSideMenuSearch();
+		schpaymentwithoutBankAccountPayByInvoiceenabled = new SchpaymentwithoutBankAccountPayByInvoiceEnabled();
 		adminPayByCheckObj = new AdminCancelPayByCheck();
 		outlook = new outlooklogin();
 		brokerOutlookObj = new BrokerOutlook();
@@ -90,7 +88,7 @@ public class AdminDelayDebitTest extends TestBase {
 	@Test(description = "LP-5427 Admin - Delay Debit", dataProvider = "getBrokerLoginData")
 	public void getBrokerCredentials(String user, String pass) throws InterruptedException {
 		driver.get(prop.getProperty("url"));
-		brokerUserName = user;
+		brokerUsername = user;
 		brokerPassword = pass;
 	}
 
@@ -101,10 +99,9 @@ public class AdminDelayDebitTest extends TestBase {
 		admHomePage.AdminURL();
 		admLogin.adminUserPass(Username, pass);
 		admLogin.adminLogin();
-		// Assert.assertTrue(admLogin.CustomerTab.isDisplayed(), "Customer Tab Link if
-		// NOT Found!");
+		Assert.assertTrue(admLogin.CustomerTab.isDisplayed(), "Customer Tab Link if NOT Found!");
 		admLogin.ClickOnCustomersTab();
-		admLogin.ClickOnSearchBox(brokerUserName);
+		admLogin.ClickOnSearchBox(brokerUsername);
 		admLogin.ClickOnSearchButton();
 		admLogin.DoubleClickID();
 		admLogin.StatusIDDropDown();
@@ -152,6 +149,7 @@ public class AdminDelayDebitTest extends TestBase {
 
 		admLogin.adminUserPass(Username, pass);
 		admLogin.adminLogin();
+		Assert.assertTrue(admLogin.CustomerTab.isDisplayed(), "Customer Tab Link if NOT Found!");
 		admLogin.ClickOnCustomersTab();
 		log.info(BrokerLoginPage.bemail);
 		admLogin.ClickOnSearchBox(BrokerLoginPage.bemail);
@@ -164,18 +162,17 @@ public class AdminDelayDebitTest extends TestBase {
 		adminPayByCheckObj.searchKeyword();
 		adminPayByCheckObj.clickSearch1();
 		adminPayByCheckObj.clickgridcollaps();
+		Assert.assertTrue(brokerPaymentSheduledates.anticipatedwidrawldate.isDisplayed(),
+				"get text of Anticipated Date if NOT Found!");
 		brokerPaymentSheduledates.getanticipatedwidrawlDate();
 
 	}
 
 	@Test(description = "LP-5427 Admin - Delay Debit", dataProvider = "getAdminLoginData", dependsOnMethods = "verifyAdminPayByCheck")
 	public void verifyDelayDebitpaymenow(String Username, String pass) throws InterruptedException, AWTException {
-		admHomePage.AdminURL();
-		admLogin.adminUserPass(Username, pass);
-		admLogin.adminLogin();
 		Assert.assertTrue(admLogin.CustomerTab.isDisplayed(), "Customer Tab Link if  NOT Found!");
 		admLogin.ClickOnCustomersTab();
-		admLogin.ClickOnSearchBox(brokerUserName);
+		admLogin.ClickOnSearchBox(brokerUsername);
 		admLogin.ClickOnSearchButton();
 		admLogin.DoubleClickID();
 		admLogin.StatusIDDropDown();
@@ -183,8 +180,6 @@ public class AdminDelayDebitTest extends TestBase {
 		admLogin.ClickEditDelayDebit();
 		admLogin.select_DelayDebitEnabled();
 		admLogin.Click_UpdateDelayDebit();
-		// admLogin.click_unenrolldelaydebit();
-		// admLogin.clicklnkAdminPayMeNow();
 		admLogin.Link_PayMeNowTm();
 		admLogin.AdminLogOut();
 		log.info("Verify Customer tab Link Passed");
@@ -200,16 +195,19 @@ public class AdminDelayDebitTest extends TestBase {
 	public void outlookloginTest() throws InterruptedException, AWTException {
 		brokerOutlookObj.clickPopUp();
 		brokerOutlookObj.clickOpenMailBox();
-		brokerOutlookObj.enterEmail(super.getProperties().getProperty("email"));
-		// outlookk.clickOpen();
+		brokerOutlookObj.enterEmail(super.prop.getProperty("email"));
 		getTimestamp();
-		brokerOutlookObj.outlookSearchInbox(brokerUserName, currentHour, currentMinutes);
+		brokerOutlookObj.outlookSearchInbox(brokerUsername, currentHour, currentMinutes);
 		brokerOutlookObj.handleNewInbox();
-		brokerOutlookObj.verifyConfirmationMessage();
 
 	}
 
 	public void getTimestamp() {
+		/////////////////////////////////////////////////////////////////
+		TimeZone tz = Calendar.getInstance().getTimeZone();
+		String currentTimeZone = tz.getDisplayName();
+		System.out.println(currentTimeZone);
+
 		formatter = new SimpleDateFormat("HH:mm");
 		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
 		longTime = currentTime.getTime();
@@ -218,21 +216,18 @@ public class AdminDelayDebitTest extends TestBase {
 		currentHour = timeArray[0];
 		currentMinutes = timeArray[1];
 
-		log.info("\n\n\n===============================");
-		log.info("Current date: " + longTime);
-		log.info("Formatted date: " + formattedDate);
-		log.info("Current Hour: " + currentHour);
-		log.info("Current Minutes: " + currentMinutes);
-		log.info("===============================");
+		System.out.println("\n\n\n===============================");
+		System.out.println("Current date: " + longTime);
+		System.out.println("Formatted date: " + formattedDate);
+		System.out.println("Current Hour: " + currentHour);
+		System.out.println("Current Minutes: " + currentMinutes);
+		System.out.println("===============================");
 	}
 
-	@Test(description = "LP-5427 Admin - Delay Debit", dataProvider = "getBrokerLoginData", dependsOnMethods = "outlookloginTest")
-	public void verifypaymenow(String un, String pwd) {
+	@Test(description = "LP-5427 Admin - Delay Debit", dependsOnMethods = "outlookloginTest")
+	public void verifypaymenow() {
 		driver.get(prop.getProperty("url"));
-		brokerlogin = new BrokerLoginPage();
-		brokerlogin.Brokerlogin(un, pwd);
 		brokerPaymentSheduledates.lnkMyAccount();
-		Assert.assertTrue(brokerPaymentSheduledates.lnk_newpayment.isDisplayed(), "newPayment Link if NOT Found!");
 		brokerPaymentSheduledates.clicklnk_PayMeNow();
 
 	}

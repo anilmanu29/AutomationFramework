@@ -108,9 +108,11 @@ public class AdminCancelPayByCheck extends TestBase {
 	}
 
 	public void clickPayments() throws InterruptedException {
+		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(link_Payments));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", link_Payments);
-		// wait.until(ExpectedConditions.elementToBeClickable(link_Payments));
+		Thread.sleep(1000);
 
 	}
 

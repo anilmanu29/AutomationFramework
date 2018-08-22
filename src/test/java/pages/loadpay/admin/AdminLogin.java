@@ -2,6 +2,7 @@ package pages.loadpay.admin;
 
 import java.io.IOException;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -13,6 +14,7 @@ import base.TestBase;
 
 public class AdminLogin extends TestBase {
 	Select s;
+	JavascriptExecutor js;
 
 	@FindBy(xpath = ".//*[@id='UserName']")
 	WebElement UserName;
@@ -166,6 +168,7 @@ public class AdminLogin extends TestBase {
 	public AdminLogin() throws IOException {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 30);
+		js = (JavascriptExecutor) driver;
 	}
 
 	public void adminUserPass(String Username, String pass) throws InterruptedException {
@@ -180,9 +183,16 @@ public class AdminLogin extends TestBase {
 		loginBtn.click();
 	}
 
+	/*
+	 * public void AdminLogOut() throws InterruptedException {
+	 * wait.until(ExpectedConditions.elementToBeClickable(logOut)); logOut.click();
+	 * }
+	 */
+
 	public void AdminLogOut() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(logOut));
-		logOut.click();
+		js.executeScript("arguments[0].click();", logOut);
+
 	}
 
 	public void Banking_editbtnPayByInvoice() throws InterruptedException {

@@ -89,32 +89,61 @@ public class BrokerOutlook extends TestBase {
 
 	}
 
-	public void clickPopUp() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(fieldSearchMail));
-		fieldSearchMail.click();
-		wait.until(ExpectedConditions.elementToBeClickable(haspopup));
-		haspopup.click();
-	}
+	// public void clickPopUp() throws InterruptedException {
+	// wait.until(ExpectedConditions.elementToBeClickable(fieldSearchMail));
+	// fieldSearchMail.click();
+	// wait.until(ExpectedConditions.elementToBeClickable(haspopup));
+	// haspopup.click();
+	// }
 
-	public void clickOpenMailBox() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(lnkopenanothermail));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", lnkopenanothermail);
+	public void clickPopUp() throws InterruptedException {
+		Thread.sleep(4000);
+		fieldSearchMail.click();
+		Thread.sleep(1000);
+		haspopup.click();
 		Thread.sleep(1000);
 	}
+
+	// public void clickOpenMailBox() throws InterruptedException {
+	// wait.until(ExpectedConditions.elementToBeClickable(lnkopenanothermail));
+	// JavascriptExecutor js = (JavascriptExecutor) driver;
+	// js.executeScript("arguments[0].click();", lnkopenanothermail);
+	// Thread.sleep(1000);
+	// }
+
+	public void clickOpenMailBox() {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", lnkopenanothermail);
+
+	}
+
+	// public void enterEmail(String email) throws InterruptedException {
+	// wait.until(ExpectedConditions.elementToBeClickable(fieldTextbox));
+	// fieldTextbox.sendKeys(email);
+	// wait.until(ExpectedConditions.elementToBeClickable(buttonsearchcontacts));
+	// try {
+	// buttonsearchcontacts.click();
+	// wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
+	// buttonOpen.click();
+	// } catch (Exception e) {
+	// wait.until(ExpectedConditions.elementToBeClickable(searchSuggestion));
+	// searchSuggestion.click();
+	// wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
+	// buttonOpen.click();
+	// }
+	// }
 
 	public void enterEmail(String email) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(fieldTextbox));
 		fieldTextbox.sendKeys(email);
-		wait.until(ExpectedConditions.elementToBeClickable(buttonsearchcontacts));
+		Thread.sleep(1000);
 		try {
 			buttonsearchcontacts.click();
-			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
+			Thread.sleep(1000);
 			buttonOpen.click();
 		} catch (Exception e) {
-			wait.until(ExpectedConditions.elementToBeClickable(searchSuggestion));
 			searchSuggestion.click();
-			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
+			Thread.sleep(1000);
 			buttonOpen.click();
 		}
 	}
