@@ -138,12 +138,17 @@ public class BrokerOutlook extends TestBase {
 		fieldTextbox.sendKeys(email);
 		Thread.sleep(1000);
 		try {
+			wait.until(ExpectedConditions.elementToBeClickable(buttonsearchcontacts));
 			buttonsearchcontacts.click();
-			Thread.sleep(1000);
+
+			Thread.sleep(2000);
+			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
 			buttonOpen.click();
 		} catch (Exception e) {
 			searchSuggestion.click();
-			Thread.sleep(1000);
+
+			Thread.sleep(2000);
+			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
 			buttonOpen.click();
 		}
 	}
@@ -207,7 +212,7 @@ public class BrokerOutlook extends TestBase {
 	}
 
 	public void verifyConfirmationMessage() throws InterruptedException {
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(2));
 		wait.until(ExpectedConditions.elementToBeClickable(emailverifymessage));
@@ -309,4 +314,4 @@ public class BrokerOutlook extends TestBase {
 		}
 	}
 
-}
+}

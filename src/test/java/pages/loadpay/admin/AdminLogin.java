@@ -263,7 +263,7 @@ public class AdminLogin extends TestBase {
 	}
 
 	public void click_AdminBanking() throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(AdminBanking));
 		AdminBanking.click();
 	}
 
@@ -305,6 +305,7 @@ public class AdminLogin extends TestBase {
 	// }
 
 	public void EnterExtendedCredit(String CreditAmount) throws InterruptedException {
+		Thread.sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(ExtendedCredit));
 		ExtendedCredit.click();
 		ExtendedCredit.clear();
@@ -386,6 +387,7 @@ public class AdminLogin extends TestBase {
 	}
 
 	public void DoubleClickID() throws InterruptedException {
+		Thread.sleep(3000);
 		wait.until(ExpectedConditions.elementToBeClickable(DoubleClickID));
 		DoubleClickID.click();
 	}
@@ -476,8 +478,10 @@ public class AdminLogin extends TestBase {
 	public void StatusIDDropDown() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CustomersatatusIdDropDown));
 		CustomersatatusIdDropDown.click();
+		Thread.sleep(1000);
 		s = new Select(CustomersatatusIdDropDown);
 		s.selectByVisibleText("Active");
+
 	}
 
 	public void select_DelayDebitEnabled() throws InterruptedException {
