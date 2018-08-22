@@ -296,10 +296,12 @@ public class BrokerPaymentSheduledates extends TestBase {
 
 	}
 
-	public void getanticipatedwidrawlDate() throws InterruptedException {
+	public String getanticipatedwidrawlDate() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(anticipatedwidrawldate));
 		anticipatedwidrawlDate = anticipatedwidrawldate.getText();
 		log.info(anticipatedwidrawldate);
+
+		return anticipatedwidrawlDate;
 	}
 
 	/*-------verify amount---------*/

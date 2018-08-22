@@ -5,11 +5,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -186,5 +189,16 @@ public class TestUtil extends TestBase {
 		}
 
 		return list;
+	}
+
+	public static long getDifferenceBetweenDates(String startDate, String endDate) throws ParseException {
+
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
+		Date firstDate = sdf.parse(startDate);
+		Date secondDate = sdf.parse(endDate);
+
+		long diffInMillies = Math.abs(secondDate.getTime() - firstDate.getTime());
+
+		return TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
 	}
 }

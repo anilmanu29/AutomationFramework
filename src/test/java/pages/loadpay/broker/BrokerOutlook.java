@@ -174,6 +174,28 @@ public class BrokerOutlook extends TestBase {
 		}
 	}
 
+	public void verifyEmailReceived(String searchText) throws InterruptedException {
+		WebElement emailBody;
+
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(1));
+		Thread.sleep(1000);
+
+		List<WebElement> list = driver
+				.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
+		for (WebElement e : list) {
+			wait.until(ExpectedConditions.elementToBeClickable(e));
+			e.click();
+
+			emailBody = driver.findElement(By.xpath("//*[@id='Item.MessagePartBody']"));
+
+			if (emailBody.getText().contains(searchText)) {
+				Assert.assertTrue(emailBody.getText().contains(searchText), "Searched Text found in email");
+				break;
+			}
+		}
+	}
+
 	public void handleResetPasswordEmailInbox(String EmailAddress) throws InterruptedException {
 		Thread.sleep(1000);
 
@@ -314,4 +336,4 @@ public class BrokerOutlook extends TestBase {
 		}
 	}
 
-}
+}

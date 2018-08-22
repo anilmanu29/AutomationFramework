@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
@@ -20,6 +21,9 @@ public class AdminPaymeNowTab extends TestBase {
 
 	@FindBy(id = "PMNLocked")
 	WebElement lockPayMeNowStatusButton;
+
+	@FindBy(id = "PMNTerm")
+	WebElement termDropdown;
 
 	@FindBy(xpath = "//*[@id='formPMN']/div/div[3]/input[2]")
 	WebElement updateButton;
@@ -53,6 +57,23 @@ public class AdminPaymeNowTab extends TestBase {
 	public void clickUpdateButton() {
 		wait.until(ExpectedConditions.elementToBeClickable(updateButton));
 		updateButton.click();
+	}
+
+	/**
+	 * @return the termDropdown
+	 */
+	public String getTermDropdown() {
+		return termDropdown.getText();
+	}
+
+	/**
+	 * @param termDropdown
+	 *            the termDropdown to set
+	 */
+	public void setTermDropdown(String value) {
+		wait.until(ExpectedConditions.elementToBeClickable(termDropdown));
+		Select termSelector = new Select(termDropdown);
+		termSelector.selectByVisibleText(value);
 	}
 
 }

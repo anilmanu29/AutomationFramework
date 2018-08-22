@@ -175,6 +175,7 @@ public class AdminCancelPayByCheck extends TestBase {
 	public void clickgridcollaps() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(grid_collapse));
 		grid_collapse.click();
+		Thread.sleep(3000);
 	}
 
 	public void clickPayByCheck() throws InterruptedException {
