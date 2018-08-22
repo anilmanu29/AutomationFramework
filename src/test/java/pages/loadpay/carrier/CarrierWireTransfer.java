@@ -77,6 +77,7 @@ public class CarrierWireTransfer extends TestBase {
 	}
 
 	public void getAmount() throws InterruptedException {
+		Thread.sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(paidamt));
 		amtbeforepaidsameday = paidamt.getText();
 		amtbeforepaidsmday = amtbeforepaidsameday.replaceAll("\\$", "");
@@ -120,6 +121,7 @@ public class CarrierWireTransfer extends TestBase {
 	}
 
 	public void gettotalpaiyAmount() throws InterruptedException {
+		Thread.sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(paidamt));
 		totalamt = paidamt.getText();
 		totalamount = totalamt.replaceAll("\\$", "");

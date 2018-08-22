@@ -106,8 +106,17 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 	@FindBy(xpath = ".//*[@id='PMNTerm'] ")
 	WebElement PaymentTerms;
 
-	@FindBy(xpath = ".//*[@id='formCompany']/div/div[12]/div/div/input ")
-	WebElement Next;
+	@FindBy(xpath = ".//*[@id='formCompany']/div/div[12]/div/div/input")
+	WebElement CompanyNextBtn;
+
+	@FindBy(xpath = ".//*[@id='formAddress']/div/div[4]/div/div[2]/input")
+	WebElement AddressNextBtn;
+
+	@FindBy(xpath = ".//*[@id='formContact']/div[2]/div/div[2]/input")
+	WebElement ContactNextBtn;
+
+	@FindBy(xpath = ".//*[@id='formBanking']/div/div[8]/div/div/div[2]/input")
+	WebElement BankingNextBtn;
 
 	@FindBy(xpath = "//input[@id='ZipCode']")
 	WebElement ZipCode;
@@ -123,9 +132,6 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 
 	@FindBy(xpath = "//select[@id='State']")
 	WebElement State;
-
-	@FindBy(xpath = "//input[@type='submit']")
-	WebElement submit;
 
 	@FindBy(xpath = "//input[@id='ContactFirstName']")
 	WebElement ContactFirstName;
@@ -148,9 +154,6 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 	@FindBy(xpath = "//input[contains(@id,'ConfirmPassword')]")
 	WebElement ConfirmPassword;
 
-	@FindBy(xpath = "//input[@type='submit']")
-	WebElement submit1;
-
 	@FindBy(xpath = "//input[contains(@id,'AccountName')]")
 	WebElement AccountName;
 
@@ -162,9 +165,6 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 
 	@FindBy(xpath = "//input[@id='ConfirmBankingAccount']")
 	WebElement ConfirmBankingAccount;
-
-	@FindBy(xpath = "//input[@type='submit']")
-	WebElement submit2;
 
 	@FindBy(xpath = "//*[@role='menuitemradio'][text()='Unread']")
 	WebElement lnkunread;
@@ -178,7 +178,6 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 30);
 		act = new Actions(driver);
-
 	}
 
 	public void clickPopUp() throws InterruptedException {
@@ -197,15 +196,110 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 	public void enterEmail(String email) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(fieldTextbox));
 		fieldTextbox.sendKeys(email);
-		wait.until(ExpectedConditions.elementToBeClickable(buttonsearchcontacts));
+
 		try {
+			wait.until(ExpectedConditions.elementToBeClickable(buttonsearchcontacts));
 			buttonsearchcontacts.click();
+			Thread.sleep(2000);
 			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
 			buttonOpen.click();
 		} catch (Exception e) {
+			wait.until(ExpectedConditions.elementToBeClickable(searchSuggestion));
 			searchSuggestion.click();
+			Thread.sleep(2000);
 			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
 			buttonOpen.click();
+		}
+	}
+
+	public void outlookSearchInbox(String EmailAddress, String hour, String minutes) throws InterruptedException {
+		WebElement searchInput;
+		WebElement searchButton;
+		WebElement infoMessage;
+		WebElement emailid;
+		Integer retryCount = 0;
+		Integer maxRetryCount = 300;
+
+		Thread.sleep(1000);
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(1));
+		Thread.sleep(1000);
+
+		WebElement searchField = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Search mail and people']")));
+		wait.until(ExpectedConditions.elementToBeClickable(searchField));
+		searchField.click();
+
+		searchInput = driver.findElement(By.xpath("//input[@aria-label='Search. Press Enter to Start Searching.']"));
+		searchButton = driver.findElement(By.xpath("//button[@aria-label='Start search']"));
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchInput));
+		searchInput.sendKeys(EmailAddress);
+
+		wait.until(ExpectedConditions.elementToBeClickable(searchButton));
+		searchButton.click();
+
+		infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
+		log.info("Info message text: " + infoMessage.getText());
+
+		while (infoMessage.isDisplayed() && (retryCount < maxRetryCount)) {
+			searchButton.click();
+			Thread.sleep(5000);
+			infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
+
+			if (!infoMessage.isDisplayed()) {
+				if (checkEmailTimeStamp(hour, minutes))
+					break;
+			}
+
+			retryCount++;
+		}
+
+		emailid = driver.findElement(By.xpath("//*[@id='ItemHeader.ToContainer']/div/div/div/span/span/div/span[2]"));
+
+		log.info("Email ID text: " + emailid.getText());
+	}
+
+	private Boolean checkEmailTimeStamp(String hour, String minutes) {
+		WebElement emailTimeStamp;
+		String emailTime = "";
+		Integer approximateHour = 0;
+		Integer approximateMinutes = 0;
+		Integer actualHour = 0;
+		Integer actualMinutes = 0;
+		String[] timeParser;
+
+		emailTimeStamp = driver.findElement(By.id("ItemHeader.DateReceivedLabel"));
+		emailTime = emailTimeStamp.getText();
+		emailTime = emailTime.substring(emailTime.length() - 8, emailTime.length());
+		log.info("\n\n\nEmail time: " + emailTime);
+		timeParser = emailTime.split(":");
+		timeParser[0] = timeParser[0].trim();
+		timeParser[1] = timeParser[1].trim();
+		timeParser[1] = timeParser[1].substring(0, 2);
+
+		approximateHour = Integer.parseInt(hour);
+		approximateMinutes = Integer.parseInt(minutes);
+
+		if (approximateHour > 12)
+			approximateHour -= 12;
+
+		log.info("Approx Hours: " + approximateHour);
+		log.info("Approx Minutes: " + approximateMinutes);
+
+		actualHour = Integer.parseInt(timeParser[0]);
+		actualMinutes = Integer.parseInt(timeParser[1]);
+
+		if (actualHour > 12)
+			actualHour -= 12;
+
+		log.info("Actual Hours: " + actualHour);
+		log.info("Actual Minutes: " + actualMinutes);
+
+		if ((approximateHour == actualHour) && (approximateMinutes <= actualMinutes)) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 
@@ -296,8 +390,25 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 
 	}
 
-	public void next() {
-		Next.click();
+	public void clickNextBtnOnCompanyForm() {
+		wait.until(ExpectedConditions.elementToBeClickable(CompanyNextBtn));
+		CompanyNextBtn.click();
+	}
+
+	public void clickNextBtnOnAddressForm() {
+		wait.until(ExpectedConditions.elementToBeClickable(AddressNextBtn));
+		AddressNextBtn.click();
+	}
+
+	public void clickNextBtnOnContactForm() {
+		wait.until(ExpectedConditions.elementToBeClickable(ContactNextBtn));
+		ContactNextBtn.click();
+	}
+
+	public void clickNextBtnOnBankingForm() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(BankingNextBtn));
+		Thread.sleep(1000);
+		BankingNextBtn.click();
 	}
 
 	public void ZipCode(String ZipCode1) {
@@ -318,14 +429,6 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 
 	public void State() {
 		State.sendKeys();
-	}
-
-	public void submit() {
-
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", submit);
-
-		// submit.click();
 	}
 
 	public void ContactFirstName(String FirstName) {
@@ -349,13 +452,6 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 		ConfirmPassword.sendKeys(confirmpass);
 	}
 
-	public void Next() {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", submit1);
-
-		// submit1.click();
-	}
-
 	public void AccountName(String NameonAccount) {
 		AccountName.sendKeys(NameonAccount);
 	}
@@ -370,10 +466,6 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 
 	public void ConfirmBankingAccount(String ConfirmBankAccountNumber) {
 		ConfirmBankingAccount.sendKeys(ConfirmBankAccountNumber);
-	}
-
-	public void Finish() {
-		submit2.click();
 	}
 
 	/**
@@ -573,13 +665,6 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 	}
 
 	/**
-	 * @return the next
-	 */
-	public WebElement getNext() {
-		return Next;
-	}
-
-	/**
 	 * @return the zipCode
 	 */
 	public WebElement getZipCode() {
@@ -612,13 +697,6 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 	 */
 	public WebElement getState() {
 		return State;
-	}
-
-	/**
-	 * @return the submit
-	 */
-	public WebElement getSubmit() {
-		return submit;
 	}
 
 	/**
@@ -671,13 +749,6 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 	}
 
 	/**
-	 * @return the submit1
-	 */
-	public WebElement getSubmit1() {
-		return submit1;
-	}
-
-	/**
 	 * @return the accountName
 	 */
 	public WebElement getAccountName() {
@@ -703,13 +774,6 @@ public class UnmatchedCarrierOutlooksameDay extends TestBase {
 	 */
 	public WebElement getConfirmBankingAccount() {
 		return ConfirmBankingAccount;
-	}
-
-	/**
-	 * @return the submit2
-	 */
-	public WebElement getSubmit2() {
-		return submit2;
 	}
 
 	/**

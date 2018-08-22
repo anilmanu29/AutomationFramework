@@ -189,6 +189,7 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 
 	public void verifyInvoiceNumber(String invoicenum, String amt) throws InterruptedException {
 
+		Thread.sleep(2000);
 		List<WebElement> invoicenumcount = List_payment;
 		log.info("Total Sceduled Payments:" + invoicenumcount.size());
 
