@@ -108,11 +108,17 @@ public class AdminCancelPayByCheck extends TestBase {
 	}
 
 	public void clickPayments() throws InterruptedException {
-
+		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(link_Payments));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", link_Payments);
-		wait.until(ExpectedConditions.elementToBeClickable(link_Payments));
+		Thread.sleep(1000);
 
+	}
+
+	public void clickPayment() throws InterruptedException {
+		// wait.until(ExpectedConditions.elementToBeClickable(link_Payments));
+		link_Payments.click();
 	}
 
 	public void ClickOnsearchKeyword(String invoice) throws InterruptedException {
@@ -164,6 +170,11 @@ public class AdminCancelPayByCheck extends TestBase {
 		js.executeScript("arguments[0].click();", grid_collapse);
 		wait.until(ExpectedConditions.elementToBeClickable(grid_collapse));
 
+	}
+
+	public void clickgridcollaps() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(grid_collapse));
+		grid_collapse.click();
 	}
 
 	public void clickPayByCheck() throws InterruptedException {

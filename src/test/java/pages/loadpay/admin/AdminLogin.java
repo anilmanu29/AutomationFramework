@@ -2,6 +2,7 @@ package pages.loadpay.admin;
 
 import java.io.IOException;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -13,6 +14,7 @@ import base.TestBase;
 
 public class AdminLogin extends TestBase {
 	Select s;
+	JavascriptExecutor js;
 
 	@FindBy(xpath = ".//*[@id='UserName']")
 	WebElement UserName;
@@ -35,6 +37,15 @@ public class AdminLogin extends TestBase {
 	@FindBy(xpath = (".//*[@id='updatebtnPayByInvoice']"))
 	WebElement click_updatebtnPayByInvoice;
 
+	@FindBy(xpath = (".//*[@id='PMNEnrolled']"))
+	WebElement enrollpaymenow;
+
+	@FindBy(xpath = "//a[contains(text(), 'Delay Debit')]")
+	WebElement delaydebit;
+
+	@FindBy(xpath = ".//*[@id='btnEditDelayDebit']")
+	WebElement EditDelayDebit;
+
 	@FindBy(xpath = ("//a[contains(text(),'Credit')]"))
 	WebElement CreditTab;
 
@@ -43,6 +54,9 @@ public class AdminLogin extends TestBase {
 
 	@FindBy(xpath = (".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[6]/div[2]/div/div/div[3]/div[2]"))
 	WebElement verifysystemnote;
+
+	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[5]")
+	public WebElement lnk_AdminPayMeNow;
 
 	@FindBy(xpath = (".//*[@id='greaterThan45daysId']"))
 	WebElement selectgreaterThan45daysId;
@@ -74,8 +88,14 @@ public class AdminLogin extends TestBase {
 	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[13]")
 	WebElement PaymentHistory;
 
+	@FindBy(id = "delayDebitId")
+	WebElement selectenabled;
+
 	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[7]")
 	WebElement PaymentTerms;
+
+	@FindBy(xpath = ".//*[@id='angularScope']/div[3]/div/div/div[2]/button[2]")
+	WebElement unenrolldelaydebit;
 
 	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[5]")
 	WebElement PayMeNowTm;
@@ -95,11 +115,20 @@ public class AdminLogin extends TestBase {
 	@FindBy(xpath = ".//*[@id='searchKeyword']")
 	public WebElement search;
 
+	@FindBy(xpath = ".//*[@id='formPMN']/div/div[3]/input[2]")
+	public WebElement update_btn;
+
+	@FindBy(id = "btnUpdateDelayDebit")
+	public WebElement UpdateDelayDebit;
+
 	@FindBy(xpath = ".//*[@id='angularScope']/div[3]/div/div/div[2]/button[2]")
 	WebElement click_AdminResetpwdConfirm;
 
 	@FindBy(xpath = ".//*[@id='formCustomerNote']/div[2]/div/div/button")
 	WebElement closenotesbutton;
+
+	@FindBy(xpath = ".//*[@id='angularScope']/div[3]/div/div/div[2]/button[2]")
+	WebElement okbtn;
 
 	@FindBy(xpath = "//input[@value='Search']")
 	public WebElement ClickonSearchButton;
@@ -139,6 +168,7 @@ public class AdminLogin extends TestBase {
 	public AdminLogin() throws IOException {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 30);
+		js = (JavascriptExecutor) driver;
 	}
 
 	public void adminUserPass(String Username, String pass) throws InterruptedException {
@@ -153,9 +183,16 @@ public class AdminLogin extends TestBase {
 		loginBtn.click();
 	}
 
+	/*
+	 * public void AdminLogOut() throws InterruptedException {
+	 * wait.until(ExpectedConditions.elementToBeClickable(logOut)); logOut.click();
+	 * }
+	 */
+
 	public void AdminLogOut() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(logOut));
-		logOut.click();
+		js.executeScript("arguments[0].click();", logOut);
+
 	}
 
 	public void Banking_editbtnPayByInvoice() throws InterruptedException {
@@ -166,6 +203,11 @@ public class AdminLogin extends TestBase {
 	public void Link_PayMeNowTm() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(PayMeNowTm));
 		PayMeNowTm.click();
+	}
+
+	public void Link_delaydebit() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(delaydebit));
+		delaydebit.click();
 	}
 
 	public void Click_paymentterm45Submit() throws InterruptedException {
@@ -190,6 +232,11 @@ public class AdminLogin extends TestBase {
 	public void clickupdatebtnPayByInvoice() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(click_updatebtnPayByInvoice));
 		click_updatebtnPayByInvoice.click();
+	}
+
+	public void clickenrollpaymenow() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(enrollpaymenow));
+		enrollpaymenow.click();
 	}
 
 	public void selectPayByInvoieStatus() throws InterruptedException {
@@ -218,6 +265,11 @@ public class AdminLogin extends TestBase {
 	public void click_AdminBanking() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(AdminBanking));
 		AdminBanking.click();
+	}
+
+	public void click_unenrolldelaydebit() throws InterruptedException {
+
+		unenrolldelaydebit.click();
 	}
 
 	public void ClickOnCreditSubmitButton() throws InterruptedException {
@@ -266,6 +318,12 @@ public class AdminLogin extends TestBase {
 		Thread.sleep(2000);
 	}
 
+	public void ClickEditDelayDebit() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(EditDelayDebit));
+		EditDelayDebit.click();
+		Thread.sleep(2000);
+	}
+
 	public void ClickOnSearchBox(String keyword) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(search));
 		search.click();
@@ -284,6 +342,11 @@ public class AdminLogin extends TestBase {
 		clickSendPaymentHistoryEmail.click();
 	}
 
+	public void Clickupdatebtn() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(update_btn));
+		update_btn.click();
+	}
+
 	public void ClickUpdatepaymenow() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(Update_paymenow));
 		Update_paymenow.click();
@@ -296,6 +359,12 @@ public class AdminLogin extends TestBase {
 		Thread.sleep(2000);
 	}
 
+	public void ClickOKButon() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(okbtn));
+		okbtn.click();
+		Thread.sleep(2000);
+	}
+
 	public void ClickPaymentTerms() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(PaymentTerms));
 		Thread.sleep(2000);
@@ -305,6 +374,11 @@ public class AdminLogin extends TestBase {
 	public void Click_Notes() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(clickNotes));
 		clickNotes.click();
+	}
+
+	public void Click_UpdateDelayDebit() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(UpdateDelayDebit));
+		UpdateDelayDebit.click();
 	}
 
 	public void ClickCancelSendEmailToVerify() throws InterruptedException {
@@ -382,6 +456,11 @@ public class AdminLogin extends TestBase {
 
 	}
 
+	public void clicklnkAdminPayMeNow() {
+		wait.until(ExpectedConditions.elementToBeClickable(lnk_AdminPayMeNow));
+		lnk_AdminPayMeNow.click();
+	}
+
 	public void cliccarrierforwardfile() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(carrierforwardfile));
 		carrierforwardfile.click();
@@ -403,6 +482,13 @@ public class AdminLogin extends TestBase {
 		s = new Select(CustomersatatusIdDropDown);
 		s.selectByVisibleText("Active");
 
+	}
+
+	public void select_DelayDebitEnabled() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(selectenabled));
+		selectenabled.click();
+		s = new Select(selectenabled);
+		s.selectByVisibleText("Enabled");
 	}
 
 	public void UpdateButton() throws InterruptedException {
