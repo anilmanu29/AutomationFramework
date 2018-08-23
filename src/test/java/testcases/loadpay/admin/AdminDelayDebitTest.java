@@ -71,6 +71,9 @@ public class AdminDelayDebitTest extends TestBase {
 	String currentMinutes = "";
 	String timeArray[] = new String[2];
 
+	Boolean isPayMeNowEnabled = false;
+	Boolean isDelayedDebitEnabled = false;
+
 	/*-------Initializing driver---------*/
 	public AdminDelayDebitTest() {
 		super();
@@ -122,23 +125,35 @@ public class AdminDelayDebitTest extends TestBase {
 		admLogin.DoubleClickID();
 		admLogin.StatusIDDropDown();
 
+		// delayed debit is currently enabled for this broker
+		admLogin.Link_delaydebit();
+		isDelayedDebitEnabled = admLogin.isDelayedDebitSelected();
+
 		// click on pay me now and enable it
 		admPayMeNowTab.openPayMeNowTab();
 		admPayMeNowTab.clickEnrollInPayMeNow();
 		admPayMeNowTab.setTermDropdown("15");
 		admPayMeNowTab.clickUpdateButton();
-		admLogin.ClickOKButon();
+
+		// click ok on notification only if delayed debit was previously enabled
+		if (isDelayedDebitEnabled)
+			admLogin.ClickOKButon();
 
 		// enable delay debit
 		admLogin.Link_delaydebit();
 		admLogin.ClickEditDelayDebit();
 		admLogin.select_DelayDebitEnabled();
 		admLogin.Click_UpdateDelayDebit();
+
+		// since pay me now is enabled in previous steps, notification popup will be
+		// enabled and ok button should be present
 		admLogin.ClickOKButon();
 		admLogin.Link_PayMeNowTm();
-		admLogin.AdminLogOut();
-		log.info("Verify Customer tab Link Passed");
+		isPayMeNowEnabled = admPayMeNowTab.enrollInPaymeNowButton.isSelected();
+		Assert.assertFalse(isPayMeNowEnabled,
+				"Pay Me Now Enabled - should be disabled when Delayed Debit is selected!");
 
+		admLogin.AdminLogOut();
 	}
 
 	@Test(description = "LP-5427 Admin - Delay Debit", dataProvider = "getBrokerLoginData", dependsOnMethods = "verifyDelayDebit")

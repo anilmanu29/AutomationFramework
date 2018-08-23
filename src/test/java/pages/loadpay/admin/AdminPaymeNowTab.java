@@ -17,7 +17,7 @@ public class AdminPaymeNowTab extends TestBase {
 	WebElement PayMeNowTab;
 
 	@FindBy(id = "PMNEnrolled")
-	WebElement enrollInPaymeNowButton;
+	public WebElement enrollInPaymeNowButton;
 
 	@FindBy(id = "PMNLocked")
 	WebElement lockPayMeNowStatusButton;

@@ -89,7 +89,7 @@ public class AdminLogin extends TestBase {
 	WebElement PaymentHistory;
 
 	@FindBy(id = "delayDebitId")
-	WebElement selectenabled;
+	WebElement delayedDebitStatusSelector;
 
 	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[7]")
 	WebElement PaymentTerms;
@@ -486,9 +486,9 @@ public class AdminLogin extends TestBase {
 	}
 
 	public void select_DelayDebitEnabled() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(selectenabled));
-		selectenabled.click();
-		s = new Select(selectenabled);
+		wait.until(ExpectedConditions.elementToBeClickable(delayedDebitStatusSelector));
+		delayedDebitStatusSelector.click();
+		s = new Select(delayedDebitStatusSelector);
 		s.selectByVisibleText("Enabled");
 	}
 
@@ -505,7 +505,14 @@ public class AdminLogin extends TestBase {
 	}
 
 	public Boolean isDelayedDebitSelected() {
-		return selectenabled.isSelected();
+
+		Select select = new Select(delayedDebitStatusSelector);
+		WebElement option = select.getFirstSelectedOption();
+
+		if (option.getText().contains("Enabled"))
+			return true;
+		else
+			return false;
 	}
 
 	/**
