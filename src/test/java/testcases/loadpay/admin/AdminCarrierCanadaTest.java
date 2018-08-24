@@ -43,7 +43,7 @@ public class AdminCarrierCanadaTest extends TestBase {
 
 		a.ClickOnCustomersTab();
 
-		a.ClickOnSearchBox(CarrierRegisterCanadaTest.cemail);
+		a.ClickOnSearchBox(CarrierRegisterCanadaTest.carrierUsername);
 
 		a.ClickOnSearchButton();
 

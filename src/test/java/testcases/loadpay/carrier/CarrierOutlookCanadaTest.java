@@ -54,7 +54,7 @@ public class CarrierOutlookCanadaTest extends TestBase {
 		carrierCAOutlookObj.enterEmail(super.getProperties().getProperty("email"));
 		// outlookk.clickOpen();
 		getTimestamp();
-		carrierCAOutlookObj.outlookSearchInbox(CarrierRegisterCanadaTest.cemail, currentHour, currentMinutes);
+		carrierCAOutlookObj.outlookSearchInbox(CarrierRegisterCanadaTest.carrierUsername, currentHour, currentMinutes);
 		carrierCAOutlookObj.handleNewInbox();
 		carrierCAOutlookObj.verifyConfirmationMessage();
 

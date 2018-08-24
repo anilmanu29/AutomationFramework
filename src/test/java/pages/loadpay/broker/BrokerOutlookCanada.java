@@ -126,7 +126,7 @@ public class BrokerOutlookCanada extends TestBase {
 			wait.until(ExpectedConditions.elementToBeClickable(e));
 			e.click();
 			wait.until(ExpectedConditions.elementToBeClickable(emailid));
-			if (emailid.getText().equalsIgnoreCase(BrokerRegisterCanadaTest.emailid + ";")) {
+			if (emailid.getText().equalsIgnoreCase(BrokerRegisterCanadaTest.brokerUsername + ";")) {
 				wait.until(ExpectedConditions.elementToBeClickable(linkVerify));
 				linkVerify.click();
 				break;

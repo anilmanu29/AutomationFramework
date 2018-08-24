@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import pages.loadpay.carrier.CarrierRegisterCanada;
+import util.TestUtil;
 
 public class CarrierRegisterCanadaTest extends TestBase {
 	CarrierRegisterCanada canadaCarrierObj;
@@ -21,8 +22,8 @@ public class CarrierRegisterCanadaTest extends TestBase {
 	Select country;
 	Select Payments;
 	WebElement PaymentTerms;
-	public static String cemail;
-	public static String password;
+	public static String carrierUsername;
+	public static String carrierPassword;
 
 	public CarrierRegisterCanadaTest() {
 		super();
@@ -44,6 +45,17 @@ public class CarrierRegisterCanadaTest extends TestBase {
 			String ConfirmPassword, String NameonAccount, String RoutingNumber, String BankAccountNumber,
 			String ConfirmbankAccountNumber) throws IOException, InterruptedException {
 
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			String[] emailArray = Email.split("@");
+			emailArray[0] = emailArray[0] + TestUtil.getCurrentDateTime();
+
+			carrierUsername = emailArray[0] + "@" + emailArray[1];
+			carrierPassword = Password;
+		} else {
+			carrierUsername = Email;
+			carrierPassword = Password;
+		}
+
 		canadaCarrierObj.signup();
 		canadaCarrierObj.CarrierRegister();
 
@@ -64,8 +76,8 @@ public class CarrierRegisterCanadaTest extends TestBase {
 
 		canadaCarrierObj.countrydropdown(country, state);
 
-		cemail = canadaCarrierObj.CarrierEmail(Email);
-		canadaCarrierObj.confirmEmail(ConfirmEmail);
+		canadaCarrierObj.CarrierEmail(carrierUsername);
+		canadaCarrierObj.confirmEmail(carrierUsername);
 		canadaCarrierObj.iCertifyClick();
 
 		canadaCarrierObj.clickNextBtnOnCompanyForm();
@@ -88,10 +100,10 @@ public class CarrierRegisterCanadaTest extends TestBase {
 		canadaCarrierObj.ContactFirstName(FirstNames);
 		canadaCarrierObj.LastName(LastName);
 		canadaCarrierObj.Phone(PhoneNumber);
-		password = canadaCarrierObj.Password(Password);
+		canadaCarrierObj.Password(carrierPassword);
 
 		driver.findElement(By.xpath(".//*[@id='Registration_User_Password']"));
-		canadaCarrierObj.ConfirmPassword(ConfirmPassword);
+		canadaCarrierObj.ConfirmPassword(carrierPassword);
 
 		canadaCarrierObj.clickNextBtnOnContactForm();
 

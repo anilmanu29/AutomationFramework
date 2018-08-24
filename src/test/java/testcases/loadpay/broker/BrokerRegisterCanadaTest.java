@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import pages.loadpay.broker.BrokerRegisterCanada;
+import util.TestUtil;
 
 public class BrokerRegisterCanadaTest extends TestBase {
 	BrokerRegisterCanada brc;
@@ -21,8 +22,8 @@ public class BrokerRegisterCanadaTest extends TestBase {
 	Select country;
 	Select Payments;
 	WebElement PaymentTerms;
-	public static String emailid;
-	public static String pwd;
+	public static String brokerUsername;
+	public static String brokerPassword;
 
 	public BrokerRegisterCanadaTest() {
 		super();
@@ -43,6 +44,18 @@ public class BrokerRegisterCanadaTest extends TestBase {
 			String ocountry, String States, String FirstNames, String LastName, String PhoneNumber, String Password,
 			String ConfirmPassword, String NameonAccount, String RoutingNumber, String BankAccountNumber,
 			String ConfirmbankAccountNumber) throws IOException, InterruptedException {
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			String[] emailArray = Email.split("@");
+			emailArray[0] = emailArray[0] + TestUtil.getCurrentDateTime();
+
+			brokerUsername = emailArray[0] + "@" + emailArray[1];
+			brokerPassword = Password;
+		} else {
+			brokerUsername = Email;
+			brokerPassword = Password;
+		}
+
 		brc.signup();
 		brc.shipperRegister();
 
@@ -73,8 +86,8 @@ public class BrokerRegisterCanadaTest extends TestBase {
 		// ".//*[@id='IncorporationState']" ) ) );
 		//
 		// stateof.selectByVisibleText( "California" );
-		emailid = brc.BrokerEmail(Email);
-		brc.confirmEmail(ConfirmEmail);
+		brc.BrokerEmail(brokerUsername);
+		brc.confirmEmail(brokerUsername);
 
 		brc.iCertifyClick();
 
@@ -120,10 +133,10 @@ public class BrokerRegisterCanadaTest extends TestBase {
 		brc.LastName(LastName);
 		brc.Phone(PhoneNumber);
 
-		pwd = brc.Password(Password);
+		brc.Password(brokerPassword);
 
 		driver.findElement(By.xpath(".//*[@id='Registration_User_Password']"));
-		brc.ConfirmPassword(ConfirmPassword);
+		brc.ConfirmPassword(brokerPassword);
 
 		brc.clickNextBtnOnContactForm();
 
