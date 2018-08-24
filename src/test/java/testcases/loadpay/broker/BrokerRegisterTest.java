@@ -6,6 +6,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
@@ -154,9 +155,15 @@ public class BrokerRegisterTest extends TestBase {
 		adminLoginPage.StatusIDDropDown();
 		adminLoginPage.UpdateButton();
 
+		wait.until(ExpectedConditions.elementToBeClickable(adminLoginPage.updateButton));
+		Thread.sleep(2000);
+
 		// go to banking tab and capture deposit amount
 		WebElement adminCustomerBankingTab = driver.findElement(By.xpath("//a[contains(text(),'Banking')]"));
 		adminCustomerBankingTab.click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminCustomerBankingTab));
+		Thread.sleep(2000);
 
 		WebElement adminCustomerDepositAmount = driver.findElement(By.xpath(
 				"//*[@id=\"angularScope\"]/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[2]/div/div/div[1]/div/div/div/p[9]/span"));

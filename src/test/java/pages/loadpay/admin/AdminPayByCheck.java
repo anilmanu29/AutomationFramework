@@ -57,7 +57,7 @@ public class AdminPayByCheck extends TestBase {
 	public WebElement select_Terms;
 
 	@FindBy(xpath = "//input[contains(@value,'Show Quote')]")
-	private WebElement click_ShowQuote;
+	private WebElement buttonShowQuote;
 
 	@FindBy(xpath = "//button[@ng-click='ShowQuoteClose()']")
 	public WebElement ShowQuoteClose;
@@ -134,9 +134,9 @@ public class AdminPayByCheck extends TestBase {
 	}
 
 	public void clickShowQuote() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(click_ShowQuote));
+		wait.until(ExpectedConditions.elementToBeClickable(buttonShowQuote));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", click_ShowQuote);
+		js.executeScript("arguments[0].click();", buttonShowQuote);
 		wait.until(ExpectedConditions.elementToBeClickable(ShowQuoteClose));
 		ShowQuoteClose.click();
 
