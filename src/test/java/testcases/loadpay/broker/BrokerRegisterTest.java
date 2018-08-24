@@ -57,11 +57,16 @@ public class BrokerRegisterTest extends TestBase {
 			String PhoneNumber, String Password, String ConfirmPassword, String NameonAccount, String RoutingNumber,
 			String BankAccountNumber, String ConfirmbankAccountNumber) throws IOException, InterruptedException {
 
-		String[] emailArray = Email.split("@");
-		emailArray[0] = emailArray[0] + TestUtil.getCurrentDateTime();
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			String[] emailArray = Email.split("@");
+			emailArray[0] = emailArray[0] + TestUtil.getCurrentDateTime();
 
-		brokerUsername = emailArray[0] + "@" + emailArray[1];
-		brokerPassword = Password;
+			brokerUsername = emailArray[0] + "@" + emailArray[1];
+			brokerPassword = Password;
+		} else {
+			brokerUsername = Email;
+			brokerPassword = Password;
+		}
 
 		brokerRegistrationObj.signup();
 
@@ -101,7 +106,7 @@ public class BrokerRegisterTest extends TestBase {
 		stateof.selectByVisibleText("California");
 
 		brokerRegistrationObj.BrokerEmail(brokerUsername);
-		brokerRegistrationObj.confirmEmail(ConfirmEmail);
+		brokerRegistrationObj.confirmEmail(brokerUsername);
 		brokerRegistrationObj.iCertifyClick();
 		brokerRegistrationObj.paymentTerm();
 

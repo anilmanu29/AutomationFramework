@@ -13,6 +13,7 @@ import pages.loadpay.broker.BrokerLoginPage;
 
 public class BrokerLoginTest extends TestBase {
 	BrokerLoginPage loginPage;
+	String brokerUsername, brokerPassword = "";
 
 	public BrokerLoginTest() {
 		super();
@@ -30,7 +31,15 @@ public class BrokerLoginTest extends TestBase {
 	@Test(dataProvider = "getBrokerLoginData")
 	public void loginTest(String user, String pass) throws InterruptedException {
 
-		loginPage.Brokerlogin(user, pass);
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = user;
+			brokerPassword = pass;
+		}
+
+		loginPage.Brokerlogin(brokerUsername, brokerPassword);
 
 		completeRegistration();
 

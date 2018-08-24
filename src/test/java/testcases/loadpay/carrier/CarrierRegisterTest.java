@@ -46,11 +46,16 @@ public class CarrierRegisterTest extends TestBase {
 			String PhoneNumber, String Password, String ConfirmPassword, String NameonAccount, String RoutingNumber,
 			String BankAccountNumber, String ConfirmbankAccountNumber) throws IOException, InterruptedException {
 
-		String[] emailArray = Email.split("@");
-		emailArray[0] = emailArray[0] + TestUtil.getCurrentDateTime();
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			String[] emailArray = Email.split("@");
+			emailArray[0] = emailArray[0] + TestUtil.getCurrentDateTime();
 
-		carrierUsername = emailArray[0] + "@" + emailArray[1];
-		carrierPassword = Password;
+			carrierUsername = emailArray[0] + "@" + emailArray[1];
+			carrierPassword = Password;
+		} else {
+			carrierUsername = Email;
+			carrierPassword = Password;
+		}
 
 		carrierRegistrationObj.signup();
 
@@ -97,7 +102,7 @@ public class CarrierRegisterTest extends TestBase {
 
 		carrierRegistrationObj.CarrierEmail(carrierUsername);
 
-		carrierRegistrationObj.confirmEmail(ConfirmEmail);
+		carrierRegistrationObj.confirmEmail(carrierUsername);
 
 		carrierRegistrationObj.iCertifyClick();
 

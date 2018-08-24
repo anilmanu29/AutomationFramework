@@ -11,7 +11,7 @@ import pages.loadpay.carrier.CarrierLoginPage;
 
 public class CarrierLoginTest extends TestBase {
 	CarrierLoginPage loginPage;
-	String carrierUserName, carrierPassword, carrierDOT, carrierEIN = "";
+	String carrierUsername, carrierPassword, carrierDOT, carrierEIN = "";
 
 	public CarrierLoginTest() {
 		super();
@@ -20,7 +20,6 @@ public class CarrierLoginTest extends TestBase {
 
 	@BeforeClass
 	public void setUp() {
-
 		initialization();
 		loginPage = new CarrierLoginPage();
 		wait = new WebDriverWait(driver, 30);
@@ -28,12 +27,19 @@ public class CarrierLoginTest extends TestBase {
 
 	@Test(dataProvider = "getCarrierLoginData")
 	public void loginTest(String user, String pass) throws InterruptedException {
-		carrierUserName = user;
-		carrierPassword = pass;
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
+		} else {
+			carrierUsername = user;
+			carrierPassword = pass;
+		}
+
 		carrierDOT = "1234567";
 		carrierEIN = "99-9999999";
 
-		loginPage.Carrierlogin(carrierUserName, carrierPassword);
+		loginPage.Carrierlogin(carrierUsername, carrierPassword);
 
 		wait.until(ExpectedConditions.elementToBeClickable(loginPage.getEinField()));
 
