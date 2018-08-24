@@ -48,7 +48,7 @@ public class AdminBrokerCanadaTest extends TestBase {
 		a.ClickOnCustomersTab();
 
 		wait.until(ExpectedConditions.elementToBeClickable(a.getSearch()));
-		a.ClickOnSearchBox(BrokerRegisterCanadaTest.emailid);
+		a.ClickOnSearchBox(BrokerRegisterCanadaTest.brokerUsername);
 
 		wait.until(ExpectedConditions.elementToBeClickable(a.getClickonSearchButton()));
 		a.ClickOnSearchButton();

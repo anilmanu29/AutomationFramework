@@ -57,8 +57,8 @@ public class CarrierCanadaFirstLogin extends TestBase {
 
 	public void carrierfirstLogin() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(UserName));
-		UserName.sendKeys(CarrierRegisterCanadaTest.cemail);
-		Password.sendKeys(CarrierRegisterCanadaTest.password);
+		UserName.sendKeys(CarrierRegisterCanadaTest.carrierUsername);
+		Password.sendKeys(CarrierRegisterCanadaTest.carrierPassword);
 		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
 		loginBtn.click();
 

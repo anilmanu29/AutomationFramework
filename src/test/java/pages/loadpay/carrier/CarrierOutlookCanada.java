@@ -124,7 +124,7 @@ public class CarrierOutlookCanada extends TestBase {
 			wait.until(ExpectedConditions.elementToBeClickable(e));
 			e.click();
 			wait.until(ExpectedConditions.elementToBeClickable(emailid));
-			if (emailid.getText().equalsIgnoreCase(CarrierRegisterCanadaTest.cemail + ";")) {
+			if (emailid.getText().equalsIgnoreCase(CarrierRegisterCanadaTest.carrierUsername + ";")) {
 				wait.until(ExpectedConditions.elementToBeClickable(linkVerify));
 				linkVerify.click();
 				break;
