@@ -197,7 +197,7 @@ public class AdminLogin extends TestBase {
 
 	public void Banking_editbtnPayByInvoice() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(editbtnPayByInvoice));
-		editbtnPayByInvoice.click();
+		js.executeScript("arguments[0].click();", editbtnPayByInvoice);
 	}
 
 	public void Link_PayMeNowTm() throws InterruptedException {
@@ -314,8 +314,9 @@ public class AdminLogin extends TestBase {
 
 	public void ClickOnCustomersTab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CustomerTab));
+		Thread.sleep(1000);
 		CustomerTab.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 	}
 
 	public void ClickEditDelayDebit() throws InterruptedException {
@@ -441,20 +442,18 @@ public class AdminLogin extends TestBase {
 	public void clickpaymnt_Historydownload() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(paymnt_Historydownload));
 		paymnt_Historydownload.click();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 	}
 
 	public void clickpaymntcarrierHistorydownload() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(paymnt_carrierHistorydownload));
 		paymnt_carrierHistorydownload.click();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 	}
 
 	public void clicforwardfile() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(forwardfile));
 		forwardfile.click();
-		Thread.sleep(6000);
-
 	}
 
 	public void clicklnkAdminPayMeNow() {
