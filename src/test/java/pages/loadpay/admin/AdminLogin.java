@@ -157,7 +157,7 @@ public class AdminLogin extends TestBase {
 	WebElement clickAdmin_ResetPassword;
 
 	@FindBy(xpath = ".//*[@id='formCompany']/div[2]/input")
-	WebElement updateButton;
+	public WebElement updateButton;
 
 	@FindBy(xpath = "//*[@id='ExtendedCredit']")
 	WebElement ExtendedCredit;
@@ -482,7 +482,9 @@ public class AdminLogin extends TestBase {
 		Thread.sleep(1000);
 		s = new Select(CustomersatatusIdDropDown);
 		s.selectByVisibleText("Active");
-		Thread.sleep(1000);
+		Thread.sleep(2000);
+
+		log.info(s.getFirstSelectedOption().getText());
 	}
 
 	public void select_DelayDebitEnabled() throws InterruptedException {
