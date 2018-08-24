@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -33,7 +34,6 @@ public class AdminPaymentHistoryTest extends TestBase {
 	BrokerOutlook brokerOutlookObj;
 	CarrierOutlook carierOutlookObj;
 	outlooklogin outlook;
-
 	Date currentTime;
 	String formattedDate = "";
 	Long longTime;
@@ -86,11 +86,9 @@ public class AdminPaymentHistoryTest extends TestBase {
 		admLogin.clickpaymnt_Historydownload();
 		admLogin.clicforwardfile();
 		admLogin.EnterEmailTo(brokerUserName);
-
 		// TODO add cancel test and verify email is not sent
 		// admLogin.ClickCancelSendEmailToVerify();
 		// verify email not sent to outlook
-
 		admLogin.ClickSendEmailToVerify();
 		admLogin.AdminLogOut();
 	}
@@ -110,6 +108,9 @@ public class AdminPaymentHistoryTest extends TestBase {
 
 		// TODO look through inbox for attachment
 		brokerOutlookObj.handleNewInbox();
+		driver.close();
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(0));
 	}
 
 	@Test(dataProvider = "getCarrierLoginData", dependsOnMethods = "outlookloginTest")

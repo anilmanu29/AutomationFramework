@@ -85,12 +85,15 @@ public class UnmatchedCariierEmailVerifyWiretRansfer extends TestBase {
 
 	public void clickPopUp() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(fieldSearchMail));
+		Thread.sleep(1000);
 		fieldSearchMail.click();
 		wait.until(ExpectedConditions.elementToBeClickable(haspopup));
+		Thread.sleep(1000);
 		haspopup.click();
 	}
 
-	public void clickOpenMailBox() {
+	public void clickOpenMailBox() throws InterruptedException {
+		Thread.sleep(1000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", lnkopenanothermail);
 
@@ -103,11 +106,13 @@ public class UnmatchedCariierEmailVerifyWiretRansfer extends TestBase {
 		try {
 			buttonsearchcontacts.click();
 			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
+			Thread.sleep(1000);
 			buttonOpen.click();
 		} catch (Exception e) {
 			wait.until(ExpectedConditions.elementToBeClickable(searchSuggestion));
 			searchSuggestion.click();
 			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
+			Thread.sleep(1000);
 			buttonOpen.click();
 		}
 	}

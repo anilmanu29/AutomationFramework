@@ -1,5 +1,8 @@
 package util;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -12,6 +15,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -36,6 +40,7 @@ public class TestUtil extends TestBase {
 	public static String downloadsPath = System.getProperty(userHome) + "\\Downloads";
 	Workbook book;
 	Sheet sheet;
+	static Robot robot;
 
 	public void switchToFrame() {
 		driver.switchTo().frame("mainpanel");
@@ -200,5 +205,20 @@ public class TestUtil extends TestBase {
 		long diffInMillies = Math.abs(secondDate.getTime() - firstDate.getTime());
 
 		return TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+	}
+
+	public static int getRandomNumber(int min, int max) {
+		return ThreadLocalRandom.current().nextInt(min, max);
+	}
+
+	public static void zoomIN() throws InterruptedException, AWTException {
+		robot = new Robot();
+		Thread.sleep(1000);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_MINUS);
+		robot.keyRelease(KeyEvent.VK_MINUS);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		Thread.sleep(1000);
+
 	}
 }

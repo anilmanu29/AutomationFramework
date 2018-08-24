@@ -59,9 +59,7 @@ public class HandshakewithRTFCarrierTest extends TestBase {
 
 	@Test(dependsOnMethods = "clickUnlinkMyUploadAccount")
 	public void ClickLoginButton() throws InterruptedException {
-
 		rtfcarrier.click_LoginButton();
-
 	}
 
 	@Test(dataProvider = "getCarrierLoginData", dependsOnMethods = "ClickLoginButton")

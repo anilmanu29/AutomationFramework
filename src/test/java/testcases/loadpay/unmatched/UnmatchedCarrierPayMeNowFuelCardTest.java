@@ -5,11 +5,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.unmatched.UnmatchedCarrierPaymeNowFuelCard;
 
 public class UnmatchedCarrierPayMeNowFuelCardTest extends TestBase {
 
 	UnmatchedCarrierPaymeNowFuelCard UnmatchedCarrierFuelCard;
+	CarrierLoginPage carrierloginpageobj;
 
 	/*-------Initializing driver---------*/
 	public UnmatchedCarrierPayMeNowFuelCardTest() {
@@ -23,6 +25,7 @@ public class UnmatchedCarrierPayMeNowFuelCardTest extends TestBase {
 		initialization();
 		UnmatchedCarrierFuelCard = new UnmatchedCarrierPaymeNowFuelCard();
 		wait = new WebDriverWait(driver, 30);
+		carrierloginpageobj = new CarrierLoginPage();
 	}
 	/*-------Initializing driver---------*/
 
@@ -32,6 +35,7 @@ public class UnmatchedCarrierPayMeNowFuelCardTest extends TestBase {
 	public void carrierPaymenowFuelCard(String fleet_accountnbr, String fts_accountnbr) throws InterruptedException {
 
 		UnmatchedCarrierFuelCard.carrierLogin();
+		carrierloginpageobj.closePaymeNowPopUp();
 
 		UnmatchedCarrierFuelCard.clickPaymenow();
 

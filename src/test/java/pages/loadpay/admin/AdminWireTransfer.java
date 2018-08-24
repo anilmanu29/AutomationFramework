@@ -1,9 +1,12 @@
 package pages.loadpay.admin;
 
+import java.util.List;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,8 +17,9 @@ import base.TestBase;
 
 public class AdminWireTransfer extends TestBase {
 	WebDriverWait wait = null;
-
+	String invoicenumber = "";
 	String paymentidd;
+	Actions act = new Actions(driver);
 	// Page Factory - OR:
 	@FindBy(id = "EIN")
 	WebElement field_ein;
@@ -82,8 +86,12 @@ public class AdminWireTransfer extends TestBase {
 
 	@FindBy(xpath = "//input[@value='Confirm!']")
 	WebElement confirmWireTransferButton;
+	/*
+	 * @FindBy(xpath = "//span[contains(@class,'paymentDate')]") WebElement
+	 * paymentDate;
+	 */
 
-	@FindBy(xpath = "//span[contains(@class,'paymentDate')]")
+	@FindBy(xpath = ".//*[text()='PayMeNow']")
 	WebElement paymentDate;
 
 	@FindBy(xpath = "//button[text() ='Failed']")
@@ -91,6 +99,15 @@ public class AdminWireTransfer extends TestBase {
 
 	@FindBy(xpath = "//span[text() ='PAYMENT FAILED']")
 	WebElement paymentFailed;
+
+	@FindBy(xpath = "//*[@class='carrierPayment ng-scope']/div/div[5]/div")
+	List<WebElement> List_payment;
+
+	@FindBy(xpath = "//*[@class='getpaid']")
+	private List<WebElement> paymenowpayments;
+
+	@FindBy(xpath = "//*[@class='pull-left loadNumber ellipsis']")
+	private List<WebElement> loadnumbers;
 
 	// Initializing the Page Objects:
 	public AdminWireTransfer() {
@@ -104,9 +121,11 @@ public class AdminWireTransfer extends TestBase {
 	}
 
 	public void clickPayments() throws InterruptedException {
+		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(link_Payments));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", link_Payments);
+		Thread.sleep(1000);
 
 	}
 
@@ -126,7 +145,7 @@ public class AdminWireTransfer extends TestBase {
 		FieldSearch.sendKeys(invoice);
 		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 		FieldSearch.sendKeys(Keys.RETURN);
-		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
+		// wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 
 	}
 
@@ -137,6 +156,7 @@ public class AdminWireTransfer extends TestBase {
 	}
 
 	public void clickSearch() throws InterruptedException {
+		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(link_Search));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", link_Search);
@@ -205,4 +225,27 @@ public class AdminWireTransfer extends TestBase {
 		System.out.println(paymentFailed.getText());
 		Assert.assertTrue(paymentFailed.isDisplayed());
 	}
+
+	public void clickPayMeNowPayment(String iN) {
+		for (int i = 0; i < List_payment.size(); i++) {
+			String invoiceno = List_payment.get(i).getText();
+			if (invoiceno.contains(iN)) {
+				paymenowpayments.get(i).click();
+			}
+		}
+	}
+
+	public void expandPayment(String load) throws InterruptedException {
+		wait.until(ExpectedConditions.visibilityOfAllElements(loadnumbers));
+		for (int i = 0; i < loadnumbers.size(); i++) {
+			String loadid = loadnumbers.get(i).getAttribute("title");
+			System.out.println(loadid);
+			if (loadid.contains(load)) {
+				Thread.sleep(1000);
+				act.moveToElement(loadnumbers.get(i)).click().perform();
+				// loadnumbers.get(i).click();
+			}
+		}
+	}
+
 }

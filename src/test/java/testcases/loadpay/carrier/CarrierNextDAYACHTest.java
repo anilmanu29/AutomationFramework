@@ -1,5 +1,7 @@
 package testcases.loadpay.carrier;
 
+import java.awt.AWTException;
+
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -38,7 +40,7 @@ public class CarrierNextDAYACHTest extends TestBase {
 	}
 
 	@Test(dependsOnMethods = "loginTest")
-	public void carrierPaymenowNextDAYACH() throws InterruptedException {
+	public void carrierPaymenowNextDAYACH() throws InterruptedException, AWTException {
 		carrierNextDayObj.getAmount();
 		carrierNextDayObj.clickPaymenow();
 		carrierNextDayObj.getnextdayAmount();

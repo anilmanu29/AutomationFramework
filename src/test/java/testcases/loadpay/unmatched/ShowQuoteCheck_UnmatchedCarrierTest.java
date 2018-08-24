@@ -28,7 +28,7 @@ public class ShowQuoteCheck_UnmatchedCarrierTest extends TestBase {
 	public static String umemail;
 	public static String einno;
 	public static ArrayList<String> al;
-	public static ArrayList<String> in;
+	public static ArrayList<String> invoicenum;
 	public static String invoiceNum;
 	BrokerLoginPage brokerloginobj;
 	BrokerNewPayment brokerpaymentobj;
@@ -55,7 +55,7 @@ public class ShowQuoteCheck_UnmatchedCarrierTest extends TestBase {
 		brokerlogin = new BrokerLoginPage();
 		brokerPaymentforUnmatchedCarrier = new BrokerPaymentforUnmatchedCarrier();
 		al = new ArrayList<String>();
-		in = new ArrayList<String>();
+		invoicenum = new ArrayList<String>();
 		brokerloginobj = new BrokerLoginPage();
 		brokerpaymentobj = new BrokerNewPayment();
 		brokeradvancepaymentobj = new BrokerAdvancePaymenttoUnmatchedCarrier();
@@ -81,32 +81,23 @@ public class ShowQuoteCheck_UnmatchedCarrierTest extends TestBase {
 			throws InterruptedException {
 
 		brokerPaymentforUnmatchedCarrier.newPayment();
-		Thread.sleep(1000);
+
 		brokerPaymentforUnmatchedCarrier.carrierEmail(cemail);
-		Thread.sleep(1000);
+
 		brokerPaymentforUnmatchedCarrier.amount(amt);
-		Thread.sleep(1000);
+
 		invoiceNum = brokerPaymentforUnmatchedCarrier.invoiceNumber(invoiceno);
-		in.add(invoiceNum);
-		Thread.sleep(1000);
+		invoicenum.add(invoiceNum);
 		brokerPaymentforUnmatchedCarrier.loadId(loadid);
-		Thread.sleep(1000);
 		brokerPaymentforUnmatchedCarrier.companyName(payto);
-		Thread.sleep(1000);
 		brokerPaymentforUnmatchedCarrier.clickShedulePayment();
-		Thread.sleep(1000);
 		brokerPaymentforUnmatchedCarrier.clickShedulePaymenttab();
-		Thread.sleep(1000);
 		umemail = brokerPaymentforUnmatchedCarrier.searchCarrier(cemail);
 		al.add(umemail);
-		Thread.sleep(1000);
 		brokerPaymentforUnmatchedCarrier.clickSearchButton();
-		Thread.sleep(1000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)", "");
-		Thread.sleep(1000);
 		brokerPaymentforUnmatchedCarrier.verifyInvoiceNumber(invoiceno, amt);
-		Thread.sleep(1000);
 		einno = brokerPaymentforUnmatchedCarrier.getEin(ein);
 		// Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
 		System.out.println(brokerPaymentforUnmatchedCarrier.verifyPaymentStatus());
@@ -128,33 +119,27 @@ public class ShowQuoteCheck_UnmatchedCarrierTest extends TestBase {
 		 * adminlogin.ClickOnSearchBox(brokerUsername); Thread.sleep(1000);
 		 */
 		adminlogin.ClickOnSearchBox(brokerloginobj.bemail);
-		Thread.sleep(1000);
 		adminlogin.ClickOnSearchButton();
-		Thread.sleep(1000);
 		adminlogin.DoubleClickID();
-		Thread.sleep(1000);
 		adminPayByCheck.clickPayments();
 		Thread.sleep(1000);
-		System.out.println(UnCarrierAdminPBC.getPaymentId1().getText());
-		adminPayByCheck.ClickOnsearchKeyword(UnCarrierAdminPBC.getPaymentId1().getText());
+		adminPayByCheck.ClickOnsearchKeyword(invoicenum.get(1));
 		Thread.sleep(1000);
+		// System.out.println(UnCarrierAdminPBC.getPaymentId1().getText());
+		// adminPayByCheck.ClickOnsearchKeyword(UnCarrierAdminPBC.getPaymentId1().getText());
+		// Thread.sleep(1000);
 		adminPayByCheck.getPaymentID();
 		adminPayByCheck.clickSearch();
 		adminPayByCheck.searchKeyword();
 		adminPayByCheck.clickSearch1();
 		Thread.sleep(1000);
 		adminPayByCheck.clickgridcollapse();
-		Thread.sleep(1000);
 		adminPayByCheck.clickPayByCheck();
-		Thread.sleep(1000);
 		adminPayByCheck.selectTerms();
-		Thread.sleep(2000);
 		adminPayByCheck.clickShowQuote();
-		Thread.sleep(2000);
 		adminPayByCheck.selectTermsTermPayment();
-		Thread.sleep(2000);
-		adminPayByCheck.clickShowQuote();
 		Thread.sleep(1000);
+		adminPayByCheck.clickShowQuote();
 
 	}
 

@@ -171,6 +171,10 @@ public class CarrierLoginPage extends TestBase {
 		}
 	}
 
+	public WebElement getPayMeNowPopupSaveButton() {
+		return savebutton;
+	}
+
 	/**
 	 * @return the donotshowagaincheckbox
 	 */

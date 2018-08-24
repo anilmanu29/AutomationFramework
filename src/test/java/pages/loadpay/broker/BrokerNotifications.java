@@ -101,24 +101,24 @@ public class BrokerNotifications extends TestBase {
 		// create new payment
 		brokerPaymentObj = new BrokerNewPayment();
 		brokerPaymentObj.newPayment();
-		Thread.sleep(1000);
+		// Thread.sleep(1000);
 		brokerPaymentObj.carrierEmail(carrierEmail);
-		Thread.sleep(1000);
+		// Thread.sleep(1000);
 		brokerPaymentObj.amount(paymentAmount);
-		Thread.sleep(1000);
+		// Thread.sleep(1000);
 		brokerPaymentObj.invoiceNumber(invoicenumber);
 		arraylist.add(invoicenumber);
-		Thread.sleep(1000);
+		// Thread.sleep(1000);
 		brokerPaymentObj.loadId(loadId);
-		Thread.sleep(1000);
+		// Thread.sleep(1000);
 		brokerPaymentObj.clickShedulePayment();
-		Thread.sleep(1000);
+		// Thread.sleep(1000);
 		brokerPaymentObj.clickShedulePaymenttab();
-		Thread.sleep(1000);
+		// Thread.sleep(1000);
 		brokerPaymentObj.searchInvoice(invoicenumber);
-		Thread.sleep(1000);
+		// Thread.sleep(1000);
 		brokerPaymentObj.clickSearchButton();
-		Thread.sleep(1000);
+		// Thread.sleep(1000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)", "");
 		Thread.sleep(1000);
@@ -178,9 +178,14 @@ public class BrokerNotifications extends TestBase {
 			min++;
 
 		}
+		Thread.sleep(1000);
 		// Assert.assertTrue(getNotification().isDisplayed(), "Notification NOT found");
-		notificationinvoice.click();
-		Thread.sleep(2000);
+		// driver.findElement(By.xpath(
+		// ".//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[3]/div/div[1]/div/a/div/div[3]/div[2]/span"))
+		// .click();
+		js.executeScript("arguments[0].click();", notificationinvoice);
+		// notificationinvoice.click();
+
 	}
 
 	public void clickNotificationDeleteButton() {

@@ -39,12 +39,14 @@ public class BrokerAdvancePaymenttoUnmatchedCarrier extends TestBase {
 		}
 	}
 
-	public void clickScheduleButton() {
+	public void clickScheduleButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(schedulebutton));
 		js.executeScript("arguments[0].click();", schedulebutton);
+		// Thread.sleep(1000);
 	}
 
-	public String alertMessage() {
+	public String alertMessage() throws InterruptedException {
+		// Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(errormessage));
 		return errormessage.getText();
 	}

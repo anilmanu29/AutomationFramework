@@ -19,6 +19,7 @@ import pages.loadpay.broker.BrokerNewPayment;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierWireTransfer;
 import testcases.loadpay.broker.BrokerNewPaymentTest;
+import util.TestUtil;
 
 public class AdminWireTransferTest extends TestBase {
 	AdminHomePage adminHomePage;
@@ -29,6 +30,8 @@ public class AdminWireTransferTest extends TestBase {
 	BrokerLoginPage brokerloginPage;
 	CarrierWireTransfer carrierWireTransfer;
 	CarrierLoginPage carrierLoginPage;
+	int invoiceNum = 0;
+	String invoicenumber = "";
 
 	String acountName;
 	String paymentStatus = "Verified";
@@ -71,6 +74,13 @@ public class AdminWireTransferTest extends TestBase {
 	@Test(description = "LP-6230 Admin Wire Transfer", dataProvider = "getPaymentData", dependsOnMethods = "loginBroker")
 	public void brokerNewPayment(String cemail, String invoiceno, String loadid, String amt)
 			throws InterruptedException {
+
+		int randomNumber = TestUtil.getRandomNumber(1, 999999);
+		invoiceNum = randomNumber;
+		invoicenumber = Integer.toString(invoiceNum);
+		invoiceno = invoicenumber;
+		loadid = invoicenumber;
+
 		log.info("Create new Payment ");
 		brokerNewPayment.newPayment();
 
@@ -117,7 +127,8 @@ public class AdminWireTransferTest extends TestBase {
 	public void performPaymeNow() throws InterruptedException {
 		carrierWireTransfer.getAmount();
 
-		carrierWireTransfer.clickPaymenow();
+		// carrierWireTransfer.clickPaymenow();
+		adminWireTransfer.clickPayMeNowPayment(invoiceList.get(0));
 
 		carrierWireTransfer.getwiretransferAmount();
 
@@ -128,7 +139,8 @@ public class AdminWireTransferTest extends TestBase {
 
 		carrierWireTransfer.getAmount();
 
-		carrierWireTransfer.clickPaymenow();
+		// carrierWireTransfer.clickPaymenow();
+		adminWireTransfer.clickPayMeNowPayment(invoiceList.get(1));
 
 		carrierWireTransfer.getwiretransferAmount();
 
@@ -174,7 +186,9 @@ public class AdminWireTransferTest extends TestBase {
 
 		adminWireTransfer.clickSearch1();
 
-		adminWireTransfer.clickgridcollapse();
+		// adminWireTransfer.clickgridcollapse();
+
+		adminWireTransfer.expandPayment(invoiceList.get(0));
 
 		adminWireTransfer.clickWireTransferButton();
 
@@ -210,8 +224,8 @@ public class AdminWireTransferTest extends TestBase {
 
 		adminWireTransfer.clickSearch1();
 
-		adminWireTransfer.clickgridcollapse();
-
+		// adminWireTransfer.clickgridcollapse();
+		adminWireTransfer.expandPayment(invoiceList.get(1));
 		adminWireTransfer.clickWireTransferButton();
 
 		adminWireTransfer.enterWireTransferConfirmationNumber();

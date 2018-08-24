@@ -19,6 +19,7 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabled extends TestBase {
 
 	// Page Factory - OR:
 	WebDriverWait wait = null;
+	JavascriptExecutor js = (JavascriptExecutor) driver;
 
 	@FindBy(xpath = "//input[contains(@type,'submit')]")
 	public WebElement loginBtn;
@@ -168,18 +169,20 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabled extends TestBase {
 
 	public void clickaddlater() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(click_addlater));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+
 		js.executeScript("arguments[0].click();", click_addlater);
 	}
 
 	public void newPayment() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_newpayment));
-		lnk_newpayment.click();
+		js.executeScript("arguments[0].click();", lnk_newpayment);
+		// lnk_newpayment.click();
 	}
 
 	public void BrokerLogout() {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_logout));
-		btn_logout.click();
+		js.executeScript("arguments[0].click();", btn_logout);
+		// btn_logout.click();
 	}
 
 	public void brokerfirstLogin() throws InterruptedException {
