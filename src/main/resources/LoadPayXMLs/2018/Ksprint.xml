@@ -11,28 +11,35 @@
     <classes>
  			
 		<!-- Script for Jira Tickets LP-5424  AdminPayByCheck  Anil-->
-		 	
-	   <!--	<class name="testcases.loadpay.broker.BrokerNewPaymentTest"></class>
+		<!-- Staging Invoice and LoadID Amount details needs to be updated in BrokerNewPayment and BrokerPaymentDataforUnmatchedCr Sheets-->
+				 	
+	   	  <!--   <class name="testcases.loadpay.broker.BrokerNewPaymentTest"></class>
 		    <class name="testcases.loadpay.admin.AdminPayByCheckTest"></class>
 		 	<class name="testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest"></class>
 		 	<class name="testcases.loadpay.unmatched.UnmatchedCarrierAdminPayByCheckTest"></class> -->
 
  	
 			<!-- Script for Jira Tickets LP-3495 - Carrier Banking     -->
+			<!-- No Need to Update Test Data Sheet -->
+				
 		 	<!-- <class name="testcases.loadpay.carrier.CarrierBankingTest"></class> -->
 		 		
 		 	
 		 	<!--  Script for Jira Tickets LP-LP-5408 - Broker Banking     -->
+		 	<!-- No Need to Update Test Data Sheet -->
+		 	
 		 	<!-- <class name="testcases.loadpay.broker.BrokerBankingTest"></class> -->
 		 	
 		 	<!--  Script for Jira Tickets LP-LP-5391 - BrokerBankAccountUpdate     -->
+		 	<!-- No Need to Update Test Data Sheet -->
+		 	
 		 	<!-- <class name="testcases.loadpay.broker.BrokerBankAccountUpdateTest"></class> -->
 		 	 
  	     	<!-- Script for Jira Tickets LP-5424  AdminPayByCheckBatchFile  Anil-->
-		 	<!-- <class name="testcases.loadpay.admin.AdminPayByCheckServiceBatchFileTest"></class> -->
+		 	<class name="testcases.loadpay.admin.AdminPayByCheckServiceBatchFileTest"></class>
 		 	
 		 	 <!-- Script for Jira Tickets LP-3476  Carrier_Paid Tab  Chris-->
-		 	<class name="testcases.loadpay.carrier.CarrierPaidTabTest"></class>
+		 	<!-- <class name="testcases.loadpay.carrier.CarrierPaidTabTest"></class> -->
 
     </classes>
   </test> 

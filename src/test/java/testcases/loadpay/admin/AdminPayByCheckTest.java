@@ -18,10 +18,10 @@ public class AdminPayByCheckTest extends TestBase {
 	AdminHomePage ahp;
 	AdminLogin al;
 	AdminPayByCheck apbc;
-	public static String acountname;
+	String acountname;
 	String brokerUsername = "";
 	String brokerPassword = "";
-	public static ArrayList<String> brokerInvoices;
+	ArrayList<String> brokerInvoices;
 
 	/*-------Initializing driver---------*/
 
