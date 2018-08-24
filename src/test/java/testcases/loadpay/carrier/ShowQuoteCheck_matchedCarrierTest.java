@@ -18,6 +18,7 @@ import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerNewPayment;
 import pages.loadpay.broker.BrokerPaymentforUnmatchedCarrier;
 import pages.loadpay.unmatched.UnmatchedCarrierAdminPayByCheck;
+import util.TestUtil;
 
 public class ShowQuoteCheck_matchedCarrierTest extends TestBase {
 
@@ -29,7 +30,7 @@ public class ShowQuoteCheck_matchedCarrierTest extends TestBase {
 	String umemail;
 	String einno;
 	ArrayList<String> arraylistin;
-	String invoiceNum;
+	int invoiceNum = 0;
 	BrokerLoginPage brokerloginobj;
 	BrokerNewPayment brokerpaymentobj;
 	BrokerAdvancePaymenttoUnmatchedCarrier brokeradvancepaymentobj;
@@ -37,11 +38,12 @@ public class ShowQuoteCheck_matchedCarrierTest extends TestBase {
 	AdminLogin adminlogin;
 	AdminPayByCheck adminPayByCheck;
 	UnmatchedCarrierAdminPayByCheck UnCarrierAdminPBC;
-	ArrayList<String> arraylist;
+	ArrayList<String> invoicenumbers;
 	String cemail;
 	String email;
 	String brokerUsername;
 	String brokerPassword;
+	String invoicenumber = "";
 
 	/*-------Initializing driver---------*/
 	public ShowQuoteCheck_matchedCarrierTest() {
@@ -55,13 +57,13 @@ public class ShowQuoteCheck_matchedCarrierTest extends TestBase {
 		brokerlogin = new BrokerLoginPage();
 		brokerNewPayment = new BrokerNewPayment();
 		brokerPaymentforUnmatchedCarrier = new BrokerPaymentforUnmatchedCarrier();
-		arraylist = new ArrayList<String>();
+		invoicenumbers = new ArrayList<String>();
 		brokerloginobj = new BrokerLoginPage();
 		brokerpaymentobj = new BrokerNewPayment();
 		brokeradvancepaymentobj = new BrokerAdvancePaymenttoUnmatchedCarrier();
 		homepage = new AdminHomePage();
 		adminlogin = new AdminLogin();
-		arraylist = new ArrayList<String>();
+		// arraylist = new ArrayList<String>();
 		adminPayByCheck = new AdminPayByCheck();
 		UnCarrierAdminPBC = new UnmatchedCarrierAdminPayByCheck();
 	}
@@ -79,19 +81,25 @@ public class ShowQuoteCheck_matchedCarrierTest extends TestBase {
 	public void brokernewPayment(String cemail, String invoiceno, String loadid, String amt)
 			throws InterruptedException {
 
+		int randomNumber = TestUtil.getRandomNumber(1, 999999);
+		invoiceNum = randomNumber;
+		invoicenumber = Integer.toString(invoiceNum);
+		invoiceno = invoicenumber;
+		loadid = invoicenumber;
+
 		brokerNewPayment = new BrokerNewPayment();
 		brokerNewPayment.newPayment();
 		email = brokerNewPayment.carrierEmail(cemail);
 		brokerNewPayment.amount(amt);
 		invoice = brokerNewPayment.invoiceNumber(invoiceno);
-		arraylist.add(invoice);
+		invoicenumbers.add(invoice);
 		brokerNewPayment.loadId(loadid);
 		// bp.advanceCheckbox();
 		/* brokerNewPayment.setField_PayTo(payTo); */
 		brokerNewPayment.clickShedulePayment();
 		brokerNewPayment.clickShedulePaymenttab();
 		brokerNewPayment.searchCarrier(cemail);
-		arraylist.add(umemail);
+		// arraylist.add(umemail);
 		brokerNewPayment.clickSearchButton();
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)", "");
@@ -113,15 +121,16 @@ public class ShowQuoteCheck_matchedCarrierTest extends TestBase {
 		 * adminlogin.ClickOnSearchBox(brokerUsername);
 		 */
 		adminlogin.ClickOnSearchBox(brokerloginobj.bemail);
-		Thread.sleep(1000);
+		// Thread.sleep(1000);
 		adminlogin.ClickOnSearchButton();
-		Thread.sleep(1000);
+		// Thread.sleep(1000);
 		adminlogin.DoubleClickID();
-		Thread.sleep(1000);
+		// Thread.sleep(1000);
 		adminPayByCheck.clickPayments();
 		Thread.sleep(1000);
-		System.out.println(UnCarrierAdminPBC.getPaymentId1().getText());
-		adminPayByCheck.ClickOnsearchKeyword(UnCarrierAdminPBC.getPaymentId1().getText());
+		adminPayByCheck.ClickOnsearchKeyword(invoicenumbers.get(1));
+		// System.out.println(UnCarrierAdminPBC.getPaymentId1().getText());
+		// adminPayByCheck.ClickOnsearchKeyword(UnCarrierAdminPBC.getPaymentId1().getText());
 		Thread.sleep(1000);
 		adminPayByCheck.getPaymentID();
 		adminPayByCheck.clickSearch();

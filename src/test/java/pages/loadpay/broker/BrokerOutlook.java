@@ -267,8 +267,9 @@ public class BrokerOutlook extends TestBase {
 		searchButton = driver.findElement(By.xpath("//button[@aria-label='Start search']"));
 
 		wait.until(ExpectedConditions.elementToBeClickable(searchInput));
+		Thread.sleep(1000);
 		searchInput.sendKeys(updatedBrokerEmailAddress);
-
+		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(searchButton));
 		searchButton.click();
 

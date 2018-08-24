@@ -12,12 +12,15 @@ import base.TestBase;
 import pages.loadpay.broker.BrokerAdvancePaymenttoUnmatchedCarrier;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerNewPayment;
+import util.TestUtil;
 
 public class BrokerAdvancePaymenttoUnmatchedCarrierTest extends TestBase {
 
 	BrokerLoginPage brokerloginobj;
 	BrokerNewPayment brokerpaymentobj;
 	BrokerAdvancePaymenttoUnmatchedCarrier brokeradvancepaymentobj;
+	String invoicenumber = "";
+	int invoiceNum = 0;
 
 	/*-------Initializing driver---------*/
 	public BrokerAdvancePaymenttoUnmatchedCarrierTest() {
@@ -49,6 +52,13 @@ public class BrokerAdvancePaymenttoUnmatchedCarrierTest extends TestBase {
 	public void verifyBrokerPayment(String cemail, String invoiceno, String loadid, String amt, String payto,
 			String ein) throws InterruptedException, InvalidFormatException, IOException {
 		// create a new payment
+
+		int randomNumber = TestUtil.getRandomNumber(1, 999999);
+		invoiceNum = randomNumber;
+		invoicenumber = Integer.toString(invoiceNum);
+		invoiceno = invoicenumber;
+		loadid = invoicenumber;
+
 		brokerpaymentobj.newPayment();
 		brokerpaymentobj.setField_CarrierEmail(cemail);
 		brokerpaymentobj.setField_PayTo(payto);

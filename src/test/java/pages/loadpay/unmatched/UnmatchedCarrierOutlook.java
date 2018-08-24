@@ -185,11 +185,13 @@ public class UnmatchedCarrierOutlook extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(fieldSearchMail));
 		fieldSearchMail.click();
 		wait.until(ExpectedConditions.elementToBeClickable(haspopup));
+		Thread.sleep(1000);
 		haspopup.click();
 	}
 
-	public void clickOpenMailBox() {
-		wait.until(ExpectedConditions.elementToBeClickable(lnkopenanothermail));
+	public void clickOpenMailBox() throws InterruptedException {
+		// wait.until(ExpectedConditions.elementToBeClickable(lnkopenanothermail));
+		Thread.sleep(1000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", lnkopenanothermail);
 
@@ -202,10 +204,12 @@ public class UnmatchedCarrierOutlook extends TestBase {
 		try {
 			buttonsearchcontacts.click();
 			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
+			Thread.sleep(1000);
 			buttonOpen.click();
 		} catch (Exception e) {
 			searchSuggestion.click();
 			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
+			Thread.sleep(1000);
 			buttonOpen.click();
 		}
 	}
@@ -215,6 +219,8 @@ public class UnmatchedCarrierOutlook extends TestBase {
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
 		Thread.sleep(6000);
+		driver.navigate().refresh();
+		Thread.sleep(4000);
 
 		List<WebElement> list = driver
 				.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
@@ -757,7 +763,9 @@ public class UnmatchedCarrierOutlook extends TestBase {
 		searchButton = driver.findElement(By.xpath("//button[@aria-label='Start search']"));
 
 		wait.until(ExpectedConditions.elementToBeClickable(searchInput));
+		Thread.sleep(1000);
 		searchInput.sendKeys(EmailAddress);
+		Thread.sleep(1000);
 
 		wait.until(ExpectedConditions.elementToBeClickable(searchButton));
 		searchButton.click();

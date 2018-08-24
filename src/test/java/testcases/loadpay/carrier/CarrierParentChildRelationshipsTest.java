@@ -137,7 +137,8 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 	}
 
 	@Test(dataProvider = "getCarrierFuelcardaccountNumbersData", dependsOnMethods = { "verifyResetPassword" })
-	public void verifyChildAccountLogin(String fleet_accountnbr, String fts_accountnbr) throws InterruptedException {
+	public void verifyChildAccountLogin(String fleet_accountnbr, String fts_accountnbr)
+			throws InterruptedException, AWTException {
 		loginPage.Carrierlogin(nemail, pwd);
 		carriersamedayach.getAmount();
 		carriersamedayach.clickPaymenow();
