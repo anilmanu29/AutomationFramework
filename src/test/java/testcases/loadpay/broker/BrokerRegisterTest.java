@@ -16,6 +16,7 @@ import base.TestBase;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.broker.BrokerRegister;
+import util.TestUtil;
 
 public class BrokerRegisterTest extends TestBase {
 	BrokerRegister brokerRegistrationObj;
@@ -30,11 +31,8 @@ public class BrokerRegisterTest extends TestBase {
 	Select Payments;
 	WebElement PaymentTerms;
 
-	public static String emailid;
-	public static String pwd;
-
-	String brokerUsername;
-	String brokerPassword;
+	public static String brokerUsername;
+	public static String brokerPassword;
 	String outlookUsername;
 	String outlookPassword;
 	public static String depositAmount = "";
@@ -46,7 +44,6 @@ public class BrokerRegisterTest extends TestBase {
 
 	@BeforeClass
 	public void setUp() throws IOException {
-
 		initialization();
 		brokerRegistrationObj = new BrokerRegister();
 		adminLoginPage = new AdminLogin();
@@ -60,7 +57,10 @@ public class BrokerRegisterTest extends TestBase {
 			String PhoneNumber, String Password, String ConfirmPassword, String NameonAccount, String RoutingNumber,
 			String BankAccountNumber, String ConfirmbankAccountNumber) throws IOException, InterruptedException {
 
-		brokerUsername = Email;
+		String[] emailArray = Email.split("@");
+		emailArray[0] = emailArray[0] + TestUtil.getCurrentDateTime();
+
+		brokerUsername = emailArray[0] + "@" + emailArray[1];
 		brokerPassword = Password;
 
 		brokerRegistrationObj.signup();
@@ -100,7 +100,7 @@ public class BrokerRegisterTest extends TestBase {
 		Select stateof = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationState']")));
 		stateof.selectByVisibleText("California");
 
-		emailid = brokerRegistrationObj.BrokerEmail(Email);
+		brokerRegistrationObj.BrokerEmail(brokerUsername);
 		brokerRegistrationObj.confirmEmail(ConfirmEmail);
 		brokerRegistrationObj.iCertifyClick();
 		brokerRegistrationObj.paymentTerm();

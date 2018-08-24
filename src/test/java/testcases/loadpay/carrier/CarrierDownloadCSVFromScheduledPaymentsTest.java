@@ -89,8 +89,7 @@ public class CarrierDownloadCSVFromScheduledPaymentsTest extends TestBase {
 	/*-------Verify CSV file contents ---------*/
 	@Test(description = "LP-6628 LoadPay Carrier_VerifyCSVContents", dependsOnMethods = { "verifyDownloadCSVFile" })
 	public void verifyCsvContents() throws InterruptedException, InvalidFormatException, IOException {
-		List<String[]> dataArray = TestUtil.getCsvContents(expectedFileName,
-				expectedFileName.substring(0, expectedFileName.length() - 4));
+		List<String[]> dataArray = TestUtil.getCsvContents(expectedFileName);
 	}
 
 }

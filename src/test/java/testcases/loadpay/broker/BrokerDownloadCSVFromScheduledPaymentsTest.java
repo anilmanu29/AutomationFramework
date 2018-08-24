@@ -95,8 +95,7 @@ public class BrokerDownloadCSVFromScheduledPaymentsTest extends TestBase {
 	/*-------Verify CSV file contents ---------*/
 	@Test(description = "LP-6627 LoadPay Broker_VerifyCSVContents", dependsOnMethods = { "verifyDownloadCSVFile" })
 	public void verifyCsvContents() throws InterruptedException, InvalidFormatException, IOException {
-		List<String[]> dataArray = TestUtil.getCsvContents(expectedFileName,
-				expectedFileName.substring(0, expectedFileName.length() - 4));
+		List<String[]> dataArray = TestUtil.getCsvContents(expectedFileName);
 	}
 
 }

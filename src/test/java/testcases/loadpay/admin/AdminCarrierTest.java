@@ -48,7 +48,7 @@ public class AdminCarrierTest extends TestBase {
 		if (BrokerPaymentforUnmatchedCarrierTest.umemail != null) {
 			a.ClickOnSearchBox(BrokerPaymentforUnmatchedCarrierTest.umemail);
 		} else {
-			a.ClickOnSearchBox(CarrierRegisterTest.email);
+			a.ClickOnSearchBox(CarrierRegisterTest.carrierUsername);
 
 		}
 		a.ClickOnSearchButton();

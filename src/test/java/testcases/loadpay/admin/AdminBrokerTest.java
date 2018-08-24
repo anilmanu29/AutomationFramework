@@ -49,7 +49,7 @@ public class AdminBrokerTest extends TestBase {
 
 		a.ClickOnCustomersTab();
 
-		a.ClickOnSearchBox(BrokerRegisterTest.emailid);
+		a.ClickOnSearchBox(BrokerRegisterTest.brokerUsername);
 
 		a.ClickOnSearchButton();
 

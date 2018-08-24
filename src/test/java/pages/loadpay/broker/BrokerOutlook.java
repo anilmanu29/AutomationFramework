@@ -166,7 +166,7 @@ public class BrokerOutlook extends TestBase {
 			e.click();
 			wait.until(ExpectedConditions.elementToBeClickable(emailid));
 			log.info(emailid.getText());
-			if (emailid.getText().equalsIgnoreCase(BrokerRegisterTest.emailid + ";")) {
+			if (emailid.getText().equalsIgnoreCase(BrokerRegisterTest.brokerUsername + ";")) {
 				wait.until(ExpectedConditions.elementToBeClickable(linkVerify));
 				linkVerify.click();
 				break;

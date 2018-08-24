@@ -136,7 +136,7 @@ public class CarrierOutlook extends TestBase {
 			e.click();
 			wait.until(ExpectedConditions.elementToBeClickable(emailid));
 			log.info(emailid.getText());
-			if (emailid.getText().equalsIgnoreCase(CarrierRegisterTest.email + ";")) {
+			if (emailid.getText().equalsIgnoreCase(CarrierRegisterTest.carrierUsername + ";")) {
 				wait.until(ExpectedConditions.elementToBeClickable(linkVerify));
 				linkVerify.click();
 				break;
