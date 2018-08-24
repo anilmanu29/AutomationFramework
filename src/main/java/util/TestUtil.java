@@ -10,6 +10,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -168,7 +170,7 @@ public class TestUtil extends TestBase {
 		return fileCount;
 	}
 
-	public static List<String[]> getCsvContents(String filePath, String worksheetName) throws IOException {
+	public static List<String[]> getCsvContents(String filePath) throws IOException {
 
 		CSVReader csvReader = null;
 		List<String[]> list = null;
@@ -220,5 +222,11 @@ public class TestUtil extends TestBase {
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		Thread.sleep(1000);
 
+	}
+
+	public static String getCurrentDateTime() {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+		LocalDateTime now = LocalDateTime.now();
+		return (dtf.format(now));
 	}
 }

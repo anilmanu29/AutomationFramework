@@ -1,7 +1,6 @@
 package base;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -39,8 +38,6 @@ public class TestBase {
 			FileInputStream ip = new FileInputStream(
 					System.getProperty(userDirectory) + "/src/main/java/config/config.properties");
 			prop.load(ip);
-		} catch (FileNotFoundException e) {
-			log.info(e);
 		} catch (IOException e) {
 			log.info(e);
 		}

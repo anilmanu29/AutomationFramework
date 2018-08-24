@@ -53,7 +53,7 @@ public class BrokerOutlookTest extends TestBase {
 		brokerOutlookObj.enterEmail(super.getProperties().getProperty("email"));
 		// outlookk.clickOpen();
 		getTimestamp();
-		brokerOutlookObj.outlookSearchInbox(BrokerRegisterTest.emailid, currentHour, currentMinutes);
+		brokerOutlookObj.outlookSearchInbox(BrokerRegisterTest.brokerUsername, currentHour, currentMinutes);
 		brokerOutlookObj.handleNewInbox();
 		brokerOutlookObj.verifyConfirmationMessage();
 

@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import pages.loadpay.carrier.CarrierRegisterPage;
+import util.TestUtil;
 
 public class CarrierRegisterTest extends TestBase {
 	CarrierRegisterPage carrierRegistrationObj;
@@ -22,7 +23,9 @@ public class CarrierRegisterTest extends TestBase {
 	Select country;
 	Select Payments;
 	WebElement PaymentTerms;
-	public static String email;
+
+	public static String carrierUsername;
+	public static String carrierPassword;
 
 	public CarrierRegisterTest() {
 		super();
@@ -42,6 +45,12 @@ public class CarrierRegisterTest extends TestBase {
 			String ConfirmEmail, String ZipCode1, String Address, String City, String FirstNames, String LastName,
 			String PhoneNumber, String Password, String ConfirmPassword, String NameonAccount, String RoutingNumber,
 			String BankAccountNumber, String ConfirmbankAccountNumber) throws IOException, InterruptedException {
+
+		String[] emailArray = Email.split("@");
+		emailArray[0] = emailArray[0] + TestUtil.getCurrentDateTime();
+
+		carrierUsername = emailArray[0] + "@" + emailArray[1];
+		carrierPassword = Password;
 
 		carrierRegistrationObj.signup();
 
@@ -86,7 +95,7 @@ public class CarrierRegisterTest extends TestBase {
 
 		stateof.selectByVisibleText("California");
 
-		email = carrierRegistrationObj.CarrierEmail(Email);
+		carrierRegistrationObj.CarrierEmail(carrierUsername);
 
 		carrierRegistrationObj.confirmEmail(ConfirmEmail);
 

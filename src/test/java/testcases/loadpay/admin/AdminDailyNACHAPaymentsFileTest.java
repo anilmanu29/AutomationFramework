@@ -103,8 +103,7 @@ public class AdminDailyNACHAPaymentsFileTest extends TestBase {
 	@Test(description = "LP-3494 LoadPay Admin_Daily_NACHA_Payments_File", dependsOnMethods = {
 			"verifyDownloadCSVFileTest" })
 	public void verifyCsvContents() throws InterruptedException, InvalidFormatException, IOException {
-		List<String[]> dataArray = TestUtil.getCsvContents(expectedFileName,
-				expectedFileName.substring(0, expectedFileName.length() - 4));
+		List<String[]> dataArray = TestUtil.getCsvContents(expectedFileName);
 		log.info("verifyCsvContents - Passed");
 	}
 }

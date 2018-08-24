@@ -54,7 +54,7 @@ public class CarrierOutlookTest extends TestBase {
 		carrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
 		// outlookk.clickOpen();
 		getTimestamp();
-		carrierOutlookObj.outlookSearchInbox(CarrierRegisterTest.email, currentHour, currentMinutes);
+		carrierOutlookObj.outlookSearchInbox(CarrierRegisterTest.carrierUsername, currentHour, currentMinutes);
 		carrierOutlookObj.handleNewInbox();
 		carrierOutlookObj.verifyConfirmationMessage();
 
