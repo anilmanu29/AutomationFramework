@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerNewPayment;
+import testcases.loadpay.carrier.CarrierRegisterTest;
 
 public class BrokerNewPaymentTest extends TestBase {
 
@@ -19,6 +20,9 @@ public class BrokerNewPaymentTest extends TestBase {
 	static String invoice;
 	public static ArrayList<String> al;
 	public static String email;
+
+	String carrierUsername = "";
+	String brokerUsername, brokerPassword = "";
 
 	/*-------Initializing driver---------*/
 	public BrokerNewPaymentTest() {
@@ -40,9 +44,18 @@ public class BrokerNewPaymentTest extends TestBase {
 	/*-------Login to Load Pay as Broker---------*/
 
 	@Test(dataProvider = "getBrokerLoginData")
-	public void loginBroker(String un, String pwd) {
+	public void loginBroker(String email, String pwd) {
 		bl = new BrokerLoginPage();
-		bl.Brokerlogin(un, pwd);
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = email;
+			brokerPassword = pwd;
+		}
+
+		bl.Brokerlogin(brokerUsername, brokerPassword);
 
 	}
 
@@ -55,7 +68,13 @@ public class BrokerNewPaymentTest extends TestBase {
 		bp = new BrokerNewPayment();
 		bp.newPayment();
 
-		email = bp.carrierEmail(cemail);
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+		} else {
+			carrierUsername = cemail;
+		}
+
+		bp.carrierEmail(carrierUsername);
 
 		bp.amount(amt);
 
@@ -70,7 +89,7 @@ public class BrokerNewPaymentTest extends TestBase {
 
 		bp.clickShedulePaymenttab();
 
-		bp.searchCarrier(cemail);
+		bp.searchCarrier(carrierUsername);
 
 		bp.clickSearchButton();
 
