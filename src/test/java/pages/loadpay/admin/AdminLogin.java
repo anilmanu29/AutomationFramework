@@ -389,7 +389,7 @@ public class AdminLogin extends TestBase {
 	}
 
 	public void DoubleClickID() throws InterruptedException {
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(DoubleClickID));
 		DoubleClickID.click();
 	}
@@ -481,7 +481,7 @@ public class AdminLogin extends TestBase {
 		Thread.sleep(1000);
 		s = new Select(CustomersatatusIdDropDown);
 		s.selectByVisibleText("Active");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 
 		log.info(s.getFirstSelectedOption().getText());
 	}

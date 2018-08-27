@@ -283,9 +283,9 @@ public class BrokerPaymentSheduledates extends TestBase {
 	public void clickPaymentDate(String scheduledate) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(PaymentDate));
 		PaymentDate.clear();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		PaymentDate.click();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		PaymentDate.sendKeys(scheduledate);
 	}
 
