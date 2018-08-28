@@ -2,10 +2,6 @@ package testcases.loadpay.unmatched;
 
 import java.awt.AWTException;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,23 +11,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import pages.loadpay.outlook.outlooklogin;
 import pages.loadpay.unmatched.UnmatchedCarrierOutlook;
-import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
 
 public class UnmatchedCarrierOutlookTest extends TestBase {
 
 	UnmatchedCarrierOutlook umCarrierOutlookObj;
-	outlooklogin outlook;
+	String unmatchedCarrierEmail, invoiceNum, loadId, Amount, PayTo, EIN = "";
 	public static String pwd;
-
-	Date currentTime;
-	String formattedDate = "";
-	Long longTime;
-	DateFormat formatter;
-	String currentHour = "";
-	String currentMinutes = "";
-	String timeArray[] = new String[2];
 
 	public UnmatchedCarrierOutlookTest() {
 		super();
@@ -42,37 +28,52 @@ public class UnmatchedCarrierOutlookTest extends TestBase {
 	public void setUp() throws IOException, AWTException {
 
 		initialization();
-		outlook = new outlooklogin();
 		umCarrierOutlookObj = new UnmatchedCarrierOutlook();
-		currentTime = new Date();
 		wait = new WebDriverWait(driver, 30);
 	}
 
-	@Test(dataProvider = "getoutlookLoginData")
-	public void login(String un, String pwd) throws InterruptedException, AWTException {
-		outlook.outlookLogin(un, pwd);
-	}
-
-	@Test(dependsOnMethods = "login")
-	public void outlookloginTest() throws InterruptedException, AWTException {
-		umCarrierOutlookObj.clickPopUp();
-		umCarrierOutlookObj.clickOpenMailBox();
-		umCarrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
-		// umCarrierOutlookObj.clickOpen();
-		getTimestamp();
-		umCarrierOutlookObj.outlookSearchInbox(BrokerPaymentforUnmatchedCarrierTest.al.get(1), currentHour,
-				currentMinutes);
-		umCarrierOutlookObj.handleNewInbox();
-		umCarrierOutlookObj.switchtoCarrieregistration();
-		umCarrierOutlookObj.unmatchedCarrierRegistration();
+	@Test(dataProvider = "getPaymentDataforUnmatchcarrier")
+	public void getUnmatchedCarrierData(String cemail, String invoiceno, String loadid, String amt, String payto,
+			String ein) throws InterruptedException {
+		unmatchedCarrierEmail = cemail;
+		invoiceNum = invoiceno;
+		loadId = loadid;
+		Amount = amt;
+		PayTo = payto;
+		EIN = ein;
 
 	}
 
-	@Test(dataProvider = "getCarrierRegisterData", dependsOnMethods = "outlookloginTest")
+	// @Test(dataProvider = "getoutlookLoginData")
+	// public void login(String un, String pwd) throws InterruptedException,
+	// AWTException {
+	// outlook.outlookLogin(un, pwd);
+	// }
+	//
+	// @Test(dependsOnMethods = "login")
+	// public void outlookloginTest() throws InterruptedException, AWTException {
+	// umCarrierOutlookObj.clickPopUp();
+	// umCarrierOutlookObj.clickOpenMailBox();
+	// umCarrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
+	// // umCarrierOutlookObj.clickOpen();
+	// getTimestamp();
+	// umCarrierOutlookObj.outlookSearchInbox(BrokerPaymentforUnmatchedCarrierTest.al.get(1),
+	// currentHour,
+	// currentMinutes);
+	// umCarrierOutlookObj.handleNewInbox();
+	// umCarrierOutlookObj.switchtoCarrieregistration();
+	// umCarrierOutlookObj.unmatchedCarrierRegistration();
+	//
+	// }
+
+	@Test(dataProvider = "getCarrierRegisterData", dependsOnMethods = "getUnmatchedCarrierData")
 	public void CarrierRegister(String Dotnumber, String CompanyName, String DoingBussinessAS, String Email,
 			String ConfirmEmail, String ZipCode1, String Address, String City, String FirstNames, String LastName,
 			String PhoneNumber, String Password, String ConfirmPassword, String NameonAccount, String RoutingNumber,
 			String BankAccountNumber, String ConfirmbankAccountNumber) throws IOException, InterruptedException {
+
+		umCarrierOutlookObj.clickRegisterHereBtn();
+		umCarrierOutlookObj.clickCarrierSignupBtn();
 
 		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getCompanyName()));
 		umCarrierOutlookObj.companyname(CompanyName);
@@ -95,6 +96,9 @@ public class UnmatchedCarrierOutlookTest extends TestBase {
 
 		Select stateof = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationState']")));
 		stateof.selectByVisibleText("California");
+
+		umCarrierOutlookObj.CarrierEmail(unmatchedCarrierEmail);
+		umCarrierOutlookObj.confirmEmail(unmatchedCarrierEmail);
 
 		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getIcertify()));
 		umCarrierOutlookObj.iCertifyClick();
@@ -156,22 +160,4 @@ public class UnmatchedCarrierOutlookTest extends TestBase {
 		umCarrierOutlookObj.clickNextBtnOnBankingForm();
 
 	}
-
-	public void getTimestamp() {
-		formatter = new SimpleDateFormat("HH:mm");
-		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
-		longTime = currentTime.getTime();
-		formattedDate = formatter.format(longTime);
-		timeArray = formattedDate.split(":");
-		currentHour = timeArray[0];
-		currentMinutes = timeArray[1];
-
-		log.info("\n\n\n===============================");
-		log.info("Current date: " + longTime);
-		log.info("Formatted date: " + formattedDate);
-		log.info("Current Hour: " + currentHour);
-		log.info("Current Minutes: " + currentMinutes);
-		log.info("===============================");
-	}
-
 }
