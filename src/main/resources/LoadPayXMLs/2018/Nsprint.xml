@@ -27,7 +27,7 @@
 		<class name="testcases.loadpay.broker.BrokerAdvancePaymenttoUnmatchedCarrierTest"></class>
     	
     	<!--Broker without Bank Account login details needs to be updated in BankAccountDetailsForCopyPaste sheet 
-    	Need to Update BrokerRegister sheet
+    	Need to Update BrokerRegisterCanada sheet.
     	-->
     <!-- Script for Jira Ticket LP-6365 LoadPay - Selenium Test - Broker - Disable copy / paste functionality for add and confirm bank account--> 	
 		<class name="testcases.loadpay.broker.BrokerDisableCopyPasteConfirmBankAccountTest"></class>
@@ -58,7 +58,7 @@
 		<!-- LOG BROKER BACK IN TO SEE CREDIT AND VIEW 10% LIMIT EMAIL -->
 				<class name="testcases.loadpay.broker.BrokerViewCreditLessThan1000Test"></class>
 		
-		<!-- NEED TO UPDATE BrokerPaymentDataforUnmatchedCr Worksheet with 2 Payments. CarrierEmail id  should be same for Both the Payments  --> 
+		<!-- NEED TO UPDATE BrokerPaymentDataforUnmatchedCr(Email id, invoice and loadid) Worksheet with 2 Payments. CarrierEmail id  should be same for Both the Payments  --> 
 		<!-- Script for Jira Tickets LP-6500  LoadPay - Selenium Test - Carrier_PayMeNow on Unmatched_Fuel Card -->
 
 	   		<class name="testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest"></class>
@@ -67,12 +67,14 @@
 		 		 <class name="testcases.loadpay.unmatched.UnmatchedCarrierAdminTest"></class>
 		 		 <class name="testcases.loadpay.carrier.CarrierFirstLoginTest"></class>
 		 		 <class name="testcases.loadpay.unmatched.UnmatchedCarrierPayMeNowFuelCardTest"></class>
-		 	
+		 		 
+		 	<!-- No Need to Update Spreadsheet -->
 		 <!-- Script for Jira Ticket LP-6369 LoadPay -Selenium Test- Broker - Cannot Register Duplicate Email-->
-				<class name="testcases.loadpay.broker.BrokerCanNotRegisterDuplicateEmail"></class>
+			<class name="testcases.loadpay.broker.BrokerCanNotRegisterDuplicateEmail"></class>
          
+         <!-- No Need to Update Spreadsheet -->
          <!-- Script for Jira Ticket LP-6367 LoadPay - Selenium Test - Carrier - Cannot Register Duplicate Email-->
-				<class name="testcases.loadpay.carrier.CarrierCanNotRegisterDuplicateEmail"></class>
+			<class name="testcases.loadpay.carrier.CarrierCanNotRegisterDuplicateEmail"></class>
          
  
     </classes>

@@ -29,7 +29,8 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 	String brokerUserName;
 	String brokerPassword;
 	BrokerLoginPage brokerlogin;
-	String invoice;
+	String greaterthan365invoice = "";
+	String greaterthan45invoice = "";
 	ArrayList<String> invoiceList;
 	String email;
 	CarrierLoginPage carrierloginPage;
@@ -112,8 +113,8 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 		brokerPaymentSheduledates.newPayment();
 		email = brokerPaymentSheduledates.carrierEmail(cemail);
 		brokerPaymentSheduledates.amount(amt);
-		invoice = brokerPaymentSheduledates.invoiceNumber(invoiceno);
-		invoiceList.add(invoice);
+		greaterthan365invoice = brokerPaymentSheduledates.invoiceNumber(invoiceno);
+		invoiceList.add(greaterthan365invoice);
 		brokerPaymentSheduledates.loadId(loadid);
 		brokerPaymentSheduledates.clickPaymentDate(scheduledate);
 		brokerPaymentSheduledates.clickShedulePayment();
@@ -141,8 +142,8 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 		brokerPaymentSheduledates.newPayment();
 		email = brokerPaymentSheduledates.carrierEmail(cemail);
 		brokerPaymentSheduledates.amount(amt);
-		invoice = brokerPaymentSheduledates.invoiceNumber(invoiceno);
-		invoiceList.add(invoice);
+		greaterthan45invoice = brokerPaymentSheduledates.invoiceNumber(invoiceno);
+		invoiceList.add(greaterthan45invoice);
 		brokerPaymentSheduledates.loadId(loadid);
 		brokerPaymentSheduledates.clickPaymentDate(scheduledate);
 		brokerPaymentSheduledates.clickShedulePayment();
@@ -188,10 +189,17 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 
 	}
 
-	@Test(description = "LP-6621 LoadPay - Selenium Test - Admin - Payments Greater than 45 Days", dependsOnMethods = "carrierloginTest")
-	public void carrierPaymenow() throws InterruptedException {
+	@Test(description = "LP-6621 LoadPay - Selenium Test - Admin - Payments Greater than 45 Days", dataProvider = "getAdminPaymentsGreaterthan45Days", dependsOnMethods = "carrierloginTest")
+	public void carrierPaymenow(String cemail, String invoiceno, String loadid, String amt, String scheduledate)
+			throws InterruptedException {
 		Assert.assertTrue(carriersamedayach.btn_paymenow.isDisplayed(), "Payme now Link if NOT Found!");
-		carriersamedayach.clickPaymenow();
+		carrierwireframe.clickPayMeNowPayment(greaterthan365invoice);
+		System.out.println(greaterthan365invoice);
+		carrierwireframe.clickSelectButton();
+		carrierwireframe.clickConfirmButton();
+		Thread.sleep(2000);
+		carrierwireframe.clickPayMeNowPayment(greaterthan45invoice);
+		System.out.println(greaterthan45invoice);
 		carrierwireframe.clickSelectButton();
 		carrierwireframe.clickConfirmButton();
 		log.info("Verify Payme Now Link Passed");

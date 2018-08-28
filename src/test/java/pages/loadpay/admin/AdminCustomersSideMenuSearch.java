@@ -296,49 +296,49 @@ public class AdminCustomersSideMenuSearch extends TestBase {
 	public void ClickOnSearchButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(ClickonSearchButton));
 		ClickonSearchButton.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 	}
 
 	public void ClickactiveButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(active));
 		active.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 	}
 
 	public void ClickToBeReviewedButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(ToBeReviewed));
 		ToBeReviewed.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 	}
 
 	public void ClickPendingButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(Pending));
 		Pending.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 	}
 
 	public void ClickInactiveButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(Inactive));
 		Inactive.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 	}
 
 	public void ClickDeniedButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(Denied));
 		Denied.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 	}
 
 	public void ClickBrokerButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(Broker));
 		Broker.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 	}
 
 	public void ClickCarrierButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(Carrier));
 		Carrier.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 	}
 
 	public void ClickSendEmailToVerify() throws InterruptedException {

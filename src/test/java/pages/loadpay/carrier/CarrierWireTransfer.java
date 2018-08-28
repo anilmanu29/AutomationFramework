@@ -1,5 +1,7 @@
 package pages.loadpay.carrier;
 
+import java.util.List;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -69,6 +71,12 @@ public class CarrierWireTransfer extends TestBase {
 
 	@FindBy(xpath = "//*[@id='paymentOptionsDiv']/div[2]/div[1]/div[3]/p/span")
 	WebElement wiretransframt;
+
+	@FindBy(xpath = "//*[@class='carrierPayment ng-scope']/div/div[5]/div")
+	List<WebElement> List_payment;
+
+	@FindBy(xpath = "//*[@class='getpaid']")
+	private List<WebElement> paymenowpayments;
 
 	public CarrierWireTransfer() {
 		PageFactory.initElements(driver, this);
@@ -140,5 +148,15 @@ public class CarrierWireTransfer extends TestBase {
 	public void goToPayMeNowTab() {
 		wait.until(ExpectedConditions.elementToBeClickable(PayMeNowTab));
 		PayMeNowTab.click();
+	}
+
+	public void clickPayMeNowPayment(String iN) {
+		for (int i = 0; i < List_payment.size(); i++) {
+			String invoiceno = List_payment.get(i).getText();
+			if (invoiceno.contains(iN)) {
+				// paymenowpayments.get(i).click();
+				act.moveToElement(paymenowpayments.get(i)).click().perform();
+			}
+		}
 	}
 }

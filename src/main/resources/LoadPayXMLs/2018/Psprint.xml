@@ -12,31 +12,35 @@
     
     <!-- Script for Jira Ticket LP-6627-LoadPay-Broker-Download .CSV from Scheduled Payments -->
     
-		<!-- <class name="testcases.loadpay.broker.BrokerDownloadCSVFromScheduledPaymentsTest"></class> -->
+		<class name="testcases.loadpay.broker.BrokerDownloadCSVFromScheduledPaymentsTest"></class>
 		
 	<!-- Script for Jira Ticket LP-6628-LoadPay-Carrier-Download .CSV from Scheduled Payments -->
     
-		<!-- <class name="testcases.loadpay.carrier.CarrierDownloadCSVFromScheduledPaymentsTest"></class> -->
+		<class name="testcases.loadpay.carrier.CarrierDownloadCSVFromScheduledPaymentsTest"></class>
 		
+	<!--Need to Update AdminPaymentsGreaterthan45Days(Invoice and LoadId) and payementmorethan45daysData(Invoice and LoadId) sheets-->
 	<!-- Script for Jira Ticket LP-6621-LoadPay - Selenium Test - Admin - Payments Greater than 45 Days -->
-    
-		<!-- <class name="testcases.loadpay.admin.AdminPaymentsGreaterthan45DaysTest"></class> -->
-
+		<class name="testcases.loadpay.admin.AdminPaymentsGreaterthan45DaysTest"></class>
+		
+		
+	<!--Carrier without Bank Account login details needs to be updated in CarrierBankAccountDetails sheet. 
+    	Need to Update CarrierRegister(Carrier EmailId) sheet.
+    	-->
 	<!-- Script for Jira Ticket LP-6366-LoadPay - Carrier - Disable copy / paste functionality for add and confirm bank account -->
-    
-		<!-- <class name="testcases.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccountTest"></class> --> 
+
+		<class name="testcases.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccountTest"></class> 
 
 	<!-- Script for Jira Ticket LP-3494-LoadPay-Admin-Daily NACHA Payments File -->
     
-		<!-- <class name="testcases.loadpay.admin.AdminDailyNACHAPaymentsFileTest"></class> -->
+		<class name="testcases.loadpay.admin.AdminDailyNACHAPaymentsFileTest"></class>
 		
 	<!-- Script for Jira Ticket LP-6228-LoadPay-Admin-Customer Side Menu Search-->
     
-		<!-- <class name="testcases.loadpay.admin.AdminCustomersSideMenuSearchTest"></class> -->
+		<class name="testcases.loadpay.admin.AdminCustomersSideMenuSearchTest"></class>
 		
+		<!--Need to Update BrokerNewPayment data sheet. Make sure there are 2 payments -->
 			<!-- Script for Jira Ticket LP-5427-LoadPay - Selenium Test - Admin - Delay Debit-->
-    
-		<!-- <class name="testcases.loadpay.admin.AdminDelayDebitTest"></class> -->
+		<class name="testcases.loadpay.admin.AdminDelayDebitTest"></class>
 	
     </classes>
   </test> 
