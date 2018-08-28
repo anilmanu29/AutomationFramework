@@ -121,9 +121,7 @@ public class UnmatchedCariierEmailVerifyWiretRansfer extends TestBase {
 		Thread.sleep(1000);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		Thread.sleep(5000);
-		driver.navigate().refresh();
-		Thread.sleep(4000);
+		Thread.sleep(10000);
 
 		List<WebElement> list = driver
 				.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
