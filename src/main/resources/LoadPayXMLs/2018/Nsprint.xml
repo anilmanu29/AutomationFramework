@@ -67,10 +67,12 @@
 		 		 <class name="testcases.loadpay.unmatched.UnmatchedCarrierAdminTest"></class>
 		 		 <class name="testcases.loadpay.carrier.CarrierFirstLoginTest"></class>
 		 		 <class name="testcases.loadpay.unmatched.UnmatchedCarrierPayMeNowFuelCardTest"></class>
-		 	
+		 		 
+		 	<!-- No Need to Update Spreadsheet -->
 		 <!-- Script for Jira Ticket LP-6369 LoadPay -Selenium Test- Broker - Cannot Register Duplicate Email-->
 			<class name="testcases.loadpay.broker.BrokerCanNotRegisterDuplicateEmail"></class>
          
+         <!-- No Need to Update Spreadsheet -->
          <!-- Script for Jira Ticket LP-6367 LoadPay - Selenium Test - Carrier - Cannot Register Duplicate Email-->
 			<class name="testcases.loadpay.carrier.CarrierCanNotRegisterDuplicateEmail"></class>
          
