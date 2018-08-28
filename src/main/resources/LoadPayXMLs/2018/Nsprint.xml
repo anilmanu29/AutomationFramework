@@ -43,11 +43,10 @@
    			BROKER NEW PAYMENT NEEDS NEW PAYMENT FOR $930.00, 
    			CARRIER LOGIN THAT THE PAYMENT WAS SCHEDULED TO,
    			BROKER LOGIN WITH BROKER THAT HAS BEEN REGISTERED -->
-     		   <class name="testcases.loadpay.broker.BrokerRegisterTest"></class>
-    	 
-    	 <!-- BROKER REGSITRATON TEST UPDATED TO DO ADMIN ACTIVATION, OUTLOOK ACTIVATION, DEPOSIT VALIDATION, AND ACCEPT T&C's 
-			ADMIN BROKER TEST UPDATED TO GIVE CREDIT -  CreditAmount worksheet   --> 	
-				<class name="testcases.loadpay.admin.AdminBrokerTest"></class>
+     		<class name="testcases.loadpay.broker.BrokerRegisterTest"></class>
+     		<class name="testcases.loadpay.broker.BrokerOutlookTest"></class>
+			<class name="testcases.loadpay.admin.AdminBrokerTest"></class>
+			<class name="testcases.loadpay.broker.BrokerLoginTest"></class>
 		
 		<!-- BROKER SCHEDULES NEW PAYMENT . Need to update BROKERNEWPAYMENT data sheet. Make sure there are 2 payments-->
 				<class name="testcases.loadpay.broker.BrokerNewPaymentTest"></class>
