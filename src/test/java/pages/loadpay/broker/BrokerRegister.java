@@ -12,7 +12,7 @@ import base.TestBase;
 
 public class BrokerRegister extends TestBase {
 
-	@FindBy(xpath = ".//*[@id='page-main']/div/div/div[2]/div/div/div[2]/div[2]/div/a")
+	@FindBy(xpath = "//*[@id='page-main']/div[2]/div/div/a")
 	WebElement signupButton;
 
 	@FindBy(xpath = ".//*[@id='angularScope']/div[2]/div[3]/div/button[2]")
