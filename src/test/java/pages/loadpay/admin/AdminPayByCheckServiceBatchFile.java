@@ -106,6 +106,7 @@ public class AdminPayByCheckServiceBatchFile extends TestBase {
 
 	public void ClickShowPaymentsForBatch() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_ShowPaymentsForBatch));
+		Thread.sleep(1000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_ShowPaymentsForBatch);
 
