@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerPaymentforUnmatchedCarrier;
+import util.TestUtil;
 
 public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 
@@ -23,7 +24,8 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 	public static ArrayList<String> in;
 	public static String invoiceNum;
 
-	String carrierUsername = "";
+	public static String unMatchedCarrierUsername;
+	public static String unMatchedCarrierPassword;
 	String brokerUsername, brokerPassword = "";
 
 	/*-------Initializing driver---------*/
@@ -65,12 +67,27 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 	/*-------Scheduling New Payment as a Broker---------*/
 
 	@Test(dataProvider = "getPaymentDataforUnmatchcarrier", dependsOnMethods = "loginBroker")
-	public void brokernewPayment(String cemail, String invoiceno, String loadid, String amt, String payto, String ein)
-			throws InterruptedException {
+	public void brokernewPayment(String carrierEmail, String invoiceno, String loadid, String amt, String payto,
+			String ein) throws InterruptedException {
+
+		if (super.getProperties().getProperty("useDynamicUnmatchedData").contains("true")) {
+			String[] emailArray = carrierEmail.split("@");
+			String dateTime = TestUtil.getCurrentDateTime();
+			emailArray[0] = emailArray[0] + dateTime;
+
+			unMatchedCarrierUsername = emailArray[0] + "@" + emailArray[1];
+			unMatchedCarrierPassword = "Password@123";
+			invoiceno = "UM" + dateTime;
+			loadid = invoiceno;
+
+		} else {
+			unMatchedCarrierUsername = carrierEmail;
+			unMatchedCarrierPassword = "Password@123";
+		}
 
 		bp.newPayment();
 
-		bp.carrierEmail(cemail);
+		bp.carrierEmail(unMatchedCarrierUsername);
 
 		bp.amount(amt);
 
@@ -85,7 +102,7 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 
 		bp.clickShedulePaymenttab();
 
-		umemail = bp.searchCarrier(cemail);
+		umemail = bp.searchCarrier(unMatchedCarrierUsername);
 		al.add(umemail);
 
 		bp.clickSearchButton();

@@ -23,6 +23,12 @@ public class UnmatchedCarrierOutlook extends TestBase {
 	WebDriverWait wait = null;
 	Actions act = null;
 
+	@FindBy(xpath = "//*[@id='page-main']/div[2]/div/div/a")
+	WebElement registerHereBtn;
+
+	@FindBy(xpath = ".//*[@id='angularScope']/div[2]/div[3]/div/button[1]")
+	WebElement carrierSignupBtn;
+
 	@FindBy(id = "username")
 	WebElement UserName;
 
@@ -195,6 +201,18 @@ public class UnmatchedCarrierOutlook extends TestBase {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", lnkopenanothermail);
 
+	}
+
+	public void clickRegisterHereBtn() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(registerHereBtn));
+		Thread.sleep(1000);
+		registerHereBtn.click();
+	}
+
+	public void clickCarrierSignupBtn() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(carrierSignupBtn));
+		Thread.sleep(1000);
+		carrierSignupBtn.click();
 	}
 
 	public void enterEmail(String email) throws InterruptedException {

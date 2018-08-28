@@ -55,7 +55,6 @@ public class UnmatchedCariierEmailVerifyTest extends TestBase {
 		outlookk.enterEmail(super.getProperties().getProperty("email"));
 		// outlookk.clickOpen();
 		getTimestamp();
-		Thread.sleep(60000);
 		outlookk.outlookSearchInbox(BrokerPaymentforUnmatchedCarrierTest.al.get(0), currentHour, currentMinutes);
 		outlookk.handleNewInbox();
 		outlookk.verifyConfirmationMessage();
