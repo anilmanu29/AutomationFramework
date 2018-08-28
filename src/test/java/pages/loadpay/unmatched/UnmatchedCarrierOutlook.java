@@ -752,11 +752,12 @@ public class UnmatchedCarrierOutlook extends TestBase {
 		Thread.sleep(1000);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 		WebElement searchField = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Search mail and people']")));
 		wait.until(ExpectedConditions.elementToBeClickable(searchField));
+		Thread.sleep(2000);
 		searchField.click();
 
 		searchInput = driver.findElement(By.xpath("//input[@aria-label='Search. Press Enter to Start Searching.']"));
