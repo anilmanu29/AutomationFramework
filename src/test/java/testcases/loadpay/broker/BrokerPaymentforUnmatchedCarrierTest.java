@@ -23,6 +23,9 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 	public static ArrayList<String> in;
 	public static String invoiceNum;
 
+	String carrierUsername = "";
+	String brokerUsername, brokerPassword = "";
+
 	/*-------Initializing driver---------*/
 	public BrokerPaymentforUnmatchedCarrierTest() {
 		super();
@@ -44,9 +47,18 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 	/*-------Login to Load Pay as Broker---------*/
 
 	@Test(dataProvider = "getBrokerLoginData")
-	public void loginBroker(String un, String pwd) {
+	public void loginBroker(String email, String pwd) {
 		bl = new BrokerLoginPage();
-		bl.Brokerlogin(un, pwd);
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = email;
+			brokerPassword = pwd;
+		}
+
+		bl.Brokerlogin(brokerUsername, brokerPassword);
 
 	}
 

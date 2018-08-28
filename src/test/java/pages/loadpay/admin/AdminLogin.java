@@ -181,6 +181,7 @@ public class AdminLogin extends TestBase {
 	public void adminLogin() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
 		loginBtn.click();
+		wait.until(ExpectedConditions.elementToBeClickable(logOut));
 	}
 
 	/*

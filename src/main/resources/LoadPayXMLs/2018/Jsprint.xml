@@ -49,7 +49,7 @@
 			<class name="testcases.loadpay.unmatched.UnmatchedCariierEmailVerifyNextDayTest"></class>
 			<class name="testcases.loadpay.unmatched.UnmatchedCarrierAdminNextDayTest"></class>
 			<class name="testcases.loadpay.carrier.CarrierFirstLoginNextDayACHTest"></class>
-			<class name="testcases.loadpay.carrier.UnmatchedCarrierNextDayACHTest"></class>
+			<class name="testcases.loadpay.unmatched.UnmatchedCarrierNextDayACHTest"></class>
 
 
 

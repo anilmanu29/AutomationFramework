@@ -49,8 +49,17 @@ public class CarrierNextDAYACH extends TestBase {
 	@FindBy(xpath = "//*[@id='angularScope']/div[2]/div/div[3]/ul/li[3]/a/div/div[1]/div[2]/span[1]")
 	private WebElement paidamt;
 
+	@FindBy(xpath = "//*[@id='paymentOptionsDiv']/div[1]/div[1]/div[3]/p/span")
+	private WebElement sameDayAmt;
+
 	@FindBy(xpath = "//*[@id='paymentOptionsDiv']/div[2]/div[1]/div[3]/p/span")
-	private WebElement nextdaydayamt;
+	private WebElement wireTransferAmt;
+
+	@FindBy(xpath = "//*[@id='paymentOptionsDiv']/div[3]/div[1]/div[3]/p/span")
+	private WebElement nextDayAmt;
+
+	@FindBy(xpath = "//*[@id='paymentOptionsDiv']/div[4]/div[1]/div[3]/p/span")
+	private WebElement fuelCardAmt;
 
 	@FindBy(xpath = ".//*[@id='paymentOptionsDiv']/div[3]/div[1]/div[5]/span[3]//following::text()[1]")
 	private WebElement paymenowfee;
@@ -79,8 +88,8 @@ public class CarrierNextDAYACH extends TestBase {
 	}
 
 	public void getnextdayAmount() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(nextdaydayamt));
-		amtnextdayach = nextdaydayamt.getText();
+		wait.until(ExpectedConditions.elementToBeClickable(nextDayAmt));
+		amtnextdayach = nextDayAmt.getText();
 		amtnextdayachh = amtnextdayach.replaceAll("\\$", "");
 		amtnxtdayach = amtnextdayachh.replaceAll(",", "");
 		amttnextdayach = Float.parseFloat(amtnxtdayach);

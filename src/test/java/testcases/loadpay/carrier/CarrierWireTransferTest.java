@@ -12,6 +12,7 @@ public class CarrierWireTransferTest extends TestBase {
 
 	CarrierWireTransfer cw;
 	CarrierLoginPage loginPage;
+	String carrierUsername, carrierPassword = "";
 
 	/*-------Initializing driver---------*/
 	public CarrierWireTransferTest() {
@@ -33,7 +34,16 @@ public class CarrierWireTransferTest extends TestBase {
 
 	@Test(dataProvider = "getCarrierLoginData")
 	public void loginTest(String user, String pass) throws InterruptedException {
-		loginPage.Carrierlogin(user, pass);
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
+		} else {
+			carrierUsername = user;
+			carrierPassword = pass;
+		}
+
+		loginPage.Carrierlogin(carrierUsername, carrierPassword);
 
 	}
 
