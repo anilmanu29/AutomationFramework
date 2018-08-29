@@ -19,7 +19,7 @@ public class CarrierRegisterCanada extends TestBase {
 
 	WebDriverWait wait = new WebDriverWait(driver, 30);
 
-	@FindBy(xpath = "//*[@id='page-main']/div[2]/div/div/a")
+	@FindBy(xpath = "//a[@href='/Account/Register']")
 	WebElement buttonsignup;
 
 	@FindBy(xpath = ".//*[@id='angularScope']/div[2]/div[3]/div/button[1]")
