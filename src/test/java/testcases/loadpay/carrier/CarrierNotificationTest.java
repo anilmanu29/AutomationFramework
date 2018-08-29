@@ -14,6 +14,7 @@ public class CarrierNotificationTest extends TestBase {
 	CarrierLoginPage cl;
 	String payment_status = "Verified";
 	String invoice;
+	String carrierUsername, carrierPassword = "";
 
 	/*-------Initializing driver---------*/
 
@@ -33,8 +34,17 @@ public class CarrierNotificationTest extends TestBase {
 
 	@Test(dataProvider = "getCarrierLoginData")
 	public void loginCarrier(String un, String pwd) throws InterruptedException {
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
+		} else {
+			carrierUsername = un;
+			carrierPassword = pwd;
+		}
+
 		cl = new CarrierLoginPage();
-		cl.Carrierlogin(un, pwd);
+		cl.Carrierlogin(carrierUsername, carrierPassword);
 
 	}
 

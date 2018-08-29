@@ -47,7 +47,8 @@ public class BrokerRegisterCanadaTest extends TestBase {
 
 		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
 			String[] emailArray = Email.split("@");
-			emailArray[0] = emailArray[0] + TestUtil.getCurrentDateTime();
+			String dateTime = TestUtil.getCurrentDateTime();
+			emailArray[0] = emailArray[0] + dateTime;
 
 			brokerUsername = emailArray[0] + "@" + emailArray[1];
 			brokerPassword = Password;

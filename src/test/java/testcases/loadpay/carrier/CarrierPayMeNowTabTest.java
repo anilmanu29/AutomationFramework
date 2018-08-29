@@ -12,6 +12,7 @@ public class CarrierPayMeNowTabTest extends TestBase {
 
 	CarrierPayMeNowTab cp;
 	CarrierLoginPage lp;
+	String carrierUsername, carrierPassword = "";
 
 	/*-------Initializing driver---------*/
 
@@ -31,8 +32,17 @@ public class CarrierPayMeNowTabTest extends TestBase {
 
 	@Test(dataProvider = "getCarrierLoginData")
 	public void loginCarrier(String un, String pwd) throws InterruptedException {
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
+		} else {
+			carrierUsername = un;
+			carrierPassword = pwd;
+		}
+
 		lp = new CarrierLoginPage();
-		lp.Carrierlogin(un, pwd);
+		lp.Carrierlogin(carrierUsername, carrierPassword);
 
 	}
 

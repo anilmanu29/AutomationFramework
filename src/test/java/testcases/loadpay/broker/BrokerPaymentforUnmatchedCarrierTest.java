@@ -22,11 +22,12 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 	public static String einno;
 	public static ArrayList<String> al;
 	public static ArrayList<String> in;
-	public static String invoiceNum;
 
 	public static String unMatchedCarrierUsername;
 	public static String unMatchedCarrierPassword;
+	public static String loadID, invoiceNum = "";
 	String brokerUsername, brokerPassword = "";
+	String dateTime;
 
 	/*-------Initializing driver---------*/
 	public BrokerPaymentforUnmatchedCarrierTest() {
@@ -51,6 +52,7 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 	@Test(dataProvider = "getBrokerLoginData")
 	public void loginBroker(String email, String pwd) {
 		bl = new BrokerLoginPage();
+		dateTime = TestUtil.getCurrentDateTime();
 
 		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
 			brokerUsername = BrokerRegisterTest.brokerUsername;
@@ -72,13 +74,12 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 
 		if (super.getProperties().getProperty("useDynamicUnmatchedData").contains("true")) {
 			String[] emailArray = carrierEmail.split("@");
-			String dateTime = TestUtil.getCurrentDateTime();
 			emailArray[0] = emailArray[0] + dateTime;
 
 			unMatchedCarrierUsername = emailArray[0] + "@" + emailArray[1];
 			unMatchedCarrierPassword = "Password@123";
-			invoiceno = "UM" + dateTime;
-			loadid = invoiceno;
+			invoiceNum = "UM" + dateTime;
+			loadID = invoiceNum;
 
 		} else {
 			unMatchedCarrierUsername = carrierEmail;
@@ -91,10 +92,10 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 
 		bp.amount(amt);
 
-		invoiceNum = bp.invoiceNumber(invoiceno);
+		invoiceNum = bp.invoiceNumber(invoiceNum);
 		in.add(invoiceNum);
 
-		bp.loadId(loadid);
+		bp.loadId(loadID);
 
 		bp.companyName(payto);
 
