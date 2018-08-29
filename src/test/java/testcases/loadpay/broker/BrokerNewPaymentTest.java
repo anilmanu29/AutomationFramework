@@ -11,6 +11,7 @@ import base.TestBase;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerNewPayment;
 import testcases.loadpay.carrier.CarrierRegisterTest;
+import util.TestUtil;
 
 public class BrokerNewPaymentTest extends TestBase {
 
@@ -23,6 +24,7 @@ public class BrokerNewPaymentTest extends TestBase {
 
 	String carrierUsername = "";
 	String brokerUsername, brokerPassword = "";
+	String dateTime = "";
 
 	/*-------Initializing driver---------*/
 	public BrokerNewPaymentTest() {
@@ -46,6 +48,7 @@ public class BrokerNewPaymentTest extends TestBase {
 	@Test(dataProvider = "getBrokerLoginData")
 	public void loginBroker(String email, String pwd) {
 		bl = new BrokerLoginPage();
+		dateTime = TestUtil.getCurrentDateTime();
 
 		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
 			brokerUsername = BrokerRegisterTest.brokerUsername;
@@ -70,6 +73,8 @@ public class BrokerNewPaymentTest extends TestBase {
 
 		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
 			carrierUsername = CarrierRegisterTest.carrierUsername;
+			invoiceno = "UM" + dateTime;
+			loadid = invoiceno;
 		} else {
 			carrierUsername = cemail;
 		}

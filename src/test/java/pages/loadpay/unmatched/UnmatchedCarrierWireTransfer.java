@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
 import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
-import testcases.loadpay.unmatched.UnmatchedCarrierOutlookTest;
 
 public class UnmatchedCarrierWireTransfer extends TestBase {
 
@@ -69,6 +68,12 @@ public class UnmatchedCarrierWireTransfer extends TestBase {
 	@FindBy(xpath = "//*[@id='paymentOptionsDiv']/div[4]/div[1]/div[3]/p/span")
 	WebElement wiretransframt;
 
+	@FindBy(xpath = "//input[contains(@ng-click, 'DoNotShowAutomaticPMNOptinChanged')]")
+	WebElement doNotShowAgainPMNCheckbox;
+
+	@FindBy(xpath = "//button[text()='Save']")
+	WebElement savebutton;
+
 	public UnmatchedCarrierWireTransfer() {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 30);
@@ -76,9 +81,15 @@ public class UnmatchedCarrierWireTransfer extends TestBase {
 	}
 
 	public void carrierLogin() {
-		UserName.sendKeys(BrokerPaymentforUnmatchedCarrierTest.al.get(1));
-		Password.sendKeys(UnmatchedCarrierOutlookTest.pwd);
+		UserName.sendKeys(BrokerPaymentforUnmatchedCarrierTest.unMatchedCarrierUsername);
+		Password.sendKeys(BrokerPaymentforUnmatchedCarrierTest.unMatchedCarrierPassword);
 		loginBtn.click();
+
+		if (doNotShowAgainPMNCheckbox.isDisplayed()) {
+			doNotShowAgainPMNCheckbox.click();
+			wait.until(ExpectedConditions.elementToBeClickable(savebutton));
+			savebutton.click();
+		}
 	}
 
 	public void getAmount() throws InterruptedException {

@@ -47,7 +47,8 @@ public class CarrierRegisterCanadaTest extends TestBase {
 
 		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
 			String[] emailArray = Email.split("@");
-			emailArray[0] = emailArray[0] + TestUtil.getCurrentDateTime();
+			String dateTime = TestUtil.getCurrentDateTime();
+			emailArray[0] = emailArray[0] + dateTime;
 
 			carrierUsername = emailArray[0] + "@" + emailArray[1];
 			carrierPassword = Password;
