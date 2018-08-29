@@ -11,7 +11,7 @@ import org.testng.Assert;
 import base.TestBase;
 
 public class CarrierRegisterPage extends TestBase {
-	@FindBy(xpath = "//*[@id='page-main']/div[2]/div/div/a")
+	@FindBy(xpath = "//a[@href='/Account/Register']")
 	WebElement signupButton;
 
 	@FindBy(xpath = ".//*[@id='angularScope']/div[2]/div[3]/div/button[1]")
