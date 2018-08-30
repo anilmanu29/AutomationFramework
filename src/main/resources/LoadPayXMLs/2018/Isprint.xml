@@ -11,6 +11,8 @@
 		<classes>
 		    
 <!-- 		    Using dynamic data, we only need to setup data ONCE for the following: -->
+<!-- 			AdminLogin based on environment (QA vs Stage) -->
+<!-- 			outlookLoginData Credentials - use your own -->
 <!-- 		    BrokerRegister (broker@loadpaytest.truckstop.com) -->
 <!-- 		    CarrierRegister (carrier@loadpaytest.truckstop.com) -->
 <!-- 		    BrokerNewPayment (3 rows of data to any carrier...with dynamic data set to true, it will go to the carrier above) -->
