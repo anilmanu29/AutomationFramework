@@ -2,6 +2,7 @@ package pages.loadpay.broker;
 
 import java.util.List;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -176,13 +177,19 @@ public class BrokerNewPayment extends TestBase {
 
 	/*-------New Payment---------*/
 	public void newPayment() throws InterruptedException {
+		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_newpayment));
-		lnk_newpayment.click();
+		Thread.sleep(1000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", lnk_newpayment);
+
 	}
 
 	/*-------Carrier email---------*/
 	public String carrierEmail(String cemail) throws InterruptedException {
+		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(field_CarrierEmail));
+		Thread.sleep(1000);
 		field_CarrierEmail.click();
 		field_CarrierEmail.sendKeys(cemail);
 		return cemail;
