@@ -10,6 +10,16 @@
 	<test name="O Sprint Test Cases">
     <classes>
     
+  <!--1) BrokerLoginData sheet - Brokerlogindetails needs to be updated.
+   2) CarrierLoginData sheet - Carrierlogindetails needs to be updated.
+   3) ITSDispatchLoginData sheet - Valid Account Id, Username and Password needs to be updated.
+   4) BrokerPaymentDataforUnmatchedCr sheet - Invoice and LoadId needs to be updated.Make sure there are 2 payments.
+   5) AdminLogin sheet - Admin login details needs to be updated.
+   6) BrokerNewPaymentData sheet - Invoice and Load id needs to be updated. Make sure there are 2 payments.
+   7) BrokerRegister sheet - need to update BrokerEmailId. 
+   -->
+    
+
     <!-- Script for Jira Ticket LP-6466 - LoadPay - Selenium Test - Integration - Handshake with ITSDispatch -->
 		<!-- <class name="testcases.loadpay.broker.HandshakewithITSDispatchTest"></class> -->
     		  

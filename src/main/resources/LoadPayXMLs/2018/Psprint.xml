@@ -11,14 +11,16 @@
     <classes>
     
   
-<!--1) BrokerLoginData sheet - Brokerlogindetails.
-   2) CarrierLoginData sheet - Carrierlogindetails.
-   3) AdminPaymentsGreaterthan45Days sheet - Invoice and LoadId needs to be updated.
-   4) payementmorethan45daysData - Invoice and LoadId needs to be updated.
-   5) CarrierBankAccountDetails - Carrier Email and Password details without BankAccount. 
-   6) AdminLogin sheet - Admin login details neds to be updated.
-   7) AdminCustomersSideMenSearchData sheet - companyname, contact and email columns needs to be updated.
-   8) BrokerNewPaymentData sheet - Invoice and Load id needs to be updated. Make sure there are 2 payments. --> 
+<!--1) BrokerLoginData sheet - Brokerlogindetails needs to be updated.
+   2) CarrierLoginData sheet - Carrierlogindetails needs to be updated.
+   3) AdminPaymentsGreaterthan45Days sheet - Invoice and LoadId needs to be updated.Make sure there is only one row.
+   4) payementmorethan45daysData sheet - Invoice and LoadId needs to be updated.Make sure there is only one row.
+   5) CarrierBankAccountDetails sheet - Carrier(without Bank Account Details) Email and Password details needs to be updated. 
+   6) AdminLogin sheet - Admin login details needs to be updated.
+   7) AdminCustomersSideMenSearchData sheet - companyname, contact and email columns needs to be updated for searching.
+   8) BrokerNewPaymentData sheet - Invoice and Load id needs to be updated. Make sure there are 2 payments.
+   9) CarrierRegisterCanada sheet - need to update CarrierEmail. 
+   --> 
 
 
     	<!--Need to Update BrokerLoginData sheet-->
