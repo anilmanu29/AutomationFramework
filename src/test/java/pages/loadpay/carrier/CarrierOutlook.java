@@ -92,12 +92,16 @@ public class CarrierOutlook extends TestBase {
 
 	public void clickPopUp() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(fieldSearchMail));
+		Thread.sleep(1000);
 		fieldSearchMail.click();
 		wait.until(ExpectedConditions.elementToBeClickable(haspopup));
+		Thread.sleep(1000);
 		haspopup.click();
 	}
 
-	public void clickOpenMailBox() {
+	public void clickOpenMailBox() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(lnkopenanothermail));
+		Thread.sleep(1000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", lnkopenanothermail);
 
