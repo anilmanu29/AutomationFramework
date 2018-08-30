@@ -30,8 +30,9 @@ public class UnmatchedCarrierSameDayACHTest extends TestBase {
 
 	@Test()
 	public void carrierPaymenowSameDayACH() throws InterruptedException {
-
+		Thread.sleep(2000);
 		usdach.carrierLogin();
+		Thread.sleep(2000);
 		usdach.getAmount();
 		usdach.clickPaymenow();
 		usdach.getsamedayAmount();

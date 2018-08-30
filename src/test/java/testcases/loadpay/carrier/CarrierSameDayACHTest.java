@@ -49,6 +49,7 @@ public class CarrierSameDayACHTest extends TestBase {
 
 	@Test(dependsOnMethods = "loginTest")
 	public void carrierPaymenowSameDayACH() throws InterruptedException {
+		Thread.sleep(2000);
 		cs.getAmount();
 		cs.clickPaymenow();
 

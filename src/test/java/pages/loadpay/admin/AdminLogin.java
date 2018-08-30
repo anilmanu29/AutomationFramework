@@ -262,6 +262,7 @@ public class AdminLogin extends TestBase {
 	public void ClickOnCreditTab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CreditTab));
 		CreditTab.click();
+		wait.until(ExpectedConditions.elementToBeClickable(ExtendedCredit));
 	}
 
 	public void click_AdminBanking() throws InterruptedException {

@@ -51,6 +51,7 @@ public class CarrierNextDAYACHTest extends TestBase {
 
 	@Test(dependsOnMethods = "loginTest")
 	public void carrierPaymenowNextDAYACH() throws InterruptedException, AWTException {
+		Thread.sleep(2000);
 		carrierNextDayObj.getAmount();
 		carrierNextDayObj.clickPaymenow();
 		carrierNextDayObj.getnextdayAmount();
