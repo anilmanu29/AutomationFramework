@@ -219,7 +219,8 @@ public class AdminLogin extends TestBase {
 
 	public void Clickverifysystemnote() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(verifysystemnote));
-		verifysystemnote.click();
+		js.executeScript("arguments[0].click();", verifysystemnote);
+		// verifysystemnote.click();
 
 	}
 
