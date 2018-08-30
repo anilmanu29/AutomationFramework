@@ -10,11 +10,13 @@
 	<test name="Sprint I Test Cases">
 		<classes>
 		    
-<!-- 		    Using dynamic data, we only need to have data setup for the following: -->
+<!-- 		    Using dynamic data, we only need to setup data ONCE for the following: -->
+<!-- 			AdminLogin based on environment (QA vs Stage) -->
+<!-- 			outlookLoginData Credentials - use your own -->
 <!-- 		    BrokerRegister (broker@loadpaytest.truckstop.com) -->
 <!-- 		    CarrierRegister (carrier@loadpaytest.truckstop.com) -->
-<!-- 		    BrokerNewPayment (to any carrier...with dynamic data set to true, it will go to the carrier above) -->
-<!-- 		    BrokerPaymentForUnmatchedCarrier -->
+<!-- 		    BrokerNewPayment (3 rows of data to any carrier...with dynamic data set to true, it will go to the carrier above) -->
+<!-- 		    BrokerPaymentForUnmatchedCarrier (2 rows of data)-->
 	
 	    <!--   Script for Jira Tickets LP-4269 Verify Email in Mailinator_Broker     -->
 	    	<class name="testcases.loadpay.broker.BrokerRegisterTest"></class>
@@ -30,12 +32,12 @@
 			
 		<!--   Script for Jira Tickets LP-3474 & LP-5413  CarrierWireTransferTest & CarrierPayMeNowTabTest -->
 		  	<class name="testcases.loadpay.broker.BrokerNewPaymentTest"></class>
+		  	<class name="testcases.loadpay.carrier.CarrierNotificationTest"></class>
 		 	<class name="testcases.loadpay.carrier.CarrierWireTransferTest"></class>
 
 		<!--   Script for Jira Tickets LP-5411 & LP-5417 CarrierSameDayACHTest &  CarrierNextDayACHTest     -->
 			<class name="testcases.loadpay.carrier.CarrierSameDayACHTest"></class>
 		 	<class name="testcases.loadpay.carrier.CarrierNextDAYACHTest"></class>
-		 	<class name="testcases.loadpay.carrier.CarrierNotificationTest"></class>
 		 	<class name="testcases.loadpay.carrier.CarrierPayMeNowTabTest"></class>
 				
 		<!--   Script for Jira Tickets LP-5421 UnmatchedCarrier-SAMEDAYACH       -->
