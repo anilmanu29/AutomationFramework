@@ -11,13 +11,15 @@
     <classes>
     
     <!-- Script for Jira Ticket LP-5416 - LoadPay - LoadPay - Selenium Test - Carrier account locked after 10 failed logins -->
-    	<!-- <class name="testcases.loadpay.carrier.CarrierAccountLockedafter10FailedLoginsTest"></class> -->
+    	<class name="testcases.loadpay.carrier.CarrierAccountLockedafter10FailedLoginsTest"></class>
     	
-    <!-- Script for Jira Ticket LP-5415 - LoadPay - LoadPay - Selenium Test -  Carrier can reset password when account is locked -->	
-    	<!-- <class name="testcases.loadpay.carrier.CarrierlockedAccountResetPasswordTest"></class> -->
+    <!-- Script for Jira Ticket LP-5415 - LoadPay - LoadPay - Selenium Test -  Carrier can reset password when account is locked -->
+    <!-- Broker New Payment and Carrier Reset Password (New Password & Confirm Password)	data should be Updated -->
+    
+    	<class name="testcases.loadpay.carrier.CarrierlockedAccountResetPasswordTest"></class>
     	
     <!-- Script for Jira Ticket LP-5399 - LoadPay- Broker Payment Terms Charge Sender -->	
-    	<!-- <class name="testcases.loadpay.broker.BrokerPaymentTermsChargeSenderTest"></class> -->
+    	<class name="testcases.loadpay.broker.BrokerPaymentTermsChargeSenderTest"></class>
     	
     <!-- Script for Jira Ticket LP-5423 - LoadPay - Selenium Test - Admin - Search-->	
     	<class name="testcases.loadpay.admin.AdminSearchTest"></class>
