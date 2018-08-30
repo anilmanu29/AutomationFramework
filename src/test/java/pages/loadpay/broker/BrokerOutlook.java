@@ -261,6 +261,7 @@ public class BrokerOutlook extends TestBase {
 		WebElement searchField = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Search mail and people']")));
 		wait.until(ExpectedConditions.elementToBeClickable(searchField));
+		Thread.sleep(2000);
 		searchField.click();
 
 		searchInput = driver.findElement(By.xpath("//input[@aria-label='Search. Press Enter to Start Searching.']"));
@@ -271,6 +272,7 @@ public class BrokerOutlook extends TestBase {
 		searchInput.sendKeys(updatedBrokerEmailAddress);
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(searchButton));
+		Thread.sleep(1000);
 		searchButton.click();
 
 		infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
