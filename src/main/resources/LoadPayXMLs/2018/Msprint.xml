@@ -11,11 +11,14 @@
     <classes>
     
 <!-- Test data:
-1. BrokerNewPayment Sheet = Invoice and Load ID 
-2. CarrierResetPassword Sheeet = (New Password & Confirm Password) -->
+1. BrokerNewPaymentData Sheet = Invoice and Load ID , make sure there are 2 payments are available.
+2. CarrierRegisterData Sheet = New Password & Confirm Password data need to be updated  
+3. BrokerLoginData Sheet UserName and Password need to be updated as per Environments
+4. BrokerLoginData Sheet UserName and Password need to be updated as per Environments 
+5.AdminLogin Sheet UserName and Password need to be updated as per Environments
+5. AdminSearchData Sheet Data need to be Updated -->
     
-    
-    
+       
     <!-- Script for Jira Ticket LP-5416 - LoadPay - LoadPay - Selenium Test - Carrier account locked after 10 failed logins -->
     	<class name="testcases.loadpay.carrier.CarrierAccountLockedafter10FailedLoginsTest"></class>
     	
