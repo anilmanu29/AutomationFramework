@@ -10,33 +10,45 @@
 	<test name="P Sprint Test Cases">
     <classes>
     
+  
+<!--1) BrokerLoginData sheet - Brokerlogindetails.
+   2) CarrierLoginData sheet - Carrierlogindetails.
+   3) AdminPaymentsGreaterthan45Days sheet - Invoice and LoadId needs to be updated.
+   4) payementmorethan45daysData - Invoice and LoadId needs to be updated.
+   5) CarrierBankAccountDetails - Carrier Email and Password details without BankAccount. 
+   6) AdminLogin sheet - Admin login details neds to be updated.
+   7) AdminCustomersSideMenSearchData sheet - companyname, contact and email columns needs to be updated.
+   8) BrokerNewPaymentData sheet - Invoice and Load id needs to be updated. Make sure there are 2 payments. --> 
+
+
+    	<!--Need to Update BrokerLoginData sheet-->
     <!-- Script for Jira Ticket LP-6627-LoadPay-Broker-Download .CSV from Scheduled Payments -->
-    
 		<class name="testcases.loadpay.broker.BrokerDownloadCSVFromScheduledPaymentsTest"></class>
 		
+		
+		<!--Need to Update CarrierLoginData sheet-->
 	<!-- Script for Jira Ticket LP-6628-LoadPay-Carrier-Download .CSV from Scheduled Payments -->
-    
 		<class name="testcases.loadpay.carrier.CarrierDownloadCSVFromScheduledPaymentsTest"></class>
 		
-	<!--Need to Update AdminPaymentsGreaterthan45Days(Invoice and LoadId) and payementmorethan45daysData(Invoice and LoadId) sheets-->
+	<!--Need to Update AdminPaymentsGreaterthan45Days(Invoice and LoadId felds) and payementmorethan45daysData(Invoice and LoadId) sheets-->
 	<!-- Script for Jira Ticket LP-6621-LoadPay - Selenium Test - Admin - Payments Greater than 45 Days -->
 		<class name="testcases.loadpay.admin.AdminPaymentsGreaterthan45DaysTest"></class>
 		
 		
 	<!--Carrier without Bank Account login details needs to be updated in CarrierBankAccountDetails sheet. 
-    	Need to Update CarrierRegister(Carrier EmailId) sheet.
+    	Need to Update CarrierRegisterCanada(Carrier EmailId) sheet.
     	-->
 	<!-- Script for Jira Ticket LP-6366-LoadPay - Carrier - Disable copy / paste functionality for add and confirm bank account -->
-
 		<class name="testcases.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccountTest"></class> 
 
+		<!--Need to Update AdminLogin sheet-->
 	<!-- Script for Jira Ticket LP-3494-LoadPay-Admin-Daily NACHA Payments File -->
-    
 		<class name="testcases.loadpay.admin.AdminDailyNACHAPaymentsFileTest"></class>
 		
+		<!--Need to update AdminCustomersSideMenSearchData sheet-->
 	<!-- Script for Jira Ticket LP-6228-LoadPay-Admin-Customer Side Menu Search-->
-    
 		<class name="testcases.loadpay.admin.AdminCustomersSideMenuSearchTest"></class>
+		
 		
 		<!--Need to Update BrokerNewPayment data sheet. Make sure there are 2 payments -->
 			<!-- Script for Jira Ticket LP-5427-LoadPay - Selenium Test - Admin - Delay Debit-->
