@@ -134,10 +134,9 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 	public void verifyResetPassword(String nwpwd, String confmpwd, String forcepwd, String confirmforcepwd)
 			throws InterruptedException {
 
-		/*
-		 * Assert.assertTrue(carrierparentchildobject.newpasswordfield.isDisplayed(),
-		 * "New Password field is NOT Displayed");
-		 */
+		Assert.assertTrue(carrierparentchildobject.newpasswordfield.isDisplayed(),
+				"New Password field is NOT Displayed");
+
 		Assert.assertTrue(carrierparentchildobject.confirmpassword.isDisplayed(),
 				"Confirm Password field is NOT Displayed");
 
