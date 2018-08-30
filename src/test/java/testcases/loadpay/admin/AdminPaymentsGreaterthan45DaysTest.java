@@ -193,15 +193,15 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 	public void carrierPaymenow(String cemail, String invoiceno, String loadid, String amt, String scheduledate)
 			throws InterruptedException {
 		Assert.assertTrue(carriersamedayach.btn_paymenow.isDisplayed(), "Payme now Link if NOT Found!");
-		carrierwireframe.clickPayMeNowPayment(greaterthan365invoice);
-		System.out.println(greaterthan365invoice);
+		carrierwireframe.clickPayMeNowPayment(invoiceList.get(1));
+		// System.out.println(greaterthan365invoice);
 		carrierwireframe.clickSelectButton();
 		carrierwireframe.clickConfirmButton();
 		Thread.sleep(2000);
-		carrierwireframe.clickPayMeNowPayment(greaterthan45invoice);
-		System.out.println(greaterthan45invoice);
-		carrierwireframe.clickSelectButton();
-		carrierwireframe.clickConfirmButton();
+		// carrierwireframe.clickPayMeNowPayment(greaterthan45invoice);
+		// System.out.println(greaterthan45invoice);
+		// carrierwireframe.clickSelectButton();
+		// carrierwireframe.clickConfirmButton();
 		log.info("Verify Payme Now Link Passed");
 
 	}
