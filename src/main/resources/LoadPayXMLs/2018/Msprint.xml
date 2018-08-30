@@ -10,11 +10,16 @@
 	<test name="M Sprint Test Cases">
     <classes>
     
+<!-- Test data:
+1. BrokerNewPayment Sheet = Invoice and Load ID 
+2. CarrierResetPassword Sheeet = (New Password & Confirm Password) -->
+    
+    
+    
     <!-- Script for Jira Ticket LP-5416 - LoadPay - LoadPay - Selenium Test - Carrier account locked after 10 failed logins -->
     	<class name="testcases.loadpay.carrier.CarrierAccountLockedafter10FailedLoginsTest"></class>
     	
     <!-- Script for Jira Ticket LP-5415 - LoadPay - LoadPay - Selenium Test -  Carrier can reset password when account is locked -->
-    <!-- Broker New Payment and Carrier Reset Password (New Password & Confirm Password)	data should be Updated -->
     
     	<class name="testcases.loadpay.carrier.CarrierlockedAccountResetPasswordTest"></class>
     	
