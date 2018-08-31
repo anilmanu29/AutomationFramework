@@ -34,7 +34,7 @@
 		
 	<!--Need to Update AdminPaymentsGreaterthan45Days(Invoice and LoadId felds) and payementmorethan45daysData(Invoice and LoadId) sheets-->
 	<!-- Script for Jira Ticket LP-6621-LoadPay - Selenium Test - Admin - Payments Greater than 45 Days -->
-		<class name="testcases.loadpay.admin.AdminPaymentsGreaterthan45DaysTest"></class>
+		<class name="testcases.loadpay.admin.AdminPaymentsGreaterthan45DaysTesttestcases.loadpay.admin.AdminPaymentsGreaterthan45DaysTest"></class>
 		
 		
 	<!--Carrier without Bank Account login details needs to be updated in CarrierBankAccountDetails sheet. 

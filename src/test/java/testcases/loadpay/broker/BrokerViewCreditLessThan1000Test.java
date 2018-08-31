@@ -15,6 +15,8 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.broker.BrokerViewCreditLessThan1000;
+import pages.loadpay.carrier.CarrierLoginPage;
+import pages.loadpay.carrier.CarrierWireTransfer;
 import pages.loadpay.outlook.outlooklogin;
 
 public class BrokerViewCreditLessThan1000Test extends TestBase {
@@ -22,6 +24,8 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 	BrokerViewCreditLessThan1000 CreditLessThan1000;
 	BrokerOutlook brokeroutlook;
 	outlooklogin outlooklog;
+	CarrierLoginPage carrierloginobj;
+	CarrierWireTransfer carrierwiretransferobj;
 
 	public BrokerViewCreditLessThan1000Test() {
 		super();
@@ -35,10 +39,23 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 		CreditLessThan1000 = new BrokerViewCreditLessThan1000();
 		brokeroutlook = new BrokerOutlook();
 		outlooklog = new outlooklogin();
+		carrierloginobj = new CarrierLoginPage();
+		carrierwiretransferobj = new CarrierWireTransfer();
 		wait = new WebDriverWait(driver, 30);
 	}
 
-	@Test(dataProvider = "getBrokerLoginData")
+	@Test(dataProvider = "getCarrierLoginData")
+	public void carrier(String user, String pass) throws InterruptedException {
+
+		carrierloginobj.Carrierlogin(user, pass);
+		carrierwiretransferobj.clickPayMeNowPayment(BrokerNewPaymentTest.al.get(0));
+		carrierwiretransferobj.clickSelectButton();
+		carrierwiretransferobj.clickConfirmButton();
+		Thread.sleep(1000);
+		carrierloginobj.CarrierLogout();
+	}
+
+	@Test(dataProvider = "getBrokerLoginData", dependsOnMethods = "carrier")
 	public void loginTest(String user, String pass) throws InterruptedException {
 
 		CreditLessThan1000.Brokerlogin(user, pass);

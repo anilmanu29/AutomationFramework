@@ -10,7 +10,8 @@
 	<test name="O Sprint Test Cases">
     <classes>
     
-  <!--1) BrokerLoginData sheet - Brokerlogindetails needs to be updated.
+    
+ <!--1) BrokerLoginData sheet - Enter valid Broker credentials that exist in the Staging environment for ITSDispatch.
    2) CarrierLoginData sheet - Carrierlogindetails needs to be updated.
    3) ITSDispatchLoginData sheet - Valid Account Id, Username and Password needs to be updated.
    4) BrokerPaymentDataforUnmatchedCr sheet - Invoice and LoadId needs to be updated.Make sure there are 2 payments.
@@ -21,7 +22,7 @@
     
 
     <!-- Script for Jira Ticket LP-6466 - LoadPay - Selenium Test - Integration - Handshake with ITSDispatch -->
-		<!-- <class name="testcases.loadpay.broker.HandshakewithITSDispatchTest"></class> -->
+		<class name="testcases.loadpay.broker.HandshakewithITSDispatchTest"></class>
     		  
     <!-- Need to update BrokerPaymentDataforUnmatchedCr sheet.Make sure there are 2 payments  -->		  
     <!-- Script for Jira Ticket LP-6351 - LoadPay - Selenium Test - Admin - Show Quote For Check_Unmatched Carrier -->

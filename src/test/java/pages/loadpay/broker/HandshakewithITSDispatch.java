@@ -3,6 +3,7 @@ package pages.loadpay.broker;
 import java.awt.AWTException;
 import java.io.IOException;
 import java.util.ArrayList;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -71,7 +72,7 @@ public class HandshakewithITSDispatch extends TestBase {
 	}
 
 	public void accesITSDispatchAplication() throws InterruptedException {
-		driver.get(prop.getProperty("ITSDispatchurl"));
+		driver.navigate().to(prop.getProperty("ITSDispatchurl"));
 		// Thread.sleep(1000);
 	}
 
@@ -98,8 +99,12 @@ public class HandshakewithITSDispatch extends TestBase {
 	}
 
 	public void clickCloseButton() {
-		wait.until(ExpectedConditions.elementToBeClickable(popupclosebutton));
-		js.executeScript("arguments[0].click();", popupclosebutton);
+		try {
+			wait.until(ExpectedConditions.elementToBeClickable(popupclosebutton));
+			js.executeScript("arguments[0].click();", popupclosebutton);
+		} catch (Exception e) {
+			log.info("");
+		}
 	}
 
 	public WebElement getLoadPayImage() throws InterruptedException {
