@@ -3,12 +3,15 @@ package testcases.loadpay.broker;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerNewPayment;
+import testcases.loadpay.carrier.CarrierRegisterCanadaTest;
+import util.TestUtil;
 
 public class ShipperSchedulePaymentTest extends TestBase {
 
@@ -16,6 +19,8 @@ public class ShipperSchedulePaymentTest extends TestBase {
 	BrokerLoginPage bl;
 	String payment_status = "Verified";
 	static String invoice;
+	String brokerUsername, brokerPassword = "";
+	String carrierUsername = "";
 
 	/*-------Initializing driver---------*/
 	public ShipperSchedulePaymentTest() {
@@ -31,14 +36,31 @@ public class ShipperSchedulePaymentTest extends TestBase {
 		bp = new BrokerNewPayment();
 		wait = new WebDriverWait(driver, 30);
 	}
+
+	@AfterClass
+	public void tearDown() {
+		bl.isCanadaTest(false);
+	}
+
 	/*-------Initializing driver---------*/
 
 	/*-------Login to Load Pay as Broker---------*/
 
 	@Test(dataProvider = "getBrokerLoginData")
 	public void loginBroker(String un, String pwd) {
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterCanadaTest.brokerUsername;
+			brokerPassword = BrokerRegisterCanadaTest.brokerPassword;
+		} else {
+			brokerUsername = un;
+			brokerPassword = pwd;
+		}
+
 		bl = new BrokerLoginPage();
-		bl.Brokerlogin(un, pwd);
+		bl.Brokerlogin(brokerUsername, brokerPassword);
+		bl.isCanadaTest(true);
+		bl.completeRegistration();
 
 	}
 
@@ -51,7 +73,15 @@ public class ShipperSchedulePaymentTest extends TestBase {
 		bp = new BrokerNewPayment();
 		bp.newPayment();
 
-		bp.carrierEmail(cemail);
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterCanadaTest.carrierUsername;
+			invoiceno = "UM" + TestUtil.getCurrentDateTime();
+			loadid = invoiceno;
+		} else {
+			carrierUsername = cemail;
+		}
+
+		bp.carrierEmail(carrierUsername);
 
 		bp.amount(amt);
 
@@ -65,7 +95,7 @@ public class ShipperSchedulePaymentTest extends TestBase {
 
 		bp.clickShedulePaymenttab();
 
-		bp.searchCarrier(cemail);
+		bp.searchCarrier(carrierUsername);
 
 		bp.clickSearchButton();
 
