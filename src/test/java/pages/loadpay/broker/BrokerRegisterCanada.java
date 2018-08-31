@@ -15,7 +15,7 @@ public class BrokerRegisterCanada extends TestBase {
 
 	Select slc, sls, sloc, slos;
 
-	@FindBy(xpath = "//a[text()='Sign Up']")
+	@FindBy(xpath = "//a[@href='/Account/Register']")
 	WebElement buttonsignup;
 
 	@FindBy(xpath = "//button[text()='Shipper/Broker']")

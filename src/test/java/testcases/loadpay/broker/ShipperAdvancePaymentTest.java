@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -12,6 +13,8 @@ import base.TestBase;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.ShipperAdvancePayment;
 import pages.loadpay.carrier.CarrierLoginPage;
+import testcases.loadpay.carrier.CarrierRegisterCanadaTest;
+import util.TestUtil;
 
 public class ShipperAdvancePaymentTest extends TestBase {
 
@@ -22,6 +25,8 @@ public class ShipperAdvancePaymentTest extends TestBase {
 	String paymentdate;
 	static String invoice;
 	String loadidd;
+	String brokerUsername, brokerPassword = "";
+	String carrierUsername, carrierPassword = "";
 
 	/*-------Initializing driver---------*/
 	public ShipperAdvancePaymentTest() {
@@ -38,6 +43,12 @@ public class ShipperAdvancePaymentTest extends TestBase {
 		loginPage = new CarrierLoginPage();
 		wait = new WebDriverWait(driver, 30);
 	}
+
+	@AfterClass
+	public void tearDown() {
+		bl.isCanadaTest(false);
+	}
+
 	/*-------Initializing driver---------*/
 
 	/*-------Login to Load Pay as Broker---------*/
@@ -45,8 +56,18 @@ public class ShipperAdvancePaymentTest extends TestBase {
 	@Test(dataProvider = "getBrokerLoginData")
 	public void loginBroker(String un, String pwd) {
 		bl = new BrokerLoginPage();
-		bl.Brokerlogin(un, pwd);
 
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterCanadaTest.brokerUsername;
+			brokerPassword = BrokerRegisterCanadaTest.brokerPassword;
+		} else {
+			brokerUsername = un;
+			brokerPassword = pwd;
+		}
+
+		bl.Brokerlogin(brokerUsername, brokerPassword);
+		bl.isCanadaTest(true);
+		// bl.completeRegistration();
 	}
 
 	/*-------Scheduling New Payment as a Broker---------*/
@@ -57,7 +78,15 @@ public class ShipperAdvancePaymentTest extends TestBase {
 
 		bp.newPayment();
 
-		bp.carrierEmail(cemail);
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterCanadaTest.carrierUsername;
+			invoiceno = "UM" + TestUtil.getCurrentDateTime();
+			loadid = invoiceno;
+		} else {
+			carrierUsername = cemail;
+		}
+
+		bp.carrierEmail(carrierUsername);
 
 		bp.amount(amt);
 
@@ -73,25 +102,26 @@ public class ShipperAdvancePaymentTest extends TestBase {
 
 		bp.clickShedulePaymenttab();
 
-		bp.searchCarrier(cemail);
+		bp.searchCarrier(carrierUsername);
 
 		bp.clickSearchButton();
-
-		/*
-		 * JavascriptExecutor jse = (JavascriptExecutor)driver;
-		 * jse.executeScript("window.scrollBy(0,250)", "");
-		 * 
-		 */
-		// Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
-		// log.info(bp.verifyPaymentStatus());
-		bp.logout();
 
 	}
 
 	@Test(dataProvider = "getCarrierLoginData", dependsOnMethods = "brokernewPayment")
 	public void loginTest(String user, String pass) throws InterruptedException {
 
-		loginPage.Carrierlogin(user, pass);
+		bp.logout();
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterCanadaTest.carrierUsername;
+			carrierPassword = CarrierRegisterCanadaTest.carrierPassword;
+		} else {
+			carrierUsername = user;
+			carrierPassword = pass;
+		}
+
+		loginPage.Carrierlogin(carrierUsername, carrierPassword);
 
 		bp.verifyScheduledDate(paymentdate, loadidd);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;

@@ -18,6 +18,7 @@ public class CarrierSchedulePaymentTest extends TestBase {
 	CarrierPayMeNowTab cp;
 	CarrierLoginPage loginPage;
 	CarrierSchedulePayment carrierschedulepayment;
+	String carrierUsername, carrierPassword = "";
 	List<String> firstRowData = null;
 	List<String> lastRowData = null;
 	String searchStatusText = "";
@@ -41,10 +42,19 @@ public class CarrierSchedulePaymentTest extends TestBase {
 	}
 
 	@Test(description = "LP-3475 CarrierSchedulePaymentTabTest_Login", dataProvider = "getCarrierSchedulePaymentTabData")
-	public void loginCarrier(String carrierEmail, String carrierPassword, String amountText, String payerText,
+	public void loginCarrier(String carrierEmail, String carrierPW, String amountText, String payerText,
 			String loadIdText, String InvoiceNumberText) throws InterruptedException {
 		loginPage = new CarrierLoginPage();
-		loginPage.Carrierlogin(carrierEmail, carrierPassword);
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
+		} else {
+			carrierUsername = carrierEmail;
+			carrierPassword = carrierPW;
+		}
+
+		loginPage.Carrierlogin(carrierUsername, carrierPassword);
 		searchAmountText = amountText;
 		searchPayerText = payerText;
 		searchLoadIdText = loadIdText;

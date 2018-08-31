@@ -85,6 +85,7 @@ public class CarrierNextDAYACH extends TestBase {
 	public void clickPaymenow() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_paymenow));
 		btn_paymenow.click();
+		Thread.sleep(1000);
 	}
 
 	public void getnextdayAmount() throws InterruptedException {
@@ -112,6 +113,7 @@ public class CarrierNextDAYACH extends TestBase {
 	public void clickSelectButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_selectnextdayach));
 		btn_selectnextdayach.click();
+		Thread.sleep(1000);
 	}
 
 	public void clickConfirmButton() throws InterruptedException, AWTException {
@@ -125,9 +127,11 @@ public class CarrierNextDAYACH extends TestBase {
 	public void clickPaidTab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(tab_paid));
 		act.moveToElement(tab_paid).click().perform();
+		Thread.sleep(1000);
 	}
 
 	public void gettotalpaiyAmount() throws InterruptedException {
+		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(paidamt));
 		totalamt = paidamt.getText();
 		totalamount = totalamt.replaceAll("\\$", "");

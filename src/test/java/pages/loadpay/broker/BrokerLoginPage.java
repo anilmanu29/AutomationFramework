@@ -1,17 +1,22 @@
 package pages.loadpay.broker;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import base.TestBase;
+import testcases.loadpay.admin.AdminBrokerCanadaTest;
+import testcases.loadpay.broker.BrokerRegisterTest;
 
 public class BrokerLoginPage extends TestBase {
 	WebDriverWait wait;
 	public static String bemail;
+	public static Boolean isCanadaTest = false;
 
 	// Page Factory - OR:
 	@FindBy(xpath = "//input[@id='UserName']")
@@ -112,6 +117,58 @@ public class BrokerLoginPage extends TestBase {
 	 */
 	public WebElement getForgotPassword() {
 		return forgotPassword;
+	}
+
+	public void completeRegistration() {
+		// enter EIN
+		WebElement einInputField = driver.findElement(By.xpath("//*[@id='EIN']"));
+		wait.until(ExpectedConditions.elementToBeClickable(einInputField));
+		einInputField.clear();
+		einInputField.sendKeys("99-9999999");
+
+		// enter deposit amount
+		WebElement depositAmtField = driver.findElement(By.xpath("//*[@id='ControlAmount']"));
+		wait.until(ExpectedConditions.elementToBeClickable(depositAmtField));
+		depositAmtField.clear();
+
+		if (isCanadaTest) {
+			depositAmtField.sendKeys(AdminBrokerCanadaTest.depositAmount);
+		} else {
+			depositAmtField.sendKeys(BrokerRegisterTest.depositAmount);
+		}
+
+		// click Next
+		WebElement nextButton = driver.findElement(By.xpath("//*[@id='formCompany']/input"));
+		wait.until(ExpectedConditions.elementToBeClickable(nextButton));
+		nextButton.click();
+
+		// accept terms and conditions
+		WebElement acceptTermsCheckBox = driver.findElement(By.xpath("//*[@id='AcceptedTerms']"));
+		wait.until(ExpectedConditions.elementToBeClickable(acceptTermsCheckBox));
+		acceptTermsCheckBox.click();
+
+		WebElement finishButton = driver.findElement(By.xpath("//*[@id='termsForm']/input"));
+		wait.until(ExpectedConditions.elementToBeClickable(finishButton));
+		finishButton.click();
+
+		WebElement confirmationPopup = driver
+				.findElement(By.xpath("//*[@id='angularScope']/div[3]/div/div/div[1]/div/p"));
+		wait.until(ExpectedConditions.elementToBeClickable(confirmationPopup));
+		log.info("Confirmation message: " + confirmationPopup.getText());
+		Assert.assertTrue(
+				confirmationPopup.getText().contains("Your LoadPay™ registration has been completed successfully."),
+				"Registration success message not found");
+
+		WebElement confirmationPopupClose = driver
+				.findElement(By.xpath("//*[@id='angularScope']/div[3]/div/div/div[2]/button"));
+		confirmationPopupClose.click();
+	}
+
+	public void isCanadaTest(Boolean setCanadaFlag) {
+		if (setCanadaFlag)
+			isCanadaTest = true;
+		else
+			isCanadaTest = false;
 	}
 
 }

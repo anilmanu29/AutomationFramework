@@ -3,6 +3,8 @@ package testcases.loadpay.admin;
 import java.awt.AWTException;
 import java.io.IOException;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -18,6 +20,7 @@ public class AdminBrokerCanadaTest extends TestBase {
 	AdminHomePage h;
 	AdminLogin a;
 	Select s;
+	public static String depositAmount = "";
 
 	public AdminBrokerCanadaTest() {
 		super();
@@ -61,6 +64,23 @@ public class AdminBrokerCanadaTest extends TestBase {
 
 		wait.until(ExpectedConditions.elementToBeClickable(a.getUpdateButton()));
 		a.UpdateButton();
+
+		wait.until(ExpectedConditions.elementToBeClickable(a.updateButton));
+		Thread.sleep(2000);
+
+		// go to banking tab and capture deposit amount
+		WebElement adminCustomerBankingTab = driver.findElement(By.xpath("//a[contains(text(),'Banking')]"));
+		adminCustomerBankingTab.click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(adminCustomerBankingTab));
+		Thread.sleep(2000);
+
+		WebElement adminCustomerDepositAmount = driver.findElement(By.xpath(
+				"//*[@id=\"angularScope\"]/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[2]/div/div/div[1]/div/div/div/p[9]/span"));
+		depositAmount = adminCustomerDepositAmount.getText();
+		depositAmount = depositAmount.substring(depositAmount.length() - 2, depositAmount.length());
+		depositAmount = "0" + depositAmount;
+		log.info("Captured deposit amount: " + depositAmount);
 
 		wait.until(ExpectedConditions.elementToBeClickable(a.getLogOut()));
 		a.AdminLogOut();
