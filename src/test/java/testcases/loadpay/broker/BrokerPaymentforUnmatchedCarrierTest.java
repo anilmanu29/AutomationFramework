@@ -78,7 +78,7 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 
 			unMatchedCarrierUsername = emailArray[0] + "@" + emailArray[1];
 			unMatchedCarrierPassword = "Password@123";
-			invoiceNum = "UM" + dateTime;
+			invoiceNum = "UM" + TestUtil.getCurrentDateTime();
 			loadID = invoiceNum;
 
 		} else {

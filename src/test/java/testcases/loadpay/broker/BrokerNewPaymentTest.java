@@ -73,7 +73,8 @@ public class BrokerNewPaymentTest extends TestBase {
 
 		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
 			carrierUsername = CarrierRegisterTest.carrierUsername;
-			invoiceno = "UM" + dateTime;
+			invoiceno = "UM" + TestUtil.getCurrentDateTime();
+			;
 			loadid = invoiceno;
 		} else {
 			carrierUsername = cemail;
