@@ -107,6 +107,7 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 	/*-------Carrier email---------*/
 	public void carrierEmail(String cemail) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(field_carrieremail));
+		field_carrieremail.clear();
 		field_carrieremail.click();
 		field_carrieremail.sendKeys(cemail);
 	}

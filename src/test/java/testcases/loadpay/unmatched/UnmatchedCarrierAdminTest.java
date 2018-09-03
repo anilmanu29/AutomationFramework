@@ -33,7 +33,7 @@ public class UnmatchedCarrierAdminTest extends TestBase {
 
 	@Test()
 	public void Home() throws IOException, AWTException, InterruptedException {
-		log.info(BrokerPaymentforUnmatchedCarrierTest.umemail);
+		// log.info(BrokerPaymentforUnmatchedCarrierTest.umemail);
 		adminHomePageObj.AdminURL();
 	}
 
