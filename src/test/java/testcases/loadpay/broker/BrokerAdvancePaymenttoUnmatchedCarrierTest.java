@@ -11,16 +11,21 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.broker.BrokerAdvancePaymenttoUnmatchedCarrier;
 import pages.loadpay.broker.BrokerLoginPage;
-import pages.loadpay.broker.BrokerNewPayment;
+import pages.loadpay.broker.BrokerPaymentforUnmatchedCarrier;
 import util.TestUtil;
 
 public class BrokerAdvancePaymenttoUnmatchedCarrierTest extends TestBase {
 
 	BrokerLoginPage brokerloginobj;
-	BrokerNewPayment brokerpaymentobj;
+	BrokerPaymentforUnmatchedCarrier brokerpaymentobj;
 	BrokerAdvancePaymenttoUnmatchedCarrier brokeradvancepaymentobj;
 	String invoicenumber = "";
-	int invoiceNum = 0;
+	// int invoiceNum = 0;
+	String dateTime;
+
+	public static String unMatchedCarrierUsername;
+	public static String unMatchedCarrierPassword;
+	public static String loadID, invoiceNum = "";
 
 	/*-------Initializing driver---------*/
 	public BrokerAdvancePaymenttoUnmatchedCarrierTest() {
@@ -33,7 +38,7 @@ public class BrokerAdvancePaymenttoUnmatchedCarrierTest extends TestBase {
 
 		initialization();
 		brokerloginobj = new BrokerLoginPage();
-		brokerpaymentobj = new BrokerNewPayment();
+		brokerpaymentobj = new BrokerPaymentforUnmatchedCarrier();
 		brokeradvancepaymentobj = new BrokerAdvancePaymenttoUnmatchedCarrier();
 		wait = new WebDriverWait(driver, 30);
 	}
@@ -44,32 +49,70 @@ public class BrokerAdvancePaymenttoUnmatchedCarrierTest extends TestBase {
 	public void loginBroker(String un, String pwd) {
 		brokerloginobj = new BrokerLoginPage();
 		brokerloginobj.Brokerlogin(un, pwd);
+		dateTime = TestUtil.getCurrentDateTime();
 	}
 
 	/*-------Scheduling New Payment as a Broker---------*/
 
 	@Test(dataProvider = "getPaymentDataforUnmatchcarrier", dependsOnMethods = "loginBroker")
-	public void verifyBrokerPayment(String cemail, String invoiceno, String loadid, String amt, String payto,
-			String ein) throws InterruptedException, InvalidFormatException, IOException {
-		// create a new payment
+	public void brokernewPayment(String carrierEmail, String invoiceno, String loadid, String amt, String payto,
+			String ein) throws InterruptedException {
 
-		int randomNumber = TestUtil.getRandomNumber(1, 999999);
-		invoiceNum = randomNumber;
-		invoicenumber = Integer.toString(invoiceNum);
-		invoiceno = invoicenumber;
-		loadid = invoicenumber;
+		if (super.getProperties().getProperty("useDynamicUnmatchedData").contains("true")) {
+			String[] emailArray = carrierEmail.split("@");
+			emailArray[0] = emailArray[0] + dateTime;
+
+			unMatchedCarrierUsername = emailArray[0] + "@" + emailArray[1];
+			unMatchedCarrierPassword = "Password@123";
+			invoiceNum = "UM" + TestUtil.getCurrentDateTime();
+			loadID = invoiceNum;
+
+		} else {
+			unMatchedCarrierUsername = carrierEmail;
+			unMatchedCarrierPassword = "Password@123";
+		}
 
 		brokerpaymentobj.newPayment();
-		brokerpaymentobj.setField_CarrierEmail(cemail);
-		brokerpaymentobj.setField_PayTo(payto);
-		brokerpaymentobj.setField_InvoiceNum(invoiceno);
-		brokerpaymentobj.setField_LoadID(loadid);
-		brokerpaymentobj.setField_PaymentAmount(amt);
+
+		brokerpaymentobj.carrierEmail(unMatchedCarrierUsername);
+
+		brokerpaymentobj.amount(amt);
+
+		invoiceNum = brokerpaymentobj.invoiceNumber(invoiceNum);
+		// in.add(invoiceNum);
+
+		brokerpaymentobj.loadId(loadID);
+
+		brokerpaymentobj.companyName(payto);
 		brokeradvancepaymentobj.clickAdvancePaymentCheckbox();
-		brokeradvancepaymentobj.clickScheduleButton();
+
+		brokerpaymentobj.clickShedulePayment();
+
+		// @Test(dataProvider = "getPaymentDataforUnmatchcarrier", dependsOnMethods =
+		// "loginBroker")
+		// public void verifyBrokerPayment(String cemail, String invoiceno, String
+		// loadid, String amt, String payto,
+		// String ein) throws InterruptedException, InvalidFormatException, IOException
+		// {
+		// create a new payment
+
+		// int randomNumber = TestUtil.getRandomNumber(1, 999999);
+		// invoiceNum = randomNumber;
+		// invoicenumber = Integer.toString(invoiceNum);
+		// invoiceno = invoicenumber;
+		// loadid = invoicenumber;
+		//
+		// brokerpaymentobj.newPayment();
+		// brokerpaymentobj.setField_CarrierEmail(cemail);
+		// brokerpaymentobj.setField_PayTo(payto);
+		// brokerpaymentobj.setField_InvoiceNum(invoiceno);
+		// brokerpaymentobj.setField_LoadID(loadid);
+		// brokerpaymentobj.setField_PaymentAmount(amt);
+		// brokeradvancepaymentobj.clickAdvancePaymentCheckbox();
+		// brokeradvancepaymentobj.clickScheduleButton();
 	}
 
-	@Test(dependsOnMethods = "verifyBrokerPayment")
+	@Test(dependsOnMethods = "brokernewPayment")
 	public void verifyAlertMessage() throws InterruptedException, InvalidFormatException, IOException {
 		// verify alert message
 		log.info(brokeradvancepaymentobj.alertMessage());

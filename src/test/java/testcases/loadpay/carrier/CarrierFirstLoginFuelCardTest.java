@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import pages.loadpay.carrier.CarrierFirstLoginFuelCard;
+import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
 
 public class CarrierFirstLoginFuelCardTest extends TestBase {
 	CarrierFirstLoginFuelCard loginPage;
@@ -22,15 +23,15 @@ public class CarrierFirstLoginFuelCardTest extends TestBase {
 		wait = new WebDriverWait(driver, 30);
 	}
 
-	@Test(dataProvider = "getPaymentDataforUnmatchcarrier")
-	public void loginTest(String carrierEmail, String invoiceno, String loadid, String amt, String payto, String ein)
-			throws InterruptedException {
+	@Test()
+	public void loginTest() throws InterruptedException {
 		loginPage.carrierfirstLogin();
-		loginPage.clickNext(ein);
+		loginPage.clickNext(BrokerPaymentforUnmatchedCarrierTest.einno);
 		loginPage.clickAcceptCheckbox();
 		loginPage.clickEmailcheckbox();
 		loginPage.clickFinish();
 		loginPage.clickClose();
+
 	}
 
 }
