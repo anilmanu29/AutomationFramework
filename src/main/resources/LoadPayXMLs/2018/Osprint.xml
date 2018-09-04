@@ -10,8 +10,9 @@
 	<test name="O Sprint Test Cases">
     <classes>
     
-    
- <!--1) BrokerLoginData sheet - Enter valid Broker credentials that exist in the Staging environment for ITSDispatch.
+  <!--Set useDynamicBrokerData, useDynamicUnmatchedData and useDynamicCarrierData as false in config.properties -->
+  
+ <!--1) BrokerLoginData sheet - Update valid Broker credentials that exist in the Staging environment for ITSDispatch.
    2) CarrierLoginData sheet - Carrierlogindetails needs to be updated.
    3) ITSDispatchLoginData sheet - Valid Account Id, Username and Password needs to be updated.
    4) BrokerPaymentDataforUnmatchedCr sheet - Invoice and LoadId needs to be updated.Make sure there are 2 payments.
@@ -43,8 +44,8 @@
     
     <!-- Make sure there are 2 payments. No need to update values for Invoice and load id. used Randomnumber function -->	
     <!-- Script for Jira Ticket LP-LP-6361 -LoadPay - Selenium Test - Broker - Notifications-->
-    	<class name="testcases.loadpay.broker.BrokerNotificationsTest"></class>
-    	
+<!--     	<class name="testcases.loadpay.broker.BrokerNotificationsTest"></class>
+ -->    	
     	 <!-- Need to Update BrokerRegister(BrokerEmailId) data sheet-->
     <!-- Script for Jira Ticket LP-LP-6360 -LoadPay - Selenium Test - Broker - Schedule Payment without Bank Account When PayByInvoice Is Enabled-->
     	<class name="testcases.loadpay.broker.SchpaymentwithoutBankAccountPayByInvoiceEnabledTest"></class>
