@@ -64,7 +64,8 @@ public class BrokerNotificationsTest extends TestBase {
 		brokernotificationsobj.clickPayMeNowPayment();
 		carriernextdayachobj.clickSelectButton();
 		carriernextdayachobj.clickConfirmButton();
-		carriernextdayachobj.clickPaidTab();
+		// carriernextdayachobj.clickPaidTab();
+		Thread.sleep(1000);
 		carrierloginobj.CarrierLogout();
 	}
 

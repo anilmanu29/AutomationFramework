@@ -1,5 +1,6 @@
 package pages.loadpay.carrier;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -11,6 +12,7 @@ import base.TestBase;
 public class CarrierLoginPage extends TestBase {
 	WebDriverWait wait;
 	public String cemail;
+	JavascriptExecutor js;
 
 	// Page Factory - OR:
 	@FindBy(xpath = "//input[@id='UserName']")
@@ -56,6 +58,7 @@ public class CarrierLoginPage extends TestBase {
 	public CarrierLoginPage() {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 30);
+		js = (JavascriptExecutor) driver;
 	}
 
 	// Actions:
@@ -146,7 +149,8 @@ public class CarrierLoginPage extends TestBase {
 
 	public void CarrierLogout() {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_logout));
-		btn_logout.click();
+		js.executeScript("arguments[0].click();", btn_logout);
+		// btn_logout.click();
 	}
 
 	public void verificationCarrierLogout() throws InterruptedException {
