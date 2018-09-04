@@ -10,6 +10,7 @@
 	<test name="P Sprint Test Cases">
     <classes>
     
+ <!--Set useDynamicBrokerData, useDynamicUnmatchedData and useDynamicCarrierData as false in config.properties -->
   
 <!--1) BrokerLoginData sheet - Brokerlogindetails needs to be updated.
    2) CarrierLoginData sheet - Carrierlogindetails needs to be updated.
@@ -34,7 +35,7 @@
 		
 	<!--Need to Update AdminPaymentsGreaterthan45Days(Invoice and LoadId felds) and payementmorethan45daysData(Invoice and LoadId) sheets-->
 	<!-- Script for Jira Ticket LP-6621-LoadPay - Selenium Test - Admin - Payments Greater than 45 Days -->
-		<class name="testcases.loadpay.admin.AdminPaymentsGreaterthan45DaysTesttestcases.loadpay.admin.AdminPaymentsGreaterthan45DaysTest"></class>
+		<class name="testcases.loadpay.admin.AdminPaymentsGreaterthan45DaysTest"></class>
 		
 		
 	<!--Carrier without Bank Account login details needs to be updated in CarrierBankAccountDetails sheet. 
