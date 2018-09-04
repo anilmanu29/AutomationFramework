@@ -48,10 +48,10 @@ public class HandshakewithRTFCarrierTest extends TestBase {
 		carrierUserName = user;
 		carrierPassword = pass;
 
-		loginPage.Carrierlogin(carrierUserName, carrierPassword);
+		rtfcarrier.Carrierlogin(carrierUserName, carrierPassword);
 	}
 
-	@Test(dependsOnMethods = "RTFLogin")
+	@Test(dependsOnMethods = "LoadloginTest")
 	public void clickUnlinkMyUploadAccount() throws InterruptedException {
 		rtfcarrier.clickUnlinkMyUploadAccount();
 		rtfcarrier.click_alert();
@@ -67,7 +67,7 @@ public class HandshakewithRTFCarrierTest extends TestBase {
 		carrierUserName = user;
 		carrierPassword = pass;
 
-		loginPage.Carrierlogin(carrierUserName, carrierPassword);
+		rtfcarrier.Carrierlogin(carrierUserName, carrierPassword);
 
 	}
 
