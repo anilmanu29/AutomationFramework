@@ -14,8 +14,8 @@
   
 <!--1) BrokerLoginData sheet - Brokerlogindetails needs to be updated.
    2) CarrierLoginData sheet - Carrierlogindetails needs to be updated.
-   3) AdminPaymentsGreaterthan45Days sheet - Invoice and LoadId needs to be updated.Make sure there is only one row.
-   4) payementmorethan45daysData sheet - Invoice and LoadId needs to be updated.Make sure there is only one row.
+   3) AdminPaymentsGreaterthan45Days sheet - Invoice and LoadId needs to be updated.scheduled date should be more than 365 days from today. Make sure there is only one row.
+   4) payementmorethan45daysData sheet - Invoice and LoadId needs to be updated.scheduled date should be more than 45 days from today.Make sure there is only one row.
    5) CarrierBankAccountDetails sheet - Carrier(without Bank Account Details) Email and Password details needs to be updated. 
    6) AdminLogin sheet - Admin login details needs to be updated.
    7) AdminCustomersSideMenSearchData sheet - companyname, contact and email columns needs to be updated for searching.

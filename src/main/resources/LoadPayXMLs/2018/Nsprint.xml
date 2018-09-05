@@ -22,7 +22,7 @@
    8) BrokerNewPaymentData sheet - Invoice and Load id needs to be updated. Make sure there are 2 payments.Set Amount column as 930.
    9) BrokerDuplicateEmail sheet - Make sure Email(Broker) and Confirm email are already registered and same.
    10) CarrierDuplicateEmail sheet -  Make sure Email(Carrier) and Confirm email are already registered and same.
-   11) CreditAmount sheet - update crediamount, set 1000 as credit amount.
+   11) CreditAmount sheet - update crediamount, set 1000 as credit amount and set 99999 as NewCreditAmount.
    -->
     
     
@@ -52,7 +52,8 @@
     	<!-- Make sure there are 2 payments in BROKERNEWPAYMENTDATA sheet. Random numberFunction is used so no need to update Invoice and loadID -->
     <!-- Script for Jira Ticket LP-6230 LoadPay - Selenium Test -Admin Wire Transfer-->
 		 <class name="testcases.loadpay.admin.AdminWireTransferTest"></class>
-    	
+    
+ 
     <!--  Script for Jira Ticket LP-6364 - LoadPay - Selenium Test - Broker - 10% Limit Email Alert
    		NEED TO UPDATE FOLLOWING WORKSHEETS - 
    			BROKER REGISTRATION, 
@@ -69,6 +70,7 @@
 			
 		<!-- LOG BROKER BACK IN TO SEE CREDIT AND VIEW 10% LIMIT EMAIL -->
 				<class name="testcases.loadpay.broker.BrokerViewCreditLessThan1000Test"></class>
+				
 		
 		<!-- NEED TO UPDATE BrokerPaymentDataforUnmatchedCr(Email id, invoice and loadid) Worksheet with 2 Payments. CarrierEmail id  should be same for Both the Payments  --> 
 		<!-- Script for Jira Tickets LP-6500  LoadPay - Selenium Test - Carrier_PayMeNow on Unmatched_Fuel Card -->

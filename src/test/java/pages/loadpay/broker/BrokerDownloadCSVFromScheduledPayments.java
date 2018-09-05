@@ -36,19 +36,24 @@ public class BrokerDownloadCSVFromScheduledPayments extends TestBase {
 		return scheduledpaymentstab;
 	}
 
-	public void clickScheduledPaymetsTab() {
+	public void clickScheduledPaymetsTab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(scheduledpaymentstab));
+		Thread.sleep(1000);
 		scheduledpaymentstab.click();
+		Thread.sleep(1000);
 	}
 
-	public WebElement getExportButton() {
+	public WebElement getExportButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(exportbutoon));
+		Thread.sleep(1000);
 		return exportbutoon;
 	}
 
-	public void clickExportButton() {
+	public void clickExportButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(exportbutoon));
+		Thread.sleep(1000);
 		exportbutoon.click();
+		Thread.sleep(1000);
 
 	}
 

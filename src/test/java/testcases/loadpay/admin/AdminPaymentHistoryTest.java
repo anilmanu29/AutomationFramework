@@ -107,7 +107,7 @@ public class AdminPaymentHistoryTest extends TestBase {
 		brokerOutlookObj.outlookSearchInbox(brokerUserName, currentHour, currentMinutes);
 
 		// TODO look through inbox for attachment
-		brokerOutlookObj.handleNewInbox();
+		// brokerOutlookObj.handleNewInbox();
 		driver.close();
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(0));
