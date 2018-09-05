@@ -54,7 +54,6 @@
 <!-- 	REDUNDANT 		<class name="testcases.loadpay.unmatched.UnmatchedCariierEmailVerifyNextDayTest"></class> -->
 			<class name="testcases.loadpay.unmatched.UnmatchedCariierEmailVerifyTest"></class>
 			<class name="testcases.loadpay.unmatched.UnmatchedCarrierAdminNextDayTest"></class>
-			<class name="testcases.loadpay.carrier.CarrierFirstLoginNextDayACHTest"></class>
 			<class name="testcases.loadpay.unmatched.UnmatchedCarrierNextDayACHTest"></class>
 
 
@@ -63,7 +62,7 @@
 		 	<class name="testcases.loadpay.unmatched.UnmatchedNewPaymentCarrierOutlookTest"></class>
 		 	<class name="testcases.loadpay.unmatched.UnmatchedNewPaymentAdminCarrierTest"></class>
 		 	<class name="testcases.loadpay.unmatched.UnmatchedNewPaymentCarrierTest"></class>		 	
-		 	 
+		 	 <class name="testcases.loadpay.carrier.CarrierFirstLoginNextDayACHTest"></class>
 		 	
 		<!--    Script for Jira Tickets LP-5412  Carrier - PayMeNow_Fuel Card     -->
 		 	<class name="testcases.loadpay.carrier.CarrierPayMeNowFuelCardTest"></class>

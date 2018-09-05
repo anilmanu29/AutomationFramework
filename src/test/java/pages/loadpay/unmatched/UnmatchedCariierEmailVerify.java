@@ -47,7 +47,7 @@ public class UnmatchedCariierEmailVerify extends TestBase {
 	@FindBy(xpath = "//span[text()='Open']")
 	WebElement buttonOpen;
 
-	@FindBy(xpath = "//table/tbody/tr/td//child::a[text()='Click to Verify ']")
+	@FindBy(xpath = "//a[text()='Click to Verify']")
 	WebElement linkVerify;
 
 	@FindBy(xpath = "//div[@id='page-main']//child::*[text()='Email Verified']")
