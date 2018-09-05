@@ -13,6 +13,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import pages.loadpay.admin.AdminHomePage;
+import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.broker.BrokerViewCreditLessThan1000;
 import pages.loadpay.carrier.CarrierLoginPage;
@@ -26,6 +28,9 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 	outlooklogin outlooklog;
 	CarrierLoginPage carrierloginobj;
 	CarrierWireTransfer carrierwiretransferobj;
+	AdminHomePage adminhomeobj;
+	AdminLogin adminloginobj;
+	String newcreditAmount = "";
 
 	public BrokerViewCreditLessThan1000Test() {
 		super();
@@ -42,6 +47,8 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 		carrierloginobj = new CarrierLoginPage();
 		carrierwiretransferobj = new CarrierWireTransfer();
 		wait = new WebDriverWait(driver, 30);
+		adminhomeobj = new AdminHomePage();
+		adminloginobj = new AdminLogin();
 	}
 
 	@Test(dataProvider = "getCarrierLoginData")
@@ -63,7 +70,6 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 		CreditLessThan1000.BrokerLogout();
 	}
 
-	@SuppressWarnings("static-access")
 	@Test(description = "Broker Sees 10% Notification Email in Outlook", dataProvider = "getoutlookLoginData", dependsOnMethods = "loginTest")
 	public void BrokerOutlookTest(String un, String pwd) throws InterruptedException {
 
@@ -73,11 +79,47 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 			brokeroutlook.clickOpenMailBox();
 			brokeroutlook.enterEmail(super.prop.getProperty("email"));
 			SearchInbox("Broker/Shipper Credit Limit 10% Notification");
-			brokeroutlook.quit();
+			// brokeroutlook.quit();
 		} catch (AWTException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@Test(dependsOnMethods = "BrokerOutlookTest", dataProvider = "getExtendedCreditAmount")
+	public void getCreditAmount(String Amount, String creditamount)
+			throws IOException, AWTException, InterruptedException {
+		newcreditAmount = creditamount;
+	}
+
+	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = "getCreditAmount")
+	public void addCreditTest(String Username, String password) throws AWTException, InterruptedException {
+
+		adminhomeobj.AdminURL();
+		adminloginobj.adminUserPass(Username, password);
+
+		adminloginobj.adminLogin();
+
+		adminloginobj.ClickOnCustomersTab();
+
+		adminloginobj.ClickOnSearchBox(BrokerRegisterTest.brokerUsername);
+
+		adminloginobj.ClickOnSearchButton();
+
+		adminloginobj.DoubleClickID();
+
+		adminloginobj.StatusIDDropDown();
+
+		adminloginobj.UpdateButton();
+
+		adminloginobj.ClickOnCreditTab();
+
+		adminloginobj.EnterExtendedCredit(newcreditAmount);
+
+		adminloginobj.ClickOnCreditSubmitButton();
+
+		adminloginobj.AdminLogOut();
+
 	}
 
 	public void SearchInbox(String SearchText) throws InterruptedException {

@@ -16,6 +16,7 @@ public class CarrierWireTransfer extends TestBase {
 
 	WebDriverWait wait = null;
 	Actions act = null;
+	JavascriptExecutor js;
 	String totalamt;
 	String amtwiretransfer;
 	String amtbeforepaidsameday;
@@ -82,6 +83,7 @@ public class CarrierWireTransfer extends TestBase {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 30);
 		act = new Actions(driver);
+		js = (JavascriptExecutor) driver;
 	}
 
 	public void getAmount() throws InterruptedException {
@@ -112,13 +114,14 @@ public class CarrierWireTransfer extends TestBase {
 
 	public void clickSelectButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_selectwiretransfer));
-		btn_selectwiretransfer.click();
+		js.executeScript("arguments[0].click();", btn_selectwiretransfer);
+		// btn_selectwiretransfer.click();
 	}
 
 	public void clickConfirmButton() throws InterruptedException {
 		// wait.until(ExpectedConditions.elementToBeClickable(btn_confirm));
 		Thread.sleep(1000);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+
 		js.executeScript("arguments[0].click();", btn_confirm);
 	}
 
