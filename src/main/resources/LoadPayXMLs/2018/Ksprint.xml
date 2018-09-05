@@ -51,7 +51,7 @@
  	     	<!-- Script for Jira Tickets LP-5424  AdminPayByCheckBatchFile  -->
  	     	<!-- No Need to Update Test Data Sheet -->
  	     	
-		 	<class name="testcases.loadpay.admin.AdminPayByCheckServiceBatchFileTest"></class>
+		 	<!-- <class name="testcases.loadpay.admin.AdminPayByCheckServiceBatchFileTest"></class> -->
 		 	
 		 	 <!-- Script for Jira Tickets LP-3476  Carrier_Paid Tab  -->
 		 	 <!-- No Need to Update Test Data Sheet -->
