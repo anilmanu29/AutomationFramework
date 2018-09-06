@@ -93,6 +93,7 @@ public class AdminDailyNACHAPaymentsFileTest extends TestBase {
 			expectedFileName = monthFormat.format(currentDate) + "-" + dayFormat.format(currentDate) + "-"
 					+ yearFormat.format(currentDate) + "_NACHAPaymentFile_"
 					+ admindailynachapaymentsfileobj.getNACHAID() + ".csv";
+			System.out.println(expectedFileName);
 			Assert.assertTrue(TestUtil.verifyFileDownload(expectedFileName), "CSV download not found!");
 			log.info("verifyDownloadCSVFile - Passed");
 		}
