@@ -32,9 +32,8 @@ public class AdminBrokerTest extends TestBase {
 	}
 
 	@Test(description = "Get Credit Amount", dataProvider = "getExtendedCreditAmount")
-	public void getExtendedCreditAmount(String Amount, String newAmount)
-			throws IOException, AWTException, InterruptedException {
-		CreditAmount = newAmount;
+	public void getExtendedCreditAmount(String Amount) throws IOException, AWTException, InterruptedException {
+		CreditAmount = Amount;
 	}
 
 	@Test(description = "Switch to admin URL", dependsOnMethods = "getExtendedCreditAmount")

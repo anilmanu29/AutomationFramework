@@ -2,6 +2,7 @@ package pages.loadpay.broker;
 
 import java.util.List;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -18,6 +19,9 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 
 	@FindBy(xpath = "//a[text()='New Payment']")
 	private WebElement lnk_newpayment;
+
+	@FindBy(id = "PaymentDate")
+	private WebElement field_ScheduleDate;
 
 	@FindBy(xpath = "//div[@class='total ng-scope notlast col-sm-6']//child::span[1]")
 	private WebElement tab_shedulepayment;
@@ -137,6 +141,14 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(companyname));
 		companyname.sendKeys(payto);
 
+	}
+
+	public void setField_ScheduleDate(String scheduleDate) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_ScheduleDate));
+		this.field_ScheduleDate.clear();
+		this.field_ScheduleDate.click();
+		this.field_ScheduleDate.sendKeys(scheduleDate);
+		this.field_ScheduleDate.sendKeys(Keys.TAB);
 	}
 
 	/*-------advance checkbox---------*/

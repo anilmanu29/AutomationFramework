@@ -1,5 +1,6 @@
 package testcases.loadpay.broker;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -28,6 +29,8 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 	public static String loadID, invoiceNum = "";
 	String brokerUsername, brokerPassword = "";
 	String dateTime;
+	LocalDate today;
+	Boolean newDateUsed = false;
 
 	/*-------Initializing driver---------*/
 	public BrokerPaymentforUnmatchedCarrierTest() {
@@ -55,6 +58,7 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 		dateTime = TestUtil.getCurrentDateTime();
 
 		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			today = LocalDate.now();
 			brokerUsername = BrokerRegisterTest.brokerUsername;
 			brokerPassword = BrokerRegisterTest.brokerPassword;
 		} else {
@@ -96,6 +100,13 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 		in.add(invoiceNum);
 
 		bp.loadId(loadID);
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true") && !newDateUsed) {
+			Integer month = today.getMonthValue() + 1;
+			String strDate = month.toString() + "/" + today.getDayOfMonth() + "/" + today.getYear();
+			bp.setField_ScheduleDate(strDate);
+			newDateUsed = true;
+		}
 
 		bp.companyName(payto);
 
