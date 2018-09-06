@@ -81,7 +81,7 @@ public class AdminDailyNACHAPaymentsFile extends TestBase {
 
 	public String getNACHAID() {
 		nachaname = filebutton.getText();
-		nachaid = nachaname.substring(3, 6);
+		nachaid = nachaname.substring(3, 7);
 		return nachaid;
 	}
 

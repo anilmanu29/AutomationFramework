@@ -40,7 +40,7 @@ public class HandshakewithRTFCarrierTest extends TestBase {
 
 	}
 
-	@Test(dataProvider = "getCarrierLoginData", dependsOnMethods = "RTFLogin")
+	@Test(dataProvider = "getStagingCarrierLoginData", dependsOnMethods = "RTFLogin")
 	public void LoadloginTest(String user, String pass) throws InterruptedException {
 		/*
 		 * driver.get(prop.getProperty("url")); rtfcarrier.click_LoginButton();
@@ -62,7 +62,7 @@ public class HandshakewithRTFCarrierTest extends TestBase {
 		rtfcarrier.click_LoginButton();
 	}
 
-	@Test(dataProvider = "getCarrierLoginData", dependsOnMethods = "ClickLoginButton")
+	@Test(dataProvider = "getStagingCarrierLoginData", dependsOnMethods = "ClickLoginButton")
 	public void loginTest(String user, String pass) throws InterruptedException {
 		carrierUserName = user;
 		carrierPassword = pass;

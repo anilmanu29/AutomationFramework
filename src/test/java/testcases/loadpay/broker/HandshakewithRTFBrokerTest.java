@@ -56,7 +56,7 @@ public class HandshakewithRTFBrokerTest extends TestBase {
 
 	}
 
-	@Test(dataProvider = "getBrokerLoginData", dependsOnMethods = "verifyUnliknMyLoadPayAccount")
+	@Test(dataProvider = "getStagingBrokerLoginData", dependsOnMethods = "verifyUnliknMyLoadPayAccount")
 	public void verifyBrokerLogin(String brokeremail, String password) throws InterruptedException, IOException {
 		handshakertfbrokeobj.setBrokerUserName(brokeremail);
 		handshakertfbrokeobj.setBrokerPassword(password);

@@ -49,7 +49,7 @@ public class HandshakewithITSDispatchTest extends TestBase {
 		Assert.assertTrue(handshakeitsdispatchobj.getLoadPayImage().isDisplayed(), "LoadPay Image NOT Found!");
 	}
 
-	@Test(dataProvider = "getBrokerLoginData", dependsOnMethods = "verifyITSDispatchLogin")
+	@Test(dataProvider = "getStagingBrokerLoginData", dependsOnMethods = "verifyITSDispatchLogin")
 	public void verifyLoadPayAccount(String lpusername, String lppassword) throws IOException, InterruptedException {
 		// verify loadpay account pop up
 		handshakeitsdispatchobj.clickLoadPayImage();

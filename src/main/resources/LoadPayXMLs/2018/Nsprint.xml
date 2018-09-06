@@ -13,28 +13,27 @@
  <!--Set useDynamicBrokerData and useDynamicUnmatchedData as true.Set useDynamicCarrierData as false in config.properties -->
     
     <!--1) LoginHandshakewithRTF_CarrierDa sheet - Update valid Username and Password for RTF Carrier.
-   2) CarrierLoginData sheet - Update username and password for valid carrier account in LoadPay Staging environment
+   2) CarrierLoginData sheet - Update username and password for Carrier based on Environment.
    3) RTFLogin sheet -  Update valid Username and Password for RTF.
-   4) BrokerLoginData sheet - Update username and password for valid broker account in LoadPay Staging environment
+   4) BrokerLoginData sheet - Update username and password for Broker based on Environment.
    5) BrokerPaymentDataforUnmatchedCr sheet - Invoice and LoadId needs to be updated.Make sure there are 2 payments.
-   6) BankAccountDetailsForCopyPaste sheet - Update broker Username and Password.Make sure Broker without Banak Account details. 
+   6) BankAccountDetailsForCopyPaste sheet - Update broker Username and Password.Make sure Broker without Banak Account registered to LoadPay. 
    7) AdminLogin sheet - Admin login details needs to be updated.
    8) BrokerNewPaymentData sheet - Invoice and Load id needs to be updated. Make sure there are 2 payments.Set Amount column as 930.
    9) BrokerDuplicateEmail sheet - Make sure Email(Broker) and Confirm email are already registered and same.
    10) CarrierDuplicateEmail sheet -  Make sure Email(Carrier) and Confirm email are already registered and same.
-   11) CreditAmount sheet - update crediamount, set 1000 as credit amount and set 99999 as NewCreditAmount.
+   11) CreditAmount sheet - set 1000 as credit amount.
+   12) ExtendedCreditAmount sheet - update NewCreditAmount to 99999.
+   13) HandshakeCarrierLogindata sheet - Update Staging Carrier Login details.
+   14) HandshakeBrokerLogindata sheet - Update Staging Broker Login details.
    -->
     
-    
-    <!-- Script for Jira Ticket LP-6362 - LoadPay - Selenium Test - Broker - Bulk Upload Payment Errors -->
-		<!-- <class name="testcases.loadpay.broker.BrokerBulkUploadPaymentErrorsTest"></class> -->
+   
     	
-    	
-    	<!-- Staging Carrier Login Details needs to be updated in CARRIERLOGIN data sheet -->
     <!-- Script for Jira Ticket LP-6328-LoadPay - Selenium Test - Integration - Handshake with RTF_Carrier -->    
 		<class name="testcases.loadpay.carrier.HandshakewithRTFCarrierTest"></class>
     	
-    	<!-- Staging Broker Login Details needs to be updated in BROKERLOGIN data sheet -->
+    	
     <!-- Script for Jira Ticket LP-6327-LoadPay - Selenium Test - Integration - Handshake with RTF_Broker -->
 		<class name="testcases.loadpay.broker.HandshakewithRTFBrokerTest"></class>
     	

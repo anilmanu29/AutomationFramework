@@ -86,9 +86,8 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 		}
 	}
 
-	@Test(dependsOnMethods = "BrokerOutlookTest", dataProvider = "getExtendedCreditAmount")
-	public void getCreditAmount(String Amount, String creditamount)
-			throws IOException, AWTException, InterruptedException {
+	@Test(dependsOnMethods = "BrokerOutlookTest", dataProvider = "getCreditAmount")
+	public void getCreditAmount(String creditamount) throws IOException, AWTException, InterruptedException {
 		newcreditAmount = creditamount;
 	}
 
