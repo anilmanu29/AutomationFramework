@@ -59,16 +59,14 @@
 			<class name="testcases.loadpay.unmatched.UnmatchedCarrierNextDayACHTest"></class>
 
 
-		<!--    Script for Jira Tickets LP-5396  Broker - New Payment Unmatched Carrier     -->   
-		    <class name="testcases.loadpay.unmatched.UnmatchedCarrierOutlookNewPaymentTest"></class>
-		 	<class name="testcases.loadpay.unmatched.UnmatchedNewPaymentCarrierOutlookTest"></class>
+		<!--    Script for Jira Tickets LP-5396  Broker - New Payment Unmatched Carrier     --> 
+				<!-- 	These tests only go into outlook and check for verification - this is done in several other tests    -->
+				<!-- 	<class name="testcases.loadpay.unmatched.UnmatchedCarrierOutlookNewPaymentTest"></class> -->
+				<!-- 	<class name="testcases.loadpay.unmatched.UnmatchedNewPaymentCarrierOutlookTest"></class> -->
 		 	<class name="testcases.loadpay.unmatched.UnmatchedNewPaymentAdminCarrierTest"></class>
 		 	<class name="testcases.loadpay.unmatched.UnmatchedNewPaymentCarrierTest"></class>		 	
 		 	 <class name="testcases.loadpay.carrier.CarrierFirstLoginNextDayACHTest"></class>
 		 	
-		
- 
-
     </classes>
   </test> 
 </suite> 
