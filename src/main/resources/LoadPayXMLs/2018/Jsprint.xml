@@ -46,6 +46,8 @@
 	 		
 			<class name="testcases.loadpay.carrier.CarrierSchedulePaymentTest"></class>
 			
+		<!-- Script for Jira Tickets LP-5412  Carrier - PayMeNow_Fuel Card     -->
+		 	<class name="testcases.loadpay.carrier.CarrierPayMeNowFuelCardTest"></class>	
 
 		<!-- Script for Jira Tickets LP-5420 LoadPay - Selenium Test - Carrier - PayMeNow_Next Day ACH Unmatched Carrier -->
 			<class name="testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest"></class>
@@ -64,8 +66,7 @@
 		 	<class name="testcases.loadpay.unmatched.UnmatchedNewPaymentCarrierTest"></class>		 	
 		 	 <class name="testcases.loadpay.carrier.CarrierFirstLoginNextDayACHTest"></class>
 		 	
-		<!--    Script for Jira Tickets LP-5412  Carrier - PayMeNow_Fuel Card     -->
-		 	<class name="testcases.loadpay.carrier.CarrierPayMeNowFuelCardTest"></class>
+		
  
 
     </classes>

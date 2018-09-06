@@ -47,7 +47,7 @@ public class UnmatchedCariierEmailVerify extends TestBase {
 	@FindBy(xpath = "//span[text()='Open']")
 	WebElement buttonOpen;
 
-	@FindBy(xpath = "//a[text()='Click to Verify']")
+	@FindBy(xpath = "//table/tbody/tr/td//child::a[text()='Click to Verify ']")
 	WebElement linkVerify;
 
 	@FindBy(xpath = "//div[@id='page-main']//child::*[text()='Email Verified']")
@@ -132,7 +132,8 @@ public class UnmatchedCariierEmailVerify extends TestBase {
 			e.click();
 			wait.until(ExpectedConditions.elementToBeClickable(e));
 			log.info(emailid.getText());
-			if (emailid.getText().equalsIgnoreCase(BrokerPaymentforUnmatchedCarrierTest.al.get(0) + ";")) {
+			if (emailid.getText()
+					.equalsIgnoreCase(BrokerPaymentforUnmatchedCarrierTest.unMatchedCarrierUsername + ";")) {
 				wait.until(ExpectedConditions.elementToBeClickable(linkVerify));
 				linkVerify.click();
 				break;

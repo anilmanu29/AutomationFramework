@@ -1,5 +1,6 @@
 package testcases.loadpay.broker;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -25,6 +26,7 @@ public class BrokerNewPaymentTest extends TestBase {
 	String carrierUsername = "";
 	String brokerUsername, brokerPassword = "";
 	String dateTime = "";
+	LocalDate today;
 
 	/*-------Initializing driver---------*/
 	public BrokerNewPaymentTest() {
@@ -51,6 +53,7 @@ public class BrokerNewPaymentTest extends TestBase {
 		dateTime = TestUtil.getCurrentDateTime();
 
 		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			today = LocalDate.now();
 			brokerUsername = BrokerRegisterTest.brokerUsername;
 			brokerPassword = BrokerRegisterTest.brokerPassword;
 		} else {
@@ -87,6 +90,12 @@ public class BrokerNewPaymentTest extends TestBase {
 		al.add(invoice);
 
 		bp.loadId(loadid);
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			Integer month = today.getMonthValue() + 1;
+			String strDate = month.toString() + "/" + today.getDayOfMonth() + "/" + today.getYear();
+			bp.setField_ScheduleDate(strDate);
+		}
 
 		// bp.advanceCheckbox();
 		//

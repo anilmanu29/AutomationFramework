@@ -12,6 +12,7 @@ public class CarrierPayMeNowFuelCardTest extends TestBase {
 
 	CarrierPaymeNowFuelCard cfot;
 	CarrierLoginPage loginPage;
+	String carrierUsername, carrierPassword = "";
 
 	/*-------Initializing driver---------*/
 	public CarrierPayMeNowFuelCardTest() {
@@ -33,7 +34,16 @@ public class CarrierPayMeNowFuelCardTest extends TestBase {
 
 	@Test(dataProvider = "getCarrierLoginData")
 	public void loginTest(String user, String pass) throws InterruptedException {
-		loginPage.Carrierlogin(user, pass);
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
+		} else {
+			carrierUsername = user;
+			carrierPassword = pass;
+		}
+
+		loginPage.Carrierlogin(carrierUsername, carrierPassword);
 
 	}
 
