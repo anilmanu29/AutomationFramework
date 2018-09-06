@@ -132,7 +132,8 @@ public class UnmatchedCariierEmailVerify extends TestBase {
 			e.click();
 			wait.until(ExpectedConditions.elementToBeClickable(e));
 			log.info(emailid.getText());
-			if (emailid.getText().equalsIgnoreCase(BrokerPaymentforUnmatchedCarrierTest.al.get(0) + ";")) {
+			if (emailid.getText()
+					.equalsIgnoreCase(BrokerPaymentforUnmatchedCarrierTest.unMatchedCarrierUsername + ";")) {
 				wait.until(ExpectedConditions.elementToBeClickable(linkVerify));
 				linkVerify.click();
 				break;

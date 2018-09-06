@@ -2,6 +2,7 @@ package testcases.loadpay.unmatched;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -44,6 +45,30 @@ public class UnmatchedCarrierNextDayACHTest extends TestBase {
 	public void carrierPaymenowNextDAYACH() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(umCarrierObj.getLoginBtn()));
 		umCarrierObj.carrierLogin();
+
+		wait.until(ExpectedConditions.elementToBeClickable(loginPage.getEinField()));
+
+		// enter EIN and click Next if enabled
+		if (loginPage.getEinField().isEnabled()) {
+			loginPage.setEinField("99-9999999");
+			loginPage.clickEinNextButton();
+		}
+
+		// accept terms and conditions
+		if (loginPage.getTermsAndConditionsCheckBox().isEnabled()) {
+			loginPage.clickTermsAndConditionsCheckBox();
+			loginPage.clickFinishButton();
+			Assert.assertTrue(
+					loginPage.getConfirmationPopup().getText()
+							.contains("Your LoadPay™ registration has been completed successfully."),
+					"Registration success message not found");
+			loginPage.clickConfirmationPopupCloseButton();
+		}
+
+		if (loginPage.getDonotshowagaincheckbox().isDisplayed()) {
+			loginPage.closePaymeNowPopUp();
+		}
+
 		wait.until(ExpectedConditions.elementToBeClickable(umCarrierObj.getPaidamt()));
 		umCarrierObj.getAmount();
 		wait.until(ExpectedConditions.elementToBeClickable(umCarrierObj.getBtn_paymenow()));

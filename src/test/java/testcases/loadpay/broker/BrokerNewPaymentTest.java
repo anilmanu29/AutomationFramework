@@ -1,9 +1,11 @@
 package testcases.loadpay.broker;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -25,6 +27,8 @@ public class BrokerNewPaymentTest extends TestBase {
 	String carrierUsername = "";
 	String brokerUsername, brokerPassword = "";
 	String dateTime = "";
+	LocalDate today;
+	Boolean newDateUsed = false;
 
 	/*-------Initializing driver---------*/
 	public BrokerNewPaymentTest() {
@@ -41,6 +45,12 @@ public class BrokerNewPaymentTest extends TestBase {
 		al = new ArrayList<String>();
 		wait = new WebDriverWait(driver, 30);
 	}
+
+	@AfterClass
+	public void cleanUp() {
+		newDateUsed = false;
+	}
+
 	/*-------Initializing driver---------*/
 
 	/*-------Login to Load Pay as Broker---------*/
@@ -51,6 +61,7 @@ public class BrokerNewPaymentTest extends TestBase {
 		dateTime = TestUtil.getCurrentDateTime();
 
 		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			today = LocalDate.now();
 			brokerUsername = BrokerRegisterTest.brokerUsername;
 			brokerPassword = BrokerRegisterTest.brokerPassword;
 		} else {
@@ -87,6 +98,13 @@ public class BrokerNewPaymentTest extends TestBase {
 		al.add(invoice);
 
 		bp.loadId(loadid);
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true") && !newDateUsed) {
+			Integer month = today.getMonthValue() + 1;
+			String strDate = month.toString() + "/" + today.getDayOfMonth() + "/" + today.getYear();
+			bp.setField_ScheduleDate(strDate);
+			newDateUsed = true;
+		}
 
 		// bp.advanceCheckbox();
 		//
