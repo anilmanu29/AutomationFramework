@@ -18,6 +18,7 @@ public class BrokerBankingTest extends TestBase {
 	BrokerLoginPage brokerLoginObj;
 	AdminLogin adminLoginObj;
 	public static String acountname;
+	String brokerUsername, brokerPassword = "";
 
 	/*-------Initializing driver---------*/
 
@@ -38,7 +39,16 @@ public class BrokerBankingTest extends TestBase {
 
 	@Test(dataProvider = "getBrokerLoginData")
 	public void brokerLogin(String un, String pwd) throws InterruptedException {
-		brokerLoginObj.Brokerlogin(un, pwd);
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = un;
+			brokerPassword = pwd;
+		}
+
+		brokerLoginObj.Brokerlogin(brokerUsername, brokerPassword);
 	}
 
 	@Test(dataProvider = "getBrokerBankingData", dependsOnMethods = "brokerLogin")
@@ -78,8 +88,7 @@ public class BrokerBankingTest extends TestBase {
 
 		adminLoginObj.ClickOnCustomersTab();
 
-		log.info(BrokerLoginPage.bemail);
-		adminLoginObj.ClickOnSearchBox(BrokerLoginPage.bemail);
+		adminLoginObj.ClickOnSearchBox(brokerUsername);
 
 		adminLoginObj.ClickOnSearchButton();
 
@@ -150,8 +159,7 @@ public class BrokerBankingTest extends TestBase {
 
 		adminLoginObj.ClickOnCustomersTab();
 
-		log.info(BrokerLoginPage.bemail);
-		adminLoginObj.ClickOnSearchBox(BrokerLoginPage.bemail);
+		adminLoginObj.ClickOnSearchBox(brokerUsername);
 
 		adminLoginObj.ClickOnSearchButton();
 
@@ -222,8 +230,7 @@ public class BrokerBankingTest extends TestBase {
 
 		adminLoginObj.ClickOnCustomersTab();
 
-		log.info(BrokerLoginPage.bemail);
-		adminLoginObj.ClickOnSearchBox(BrokerLoginPage.bemail);
+		adminLoginObj.ClickOnSearchBox(brokerUsername);
 
 		adminLoginObj.ClickOnSearchButton();
 

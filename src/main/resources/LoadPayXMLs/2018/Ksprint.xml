@@ -22,7 +22,16 @@
    
 	<test name="K Sprint Test Cases">
     <classes>
- 			
+        
+        	<class name="testcases.loadpay.broker.BrokerRegisterTest"></class>
+			<class name="testcases.loadpay.broker.BrokerOutlookTest"></class>
+			<class name="testcases.loadpay.admin.AdminBrokerTest"></class>
+			<class name="testcases.loadpay.broker.BrokerLoginTest"></class>
+	 		<class name="testcases.loadpay.carrier.CarrierRegisterTest"></class>
+			<class name="testcases.loadpay.carrier.CarrierOutlookTest"></class>
+			<class name="testcases.loadpay.admin.AdminCarrierTest"></class>
+		 	<class name="testcases.loadpay.carrier.CarrierLoginTest"></class>
+
 		<!-- Script for Jira Tickets LP-5424  AdminPayByCheck  Anil-->
 		<!-- Staging Invoice and LoadID Amount details needs to be updated in BrokerNewPayment and BrokerPaymentDataforUnmatchedCr Sheets-->
 				 	

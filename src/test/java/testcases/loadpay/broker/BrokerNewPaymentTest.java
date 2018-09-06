@@ -89,7 +89,7 @@ public class BrokerNewPaymentTest extends TestBase {
 			loadid = invoiceno;
 			newPaymentAmount = amt;
 			newPaymentLoadId = loadid;
-			newPaymentPayer = brokerUsername;
+			newPaymentPayer = BrokerRegisterTest.brokerCompanyName;
 			newPaymentInvoiceNum = invoiceno;
 		} else {
 			carrierUsername = cemail;

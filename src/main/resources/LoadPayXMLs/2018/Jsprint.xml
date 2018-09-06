@@ -65,7 +65,7 @@
 				<!-- 	<class name="testcases.loadpay.unmatched.UnmatchedNewPaymentCarrierOutlookTest"></class> -->
 		 	<class name="testcases.loadpay.unmatched.UnmatchedNewPaymentAdminCarrierTest"></class>
 		 	<class name="testcases.loadpay.unmatched.UnmatchedNewPaymentCarrierTest"></class>		 	
-		 	 <class name="testcases.loadpay.carrier.CarrierFirstLoginNextDayACHTest"></class>
+		 	<class name="testcases.loadpay.carrier.CarrierFirstLoginNextDayACHTest"></class>
 		 	
     </classes>
   </test> 

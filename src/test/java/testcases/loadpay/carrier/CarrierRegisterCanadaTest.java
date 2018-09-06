@@ -45,12 +45,9 @@ public class CarrierRegisterCanadaTest extends TestBase {
 			String ConfirmPassword, String NameonAccount, String RoutingNumber, String BankAccountNumber,
 			String ConfirmbankAccountNumber) throws IOException, InterruptedException {
 
-		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
-			String[] emailArray = Email.split("@");
-			String dateTime = TestUtil.getCurrentDateTime();
-			emailArray[0] = emailArray[0] + dateTime;
-
-			carrierUsername = emailArray[0] + "@" + emailArray[1];
+		if (Email.contains("[uniqueID]")) {
+			String uniqueEmail = Email.replace("[uniqueID]", TestUtil.getCurrentDateTime());
+			carrierUsername = uniqueEmail;
 			carrierPassword = Password;
 		} else {
 			carrierUsername = Email;

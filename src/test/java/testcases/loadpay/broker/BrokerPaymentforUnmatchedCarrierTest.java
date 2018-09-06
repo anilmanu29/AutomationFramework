@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -47,6 +48,11 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 		al = new ArrayList<String>();
 		in = new ArrayList<String>();
 		wait = new WebDriverWait(driver, 30);
+	}
+
+	@AfterClass
+	public void cleanUp() {
+		newDateUsed = false;
 	}
 	/*-------Initializing driver---------*/
 

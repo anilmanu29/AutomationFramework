@@ -33,6 +33,7 @@ public class BrokerRegisterTest extends TestBase {
 
 	public static String brokerUsername;
 	public static String brokerPassword;
+	public static String brokerCompanyName;
 	String outlookUsername;
 	String outlookPassword;
 	public static String depositAmount = "";
@@ -57,13 +58,11 @@ public class BrokerRegisterTest extends TestBase {
 			String PhoneNumber, String Password, String ConfirmPassword, String NameonAccount, String RoutingNumber,
 			String BankAccountNumber, String ConfirmbankAccountNumber) throws IOException, InterruptedException {
 
-		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
-			String[] emailArray = Email.split("@");
-			String dateTime = TestUtil.getCurrentDateTime();
-			emailArray[0] = emailArray[0] + dateTime;
-
-			brokerUsername = emailArray[0] + "@" + emailArray[1];
+		if (Email.contains("[uniqueID]")) {
+			String uniqueEmail = Email.replace("[uniqueID]", TestUtil.getCurrentDateTime());
+			brokerUsername = uniqueEmail;
 			brokerPassword = Password;
+			brokerCompanyName = CompanyName;
 		} else {
 			brokerUsername = Email;
 			brokerPassword = Password;
