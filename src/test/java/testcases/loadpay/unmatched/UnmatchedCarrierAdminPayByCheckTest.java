@@ -13,6 +13,7 @@ import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.admin.AdminPayByCheck;
 import pages.loadpay.unmatched.UnmatchedCarrierAdminPayByCheck;
+import testcases.loadpay.broker.BrokerRegisterTest;
 
 public class UnmatchedCarrierAdminPayByCheckTest extends TestBase {
 
@@ -45,8 +46,13 @@ public class UnmatchedCarrierAdminPayByCheckTest extends TestBase {
 	@Test(dataProvider = "getBrokerLoginData")
 	public void getBrokerCredentials(String username, String pwd) throws InterruptedException {
 		// login as broker
-		brokerUsername = username;
-		brokerPassword = pwd;
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = username;
+			brokerPassword = pwd;
+		}
 	}
 
 	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = "getBrokerCredentials")

@@ -11,6 +11,7 @@ import base.TestBase;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierPayMeNowTab;
 import pages.loadpay.carrier.CarrierSchedulePayment;
+import testcases.loadpay.broker.BrokerNewPaymentTest;
 import util.TestUtil;
 
 public class CarrierSchedulePaymentTest extends TestBase {
@@ -49,6 +50,10 @@ public class CarrierSchedulePaymentTest extends TestBase {
 		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
 			carrierUsername = CarrierRegisterTest.carrierUsername;
 			carrierPassword = CarrierRegisterTest.carrierPassword;
+			amountText = BrokerNewPaymentTest.newPaymentAmount;
+			payerText = BrokerNewPaymentTest.newPaymentPayer;
+			loadIdText = BrokerNewPaymentTest.newPaymentLoadId;
+			InvoiceNumberText = BrokerNewPaymentTest.newPaymentInvoiceNum;
 		} else {
 			carrierUsername = carrierEmail;
 			carrierPassword = carrierPW;

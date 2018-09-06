@@ -12,6 +12,8 @@ import base.TestBase;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.admin.AdminPayByCheck;
+import testcases.loadpay.broker.BrokerNewPaymentTest;
+import testcases.loadpay.broker.BrokerRegisterTest;
 
 public class AdminPayByCheckTest extends TestBase {
 
@@ -43,15 +45,24 @@ public class AdminPayByCheckTest extends TestBase {
 	@Test(dataProvider = "getBrokerLoginData")
 	public void getBrokerCredentials(String username, String pwd) throws InterruptedException {
 		// login as broker
-		brokerUsername = username;
-		brokerPassword = pwd;
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = username;
+			brokerPassword = pwd;
+		}
 	}
 
 	@Test(dataProvider = "getPaymentData")
 	public void getBrokerInvoiceNumbers(String cemail, String invoiceno, String loadid, String amt)
 			throws InterruptedException {
 		// login as broker
-		brokerInvoices.add(invoiceno);
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerInvoices.addAll(BrokerNewPaymentTest.al);
+		} else {
+			brokerInvoices.add(invoiceno);
+		}
 	}
 
 	@Test(dataProvider = "getAdminLoginData")
