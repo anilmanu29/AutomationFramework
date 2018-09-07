@@ -99,6 +99,7 @@ public class CarrierSameDAYACH extends TestBase {
 	public void clickPaidTab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(tab_paid));
 		act.moveToElement(tab_paid).click().perform();
+		Thread.sleep(2000);
 	}
 
 	public void gettotalpaiyAmount() throws InterruptedException {
