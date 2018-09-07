@@ -21,6 +21,7 @@ public class CarrierPaidTabTest extends TestBase {
 	String searchAmountText = "";
 	String searchPayerText = "";
 	String searchLoadIdText = "";
+	String carrierUsername, carrierPassword = "";
 
 	public CarrierPaidTabTest() {
 		super();
@@ -36,10 +37,19 @@ public class CarrierPaidTabTest extends TestBase {
 	}
 
 	@Test(description = "LP-3476 CarrierPaidTabTest_Login", dataProvider = "getCarrierPaidTabData")
-	public void loginAsCarrier(String carrierEmail, String carrierPassword, String statusText, String amountText,
+	public void loginAsCarrier(String carrierEmail, String carrierPW, String statusText, String amountText,
 			String payerText, String loadIdText) throws InterruptedException {
 		// login as carrier
-		loginPage.Carrierlogin(carrierEmail, carrierPassword);
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
+		} else {
+			carrierUsername = carrierEmail;
+			carrierPassword = carrierPW;
+		}
+
+		loginPage.Carrierlogin(carrierUsername, carrierPassword);
 		searchStatusText = statusText;
 		searchAmountText = amountText;
 		searchPayerText = payerText;

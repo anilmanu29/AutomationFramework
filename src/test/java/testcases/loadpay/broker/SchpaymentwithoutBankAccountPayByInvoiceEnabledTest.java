@@ -24,6 +24,7 @@ import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.broker.BrokerRegister;
 import pages.loadpay.broker.SchpaymentwithoutBankAccountPayByInvoiceEnabled;
 import pages.loadpay.outlook.outlooklogin;
+import util.TestUtil;
 
 public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBase {
 
@@ -35,7 +36,7 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 	BrokerOutlook brokerOutlookObj;
 	outlooklogin outlookLoginObj;
 
-	String brokerUsername;
+	String brokerUsername, brokerPassword = "";
 	public static String emailid;
 	public static String EIN = "99-9999999";
 	public static String pwd;
@@ -74,7 +75,15 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 			String PhoneNumber, String Password, String ConfirmPassword, String NameonAccount, String RoutingNumber,
 			String BankAccountNumber, String ConfirmbankAccountNumber) throws IOException, InterruptedException {
 
-		brokerUsername = Email;
+		if (Email.contains("[uniqueID]")) {
+			String uniqueEmail = Email.replace("[uniqueID]", TestUtil.getCurrentDateTime());
+			brokerUsername = uniqueEmail;
+			brokerPassword = Password;
+		} else {
+			brokerUsername = Email;
+			brokerPassword = Password;
+		}
+
 		pwd = Password;
 		brokerregister.signup();
 		brokerregister.shipperRegister();
