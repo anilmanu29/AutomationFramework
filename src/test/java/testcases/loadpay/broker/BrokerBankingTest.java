@@ -132,9 +132,9 @@ public class BrokerBankingTest extends TestBase {
 
 		acountname = brokerBankingObj.enterAccountName(accname);
 
-		brokerBankingObj.enterRoutingNumber(routingnum);
-
 		brokerBankingObj.enterAccountNumber(accnum);
+
+		brokerBankingObj.enterRoutingNumber(routingnum);
 
 		brokerBankingObj.enterConfirmAccountNumber(confirmaccnum);
 

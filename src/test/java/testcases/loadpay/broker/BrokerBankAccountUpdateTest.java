@@ -14,6 +14,7 @@ public class BrokerBankAccountUpdateTest extends TestBase {
 
 	BrokerBankAccountUpdate brokerBankAccountObj;
 	BrokerLoginPage brokerLoginPageObj;
+	String brokerUsername, brokerPassword = "";
 	public static String routingnumber;
 
 	/*-------Initializing driver---------*/
@@ -35,7 +36,16 @@ public class BrokerBankAccountUpdateTest extends TestBase {
 	@Test(dataProvider = "getBrokerLoginData")
 	public void brokerLogin(String un, String pwd) throws InterruptedException {
 		brokerLoginPageObj = new BrokerLoginPage();
-		brokerLoginPageObj.Brokerlogin(un, pwd);
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = un;
+			brokerPassword = pwd;
+		}
+
+		brokerLoginPageObj.Brokerlogin(brokerUsername, brokerPassword);
 	}
 
 	@Test(dataProvider = "getBrokerBankingData", dependsOnMethods = "brokerLogin")

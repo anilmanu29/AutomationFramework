@@ -47,7 +47,9 @@ public class AdminPayByCheck extends TestBase {
 	@FindBy(xpath = "//input[contains(@value,'Search')]")
 	private WebElement btn_Search;
 
-	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/a")
+	// @FindBy(xpath =
+	// ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/a")
+	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/div[1]")
 	private WebElement grid_collapse;
 
 	@FindBy(xpath = "//button[contains(@ng-click,'PayByCheck();')]")
@@ -94,6 +96,9 @@ public class AdminPayByCheck extends TestBase {
 
 	@FindBy(xpath = "//*[@id='formAddCheckNo']/div/div[3]/input")
 	WebElement CheckNumberSubmit; // Click submit for Check Number
+
+	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[2]/img")
+	WebElement loadingSpinner;
 
 	// Initializing the Page Objects:
 	public AdminPayByCheck() {
@@ -157,12 +162,14 @@ public class AdminPayByCheck extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_Search));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_Search);
+		waitForLoadingToComplete();
 	}
 
 	public void clickgridcollapse() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(grid_collapse));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", grid_collapse);
+		Thread.sleep(2000);
 
 	}
 
@@ -400,5 +407,12 @@ public class AdminPayByCheck extends TestBase {
 	 */
 	public WebElement getCheckNumberSubmit() {
 		return CheckNumberSubmit;
+	}
+
+	public void waitForLoadingToComplete() throws InterruptedException {
+		if (loadingSpinner.isDisplayed()) {
+			Thread.sleep(2000);
+			waitForLoadingToComplete();
+		}
 	}
 }

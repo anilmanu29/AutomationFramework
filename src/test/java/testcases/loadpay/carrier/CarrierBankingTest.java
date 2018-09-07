@@ -12,6 +12,7 @@ public class CarrierBankingTest extends TestBase {
 
 	CarrierBanking cb;
 	CarrierLoginPage cl;
+	String carrierUsername, carrierPassword = "";
 
 	/*-------Initializing driver---------*/
 
@@ -32,7 +33,16 @@ public class CarrierBankingTest extends TestBase {
 	@Test(dataProvider = "getCarrierLoginData")
 	public void loginCarrier(String un, String pwd) throws InterruptedException {
 		cl = new CarrierLoginPage();
-		cl.Carrierlogin(un, pwd);
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
+		} else {
+			carrierUsername = un;
+			carrierPassword = pwd;
+		}
+
+		cl.Carrierlogin(carrierUsername, carrierPassword);
 	}
 
 	@Test(dataProvider = "getCarrierBankingData", dependsOnMethods = "loginCarrier")
