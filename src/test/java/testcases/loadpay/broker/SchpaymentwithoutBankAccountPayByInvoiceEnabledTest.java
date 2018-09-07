@@ -120,9 +120,9 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 		Select stateof = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationState']")));
 		stateof.selectByVisibleText("California");
 
-		emailid = brokerregister.BrokerEmail(Email);
+		emailid = brokerregister.BrokerEmail(brokerUsername);
 
-		brokerregister.confirmEmail(ConfirmEmail);
+		brokerregister.confirmEmail(brokerUsername);
 		brokerregister.iCertifyClick();
 		brokerregister.paymentTerm();
 		brokerregister.clickNextBtnOnCompanyForm();
