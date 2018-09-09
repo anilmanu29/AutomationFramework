@@ -16,6 +16,7 @@ import pages.loadpay.carrier.CarrierBanking;
 import pages.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccount;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierRegisterCanada;
+import util.TestUtil;
 
 public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 
@@ -24,6 +25,8 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 	CarrierDisableCopyPasteConfirmBankAccount carrierdisablecopypasteconfirmbankaccountobj;
 	CarrierBanking carrierbankingobj;
 	JavascriptExecutor js;
+	public static String carrierUsername;
+	public static String carrierPassword;
 
 	/*-------Initializing driver---------*/
 	public CarrierDisableCopyPasteConfirmBankAccountTest() {
@@ -49,6 +52,15 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 			String PhoneNumber, String Password, String ConfirmPassword, String NameonAccount, String RoutingNumber,
 			String BankAccountNumber, String ConfirmbankAccountNumber) throws IOException, InterruptedException {
 
+		if (Email.contains("[uniqueID]")) {
+			String uniqueEmail = Email.replace("[uniqueID]", TestUtil.getCurrentDateTime());
+			carrierUsername = uniqueEmail;
+			carrierPassword = Password;
+		} else {
+			carrierUsername = Email;
+			carrierPassword = Password;
+		}
+
 		carrierregisterobj.signup();
 		carrierregisterobj.CarrierRegister();
 		if (Dotnumber == null) {
@@ -63,8 +75,8 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 		Select type = new Select(driver.findElement(By.xpath(".//*[@id='EntityType']")));
 		type.selectByVisibleText("C Corporation");
 		carrierregisterobj.countrydropdown(country, state);
-		carrierregisterobj.CarrierEmail(Email);
-		carrierregisterobj.confirmEmail(ConfirmEmail);
+		carrierregisterobj.CarrierEmail(carrierUsername);
+		carrierregisterobj.confirmEmail(carrierUsername);
 		carrierregisterobj.iCertifyClick();
 		carrierregisterobj.clickNextBtnOnCompanyForm();
 		if (Dotnumber == null) {
@@ -81,9 +93,9 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 		carrierregisterobj.ContactFirstName(FirstNames);
 		carrierregisterobj.LastName(LastName);
 		carrierregisterobj.Phone(PhoneNumber);
-		carrierregisterobj.Password(Password);
+		carrierregisterobj.Password(carrierPassword);
 		driver.findElement(By.xpath("//*[@id='Registration_User_Password']"));
-		carrierregisterobj.ConfirmPassword(ConfirmPassword);
+		carrierregisterobj.ConfirmPassword(carrierPassword);
 		carrierregisterobj.clickNextBtnOnContactForm();
 		carrierregisterobj.AccountName(NameonAccount);
 		carrierregisterobj.BankingRouting(RoutingNumber);

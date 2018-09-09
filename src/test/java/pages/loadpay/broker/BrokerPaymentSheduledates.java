@@ -36,7 +36,7 @@ public class BrokerPaymentSheduledates extends TestBase {
 	@FindBy(xpath = "//div[@class='total ng-scope']//child::span[1]")
 	private WebElement creditvalue;
 
-	@FindBy(xpath = ".//*[contains(@id, 'collapseDetails')]/div[2]/div[2]")
+	@FindBy(xpath = "//*[contains(@id, 'collapseDetails')]/div[2]/div[2]")
 	public WebElement anticipatedwidrawldate;
 
 	@FindBy(id = "CarrierEmail")
