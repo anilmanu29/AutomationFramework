@@ -102,13 +102,17 @@ public class BrokerEditPaymentAdminPaymentssubmenu extends TestBase {
 	}
 
 	public void clickPayment() throws InterruptedException {
+		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(payment));
 		js.executeScript("arguments[0].click();", payment);
+		Thread.sleep(1000);
 	}
 
 	public void clickCarrierkPayment() throws InterruptedException {
+		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(carrierpayment));
 		js.executeScript("arguments[0].click();", carrierpayment);
+		Thread.sleep(1000);
 	}
 
 	public WebElement getExpandedPayment() {
