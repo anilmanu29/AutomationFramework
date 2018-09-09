@@ -69,7 +69,7 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 		schpaymentwithoutBankAccountPayByInvoiceenabled = new SchpaymentwithoutBankAccountPayByInvoiceEnabled();
 	}
 
-	@Test(dataProvider = "getBrokerRegisterData")
+@Test(dataProvider = "getBrokerRegisterData")
 	public void BrokerRegister(String Dotnumber, String CompanyName, String DoingBussinessAS, String Email,
 			String ConfirmEmail, String ZipCode1, String Address, String City, String FirstNames, String LastName,
 			String PhoneNumber, String Password, String ConfirmPassword, String NameonAccount, String RoutingNumber,
@@ -79,12 +79,12 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 			String uniqueEmail = Email.replace("[uniqueID]", TestUtil.getCurrentDateTime());
 			brokerUsername = uniqueEmail;
 			brokerPassword = Password;
-			brokerCompanyName = CompanyName;
 		} else {
 			brokerUsername = Email;
 			brokerPassword = Password;
 		}
 
+		pwd = Password;
 		brokerregister.signup();
 		brokerregister.shipperRegister();
 
