@@ -55,7 +55,8 @@ public class UnmatchedCariierEmailVerifyFuelCardTest extends TestBase {
 		outlookk.enterEmail(super.getProperties().getProperty("email"));
 		// outlookk.clickOpen();
 		getTimestamp();
-		outlookk.outlookSearchInbox(BrokerPaymentforUnmatchedCarrierTest.al.get(1), currentHour, currentMinutes);
+		outlookk.outlookSearchInbox(BrokerPaymentforUnmatchedCarrierTest.al.get(1) + " AND NOT broker", currentHour,
+				currentMinutes);
 		outlookk.handleNewInbox();
 		outlookk.verifyConfirmationMessage();
 

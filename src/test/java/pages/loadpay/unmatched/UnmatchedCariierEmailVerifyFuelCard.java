@@ -135,7 +135,8 @@ public class UnmatchedCariierEmailVerifyFuelCard extends TestBase {
 			e.click();
 			wait.until(ExpectedConditions.elementToBeClickable(e));
 			log.info(emailid.getText());
-			if (emailid.getText().equalsIgnoreCase(BrokerPaymentforUnmatchedCarrierTest.al.get(1) + ";")) {
+			if (emailid.getText()
+					.equalsIgnoreCase(BrokerPaymentforUnmatchedCarrierTest.unMatchedCarrierUsername + ";")) {
 				wait.until(ExpectedConditions.elementToBeClickable(linkVerify));
 				linkVerify.click();
 				break;
@@ -159,15 +160,18 @@ public class UnmatchedCariierEmailVerifyFuelCard extends TestBase {
 		WebElement searchField = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Search mail and people']")));
 		wait.until(ExpectedConditions.elementToBeClickable(searchField));
+		Thread.sleep(1000);
 		searchField.click();
 
 		searchInput = driver.findElement(By.xpath("//input[@aria-label='Search. Press Enter to Start Searching.']"));
 		searchButton = driver.findElement(By.xpath("//button[@aria-label='Start search']"));
 
 		wait.until(ExpectedConditions.elementToBeClickable(searchInput));
+		Thread.sleep(1000);
 		searchInput.sendKeys(EmailAddress);
 
 		wait.until(ExpectedConditions.elementToBeClickable(searchButton));
+		Thread.sleep(1000);
 		searchButton.click();
 
 		infoMessage = driver.findElement(By.id("conv.mail_list_view_info_message"));
