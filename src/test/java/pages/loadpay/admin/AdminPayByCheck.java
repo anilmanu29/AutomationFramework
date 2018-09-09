@@ -48,11 +48,9 @@ public class AdminPayByCheck extends TestBase {
 	@FindBy(xpath = "//input[contains(@value,'Search')]")
 	private WebElement btn_Search;
 
-	// @FindBy(xpath =
-	// "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/a")
-	// private WebElement grid_collapse;
-
-	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/div[1]")
+// @FindBy(xpath =
+	// ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/a")
+	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/div[1]")
 	private WebElement grid_collapse;
 
 	@FindBy(xpath = "//button[contains(@ng-click,'PayByCheck();')]")
