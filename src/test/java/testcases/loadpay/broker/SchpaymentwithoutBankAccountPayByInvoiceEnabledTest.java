@@ -81,6 +81,7 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 			String uniqueEmail = Email.replace("[uniqueID]", TestUtil.getCurrentDateTime());
 			brokerUsername = uniqueEmail;
 			brokerPassword = Password;
+			brokerCompanyName = CompanyName;
 		} else {
 			brokerUsername = Email;
 			brokerPassword = Password;
