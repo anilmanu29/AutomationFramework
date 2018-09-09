@@ -44,6 +44,7 @@ public class ShowQuoteCheck_matchedCarrierTest extends TestBase {
 	String brokerUsername;
 	String brokerPassword;
 	String invoicenumber = "";
+	public static String newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNum, carieremail = "";
 
 	/*-------Initializing driver---------*/
 	public ShowQuoteCheck_matchedCarrierTest() {
@@ -81,29 +82,35 @@ public class ShowQuoteCheck_matchedCarrierTest extends TestBase {
 	public void brokernewPayment(String cemail, String invoiceno, String loadid, String amt)
 			throws InterruptedException {
 
-		int randomNumber = TestUtil.getRandomNumber(1, 999999);
-		invoiceNum = randomNumber;
-		invoicenumber = Integer.toString(invoiceNum);
-		invoiceno = invoicenumber;
-		loadid = invoicenumber;
+		// int randomNumber = TestUtil.getRandomNumber(1, 999999);
+		// invoiceNum = randomNumber;
+		// invoicenumber = Integer.toString(invoiceNum);
+		// invoiceno = invoicenumber;
+		// loadid = invoicenumber;
+
+		carieremail = cemail;
+		invoiceno = TestUtil.getCurrentDateTime();
+		newPaymentInvoiceNum = invoiceno;
+		newPaymentLoadId = invoiceno;
+		newPaymentAmount = amt;
 
 		brokerNewPayment = new BrokerNewPayment();
 		brokerNewPayment.newPayment();
-		email = brokerNewPayment.carrierEmail(cemail);
-		brokerNewPayment.amount(amt);
-		invoice = brokerNewPayment.invoiceNumber(invoiceno);
+		email = brokerNewPayment.carrierEmail(carieremail);
+		brokerNewPayment.amount(newPaymentAmount);
+		invoice = brokerNewPayment.invoiceNumber(newPaymentInvoiceNum);
 		invoicenumbers.add(invoice);
-		brokerNewPayment.loadId(loadid);
+		brokerNewPayment.loadId(newPaymentLoadId);
 		// bp.advanceCheckbox();
 		/* brokerNewPayment.setField_PayTo(payTo); */
 		brokerNewPayment.clickShedulePayment();
 		brokerNewPayment.clickShedulePaymenttab();
-		brokerNewPayment.searchCarrier(cemail);
+		brokerNewPayment.searchCarrier(carieremail);
 		// arraylist.add(umemail);
 		brokerNewPayment.clickSearchButton();
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)", "");
-		brokerNewPayment.verifyInvoiceNumber(invoiceno, amt);
+		brokerNewPayment.verifyInvoiceNumber(newPaymentInvoiceNum, newPaymentAmount);
 		// Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
 		System.out.println(brokerNewPayment.verifyPaymentStatus());
 		// bp.logout();

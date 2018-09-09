@@ -2,6 +2,7 @@ package testcases.loadpay.admin;
 
 import java.awt.AWTException;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import org.openqa.selenium.WebElement;
@@ -18,6 +19,7 @@ import pages.loadpay.broker.BrokerPaymentSheduledates;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierSameDAYACH;
 import pages.loadpay.carrier.CarrierWireTransfer;
+import util.TestUtil;
 
 public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 
@@ -36,7 +38,9 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 	CarrierLoginPage carrierloginPage;
 	String carrierUserName;
 	String carrierPassword;
+	LocalDate today;
 	CarrierSameDAYACH carriersamedayach;
+	public static String newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNum, carrierEmail = "";
 
 	/*-------Initializing driver---------*/
 	public AdminPaymentsGreaterthan45DaysTest() {
@@ -110,13 +114,26 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 
 		brokerPaymentSheduledates = new BrokerPaymentSheduledates();
 		Assert.assertTrue(brokerPaymentSheduledates.lnk_newpayment.isDisplayed(), "newPayment Link if NOT Found!");
+
+		// Store data-provider elements into publicly-accessible strings
+		carrierEmail = cemail;
+		invoiceno = TestUtil.getCurrentDateTime();
+		newPaymentAmount = amt;
+		newPaymentInvoiceNum = invoiceno;
+		newPaymentLoadId = invoiceno;
+
+		today = LocalDate.now();
+		Integer year = today.getYear() + 1;
+		Integer day = today.getDayOfMonth() + 1;
+		String strDate = today.getMonthValue() + "/" + day.toString() + "/" + year.toString();
+
 		brokerPaymentSheduledates.newPayment();
-		email = brokerPaymentSheduledates.carrierEmail(cemail);
-		brokerPaymentSheduledates.amount(amt);
-		greaterthan365invoice = brokerPaymentSheduledates.invoiceNumber(invoiceno);
+		email = brokerPaymentSheduledates.carrierEmail(carrierEmail);
+		brokerPaymentSheduledates.amount(newPaymentAmount);
+		greaterthan365invoice = brokerPaymentSheduledates.invoiceNumber(newPaymentInvoiceNum);
 		invoiceList.add(greaterthan365invoice);
-		brokerPaymentSheduledates.loadId(loadid);
-		brokerPaymentSheduledates.clickPaymentDate(scheduledate);
+		brokerPaymentSheduledates.loadId(newPaymentLoadId);
+		brokerPaymentSheduledates.clickPaymentDate(strDate);
 		brokerPaymentSheduledates.clickShedulePayment();
 		brokerPaymentSheduledates.logout();
 		log.info("Verify New Payment Link Passed");
@@ -124,6 +141,7 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 	}
 
 	@Test(description = "LP-6621 LoadPay - Selenium Test - Admin - Payments Greater than 45 Days", dataProvider = "getBrokerLoginData", dependsOnMethods = "brokernewPaymentmorethan365")
+
 	public void loginBrokernew(String un, String pwd) {
 		driver.get(prop.getProperty("url"));
 		brokerlogin = new BrokerLoginPage();
@@ -133,26 +151,41 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 
 	/*-------Scheduling New Payment as a Broker---------*/
 
-	@Test(description = "LP-6621 LoadPay - Selenium Test - Admin - Payments Greater than 45 Days", dataProvider = "getpayementmorethan45daysData", dependsOnMethods = "loginBrokernew")
+	@Test(description = "LP-6621 LoadPay - Selenium Test - Admin - PaymentsGreater than 45 Days", dataProvider = "getpayementmorethan45daysData", dependsOnMethods = "loginBrokernew")
+
 	public void brokernewPayment45days(String cemail, String invoiceno, String loadid, String amt, String scheduledate)
 			throws InterruptedException {
 
 		brokerPaymentSheduledates = new BrokerPaymentSheduledates();
 		Assert.assertTrue(brokerPaymentSheduledates.lnk_newpayment.isDisplayed(), "newPayment Link if NOT Found!");
+
+		// Store data-provider elements into publicly-accessible strings
+		carrierEmail = cemail;
+		invoiceno = TestUtil.getCurrentDateTime();
+		newPaymentAmount = amt;
+		newPaymentInvoiceNum = invoiceno;
+		newPaymentLoadId = invoiceno;
+
+		today = LocalDate.now();
+		Integer month = today.getMonthValue() + 2;
+		String strDate = month.toString() + "/" + today.getDayOfMonth() + "/" + today.getYear();
+		System.out.println(strDate);
+
 		brokerPaymentSheduledates.newPayment();
-		email = brokerPaymentSheduledates.carrierEmail(cemail);
-		brokerPaymentSheduledates.amount(amt);
-		greaterthan45invoice = brokerPaymentSheduledates.invoiceNumber(invoiceno);
+		email = brokerPaymentSheduledates.carrierEmail(carrierEmail);
+		brokerPaymentSheduledates.amount(newPaymentAmount);
+		greaterthan45invoice = brokerPaymentSheduledates.invoiceNumber(newPaymentInvoiceNum);
 		invoiceList.add(greaterthan45invoice);
-		brokerPaymentSheduledates.loadId(loadid);
-		brokerPaymentSheduledates.clickPaymentDate(scheduledate);
+		brokerPaymentSheduledates.loadId(newPaymentLoadId);
+		brokerPaymentSheduledates.clickPaymentDate(strDate);
 		brokerPaymentSheduledates.clickShedulePayment();
 		brokerPaymentSheduledates.logout();
 		log.info("Verify New Payment Link Passed");
 
 	}
 
-	@Test(description = "LP-6621 LoadPay - Selenium Test - Admin - Payments Greater than 45 Days", dataProvider = "getAdminLoginData", dependsOnMethods = "brokernewPayment45days")
+	@Test(description = "LP-6621 LoadPay - Selenium Test - Admin - PaymentsGreater than 45 Days", dataProvider = "getAdminLoginData", dependsOnMethods = "brokernewPayment45days")
+
 	public void verifyAdminPaymentHistoryStatusdisable(String Username, String pass)
 			throws InterruptedException, AWTException {
 		admHomePage.AdminURL();
@@ -179,7 +212,8 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 		log.info("Verify Customer tab Link Passed");
 	}
 
-	@Test(description = "LP-6621 LoadPay - Selenium Test - Admin - Payments Greater than 45 Days", dataProvider = "getCarrierLoginData", dependsOnMethods = "verifyAdminPaymentHistoryStatusdisable")
+	@Test(description = "LP-6621 LoadPay - Selenium Test - Admin - PaymentsGreater than 45 Days", dataProvider = "getCarrierLoginData", dependsOnMethods = "verifyAdminPaymentHistoryStatusdisable")
+
 	public void carrierloginTest(String user, String pass) throws InterruptedException {
 		carrierUserName = user;
 		carrierPassword = pass;
@@ -189,7 +223,8 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 
 	}
 
-	@Test(description = "LP-6621 LoadPay - Selenium Test - Admin - Payments Greater than 45 Days", dataProvider = "getAdminPaymentsGreaterthan45Days", dependsOnMethods = "carrierloginTest")
+	@Test(description = "LP-6621 LoadPay - Selenium Test - Admin - PaymentsGreater than 45 Days", dataProvider = "getAdminPaymentsGreaterthan45Days", dependsOnMethods = "carrierloginTest")
+
 	public void carrierPaymenow(String cemail, String invoiceno, String loadid, String amt, String scheduledate)
 			throws InterruptedException {
 		Assert.assertTrue(carriersamedayach.btn_paymenow.isDisplayed(), "Payme now Link if NOT Found!");
@@ -206,7 +241,8 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 
 	}
 
-	@Test(description = "LP-6621 LoadPay - Selenium Test - Admin - Payments Greater than 45 Days", dataProvider = "getAdminLoginData", dependsOnMethods = "carrierPaymenow")
+	@Test(description = "LP-6621 LoadPay - Selenium Test - Admin - PaymentsGreater than 45 Days", dataProvider = "getAdminLoginData", dependsOnMethods = "carrierPaymenow")
+
 	public void verifySystemGeNnotes(String Username, String pass) throws InterruptedException, AWTException {
 		admHomePage.AdminURL();
 		admLogin.adminUserPass(Username, pass);

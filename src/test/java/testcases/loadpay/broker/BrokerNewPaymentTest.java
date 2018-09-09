@@ -97,6 +97,10 @@ public class BrokerNewPaymentTest extends TestBase {
 
 		bp.carrierEmail(carrierUsername);
 
+		String randomNumber = TestUtil.getCurrentDateTime();
+		invoiceno = randomNumber;
+		loadid = invoiceno;
+
 		bp.amount(amt);
 
 		invoice = bp.invoiceNumber(invoiceno);

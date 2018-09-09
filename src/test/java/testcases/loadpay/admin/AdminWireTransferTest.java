@@ -75,11 +75,11 @@ public class AdminWireTransferTest extends TestBase {
 	public void brokerNewPayment(String cemail, String invoiceno, String loadid, String amt)
 			throws InterruptedException {
 
-		int randomNumber = TestUtil.getRandomNumber(1, 999999);
-		invoiceNum = randomNumber;
-		invoicenumber = Integer.toString(invoiceNum);
-		invoiceno = invoicenumber;
-		loadid = invoicenumber;
+		String randomNumber = TestUtil.getCurrentDateTime();
+		// invoiceNum = randomNumber;
+		// invoicenumber = Integer.toString(invoiceNum);
+		invoiceno = randomNumber;
+		loadid = invoiceno;
 
 		log.info("Create new Payment ");
 		brokerNewPayment.newPayment();

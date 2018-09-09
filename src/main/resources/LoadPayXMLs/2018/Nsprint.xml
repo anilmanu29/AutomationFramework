@@ -16,10 +16,10 @@
    2) CarrierLoginData sheet - Update username and password for Carrier based on Environment.
    3) RTFLogin sheet -  Update valid Username and Password for RTF.
    4) BrokerLoginData sheet - Update username and password for Broker based on Environment.
-   5) BrokerPaymentDataforUnmatchedCr sheet - Invoice and LoadId needs to be updated.Make sure there are 2 payments.
+   5) BrokerPaymentDataforUnmatchedCr sheet - Make sure there are 2 payments.
    6) BankAccountDetailsForCopyPaste sheet - Update broker Username and Password.Make sure Broker without Banak Account registered to LoadPay. 
    7) AdminLogin sheet - Admin login details needs to be updated.
-   8) BrokerNewPaymentData sheet - Invoice and Load id needs to be updated. Make sure there are 2 payments.Set Amount column as 930.
+   8) BrokerNewPaymentData sheet - Make sure there are 2 payments.Set Amount column as 930.
    9) BrokerDuplicateEmail sheet - Make sure Email(Broker) and Confirm email are already registered and same.
    10) CarrierDuplicateEmail sheet -  Make sure Email(Carrier) and Confirm email are already registered and same.
    11) CreditAmount sheet - set 1000 as credit amount.

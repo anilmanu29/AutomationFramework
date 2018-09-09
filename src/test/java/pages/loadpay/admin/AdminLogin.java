@@ -34,7 +34,7 @@ public class AdminLogin extends TestBase {
 	@FindBy(xpath = ".//*[@id='PMNEnrolled']")
 	public WebElement uncheckpaymennow;
 
-	@FindBy(xpath = (".//*[@id='updatebtnPayByInvoice']"))
+	@FindBy(xpath = "//*[@id='updatebtnPayByInvoice']")
 	WebElement click_updatebtnPayByInvoice;
 
 	@FindBy(xpath = (".//*[@id='PMNEnrolled']"))
@@ -103,7 +103,7 @@ public class AdminLogin extends TestBase {
 	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[8]")
 	WebElement carrierPaymentHistory;
 
-	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[2]")
+	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[2]")
 	WebElement AdminBanking;
 
 	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr/td[1]/a")
@@ -135,7 +135,7 @@ public class AdminLogin extends TestBase {
 
 	public @FindBy(xpath = ".//*[@id='emailTo']") WebElement emailTo;
 
-	public @FindBy(xpath = ".//*[@id='editbtnPayByInvoice']") WebElement editbtnPayByInvoice;
+	public @FindBy(xpath = "//*[@id='editbtnPayByInvoice']") WebElement editbtnPayByInvoice;
 
 	public @FindBy(xpath = ".//*[contains(@title, 'send email')]") WebElement clickSendPaymentHistoryEmail;
 
@@ -233,7 +233,7 @@ public class AdminLogin extends TestBase {
 
 	public void clickupdatebtnPayByInvoice() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(click_updatebtnPayByInvoice));
-		click_updatebtnPayByInvoice.click();
+		js.executeScript("arguments[0].click();", click_updatebtnPayByInvoice);
 	}
 
 	public void clickenrollpaymenow() throws InterruptedException {

@@ -37,6 +37,7 @@ public class AdminDelayDebitTest extends TestBase {
 	SchpaymentwithoutBankAccountPayByInvoiceEnabled schpaymentwithoutBankAccountPayByInvoiceenabled;
 
 	CarrierLoginPage carrierloginPage;
+	public static String newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNum, carrierEmail = "";
 
 	BrokerPaymentSheduledates brokerPaymentSheduledates;
 	BrokerLoginPage brokerlogin;
@@ -176,12 +177,20 @@ public class AdminDelayDebitTest extends TestBase {
 		payMeNowCheckbox = driver.findElement(By.xpath(".//*[@id='PMNEnrolled']"));
 		Assert.assertFalse(payMeNowCheckbox.isSelected(), "Pay Me Now link is enabled - should be disabled!");
 
+		// Store data-provider elements into publicly-accessible strings
+		carrierEmail = cemail;
+		invoiceno = TestUtil.getCurrentDateTime();
+		newPaymentAmount = amt;
+		newPaymentInvoiceNum = invoiceno;
+		newPaymentLoadId = invoiceno;
+
 		brokerPaymentSheduledates.newPayment();
-		email = brokerPaymentSheduledates.carrierEmail(cemail);
-		brokerPaymentSheduledates.amount(amt);
-		invoice = brokerPaymentSheduledates.invoiceNumber(invoiceno);
+
+		email = brokerPaymentSheduledates.carrierEmail(carrierEmail);
+		brokerPaymentSheduledates.amount(newPaymentAmount);
+		invoice = brokerPaymentSheduledates.invoiceNumber(newPaymentInvoiceNum);
 		invoiceList.add(invoice);
-		brokerPaymentSheduledates.loadId(loadid);
+		brokerPaymentSheduledates.loadId(newPaymentLoadId);
 		brokerPaymentSheduledates.clickShedulePayment();
 		log.info("Verify New Payment Link Passed");
 
@@ -217,7 +226,7 @@ public class AdminDelayDebitTest extends TestBase {
 				"get text of Anticipated Date if NOT Found!");
 		String anticipatedWithdrawalDate = brokerPaymentSheduledates.getanticipatedwidrawlDate();
 		WebElement termDate = driver.findElement(By.xpath(
-				"//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/a/div/div[2]/div/b"));
+				".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/div[2]/div/b"));
 
 		Long termDateDiff = TestUtil.getDifferenceBetweenDates(termDate.getText(), anticipatedWithdrawalDate);
 		// Assert.assertTrue(termDateDiff == 15, "Term Date difference from withdrawal
