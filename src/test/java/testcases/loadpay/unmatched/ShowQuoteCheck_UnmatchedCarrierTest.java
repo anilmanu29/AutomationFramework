@@ -18,6 +18,7 @@ import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerNewPayment;
 import pages.loadpay.broker.BrokerPaymentforUnmatchedCarrier;
 import pages.loadpay.unmatched.UnmatchedCarrierAdminPayByCheck;
+import util.TestUtil;
 
 public class ShowQuoteCheck_UnmatchedCarrierTest extends TestBase {
 
@@ -29,7 +30,7 @@ public class ShowQuoteCheck_UnmatchedCarrierTest extends TestBase {
 	public static String einno;
 	public static ArrayList<String> al;
 	public static ArrayList<String> invoicenum;
-	public static String invoiceNum;
+	// public static String invoiceNum;
 	BrokerLoginPage brokerloginobj;
 	BrokerNewPayment brokerpaymentobj;
 	BrokerAdvancePaymenttoUnmatchedCarrier brokeradvancepaymentobj;
@@ -42,6 +43,10 @@ public class ShowQuoteCheck_UnmatchedCarrierTest extends TestBase {
 	public static String email;
 	public static String brokerUsername;
 	public static String brokerPassword;
+	String dateTime;
+	public static String unMatchedCarrierUsername;
+	public static String unMatchedCarrierPassword;
+	public static String loadID, invoiceNum = "";
 
 	/*-------Initializing driver---------*/
 	public ShowQuoteCheck_UnmatchedCarrierTest() {
@@ -71,6 +76,7 @@ public class ShowQuoteCheck_UnmatchedCarrierTest extends TestBase {
 	public void loginBroker(String un, String pwd) {
 		brokerlogin = new BrokerLoginPage();
 		brokerlogin.Brokerlogin(un, pwd);
+		dateTime = TestUtil.getCurrentDateTime();
 
 	}
 
@@ -80,19 +86,32 @@ public class ShowQuoteCheck_UnmatchedCarrierTest extends TestBase {
 	public void brokernewPayment(String cemail, String invoiceno, String loadid, String amt, String payto, String ein)
 			throws InterruptedException {
 
+		if (super.getProperties().getProperty("useDynamicUnmatchedData").contains("true")) {
+			String[] emailArray = cemail.split("@");
+			emailArray[0] = emailArray[0] + dateTime;
+
+			unMatchedCarrierUsername = emailArray[0] + "@" + emailArray[1];
+			unMatchedCarrierPassword = "Password@123";
+			invoiceNum = "UM" + TestUtil.getCurrentDateTime();
+			loadID = invoiceNum;
+
+		} else {
+			unMatchedCarrierUsername = cemail;
+			unMatchedCarrierPassword = "Password@123";
+		}
+
 		brokerPaymentforUnmatchedCarrier.newPayment();
 
-		brokerPaymentforUnmatchedCarrier.carrierEmail(cemail);
-
+		brokerPaymentforUnmatchedCarrier.carrierEmail(unMatchedCarrierUsername);
+		invoiceNum = brokerPaymentforUnmatchedCarrier.invoiceNumber(invoiceNum);
+		invoicenum.add(invoiceNum);
 		brokerPaymentforUnmatchedCarrier.amount(amt);
 
-		invoiceNum = brokerPaymentforUnmatchedCarrier.invoiceNumber(invoiceno);
-		invoicenum.add(invoiceNum);
-		brokerPaymentforUnmatchedCarrier.loadId(loadid);
+		brokerPaymentforUnmatchedCarrier.loadId(loadID);
 		brokerPaymentforUnmatchedCarrier.companyName(payto);
 		brokerPaymentforUnmatchedCarrier.clickShedulePayment();
 		brokerPaymentforUnmatchedCarrier.clickShedulePaymenttab();
-		umemail = brokerPaymentforUnmatchedCarrier.searchCarrier(cemail);
+		umemail = brokerPaymentforUnmatchedCarrier.searchCarrier(unMatchedCarrierUsername);
 		al.add(umemail);
 		brokerPaymentforUnmatchedCarrier.clickSearchButton();
 		JavascriptExecutor jse = (JavascriptExecutor) driver;

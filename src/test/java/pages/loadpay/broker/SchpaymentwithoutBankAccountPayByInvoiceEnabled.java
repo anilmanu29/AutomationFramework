@@ -194,7 +194,7 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabled extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(Password));
 		Password.click();
 		Password.clear();
-		Password.sendKeys(SchpaymentwithoutBankAccountPayByInvoiceEnabledTest.pwd);
+		Password.sendKeys(SchpaymentwithoutBankAccountPayByInvoiceEnabledTest.brokerPassword);
 
 		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
 		loginBtn.click();
@@ -214,7 +214,7 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabled extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(Password));
 		Password.click();
 		Password.clear();
-		Password.sendKeys(SchpaymentwithoutBankAccountPayByInvoiceEnabledTest.pwd);
+		Password.sendKeys(SchpaymentwithoutBankAccountPayByInvoiceEnabledTest.brokerPassword);
 
 		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
 		loginBtn.click();
@@ -236,7 +236,7 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabled extends TestBase {
 			Thread.sleep(1000);
 			System.out.println(emailid.getText());
 			if (emailid.getText().equalsIgnoreCase(brokerUsername + ";")) {
-				Thread.sleep(3000);
+				Thread.sleep(2000);
 				linkVerify.click();
 				break;
 			}

@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
 import pages.loadpay.admin.AdminPayByCheck;
+import util.TestUtil;
 
 public class BrokerNotifications extends TestBase {
 	BrokerNewPayment brokerPaymentObj;
@@ -31,6 +32,7 @@ public class BrokerNotifications extends TestBase {
 	String invoicenumber = "";
 	int min = 0;
 	int max = 30;
+	public static String newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNum = "";
 
 	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[4]/div/div[2]/div/div[2]/div/div/div[1]/div/div[9]/span")
 	private WebElement payment;
@@ -47,7 +49,10 @@ public class BrokerNotifications extends TestBase {
 	@FindBy(xpath = "//div[@role='alert']")
 	private WebElement alertmessage;
 
-	@FindBy(xpath = "//*[@class='getpaid']")
+	// @FindBy(xpath = "//*[@class='getpaid']")
+	// private List<WebElement> paymenowpayments;
+
+	@FindBy(xpath = "//*[@ng-show='ShowPayMeNowButton']")
 	private List<WebElement> paymenowpayments;
 
 	@FindBy(xpath = "//*[@class='carrierPayment ng-scope']/div/div[5]/div")
@@ -86,16 +91,12 @@ public class BrokerNotifications extends TestBase {
 
 	public void brokerCreateNewPayment(String cE, String iN, String lId, String pA) throws InterruptedException {
 
-		int randomNumber = getRandomNumber(1, 999999);
-		invoiceNum = randomNumber;
-		invoicenumber = Integer.toString(invoiceNum);
-		iN = invoicenumber;
-		lId = invoicenumber;
-
 		// Store data-provider elements into publicly-accessible strings
 		carrierEmail = cE;
-		loadId = lId;
-		paymentAmount = pA;
+		iN = TestUtil.getCurrentDateTime();
+		newPaymentAmount = pA;
+		newPaymentInvoiceNum = iN;
+		newPaymentLoadId = iN;
 
 		// create new payment
 		brokerPaymentObj = new BrokerNewPayment();
@@ -103,25 +104,25 @@ public class BrokerNotifications extends TestBase {
 		// Thread.sleep(1000);
 		brokerPaymentObj.carrierEmail(carrierEmail);
 		// Thread.sleep(1000);
-		brokerPaymentObj.amount(paymentAmount);
+		brokerPaymentObj.amount(newPaymentAmount);
 		// Thread.sleep(1000);
-		brokerPaymentObj.invoiceNumber(invoicenumber);
+		brokerPaymentObj.invoiceNumber(newPaymentInvoiceNum);
 		arraylist.add(invoicenumber);
 		// Thread.sleep(1000);
-		brokerPaymentObj.loadId(loadId);
+		brokerPaymentObj.loadId(newPaymentLoadId);
 		// Thread.sleep(1000);
 		brokerPaymentObj.clickShedulePayment();
 		// Thread.sleep(1000);
 		brokerPaymentObj.clickShedulePaymenttab();
 		// Thread.sleep(1000);
-		brokerPaymentObj.searchInvoice(invoicenumber);
+		brokerPaymentObj.searchInvoice(newPaymentInvoiceNum);
 		// Thread.sleep(1000);
 		brokerPaymentObj.clickSearchButton();
 		Thread.sleep(1000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)", "");
 		Thread.sleep(1000);
-		brokerPaymentObj.verifyInvoiceNumber(invoicenumber, paymentAmount);
+		brokerPaymentObj.verifyInvoiceNumber(newPaymentInvoiceNum, newPaymentAmount);
 		Thread.sleep(1000);
 
 		// verify payment status
@@ -164,7 +165,8 @@ public class BrokerNotifications extends TestBase {
 		for (int i = 0; i < List_payment.size(); i++) {
 			String invoiceno = List_payment.get(i).getText();
 			if (invoiceno.contains(invoicenumber)) {
-				paymenowpayments.get(i).click();
+				js.executeScript("arguments[0].click();", paymenowpayments.get(i));
+				// paymenowpayments.get(i).click();
 			}
 		}
 	}

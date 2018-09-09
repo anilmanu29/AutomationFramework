@@ -13,7 +13,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -24,6 +23,7 @@ import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.broker.BrokerRegister;
 import pages.loadpay.broker.SchpaymentwithoutBankAccountPayByInvoiceEnabled;
 import pages.loadpay.outlook.outlooklogin;
+import util.TestUtil;
 
 public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBase {
 
@@ -35,10 +35,11 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 	BrokerOutlook brokerOutlookObj;
 	outlooklogin outlookLoginObj;
 
-	String brokerUsername;
 	public static String emailid;
 	public static String EIN = "99-9999999";
-	public static String pwd;
+	public static String brokerUsername;
+	public static String brokerPassword;
+	public static String brokerCompanyName;
 
 	// timestamp variables
 	Date currentTime;
@@ -74,8 +75,16 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 			String PhoneNumber, String Password, String ConfirmPassword, String NameonAccount, String RoutingNumber,
 			String BankAccountNumber, String ConfirmbankAccountNumber) throws IOException, InterruptedException {
 
-		brokerUsername = Email;
-		pwd = Password;
+		if (Email.contains("[uniqueID]")) {
+			String uniqueEmail = Email.replace("[uniqueID]", TestUtil.getCurrentDateTime());
+			brokerUsername = uniqueEmail;
+			brokerPassword = Password;
+			brokerCompanyName = CompanyName;
+		} else {
+			brokerUsername = Email;
+			brokerPassword = Password;
+		}
+
 		brokerregister.signup();
 		brokerregister.shipperRegister();
 
@@ -94,7 +103,7 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 		randomNum = ThreadLocalRandom.current().nextInt(10000000, 99999999);
 		brokerregister.setMotorCarrierField(randomNum);
 
-		brokerregister.companyname(CompanyName);
+		brokerregister.companyname(brokerCompanyName);
 		brokerregister.doingbussiness(DoingBussinessAS);
 		brokerregister.selectType();
 
@@ -111,9 +120,9 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 		Select stateof = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationState']")));
 		stateof.selectByVisibleText("California");
 
-		emailid = brokerregister.BrokerEmail(Email);
+		emailid = brokerregister.BrokerEmail(brokerUsername);
 
-		brokerregister.confirmEmail(ConfirmEmail);
+		brokerregister.confirmEmail(brokerUsername);
 		brokerregister.iCertifyClick();
 		brokerregister.paymentTerm();
 		brokerregister.clickNextBtnOnCompanyForm();
@@ -135,8 +144,8 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 		brokerregister.ContactFirstName(FirstNames);
 		brokerregister.LastName(LastName);
 		brokerregister.Phone(PhoneNumber);
-		brokerregister.Password(ConfirmPassword);
-		brokerregister.ConfirmPassword(ConfirmPassword);
+		brokerregister.Password(brokerPassword);
+		brokerregister.ConfirmPassword(brokerPassword);
 
 		brokerregister.clickNextBtnOnContactForm();
 
@@ -231,22 +240,6 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 	public void BrokerSecondloginTest() throws InterruptedException {
 		driver.get(super.prop.getProperty("url"));
 		schpaymentwithoutBankAccountPayByInvoiceenabled.brokerSecondLogin();
-	}
-
-	public void verifySchpaymentwithoutBankAccountPayByInvoiceEnabledDisplayed() {
-
-		// Verify that the web elements for the Processed tab exist
-		Assert.assertTrue(schpaymentwithoutBankAccountPayByInvoiceenabled.click_addlater.isDisplayed(),
-				"AddLater button not found");
-		Assert.assertTrue(schpaymentwithoutBankAccountPayByInvoiceenabled.linkVerify.isDisplayed(),
-				"Verify Link for Outlook Email Llink not found");
-		Assert.assertTrue(adminlogin.editbtnPayByInvoice.isDisplayed(), "RTF Login Column not found");
-		Assert.assertTrue(adminlogin.select_PayByInvoieStatus.isDisplayed(), "Select Enable dropdown should not found");
-		Assert.assertTrue(adminlogin.select_PayByInvoieStatus.isDisplayed(),
-				"Select Disable dropdown should not found not found");
-		Assert.assertTrue(schpaymentwithoutBankAccountPayByInvoiceenabled.AcceptedTerms.isDisplayed(),
-				"Accepted Terms and condition Validation not found");
-
 	}
 
 }

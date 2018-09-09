@@ -13,6 +13,7 @@ import org.testng.asserts.SoftAssert;
 
 import base.TestBase;
 import pages.loadpay.admin.AdminPayByCheck;
+import util.TestUtil;
 
 public class BrokerEditPaymentAdminPaymentssubmenu extends TestBase {
 	BrokerNewPayment brokerPaymentObj;
@@ -28,6 +29,7 @@ public class BrokerEditPaymentAdminPaymentssubmenu extends TestBase {
 	WebDriverWait wait = null;
 	public static ArrayList<String> arraylist;
 	AdminPayByCheck adminpaybycheckobj;
+	public static String newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNum = "";
 
 	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[4]/div/div[2]/div/div[2]/div/div/div[1]/div/div[9]/span")
 	private WebElement payment;
@@ -61,20 +63,20 @@ public class BrokerEditPaymentAdminPaymentssubmenu extends TestBase {
 
 	public void brokerCreateNewPayment(String cE, String iN, String lId, String pA) throws InterruptedException {
 
-		// Store data-provider elements into publicly-accessible strings
 		carrierEmail = cE;
-		// invoiceNum = iN;
-		loadId = lId;
-		paymentAmount = pA;
+		iN = TestUtil.getCurrentDateTime();
+		newPaymentAmount = pA;
+		newPaymentLoadId = iN;
+		newPaymentInvoiceNum = iN;
 
 		// create new payment
 		brokerPaymentObj = new BrokerNewPayment();
 		brokerPaymentObj.newPayment();
 		brokerPaymentObj.carrierEmail(carrierEmail);
-		brokerPaymentObj.amount(paymentAmount);
-		invoiceNum = brokerPaymentObj.invoiceNumber(iN);
+		brokerPaymentObj.amount(newPaymentAmount);
+		invoiceNum = brokerPaymentObj.invoiceNumber(newPaymentInvoiceNum);
 		arraylist.add(invoiceNum);
-		brokerPaymentObj.loadId(loadId);
+		brokerPaymentObj.loadId(newPaymentLoadId);
 		brokerPaymentObj.clickShedulePayment();
 		brokerPaymentObj.clickShedulePaymenttab();
 		brokerPaymentObj.searchInvoice(invoiceNum);

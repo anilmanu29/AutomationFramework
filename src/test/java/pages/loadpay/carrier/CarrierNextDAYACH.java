@@ -112,7 +112,8 @@ public class CarrierNextDAYACH extends TestBase {
 
 	public void clickSelectButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_selectnextdayach));
-		btn_selectnextdayach.click();
+		act.moveToElement(btn_selectnextdayach).click().perform();
+		// btn_selectnextdayach.click();
 		Thread.sleep(1000);
 	}
 
@@ -120,6 +121,7 @@ public class CarrierNextDAYACH extends TestBase {
 		TestUtil.zoomIN();
 		wait.until(ExpectedConditions.elementToBeClickable(btn_confirm));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(1000);
 		js.executeScript("arguments[0].click();", btn_confirm);
 		Thread.sleep(1000);
 	}

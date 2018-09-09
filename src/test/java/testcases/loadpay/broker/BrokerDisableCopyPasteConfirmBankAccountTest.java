@@ -2,6 +2,7 @@ package testcases.loadpay.broker;
 
 import java.awt.AWTException;
 import java.io.IOException;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -15,16 +16,20 @@ import base.TestBase;
 import pages.loadpay.broker.BrokerBanking;
 import pages.loadpay.broker.BrokerDisableCopyPasteConfirmBankAccount;
 import pages.loadpay.broker.BrokerLoginPage;
-import pages.loadpay.broker.BrokerRegisterCanada;
+import pages.loadpay.broker.BrokerRegister;
+import util.TestUtil;
 
 public class BrokerDisableCopyPasteConfirmBankAccountTest extends TestBase {
 
 	BrokerLoginPage brokerloginobj;
-	BrokerRegisterCanada brokerregisterobj;
+	BrokerRegister brokerRegistrationObj;
 	BrokerDisableCopyPasteConfirmBankAccount brokerdisablecopypasteconfirmbankaccountobj;
 	BrokerBanking brokerbankingobj;
 	Select typeofentity;
 	JavascriptExecutor js;
+	public static String brokerUsername;
+	public static String brokerPassword;
+	public static String brokerCompanyName;
 
 	/*-------Initializing driver---------*/
 	public BrokerDisableCopyPasteConfirmBankAccountTest() {
@@ -35,75 +40,101 @@ public class BrokerDisableCopyPasteConfirmBankAccountTest extends TestBase {
 	public void setUp() throws AWTException, IOException {
 		initialization();
 		brokerloginobj = new BrokerLoginPage();
-		brokerregisterobj = new BrokerRegisterCanada();
+		brokerRegistrationObj = new BrokerRegister();
 		brokerdisablecopypasteconfirmbankaccountobj = new BrokerDisableCopyPasteConfirmBankAccount();
 		brokerbankingobj = new BrokerBanking();
 		js = (JavascriptExecutor) driver;
 		wait = new WebDriverWait(driver, 30);
 	}
 
-	@Test(dataProvider = "getBrokerData")
+	@Test(dataProvider = "getBrokerRegisterData")
 	public void verifyCopyPasteConfirmBankAccountFieldforRegister(String Dotnumber, String CompanyName,
-			String DoingBussinessAS, String Email, String ConfirmEmail, String country, String state, String ZipCode1,
-			String Address, String City, String ocountry, String States, String FirstNames, String LastName,
-			String PhoneNumber, String Password, String ConfirmPassword, String NameonAccount, String RoutingNumber,
-			String BankAccountNumber, String ConfirmbankAccountNumber) throws IOException, InterruptedException {
+			String DoingBussinessAS, String Email, String ConfirmEmail, String ZipCode1, String Address, String City,
+			String FirstNames, String LastName, String PhoneNumber, String Password, String ConfirmPassword,
+			String NameonAccount, String RoutingNumber, String BankAccountNumber, String ConfirmbankAccountNumber)
+			throws IOException, InterruptedException {
 
-		brokerregisterobj.signup();
-		brokerregisterobj.shipperRegister();
-		if (Dotnumber == null) {
-			brokerregisterobj.companyname(CompanyName);
-
+		if (Email.contains("[uniqueID]")) {
+			String uniqueEmail = Email.replace("[uniqueID]", TestUtil.getCurrentDateTime());
+			brokerUsername = uniqueEmail;
+			brokerPassword = Password;
+			brokerCompanyName = CompanyName;
 		} else {
-
-			brokerregisterobj.dotnumber(Dotnumber);
+			brokerUsername = Email;
+			brokerPassword = Password;
 		}
 
-		brokerregisterobj.doingbussiness(DoingBussinessAS);
-		brokerregisterobj.selectType();
+		brokerRegistrationObj.signup();
+
+		// clicking on carrier Register
+		brokerRegistrationObj.shipperRegister();
+
+		// gets a better random seed for indexing
+		int randomNum = ThreadLocalRandom.current().nextInt(0, 30);
+
+		if (randomNum < 10)
+			randomNum = 0;
+		else if (randomNum < 20)
+			randomNum = 1;
+		else
+			randomNum = 2;
+
+		brokerRegistrationObj.setMotorCarrierSelector(randomNum);
+
+		randomNum = ThreadLocalRandom.current().nextInt(10000000, 99999999);
+		brokerRegistrationObj.setMotorCarrierField(randomNum);
+
+		brokerRegistrationObj.companyname(CompanyName);
+		brokerRegistrationObj.doingbussiness(DoingBussinessAS);
+		brokerRegistrationObj.selectType();
 
 		Select type = new Select(driver.findElement(By.xpath(".//*[@id='EntityType']")));
 		type.selectByVisibleText("C Corporation");
 
-		brokerregisterobj.countrydropdown(country, state);
-		brokerregisterobj.BrokerEmail(Email);
-		brokerregisterobj.confirmEmail(ConfirmEmail);
+		brokerRegistrationObj.countryofincorporation();
 
-		brokerregisterobj.iCertifyClick();
+		Select countryof = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationCountry']")));
+		countryof.selectByIndex(0);
 
-		brokerregisterobj.paymentTerm();
+		brokerRegistrationObj.stateofincorporation();
 
-		brokerregisterobj.clickNextBtnOnCompanyForm();
+		Select stateof = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationState']")));
+		stateof.selectByVisibleText("California");
 
-		if (Dotnumber == null) {
+		brokerRegistrationObj.BrokerEmail(brokerUsername);
+		brokerRegistrationObj.confirmEmail(brokerUsername);
+		brokerRegistrationObj.iCertifyClick();
+		brokerRegistrationObj.paymentTerm();
 
-			brokerregisterobj.originCountry(ocountry, States);
+		brokerRegistrationObj.clickNextBtnOnCompanyForm();
 
-			brokerregisterobj.ZipCode(ZipCode1);
-			brokerregisterobj.address(Address);
+		brokerRegistrationObj.ZipCode(ZipCode1);
+		brokerRegistrationObj.country();
 
-			brokerregisterobj.city(City);
+		Select countrys = new Select(driver.findElement(By.xpath(".//*[@id='OriginCountry']")));
+		countrys.selectByVisibleText("USA");
 
-		} else {
-			brokerregisterobj.originCountry(ocountry, States);
-			brokerregisterobj.ZipCode(ZipCode1);
+		brokerRegistrationObj.address(Address);
+		brokerRegistrationObj.city(City);
+		brokerRegistrationObj.State();
 
-		}
+		Select states = new Select(driver.findElement(By.xpath(".//*[@id='State']")));
+		states.selectByVisibleText("CA");
 
-		brokerregisterobj.clickNextBtnOnAddressForm();
+		brokerRegistrationObj.clickNextBtnOnAddressForm();
 
-		brokerregisterobj.ContactFirstName(FirstNames);
-		brokerregisterobj.LastName(LastName);
-		brokerregisterobj.Phone(PhoneNumber);
-		brokerregisterobj.Password(Password);
-		driver.findElement(By.xpath("//*[@id='Registration_User_Password']"));
-		brokerregisterobj.ConfirmPassword(ConfirmPassword);
+		brokerRegistrationObj.ContactFirstName(FirstNames);
+		brokerRegistrationObj.LastName(LastName);
+		brokerRegistrationObj.Phone(PhoneNumber);
+		brokerRegistrationObj.Password(Password);
+		brokerRegistrationObj.ConfirmPassword(ConfirmPassword);
 
-		brokerregisterobj.clickNextBtnOnContactForm();
+		brokerRegistrationObj.clickNextBtnOnContactForm();
 
-		brokerregisterobj.AccountName(NameonAccount);
-		brokerregisterobj.BankingRouting(RoutingNumber);
-		brokerregisterobj.BankingAccount(BankAccountNumber);
+		brokerRegistrationObj.AccountName(NameonAccount);
+		brokerRegistrationObj.BankingRouting(RoutingNumber);
+		brokerRegistrationObj.BankingAccount(BankAccountNumber);
+		// brokerRegistrationObj.ConfirmBankingAccount(ConfirmbankAccountNumber);
 
 		brokerdisablecopypasteconfirmbankaccountobj.verifyCopyPasteforTypeofAccount();
 

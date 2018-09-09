@@ -16,6 +16,7 @@ public class AdminPayByCheck extends TestBase {
 
 	WebDriverWait wait = null;
 	String paymentidd;
+	JavascriptExecutor js = (JavascriptExecutor) driver;
 	// Page Factory - OR:
 	@FindBy(id = "EIN")
 	WebElement field_ein;
@@ -47,7 +48,11 @@ public class AdminPayByCheck extends TestBase {
 	@FindBy(xpath = "//input[contains(@value,'Search')]")
 	private WebElement btn_Search;
 
-	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/a")
+	// @FindBy(xpath =
+	// "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/a")
+	// private WebElement grid_collapse;
+
+	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/div[1]")
 	private WebElement grid_collapse;
 
 	@FindBy(xpath = "//button[contains(@ng-click,'PayByCheck();')]")
@@ -116,7 +121,7 @@ public class AdminPayByCheck extends TestBase {
 
 	public void ClickOnsearchKeyword(String invoice) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
-		FieldSearch.click();
+		js.executeScript("arguments[0].click();", FieldSearch);
 		FieldSearch.sendKeys(invoice);
 		FieldSearch.sendKeys(Keys.RETURN);
 	}
