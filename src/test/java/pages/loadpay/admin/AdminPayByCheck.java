@@ -1,4 +1,3 @@
-
 package pages.loadpay.admin;
 
 import org.openqa.selenium.By;
@@ -99,6 +98,9 @@ public class AdminPayByCheck extends TestBase {
 	@FindBy(xpath = "//*[@id='formAddCheckNo']/div/div[3]/input")
 	WebElement CheckNumberSubmit; // Click submit for Check Number
 
+	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[2]/img")
+	WebElement loadingSpinner;
+
 	// Initializing the Page Objects:
 	public AdminPayByCheck() {
 		PageFactory.initElements(driver, this);
@@ -120,8 +122,7 @@ public class AdminPayByCheck extends TestBase {
 
 	public void ClickOnsearchKeyword(String invoice) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
-		Thread.sleep(1000);
-		js.executeScript("arguments[0].click();", FieldSearch);
+		FieldSearch.click();
 		FieldSearch.sendKeys(invoice);
 		FieldSearch.sendKeys(Keys.RETURN);
 	}
@@ -162,12 +163,14 @@ public class AdminPayByCheck extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_Search));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_Search);
+		waitForLoadingToComplete();
 	}
 
 	public void clickgridcollapse() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(grid_collapse));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", grid_collapse);
+		Thread.sleep(2000);
 
 	}
 
@@ -226,7 +229,7 @@ public class AdminPayByCheck extends TestBase {
 		ReenterCheckNumber.sendKeys(CheckNumber);
 		wait.until(ExpectedConditions.elementToBeClickable(CheckNumberSubmit));
 		CheckNumberSubmit.click();
-		wait.until(ExpectedConditions.elementToBeClickable(CheckNumberSubmit));
+		Thread.sleep(3000);
 		WebElement CheckNum = driver.findElement(By.xpath("//*[contains(text(),'1234567890')]"));
 		log.info(CheckNum.getText());
 
@@ -405,5 +408,12 @@ public class AdminPayByCheck extends TestBase {
 	 */
 	public WebElement getCheckNumberSubmit() {
 		return CheckNumberSubmit;
+	}
+
+	public void waitForLoadingToComplete() throws InterruptedException {
+		if (loadingSpinner.isDisplayed()) {
+			Thread.sleep(2000);
+			waitForLoadingToComplete();
+		}
 	}
 }
