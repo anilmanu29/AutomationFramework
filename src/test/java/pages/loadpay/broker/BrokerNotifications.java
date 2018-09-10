@@ -7,6 +7,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,6 +23,7 @@ public class BrokerNotifications extends TestBase {
 	String paymentStatus = "Verified";
 	public String carrierEmail = "";
 	int invoiceNum = 0;
+	Actions act = new Actions(driver);
 	String loadId = "";
 	String paymentAmount = "";
 	ArrayList<String> tabs;
@@ -161,11 +163,15 @@ public class BrokerNotifications extends TestBase {
 		return ThreadLocalRandom.current().nextInt(min, max);
 	}
 
-	public void clickPayMeNowPayment() {
+	public void clickPayMeNowPayment() throws InterruptedException {
+		Thread.sleep(1000);
 		for (int i = 0; i < List_payment.size(); i++) {
 			String invoiceno = List_payment.get(i).getText();
 			if (invoiceno.contains(invoicenumber)) {
-				js.executeScript("arguments[0].click();", paymenowpayments.get(i));
+				Thread.sleep(1000);
+
+				act.moveToElement(paymenowpayments.get(i)).click().perform();
+				// js.executeScript("arguments[0].click();", paymenowpayments.get(i));
 				// paymenowpayments.get(i).click();
 			}
 		}

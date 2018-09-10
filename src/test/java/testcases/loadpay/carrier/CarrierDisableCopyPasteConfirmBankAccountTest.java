@@ -2,6 +2,7 @@ package testcases.loadpay.carrier;
 
 import java.awt.AWTException;
 import java.io.IOException;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -15,18 +16,19 @@ import base.TestBase;
 import pages.loadpay.carrier.CarrierBanking;
 import pages.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccount;
 import pages.loadpay.carrier.CarrierLoginPage;
-import pages.loadpay.carrier.CarrierRegisterCanada;
+import pages.loadpay.carrier.CarrierRegisterPage;
 import util.TestUtil;
 
 public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 
 	CarrierLoginPage carrierloginobj;
-	CarrierRegisterCanada carrierregisterobj;
+	CarrierRegisterPage carrierRegistrationObj;
 	CarrierDisableCopyPasteConfirmBankAccount carrierdisablecopypasteconfirmbankaccountobj;
 	CarrierBanking carrierbankingobj;
 	JavascriptExecutor js;
 	public static String carrierUsername;
 	public static String carrierPassword;
+	public static String companyname;
 
 	/*-------Initializing driver---------*/
 	public CarrierDisableCopyPasteConfirmBankAccountTest() {
@@ -37,7 +39,7 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 	public void setUp() throws AWTException, IOException {
 		initialization();
 		carrierloginobj = new CarrierLoginPage();
-		carrierregisterobj = new CarrierRegisterCanada();
+		carrierRegistrationObj = new CarrierRegisterPage();
 		carrierdisablecopypasteconfirmbankaccountobj = new CarrierDisableCopyPasteConfirmBankAccount();
 		carrierbankingobj = new CarrierBanking();
 		js = (JavascriptExecutor) driver;
@@ -45,61 +47,108 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 	}
 
 	/*-------Verify Copy/Paste functionality for confirm bank account field while registration---------*/
-	@Test(description = "LP-6366 LoadPay Carrier_Disable_copy/paste_functionality_for_add_and_confirmbankaccount", dataProvider = "getCarrierData")
+	@Test(description = "LP-6366 LoadPay Carrier_Disable_copy/paste_functionality_for_add_and_confirmbankaccount", dataProvider = "getCarrierRegisterData")
 	public void verifyCopyPasteConfirmBankAccountFieldforRegisterTest(String Dotnumber, String CompanyName,
-			String DoingBussinessAS, String Email, String ConfirmEmail, String country, String state, String ZipCode1,
-			String Address, String City, String ocountry, String States, String FirstNames, String LastName,
-			String PhoneNumber, String Password, String ConfirmPassword, String NameonAccount, String RoutingNumber,
-			String BankAccountNumber, String ConfirmbankAccountNumber) throws IOException, InterruptedException {
+			String DoingBussinessAS, String Email, String ConfirmEmail, String ZipCode1, String Address, String City,
+			String FirstNames, String LastName, String PhoneNumber, String Password, String ConfirmPassword,
+			String NameonAccount, String RoutingNumber, String BankAccountNumber, String ConfirmbankAccountNumber)
+			throws IOException, InterruptedException {
 
 		if (Email.contains("[uniqueID]")) {
 			String uniqueEmail = Email.replace("[uniqueID]", TestUtil.getCurrentDateTime());
 			carrierUsername = uniqueEmail;
 			carrierPassword = Password;
+			companyname = CompanyName;
 		} else {
 			carrierUsername = Email;
 			carrierPassword = Password;
 		}
 
-		carrierregisterobj.signup();
-		carrierregisterobj.CarrierRegister();
-		if (Dotnumber == null) {
-			carrierregisterobj.company(CompanyName);
-		} else {
+		carrierRegistrationObj.signup();
 
-			carrierregisterobj.dotnumber(Dotnumber);
-		}
-		carrierregisterobj.doingbussiness(DoingBussinessAS);
-		carrierregisterobj.selectType();
+		// clicking on carrier Register
+		carrierRegistrationObj.CarrierRegister();
+
+		// gets a better random seed for indexing
+		int randomNum = ThreadLocalRandom.current().nextInt(0, 30);
+
+		if (randomNum < 10)
+			randomNum = 0;
+		else if (randomNum < 20)
+			randomNum = 1;
+		else
+			randomNum = 2;
+
+		carrierRegistrationObj.setMotorCarrierSelector(randomNum);
+
+		randomNum = ThreadLocalRandom.current().nextInt(10000000, 99999999);
+		carrierRegistrationObj.setMotorCarrierField(randomNum);
+
+		carrierRegistrationObj.companyname(companyname);
+
+		carrierRegistrationObj.doingbussiness(DoingBussinessAS);
+
+		carrierRegistrationObj.selectType();
 
 		Select type = new Select(driver.findElement(By.xpath(".//*[@id='EntityType']")));
-		type.selectByVisibleText("C Corporation");
-		carrierregisterobj.countrydropdown(country, state);
-		carrierregisterobj.CarrierEmail(carrierUsername);
-		carrierregisterobj.confirmEmail(carrierUsername);
-		carrierregisterobj.iCertifyClick();
-		carrierregisterobj.clickNextBtnOnCompanyForm();
-		if (Dotnumber == null) {
-			carrierregisterobj.originCountry(ocountry, States);
-			carrierregisterobj.ZipCode(ZipCode1);
-			carrierregisterobj.address(Address);
-			carrierregisterobj.city(City);
 
-		} else {
-			carrierregisterobj.originCountry(ocountry, States);
-			carrierregisterobj.ZipCode(ZipCode1);
-		}
-		carrierregisterobj.clickNextBtnOnAddressForm();
-		carrierregisterobj.ContactFirstName(FirstNames);
-		carrierregisterobj.LastName(LastName);
-		carrierregisterobj.Phone(PhoneNumber);
-		carrierregisterobj.Password(carrierPassword);
-		driver.findElement(By.xpath("//*[@id='Registration_User_Password']"));
-		carrierregisterobj.ConfirmPassword(carrierPassword);
-		carrierregisterobj.clickNextBtnOnContactForm();
-		carrierregisterobj.AccountName(NameonAccount);
-		carrierregisterobj.BankingRouting(RoutingNumber);
-		carrierregisterobj.BankingAccount(BankAccountNumber);
+		type.selectByVisibleText("C Corporation");
+
+		carrierRegistrationObj.countryofincorporation();
+
+		Select countryof = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationCountry']")));
+
+		countryof.selectByIndex(0);
+
+		carrierRegistrationObj.stateofincorporation();
+
+		Select stateof = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationState']")));
+
+		stateof.selectByVisibleText("California");
+
+		carrierRegistrationObj.CarrierEmail(carrierUsername);
+
+		carrierRegistrationObj.confirmEmail(carrierUsername);
+
+		carrierRegistrationObj.iCertifyClick();
+
+		carrierRegistrationObj.clickNextBtnOnCompanyForm();
+
+		carrierRegistrationObj.ZipCode(ZipCode1);
+
+		carrierRegistrationObj.country();
+
+		Select country = new Select(driver.findElement(By.xpath(".//*[@id='OriginCountry']")));
+		country.selectByVisibleText("USA");
+
+		carrierRegistrationObj.address(Address);
+
+		carrierRegistrationObj.city(City);
+
+		carrierRegistrationObj.State();
+
+		Select state = new Select(driver.findElement(By.xpath(".//*[@id='State']")));
+
+		state.selectByVisibleText("CA");
+
+		carrierRegistrationObj.clickNextBtnOnAddressForm();
+
+		carrierRegistrationObj.ContactFirstName(FirstNames);
+
+		carrierRegistrationObj.LastName(LastName);
+		carrierRegistrationObj.Phone(PhoneNumber);
+
+		carrierRegistrationObj.Password(carrierPassword);
+
+		driver.findElement(By.xpath(".//*[@id='Registration_User_Password']"));
+		carrierRegistrationObj.ConfirmPassword(carrierPassword);
+
+		carrierRegistrationObj.clickNextBtnOnContactForm();
+		carrierRegistrationObj.AccountName(NameonAccount);
+		carrierRegistrationObj.BankingRouting(RoutingNumber);
+
+		carrierRegistrationObj.BankingAccount(BankAccountNumber);
+
 		carrierdisablecopypasteconfirmbankaccountobj.verifyCopyPasteforTypeofAccount();
 		Assert.assertTrue(
 				carrierdisablecopypasteconfirmbankaccountobj.geterrorMessage().contains("Account Number do not match"),

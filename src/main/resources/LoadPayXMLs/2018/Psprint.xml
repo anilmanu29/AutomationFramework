@@ -10,17 +10,16 @@
 	<test name="P Sprint Test Cases">
     <classes>
     
- <!--Set useDynamicBrokerData, useDynamicUnmatchedData and useDynamicCarrierData as false in config.properties -->
+ <!--Set useDynamicBrokerData and useDynamicUnmatchedData as true.Set useDynamicCarrierData as false in config.properties -->
   
 <!--1) BrokerLoginData sheet - Update Username and Password for Broker based on Environment.
    2) CarrierLoginData sheet -Update Username and Password for Carrier based on Environment.
-   3) AdminPaymentsGreaterthan45Days sheet - Invoice and LoadId needs to be updated.scheduled date should be more than 365 days from today. Make sure there is only one row.
-   4) payementmorethan45daysData sheet - Invoice and LoadId needs to be updated.scheduled date should be more than 45 days from today.Make sure there is only one row.
+   3) AdminPaymentsGreaterthan45Days sheet - Make sure there is only one row.
+   4) payementmorethan45daysData sheet - Make sure there is only one row.
    5) CarrierBankAccountDetails sheet - Carrier(without Bank Account Details) Email and Password needs to be updated. 
    6) AdminLogin sheet -  Update Username and Password for Admin based on Environment.
    7) AdminCustomersSideMenSearchData sheet - companyname, contact and email columns needs to be updated for searching based on Environment.
-   8) BrokerNewPaymentData sheet - Invoice and Load id needs to be updated. Make sure there are 2 payments.
-   9) CarrierRegisterCanada sheet - need to update CarrierEmail. 
+   8) BrokerNewPaymentData sheet - Make sure there are 2 payments.
    --> 
 
 
