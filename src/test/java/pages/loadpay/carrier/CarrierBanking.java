@@ -109,6 +109,7 @@ public class CarrierBanking extends TestBase {
 
 	public void clickSaveButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(button_save));
+		Thread.sleep(1000);
 		js.executeScript("arguments[0].click();", button_save);
 	}
 
