@@ -1,0 +1,1 @@
+ffmpeg -f dshow -i video="screen-capture-recorder" -r 30 -vcodec mpeg4 -vtag xvid -qscale:v 0 testVideo.mkv
