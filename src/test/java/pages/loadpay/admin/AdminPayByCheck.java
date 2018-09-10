@@ -427,6 +427,7 @@ public class AdminPayByCheck extends TestBase {
 
 	WebDriverWait wait = null;
 	String paymentidd;
+	JavascriptExecutor js = (JavascriptExecutor) driver;
 	// Page Factory - OR:
 	@FindBy(id = "EIN")
 	WebElement field_ein;
