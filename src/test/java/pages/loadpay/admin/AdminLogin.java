@@ -208,7 +208,8 @@ public class AdminLogin extends TestBase {
 
 	public void Link_delaydebit() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(delaydebit));
-		delaydebit.click();
+		js.executeScript("arguments[0].click();", delaydebit);
+		// delaydebit.click();
 	}
 
 	public void Click_paymentterm45Submit() throws InterruptedException {
