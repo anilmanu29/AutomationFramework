@@ -5,6 +5,7 @@ import java.awt.AWTException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -15,12 +16,13 @@ import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.admin.AdminPayByCheck;
 import testcases.loadpay.broker.BrokerNewPaymentTest;
 import testcases.loadpay.broker.BrokerRegisterTest;
+import util.TestUtil;
 
 public class AdminPayByCheckTest extends TestBase {
 
 	AdminHomePage ahp;
 	AdminLogin al;
-	AdminPayByCheck apbc;
+	AdminPayByCheck adminPayByCheckObj;
 	String acountname;
 	String brokerUsername = "";
 	String brokerPassword = "";
@@ -39,7 +41,7 @@ public class AdminPayByCheckTest extends TestBase {
 		wait = new WebDriverWait(driver, 30);
 		al = new AdminLogin();
 		ahp = new AdminHomePage();
-		apbc = new AdminPayByCheck();
+		adminPayByCheckObj = new AdminPayByCheck();
 		brokerInvoices = new ArrayList<String>();
 	}
 
@@ -83,37 +85,45 @@ public class AdminPayByCheckTest extends TestBase {
 
 		al.DoubleClickID();
 
-		apbc.clickPayments();
+		adminPayByCheckObj.clickPayments();
 
-		apbc.ClickOnsearchKeyword(brokerInvoices.get(0));
+		adminPayByCheckObj.ClickOnsearchKeyword(brokerInvoices.get(0));
 
-		apbc.getPaymentID();
+		adminPayByCheckObj.getPaymentID();
 
-		apbc.clickSearch();
+		adminPayByCheckObj.clickSearch();
 
-		apbc.searchKeyword();
+		adminPayByCheckObj.searchKeyword();
 
-		apbc.clickSearch1();
+		adminPayByCheckObj.clickSearch1();
 
-		apbc.clickgridcollapse();
+		adminPayByCheckObj.clickgridcollapse();
 
-		apbc.clickPayByCheck();
+		adminPayByCheckObj.clickPayByCheck();
 
-		apbc.selectTerms();
+		adminPayByCheckObj.selectTerms();
 
 	}
 
 	@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData", dependsOnMethods = "verifyAdminPayByCheck")
-	public void carrierPaymenowPayByCheck(String EnterDOTNnumber, String ContactName) throws InterruptedException {
-		apbc.EnterDOTNnumber(EnterDOTNnumber);
+	public void carrierPaymenowPayByCheck(String EnterDOTNnumber, String companyName, String streetAddress, String city,
+			String state, String zip, String country, String phone, String contactName) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(adminPayByCheckObj.getCarrierDOT()));
+		adminPayByCheckObj.setCarrierDOT(TestUtil.removeDecimalZeroFormat(EnterDOTNnumber));
+		adminPayByCheckObj.setCarrierCompanyName(companyName);
+		adminPayByCheckObj.setCarrierStreet(streetAddress);
+		adminPayByCheckObj.setCarrierCity(city);
+		adminPayByCheckObj.setCarrierState(state);
+		adminPayByCheckObj.setCarrierZIP(TestUtil.removeDecimalZeroFormat(zip));
+		adminPayByCheckObj.setCarrierCountry(country);
+		adminPayByCheckObj.setCarrierPhone(phone);
+		adminPayByCheckObj.setCarrierContactName(contactName);
 
-		apbc.ContactName(ContactName);
+		adminPayByCheckObj.clickPayByChecksubmit();
 
-		apbc.clickPayByChecksubmit();
+		adminPayByCheckObj.clickAddCheckNumber();
 
-		apbc.clickAddCheckNumber();
-
-		apbc.ClickOnEnterCheckNumber();
+		adminPayByCheckObj.ClickOnEnterCheckNumber();
 
 	}
 
@@ -130,39 +140,48 @@ public class AdminPayByCheckTest extends TestBase {
 
 		al.DoubleClickID();
 
-		apbc.clickPayments();
+		adminPayByCheckObj.clickPayments();
 
-		apbc.ClickOnsearchKeyword(brokerInvoices.get(1));
+		adminPayByCheckObj.ClickOnsearchKeyword(brokerInvoices.get(1));
 
-		apbc.getPaymentID();
+		adminPayByCheckObj.getPaymentID();
 
-		apbc.clickSearch();
+		adminPayByCheckObj.clickSearch();
 
-		apbc.searchKeyword();
+		adminPayByCheckObj.searchKeyword();
 
-		apbc.clickSearch1();
+		adminPayByCheckObj.clickSearch1();
 
-		apbc.clickgridcollapse();
+		adminPayByCheckObj.clickgridcollapse();
 
-		apbc.clickPayByCheck();
+		adminPayByCheckObj.clickPayByCheck();
 
-		apbc.selectTerms();
+		adminPayByCheckObj.selectTerms();
 
-		apbc.selectTermsTermPayment();
+		adminPayByCheckObj.selectTermsTermPayment();
 
 	}
 
 	@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData", dependsOnMethods = "verifyAdminPayByCheckTermPayment")
-	public void carrierTermPaymentPayByCheck(String EnterDOTNnumber, String ContactName) throws InterruptedException {
-		apbc.EnterDOTNnumber(EnterDOTNnumber);
+	public void carrierTermPaymentPayByCheck(String EnterDOTNnumber, String companyName, String streetAddress,
+			String city, String state, String zip, String country, String phone, String contactName)
+			throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(adminPayByCheckObj.getCarrierDOT()));
+		adminPayByCheckObj.setCarrierDOT(TestUtil.removeDecimalZeroFormat(EnterDOTNnumber));
+		adminPayByCheckObj.setCarrierCompanyName(companyName);
+		adminPayByCheckObj.setCarrierStreet(streetAddress);
+		adminPayByCheckObj.setCarrierCity(city);
+		adminPayByCheckObj.setCarrierState(state);
+		adminPayByCheckObj.setCarrierZIP(TestUtil.removeDecimalZeroFormat(zip));
+		adminPayByCheckObj.setCarrierCountry(country);
+		adminPayByCheckObj.setCarrierPhone(phone);
+		adminPayByCheckObj.setCarrierContactName(contactName);
 
-		apbc.ContactName(ContactName);
+		adminPayByCheckObj.clickPayByChecksubmit();
 
-		apbc.clickPayByChecksubmit();
+		adminPayByCheckObj.clickAddCheckNumber();
 
-		apbc.clickAddCheckNumber();
-
-		apbc.ClickOnEnterCheckNumber();
+		adminPayByCheckObj.ClickOnEnterCheckNumber();
 
 	}
 

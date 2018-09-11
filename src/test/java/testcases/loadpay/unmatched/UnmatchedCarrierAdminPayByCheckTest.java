@@ -14,6 +14,7 @@ import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.admin.AdminPayByCheck;
 import pages.loadpay.unmatched.UnmatchedCarrierAdminPayByCheck;
 import testcases.loadpay.broker.BrokerRegisterTest;
+import util.TestUtil;
 
 public class UnmatchedCarrierAdminPayByCheckTest extends TestBase {
 
@@ -84,11 +85,19 @@ public class UnmatchedCarrierAdminPayByCheckTest extends TestBase {
 	}
 
 	@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData", dependsOnMethods = "verifyAdminPayByCheck")
-	public void carrierPaymenowPayByCheck(String EnterDOTNnumber, String ContactName) throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(adminPayByCheckObj.getTxt_DOT()));
-		adminPayByCheckObj.EnterDOTNnumber(EnterDOTNnumber);
-		wait.until(ExpectedConditions.elementToBeClickable(adminPayByCheckObj.getTxt_ContactName()));
-		adminPayByCheckObj.ContactName(ContactName);
+	public void carrierPaymenowPayByCheck(String EnterDOTNnumber, String companyName, String streetAddress, String city,
+			String state, String zip, String country, String phone, String contactName) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(adminPayByCheckObj.getCarrierDOT()));
+		adminPayByCheckObj.setCarrierDOT(TestUtil.removeDecimalZeroFormat(EnterDOTNnumber));
+		adminPayByCheckObj.setCarrierCompanyName(companyName);
+		adminPayByCheckObj.setCarrierStreet(streetAddress);
+		adminPayByCheckObj.setCarrierCity(city);
+		adminPayByCheckObj.setCarrierState(state);
+		adminPayByCheckObj.setCarrierZIP(TestUtil.removeDecimalZeroFormat(zip));
+		adminPayByCheckObj.setCarrierCountry(country);
+		adminPayByCheckObj.setCarrierPhone(phone);
+		adminPayByCheckObj.setCarrierContactName(contactName);
+
 		adminPayByCheckObj.clickPayByChecksubmit();
 		adminPayByCheckObj.clickAddCheckNumber();
 		adminPayByCheckObj.ClickOnEnterCheckNumber();
@@ -121,11 +130,20 @@ public class UnmatchedCarrierAdminPayByCheckTest extends TestBase {
 	}
 
 	@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData", dependsOnMethods = "verifyAdminPayByCheckTermPayment")
-	public void carrierTermPaymentPayByCheck(String EnterDOTNnumber, String ContactName) throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(adminPayByCheckObj.getTxt_DOT()));
-		adminPayByCheckObj.EnterDOTNnumber(EnterDOTNnumber);
-		wait.until(ExpectedConditions.elementToBeClickable(adminPayByCheckObj.getTxt_ContactName()));
-		adminPayByCheckObj.ContactName(ContactName);
+	public void carrierTermPaymentPayByCheck(String EnterDOTNnumber, String companyName, String streetAddress,
+			String city, String state, String zip, String country, String phone, String contactName)
+			throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(adminPayByCheckObj.getCarrierDOT()));
+		adminPayByCheckObj.setCarrierDOT(TestUtil.removeDecimalZeroFormat(EnterDOTNnumber));
+		adminPayByCheckObj.setCarrierCompanyName(companyName);
+		adminPayByCheckObj.setCarrierStreet(streetAddress);
+		adminPayByCheckObj.setCarrierCity(city);
+		adminPayByCheckObj.setCarrierState(state);
+		adminPayByCheckObj.setCarrierZIP(TestUtil.removeDecimalZeroFormat(zip));
+		adminPayByCheckObj.setCarrierCountry(country);
+		adminPayByCheckObj.setCarrierPhone(phone);
+		adminPayByCheckObj.setCarrierContactName(contactName);
+
 		adminPayByCheckObj.clickPayByChecksubmit();
 		adminPayByCheckObj.clickAddCheckNumber();
 		adminPayByCheckObj.ClickOnEnterCheckNumber();

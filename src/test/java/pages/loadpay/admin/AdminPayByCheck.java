@@ -48,10 +48,11 @@ public class AdminPayByCheck extends TestBase {
 	@FindBy(xpath = "//input[contains(@value,'Search')]")
 	private WebElement btn_Search;
 
-	// @FindBy(xpath =
-	// ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/a")
+	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/a")
+	private WebElement stage_grid_collapse;
+
 	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/div[1]")
-	private WebElement grid_collapse;
+	private WebElement qa_grid_collapse;
 
 	@FindBy(xpath = "//button[contains(@ng-click,'PayByCheck();')]")
 	private WebElement btn_PayByCheck;
@@ -66,10 +67,31 @@ public class AdminPayByCheck extends TestBase {
 	public WebElement ShowQuoteClose;
 
 	@FindBy(xpath = ".//*[@id='DOT']")
-	private WebElement txt_DOT;
+	private WebElement carrierDOT;
 
-	@FindBy(xpath = "//input[contains(@name,'ContactName')]")
-	private WebElement txt_ContactName;
+	@FindBy(xpath = ".//*[@id='CompanyName']")
+	private WebElement carrierCompanyName;
+
+	@FindBy(xpath = ".//*[@id='Street']")
+	private WebElement carrierStreet;
+
+	@FindBy(xpath = ".//*[@id='City']")
+	private WebElement carrierCity;
+
+	@FindBy(xpath = ".//*[@id='State']")
+	private WebElement carrierState;
+
+	@FindBy(xpath = ".//*[@id='ZipCode']")
+	private WebElement carrierZIP;
+
+	@FindBy(xpath = ".//*[@id='Country']")
+	private WebElement carrierCountry;
+
+	@FindBy(xpath = ".//*[@id='PhoneNumber']")
+	private WebElement carrierPhone;
+
+	@FindBy(xpath = ".//*[@id='ContactName']")
+	private WebElement carrierContactName;
 
 	@FindBy(xpath = "//*[@id='formPayByCheck']/div[1]/div[3]/input")
 	private WebElement btn_paybychksubmit;
@@ -167,9 +189,17 @@ public class AdminPayByCheck extends TestBase {
 	}
 
 	public void clickgridcollapse() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(grid_collapse));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", grid_collapse);
+
+		if (driver.getCurrentUrl().contains("lpstageadmin")) {
+			wait.until(ExpectedConditions.elementToBeClickable(stage_grid_collapse));
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();", stage_grid_collapse);
+		} else if (driver.getCurrentUrl().contains("lpqaadmin")) {
+			wait.until(ExpectedConditions.elementToBeClickable(qa_grid_collapse));
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();", qa_grid_collapse);
+		}
+
 		Thread.sleep(2000);
 
 	}
@@ -194,16 +224,159 @@ public class AdminPayByCheck extends TestBase {
 		pay.selectByIndex(2);
 	}
 
-	public void EnterDOTNnumber(String EnterDOTNnumber) {
-		wait.until(ExpectedConditions.elementToBeClickable(txt_DOT));
-		txt_DOT.clear();
-		txt_DOT.sendKeys(EnterDOTNnumber);
+	/**
+	 * @return the carrierDOT
+	 */
+	public WebElement getCarrierDOT() {
+		return carrierDOT;
 	}
 
-	public void ContactName(String ContactName) {
-		wait.until(ExpectedConditions.elementToBeClickable(txt_ContactName));
-		txt_ContactName.clear();
-		txt_ContactName.sendKeys(ContactName);
+	/**
+	 * @param carrierDOT
+	 *            the carrierDOT to set
+	 */
+	public void setCarrierDOT(String dotValue) {
+		wait.until(ExpectedConditions.elementToBeClickable(carrierDOT));
+		carrierDOT.clear();
+		carrierDOT.sendKeys(dotValue);
+	}
+
+	/**
+	 * @return the carrierCompanyName
+	 */
+	public WebElement getCarrierCompanyName() {
+		return carrierCompanyName;
+	}
+
+	/**
+	 * @param carrierCompanyName
+	 *            the carrierCompanyName to set
+	 */
+	public void setCarrierCompanyName(String carrierNameValue) {
+		wait.until(ExpectedConditions.elementToBeClickable(carrierCompanyName));
+		carrierCompanyName.clear();
+		carrierCompanyName.sendKeys(carrierNameValue);
+	}
+
+	/**
+	 * @return the carrierStreet
+	 */
+	public WebElement getCarrierStreet() {
+		return carrierStreet;
+	}
+
+	/**
+	 * @param carrierStreet
+	 *            the carrierStreet to set
+	 */
+	public void setCarrierStreet(String carrierStreetValue) {
+		wait.until(ExpectedConditions.elementToBeClickable(carrierStreet));
+		carrierStreet.clear();
+		carrierStreet.sendKeys(carrierStreetValue);
+	}
+
+	/**
+	 * @return the carrierCity
+	 */
+	public WebElement getCarrierCity() {
+		return carrierCity;
+	}
+
+	/**
+	 * @param carrierCity
+	 *            the carrierCity to set
+	 */
+	public void setCarrierCity(String carrierCityValue) {
+		wait.until(ExpectedConditions.elementToBeClickable(carrierCity));
+		carrierCity.clear();
+		carrierCity.sendKeys(carrierCityValue);
+	}
+
+	/**
+	 * @return the carrierState
+	 */
+	public WebElement getCarrierState() {
+		return carrierState;
+	}
+
+	/**
+	 * @param carrierState
+	 *            the carrierState to set
+	 */
+	public void setCarrierState(String carrierStateValue) {
+		wait.until(ExpectedConditions.elementToBeClickable(carrierState));
+		carrierState.click();
+		Select state = new Select(carrierState);
+		state.selectByVisibleText(carrierStateValue);
+	}
+
+	/**
+	 * @return the carrierZIP
+	 */
+	public WebElement getCarrierZIP() {
+		return carrierZIP;
+	}
+
+	/**
+	 * @param carrierZIP
+	 *            the carrierZIP to set
+	 */
+	public void setCarrierZIP(String carrierZIPValue) {
+		wait.until(ExpectedConditions.elementToBeClickable(carrierZIP));
+		carrierZIP.clear();
+		carrierZIP.sendKeys(carrierZIPValue);
+	}
+
+	/**
+	 * @return the carrierCountry
+	 */
+	public WebElement getCarrierCountry() {
+		return carrierCountry;
+	}
+
+	/**
+	 * @param carrierCountry
+	 *            the carrierCountry to set
+	 */
+	public void setCarrierCountry(String carrierCountryValue) {
+		wait.until(ExpectedConditions.elementToBeClickable(carrierCountry));
+		carrierCountry.click();
+		Select country = new Select(carrierCountry);
+		country.selectByVisibleText(carrierCountryValue);
+	}
+
+	/**
+	 * @return the carrierPhone
+	 */
+	public WebElement getCarrierPhone() {
+		return carrierPhone;
+	}
+
+	/**
+	 * @param carrierPhone
+	 *            the carrierPhone to set
+	 */
+	public void setCarrierPhone(String carrierPhoneValue) {
+		wait.until(ExpectedConditions.elementToBeClickable(carrierPhone));
+		carrierPhone.clear();
+		carrierPhone.sendKeys(carrierPhoneValue);
+	}
+
+	/**
+	 * @return the carrierContactName
+	 */
+	public WebElement getCarrierContactName() {
+		return carrierContactName;
+	}
+
+	/**
+	 * @param carrierContactName
+	 *            the carrierContactName to set
+	 */
+	public void setCarrierContactName(String carrierContactNameValue) {
+		wait.until(ExpectedConditions.elementToBeClickable(carrierContactName));
+		carrierContactName.clear();
+		carrierContactName.sendKeys(carrierContactNameValue);
 	}
 
 	public void clickPayByChecksubmit() throws InterruptedException {
@@ -313,13 +486,6 @@ public class AdminPayByCheck extends TestBase {
 	}
 
 	/**
-	 * @return the grid_collapse
-	 */
-	public WebElement getGrid_collapse() {
-		return grid_collapse;
-	}
-
-	/**
 	 * @return the btn_PayByCheck
 	 */
 	public WebElement getBtn_PayByCheck() {
@@ -331,20 +497,6 @@ public class AdminPayByCheck extends TestBase {
 	 */
 	public WebElement getSelect_Terms() {
 		return select_Terms;
-	}
-
-	/**
-	 * @return the txt_DOT
-	 */
-	public WebElement getTxt_DOT() {
-		return txt_DOT;
-	}
-
-	/**
-	 * @return the txt_ContactName
-	 */
-	public WebElement getTxt_ContactName() {
-		return txt_ContactName;
 	}
 
 	/**
