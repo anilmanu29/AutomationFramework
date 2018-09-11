@@ -84,12 +84,6 @@ public class UnmatchedCarrierWireTransfer extends TestBase {
 		UserName.sendKeys(BrokerPaymentforUnmatchedCarrierTest.unMatchedCarrierUsername);
 		Password.sendKeys(BrokerPaymentforUnmatchedCarrierTest.unMatchedCarrierPassword);
 		loginBtn.click();
-
-		if (doNotShowAgainPMNCheckbox.isDisplayed()) {
-			doNotShowAgainPMNCheckbox.click();
-			wait.until(ExpectedConditions.elementToBeClickable(savebutton));
-			savebutton.click();
-		}
 	}
 
 	public void getAmount() throws InterruptedException {
