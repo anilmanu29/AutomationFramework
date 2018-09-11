@@ -35,7 +35,7 @@ public class UnmatchedCarrierSameDAYACH extends TestBase {
 	@FindBy(xpath = ".//*[@class='getpaid']")
 	private WebElement btn_paymenow;
 
-	@FindBy(xpath = ".//*[@id='paymentOptionsDiv']/div[3]/div[1]/div[9]/input[1]")
+	@FindBy(xpath = ".//*[@id='paymentOptionsDiv']/div[1]/div[1]/div[8]/input[1]")
 	private WebElement btn_selectnextdayach;
 
 	@FindBy(xpath = "//div[@id='payMeNowQuoteDiv']//child::button[text()='CONFIRM']")

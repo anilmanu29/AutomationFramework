@@ -36,10 +36,15 @@ public class TestUtil extends TestBase {
 
 	public static final long PAGE_LOAD_TIMEOUT = 20;
 	public static final long IMPLICIT_WAIT = 20;
-	public static final String TESTDATA_SHEET_PATH = System.getProperty(userDirectory)
-			+ "/src/main/java/testdata/LoadPay/LoadPayTestData.xlsx";
 
 	public static String downloadsPath = System.getProperty(userHome) + "\\Downloads";
+
+	public static String basePath = "C:/AUTOMATION/SELENIUM/_Project/testing/SeleniumFramework/";
+	public static String initialVideoFilePath = basePath + "testVideo.mkv";
+	public static String finalVideoFilePath = basePath + "ffmpeg_video_capture/videoFiles/";
+	public static String videoCaptureBinPath = basePath + "ffmpeg_video_capture/bin/record.bat";
+	public static Boolean videoStarted = false;
+
 	Workbook book;
 	Sheet sheet;
 	static Robot robot;
@@ -51,7 +56,7 @@ public class TestUtil extends TestBase {
 	public Object[][] getTestData(String sheetName) {
 		FileInputStream file = null;
 		try {
-			file = new FileInputStream(TESTDATA_SHEET_PATH);
+			file = new FileInputStream(TestBase.loadPayTestDataFilePath);
 		} catch (FileNotFoundException e) {
 			log.info(e);
 		}
@@ -228,5 +233,39 @@ public class TestUtil extends TestBase {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
 		LocalDateTime now = LocalDateTime.now();
 		return (dtf.format(now));
+	}
+
+	public static void beginVideoCapture() {
+		try {
+
+			String[] startCmd = { "cmd", "/c", "start", videoCaptureBinPath };
+			Runtime.getRuntime().exec(startCmd);
+			videoStarted = true;
+		} catch (IOException e) {
+			log.info(e);
+		}
+	}
+
+	public static void endVideoCapture() throws IOException {
+		killProcess("ffmpeg.exe");
+		killProcess("cmd.exe");
+		videoStarted = false;
+	}
+
+	public static void updateVideoFileName() {
+		String newFilePath = finalVideoFilePath + TestUtil.getCurrentDateTime() + "_TestVideo.mkv";
+
+		File file = new File(initialVideoFilePath);
+		File newFile = new File(newFilePath);
+
+		if (file.renameTo(newFile)) {
+			log.info("File rename success");
+		} else {
+			log.info("File rename failed");
+		}
+	}
+
+	public static void killProcess(String process) throws IOException {
+		Runtime.getRuntime().exec("TASKKILL /F /IM " + process);
 	}
 }

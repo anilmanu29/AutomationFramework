@@ -30,7 +30,7 @@ public class TestBase {
 	protected static String userHome = "user.home";
 	public static Logger log;
 	public static WebDriverWait wait = null;
-	public final String loadPayTestDataFilePath = System.getProperty(userDirectory)
+	public static final String loadPayTestDataFilePath = System.getProperty(userDirectory)
 			+ "/src/main/java/testdata/LoadPay/LoadPayTestData.xlsx";
 
 	public TestBase() {
@@ -46,6 +46,19 @@ public class TestBase {
 	public static void initialization() {
 		log = Logger.getLogger(Logger.class.getName());
 
+		// if (TestUtil.videoStarted) {
+		// try {
+		// TestUtil.endVideoCapture();
+		// } catch (IOException e) {
+		// log.info(e);
+		// }
+		//
+		// TestUtil.updateVideoFileName();
+		// TestUtil.beginVideoCapture();
+		// } else {
+		// TestUtil.beginVideoCapture();
+		// }
+
 		String browserName = prop.getProperty("browser");
 
 		log.info("Selecting browser type from configuration properties");
@@ -54,18 +67,17 @@ public class TestBase {
 			System.setProperty("webdriver.chrome.driver",
 					System.getProperty(userDirectory) + "/Drivers/chromedriver.exe");
 			driver = new ChromeDriver();
-			driver.get(prop.getProperty("url"));
 		} else if (browserName.equals("FF")) {
 			System.setProperty("webdriver.gecko.driver",
 					System.getProperty(userDirectory) + "/Drivers/geckodriver.exe");
 			driver = new FirefoxDriver();
-			driver.get(prop.getProperty("url"));
 		} else if (browserName.equals("IE")) {
 			System.setProperty("webdriver.ie.driver",
 					System.getProperty(userDirectory) + "/Drivers/IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
-			driver.get(prop.getProperty("url"));
 		}
+
+		driver.get(prop.getProperty("url"));
 
 		// Create object of EventListerHandler to register it with EventFiringWebDriver
 		eDriver = new EventFiringWebDriver(driver);
