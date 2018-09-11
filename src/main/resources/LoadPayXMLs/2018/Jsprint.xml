@@ -37,11 +37,13 @@
 	 		<class name="testcases.loadpay.broker.BrokerRegisterTest"></class>
 			<class name="testcases.loadpay.broker.BrokerOutlookTest"></class>
 			<class name="testcases.loadpay.admin.AdminBrokerTest"></class>
-			<class name="testcases.loadpay.broker.BrokerLoginTest"></class>
+			<class name="testcases.loadpay.broker.BrokerLoginTest"></class
+			    >
 			<class name="testcases.loadpay.carrier.CarrierRegisterTest"></class>
 			<class name="testcases.loadpay.carrier.CarrierOutlookTest"></class>
 			<class name="testcases.loadpay.admin.AdminCarrierTest"></class>
 		 	<class name="testcases.loadpay.carrier.CarrierLoginTest"></class>
+		 	
 	 		<class name="testcases.loadpay.broker.BrokerNewPaymentTest"></class>
 	 		
 			<class name="testcases.loadpay.carrier.CarrierSchedulePaymentTest"></class>
