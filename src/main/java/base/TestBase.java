@@ -46,18 +46,18 @@ public class TestBase {
 	public static void initialization() {
 		log = Logger.getLogger(Logger.class.getName());
 
-		if (TestUtil.videoStarted) {
-			try {
-				TestUtil.endVideoCapture();
-			} catch (IOException e) {
-				log.info(e);
-			}
-
-			TestUtil.updateVideoFileName();
-			TestUtil.beginVideoCapture();
-		} else {
-			TestUtil.beginVideoCapture();
-		}
+		// if (TestUtil.videoStarted) {
+		// try {
+		// TestUtil.endVideoCapture();
+		// } catch (IOException e) {
+		// log.info(e);
+		// }
+		//
+		// TestUtil.updateVideoFileName();
+		// TestUtil.beginVideoCapture();
+		// } else {
+		// TestUtil.beginVideoCapture();
+		// }
 
 		String browserName = prop.getProperty("browser");
 

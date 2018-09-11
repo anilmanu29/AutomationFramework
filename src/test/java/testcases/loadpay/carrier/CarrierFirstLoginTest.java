@@ -6,10 +6,12 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import pages.loadpay.carrier.CarrierFirstLogin;
+import pages.loadpay.carrier.CarrierLoginPage;
 import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
 
 public class CarrierFirstLoginTest extends TestBase {
-	CarrierFirstLogin loginPage;
+	CarrierFirstLogin carrierFirstLoginPage;
+	CarrierLoginPage carrierLoginPage;
 
 	public CarrierFirstLoginTest() {
 		super();
@@ -19,18 +21,23 @@ public class CarrierFirstLoginTest extends TestBase {
 	@BeforeClass
 	public void setUp() {
 		initialization();
-		loginPage = new CarrierFirstLogin();
+		carrierFirstLoginPage = new CarrierFirstLogin();
+		carrierLoginPage = new CarrierLoginPage();
 		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test()
 	public void loginTest() throws InterruptedException {
-		loginPage.carrierfirstLogin();
-		loginPage.clickNext(BrokerPaymentforUnmatchedCarrierTest.einno);
-		loginPage.clickAcceptCheckbox();
-		loginPage.clickEmailcheckbox();
-		loginPage.clickFinish();
-		loginPage.clickClose();
+		carrierFirstLoginPage.carrierfirstLogin();
+		carrierFirstLoginPage.clickNext(BrokerPaymentforUnmatchedCarrierTest.einno);
+		carrierFirstLoginPage.clickAcceptCheckbox();
+		carrierFirstLoginPage.clickEmailcheckbox();
+		carrierFirstLoginPage.clickFinish();
+		carrierFirstLoginPage.clickClose();
+
+		if (carrierLoginPage.getDonotshowagaincheckbox().isDisplayed()) {
+			carrierLoginPage.closePaymeNowPopUp();
+		}
 	}
 
 }
