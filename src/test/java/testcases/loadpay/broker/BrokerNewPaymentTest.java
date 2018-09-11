@@ -85,7 +85,7 @@ public class BrokerNewPaymentTest extends TestBase {
 
 		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
 			carrierUsername = CarrierRegisterTest.carrierUsername;
-			invoiceno = "UM" + TestUtil.getCurrentDateTime();
+			invoiceno = "NP" + TestUtil.getCurrentDateTime();
 			loadid = invoiceno;
 			newPaymentAmount = amt;
 			newPaymentLoadId = loadid;
@@ -96,10 +96,6 @@ public class BrokerNewPaymentTest extends TestBase {
 		}
 
 		bp.carrierEmail(carrierUsername);
-
-		String randomNumber = TestUtil.getCurrentDateTime();
-		invoiceno = randomNumber;
-		loadid = invoiceno;
 
 		bp.amount(amt);
 

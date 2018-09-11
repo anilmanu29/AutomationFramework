@@ -55,19 +55,24 @@
 			<class name="testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest"></class>
 			<class name="testcases.loadpay.unmatched.UnmatchedCarrierRegistrationTest"></class> 
 			
-<!-- 	REDUNDANT 		<class name="testcases.loadpay.unmatched.UnmatchedCariierEmailVerifyNextDayTest"></class> -->
+<!-- 	REDUNDANT covered in UnmatchedCariierEmailVerifyTest -->
+				<!-- 	<class name="testcases.loadpay.unmatched.UnmatchedCariierEmailVerifyNextDayTest"></class> -->
 			<class name="testcases.loadpay.unmatched.UnmatchedCariierEmailVerifyTest"></class>
 			<class name="testcases.loadpay.unmatched.UnmatchedCarrierAdminNextDayTest"></class>
 			<class name="testcases.loadpay.unmatched.UnmatchedCarrierNextDayACHTest"></class>
 
 
 		<!--    Script for Jira Tickets LP-5396  Broker - New Payment Unmatched Carrier     --> 
-				<!-- 	These tests only go into outlook and check for verification - this is done in several other tests    -->
+<!-- 	REDUNDANT These tests only go into outlook and check for verification - this is done in several other tests    -->
 				<!-- 	<class name="testcases.loadpay.unmatched.UnmatchedCarrierOutlookNewPaymentTest"></class> -->
 				<!-- 	<class name="testcases.loadpay.unmatched.UnmatchedNewPaymentCarrierOutlookTest"></class> -->
 		 	<class name="testcases.loadpay.unmatched.UnmatchedNewPaymentAdminCarrierTest"></class>
-		 	<class name="testcases.loadpay.unmatched.UnmatchedNewPaymentCarrierTest"></class>		 	
-		 	<class name="testcases.loadpay.carrier.CarrierFirstLoginNextDayACHTest"></class>
+		 	
+<!-- 	REDUNDANT this test only logs in and expands/collapses a pay me now option...doesn't actually do anything -->
+				<!-- 	<class name="testcases.loadpay.unmatched.UnmatchedNewPaymentCarrierTest"></class>	 -->
+		 	
+<!-- 	REDUNDANT COVERED IN CarrerLoginTest...there's nothing special about this test in regards to NextDayACH -->	 	
+				<!-- 	<class name="testcases.loadpay.carrier.CarrierFirstLoginNextDayACHTest"></class> -->
 		 	
     </classes>
   </test> 
