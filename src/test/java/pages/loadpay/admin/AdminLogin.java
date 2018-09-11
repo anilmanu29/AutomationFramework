@@ -325,7 +325,7 @@ public class AdminLogin extends TestBase {
 
 	public void ClickEditDelayDebit() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(EditDelayDebit));
-		EditDelayDebit.click();
+		js.executeScript("arguments[0].click();", EditDelayDebit);
 		Thread.sleep(2000);
 	}
 

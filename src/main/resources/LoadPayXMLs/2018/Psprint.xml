@@ -25,34 +25,20 @@
 
     	<!--Need to Update BrokerLoginData sheet-->
     <!-- Script for Jira Ticket LP-6627-LoadPay-Broker-Download .CSV from Scheduled Payments -->
-    	<class name="testcases.loadpay.broker.BrokerRegisterTest"></class>
-		<class name="testcases.loadpay.broker.BrokerOutlookTest"></class>
-		<class name="testcases.loadpay.admin.AdminBrokerTest"></class>
-		<class name="testcases.loadpay.broker.BrokerLoginTest"></class>
 		<class name="testcases.loadpay.broker.BrokerDownloadCSVFromScheduledPaymentsTest"></class>
 		
 		
 		<!--Need to Update CarrierLoginData sheet-->
 	<!-- Script for Jira Ticket LP-6628-LoadPay-Carrier-Download .CSV from Scheduled Payments -->
-		<class name="testcases.loadpay.carrier.CarrierRegisterTest"></class>
-		<class name="testcases.loadpay.carrier.CarrierOutlookTest"></class>
-		<class name="testcases.loadpay.admin.AdminCarrierTest"></class>
-		<class name="testcases.loadpay.carrier.CarrierLoginTest"></class>
 		<class name="testcases.loadpay.carrier.CarrierDownloadCSVFromScheduledPaymentsTest"></class>
 		
-	<!--Need to Update AdminPaymentsGreaterthan45Days(Invoice and LoadId felds) and payementmorethan45daysData(Invoice and LoadId) sheets-->
 	<!-- Script for Jira Ticket LP-6621-LoadPay - Selenium Test - Admin - Payments Greater than 45 Days -->
 		<class name="testcases.loadpay.admin.AdminPaymentsGreaterthan45DaysTest"></class>
 		
 		
 	<!--Carrier without Bank Account login details needs to be updated in CarrierBankAccountDetails sheet. 
-    	Need to Update CarrierRegisterCanada(Carrier EmailId) sheet.
     	-->
 	<!-- Script for Jira Ticket LP-6366-LoadPay - Carrier - Disable copy / paste functionality for add and confirm bank account -->
-		<class name="testcases.loadpay.carrier.CarrierRegisterCanadaTest"></class>
-		<class name="testcases.loadpay.carrier.CarrierOutlookCanadaTest"></class>
-		<class name="testcases.loadpay.admin.AdminCarrierCanadaTest"></class>
-		<class name="testcases.loadpay.carrier.CarrierCanadaFirstLoginTest"><
 		<class name="testcases.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccountTest"></class> 
 
 		<!--Need to Update AdminLogin sheet-->
