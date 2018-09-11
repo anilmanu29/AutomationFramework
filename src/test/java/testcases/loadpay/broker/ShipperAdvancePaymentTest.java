@@ -80,7 +80,7 @@ public class ShipperAdvancePaymentTest extends TestBase {
 
 		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
 			carrierUsername = CarrierRegisterCanadaTest.carrierUsername;
-			invoiceno = "UM" + TestUtil.getCurrentDateTime();
+			invoiceno = "NP" + TestUtil.getCurrentDateTime();
 			loadid = invoiceno;
 		} else {
 			carrierUsername = cemail;
