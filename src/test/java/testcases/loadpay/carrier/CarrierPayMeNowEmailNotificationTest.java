@@ -305,9 +305,7 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 	@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData", dependsOnMethods = { "verifyPayByCheckPaymenow" })
 	public void carrierPaymenowPayByCheck(String EnterDOTNnumber, String companyName, String streetAddress, String city,
 			String state, String zip, String country, String phone, String contactName) throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(adminPayByCheckObj.getCarrierDOT()));
 		adminPayByCheckObj.setCarrierDOT(TestUtil.removeDecimalZeroFormat(EnterDOTNnumber));
-		adminPayByCheckObj.setCarrierCompanyName(companyName);
 		adminPayByCheckObj.setCarrierStreet(streetAddress);
 		adminPayByCheckObj.setCarrierCity(city);
 		adminPayByCheckObj.setCarrierState(state);
@@ -315,7 +313,7 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 		adminPayByCheckObj.setCarrierCountry(country);
 		adminPayByCheckObj.setCarrierPhone(phone);
 		adminPayByCheckObj.setCarrierContactName(contactName);
-
+		adminPayByCheckObj.setCarrierCompanyName(companyName);
 		adminPayByCheckObj.clickPayByChecksubmit();
 
 	}

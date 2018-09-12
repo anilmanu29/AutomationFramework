@@ -87,6 +87,7 @@ public class BrokerBankingTest extends TestBase {
 		adminLoginObj.adminLogin();
 
 		adminLoginObj.ClickOnCustomersTab();
+		adminLoginObj.Uncheck_Factor();
 
 		adminLoginObj.ClickOnSearchBox(brokerUsername);
 
@@ -158,6 +159,7 @@ public class BrokerBankingTest extends TestBase {
 		adminLoginObj.adminLogin();
 
 		adminLoginObj.ClickOnCustomersTab();
+		adminLoginObj.Uncheck_Factor();
 
 		adminLoginObj.ClickOnSearchBox(brokerUsername);
 
@@ -229,6 +231,7 @@ public class BrokerBankingTest extends TestBase {
 		adminLoginObj.adminLogin();
 
 		adminLoginObj.ClickOnCustomersTab();
+		adminLoginObj.Uncheck_Factor();
 
 		adminLoginObj.ClickOnSearchBox(brokerUsername);
 

@@ -154,6 +154,7 @@ public class BrokerRegisterTest extends TestBase {
 		adminLoginPage.adminUserPass(adminUser, adminPass);
 		adminLoginPage.adminLogin();
 		adminLoginPage.ClickOnCustomersTab();
+		adminLoginPage.Uncheck_Factor();
 		adminLoginPage.ClickOnSearchBox(brokerUsername);
 		adminLoginPage.ClickOnSearchButton();
 		adminLoginPage.DoubleClickID();

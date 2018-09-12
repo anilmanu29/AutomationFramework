@@ -11,7 +11,7 @@
    <!-- Test Data Changes > -->
     
     <!-- 
-   Using dynamic date, there should be at least 2 rows of data for new and unmatched carrier payments
+   Using dynamic data, there should be at least 2 rows of data for new and unmatched carrier payments
    
    IF NOT USING DYNAMIC DATA...
    1) BrokerNewPaymentData sheet - Invoice and LoadID details needs to be updated.
@@ -32,41 +32,38 @@
 			<class name="testcases.loadpay.admin.AdminBrokerTest"></class>
 			<class name="testcases.loadpay.broker.BrokerLoginTest"></class>
 			
-		 <!-- Create carrier, verify through email, activate as admin, login new carrier -->	
+		<!-- Create carrier, verify through email, activate as admin, login new carrier -->	
 	 		<class name="testcases.loadpay.carrier.CarrierRegisterTest"></class>
 			<class name="testcases.loadpay.carrier.CarrierOutlookTest"></class>
 			<class name="testcases.loadpay.admin.AdminCarrierTest"></class>
 		 	<class name="testcases.loadpay.carrier.CarrierLoginTest"></class>
 
 		<!-- Script for Jira Tickets LP-5424  AdminPayByCheck  Anil-->
-		<!-- Invoice and LoadID Amount details needs to be updated in BrokerNewPayment and BrokerPaymentDataforUnmatchedCr Sheets-->
-				 	
+		<!-- Invoice and LoadID Amount details needs to be updated in BrokerNewPayment and BrokerPaymentDataforUnmatchedCr Sheets-->	 	
 	   	    <class name="testcases.loadpay.broker.BrokerNewPaymentTest"></class>
 		    <class name="testcases.loadpay.admin.AdminPayByCheckTest"></class>
+		    
+		<!-- Script for Jira Tickets LP-3476  Carrier_Paid Tab  -->
+		 	 <!-- No Need to Update Test Data Sheet -->
+		 	<class name="testcases.loadpay.carrier.CarrierNextDAYACHTest"></class>
+		 	<class name="testcases.loadpay.carrier.CarrierPaidTabTest"></class>
+		 	
 		 	<class name="testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest"></class>
 		 	<class name="testcases.loadpay.unmatched.UnmatchedCarrierAdminPayByCheckTest"></class>
 
  	
-			<!-- Script for Jira Tickets LP-3495 - Carrier Banking     -->
-			<!-- No Need to Update Test Data Sheet -->
-				
+		<!-- Script for Jira Tickets LP-3495 - Carrier Banking     -->
+			<!-- No Need to Update Test Data Sheet -->		
 		 	<class name="testcases.loadpay.carrier.CarrierBankingTest"></class>
 		 		
 		 	
-		 	<!--  Script for Jira Tickets LP-LP-5408 - Broker Banking     -->
+		<!--  Script for Jira Tickets LP-LP-5408 - Broker Banking     -->
 		 	<!-- No Need to Update Test Data Sheet -->
-		 	
 		 	<class name="testcases.loadpay.broker.BrokerBankingTest"></class>
 		 	
-		 	<!--  Script for Jira Tickets LP-LP-5391 - BrokerBankAccountUpdate     -->
+		<!--  Script for Jira Tickets LP-LP-5391 - BrokerBankAccountUpdate     -->
 		 	<!-- No Need to Update Test Data Sheet -->
-		 	
 		 	<class name="testcases.loadpay.broker.BrokerBankAccountUpdateTest"></class>
-		 	
-		 	 <!-- Script for Jira Tickets LP-3476  Carrier_Paid Tab  -->
-		 	 <!-- No Need to Update Test Data Sheet -->
-		 	<class name="testcases.loadpay.carrier.CarrierNextDAYACHTest"></class>
-		 	<class name="testcases.loadpay.carrier.CarrierPaidTabTest"></class>
 
     </classes>
   </test> 

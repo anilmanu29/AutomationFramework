@@ -165,6 +165,9 @@ public class AdminLogin extends TestBase {
 	@FindBy(xpath = "//*[@id='formCredit']/div[3]/input")
 	WebElement CreditSubmit;
 
+	@FindBy(xpath = (".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[2]/div/div[1]/div/div/div[3]/div/div[2]/ul[2]/li[3]/input"))
+	WebElement Factoruncheck;
+
 	public AdminLogin() throws IOException {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 30);
@@ -627,5 +630,13 @@ public class AdminLogin extends TestBase {
 	public WebElement getPaymnttermgraterthan45days() {
 		// TODO Auto-generated method stub
 		return Paymnttermgraterthan45days;
+	}
+
+	public void Uncheck_Factor() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(Factoruncheck));
+
+		if (Factoruncheck.isSelected())
+			js.executeScript("arguments[0].click();", Factoruncheck);
+
 	}
 }

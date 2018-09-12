@@ -45,6 +45,8 @@ public class AdminCarrierTest extends TestBase {
 
 		a.ClickOnCustomersTab();
 
+		a.Uncheck_Factor();
+
 		if (BrokerPaymentforUnmatchedCarrierTest.umemail != null) {
 			a.ClickOnSearchBox(BrokerPaymentforUnmatchedCarrierTest.umemail);
 		} else {
