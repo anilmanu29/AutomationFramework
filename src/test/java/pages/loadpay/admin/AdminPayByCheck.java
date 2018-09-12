@@ -234,9 +234,9 @@ public class AdminPayByCheck extends TestBase {
 	/**
 	 * @param carrierDOT
 	 *            the carrierDOT to set
+	 * @throws InterruptedException
 	 */
-	public void setCarrierDOT(String dotValue) {
-		wait.until(ExpectedConditions.elementToBeClickable(carrierDOT));
+	public void setCarrierDOT(String dotValue) throws InterruptedException {
 		carrierDOT.clear();
 		carrierDOT.sendKeys(dotValue);
 	}
@@ -251,10 +251,12 @@ public class AdminPayByCheck extends TestBase {
 	/**
 	 * @param carrierCompanyName
 	 *            the carrierCompanyName to set
+	 * @throws InterruptedException
 	 */
-	public void setCarrierCompanyName(String carrierNameValue) {
+	public void setCarrierCompanyName(String carrierNameValue) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(carrierCompanyName));
 		carrierCompanyName.clear();
+		Thread.sleep(1000);
 		carrierCompanyName.sendKeys(carrierNameValue);
 	}
 
@@ -268,10 +270,13 @@ public class AdminPayByCheck extends TestBase {
 	/**
 	 * @param carrierStreet
 	 *            the carrierStreet to set
+	 * @throws InterruptedException
 	 */
-	public void setCarrierStreet(String carrierStreetValue) {
+	public void setCarrierStreet(String carrierStreetValue) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(carrierStreet));
+		carrierStreet.click();
 		carrierStreet.clear();
+		Thread.sleep(1000);
 		carrierStreet.sendKeys(carrierStreetValue);
 	}
 
@@ -288,6 +293,7 @@ public class AdminPayByCheck extends TestBase {
 	 */
 	public void setCarrierCity(String carrierCityValue) {
 		wait.until(ExpectedConditions.elementToBeClickable(carrierCity));
+		carrierCity.click();
 		carrierCity.clear();
 		carrierCity.sendKeys(carrierCityValue);
 	}
@@ -323,6 +329,7 @@ public class AdminPayByCheck extends TestBase {
 	 */
 	public void setCarrierZIP(String carrierZIPValue) {
 		wait.until(ExpectedConditions.elementToBeClickable(carrierZIP));
+		carrierZIP.click();
 		carrierZIP.clear();
 		carrierZIP.sendKeys(carrierZIPValue);
 	}
@@ -358,6 +365,7 @@ public class AdminPayByCheck extends TestBase {
 	 */
 	public void setCarrierPhone(String carrierPhoneValue) {
 		wait.until(ExpectedConditions.elementToBeClickable(carrierPhone));
+		carrierPhone.click();
 		carrierPhone.clear();
 		carrierPhone.sendKeys(carrierPhoneValue);
 	}
@@ -375,6 +383,7 @@ public class AdminPayByCheck extends TestBase {
 	 */
 	public void setCarrierContactName(String carrierContactNameValue) {
 		wait.until(ExpectedConditions.elementToBeClickable(carrierContactName));
+		carrierContactName.click();
 		carrierContactName.clear();
 		carrierContactName.sendKeys(carrierContactNameValue);
 	}

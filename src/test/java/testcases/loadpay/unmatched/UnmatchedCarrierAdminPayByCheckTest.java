@@ -87,9 +87,7 @@ public class UnmatchedCarrierAdminPayByCheckTest extends TestBase {
 	@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData", dependsOnMethods = "verifyAdminPayByCheck")
 	public void carrierPaymenowPayByCheck(String EnterDOTNnumber, String companyName, String streetAddress, String city,
 			String state, String zip, String country, String phone, String contactName) throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(adminPayByCheckObj.getCarrierDOT()));
 		adminPayByCheckObj.setCarrierDOT(TestUtil.removeDecimalZeroFormat(EnterDOTNnumber));
-		adminPayByCheckObj.setCarrierCompanyName(companyName);
 		adminPayByCheckObj.setCarrierStreet(streetAddress);
 		adminPayByCheckObj.setCarrierCity(city);
 		adminPayByCheckObj.setCarrierState(state);
@@ -97,7 +95,7 @@ public class UnmatchedCarrierAdminPayByCheckTest extends TestBase {
 		adminPayByCheckObj.setCarrierCountry(country);
 		adminPayByCheckObj.setCarrierPhone(phone);
 		adminPayByCheckObj.setCarrierContactName(contactName);
-
+		adminPayByCheckObj.setCarrierCompanyName(companyName);
 		adminPayByCheckObj.clickPayByChecksubmit();
 		adminPayByCheckObj.clickAddCheckNumber();
 		adminPayByCheckObj.ClickOnEnterCheckNumber();
@@ -133,9 +131,7 @@ public class UnmatchedCarrierAdminPayByCheckTest extends TestBase {
 	public void carrierTermPaymentPayByCheck(String EnterDOTNnumber, String companyName, String streetAddress,
 			String city, String state, String zip, String country, String phone, String contactName)
 			throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(adminPayByCheckObj.getCarrierDOT()));
 		adminPayByCheckObj.setCarrierDOT(TestUtil.removeDecimalZeroFormat(EnterDOTNnumber));
-		adminPayByCheckObj.setCarrierCompanyName(companyName);
 		adminPayByCheckObj.setCarrierStreet(streetAddress);
 		adminPayByCheckObj.setCarrierCity(city);
 		adminPayByCheckObj.setCarrierState(state);
@@ -143,7 +139,7 @@ public class UnmatchedCarrierAdminPayByCheckTest extends TestBase {
 		adminPayByCheckObj.setCarrierCountry(country);
 		adminPayByCheckObj.setCarrierPhone(phone);
 		adminPayByCheckObj.setCarrierContactName(contactName);
-
+		adminPayByCheckObj.setCarrierCompanyName(companyName);
 		adminPayByCheckObj.clickPayByChecksubmit();
 		adminPayByCheckObj.clickAddCheckNumber();
 		adminPayByCheckObj.ClickOnEnterCheckNumber();

@@ -5,7 +5,6 @@ import java.awt.AWTException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -78,6 +77,8 @@ public class AdminPayByCheckTest extends TestBase {
 
 		al.ClickOnCustomersTab();
 
+		al.Uncheck_Factor();
+
 		log.info(brokerUsername);
 		al.ClickOnSearchBox(brokerUsername);
 
@@ -108,9 +109,7 @@ public class AdminPayByCheckTest extends TestBase {
 	@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData", dependsOnMethods = "verifyAdminPayByCheck")
 	public void carrierPaymenowPayByCheck(String EnterDOTNnumber, String companyName, String streetAddress, String city,
 			String state, String zip, String country, String phone, String contactName) throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(adminPayByCheckObj.getCarrierDOT()));
 		adminPayByCheckObj.setCarrierDOT(TestUtil.removeDecimalZeroFormat(EnterDOTNnumber));
-		adminPayByCheckObj.setCarrierCompanyName(companyName);
 		adminPayByCheckObj.setCarrierStreet(streetAddress);
 		adminPayByCheckObj.setCarrierCity(city);
 		adminPayByCheckObj.setCarrierState(state);
@@ -118,6 +117,7 @@ public class AdminPayByCheckTest extends TestBase {
 		adminPayByCheckObj.setCarrierCountry(country);
 		adminPayByCheckObj.setCarrierPhone(phone);
 		adminPayByCheckObj.setCarrierContactName(contactName);
+		adminPayByCheckObj.setCarrierCompanyName(companyName);
 
 		adminPayByCheckObj.clickPayByChecksubmit();
 
@@ -132,6 +132,7 @@ public class AdminPayByCheckTest extends TestBase {
 			throws InterruptedException, AWTException {
 
 		al.ClickOnCustomersTab();
+		al.Uncheck_Factor();
 
 		log.info(brokerUsername);
 		al.ClickOnSearchBox(brokerUsername);
@@ -166,9 +167,7 @@ public class AdminPayByCheckTest extends TestBase {
 	public void carrierTermPaymentPayByCheck(String EnterDOTNnumber, String companyName, String streetAddress,
 			String city, String state, String zip, String country, String phone, String contactName)
 			throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(adminPayByCheckObj.getCarrierDOT()));
 		adminPayByCheckObj.setCarrierDOT(TestUtil.removeDecimalZeroFormat(EnterDOTNnumber));
-		adminPayByCheckObj.setCarrierCompanyName(companyName);
 		adminPayByCheckObj.setCarrierStreet(streetAddress);
 		adminPayByCheckObj.setCarrierCity(city);
 		adminPayByCheckObj.setCarrierState(state);
@@ -176,6 +175,7 @@ public class AdminPayByCheckTest extends TestBase {
 		adminPayByCheckObj.setCarrierCountry(country);
 		adminPayByCheckObj.setCarrierPhone(phone);
 		adminPayByCheckObj.setCarrierContactName(contactName);
+		adminPayByCheckObj.setCarrierCompanyName(companyName);
 
 		adminPayByCheckObj.clickPayByChecksubmit();
 

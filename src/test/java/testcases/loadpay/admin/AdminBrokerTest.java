@@ -49,6 +49,8 @@ public class AdminBrokerTest extends TestBase {
 
 		a.ClickOnCustomersTab();
 
+		a.Uncheck_Factor();
+
 		a.ClickOnSearchBox(BrokerRegisterTest.brokerUsername);
 
 		a.ClickOnSearchButton();
