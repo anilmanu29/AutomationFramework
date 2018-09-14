@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -26,6 +27,7 @@ public class AdminPayByCheckTest extends TestBase {
 	String brokerUsername = "";
 	String brokerPassword = "";
 	ArrayList<String> brokerInvoices;
+	Boolean invoicesLoaded = false;
 
 	/*-------Initializing driver---------*/
 
@@ -44,6 +46,11 @@ public class AdminPayByCheckTest extends TestBase {
 		brokerInvoices = new ArrayList<String>();
 	}
 
+	@AfterClass
+	public void tearDown() {
+		invoicesLoaded = false;
+	}
+
 	@Test(dataProvider = "getBrokerLoginData")
 	public void getBrokerCredentials(String username, String pwd) throws InterruptedException {
 		// login as broker
@@ -60,9 +67,10 @@ public class AdminPayByCheckTest extends TestBase {
 	public void getBrokerInvoiceNumbers(String cemail, String invoiceno, String loadid, String amt)
 			throws InterruptedException {
 		// login as broker
-		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true") && (invoicesLoaded == false)) {
 			brokerInvoices.addAll(BrokerNewPaymentTest.al);
-		} else {
+			invoicesLoaded = true;
+		} else if (!invoicesLoaded) {
 			brokerInvoices.add(invoiceno);
 		}
 	}
