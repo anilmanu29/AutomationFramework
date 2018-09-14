@@ -45,9 +45,9 @@ public class CarrierPaidTabTest extends TestBase {
 		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
 			carrierUsername = CarrierRegisterTest.carrierUsername;
 			carrierPassword = CarrierRegisterTest.carrierPassword;
-			amountText = BrokerNewPaymentTest.newPaymentAmount;
-			payerText = BrokerNewPaymentTest.newPaymentPayer;
-			loadIdText = BrokerNewPaymentTest.newPaymentLoadId;
+			amountText = BrokerNewPaymentTest.newPaymentAmount.get(2);
+			payerText = BrokerNewPaymentTest.newPaymentPayer.get(2);
+			loadIdText = BrokerNewPaymentTest.newPaymentLoadId.get(2);
 		} else {
 			carrierUsername = carrierEmail;
 			carrierPassword = carrierPW;
@@ -55,10 +55,9 @@ public class CarrierPaidTabTest extends TestBase {
 
 		loginPage.Carrierlogin(carrierUsername, carrierPassword);
 		searchStatusText = statusText;
-		searchAmountText = amountText;
+		searchAmountText = TestUtil.removeDecimalZeroFormat(amountText);
 		searchPayerText = payerText;
-		searchLoadIdText = loadIdText;
-		searchLoadIdText = TestUtil.removeDecimalZeroFormat(searchLoadIdText);
+		searchLoadIdText = TestUtil.removeDecimalZeroFormat(loadIdText);
 
 		// Assert PayMeNow, Scheduled and Paid tabs exist
 		verifyCarrierTabsDisplayed();

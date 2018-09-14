@@ -50,10 +50,10 @@ public class CarrierSchedulePaymentTest extends TestBase {
 		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
 			carrierUsername = CarrierRegisterTest.carrierUsername;
 			carrierPassword = CarrierRegisterTest.carrierPassword;
-			amountText = BrokerNewPaymentTest.newPaymentAmount;
-			payerText = BrokerNewPaymentTest.newPaymentPayer;
-			loadIdText = BrokerNewPaymentTest.newPaymentLoadId;
-			InvoiceNumberText = BrokerNewPaymentTest.newPaymentInvoiceNum;
+			amountText = BrokerNewPaymentTest.newPaymentAmount.get(0);
+			payerText = BrokerNewPaymentTest.newPaymentPayer.get(0);
+			loadIdText = BrokerNewPaymentTest.newPaymentLoadId.get(0);
+			InvoiceNumberText = BrokerNewPaymentTest.newPaymentInvoiceNum.get(0);
 		} else {
 			carrierUsername = carrierEmail;
 			carrierPassword = carrierPW;

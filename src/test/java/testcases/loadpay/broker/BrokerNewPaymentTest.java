@@ -23,7 +23,7 @@ public class BrokerNewPaymentTest extends TestBase {
 	static String invoice;
 	public static ArrayList<String> al;
 	public static String email;
-	public static String newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNum = "";
+	public static ArrayList<String> newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNum;
 
 	String carrierUsername = "";
 	String brokerUsername, brokerPassword = "";
@@ -44,6 +44,11 @@ public class BrokerNewPaymentTest extends TestBase {
 		bl = new BrokerLoginPage();
 		bp = new BrokerNewPayment();
 		al = new ArrayList<String>();
+		newPaymentAmount = new ArrayList<String>();
+		newPaymentLoadId = new ArrayList<String>();
+		newPaymentPayer = new ArrayList<String>();
+		newPaymentInvoiceNum = new ArrayList<String>();
+
 		wait = new WebDriverWait(driver, 30);
 	}
 
@@ -87,10 +92,10 @@ public class BrokerNewPaymentTest extends TestBase {
 			carrierUsername = CarrierRegisterTest.carrierUsername;
 			invoiceno = "NP" + TestUtil.getCurrentDateTime();
 			loadid = invoiceno;
-			newPaymentAmount = amt;
-			newPaymentLoadId = loadid;
-			newPaymentPayer = BrokerRegisterTest.brokerCompanyName;
-			newPaymentInvoiceNum = invoiceno;
+			newPaymentAmount.add(amt);
+			newPaymentLoadId.add(loadid);
+			newPaymentPayer.add(BrokerRegisterTest.brokerCompanyName);
+			newPaymentInvoiceNum.add(invoiceno);
 		} else {
 			carrierUsername = cemail;
 		}

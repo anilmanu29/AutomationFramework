@@ -45,7 +45,6 @@
 		    
 		<!-- Script for Jira Tickets LP-3476  Carrier_Paid Tab  -->
 		 	 <!-- No Need to Update Test Data Sheet -->
-		 	<class name="testcases.loadpay.carrier.CarrierNextDAYACHTest"></class>
 		 	<class name="testcases.loadpay.carrier.CarrierPaidTabTest"></class>
 		 	
 		 	<class name="testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest"></class>

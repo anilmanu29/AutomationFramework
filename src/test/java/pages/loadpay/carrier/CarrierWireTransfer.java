@@ -127,7 +127,9 @@ public class CarrierWireTransfer extends TestBase {
 
 	public void clickPaidTab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(tab_paid));
-		act.moveToElement(tab_paid).click().perform();
+		tab_paid.click();
+		Thread.sleep(1000);
+		// act.moveToElement(tab_paid).click().perform();
 
 	}
 
