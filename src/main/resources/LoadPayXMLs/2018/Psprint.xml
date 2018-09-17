@@ -23,12 +23,10 @@
    --> 
 
 
-    	<!--Need to Update BrokerLoginData sheet-->
     <!-- Script for Jira Ticket LP-6627-LoadPay-Broker-Download .CSV from Scheduled Payments -->
 		<class name="testcases.loadpay.broker.BrokerDownloadCSVFromScheduledPaymentsTest"></class>
 		
 		
-		<!--Need to Update CarrierLoginData sheet-->
 	<!-- Script for Jira Ticket LP-6628-LoadPay-Carrier-Download .CSV from Scheduled Payments -->
 		<class name="testcases.loadpay.carrier.CarrierDownloadCSVFromScheduledPaymentsTest"></class>
 		
@@ -41,16 +39,13 @@
 	<!-- Script for Jira Ticket LP-6366-LoadPay - Carrier - Disable copy / paste functionality for add and confirm bank account -->
 		<class name="testcases.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccountTest"></class> 
 
-		<!--Need to Update AdminLogin sheet-->
 	<!-- Script for Jira Ticket LP-3494-LoadPay-Admin-Daily NACHA Payments File -->
 		<class name="testcases.loadpay.admin.AdminDailyNACHAPaymentsFileTest"></class>
 		
-		<!--Need to update AdminCustomersSideMenSearchData sheet-->
 	<!-- Script for Jira Ticket LP-6228-LoadPay-Admin-Customer Side Menu Search-->
 		<class name="testcases.loadpay.admin.AdminCustomersSideMenuSearchTest"></class>
 		
 		
-		<!--Need to Update BrokerNewPayment data sheet. Make sure there are 2 payments -->
 			<!-- Script for Jira Ticket LP-5427-LoadPay - Selenium Test - Admin - Delay Debit-->
 		<class name="testcases.loadpay.admin.AdminDelayDebitTest"></class>
 	

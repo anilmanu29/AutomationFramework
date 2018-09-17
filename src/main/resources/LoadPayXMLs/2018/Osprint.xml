@@ -26,11 +26,11 @@
     <!-- Script for Jira Ticket LP-6466 - LoadPay - Selenium Test - Integration - Handshake with ITSDispatch -->
 		<class name="testcases.loadpay.broker.HandshakewithITSDispatchTest"></class>
     		  
-    <!-- Need to update BrokerPaymentDataforUnmatchedCr sheet.Make sure there are 2 payments  -->		  
+   		  
     <!-- Script for Jira Ticket LP-6351 - LoadPay - Selenium Test - Admin - Show Quote For Check_Unmatched Carrier -->
 		<class name="testcases.loadpay.unmatched.ShowQuoteCheck_UnmatchedCarrierTest"></class>
     	
-    <!-- Need to Update BrokerNewPayment data sheet. Make sure there are 2 payments -->	
+   
   	 <!-- Script for Jira Ticket LP-5430 - LoadPay - Selenium Test - Admin - Payment sub menu -->
 		<class name="testcases.loadpay.broker.BrokerEditPaymentAdminPaymentssubmenuTest"></class>
 		
@@ -39,15 +39,13 @@
 		<class name="testcases.loadpay.admin.AdminPaymentHistoryTest"></class>
 		
 		
-    	 <!-- Make sure there are 2 payments. No need to update values for Invoice and load id. used Randomnumber function -->	
     <!-- Script for Jira Ticket LP-6350 -LoadPay - Selenium Test - Admin - Show Quote For Check_Matched Carrier-->
     	<class name="testcases.loadpay.carrier.ShowQuoteCheck_matchedCarrierTest"></class>
     
-    <!-- Make sure there are 2 payments. No need to update values for Invoice and load id. used Randomnumber function -->	
     <!-- Script for Jira Ticket LP-LP-6361 -LoadPay - Selenium Test - Broker - Notifications-->
     	<class name="testcases.loadpay.broker.BrokerNotificationsTest"></class>
     	
-    	 <!-- Need to Update BrokerRegister(BrokerEmailId) data sheet-->
+    	
     <!-- Script for Jira Ticket LP-6360 -LoadPay - Selenium Test - Broker - Schedule Payment without Bank Account When PayByInvoice Is Enabled-->
     	<class name="testcases.loadpay.broker.SchpaymentwithoutBankAccountPayByInvoiceEnabledTest"></class>
     
