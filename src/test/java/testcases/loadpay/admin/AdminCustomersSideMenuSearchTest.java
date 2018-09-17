@@ -102,10 +102,11 @@ public class AdminCustomersSideMenuSearchTest extends TestBase {
 		adminCustomersSideMenuSearch.ClickInactiveButton();
 		adminLoginPage.ClickOnSearchButton();
 		adminCustomersSideMenuSearch.ClickInactiveButton();
-		Assert.assertTrue(adminCustomersSideMenuSearch.Denied.isDisplayed(), "Admin Denied  Check Box if not found");
-		adminCustomersSideMenuSearch.ClickDeniedButton();
-		adminLoginPage.ClickOnSearchButton();
-		adminCustomersSideMenuSearch.ClickDeniedButton();
+		// Assert.assertTrue(adminCustomersSideMenuSearch.Denied.isDisplayed(), "Admin
+		// Denied Check Box if not found");
+		// adminCustomersSideMenuSearch.ClickDeniedButton();
+		// adminLoginPage.ClickOnSearchButton();
+		// adminCustomersSideMenuSearch.ClickDeniedButton();
 		Assert.assertTrue(adminCustomersSideMenuSearch.Broker.isDisplayed(), "Admin Broker   Check Box if not found");
 		adminCustomersSideMenuSearch.ClickBrokerButton();
 		adminLoginPage.ClickOnSearchButton();

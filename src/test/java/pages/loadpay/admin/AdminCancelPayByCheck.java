@@ -73,7 +73,7 @@ public class AdminCancelPayByCheck extends TestBase {
 	@FindBy(xpath = "//input[contains(@type,'submit')]")
 	WebElement loginBtn;
 
-	@FindBy(xpath = "//div[@class='carrierPayment']//child::div[9]//child::span")
+	@FindBy(xpath = "//div[@class='carrierPayment']//child::div[9]//child::span/a")
 	WebElement paymentid;
 
 	// @FindBy(xpath = "//button[contains(@ng-click,'UpdateCheckNumber();')]")
