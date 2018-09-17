@@ -10,9 +10,8 @@
 	<test name="N Sprint Test Cases">
     <classes>
     
- <!--Set useDynamicBrokerData and useDynamicUnmatchedData as true.Set useDynamicCarrierData as false in config.properties -->
-    
-    <!--1) LoginHandshakewithRTF_CarrierDa sheet - Update valid Username and Password for RTF Carrier.
+    <!--
+   1) LoginHandshakewithRTF_CarrierDa sheet - Update valid Username and Password for RTF Carrier.
    2) CarrierLoginData sheet - Update username and password for Carrier based on Environment.
    3) RTFLogin sheet -  Update valid Username and Password for RTF.
    4) BrokerLoginData sheet - Update username and password for Broker based on Environment.
@@ -45,10 +44,6 @@
     	-->
     <!-- Script for Jira Ticket LP-6365 LoadPay - Selenium Test - Broker - Disable copy / paste functionality for add and confirm bank account--> 	
 		<class name="testcases.loadpay.broker.BrokerDisableCopyPasteConfirmBankAccountTest"></class>
-    	
-    	
-    <!-- Script for Jira Ticket LP-6230 LoadPay - Selenium Test -Admin Wire Transfer-->
-		 <class name="testcases.loadpay.admin.AdminWireTransferTest"></class>
     
  
     <!--  Script for Jira Ticket LP-6364 - LoadPay - Selenium Test - Broker - 10% Limit Email Alert
@@ -61,29 +56,35 @@
      		<class name="testcases.loadpay.broker.BrokerOutlookTest"></class>
 			<class name="testcases.loadpay.admin.AdminBrokerTest"></class>
 			<class name="testcases.loadpay.broker.BrokerLoginTest"></class>
+			
+			<!-- Create carrier, verify through email, activate as admin, login new carrier -->	
+	 		<class name="testcases.loadpay.carrier.CarrierRegisterTest"></class>
+			<class name="testcases.loadpay.carrier.CarrierOutlookTest"></class>
+			<class name="testcases.loadpay.admin.AdminCarrierTest"></class>
+		 	<class name="testcases.loadpay.carrier.CarrierLoginTest"></class>
 		
 		<!-- BROKER SCHEDULES NEW PAYMENT . Need to update BROKERNEWPAYMENT data sheet. Make sure there are 2 payments-->
-				<class name="testcases.loadpay.broker.BrokerNewPaymentTest"></class>
+			<class name="testcases.loadpay.broker.BrokerNewPaymentTest"></class>
 			
 		<!-- LOG BROKER BACK IN TO SEE CREDIT AND VIEW 10% LIMIT EMAIL -->
-				<class name="testcases.loadpay.broker.BrokerViewCreditLessThan1000Test"></class>
+			<class name="testcases.loadpay.broker.BrokerViewCreditLessThan1000Test"></class>
 				
-		
+		<!-- Script for Jira Ticket LP-6230 LoadPay - Selenium Test -Admin Wire Transfer-->
+		 	<class name="testcases.loadpay.admin.AdminWireTransferTest"></class>
+				
 		<!-- Script for Jira Tickets LP-6500  LoadPay - Selenium Test - Carrier_PayMeNow on Unmatched_Fuel Card -->
-
-	   			<class name="testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest"></class>
-				 <class name="testcases.loadpay.unmatched.UnmatchedCarrierOutlookFuelCardTest"></class>
-		 		 <class name="testcases.loadpay.unmatched.UnmatchedCariierEmailVerifyFuelCardTest"></class>
-		 		 <class name="testcases.loadpay.unmatched.UnmatchedCarrierAdminTest"></class>
-		 		 <class name="testcases.loadpay.carrier.CarrierFirstLoginFuelCardTest"></class>
-		 		 <class name="testcases.loadpay.unmatched.UnmatchedCarrierPayMeNowFuelCardTest"></class>
+   			<class name="testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest"></class>
+	 		<class name="testcases.loadpay.unmatched.UnmatchedCarrierRegistrationTest"></class> 
+			<class name="testcases.loadpay.unmatched.UnmatchedCariierEmailVerifyTest"></class>
+	 		<class name="testcases.loadpay.unmatched.UnmatchedCarrierAdminTest"></class>
+	 		<class name="testcases.loadpay.carrier.CarrierFirstLoginFuelCardTest"></class>
+	 		<class name="testcases.loadpay.unmatched.UnmatchedCarrierPayMeNowFuelCardTest"></class>
 		 		 
 		 <!-- Script for Jira Ticket LP-6369 LoadPay -Selenium Test- Broker - Cannot Register Duplicate Email-->
 			<class name="testcases.loadpay.broker.BrokerCanNotRegisterDuplicateEmail"></class>
          
          <!-- Script for Jira Ticket LP-6367 LoadPay - Selenium Test - Carrier - Cannot Register Duplicate Email-->
 			<class name="testcases.loadpay.carrier.CarrierCanNotRegisterDuplicateEmail"></class>
-         
  
     </classes>
   </test> 

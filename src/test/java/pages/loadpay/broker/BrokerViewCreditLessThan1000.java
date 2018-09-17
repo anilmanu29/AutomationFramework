@@ -32,7 +32,7 @@ public class BrokerViewCreditLessThan1000 extends TestBase {
 	@FindBy(xpath = "//*[@id='angularScope']/div[2]/div/div[3]/ul/li[1]/a/div/div[1]/div")
 	WebElement AvailableCreditTab;
 
-	@FindBy(xpath = "//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div[3]")
+	@FindBy(xpath = "//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div[3]/span")
 	WebElement AvailableCreditText;
 
 	// Initializing the Page Objects:
