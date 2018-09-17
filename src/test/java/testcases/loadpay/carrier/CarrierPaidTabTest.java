@@ -45,9 +45,9 @@ public class CarrierPaidTabTest extends TestBase {
 		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
 			carrierUsername = CarrierRegisterTest.carrierUsername;
 			carrierPassword = CarrierRegisterTest.carrierPassword;
-			amountText = BrokerNewPaymentTest.newPaymentAmount.get(2);
-			payerText = BrokerNewPaymentTest.newPaymentPayer.get(2);
-			loadIdText = BrokerNewPaymentTest.newPaymentLoadId.get(2);
+			amountText = BrokerNewPaymentTest.newPaymentAmount.get(0);
+			payerText = BrokerNewPaymentTest.newPaymentPayer.get(0);
+			loadIdText = BrokerNewPaymentTest.newPaymentLoadId.get(0);
 		} else {
 			carrierUsername = carrierEmail;
 			carrierPassword = carrierPW;
@@ -206,9 +206,10 @@ public class CarrierPaidTabTest extends TestBase {
 		Assert.assertTrue(firstRowData.size() > 0, "No data rows found when searching by load ID");
 	}
 
-	public void verifyCarrierTabsDisplayed() {
+	public void verifyCarrierTabsDisplayed() throws InterruptedException {
 
 		// Verify that the Tab Text for Carriers is found
+		Thread.sleep(2000);
 		Assert.assertTrue(carrierPaidTab.payMeNowTab.getText().contains("PayMeNowTM"), "PayMeNow Tab not found");
 		Assert.assertTrue(carrierPaidTab.schedulePaymentsTab.getText().contains("SCHEDULED PAYMENTS"),
 				"Scheduled Payments Tab not found");

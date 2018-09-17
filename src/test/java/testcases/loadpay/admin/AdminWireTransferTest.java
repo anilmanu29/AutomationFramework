@@ -19,6 +19,8 @@ import pages.loadpay.broker.BrokerNewPayment;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierWireTransfer;
 import testcases.loadpay.broker.BrokerNewPaymentTest;
+import testcases.loadpay.broker.BrokerRegisterTest;
+import testcases.loadpay.carrier.CarrierRegisterTest;
 import util.TestUtil;
 
 public class AdminWireTransferTest extends TestBase {
@@ -39,6 +41,9 @@ public class AdminWireTransferTest extends TestBase {
 	String email;
 	ArrayList<String> invoiceList;
 
+	String carrierUsername, carrierPassword, brokerUsername, brokerPassword = "";
+	public static ArrayList<String> newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNum;
+
 	/*-------Initializing driver---------*/
 	public AdminWireTransferTest() {
 		super();
@@ -56,6 +61,12 @@ public class AdminWireTransferTest extends TestBase {
 		carrierLoginPage = new CarrierLoginPage();
 		carrierWireTransfer = new CarrierWireTransfer();
 		invoiceList = new ArrayList<String>();
+
+		newPaymentAmount = new ArrayList<String>();
+		newPaymentLoadId = new ArrayList<String>();
+		newPaymentPayer = new ArrayList<String>();
+		newPaymentInvoiceNum = new ArrayList<String>();
+
 		log = Logger.getLogger(AdminWireTransferTest.class.getName());
 		log.info("Test Set Up");
 		wait = new WebDriverWait(driver, 30);
@@ -64,7 +75,16 @@ public class AdminWireTransferTest extends TestBase {
 	/*-------Login to Load Pay as Broker---------*/
 	@Test(description = "LP-6230 Admin Wire Transfer", dataProvider = "getBrokerLoginData")
 	public void loginBroker(String un, String pwd) {
-		brokerloginPage.Brokerlogin(un, pwd);
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = un;
+			brokerPassword = pwd;
+		}
+
+		brokerloginPage.Brokerlogin(brokerUsername, brokerPassword);
 		log.info("Broker Login");
 
 	}
@@ -75,16 +95,22 @@ public class AdminWireTransferTest extends TestBase {
 	public void brokerNewPayment(String cemail, String invoiceno, String loadid, String amt)
 			throws InterruptedException {
 
-		String randomNumber = TestUtil.getCurrentDateTime();
-		// invoiceNum = randomNumber;
-		// invoicenumber = Integer.toString(invoiceNum);
-		invoiceno = randomNumber;
-		loadid = invoiceno;
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			invoiceno = "NP" + TestUtil.getCurrentDateTime();
+			loadid = invoiceno;
+			newPaymentAmount.add(amt);
+			newPaymentLoadId.add(loadid);
+			newPaymentPayer.add(BrokerRegisterTest.brokerCompanyName);
+			newPaymentInvoiceNum.add(invoiceno);
+		} else {
+			carrierUsername = cemail;
+		}
 
 		log.info("Create new Payment ");
 		brokerNewPayment.newPayment();
 
-		brokerNewPayment.carrierEmail(cemail);
+		brokerNewPayment.carrierEmail(carrierUsername);
 
 		brokerNewPayment.amount(amt);
 
@@ -97,7 +123,7 @@ public class AdminWireTransferTest extends TestBase {
 
 		brokerNewPayment.clickShedulePaymenttab();
 
-		brokerNewPayment.searchCarrier(cemail);
+		brokerNewPayment.searchCarrier(carrierUsername);
 
 		brokerNewPayment.clickSearchButton();
 
@@ -117,7 +143,15 @@ public class AdminWireTransferTest extends TestBase {
 		brokerNewPayment.logout();
 		log.info("Broker LogOut");
 
-		carrierLoginPage.Carrierlogin(un, pwd);
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
+		} else {
+			carrierUsername = un;
+			carrierPassword = pwd;
+		}
+
+		carrierLoginPage.Carrierlogin(carrierUsername, carrierPassword);
 		log.info("Carrier Login");
 
 	}
@@ -167,8 +201,7 @@ public class AdminWireTransferTest extends TestBase {
 
 		adminLogin.ClickOnCustomersTab();
 
-		System.out.println(BrokerLoginPage.bemail);
-		adminLogin.ClickOnSearchBox(BrokerLoginPage.bemail);
+		adminLogin.ClickOnSearchBox(brokerUsername);
 
 		adminLogin.ClickOnSearchButton();
 
@@ -204,8 +237,7 @@ public class AdminWireTransferTest extends TestBase {
 		/*------- Go To Admin and Fail Payment------*/
 		adminLogin.ClickOnCustomersTab();
 
-		System.out.println(BrokerLoginPage.bemail);
-		adminLogin.ClickOnSearchBox(BrokerLoginPage.bemail);
+		adminLogin.ClickOnSearchBox(brokerUsername);
 
 		adminLogin.ClickOnSearchButton();
 

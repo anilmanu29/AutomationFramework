@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
 import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
-import testcases.loadpay.unmatched.UnmatchedCarrierOutlookFuelCardTest;
 
 public class UnmatchedCarrierPaymeNowFuelCard extends TestBase {
 
@@ -75,8 +74,8 @@ public class UnmatchedCarrierPaymeNowFuelCard extends TestBase {
 	}
 
 	public void carrierLogin() {
-		UserName.sendKeys(BrokerPaymentforUnmatchedCarrierTest.al.get(1));
-		Password.sendKeys(UnmatchedCarrierOutlookFuelCardTest.pwd);
+		UserName.sendKeys(BrokerPaymentforUnmatchedCarrierTest.unMatchedCarrierUsername);
+		Password.sendKeys(BrokerPaymentforUnmatchedCarrierTest.unMatchedCarrierPassword);
 		loginBtn.click();
 	}
 

@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -20,6 +21,7 @@ import pages.loadpay.broker.BrokerViewCreditLessThan1000;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierWireTransfer;
 import pages.loadpay.outlook.outlooklogin;
+import testcases.loadpay.carrier.CarrierRegisterTest;
 
 public class BrokerViewCreditLessThan1000Test extends TestBase {
 	// BrokerLoginPage loginPage;
@@ -31,6 +33,7 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 	AdminHomePage adminhomeobj;
 	AdminLogin adminloginobj;
 	String newcreditAmount = "";
+	String carrierUsername, carrierPassword, brokerUsername, brokerPassword, adminUsername, adminPassword = "";
 
 	public BrokerViewCreditLessThan1000Test() {
 		super();
@@ -51,10 +54,32 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 		adminloginobj = new AdminLogin();
 	}
 
-	@Test(dataProvider = "getCarrierLoginData")
-	public void carrier(String user, String pass) throws InterruptedException {
+	@AfterClass
+	public void tearDown() throws IOException, InterruptedException, AWTException {
+		updateCreditAmount("999999");
+	}
 
-		carrierloginobj.Carrierlogin(user, pass);
+	@Test(dataProvider = "getAdminLoginData")
+	public void getAdminCredentials(String username, String password) {
+		adminUsername = username;
+		adminPassword = password;
+	}
+
+	@Test(dataProvider = "getCarrierLoginData", dependsOnMethods = "getAdminCredentials")
+	public void carrier(String user, String pass) throws InterruptedException, IOException, AWTException {
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
+		} else {
+			carrierUsername = user;
+			carrierPassword = pass;
+		}
+
+		updateCreditAmount("1000");
+
+		driver.get(super.getProperties().getProperty("url"));
+		carrierloginobj.Carrierlogin(carrierUsername, carrierPassword);
 		carrierwiretransferobj.clickPayMeNowPayment(BrokerNewPaymentTest.al.get(0));
 		carrierwiretransferobj.clickSelectButton();
 		carrierwiretransferobj.clickConfirmButton();
@@ -65,7 +90,15 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 	@Test(dataProvider = "getBrokerLoginData", dependsOnMethods = "carrier")
 	public void loginTest(String user, String pass) throws InterruptedException {
 
-		CreditLessThan1000.Brokerlogin(user, pass);
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = user;
+			brokerPassword = pass;
+		}
+
+		CreditLessThan1000.Brokerlogin(brokerUsername, brokerPassword);
 		CreditLessThan1000.AvailableCreditTab();
 		CreditLessThan1000.BrokerLogout();
 	}
@@ -101,7 +134,7 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 
 		adminloginobj.ClickOnCustomersTab();
 
-		adminloginobj.ClickOnSearchBox(BrokerRegisterTest.brokerUsername);
+		adminloginobj.ClickOnSearchBox(brokerUsername);
 
 		adminloginobj.ClickOnSearchButton();
 
@@ -140,5 +173,36 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 			}
 
 		}
+	}
+
+	public void updateCreditAmount(String creditAmount) throws IOException, InterruptedException, AWTException {
+		adminhomeobj.AdminURL();
+
+		adminloginobj.adminUserPass(adminUsername, adminPassword);
+
+		adminloginobj.adminLogin();
+
+		adminloginobj.ClickOnCustomersTab();
+
+		adminloginobj.Uncheck_Factor();
+
+		adminloginobj.ClickOnSearchBox(BrokerRegisterTest.brokerUsername);
+
+		adminloginobj.ClickOnSearchButton();
+
+		adminloginobj.DoubleClickID();
+
+		adminloginobj.StatusIDDropDown();
+
+		adminloginobj.UpdateButton();
+
+		adminloginobj.ClickOnCreditTab();
+
+		adminloginobj.EnterExtendedCredit(creditAmount);
+
+		adminloginobj.ClickOnCreditSubmitButton();
+
+		adminloginobj.AdminLogOut();
+
 	}
 }
