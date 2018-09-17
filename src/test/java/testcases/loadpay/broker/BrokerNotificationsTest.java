@@ -18,6 +18,7 @@ public class BrokerNotificationsTest extends TestBase {
 	CarrierLoginPage carrierloginobj;
 	CarrierNextDAYACH carriernextdayachobj;
 	BrokerLoginPage brokerloginobj;
+	String invoicenumb = "";
 
 	/*-------Initializing driver---------*/
 	public BrokerNotificationsTest() {
@@ -45,7 +46,7 @@ public class BrokerNotificationsTest extends TestBase {
 	@Test(description = "LP-6361 Broker Notifications", dependsOnMethods = {
 			"loginAsBrokerTest" }, dataProvider = "getPaymentData")
 	public void brokerCreateNewPaymentTest(String cE, String iN, String lId, String pA) throws InterruptedException {
-
+		invoicenumb = iN;
 		brokernotificationsobj.brokerCreateNewPayment(cE, iN, lId, pA);
 		System.out.println("brokerCreateNewPaymentTest - Passed");
 	}
@@ -61,7 +62,9 @@ public class BrokerNotificationsTest extends TestBase {
 	/*-------Verify Carrier Next Day ACH---------*/
 	@Test(description = "LP-6361 Broker Notifications", dependsOnMethods = { "loginAsCarrierTest" })
 	public void verifyCarrierPayMeNowNextDayACHTest() throws InterruptedException, AWTException {
-		brokernotificationsobj.clickPayMeNowPayment();
+
+		// brokernotificationsobj.clickPayMeNowPayment();
+		carriernextdayachobj.clickPaymenow();
 		carriernextdayachobj.clickSelectButton();
 		carriernextdayachobj.clickConfirmButton();
 		// carriernextdayachobj.clickPaidTab();

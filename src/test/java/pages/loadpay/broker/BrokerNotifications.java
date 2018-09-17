@@ -167,9 +167,8 @@ public class BrokerNotifications extends TestBase {
 		Thread.sleep(1000);
 		for (int i = 0; i < List_payment.size(); i++) {
 			String invoiceno = List_payment.get(i).getText();
-			if (invoiceno.contains(invoicenumber)) {
+			if (invoiceno.contains(arraylist.get(0))) {
 				Thread.sleep(1000);
-
 				act.moveToElement(paymenowpayments.get(i)).click().perform();
 				// js.executeScript("arguments[0].click();", paymenowpayments.get(i));
 				// paymenowpayments.get(i).click();
