@@ -119,40 +119,44 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 		}
 	}
 
-	@Test(dependsOnMethods = "BrokerOutlookTest", dataProvider = "getCreditAmount")
-	public void getCreditAmount(String creditamount) throws IOException, AWTException, InterruptedException {
-		newcreditAmount = creditamount;
-	}
-
-	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = "getCreditAmount")
-	public void addCreditTest(String Username, String password) throws AWTException, InterruptedException {
-
-		adminhomeobj.AdminURL();
-		adminloginobj.adminUserPass(Username, password);
-
-		adminloginobj.adminLogin();
-
-		adminloginobj.ClickOnCustomersTab();
-
-		adminloginobj.ClickOnSearchBox(brokerUsername);
-
-		adminloginobj.ClickOnSearchButton();
-
-		adminloginobj.DoubleClickID();
-
-		adminloginobj.StatusIDDropDown();
-
-		adminloginobj.UpdateButton();
-
-		adminloginobj.ClickOnCreditTab();
-
-		adminloginobj.EnterExtendedCredit(newcreditAmount);
-
-		adminloginobj.ClickOnCreditSubmitButton();
-
-		adminloginobj.AdminLogOut();
-
-	}
+	// @Test(dependsOnMethods = "BrokerOutlookTest", dataProvider =
+	// "getCreditAmount")
+	// public void getCreditAmount(String creditamount) throws IOException,
+	// AWTException, InterruptedException {
+	// newcreditAmount = creditamount;
+	// }
+	//
+	// @Test(dataProvider = "getAdminLoginData", dependsOnMethods =
+	// "getCreditAmount")
+	// public void addCreditTest(String Username, String password) throws
+	// AWTException, InterruptedException {
+	//
+	// adminhomeobj.AdminURL();
+	// adminloginobj.adminUserPass(Username, password);
+	//
+	// adminloginobj.adminLogin();
+	//
+	// adminloginobj.ClickOnCustomersTab();
+	//
+	// adminloginobj.ClickOnSearchBox(brokerUsername);
+	//
+	// adminloginobj.ClickOnSearchButton();
+	//
+	// adminloginobj.DoubleClickID();
+	//
+	// adminloginobj.StatusIDDropDown();
+	//
+	// adminloginobj.UpdateButton();
+	//
+	// adminloginobj.ClickOnCreditTab();
+	//
+	// adminloginobj.EnterExtendedCredit(newcreditAmount);
+	//
+	// adminloginobj.ClickOnCreditSubmitButton();
+	//
+	// adminloginobj.AdminLogOut();
+	//
+	// }
 
 	public void SearchInbox(String SearchText) throws InterruptedException {
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
