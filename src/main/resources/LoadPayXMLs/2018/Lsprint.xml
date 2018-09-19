@@ -5,7 +5,7 @@
   <listeners>
    	<listener class-name = "extentreportlistener.ExtentReporterNG"/>
    	<listener class-name = "testngcustomreportlistener.TestNGCustomReportListener"/>
-    <listener class-name = "AnnotationTransformer"/>
+    <listener class-name = "util.TestRetryAnalyzerListener"/>
   </listeners>
    
 	<test name="L Sprint Test Cases">
