@@ -14,7 +14,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -26,6 +25,7 @@ import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.broker.BrokerRegister;
 import pages.loadpay.outlook.outlooklogin;
+import testcases.loadpay.broker.BrokerRegisterTest;
 
 public class AdminEditEmailBrokerTest extends TestBase {
 	AdminHomePage adminHomePage;
@@ -70,128 +70,7 @@ public class AdminEditEmailBrokerTest extends TestBase {
 		wait = new WebDriverWait(driver, 30);
 	}
 
-	@AfterClass
-	public void revertToOriginalEmail() throws InterruptedException, AWTException {
-		// search-for and reset the updated email address to the original email address
-		adminHomePage.AdminURL();
-
-		adminLoginPage.ClickOnCustomersTab();
-
-		adminLoginPage.ClickOnSearchBox(updatedBrokerEmailAddress);
-
-		adminLoginPage.ClickOnSearchButton();
-
-		adminLoginPage.DoubleClickID();
-
-		adminEmailPage.openEmailLoginUsersPage();
-
-		adminEmailPage.clickEditEmailButton();
-
-		adminEmailPage.setNewEmailAddress(originalBrokerEmailAddress);
-		adminEmailPage.confirmNewEmailAddress(originalBrokerEmailAddress);
-		adminEmailPage.clickUpdateEmailEditButton();
-
-		Assert.assertTrue(adminEmailPage.getNewLoadPayEmailLabel().getText().contains(originalBrokerEmailAddress),
-				"Original" + originalBrokerEmailAddress + "] not found in confirmation!");
-		adminEmailPage.clickCloseEmailConfirmationButton();
-
-		adminEmailPage.clickRefreshButton();
-
-		Assert.assertTrue(adminEmailPage.getEmailPagePrimaryAddress().getText().contains(originalBrokerEmailAddress),
-				"Original Email Address Not Found!");
-	}
-
-	@Test(description = "LP-5432 Admin_EditEmail_registerNewBroker", dataProvider = "getBrokerRegisterData")
-	public void registerNewBroker(String DotNumber, String CompanyName, String DoingBusinessAs, String Email,
-			String ConfirmEmail, String ZipCode1, String Address, String City, String FirstName, String LastName,
-			String PhoneNumber, String Password, String ConfirmPassword, String NameOnAccount, String RoutingNumber,
-			String BankAccountNumber, String ConfirmbankAccountNumber) throws AWTException, InterruptedException {
-		Select type;
-		Select state;
-		Select country;
-
-		// store these into global variables for reuse
-		originalBrokerEmailAddress = Email;
-		originalBrokerPassword = Password;
-
-		// sign up and register new broker
-		brokerRegisterObj.signup();
-		brokerRegisterObj.shipperRegister();
-
-		brokerRegisterObj.companyname(CompanyName);
-
-		brokerRegisterObj.doingbussiness(DoingBusinessAs);
-
-		brokerRegisterObj.selectType();
-
-		type = new Select(driver.findElement(By.xpath(".//*[@id='EntityType']")));
-		type.selectByVisibleText("C Corporation");
-
-		brokerRegisterObj.countryofincorporation();
-
-		country = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationCountry']")));
-		country.selectByIndex(0);
-
-		brokerRegisterObj.stateofincorporation();
-
-		state = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationState']")));
-		state.selectByVisibleText("California");
-
-		brokerRegisterObj.BrokerEmail(Email);
-
-		brokerRegisterObj.confirmEmail(ConfirmEmail);
-
-		brokerRegisterObj.iCertifyClick();
-
-		brokerRegisterObj.paymentTerm();
-
-		brokerRegisterObj.clickNextBtnOnCompanyForm();
-
-		brokerRegisterObj.ZipCode(ZipCode1);
-
-		brokerRegisterObj.country();
-
-		country = new Select(driver.findElement(By.xpath(".//*[@id='OriginCountry']")));
-		country.selectByVisibleText("USA");
-
-		brokerRegisterObj.address(Address);
-
-		brokerRegisterObj.city(City);
-
-		brokerRegisterObj.State();
-
-		state = new Select(driver.findElement(By.xpath(".//*[@id='State']")));
-		state.selectByVisibleText("CA");
-
-		brokerRegisterObj.clickNextBtnOnAddressForm();
-
-		brokerRegisterObj.ContactFirstName(FirstName);
-
-		brokerRegisterObj.LastName(LastName);
-
-		brokerRegisterObj.Phone(PhoneNumber);
-
-		brokerRegisterObj.Password(Password);
-
-		brokerRegisterObj.ConfirmPassword(ConfirmPassword);
-
-		brokerRegisterObj.clickNextBtnOnContactForm();
-
-		brokerRegisterObj.AccountName(NameOnAccount);
-
-		brokerRegisterObj.BankingAccount(BankAccountNumber);
-
-		brokerRegisterObj.BankingRouting(RoutingNumber);
-
-		brokerRegisterObj.ConfirmBankingAccount(ConfirmbankAccountNumber);
-
-		brokerRegisterObj.clickNextBtnOnBankingForm();
-
-		log.debug("Broker Registration Completed...");
-	}
-
-	@Test(description = "LP-5432 Admin_EditEmail_adminLogin", dependsOnMethods = {
-			"registerNewBroker" }, dataProvider = "getAdminLoginData")
+	@Test(description = "LP-5432 Admin_EditEmail_adminLogin", dataProvider = "getAdminLoginData")
 	public void adminLogin(String Username, String pass) throws AWTException, InterruptedException {
 		adminHomePage.AdminURL();
 
@@ -206,6 +85,8 @@ public class AdminEditEmailBrokerTest extends TestBase {
 	@Test(description = "LP-5432 Admin_EditEmail_Broker", dependsOnMethods = { "adminLogin" })
 	public void brokerEditEmailTest() throws InterruptedException {
 		int randomNumber = adminEmailPage.getRandomNumber(1, 999999);
+		originalBrokerEmailAddress = BrokerRegisterTest.brokerUsername;
+		originalBrokerPassword = BrokerRegisterTest.brokerPassword;
 		updatedBrokerEmailAddress = originalBrokerEmailAddress.replaceFirst("@", randomNumber + "@");
 
 		log.info(originalBrokerEmailAddress);
@@ -343,5 +224,36 @@ public class AdminEditEmailBrokerTest extends TestBase {
 		WebElement loginLabel = driver.findElement(By.xpath("//span[@title='" + updatedBrokerEmailAddress + "']"));
 		Assert.assertTrue(loginLabel.getText().equals(updatedBrokerEmailAddress),
 				"Updated email address not seen after login!");
+	}
+
+	@Test(description = "LP-5432 Admin_EditEmail_RevertBrokerEmail", dependsOnMethods = { "verifyUpdatedBrokerLogin" })
+	public void revertToOriginalEmail() throws InterruptedException, AWTException {
+		// search-for and reset the updated email address to the original email address
+		adminHomePage.AdminURL();
+
+		adminLoginPage.ClickOnCustomersTab();
+
+		adminLoginPage.ClickOnSearchBox(updatedBrokerEmailAddress);
+
+		adminLoginPage.ClickOnSearchButton();
+
+		adminLoginPage.DoubleClickID();
+
+		adminEmailPage.openEmailLoginUsersPage();
+
+		adminEmailPage.clickEditEmailButton();
+
+		adminEmailPage.setNewEmailAddress(originalBrokerEmailAddress);
+		adminEmailPage.confirmNewEmailAddress(originalBrokerEmailAddress);
+		adminEmailPage.clickUpdateEmailEditButton();
+
+		Assert.assertTrue(adminEmailPage.getNewLoadPayEmailLabel().getText().contains(originalBrokerEmailAddress),
+				"Original" + originalBrokerEmailAddress + "] not found in confirmation!");
+		adminEmailPage.clickCloseEmailConfirmationButton();
+
+		adminEmailPage.clickRefreshButton();
+
+		Assert.assertTrue(adminEmailPage.getEmailPagePrimaryAddress().getText().contains(originalBrokerEmailAddress),
+				"Original Email Address Not Found!");
 	}
 }

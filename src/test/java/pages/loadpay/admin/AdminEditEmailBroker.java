@@ -66,10 +66,11 @@ public class AdminEditEmailBroker extends TestBase {
 		companyPage.click();
 	}
 
-	public void clickRefreshButton() {
+	public void clickRefreshButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(refreshButton));
 		refreshButton.click();
 		wait.until(ExpectedConditions.elementToBeClickable(refreshButton));
+		Thread.sleep(5000);
 	}
 
 	public void clickEditEmailButton() {

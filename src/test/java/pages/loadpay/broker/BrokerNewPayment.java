@@ -70,7 +70,7 @@ public class BrokerNewPayment extends TestBase {
 	private WebElement field_OriginCity;
 
 	@FindBy(id = "OriginProvinceId")
-	private WebElement dropdown_OriginState;
+	private WebElement field_OriginState;
 
 	@FindBy(id = "OriginZipCode")
 	private WebElement field_OriginZip;
@@ -457,13 +457,13 @@ public class BrokerNewPayment extends TestBase {
 		this.field_OriginCity.sendKeys(originCity);
 	}
 
-	public WebElement getDropdown_OriginState() {
-		return dropdown_OriginState;
+	public WebElement getField_OriginState() {
+		return field_OriginState;
 	}
 
-	public void setDropdown_OriginState(String originState) {
-		wait.until(ExpectedConditions.elementToBeClickable(dropdown_OriginState));
-		this.dropdown_OriginState.sendKeys(originState);
+	public void setField_OriginState(String originState) {
+		wait.until(ExpectedConditions.elementToBeClickable(field_OriginState));
+		this.field_OriginState.sendKeys(originState);
 	}
 
 	public WebElement getField_OriginZip() {

@@ -84,8 +84,7 @@ public class BrokerEditPaymentMatchedCarrier extends TestBase {
 		softAssert.assertTrue(brokerPaymentObj.getDropdown_OriginCountry().isEnabled(),
 				"Origin Country Dropdown Disabled!");
 		softAssert.assertTrue(brokerPaymentObj.getField_OriginCity().isEnabled(), "Origin City Field Disabled!");
-		softAssert.assertTrue(brokerPaymentObj.getDropdown_OriginState().isEnabled(),
-				"Origin State Dropdown Disabled!");
+		softAssert.assertTrue(brokerPaymentObj.getField_OriginState().isEnabled(), "Origin State Field Disabled!");
 		softAssert.assertTrue(brokerPaymentObj.getField_OriginZip().isEnabled(), "Origin ZIP Field Disabled!");
 
 		softAssert.assertTrue(brokerPaymentObj.getDropdown_DestinationCountry().isEnabled(),
@@ -147,7 +146,7 @@ public class BrokerEditPaymentMatchedCarrier extends TestBase {
 
 		brokerPaymentObj.setDropdown_OriginCountry(updatedOriginCountry);
 
-		brokerPaymentObj.setDropdown_OriginState(updatedOriginState);
+		brokerPaymentObj.setField_OriginState(updatedOriginState);
 
 		brokerPaymentObj.setField_OriginCity(updatedOriginCity);
 

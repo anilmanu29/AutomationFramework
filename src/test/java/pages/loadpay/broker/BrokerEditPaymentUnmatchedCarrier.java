@@ -1,11 +1,16 @@
 package pages.loadpay.broker;
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import base.TestBase;
+import testcases.loadpay.broker.BrokerRegisterTest;
+import testcases.loadpay.carrier.CarrierRegisterTest;
+import util.TestUtil;
 
 public class BrokerEditPaymentUnmatchedCarrier extends TestBase {
 	BrokerNewPayment brokerPaymentObj;
@@ -18,6 +23,9 @@ public class BrokerEditPaymentUnmatchedCarrier extends TestBase {
 	String payto = "";
 	String ein = "";
 
+	String brokerUsername, brokerPassword = "";
+	public static ArrayList<String> newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNum;
+
 	/*-------Initializing driver---------*/
 	public BrokerEditPaymentUnmatchedCarrier() {
 		super();
@@ -28,23 +36,47 @@ public class BrokerEditPaymentUnmatchedCarrier extends TestBase {
 		initialization();
 		brokerLoginObj = new BrokerLoginPage();
 		brokerPaymentObj = new BrokerNewPayment();
+		newPaymentAmount = new ArrayList<String>();
+		newPaymentLoadId = new ArrayList<String>();
+		newPaymentPayer = new ArrayList<String>();
+		newPaymentInvoiceNum = new ArrayList<String>();
 	}
 
 	public void loginAsBroker(String un, String pwd) {
 		brokerLoginObj = new BrokerLoginPage();
-		brokerLoginObj.Brokerlogin(un, pwd);
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = un;
+			brokerPassword = pwd;
+		}
+
+		brokerLoginObj.Brokerlogin(brokerUsername, brokerPassword);
 	}
 
 	public void brokerCreateNewPayment(String cE, String iN, String lId, String pA, String pT, String Ein)
 			throws InterruptedException {
 
 		// Store data-provider elements into publicly-accessible strings
-		carrierEmail = cE;
-		invoiceNum = iN;
-		loadId = lId;
-		paymentAmount = pA;
-		payto = pT;
-		ein = Ein;
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierEmail = CarrierRegisterTest.carrierUsername;
+			invoiceNum = "NP" + TestUtil.getCurrentDateTime();
+			loadId = lId;
+			newPaymentAmount.add(pA);
+			newPaymentLoadId.add(loadId);
+			newPaymentPayer.add(BrokerRegisterTest.brokerCompanyName);
+			newPaymentInvoiceNum.add(invoiceNum);
+		} else {
+			carrierEmail = cE;
+			invoiceNum = iN;
+			loadId = lId;
+			paymentAmount = pA;
+			payto = pT;
+			ein = Ein;
+		}
 
 		// create new payment
 		brokerPaymentObj = new BrokerNewPayment();
@@ -99,8 +131,7 @@ public class BrokerEditPaymentUnmatchedCarrier extends TestBase {
 		softAssert.assertTrue(brokerPaymentObj.getDropdown_OriginCountry().isEnabled(),
 				"Origin Country Dropdown Disabled!");
 		softAssert.assertTrue(brokerPaymentObj.getField_OriginCity().isEnabled(), "Origin City Field Disabled!");
-		softAssert.assertTrue(brokerPaymentObj.getDropdown_OriginState().isEnabled(),
-				"Origin State Dropdown Disabled!");
+		softAssert.assertTrue(brokerPaymentObj.getField_OriginState().isEnabled(), "Origin State Dropdown Disabled!");
 		softAssert.assertTrue(brokerPaymentObj.getField_OriginZip().isEnabled(), "Origin ZIP Field Disabled!");
 
 		softAssert.assertTrue(brokerPaymentObj.getDropdown_DestinationCountry().isEnabled(),
@@ -160,7 +191,7 @@ public class BrokerEditPaymentUnmatchedCarrier extends TestBase {
 
 		brokerPaymentObj.setDropdown_OriginCountry(updatedOriginCountry);
 
-		brokerPaymentObj.setDropdown_OriginState(updatedOriginState);
+		brokerPaymentObj.setField_OriginState(updatedOriginState);
 
 		brokerPaymentObj.setField_OriginCity(updatedOriginCity);
 

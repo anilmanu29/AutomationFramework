@@ -105,10 +105,11 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		carrierchildrelation.clickAddUserButton();
 		carrierchildrelation.enterFirstName(fn);
 		carrierchildrelation.enterLastName(ln);
+		nemailid = "carrier" + TestUtil.getCurrentDateTime() + "@loadpaytest.truckstop.com";
 		nemail = carrierchildrelation.enterNewEmailID(nemailid);
 		carrierchildrelation.enablePaymentAccess();
 		carrierchildrelation.clickSaveButton();
-		verifyEmailAddress(nemailid);
+		verifyEmailAddress(nemail);
 	}
 
 	//

@@ -65,9 +65,10 @@ public class AdminEditEmailCarrier extends TestBase {
 		companyPage.click();
 	}
 
-	public void clickRefreshButton() {
+	public void clickRefreshButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(refreshButton));
 		refreshButton.click();
+		Thread.sleep(3000);
 	}
 
 	public void clickEditEmailButton() {
@@ -80,9 +81,11 @@ public class AdminEditEmailCarrier extends TestBase {
 		cancelEmailEditButton.click();
 	}
 
-	public void clickUpdateEmailEditButton() {
+	public void clickUpdateEmailEditButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(updateEmailEditButton));
 		updateEmailEditButton.click();
+		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(closeEmailConfirmationButton));
 	}
 
 	public void clickUpdateCompanyButton() {

@@ -15,7 +15,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -29,6 +28,7 @@ import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierOutlook;
 import pages.loadpay.carrier.CarrierRegisterPage;
 import pages.loadpay.outlook.outlooklogin;
+import testcases.loadpay.carrier.CarrierRegisterTest;
 
 public class AdminEditEmailCarrierTest extends TestBase {
 	AdminHomePage adminHomePage;
@@ -75,123 +75,7 @@ public class AdminEditEmailCarrierTest extends TestBase {
 		wait = new WebDriverWait(driver, 30);
 	}
 
-	@AfterClass
-	public void revertToOriginalEmail() throws InterruptedException, AWTException {
-		// search-for and reset the updated email address to the original email address
-		adminHomePage.AdminURL();
-
-		adminLoginPage.ClickOnCustomersTab();
-
-		adminLoginPage.ClickOnSearchBox(updatedCarrierEmailAddress);
-
-		adminLoginPage.ClickOnSearchButton();
-
-		adminLoginPage.DoubleClickID();
-
-		adminEmailPage.openEmailLoginUsersPage();
-
-		adminEmailPage.clickEditEmailButton();
-
-		adminEmailPage.setNewEmailAddress(originalCarrierEmailAddress);
-		adminEmailPage.confirmNewEmailAddress(originalCarrierEmailAddress);
-		adminEmailPage.clickUpdateEmailEditButton();
-
-		Assert.assertTrue(adminEmailPage.getNewLoadPayEmailLabel().getText().contains(originalCarrierEmailAddress),
-				"Original" + originalCarrierEmailAddress + "] not found in confirmation!");
-		adminEmailPage.clickCloseEmailConfirmationButton();
-
-		adminEmailPage.clickRefreshButton();
-
-		Assert.assertTrue(adminEmailPage.getEmailPagePrimaryAddress().getText().contains(originalCarrierEmailAddress),
-				"Original Email Address Not Found!");
-	}
-
-	@Test(description = "LP-5432 Admin_EditEmail_setAdminURL", dataProvider = "getCarrierRegisterData")
-	public void registerNewCarrier(String Dotnumber, String CompanyName, String DoingBusinessAs, String Email,
-			String ConfirmEmail, String ZipCode1, String Address, String City, String FirstNames, String LastName,
-			String PhoneNumber, String Password, String ConfirmPassword, String NameOnAccount, String RoutingNumber,
-			String BankAccountNumber, String ConfirmbankAccountNumber) throws IOException, InterruptedException {
-
-		// store these into global variables for reuse
-		originalCarrierEmailAddress = Email;
-		originalCarrierPassword = Password;
-
-		// sign up and register new carrier
-		carrierRegisterObj.signup();
-		carrierRegisterObj.CarrierRegister();
-
-		carrierRegisterObj.companyname(CompanyName);
-
-		carrierRegisterObj.doingbussiness(DoingBusinessAs);
-
-		carrierRegisterObj.selectType();
-
-		Select type = new Select(driver.findElement(By.xpath(".//*[@id='EntityType']")));
-		type.selectByVisibleText("C Corporation");
-
-		carrierRegisterObj.countryofincorporation();
-
-		Select countryof = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationCountry']")));
-		countryof.selectByIndex(0);
-
-		carrierRegisterObj.stateofincorporation();
-
-		Select stateof = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationState']")));
-		stateof.selectByVisibleText("California");
-
-		carrierRegisterObj.CarrierEmail(Email);
-		carrierRegisterObj.confirmEmail(ConfirmEmail);
-
-		carrierRegisterObj.iCertifyClick();
-
-		carrierRegisterObj.clickNextBtnOnCompanyForm();
-
-		carrierRegisterObj.ZipCode(ZipCode1);
-
-		carrierRegisterObj.country();
-
-		Select country = new Select(driver.findElement(By.xpath(".//*[@id='OriginCountry']")));
-		country.selectByVisibleText("USA");
-
-		carrierRegisterObj.address(Address);
-
-		carrierRegisterObj.city(City);
-
-		carrierRegisterObj.State();
-
-		Select state = new Select(driver.findElement(By.xpath(".//*[@id='State']")));
-		state.selectByVisibleText("CA");
-
-		carrierRegisterObj.clickNextBtnOnAddressForm();
-
-		carrierRegisterObj.ContactFirstName(FirstNames);
-
-		carrierRegisterObj.LastName(LastName);
-
-		carrierRegisterObj.Phone(PhoneNumber);
-
-		carrierRegisterObj.Password(Password);
-
-		carrierRegisterObj.ConfirmPassword(ConfirmPassword);
-
-		carrierRegisterObj.clickNextBtnOnContactForm();
-
-		carrierRegisterObj.AccountName(NameOnAccount);
-
-		carrierRegisterObj.BankingAccount(BankAccountNumber);
-
-		carrierRegisterObj.BankingRouting(RoutingNumber);
-
-		carrierRegisterObj.ConfirmBankingAccount(ConfirmbankAccountNumber);
-
-		carrierRegisterObj.clickNextBtnOnBankingForm();
-
-		log.info(" Carrier Register Completed...");
-
-	}
-
-	@Test(description = "LP-5432 Admin_EditEmail_adminLogin", dependsOnMethods = {
-			"registerNewCarrier" }, dataProvider = "getAdminLoginData")
+	@Test(description = "LP-5432 Admin_EditEmail_adminLogin", dataProvider = "getAdminLoginData")
 	public void adminLogin(String Username, String pass) throws AWTException, InterruptedException {
 		adminHomePage.AdminURL();
 
@@ -206,6 +90,8 @@ public class AdminEditEmailCarrierTest extends TestBase {
 	@Test(description = "LP-5432 Admin_EditEmail_Carrier", dependsOnMethods = { "adminLogin" })
 	public void carrierEditEmailTest() throws InterruptedException {
 		int randomNumber = adminEmailPage.getRandomNumber(1, 999999);
+		originalCarrierEmailAddress = CarrierRegisterTest.carrierUsername;
+		originalCarrierPassword = CarrierRegisterTest.carrierPassword;
 		updatedCarrierEmailAddress = originalCarrierEmailAddress.replaceFirst("@", randomNumber + "@");
 
 		log.info(originalCarrierEmailAddress);
@@ -263,6 +149,9 @@ public class AdminEditEmailCarrierTest extends TestBase {
 		adminEmailPage.clickCloseEmailConfirmationButton();
 
 		adminEmailPage.clickRefreshButton();
+
+		log.info(adminEmailPage.getEmailPagePrimaryAddress().getText());
+		log.info(updatedCarrierEmailAddress);
 
 		Assert.assertTrue(adminEmailPage.getEmailPagePrimaryAddress().getText().contains(updatedCarrierEmailAddress),
 				"Updated Email Address Not Found!");
@@ -346,5 +235,37 @@ public class AdminEditEmailCarrierTest extends TestBase {
 
 		Assert.assertTrue(loginLabel.getText().equals(updatedCarrierEmailAddress),
 				"Updated email address not seen after login!");
+	}
+
+	@Test(description = "LP-5432 Admin_EditEmail_RevertCarrierEmail", dependsOnMethods = {
+			"verifyUpdatedCarrierLogin" })
+	public void revertToOriginalEmail() throws InterruptedException, AWTException {
+		// search-for and reset the updated email address to the original email address
+		adminHomePage.AdminURL();
+
+		adminLoginPage.ClickOnCustomersTab();
+
+		adminLoginPage.ClickOnSearchBox(updatedCarrierEmailAddress);
+
+		adminLoginPage.ClickOnSearchButton();
+
+		adminLoginPage.DoubleClickID();
+
+		adminEmailPage.openEmailLoginUsersPage();
+
+		adminEmailPage.clickEditEmailButton();
+
+		adminEmailPage.setNewEmailAddress(originalCarrierEmailAddress);
+		adminEmailPage.confirmNewEmailAddress(originalCarrierEmailAddress);
+		adminEmailPage.clickUpdateEmailEditButton();
+
+		Assert.assertTrue(adminEmailPage.getNewLoadPayEmailLabel().getText().contains(originalCarrierEmailAddress),
+				"Original" + originalCarrierEmailAddress + "] not found in confirmation!");
+		adminEmailPage.clickCloseEmailConfirmationButton();
+
+		adminEmailPage.clickRefreshButton();
+
+		Assert.assertTrue(adminEmailPage.getEmailPagePrimaryAddress().getText().contains(originalCarrierEmailAddress),
+				"Original Email Address Not Found!");
 	}
 }

@@ -129,6 +129,7 @@ public class UnmatchedCarrierWireTransfer extends TestBase {
 	}
 
 	public void gettotalpaiyAmount() throws InterruptedException {
+		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(paidamt));
 		totalamt = paidamt.getText();
 		totalamount = totalamt.replaceAll("\\$", "");

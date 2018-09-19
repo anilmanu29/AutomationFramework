@@ -5,6 +5,7 @@
   <listeners>
    	<listener class-name = "extentreportlistener.ExtentReporterNG"/>
    	<listener class-name = "testngcustomreportlistener.TestNGCustomReportListener"/>
+    <listener class-name = "AnnotationTransformer"/>
   </listeners>
    
 	<test name="M Sprint Test Cases">
@@ -14,8 +15,7 @@
 1. BrokerNewPaymentData Sheet = Invoice and Load ID , make sure there are 2 payments are available.
 2. carrierresetpassworddata Sheet = New Password & Confirm Password,ForceNew Password,ForceConfirm Password data need to be updated  
 3. BrokerLoginData Sheet UserName and Password need to be updated as per Environments
-4. BrokerLoginData Sheet UserName and Password need to be updated as per Environments 
-5.AdminLogin Sheet UserName and Password need to be updated as per Environments
+4. AdminLogin Sheet UserName and Password need to be updated as per Environments
 5. AdminSearchData Sheet Data need to be Updated -->
     
        
