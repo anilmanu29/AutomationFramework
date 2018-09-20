@@ -1,6 +1,7 @@
 package pages.loadpay.carrier;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -85,6 +86,8 @@ public class CarrierBanking extends TestBase {
 	public void enterRoutingNumber(String routingnum) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(field_routnumber));
 		field_routnumber.sendKeys(routingnum);
+		Thread.sleep(1000);
+		field_routnumber.sendKeys(Keys.ENTER);
 	}
 
 	public void enterAccountNumber(String accnum) throws InterruptedException {

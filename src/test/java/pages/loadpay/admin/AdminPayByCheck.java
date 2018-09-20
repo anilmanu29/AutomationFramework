@@ -1,5 +1,7 @@
 package pages.loadpay.admin;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -15,8 +17,8 @@ import base.TestBase;
 public class AdminPayByCheck extends TestBase {
 
 	WebDriverWait wait = null;
-	String paymentidd;
-	JavascriptExecutor js = (JavascriptExecutor) driver;
+	String paymentIdText;
+
 	// Page Factory - OR:
 	@FindBy(id = "EIN")
 	WebElement field_ein;
@@ -51,7 +53,7 @@ public class AdminPayByCheck extends TestBase {
 	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/a")
 	private WebElement stage_grid_collapse;
 
-	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/div[1]")
+	@FindBy(xpath = ".//*[@id=\"angularScope\"]/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/div[1]/div/b")
 	private WebElement qa_grid_collapse;
 
 	@FindBy(xpath = "//button[contains(@ng-click,'PayByCheck();')]")
@@ -105,8 +107,8 @@ public class AdminPayByCheck extends TestBase {
 	@FindBy(xpath = "//input[contains(@type,'submit')]")
 	WebElement loginBtn;
 
-	@FindBy(xpath = "//div[@class='carrierPayment']//child::div[9]//child::span")
-	WebElement paymentid;
+	@FindBy(xpath = "//div[@class='carrierPayment']//a/@href")
+	List<WebElement> paymentid;
 
 	@FindBy(xpath = "//button[contains(@ng-click,'UpdateCheckNumber();')]")
 	private WebElement btn_UpdateCheckNumber; // Button to click Add Check Number
@@ -137,8 +139,7 @@ public class AdminPayByCheck extends TestBase {
 	public void clickPayments() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(link_Payments));
 		Thread.sleep(1000);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", link_Payments);
+		link_Payments.click();
 
 	}
 
@@ -146,26 +147,33 @@ public class AdminPayByCheck extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(FieldSearch));
 		FieldSearch.click();
 		FieldSearch.sendKeys(invoice);
+		Thread.sleep(2000);
 		FieldSearch.sendKeys(Keys.RETURN);
 	}
 
 	public void getPaymentID() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(paymentid));
-		paymentidd = paymentid.getText();
-		log.info(paymentidd);
+
+		int index = 0;
+
+		for (WebElement e : paymentid) {
+			System.out.println(e.getText());
+			index++;
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(paymentid.get(0)));
+		paymentIdText = paymentid.get(0).getText();
+		log.info(paymentIdText);
 	}
 
 	public void clickSearch() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(link_Search));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", link_Search);
-
+		link_Search.click();
+		waitForLoadingToComplete();
 	}
 
 	public void clickShowQuote() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(buttonShowQuote));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", buttonShowQuote);
+		buttonShowQuote.click();
 		wait.until(ExpectedConditions.elementToBeClickable(ShowQuoteClose));
 		ShowQuoteClose.click();
 
@@ -174,7 +182,7 @@ public class AdminPayByCheck extends TestBase {
 	public void searchKeyword() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(searchKeyword));
 		searchKeyword.click();
-		searchKeyword.sendKeys(paymentidd);
+		searchKeyword.sendKeys(paymentIdText);
 		wait.until(ExpectedConditions.elementToBeClickable(searchKeyword));
 		searchKeyword.sendKeys(Keys.RETURN);
 		wait.until(ExpectedConditions.elementToBeClickable(searchKeyword));
@@ -183,8 +191,7 @@ public class AdminPayByCheck extends TestBase {
 
 	public void clickSearch1() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_Search));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", btn_Search);
+		btn_Search.click();
 		waitForLoadingToComplete();
 	}
 
@@ -192,12 +199,10 @@ public class AdminPayByCheck extends TestBase {
 
 		if (driver.getCurrentUrl().contains("lpstageadmin")) {
 			wait.until(ExpectedConditions.elementToBeClickable(stage_grid_collapse));
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].click();", stage_grid_collapse);
+			stage_grid_collapse.click();
 		} else if (driver.getCurrentUrl().contains("lpqaadmin")) {
 			wait.until(ExpectedConditions.elementToBeClickable(qa_grid_collapse));
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].click();", qa_grid_collapse);
+			qa_grid_collapse.click();
 		}
 
 		Thread.sleep(2000);
@@ -206,8 +211,7 @@ public class AdminPayByCheck extends TestBase {
 
 	public void clickPayByCheck() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_PayByCheck));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", btn_PayByCheck);
+		btn_PayByCheck.click();
 	}
 
 	public void selectTerms() throws InterruptedException {
@@ -421,7 +425,7 @@ public class AdminPayByCheck extends TestBase {
 	 * @return the paymentidd
 	 */
 	public String getPaymentidd() {
-		return paymentidd;
+		return paymentIdText;
 	}
 
 	/**
@@ -539,7 +543,7 @@ public class AdminPayByCheck extends TestBase {
 	/**
 	 * @return the paymentid
 	 */
-	public WebElement getPaymentid() {
+	public List<WebElement> getPaymentid() {
 		return paymentid;
 	}
 

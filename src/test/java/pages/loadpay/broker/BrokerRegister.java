@@ -1,5 +1,6 @@
 package pages.loadpay.broker;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -267,9 +268,11 @@ public class BrokerRegister extends TestBase {
 		AccountName.sendKeys(NameonAccount);
 	}
 
-	public void BankingRouting(String routingNumber) {
+	public void BankingRouting(String routingNumber) throws InterruptedException {
 		wait.until(ExpectedConditions.visibilityOf(BankingRouting));
 		BankingRouting.sendKeys(routingNumber);
+		Thread.sleep(1000);
+		BankingRouting.sendKeys(Keys.ENTER);
 	}
 
 	public void BankingAccount(String BankAccountNumber) {

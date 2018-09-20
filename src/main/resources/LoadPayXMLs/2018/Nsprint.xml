@@ -7,6 +7,10 @@
    	<listener class-name = "testngcustomreportlistener.TestNGCustomReportListener"/>
     <listener class-name = "util.TestRetryAnalyzerListener"/>
   </listeners>
+  
+    <suite-files>
+       <suite-file path="src/main/resources/LoadPayXMLs/2018/CreateNewBrokerAndCarrierWithPayments.xml"></suite-file>            
+	 </suite-files>
    
 	<test name="N Sprint Test Cases">
     <classes>
@@ -47,26 +51,7 @@
 		<class name="testcases.loadpay.broker.BrokerDisableCopyPasteConfirmBankAccountTest"></class>
     
  
-    <!--  Script for Jira Ticket LP-6364 - LoadPay - Selenium Test - Broker - 10% Limit Email Alert
-   		NEED TO UPDATE FOLLOWING WORKSHEETS - 
-   			BROKER REGISTRATION, 
-   			BROKER NEW PAYMENT NEEDS NEW PAYMENT FOR $930.00, 
-   			CARRIER LOGIN THAT THE PAYMENT WAS SCHEDULED TO,
-   			BROKER LOGIN WITH BROKER THAT HAS BEEN REGISTERED -->
-     		<class name="testcases.loadpay.broker.BrokerRegisterTest"></class>
-     		<class name="testcases.loadpay.broker.BrokerOutlookTest"></class>
-			<class name="testcases.loadpay.admin.AdminBrokerTest"></class>
-			<class name="testcases.loadpay.broker.BrokerLoginTest"></class>
-			
-			<!-- Create carrier, verify through email, activate as admin, login new carrier -->	
-	 		<class name="testcases.loadpay.carrier.CarrierRegisterTest"></class>
-			<class name="testcases.loadpay.carrier.CarrierOutlookTest"></class>
-			<class name="testcases.loadpay.admin.AdminCarrierTest"></class>
-		 	<class name="testcases.loadpay.carrier.CarrierLoginTest"></class>
-		
-		<!-- BROKER SCHEDULES NEW PAYMENT . Need to update BROKERNEWPAYMENT data sheet. Make sure there are 2 payments-->
-			<class name="testcases.loadpay.broker.BrokerNewPaymentTest"></class>
-			
+    <!--  Script for Jira Ticket LP-6364 - LoadPay - Selenium Test - Broker - 10% Limit Email Alert	
 		<!-- LOG BROKER BACK IN TO SEE CREDIT AND VIEW 10% LIMIT EMAIL -->
 			<class name="testcases.loadpay.broker.BrokerViewCreditLessThan1000Test"></class>
 				

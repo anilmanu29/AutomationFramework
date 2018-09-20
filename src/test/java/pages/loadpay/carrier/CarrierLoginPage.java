@@ -135,7 +135,6 @@ public class CarrierLoginPage extends TestBase {
 		// loginBtn.click();
 		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
 		loginBtn.click();
-		wait.until(ExpectedConditions.elementToBeClickable(btn_logout));
 	}
 
 	public void carrierVerificationLogin(String UserName, String NewPassword) {

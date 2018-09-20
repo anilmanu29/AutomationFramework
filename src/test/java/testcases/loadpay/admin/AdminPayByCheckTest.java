@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -57,13 +58,16 @@ public class AdminPayByCheckTest extends TestBase {
 		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
 			brokerUsername = BrokerRegisterTest.brokerUsername;
 			brokerPassword = BrokerRegisterTest.brokerPassword;
+
+			Assert.assertTrue(brokerUsername != "",
+					"Broker Username appears to be null - brokerUsername[" + brokerUsername + "]");
 		} else {
 			brokerUsername = username;
 			brokerPassword = pwd;
 		}
 	}
 
-	@Test(dataProvider = "getPaymentData")
+	@Test(dataProvider = "getPaymentData", dependsOnMethods = "getBrokerCredentials")
 	public void getBrokerInvoiceNumbers(String cemail, String invoiceno, String loadid, String amt)
 			throws InterruptedException {
 		// login as broker
@@ -75,7 +79,7 @@ public class AdminPayByCheckTest extends TestBase {
 		}
 	}
 
-	@Test(dataProvider = "getAdminLoginData")
+	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = "getBrokerInvoiceNumbers")
 	public void verifyAdminPayByCheck(String Username, String pass) throws InterruptedException, AWTException {
 
 		ahp.AdminURL();
