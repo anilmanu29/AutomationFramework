@@ -133,6 +133,9 @@ public class AdminLogin extends TestBase {
 	@FindBy(xpath = "//input[@value='Search']")
 	public WebElement ClickonSearchButton;
 
+	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[2]/img")
+	WebElement loadingSpinner;
+
 	public @FindBy(xpath = ".//*[@id='emailTo']") WebElement emailTo;
 
 	public @FindBy(xpath = "//*[@id='editbtnPayByInvoice']") WebElement editbtnPayByInvoice;
@@ -265,6 +268,7 @@ public class AdminLogin extends TestBase {
 
 	public void ClickOnCreditTab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CreditTab));
+		Thread.sleep(2000);
 		CreditTab.click();
 		wait.until(ExpectedConditions.elementToBeClickable(ExtendedCredit));
 	}
@@ -275,7 +279,7 @@ public class AdminLogin extends TestBase {
 	}
 
 	public void click_unenrolldelaydebit() throws InterruptedException {
-
+		wait.until(ExpectedConditions.elementToBeClickable(unenrolldelaydebit));
 		unenrolldelaydebit.click();
 	}
 
@@ -328,7 +332,7 @@ public class AdminLogin extends TestBase {
 
 	public void ClickEditDelayDebit() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(EditDelayDebit));
-		js.executeScript("arguments[0].click();", EditDelayDebit);
+		EditDelayDebit.click();
 		Thread.sleep(2000);
 	}
 
@@ -336,7 +340,9 @@ public class AdminLogin extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(search));
 		search.click();
 		search.clear();
+		Thread.sleep(1000);
 		search.sendKeys(keyword);
+		Thread.sleep(2000);
 	}
 
 	public void ClickOnSearchButton() throws InterruptedException {
@@ -636,7 +642,14 @@ public class AdminLogin extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(Factoruncheck));
 
 		if (Factoruncheck.isSelected())
-			js.executeScript("arguments[0].click();", Factoruncheck);
+			Factoruncheck.click();
 
+	}
+
+	public void waitForLoadingToComplete() throws InterruptedException {
+		if (loadingSpinner.isDisplayed()) {
+			Thread.sleep(2000);
+			waitForLoadingToComplete();
+		}
 	}
 }

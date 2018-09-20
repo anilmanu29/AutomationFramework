@@ -1,6 +1,5 @@
 package pages.loadpay.carrier;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -125,26 +124,25 @@ public class CarrierPaymeNowFuelCard extends TestBase {
 	}
 
 	public void clickConfirmButton() throws InterruptedException {
-		act.pause(1000);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", btn_confirm);
+		wait.until(ExpectedConditions.elementToBeClickable(btn_confirm));
+		btn_confirm.click();
 	}
 
 	public void clickPaidTab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(tab_paid));
-		act.moveToElement(tab_paid).click().perform();
+		tab_paid.click();
 
 	}
 
 	public void clickpaymenowtab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(paymenowtab));
-		act.moveToElement(paymenowtab).click().perform();
+		paymenowtab.click();
 
 	}
 
 	public void clickFTS() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(rbtn_fts));
-		act.moveToElement(rbtn_fts).click().perform();
+		rbtn_fts.click();
 
 	}
 }

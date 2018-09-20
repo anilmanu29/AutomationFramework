@@ -2,30 +2,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Automation Test Suite">
 
-  <listeners>
-   	<listener class-name = "extentreportlistener.ExtentReporterNG"/>
-   	<listener class-name = "testngcustomreportlistener.TestNGCustomReportListener"/>
-   	<listener class-name = "util.TestRetryAnalyzerListener"/>
-  </listeners>
-   
-	<test name="Test Cases">
-		<classes>
-	
-			<!-- Broker Register -->
-			
-			 <!--   <class name="testcases.loadpay.broker.BrokerRegisterTest"></class>
-			        <class name="testcases.loadpay.outlookoutlooklogintest"/>
-			        <class name="testcases.loadpay.broker.BrokerLoginTest"></class>
-					<class name="testcases.loadpay.broker.BrokerNewPaymentTest"></class> -->
-			 
-					 
-			<!-- Carrier Register -->
-			
-			 <!--   <class name="testcases.loadpay.carrier.CarrierRegisterTest"></class>
-			        <class name="testcases.loadpay.carrier.CarrierOutlookTest"></class>
-			        <class name="testcases.loadpay.carrier.CarrierLoginTest"></class>
-				    <class name="testcases.loadpay.carrier.CarrierNotificationTest"></class> -->
-		  
-		</classes>
-	</test>
+	 <listeners>
+	  	<listener class-name = "extentreportlistener.ExtentReporterNG"/>
+	  	<listener class-name = "testngcustomreportlistener.TestNGCustomReportListener"/>
+	  	<listener class-name = "util.TestRetryAnalyzerListener"/>
+	 </listeners>
+
+			 <suite-files>
+		       <suite-file path="src/main/resources/LoadPayXMLs/2018/CreateNewBrokerAndCarrierWithPayments.xml"></suite-file>            
+			 </suite-files>
+		
 </suite>

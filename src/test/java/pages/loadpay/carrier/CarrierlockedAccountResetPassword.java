@@ -120,7 +120,7 @@ public class CarrierlockedAccountResetPassword extends TestBase {
 			log.info(emailid.getText());
 			if (emailid.getText().equalsIgnoreCase(emailaddress + ";")) {
 				wait.until(ExpectedConditions.elementToBeClickable(buttonresetpassword));
-				js.executeScript("arguments[0].click();", buttonresetpassword);
+				buttonresetpassword.click();
 				break;
 			}
 

@@ -7,24 +7,14 @@
    	<listener class-name = "testngcustomreportlistener.TestNGCustomReportListener"/>
     <listener class-name = "util.TestRetryAnalyzerListener"/>
   </listeners>
+  
+     <suite-files>
+       <suite-file path="src/main/resources/LoadPayXMLs/2018/CreateNewBrokerAndCarrierCanada.xml"></suite-file> 
+       <suite-file path="src/main/resources/LoadPayXMLs/2018/CreateNewBrokerAndCarrierWithPayments.xml"></suite-file>             
+	 </suite-files>
    
 	<test name="J Sprint Test Cases">
     <classes>
-
- 		<!--    Script for Jira Tickets LP-5390 LoadPay - Selenium Test - Broker - Register Canada  Shantesh  -->
-
-			<class name="testcases.loadpay.broker.BrokerRegisterCanadaTest"></class>
-		 	<class name="testcases.loadpay.broker.BrokerOutlookCanadaTest"></class>
-			<class name="testcases.loadpay.admin.AdminBrokerCanadaTest"></class>
-			<class name="testcases.loadpay.broker.BrokerCanadaFirstLoginTest"></class>
-			
-  		<!-- Script for Jira Tickets LP-5409 LoadPay - Selenium Test - Carrier - Register Canada -->
-
-		 	<class name="testcases.loadpay.carrier.CarrierRegisterCanadaTest"></class>
-			<class name="testcases.loadpay.carrier.CarrierOutlookCanadaTest"></class>
-			<class name="testcases.loadpay.admin.AdminCarrierCanadaTest"></class>
-			<class name="testcases.loadpay.carrier.CarrierCanadaFirstLoginTest"></class>
-
 
 		<!--   Script for Jira Tickets LP-3485 LoadPay - Selenium Test - Shipper- SchedulePaymentTest   -->
 	              
@@ -33,19 +23,6 @@
 		
 		<!--   Script for Jira Tickets LP-5397 LoadPay - Selenium Test - Shipper - Advance Payment   -->
 	 		<class name="testcases.loadpay.broker.ShipperAdvancePaymentTest"></class>
-	 		
-	 	<!--  Script for Jira Tickets LP-3475 LoadPay - Selenium Test - Carrier - SchedulePayment   -->
-	 		<class name="testcases.loadpay.broker.BrokerRegisterTest"></class>
-			<class name="testcases.loadpay.broker.BrokerOutlookTest"></class>
-			<class name="testcases.loadpay.admin.AdminBrokerTest"></class>
-			<class name="testcases.loadpay.broker.BrokerLoginTest"></class
-			    >
-			<class name="testcases.loadpay.carrier.CarrierRegisterTest"></class>
-			<class name="testcases.loadpay.carrier.CarrierOutlookTest"></class>
-			<class name="testcases.loadpay.admin.AdminCarrierTest"></class>
-		 	<class name="testcases.loadpay.carrier.CarrierLoginTest"></class>
-		 	
-	 		<class name="testcases.loadpay.broker.BrokerNewPaymentTest"></class>
 	 		
 			<class name="testcases.loadpay.carrier.CarrierSchedulePaymentTest"></class>
 			

@@ -22,26 +22,17 @@
    5) CarrierPaidTab Sheet - Carrier details should be Updated.
    -->
   
-  
+	<suite-files>
+       <suite-file path="src/main/resources/LoadPayXMLs/2018/CreateNewBrokerAndCarrierWithPayments.xml"></suite-file>            
+	 </suite-files>
    
 	<test name="K Sprint Test Cases">
     <classes>
         
-        <!-- Create Broker, verify through email, activate as admin, login new broker -->
-        	<class name="testcases.loadpay.broker.BrokerRegisterTest"></class>
-			<class name="testcases.loadpay.broker.BrokerOutlookTest"></class>
-			<class name="testcases.loadpay.admin.AdminBrokerTest"></class>
-			<class name="testcases.loadpay.broker.BrokerLoginTest"></class>
-			
-		<!-- Create carrier, verify through email, activate as admin, login new carrier -->	
-	 		<class name="testcases.loadpay.carrier.CarrierRegisterTest"></class>
-			<class name="testcases.loadpay.carrier.CarrierOutlookTest"></class>
-			<class name="testcases.loadpay.admin.AdminCarrierTest"></class>
-		 	<class name="testcases.loadpay.carrier.CarrierLoginTest"></class>
+
 
 		<!-- Script for Jira Tickets LP-5424  AdminPayByCheck  Anil-->
-		<!-- Invoice and LoadID Amount details needs to be updated in BrokerNewPayment and BrokerPaymentDataforUnmatchedCr Sheets-->	 	
-	   	    <class name="testcases.loadpay.broker.BrokerNewPaymentTest"></class>
+		<!-- Invoice and LoadID Amount details needs to be updated in BrokerNewPayment and BrokerPaymentDataforUnmatchedCr Sheets-->
 		    <class name="testcases.loadpay.admin.AdminPayByCheckTest"></class>
 		    
 		<!-- Script for Jira Tickets LP-3476  Carrier_Paid Tab  -->

@@ -7,6 +7,10 @@
    	<listener class-name = "testngcustomreportlistener.TestNGCustomReportListener"/>
     <listener class-name = "util.TestRetryAnalyzerListener"/>
   </listeners>
+  
+    	<suite-files>
+       <suite-file path="src/main/resources/LoadPayXMLs/2018/CreateNewBrokerAndCarrierWithPayments.xml"></suite-file>            
+	 </suite-files>
    
 	<test name="Sprint I Test Cases">
 		<classes>
@@ -18,21 +22,8 @@
 <!-- 		    CarrierRegister (carrier@loadpaytest.truckstop.com) -->
 <!-- 		    BrokerNewPayment (3 rows of data to any carrier...with dynamic data set to true, it will go to the carrier above) -->
 <!-- 		    BrokerPaymentForUnmatchedCarrier (2 rows of data)-->
-	
-	    <!--   Script for Jira Tickets LP-4269 Verify Email in Mailinator_Broker     -->
-	    	<class name="testcases.loadpay.broker.BrokerRegisterTest"></class>
-			<class name="testcases.loadpay.broker.BrokerOutlookTest"></class>
-			<class name="testcases.loadpay.admin.AdminBrokerTest"></class>
-			<class name="testcases.loadpay.broker.BrokerLoginTest"></class>
-			
-		<!--   Script for Jira Tickets LP-4270 Verify Email in Mailinator_Carrier     -->
-	 		<class name="testcases.loadpay.carrier.CarrierRegisterTest"></class>
-			<class name="testcases.loadpay.carrier.CarrierOutlookTest"></class>
-			<class name="testcases.loadpay.admin.AdminCarrierTest"></class>
-		 	<class name="testcases.loadpay.carrier.CarrierLoginTest"></class>
 			
 		<!--   Script for Jira Tickets LP-3474 & LP-5413  CarrierWireTransferTest & CarrierPayMeNowTabTest -->
-		  	<class name="testcases.loadpay.broker.BrokerNewPaymentTest"></class>
 		  	<class name="testcases.loadpay.carrier.CarrierNotificationTest"></class>
 		 	<class name="testcases.loadpay.carrier.CarrierWireTransferTest"></class>
 

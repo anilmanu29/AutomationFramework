@@ -13,6 +13,7 @@ import org.testng.asserts.SoftAssert;
 
 import base.TestBase;
 import pages.loadpay.admin.AdminPayByCheck;
+import testcases.loadpay.carrier.CarrierRegisterTest;
 import util.TestUtil;
 
 public class BrokerEditPaymentAdminPaymentssubmenu extends TestBase {
@@ -29,7 +30,8 @@ public class BrokerEditPaymentAdminPaymentssubmenu extends TestBase {
 	WebDriverWait wait = null;
 	public static ArrayList<String> arraylist;
 	AdminPayByCheck adminpaybycheckobj;
-	public static String newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNum = "";
+	// public static String newPaymentAmount, newPaymentLoadId, newPaymentPayer,
+	// newPaymentInvoiceNum = "";
 
 	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[4]/div/div[2]/div/div[2]/div/div/div[1]/div/div[9]/span")
 	private WebElement payment;
@@ -63,20 +65,23 @@ public class BrokerEditPaymentAdminPaymentssubmenu extends TestBase {
 
 	public void brokerCreateNewPayment(String cE, String iN, String lId, String pA) throws InterruptedException {
 
-		carrierEmail = cE;
-		iN = TestUtil.getCurrentDateTime();
-		newPaymentAmount = pA;
-		newPaymentLoadId = iN;
-		newPaymentInvoiceNum = iN;
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierEmail = CarrierRegisterTest.carrierUsername;
+		} else {
+			carrierEmail = cE;
+		}
+
+		iN = "NP" + TestUtil.getCurrentDateTime();
+		lId = iN;
 
 		// create new payment
 		brokerPaymentObj = new BrokerNewPayment();
 		brokerPaymentObj.newPayment();
 		brokerPaymentObj.carrierEmail(carrierEmail);
-		brokerPaymentObj.amount(newPaymentAmount);
-		invoiceNum = brokerPaymentObj.invoiceNumber(newPaymentInvoiceNum);
+		brokerPaymentObj.amount(pA);
+		invoiceNum = brokerPaymentObj.invoiceNumber(iN);
 		arraylist.add(invoiceNum);
-		brokerPaymentObj.loadId(newPaymentLoadId);
+		brokerPaymentObj.loadId(lId);
 		brokerPaymentObj.clickShedulePayment();
 		brokerPaymentObj.clickShedulePaymenttab();
 		brokerPaymentObj.searchInvoice(invoiceNum);

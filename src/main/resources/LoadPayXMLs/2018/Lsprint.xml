@@ -7,6 +7,10 @@
    	<listener class-name = "testngcustomreportlistener.TestNGCustomReportListener"/>
     <listener class-name = "util.TestRetryAnalyzerListener"/>
   </listeners>
+  
+  	<suite-files>
+       <suite-file path="src/main/resources/LoadPayXMLs/2018/CreateNewBrokerAndCarrierWithPayments.xml"></suite-file>            
+	 </suite-files>
    
 	<test name="L Sprint Test Cases">
     <classes>
@@ -20,15 +24,6 @@
  
    -->
     
-    <!--   Pre-requisite for Edit Email Tests that rely on broker/carrier registration   -->
-		    	<class name="testcases.loadpay.broker.BrokerRegisterTest"></class>
-				<class name="testcases.loadpay.broker.BrokerOutlookTest"></class>
-				<class name="testcases.loadpay.admin.AdminBrokerTest"></class>
-				<class name="testcases.loadpay.broker.BrokerLoginTest"></class>
-		 		<class name="testcases.loadpay.carrier.CarrierRegisterTest"></class>
-				<class name="testcases.loadpay.carrier.CarrierOutlookTest"></class>
-				<class name="testcases.loadpay.admin.AdminCarrierTest"></class>
-			 	<class name="testcases.loadpay.carrier.CarrierLoginTest"></class>
 		
 			    <class name="testcases.loadpay.admin.AdminEditEmailBrokerTest"></class>
 		 	 	<class name="testcases.loadpay.admin.AdminEditEmailCarrierTest"></class>

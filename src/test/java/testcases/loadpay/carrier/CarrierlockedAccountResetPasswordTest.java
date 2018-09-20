@@ -24,6 +24,7 @@ import pages.loadpay.carrier.CarrierOutlook;
 import pages.loadpay.carrier.CarrierParentChildRelationships;
 import pages.loadpay.carrier.CarrierlockedAccountResetPassword;
 import pages.loadpay.outlook.outlooklogin;
+import util.TestUtil;
 
 public class CarrierlockedAccountResetPasswordTest extends TestBase {
 	CarrierlockedAccountResetPassword carrierlockaccounrsetpwdtobj;
@@ -140,9 +141,9 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 		Assert.assertTrue(carrierparentchildobject.confirmpassword.isDisplayed(),
 				"Confirm Password field is NOT Displayed");
 
-		newpwd = nwpwd;
-		carrierparentchildobject.newpasswordfield.sendKeys(nwpwd);
-		carrierparentchildobject.confirmpassword.sendKeys(confmpwd);
+		newpwd = nwpwd + TestUtil.getCurrentDateTime();
+		carrierparentchildobject.newpasswordfield.sendKeys(newpwd);
+		carrierparentchildobject.confirmpassword.sendKeys(newpwd);
 		carrierparentchildobject.submitbutton.click();
 
 	}
