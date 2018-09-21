@@ -137,7 +137,7 @@ public class ShowQuoteCheck_UnmatchedCarrierTest extends TestBase {
 		System.out.println(UnCarrierAdminPBC.getPaymentId1().getText());
 		adminPayByCheck.ClickOnsearchKeyword(UnCarrierAdminPBC.getPaymentId1().getText());
 		Thread.sleep(1000);
-		adminPayByCheck.getPaymentID();
+		adminPayByCheck.getPaymentID(UnCarrierAdminPBC.getPaymentId1().getText());
 		adminPayByCheck.clickSearch();
 		adminPayByCheck.searchKeyword();
 		adminPayByCheck.clickSearch1();

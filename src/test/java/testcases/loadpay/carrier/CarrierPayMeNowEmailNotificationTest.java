@@ -288,7 +288,7 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 
 		adminPayByCheckObj.clickPayments();
 		adminPayByCheckObj.ClickOnsearchKeyword(invoice);
-		adminPayByCheckObj.getPaymentID();
+		adminPayByCheckObj.getPaymentID(invoice);
 		adminPayByCheckObj.clickSearch();
 
 		adminPayByCheckObj.searchKeyword();

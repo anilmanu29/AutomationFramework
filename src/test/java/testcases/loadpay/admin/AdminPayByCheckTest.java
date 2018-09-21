@@ -54,6 +54,7 @@ public class AdminPayByCheckTest extends TestBase {
 
 	@Test(dataProvider = "getBrokerLoginData")
 	public void getBrokerCredentials(String username, String pwd) throws InterruptedException {
+		Thread.sleep(2000);
 		// login as broker
 		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
 			brokerUsername = BrokerRegisterTest.brokerUsername;
@@ -70,7 +71,8 @@ public class AdminPayByCheckTest extends TestBase {
 	@Test(dataProvider = "getPaymentData", dependsOnMethods = "getBrokerCredentials")
 	public void getBrokerInvoiceNumbers(String cemail, String invoiceno, String loadid, String amt)
 			throws InterruptedException {
-		// login as broker
+		Thread.sleep(2000);
+		// get invoice numbers f payments made to carrier
 		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true") && (invoicesLoaded == false)) {
 			brokerInvoices.addAll(BrokerNewPaymentTest.al);
 			invoicesLoaded = true;
@@ -102,7 +104,7 @@ public class AdminPayByCheckTest extends TestBase {
 
 		adminPayByCheckObj.ClickOnsearchKeyword(brokerInvoices.get(0));
 
-		adminPayByCheckObj.getPaymentID();
+		adminPayByCheckObj.getPaymentID(brokerInvoices.get(0));
 
 		adminPayByCheckObj.clickSearch();
 
@@ -157,7 +159,7 @@ public class AdminPayByCheckTest extends TestBase {
 
 		adminPayByCheckObj.ClickOnsearchKeyword(brokerInvoices.get(1));
 
-		adminPayByCheckObj.getPaymentID();
+		adminPayByCheckObj.getPaymentID(brokerInvoices.get(1));
 
 		adminPayByCheckObj.clickSearch();
 

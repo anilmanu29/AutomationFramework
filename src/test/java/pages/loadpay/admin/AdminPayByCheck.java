@@ -107,8 +107,8 @@ public class AdminPayByCheck extends TestBase {
 	@FindBy(xpath = "//input[contains(@type,'submit')]")
 	WebElement loginBtn;
 
-	@FindBy(xpath = "//div[@class='carrierPayment']//a/@href")
-	List<WebElement> paymentid;
+	@FindBy(xpath = "//*[@class='carrierPayment']")
+	WebElement paymentid;
 
 	@FindBy(xpath = "//button[contains(@ng-click,'UpdateCheckNumber();')]")
 	private WebElement btn_UpdateCheckNumber; // Button to click Add Check Number
@@ -151,17 +151,26 @@ public class AdminPayByCheck extends TestBase {
 		FieldSearch.sendKeys(Keys.RETURN);
 	}
 
-	public void getPaymentID() throws InterruptedException {
+	public void getPaymentID(String invoiceNum) throws InterruptedException {
 
-		int index = 0;
+		// this takes the invoice number and looks for it's occurence in the DIV tag
+		// if the invoice number is found, get the very next element, which should be
+		// the PaymentID link
 
-		for (WebElement e : paymentid) {
-			System.out.println(e.getText());
-			index++;
+		Integer counter = 0;
+
+		wait.until(ExpectedConditions.elementToBeClickable(paymentid));
+		List<WebElement> childrenElements = paymentid.findElements(By.xpath(".//*"));
+
+		for (WebElement child : childrenElements) {
+
+			if (child.getText().equals(invoiceNum)) {
+				paymentIdText = childrenElements.get(counter + 2).getText();
+			}
+
+			counter++;
 		}
 
-		wait.until(ExpectedConditions.elementToBeClickable(paymentid.get(0)));
-		paymentIdText = paymentid.get(0).getText();
 		log.info(paymentIdText);
 	}
 
@@ -543,7 +552,7 @@ public class AdminPayByCheck extends TestBase {
 	/**
 	 * @return the paymentid
 	 */
-	public List<WebElement> getPaymentid() {
+	public WebElement getPaymentid() {
 		return paymentid;
 	}
 

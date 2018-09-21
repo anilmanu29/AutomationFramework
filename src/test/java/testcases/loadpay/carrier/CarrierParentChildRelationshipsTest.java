@@ -285,7 +285,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 
 		adminPayByCheckObj.clickPayments();
 		adminPayByCheckObj.ClickOnsearchKeyword(CarrierParentChildRelationshipsTest.arraylist.get(0));
-		adminPayByCheckObj.getPaymentID();
+		adminPayByCheckObj.getPaymentID(CarrierParentChildRelationshipsTest.arraylist.get(0));
 		adminPayByCheckObj.clickSearch();
 		adminPayByCheckObj.searchKeyword();
 		adminPayByCheckObj.clickSearch1();
@@ -334,7 +334,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 
 		adminPayByCheckObj.clickPayments();
 		adminPayByCheckObj.ClickOnsearchKeyword(CarrierParentChildRelationshipsTest.arraylist.get(1));
-		adminPayByCheckObj.getPaymentID();
+		adminPayByCheckObj.getPaymentID(CarrierParentChildRelationshipsTest.arraylist.get(1));
 		adminPayByCheckObj.clickSearch();
 		adminPayByCheckObj.searchKeyword();
 		adminPayByCheckObj.clickSearch1();
