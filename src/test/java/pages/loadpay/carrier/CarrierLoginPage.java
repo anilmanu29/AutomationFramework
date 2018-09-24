@@ -148,8 +148,7 @@ public class CarrierLoginPage extends TestBase {
 
 	public void CarrierLogout() {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_logout));
-		js.executeScript("arguments[0].click();", btn_logout);
-		// btn_logout.click();
+		btn_logout.click();
 	}
 
 	public void verificationCarrierLogout() throws InterruptedException {

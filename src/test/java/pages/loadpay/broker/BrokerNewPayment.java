@@ -69,7 +69,7 @@ public class BrokerNewPayment extends TestBase {
 	@FindBy(id = "OriginCity")
 	private WebElement field_OriginCity;
 
-	@FindBy(id = "OriginProvinceId")
+	@FindBy(id = "OriginProvince")
 	private WebElement field_OriginState;
 
 	@FindBy(id = "OriginZipCode")
@@ -81,7 +81,7 @@ public class BrokerNewPayment extends TestBase {
 	@FindBy(id = "DestinationCity")
 	private WebElement field_DestinationCity;
 
-	@FindBy(id = "DestinationProvinceId")
+	@FindBy(id = "DestinationProvince")
 	private WebElement dropdown_DestinationState;
 
 	@FindBy(id = "DestinationZipCode")
@@ -288,7 +288,7 @@ public class BrokerNewPayment extends TestBase {
 
 	/*-------verify invoicenumber---------*/
 	public void verifyInvoiceNumber(String invoicenum, String amt) throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(List_payment.get(0)));
+		// wait.until(ExpectedConditions.elementToBeClickable(List_payment.get(0)));
 		List<WebElement> invoicenumcount = List_payment;
 
 		// log.info(invoicenumcount);

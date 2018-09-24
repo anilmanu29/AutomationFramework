@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.outlook.outlooklogin;
+import util.RetryTest;
 
 public class BrokerOutlookTest extends TestBase {
 	BrokerOutlook brokerOutlookObj;
@@ -46,7 +47,7 @@ public class BrokerOutlookTest extends TestBase {
 		outlook.outlookLogin(un, pwd);
 	}
 
-	@Test(dependsOnMethods = "login")
+	@Test(dependsOnMethods = "login", retryAnalyzer = RetryTest.class)
 	public void outlookloginTest() throws InterruptedException, AWTException {
 		brokerOutlookObj.clickPopUp();
 		brokerOutlookObj.clickOpenMailBox();

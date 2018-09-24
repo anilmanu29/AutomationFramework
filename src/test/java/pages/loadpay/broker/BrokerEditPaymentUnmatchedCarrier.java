@@ -9,14 +9,14 @@ import org.testng.asserts.SoftAssert;
 
 import base.TestBase;
 import testcases.loadpay.broker.BrokerRegisterTest;
-import testcases.loadpay.carrier.CarrierRegisterTest;
 import util.TestUtil;
 
 public class BrokerEditPaymentUnmatchedCarrier extends TestBase {
 	BrokerNewPayment brokerPaymentObj;
 	BrokerLoginPage brokerLoginObj;
 	String paymentStatus = "Unmatched";
-	String carrierEmail = "";
+	String unMatchedCarrierUsername = "";
+	String unMatchedCarrierPassword = "";
 	String invoiceNum = "";
 	String loadId = "";
 	String paymentAmount = "";
@@ -61,28 +61,35 @@ public class BrokerEditPaymentUnmatchedCarrier extends TestBase {
 
 		// Store data-provider elements into publicly-accessible strings
 
-		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
-			carrierEmail = CarrierRegisterTest.carrierUsername;
-			invoiceNum = "NP" + TestUtil.getCurrentDateTime();
-			loadId = lId;
-			newPaymentAmount.add(pA);
+		if (super.getProperties().getProperty("useDynamicUnmatchedData").contains("true")) {
+			String[] emailArray = cE.split("@");
+			emailArray[0] = emailArray[0] + TestUtil.getCurrentDateTime();
+			;
+
+			unMatchedCarrierUsername = emailArray[0] + "@" + emailArray[1];
+			unMatchedCarrierPassword = "Password@123";
+			invoiceNum = "UM" + TestUtil.getCurrentDateTime();
+			loadId = invoiceNum;
+			paymentAmount = pA;
+			newPaymentAmount.add(paymentAmount);
 			newPaymentLoadId.add(loadId);
 			newPaymentPayer.add(BrokerRegisterTest.brokerCompanyName);
 			newPaymentInvoiceNum.add(invoiceNum);
 		} else {
-			carrierEmail = cE;
+			unMatchedCarrierUsername = cE;
 			invoiceNum = iN;
 			loadId = lId;
 			paymentAmount = pA;
-			payto = pT;
-			ein = Ein;
 		}
+
+		payto = pT;
+		ein = Ein;
 
 		// create new payment
 		brokerPaymentObj = new BrokerNewPayment();
 		brokerPaymentObj.newPayment();
 
-		brokerPaymentObj.carrierEmail(carrierEmail);
+		brokerPaymentObj.carrierEmail(unMatchedCarrierUsername);
 
 		brokerPaymentObj.setField_PayTo(payto);
 

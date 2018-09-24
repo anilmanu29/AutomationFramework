@@ -78,7 +78,7 @@ public class BrokerPaymentSheduledates extends TestBase {
 	@FindBy(id = "OriginCity")
 	private WebElement field_OriginCity;
 
-	@FindBy(id = "OriginProvinceId")
+	@FindBy(id = "OriginProvince")
 	private WebElement dropdown_OriginState;
 
 	@FindBy(id = "OriginZipCode")
@@ -90,7 +90,7 @@ public class BrokerPaymentSheduledates extends TestBase {
 	@FindBy(id = "DestinationCity")
 	private WebElement field_DestinationCity;
 
-	@FindBy(id = "DestinationProvinceId")
+	@FindBy(id = "DestinationProvince")
 	private WebElement dropdown_DestinationState;
 
 	@FindBy(id = "DestinationZipCode")

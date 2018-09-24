@@ -84,7 +84,7 @@ public class AdminEditEmailBrokerTest extends TestBase {
 
 	@Test(description = "LP-5432 Admin_EditEmail_Broker", dependsOnMethods = { "adminLogin" })
 	public void brokerEditEmailTest() throws InterruptedException {
-		int randomNumber = adminEmailPage.getRandomNumber(1, 999999);
+		int randomNumber = adminEmailPage.getRandomNumber(1, 999);
 		originalBrokerEmailAddress = BrokerRegisterTest.brokerUsername;
 		originalBrokerPassword = BrokerRegisterTest.brokerPassword;
 		updatedBrokerEmailAddress = originalBrokerEmailAddress.replaceFirst("@", randomNumber + "@");
