@@ -75,7 +75,7 @@ public class UnmatchedCarrierAdminPayByCheckTest extends TestBase {
 		adminPayByCheckObj.clickPayments();
 		log.info(UnCarrierAdminPBC.getPaymentId1().getText());
 		adminPayByCheckObj.ClickOnsearchKeyword(UnCarrierAdminPBC.getPaymentId1().getText());
-		adminPayByCheckObj.getPaymentID(UnCarrierAdminPBC.getPaymentId1().getText());
+		AdminPayByCheck.paymentIdText = UnCarrierAdminPBC.getPaymentId1().getText();
 		adminPayByCheckObj.clickSearch();
 		adminPayByCheckObj.searchKeyword();
 		adminPayByCheckObj.clickSearch1();
@@ -115,8 +115,8 @@ public class UnmatchedCarrierAdminPayByCheckTest extends TestBase {
 		adminLoginObj.DoubleClickID();
 		adminPayByCheckObj.clickPayments();
 		log.info(UnCarrierAdminPBC.getPaymentId2().getText());
+		AdminPayByCheck.paymentIdText = UnCarrierAdminPBC.getPaymentId2().getText();
 		adminPayByCheckObj.ClickOnsearchKeyword(UnCarrierAdminPBC.getPaymentId2().getText());
-		adminPayByCheckObj.getPaymentID(UnCarrierAdminPBC.getPaymentId2().getText());
 		adminPayByCheckObj.clickSearch();
 		adminPayByCheckObj.searchKeyword();
 		adminPayByCheckObj.clickSearch1();

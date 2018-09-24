@@ -17,6 +17,7 @@ import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.admin.AdminPayByCheck;
 import testcases.loadpay.broker.BrokerNewPaymentTest;
 import testcases.loadpay.broker.BrokerRegisterTest;
+import util.RetryTest;
 import util.TestUtil;
 
 public class AdminPayByCheckTest extends TestBase {
@@ -68,7 +69,7 @@ public class AdminPayByCheckTest extends TestBase {
 		}
 	}
 
-	@Test(dataProvider = "getPaymentData", dependsOnMethods = "getBrokerCredentials")
+	@Test(dataProvider = "getPaymentData", dependsOnMethods = "getBrokerCredentials", retryAnalyzer = RetryTest.class)
 	public void getBrokerInvoiceNumbers(String cemail, String invoiceno, String loadid, String amt)
 			throws InterruptedException {
 		Thread.sleep(2000);
@@ -78,6 +79,10 @@ public class AdminPayByCheckTest extends TestBase {
 			invoicesLoaded = true;
 		} else if (!invoicesLoaded) {
 			brokerInvoices.add(invoiceno);
+		}
+
+		for (int i = 0; i < brokerInvoices.size(); i++) {
+			Assert.assertFalse(brokerInvoices.get(i).equals(""), "Broker Invoices appear to be empty - retrying test");
 		}
 	}
 

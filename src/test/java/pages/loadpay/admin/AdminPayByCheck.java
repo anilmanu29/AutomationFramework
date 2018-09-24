@@ -17,7 +17,7 @@ import base.TestBase;
 public class AdminPayByCheck extends TestBase {
 
 	WebDriverWait wait = null;
-	String paymentIdText;
+	public static String paymentIdText;
 
 	// Page Factory - OR:
 	@FindBy(id = "EIN")
@@ -166,6 +166,7 @@ public class AdminPayByCheck extends TestBase {
 
 			if (child.getText().equals(invoiceNum)) {
 				paymentIdText = childrenElements.get(counter + 2).getText();
+				break;
 			}
 
 			counter++;
