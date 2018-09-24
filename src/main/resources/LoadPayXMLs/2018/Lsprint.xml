@@ -15,7 +15,6 @@
 	<test name="L Sprint Test Cases">
     <classes>
     
-    <!--Set useDynamicBrokerData , useDynamicUnmatchedData , useDynamicCarrierData as false in config.properties -->
   
  <!--1. BrokerNewPaymentData Sheet = Invoice and Load ID , make sure there are 2 payments are available.
      2. carrierresetpassworddata Sheet = New Password & Confirm Password,ForceNew Password,ForceConfirm Password data need to be updated  
@@ -24,10 +23,6 @@
  
    -->
     
-		
-			    <class name="testcases.loadpay.admin.AdminEditEmailBrokerTest"></class>
-		 	 	<class name="testcases.loadpay.admin.AdminEditEmailCarrierTest"></class>
-		 	 	<class name="testcases.loadpay.admin.AdminPayMeNowUnlockTest"></class>
 		 	 	
 		 	 	<class name="testcases.loadpay.broker.BrokerEditPaymentMatchedCarrierTest"></class>
 		 	 	<class name="testcases.loadpay.broker.BrokerEditPaymentUnmatchedCarrierTest"></class>
@@ -53,6 +48,10 @@
 		 	 	<!-- <class name="testcases.loadpay.broker.BrokerBulkUploadPaymentsmatchedCarrierTest"></class> 
 		 	 	<class name="testcases.loadpay.broker.BrokerBulkUploadPaymentsUnmatchedCarrierTest"></class> -->
 			 	<class name="testcases.loadpay.carrier.CarrierlockedaccountcanbeunlockedbyadminTest"></class>
+			 	
+			 	<class name="testcases.loadpay.admin.AdminEditEmailBrokerTest"></class>
+		 	 	<class name="testcases.loadpay.admin.AdminEditEmailCarrierTest"></class>
+		 	 	<class name="testcases.loadpay.admin.AdminPayMeNowUnlockTest"></class>
 
     </classes>
   </test> 

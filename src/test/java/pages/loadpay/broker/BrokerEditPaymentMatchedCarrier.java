@@ -6,6 +6,8 @@ import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import base.TestBase;
+import testcases.loadpay.carrier.CarrierRegisterTest;
+import util.TestUtil;
 
 public class BrokerEditPaymentMatchedCarrier extends TestBase {
 	BrokerNewPayment brokerPaymentObj;
@@ -37,9 +39,17 @@ public class BrokerEditPaymentMatchedCarrier extends TestBase {
 	public void brokerCreateNewPayment(String cE, String iN, String lId, String pA) throws InterruptedException {
 
 		// Store data-provider elements into publicly-accessible strings
-		carrierEmail = cE;
-		invoiceNum = iN;
-		loadId = lId;
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierEmail = CarrierRegisterTest.carrierUsername;
+			invoiceNum = "NP" + TestUtil.getCurrentDateTime();
+			loadId = invoiceNum;
+		} else {
+			carrierEmail = cE;
+			invoiceNum = iN;
+			loadId = lId;
+		}
+
 		paymentAmount = pA;
 
 		// create new payment

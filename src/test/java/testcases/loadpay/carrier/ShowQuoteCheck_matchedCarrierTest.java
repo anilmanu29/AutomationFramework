@@ -139,7 +139,7 @@ public class ShowQuoteCheck_matchedCarrierTest extends TestBase {
 		// System.out.println(UnCarrierAdminPBC.getPaymentId1().getText());
 		// adminPayByCheck.ClickOnsearchKeyword(UnCarrierAdminPBC.getPaymentId1().getText());
 		Thread.sleep(1000);
-		adminPayByCheck.getPaymentID();
+		adminPayByCheck.getPaymentID(invoicenumbers.get(1));
 		adminPayByCheck.clickSearch();
 		adminPayByCheck.searchKeyword();
 		adminPayByCheck.clickSearch1();

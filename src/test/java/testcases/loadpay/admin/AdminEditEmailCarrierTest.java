@@ -89,7 +89,7 @@ public class AdminEditEmailCarrierTest extends TestBase {
 
 	@Test(description = "LP-5432 Admin_EditEmail_Carrier", dependsOnMethods = { "adminLogin" })
 	public void carrierEditEmailTest() throws InterruptedException {
-		int randomNumber = adminEmailPage.getRandomNumber(1, 999999);
+		int randomNumber = adminEmailPage.getRandomNumber(1, 999);
 		originalCarrierEmailAddress = CarrierRegisterTest.carrierUsername;
 		originalCarrierPassword = CarrierRegisterTest.carrierPassword;
 		updatedCarrierEmailAddress = originalCarrierEmailAddress.replaceFirst("@", randomNumber + "@");

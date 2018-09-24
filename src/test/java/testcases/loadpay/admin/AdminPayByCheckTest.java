@@ -17,6 +17,7 @@ import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.admin.AdminPayByCheck;
 import testcases.loadpay.broker.BrokerNewPaymentTest;
 import testcases.loadpay.broker.BrokerRegisterTest;
+import util.RetryTest;
 import util.TestUtil;
 
 public class AdminPayByCheckTest extends TestBase {
@@ -54,6 +55,7 @@ public class AdminPayByCheckTest extends TestBase {
 
 	@Test(dataProvider = "getBrokerLoginData")
 	public void getBrokerCredentials(String username, String pwd) throws InterruptedException {
+		Thread.sleep(2000);
 		// login as broker
 		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
 			brokerUsername = BrokerRegisterTest.brokerUsername;
@@ -67,15 +69,20 @@ public class AdminPayByCheckTest extends TestBase {
 		}
 	}
 
-	@Test(dataProvider = "getPaymentData", dependsOnMethods = "getBrokerCredentials")
+	@Test(dataProvider = "getPaymentData", dependsOnMethods = "getBrokerCredentials", retryAnalyzer = RetryTest.class)
 	public void getBrokerInvoiceNumbers(String cemail, String invoiceno, String loadid, String amt)
 			throws InterruptedException {
-		// login as broker
+		Thread.sleep(2000);
+		// get invoice numbers f payments made to carrier
 		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true") && (invoicesLoaded == false)) {
 			brokerInvoices.addAll(BrokerNewPaymentTest.al);
 			invoicesLoaded = true;
 		} else if (!invoicesLoaded) {
 			brokerInvoices.add(invoiceno);
+		}
+
+		for (int i = 0; i < brokerInvoices.size(); i++) {
+			Assert.assertFalse(brokerInvoices.get(i).equals(""), "Broker Invoices appear to be empty - retrying test");
 		}
 	}
 
@@ -102,7 +109,7 @@ public class AdminPayByCheckTest extends TestBase {
 
 		adminPayByCheckObj.ClickOnsearchKeyword(brokerInvoices.get(0));
 
-		adminPayByCheckObj.getPaymentID();
+		adminPayByCheckObj.getPaymentID(brokerInvoices.get(0));
 
 		adminPayByCheckObj.clickSearch();
 
@@ -157,7 +164,7 @@ public class AdminPayByCheckTest extends TestBase {
 
 		adminPayByCheckObj.ClickOnsearchKeyword(brokerInvoices.get(1));
 
-		adminPayByCheckObj.getPaymentID();
+		adminPayByCheckObj.getPaymentID(brokerInvoices.get(1));
 
 		adminPayByCheckObj.clickSearch();
 

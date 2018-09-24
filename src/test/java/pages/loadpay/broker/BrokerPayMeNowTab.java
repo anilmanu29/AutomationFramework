@@ -56,7 +56,6 @@ public class BrokerPayMeNowTab extends TestBase {
 
 	public void updateButton() {
 		wait.until(ExpectedConditions.visibilityOf(updateButton));
-		js.executeScript("arguments[0].click();", updateButton);
 		updateButton.click();
 	}
 }

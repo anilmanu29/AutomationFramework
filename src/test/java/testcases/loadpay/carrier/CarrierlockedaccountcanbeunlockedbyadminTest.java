@@ -18,7 +18,7 @@ public class CarrierlockedaccountcanbeunlockedbyadminTest extends TestBase {
 	AdminHomePage adminHomePage;
 	AdminLogin adminLogin;
 	CarrierLoginPage loginPage;
-	public static String aemail;
+	public static String carrierEmail, carrierPassword;
 
 	public CarrierlockedaccountcanbeunlockedbyadminTest() {
 		super();
@@ -37,8 +37,16 @@ public class CarrierlockedaccountcanbeunlockedbyadminTest extends TestBase {
 
 	@Test(dataProvider = "getCarrierlockedaccountAdminUnlockData")
 	public void carrierLoginTest(String user, String pass, String wrongpass) throws InterruptedException {
-		aemail = user;
-		Claua.Carrierloginlock(user, pass, wrongpass);
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierEmail = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
+		} else {
+			carrierEmail = user;
+			carrierPassword = pass;
+		}
+
+		Claua.Carrierloginlock(carrierEmail, carrierPassword, wrongpass);
 
 	}
 
@@ -55,7 +63,7 @@ public class CarrierlockedaccountcanbeunlockedbyadminTest extends TestBase {
 
 		adminLogin.ClickOnCustomersTab();
 
-		adminLogin.ClickOnSearchBox(aemail);
+		adminLogin.ClickOnSearchBox(carrierEmail);
 
 		adminLogin.ClickOnSearchButton();
 
@@ -69,11 +77,11 @@ public class CarrierlockedaccountcanbeunlockedbyadminTest extends TestBase {
 
 	}
 
-	@Test(dataProvider = "getCarrierlockedaccountAdminUnlockData", dependsOnMethods = { "adminCancelLockout" })
+	@Test(dependsOnMethods = { "adminCancelLockout" })
 	public void loginAsCarrierUnlocked(String user, String pass, String wrongpass) throws InterruptedException {
 		driver.get(super.getProperties().getProperty("url"));
-		loginPage.Carrierlogin(user, pass);
-
+		loginPage.Carrierlogin(carrierEmail, carrierPassword);
+		Thread.sleep(3000);
 		loginPage.CarrierLogout();
 
 	}
