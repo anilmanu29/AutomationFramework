@@ -172,7 +172,9 @@ public class BrokerRegisterTest extends TestBase {
 		Thread.sleep(2000);
 
 		WebElement adminCustomerDepositAmount = driver.findElement(By.xpath(
-				"//*[@id=\"angularScope\"]/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[2]/div/div/div[1]/div/div/div/p[9]/span"));
+				"//*[@id=\"angularScope\"]/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[3]/div/div/div[1]/div/div/div/p[9]/span"));
+
+		// *[@id="angularScope"]/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[3]/div/div/div[1]/div/div/div/p[9]/span
 		depositAmount = adminCustomerDepositAmount.getText();
 		depositAmount = depositAmount.substring(depositAmount.length() - 2, depositAmount.length());
 		depositAmount = "0" + depositAmount;

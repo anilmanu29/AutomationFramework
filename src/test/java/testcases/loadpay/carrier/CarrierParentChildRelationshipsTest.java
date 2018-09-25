@@ -2,8 +2,13 @@ package testcases.loadpay.carrier;
 
 import java.awt.AWTException;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -28,6 +33,7 @@ import pages.loadpay.carrier.CarrierPaymeNowFuelCard;
 import pages.loadpay.carrier.CarrierSameDAYACH;
 import pages.loadpay.carrier.CarrierWireTransfer;
 import testcases.loadpay.broker.BrokerNewPaymentTest;
+import testcases.loadpay.broker.BrokerRegisterTest;
 import util.TestUtil;
 
 public class CarrierParentChildRelationshipsTest extends TestBase {
@@ -44,14 +50,23 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 	AdminLogin adminLoginObj;
 	AdminPayByCheck adminPayByCheckObj;
 
-	public String invoicenum;;
+	public String invoicenum;
 	public static ArrayList<String> arraylist;
-	List<String> firstRowData = null;
-	List<String> lastRowData = null;
+
 	String pwd;
 	JavascriptExecutor jse;
-	String searchForInvoice = "";
 	public static String nemail;
+
+	String carrierUsername, carrierPassword = "";
+	String brokerUsername, brokerPassword = "";
+
+	Date currentTime;
+	String formattedDate = "";
+	Long longTime;
+	DateFormat formatter;
+	String currentHour = "";
+	String currentMinutes = "";
+	String timeArray[] = new String[2];
 
 	public CarrierParentChildRelationshipsTest() {
 		super();
@@ -76,12 +91,22 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		adminPayByCheckObj = new AdminPayByCheck();
 		arraylist = new ArrayList<String>();
 		wait = new WebDriverWait(driver, 30);
+		currentTime = new Date();
 	}
 
 	@Test(dataProvider = "getCarrierLoginData")
 	public void loginAsCarrier(String un, String pwd) throws InterruptedException {
 		// login as carrier
-		loginPage.Carrierlogin(un, pwd);
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
+		} else {
+			carrierUsername = un;
+			carrierPassword = pwd;
+		}
+
+		loginPage.Carrierlogin(carrierUsername, carrierPassword);
 	}
 
 	@Test(dataProvider = "getCarrierParentChildData", dependsOnMethods = { "loginAsCarrier" })
@@ -94,6 +119,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		carrierchildrelation.enterLastName(ln);
 		carrierchildrelation.enterNewEmailID(email);
 		carrierchildrelation.clickSaveButton();
+		Thread.sleep(2000);
 		Assert.assertTrue(
 				carrierchildrelation.getAlertMessage().contains("Email address already linked to a LoadPay account"),
 				"Alert message is NOT Displayed");
@@ -101,6 +127,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 
 	@Test(dataProvider = "getCarrierParentChildData", dependsOnMethods = { "verifyAlertMessageTest" })
 	public void verifyAddChildAccount(String fn, String ln, String email, String nemailid) throws InterruptedException {
+		// check how many users there are...10 max
 		carrierchildrelation.clickCancelButton();
 		carrierchildrelation.clickAddUserButton();
 		carrierchildrelation.enterFirstName(fn);
@@ -109,6 +136,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		nemail = carrierchildrelation.enterNewEmailID(nemailid);
 		carrierchildrelation.enablePaymentAccess();
 		carrierchildrelation.clickSaveButton();
+		Thread.sleep(5000);
 		verifyEmailAddress(nemail);
 	}
 
@@ -122,12 +150,15 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		((JavascriptExecutor) driver).executeScript("window.open()");
 		Thread.sleep(2000);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(0));
+		driver.close();
 		driver.switchTo().window(tabs.get(1));
 		driver.get(super.getProperties().getProperty("outlookurl"));
 		brokeroutlook.clickPopUp();
 		brokeroutlook.clickOpenMailBox();
 		brokeroutlook.enterEmail(super.getProperties().getProperty("email"));
-
+		getTimestamp();
+		brokeroutlook.outlookSearchInbox(nemail + " AND Reset", currentHour, currentMinutes);
 	}
 
 	@Test(dataProvider = "getCarrierParentChildPasswordData", dependsOnMethods = { "verifyEmailAddress" })
@@ -141,13 +172,20 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 	@Test(dataProvider = "getCarrierFuelcardaccountNumbersData", dependsOnMethods = { "verifyResetPassword" })
 	public void verifyChildAccountLogin(String fleet_accountnbr, String fts_accountnbr)
 			throws InterruptedException, AWTException {
-		loginPage.Carrierlogin(nemail, pwd);
-		carriersamedayach.getAmount();
-		carriersamedayach.clickPaymenow();
-		carriersamedayach.getsamedayAmount();
-		carriersamedayach.clickSelectButton();
-		carriersamedayach.clickConfirmButton();
-		carriersamedayach.gettotalpaiyAmount();
+
+		loginPage.Carrierlogin(carrierUsername, carrierPassword);
+
+		Calendar calendar = Calendar.getInstance();
+
+		// Same day ach cuts off at 11am CST
+		if (calendar.get(Calendar.HOUR_OF_DAY) < 11) {
+			carriersamedayach.getAmount();
+			carriersamedayach.clickPaymenow();
+			carriersamedayach.getsamedayAmount();
+			carriersamedayach.clickSelectButton();
+			carriersamedayach.clickConfirmButton();
+			carriersamedayach.gettotalpaiyAmount();
+		}
 
 		carriernextdayach.getAmount();
 		carriernextdayach.clickPaymenow();
@@ -155,11 +193,12 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		carriernextdayach.clickConfirmButton();
 		carriernextdayach.gettotalpaiyAmount();
 
-		carrierwiretransferach.getAmount();
-		carrierwiretransferach.clickPaymenow();
-		carrierwiretransferach.clickSelectButton();
-		carrierwiretransferach.clickConfirmButton();
-		carrierwiretransferach.gettotalpaiyAmount();
+		if ((calendar.get(Calendar.HOUR_OF_DAY) < 16) && (calendar.get(Calendar.MINUTE) < 30)) {
+			carrierwiretransferach.getAmount();
+			carrierwiretransferach.clickPaymenow();
+			carrierwiretransferach.clickSelectButton();
+			carrierwiretransferach.clickConfirmButton();
+		}
 
 		carrierpaymenowfuelcard.clickPaymenow();
 		carrierpaymenowfuelcard.clickSelectButton();
@@ -169,8 +208,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		carrierpaymenowfuelcard.clicksubmit();
 		carrierpaymenowfuelcard.clickfuelcardsubmit();
 		carrierpaymenowfuelcard.clickConfirmButton();
-		carrierpaymenowfuelcard.clickPaidTab();
-		carrierpaymenowfuelcard.clickpaymenowtab();
+
 		carrierpaymenowfuelcard.clickPaymenow();
 		carrierpaymenowfuelcard.clickSelectButton();
 		carrierpaymenowfuelcard.clickaddnewcard();
@@ -179,32 +217,13 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		carrierpaymenowfuelcard.clicksubmit();
 		carrierpaymenowfuelcard.clickfuelcardsubmit();
 		carrierpaymenowfuelcard.clickConfirmButton();
-		carrierpaymenowfuelcard.clickPaidTab();
-
-		driver.close();
-		Thread.sleep(1000);
-		ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tab.get(2));
-		Thread.sleep(1000);
-		driver.close();
-		Thread.sleep(1000);
-		ArrayList<String> tabb = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tabb.get(1));
-		driver.close();
-		Thread.sleep(1000);
-		ArrayList<String> closetab = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(closetab.get(0));
-
+		loginPage.CarrierLogout();
 	}
 
-	@Test(dataProvider = "getCarrierLoginData", dependsOnMethods = { "verifyChildAccountLogin" })
-	public void loginCarrier(String un, String pwd) throws InterruptedException {
-		loginPage.Carrierlogin(un, pwd);
-	}
-
-	@Test(dataProvider = "getCarrierParentChildPasswordData", dependsOnMethods = { "loginCarrier" })
+	@Test(dataProvider = "getCarrierParentChildPasswordData", dependsOnMethods = { "verifyChildAccountLogin" })
 	public void verifyForcedPasswordReset(String pwd, String confpwd, String forcepwd, String confirmforcepwd)
 			throws InterruptedException {
+		loginPage.Carrierlogin(carrierUsername, carrierPassword);
 		carrierchildrelation.clickAccountLink();
 		carrierchildrelation.clickEmailLink();
 		carrierchildrelation.forcePasswordReset();
@@ -234,7 +253,15 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 	@Test(dataProvider = "getBrokerLoginData", dependsOnMethods = { "verifyEditAccountTest" })
 	public void loginTest(String user, String pass) throws InterruptedException {
 
-		brokerlogin.Brokerlogin(user, pass);
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = user;
+			brokerPassword = pass;
+		}
+
+		brokerlogin.Brokerlogin(brokerUsername, brokerPassword);
 
 	}
 
@@ -244,7 +271,13 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 
 		brokerNewPaymentObj = new BrokerNewPayment();
 		brokerNewPaymentObj.newPayment();
-		BrokerNewPaymentTest.email = brokerNewPaymentObj.carrierEmail(cemail);
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			invoiceno = "NP" + TestUtil.getCurrentDateTime();
+			loadid = invoiceno;
+		}
+
+		BrokerNewPaymentTest.email = brokerNewPaymentObj.carrierEmail(carrierUsername);
 
 		brokerNewPaymentObj.amount(amt);
 
@@ -254,7 +287,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		brokerNewPaymentObj.loadId(loadid);
 		brokerNewPaymentObj.clickShedulePayment();
 		brokerNewPaymentObj.clickShedulePaymenttab();
-		brokerNewPaymentObj.searchCarrier(cemail);
+		brokerNewPaymentObj.searchCarrier(carrierUsername);
 		brokerNewPaymentObj.clickSearchButton();
 
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -263,7 +296,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 
 		brokerNewPaymentObj.verifyInvoiceNumber(invoiceno, amt);
 		log.info(brokerNewPaymentObj.verifyPaymentStatus());
-		brokerNewPaymentObj.logout();
+		// brokerNewPaymentObj.logout();
 	}
 
 	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = { "brokernewPayment" })
@@ -367,7 +400,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 	@Test(dataProvider = "getCarrierLoginData", dependsOnMethods = { "carrierTermPaymentPayByCheck" })
 	public void verifyDeleteChildAccountTest(String un, String password) throws InterruptedException {
 		driver.get(super.getProperties().getProperty("url"));
-		loginPage.Carrierlogin(un, password);
+		loginPage.Carrierlogin(carrierUsername, carrierPassword);
 		carrierchildrelation.clickAccountLink();
 		carrierchildrelation.clickEmailLink();
 		carrierchildrelation.deleteChildAccount();
@@ -389,4 +422,20 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 
 	}
 
+	public void getTimestamp() {
+		formatter = new SimpleDateFormat("HH:mm");
+		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
+		longTime = currentTime.getTime();
+		formattedDate = formatter.format(longTime);
+		timeArray = formattedDate.split(":");
+		currentHour = timeArray[0];
+		currentMinutes = timeArray[1];
+
+		log.info("\n\n\n===============================");
+		log.info("Current date: " + longTime);
+		log.info("Formatted date: " + formattedDate);
+		log.info("Current Hour: " + currentHour);
+		log.info("Current Minutes: " + currentMinutes);
+		log.info("===============================");
+	}
 }

@@ -23,12 +23,9 @@
  
    -->
     
-		 	 	
-		 	 	<class name="testcases.loadpay.broker.BrokerEditPaymentMatchedCarrierTest"></class>
-		 	 	<class name="testcases.loadpay.broker.BrokerEditPaymentUnmatchedCarrierTest"></class>
    
-    <!-- Script for Jira Ticket LP-5410 - LoadPay - LoadPay - Selenium Test - Carrier - parent/child relationships -->
-		<!-- <class name="testcases.loadpay.carrier.CarrierParentChildRelationshipsTest"></class>	 -->
+    	<!-- Script for Jira Ticket LP-5410 - LoadPay - LoadPay - Selenium Test - Carrier - parent/child relationships -->
+			 <class name="testcases.loadpay.carrier.CarrierParentChildRelationshipsTest"></class>	
 		
 		<!-- Script for Jira Ticket LP-5405 - LoadPay - Selenium Test - Broker Processed Tab AdminPayByCheck -->
 		     <class name="testcases.loadpay.broker.BrokerProcessedTabTest"></class>
@@ -40,18 +37,22 @@
 		 	 <class name="testcases.loadpay.broker.BrokerScheduledPaymentsTabTest"></class>
 		 	 
 		 <!-- Script for Jira Ticket   LoadPay - Selenium Test - Admin PayMeNow LockTest  Yurii-->		 	 
-		 	  <class name="testcases.loadpay.admin.AdminPayMeNowLockTest"></class>
+		 	 <class name="testcases.loadpay.admin.AdminPayMeNowLockTest"></class>
 		 	 
 		 <!-- Script for Jira Ticket   LoadPay - Selenium Test - Broker Available Credit Tab Test  JASON-->	 	 
-		 	    <class name="testcases.loadpay.broker.BrokerAvailableCreditTabTest"></class>
+		 	 <class name="testcases.loadpay.broker.BrokerAvailableCreditTabTest"></class>
 		 	    <!-- < This Task is moved to next sprint for change in Functionality> -->
 		 	 	<!-- <class name="testcases.loadpay.broker.BrokerBulkUploadPaymentsmatchedCarrierTest"></class> 
 		 	 	<class name="testcases.loadpay.broker.BrokerBulkUploadPaymentsUnmatchedCarrierTest"></class> -->
-			 	<class name="testcases.loadpay.carrier.CarrierlockedaccountcanbeunlockedbyadminTest"></class>
 			 	
-			 	<class name="testcases.loadpay.admin.AdminEditEmailBrokerTest"></class>
-		 	 	<class name="testcases.loadpay.admin.AdminEditEmailCarrierTest"></class>
-		 	 	<class name="testcases.loadpay.admin.AdminPayMeNowUnlockTest"></class>
+			 <class name="testcases.loadpay.carrier.CarrierlockedaccountcanbeunlockedbyadminTest"></class>
+			 	
+			 <class name="testcases.loadpay.broker.BrokerEditPaymentMatchedCarrierTest"></class>
+		 	 <class name="testcases.loadpay.broker.BrokerEditPaymentUnmatchedCarrierTest"></class>
+		 	 	
+			 <class name="testcases.loadpay.admin.AdminEditEmailBrokerTest"></class>
+		 	 <class name="testcases.loadpay.admin.AdminEditEmailCarrierTest"></class>
+		 	 <class name="testcases.loadpay.admin.AdminPayMeNowUnlockTest"></class>
 
     </classes>
   </test> 

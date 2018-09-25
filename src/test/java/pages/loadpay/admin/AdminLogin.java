@@ -405,6 +405,7 @@ public class AdminLogin extends TestBase {
 		Thread.sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(DoubleClickID));
 		DoubleClickID.click();
+		Thread.sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(CustomersatatusIdDropDown));
 	}
 
