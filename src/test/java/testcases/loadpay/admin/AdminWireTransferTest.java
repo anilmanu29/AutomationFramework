@@ -2,9 +2,7 @@ package testcases.loadpay.admin;
 
 import java.awt.AWTException;
 import java.io.IOException;
-import java.util.ArrayList;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
@@ -32,17 +30,13 @@ public class AdminWireTransferTest extends TestBase {
 	BrokerLoginPage brokerloginPage;
 	CarrierWireTransfer carrierWireTransfer;
 	CarrierLoginPage carrierLoginPage;
-	int invoiceNum = 0;
-	String invoicenumber = "";
 
-	String acountName;
 	String paymentStatus = "Verified";
-	String invoice;
-	String email;
-	ArrayList<String> invoiceList;
+	String[] invoiceNumber = new String[2];
+	String[] loadId = new String[2];
+	Integer paymentAmount;
 
 	String carrierUsername, carrierPassword, brokerUsername, brokerPassword = "";
-	public static ArrayList<String> newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNum;
 
 	/*-------Initializing driver---------*/
 	public AdminWireTransferTest() {
@@ -60,15 +54,6 @@ public class AdminWireTransferTest extends TestBase {
 		adminWireTransfer = new AdminWireTransfer();
 		carrierLoginPage = new CarrierLoginPage();
 		carrierWireTransfer = new CarrierWireTransfer();
-		invoiceList = new ArrayList<String>();
-
-		newPaymentAmount = new ArrayList<String>();
-		newPaymentLoadId = new ArrayList<String>();
-		newPaymentPayer = new ArrayList<String>();
-		newPaymentInvoiceNum = new ArrayList<String>();
-
-		log = Logger.getLogger(AdminWireTransferTest.class.getName());
-		log.info("Test Set Up");
 		wait = new WebDriverWait(driver, 30);
 	}
 
@@ -91,50 +76,41 @@ public class AdminWireTransferTest extends TestBase {
 
 	/*-------Scheduling New Payment as a Broker---------*/
 
-	@Test(description = "LP-6230 Admin Wire Transfer", dataProvider = "getPaymentData", dependsOnMethods = "loginBroker")
-	public void brokerNewPayment(String cemail, String invoiceno, String loadid, String amt)
-			throws InterruptedException {
+	@Test(description = "LP-6230 Admin Wire Transfer", dependsOnMethods = "loginBroker")
+	public void brokerNewPayment() throws InterruptedException {
 
-		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+		for (int i = 0; i < 2; i++) {
 			carrierUsername = CarrierRegisterTest.carrierUsername;
-			invoiceno = "NP" + TestUtil.getCurrentDateTime();
-			loadid = invoiceno;
-			newPaymentAmount.add(amt);
-			newPaymentLoadId.add(loadid);
-			newPaymentPayer.add(BrokerRegisterTest.brokerCompanyName);
-			newPaymentInvoiceNum.add(invoiceno);
-		} else {
-			carrierUsername = cemail;
+			invoiceNumber[i] = "NPWT" + TestUtil.getCurrentDateTime();
+			loadId[i] = invoiceNumber[i];
+			paymentAmount = TestUtil.getRandomNumber(100, 1000);
+			log.info("Create new Payment ");
+			brokerNewPayment.newPayment();
+
+			brokerNewPayment.carrierEmail(carrierUsername);
+
+			brokerNewPayment.amount(paymentAmount.toString());
+
+			brokerNewPayment.invoiceNumber(invoiceNumber[i]);
+
+			brokerNewPayment.loadId(loadId[i]);
+
+			brokerNewPayment.clickShedulePayment();
+
+			brokerNewPayment.clickShedulePaymenttab();
+
+			brokerNewPayment.searchCarrier(carrierUsername);
+
+			brokerNewPayment.clickSearchButton();
+
+			JavascriptExecutor jse = (JavascriptExecutor) driver;
+			jse.executeScript("window.scrollBy(0,250)", "");
+
+			brokerNewPayment.verifyInvoiceNumber(invoiceNumber[i], paymentAmount.toString());
+
+			// Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
+			System.out.println(brokerNewPayment.verifyPaymentStatus());
 		}
-
-		log.info("Create new Payment ");
-		brokerNewPayment.newPayment();
-
-		brokerNewPayment.carrierEmail(carrierUsername);
-
-		brokerNewPayment.amount(amt);
-
-		invoice = brokerNewPayment.invoiceNumber(invoiceno);
-		invoiceList.add(invoice);
-
-		brokerNewPayment.loadId(loadid);
-
-		brokerNewPayment.clickShedulePayment();
-
-		brokerNewPayment.clickShedulePaymenttab();
-
-		brokerNewPayment.searchCarrier(carrierUsername);
-
-		brokerNewPayment.clickSearchButton();
-
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeScript("window.scrollBy(0,250)", "");
-
-		brokerNewPayment.verifyInvoiceNumber(invoiceno, amt);
-
-		// Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
-		System.out.println(brokerNewPayment.verifyPaymentStatus());
-
 	}
 
 	/*-------Login as Carrier------*/
@@ -159,10 +135,9 @@ public class AdminWireTransferTest extends TestBase {
 	/*------- Perform PayMeNow Wire Transfer------*/
 	@Test(dependsOnMethods = "carrierLogin")
 	public void performPaymeNow() throws InterruptedException {
-		carrierWireTransfer.getAmount();
 
 		// carrierWireTransfer.clickPaymenow();
-		adminWireTransfer.clickPayMeNowPayment(invoiceList.get(0));
+		adminWireTransfer.clickPayMeNowPayment(invoiceNumber[0]);
 
 		carrierWireTransfer.getwiretransferAmount();
 
@@ -171,10 +146,8 @@ public class AdminWireTransferTest extends TestBase {
 		carrierWireTransfer.clickConfirmButton();
 		log.info("Perform Carrier Wire Transfer");
 
-		carrierWireTransfer.getAmount();
-
 		// carrierWireTransfer.clickPaymenow();
-		adminWireTransfer.clickPayMeNowPayment(invoiceList.get(1));
+		adminWireTransfer.clickPayMeNowPayment(invoiceNumber[1]);
 
 		carrierWireTransfer.getwiretransferAmount();
 
@@ -209,7 +182,7 @@ public class AdminWireTransferTest extends TestBase {
 
 		adminWireTransfer.clickPayments();
 
-		adminWireTransfer.ClickOnsearchKeywordterm(invoiceList.get(0));
+		adminWireTransfer.ClickOnsearchKeywordterm(invoiceNumber[0]);
 
 		adminWireTransfer.getPaymentID();
 
@@ -221,7 +194,7 @@ public class AdminWireTransferTest extends TestBase {
 
 		// adminWireTransfer.clickgridcollapse();
 
-		adminWireTransfer.expandPayment(invoiceList.get(0));
+		adminWireTransfer.expandPayment(invoiceNumber[0]);
 
 		adminWireTransfer.clickWireTransferButton();
 
@@ -245,7 +218,7 @@ public class AdminWireTransferTest extends TestBase {
 
 		adminWireTransfer.clickPayments();
 
-		adminWireTransfer.ClickOnsearchKeywordterm(invoiceList.get(1));
+		adminWireTransfer.ClickOnsearchKeywordterm(invoiceNumber[1]);
 
 		adminWireTransfer.getPaymentID();
 		log.info("Get Payment id for second payment");
@@ -257,7 +230,7 @@ public class AdminWireTransferTest extends TestBase {
 		adminWireTransfer.clickSearch1();
 
 		// adminWireTransfer.clickgridcollapse();
-		adminWireTransfer.expandPayment(invoiceList.get(1));
+		adminWireTransfer.expandPayment(invoiceNumber[1]);
 		adminWireTransfer.clickWireTransferButton();
 
 		adminWireTransfer.enterWireTransferConfirmationNumber();

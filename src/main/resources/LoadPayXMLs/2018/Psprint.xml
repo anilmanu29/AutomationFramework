@@ -7,11 +7,14 @@
    	<listener class-name = "testngcustomreportlistener.TestNGCustomReportListener"/>
     <listener class-name = "util.TestRetryAnalyzerListener"/>
   </listeners>
+  
+      <suite-files>
+       <suite-file path="src/main/resources/LoadPayXMLs/2018/CreateNewBrokerAndCarrierWithPayments.xml"></suite-file>            
+	 </suite-files>
    
 	<test name="P Sprint Test Cases">
     <classes>
     
- <!--Set useDynamicBrokerData and useDynamicUnmatchedData as true.Set useDynamicCarrierData as false in config.properties -->
   
 <!--1) BrokerLoginData sheet - Update Username and Password for Broker based on Environment.
    2) CarrierLoginData sheet -Update Username and Password for Carrier based on Environment.

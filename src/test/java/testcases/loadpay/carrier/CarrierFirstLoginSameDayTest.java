@@ -6,10 +6,12 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import pages.loadpay.carrier.CarrierFirstLoginSameDay;
+import pages.loadpay.carrier.CarrierLoginPage;
 import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
 
 public class CarrierFirstLoginSameDayTest extends TestBase {
 	CarrierFirstLoginSameDay loginPage;
+	CarrierLoginPage carrierLoginPage;
 
 	public CarrierFirstLoginSameDayTest() {
 		super();
@@ -20,6 +22,7 @@ public class CarrierFirstLoginSameDayTest extends TestBase {
 	public void setUp() {
 		initialization();
 		loginPage = new CarrierFirstLoginSameDay();
+		carrierLoginPage = new CarrierLoginPage();
 		wait = new WebDriverWait(driver, 30);
 	}
 
@@ -31,6 +34,10 @@ public class CarrierFirstLoginSameDayTest extends TestBase {
 		loginPage.clickEmailcheckbox();
 		loginPage.clickFinish();
 		loginPage.clickClose();
+
+		if (carrierLoginPage.getDonotshowagaincheckbox().isDisplayed()) {
+			carrierLoginPage.closePaymeNowPopUp();
+		}
 	}
 
 }

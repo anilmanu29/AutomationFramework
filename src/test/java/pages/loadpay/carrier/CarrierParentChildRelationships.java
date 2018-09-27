@@ -8,7 +8,6 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,13 +21,13 @@ import testcases.loadpay.carrier.CarrierParentChildRelationshipsTest;
 public class CarrierParentChildRelationships extends TestBase {
 
 	WebDriverWait wait = null;
-	Actions act = null;
-	JavascriptExecutor js;
+	// Actions act = null;
+	// JavascriptExecutor js;
 	BrokerOutlook brokeroutlook;
 	outlooklogin outlooklog;
 	List<String> dataElements = new ArrayList<String>();
 	String code;
-	Actions actions = new Actions(driver);
+	// Actions actions = new Actions(driver);
 	List<String> firstRowData = null;
 	public static String pwd;
 	int j;
@@ -114,8 +113,8 @@ public class CarrierParentChildRelationships extends TestBase {
 	@FindBy(xpath = "//input[@value='Verify'][@type='button']")
 	private WebElement verifybutton;
 
-	@FindBy(xpath = "//table/tbody/tr/td//child::a[text()='Reset Your Password ']")
-	private WebElement buttonresetpassword;
+	@FindBy(xpath = "//table/tbody/tr/td//child::a[text()='Reset Your Password']")
+	public WebElement buttonresetpassword;
 
 	@FindBy(id = "User_Password")
 	public WebElement newpasswordfield;
@@ -147,25 +146,28 @@ public class CarrierParentChildRelationships extends TestBase {
 	public CarrierParentChildRelationships() throws IOException {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 30);
-		act = new Actions(driver);
-		js = (JavascriptExecutor) driver;
+		// act = new Actions(driver);
+		// js = (JavascriptExecutor) driver;
 		brokeroutlook = new BrokerOutlook();
 		outlooklog = new outlooklogin();
 	}
 
 	public void clickAccountLink() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(linkaccount));
-		js.executeScript("arguments[0].click();", linkaccount);
+		// js.executeScript("arguments[0].click();", linkaccount);
+		linkaccount.click();
 	}
 
 	public void clickEmailLink() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(emaillink));
-		js.executeScript("arguments[0].click();", emaillink);
+		// js.executeScript("arguments[0].click();", emaillink);
+		emaillink.click();
 	}
 
 	public void clickAddUserButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(adduserbtn));
-		js.executeScript("arguments[0].click();", adduserbtn);
+		// js.executeScript("arguments[0].click();", adduserbtn);
+		adduserbtn.click();
 	}
 
 	public void enterFirstName(String fn) throws InterruptedException {
@@ -177,6 +179,7 @@ public class CarrierParentChildRelationships extends TestBase {
 
 	public void enterLastName(String ln) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(lastnamefield));
+		lastnamefield.click();
 		lastnamefield.clear();
 		lastnamefield.sendKeys(ln);
 
@@ -184,8 +187,11 @@ public class CarrierParentChildRelationships extends TestBase {
 
 	public String enterNewEmailID(String nemail) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(newemailidfield));
+		newemailidfield.click();
 		newemailidfield.clear();
 		newemailidfield.sendKeys(nemail);
+		wait.until(ExpectedConditions.elementToBeClickable(savebtn));
+		Thread.sleep(2000);
 		return nemail;
 
 	}
@@ -194,15 +200,16 @@ public class CarrierParentChildRelationships extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(paymentaccesslabel));
 		wait.until(ExpectedConditions.elementToBeClickable(paymentaccesbutton));
 		if (paymentaccesslabel.getText().contains("Disabled")) {
-			js.executeScript("arguments[0].click();", paymentaccesbutton);
+			// js.executeScript("arguments[0].click();", paymentaccesbutton);
+			paymentaccesbutton.click();
 		}
 
 	}
 
 	public void clickSaveButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(savebtn));
-		js.executeScript("arguments[0].click();", savebtn);
-
+		// js.executeScript("arguments[0].click();", savebtn);
+		savebtn.click();
 	}
 
 	public String getAlertMessage() throws InterruptedException {
@@ -213,11 +220,13 @@ public class CarrierParentChildRelationships extends TestBase {
 
 	public void clickCancelButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(cancelbutton));
-		js.executeScript("arguments[0].click();", cancelbutton);
+		// js.executeScript("arguments[0].click();", cancelbutton);
+		cancelbutton.click();
 	}
 
 	public void enterSearchText(String searchText) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(searchInputField));
+		searchInputField.click();
 		searchInputField.clear();
 		searchInputField.sendKeys(searchText);
 	}
@@ -287,7 +296,8 @@ public class CarrierParentChildRelationships extends TestBase {
 
 	public void enterVerificationCode() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(verifyemaillink));
-		js.executeScript("arguments[0].click();", verifyemaillink);
+		// js.executeScript("arguments[0].click();", verifyemaillink);
+		verifyemaillink.click();
 		wait.until(ExpectedConditions.elementToBeClickable(textfield1));
 		textfield1.click();
 		textfield1.sendKeys(firstRowData.get(0));
@@ -300,16 +310,45 @@ public class CarrierParentChildRelationships extends TestBase {
 
 	public void clickVerifyButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(verifybutton));
-		js.executeScript("arguments[0].click();", verifybutton);
+		// js.executeScript("arguments[0].click();", verifybutton);
+		verifybutton.click();
 		wait.until(ExpectedConditions.elementToBeClickable(logoffbutton));
-		js.executeScript("arguments[0].click();", logoffbutton);
-
+		// js.executeScript("arguments[0].click();", logoffbutton);
+		logoffbutton.click();
 	}
 
 	public void carrierLogOut() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(logoffbutton));
-		js.executeScript("arguments[0].click();", logoffbutton);
+		// js.executeScript("arguments[0].click();", logoffbutton);
+		logoffbutton.click();
+	}
 
+	public void clickResetPasswordButton(String newwd, String confpwd) throws InterruptedException {
+
+		wait.until(ExpectedConditions.elementToBeClickable(emailid));
+		if (emailid.getText().equalsIgnoreCase(CarrierParentChildRelationshipsTest.nemail + ";")) {
+
+			List<WebElement> childrenElements = emailid.findElements(By.xpath(".//*"));
+
+			for (WebElement child : childrenElements) {
+
+				if (child.getText().contains("Reset")) {
+					System.out.println(child.getText());
+				}
+			}
+
+			// wait.until(ExpectedConditions.elementToBeClickable(buttonresetpassword));
+			// js.executeScript("arguments[0].click();", buttonresetpassword);
+			// buttonresetpassword.click();
+		}
+
+		ArrayList<String> newtab = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(newtab.get(2));
+		wait.until(ExpectedConditions.elementToBeClickable(newpasswordfield));
+		newpasswordfield.sendKeys(newwd);
+		confirmpassword.sendKeys(confpwd);
+		wait.until(ExpectedConditions.elementToBeClickable(submitbutton));
+		submitbutton.click();
 	}
 
 	public String resetPassword(String newwd, String confpwd) throws InterruptedException {
@@ -327,7 +366,8 @@ public class CarrierParentChildRelationships extends TestBase {
 			wait.until(ExpectedConditions.elementToBeClickable(emailid));
 			if (emailid.getText().equalsIgnoreCase(CarrierParentChildRelationshipsTest.nemail + ";")) {
 				wait.until(ExpectedConditions.elementToBeClickable(buttonresetpassword));
-				js.executeScript("arguments[0].click();", buttonresetpassword);
+				// js.executeScript("arguments[0].click();", buttonresetpassword);
+				buttonresetpassword.click();
 				break;
 			}
 		}
@@ -338,7 +378,8 @@ public class CarrierParentChildRelationships extends TestBase {
 		newpasswordfield.sendKeys(newwd);
 		confirmpassword.sendKeys(confpwd);
 		wait.until(ExpectedConditions.elementToBeClickable(submitbutton));
-		js.executeScript("arguments[0].click();", submitbutton);
+		// js.executeScript("arguments[0].click();", submitbutton);
+		submitbutton.click();
 		return confpwd;
 
 	}
@@ -356,13 +397,14 @@ public class CarrierParentChildRelationships extends TestBase {
 				j = i;
 
 				WebElement r = forceemailicons.get(j);
-				js.executeScript("arguments[0].click();", r);
+				// js.executeScript("arguments[0].click();", r);
+				r.click();
 				break;
 			}
 		}
 		wait.until(ExpectedConditions.elementToBeClickable(buttonconfirm));
-		js.executeScript("arguments[0].click();", buttonconfirm);
-
+		// js.executeScript("arguments[0].click();", buttonconfirm);
+		buttonconfirm.click();
 	}
 
 	public void editAccount() throws InterruptedException {
@@ -377,7 +419,8 @@ public class CarrierParentChildRelationships extends TestBase {
 				j = i;
 
 				WebElement edit = editicon.get(j);
-				js.executeScript("arguments[0].click();", edit);
+				// js.executeScript("arguments[0].click();", edit);
+				edit.click();
 				break;
 			}
 		}
@@ -395,13 +438,14 @@ public class CarrierParentChildRelationships extends TestBase {
 				j = i;
 
 				WebElement delete = deleteicon.get(j);
-				js.executeScript("arguments[0].click();", delete);
+				// js.executeScript("arguments[0].click();", delete);
+				delete.click();
 				break;
 			}
 		}
 		wait.until(ExpectedConditions.elementToBeClickable(buttonconfirm));
-		js.executeScript("arguments[0].click();", buttonconfirm);
-
+		// js.executeScript("arguments[0].click();", buttonconfirm);
+		buttonconfirm.click();
 	}
 
 }

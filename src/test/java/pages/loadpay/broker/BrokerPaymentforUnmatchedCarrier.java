@@ -153,6 +153,7 @@ public class BrokerPaymentforUnmatchedCarrier extends TestBase {
 
 	/*-------advance checkbox---------*/
 	public void advanceCheckbox() {
+		driver.navigate().refresh();
 		wait.until(ExpectedConditions.elementToBeClickable(checkbox_advance));
 		checkbox_advance.click();
 	}

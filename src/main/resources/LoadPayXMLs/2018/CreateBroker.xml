@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Automation Test Suite">
+<suite name="Create New Broker">
 
   <listeners>
    	<listener class-name = "extentreportlistener.ExtentReporterNG"/>
@@ -8,7 +8,7 @@
    	<listener class-name = "util.TestRetryAnalyzerListener"/>
   </listeners>
    
-		<test name="Create New Broker">
+		<test name="Create-Register-Verify-Activate Broker">
 			<classes>
 				
 			<!-- Broker Register -->

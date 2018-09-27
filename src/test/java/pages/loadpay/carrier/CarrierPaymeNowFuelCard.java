@@ -88,7 +88,6 @@ public class CarrierPaymeNowFuelCard extends TestBase {
 	}
 
 	public void clickPaymenow() throws InterruptedException {
-		driver.navigate().refresh();
 		wait.until(ExpectedConditions.elementToBeClickable(btn_paymenow));
 		btn_paymenow.click();
 	}
