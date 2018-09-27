@@ -33,7 +33,7 @@ public class CarrierDownloadCSVFromScheduledPaymentsTest extends TestBase {
 
 	/*-------Login to Load Pay as Carrier---------*/
 	@Test(description = "LP-6628 LoadPay Carrier_DownloadCSVfrom_ScheduledPayments", dataProvider = "getCarrierLoginData")
-	public void loginAsCarrierTest(String un, String pwd) {
+	public void loginAsCarrierTest(String un, String pwd) throws InterruptedException {
 		carrierdownloadcsvfromscheduledpaymentsbj.loginAsCarrier(un, pwd);
 	}
 

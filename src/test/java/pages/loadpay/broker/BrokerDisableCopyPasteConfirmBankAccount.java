@@ -47,7 +47,7 @@ public class BrokerDisableCopyPasteConfirmBankAccount extends TestBase {
 	@FindBy(id = "ConfirmBankingAccount")
 	private WebElement confirmaccnumberfield;
 
-	@FindBy(xpath = "//*[@class='error ng-scope']")
+	@FindBy(xpath = "//*[@id='formBanking']/div/div[6]/div/span[1]/span")
 	private WebElement errormessage;
 
 	@FindBy(xpath = "//input[@type='submit'][@value='Next']")
@@ -148,6 +148,11 @@ public class BrokerDisableCopyPasteConfirmBankAccount extends TestBase {
 	public String geterrorMessage() {
 		wait.until(ExpectedConditions.visibilityOf(errormessage));
 		return errormessage.getText();
+	}
+
+	public Boolean isErrorDisplayed() {
+		wait.until(ExpectedConditions.visibilityOf(errormessage));
+		return errormessage.isDisplayed();
 	}
 
 	public void clickSubmitButton() {

@@ -113,8 +113,8 @@ public class CarrierParentChildRelationships extends TestBase {
 	@FindBy(xpath = "//input[@value='Verify'][@type='button']")
 	private WebElement verifybutton;
 
-	@FindBy(xpath = "//table/tbody/tr/td//child::a[text()='Reset Your Password ']")
-	private WebElement buttonresetpassword;
+	@FindBy(xpath = "//table/tbody/tr/td//child::a[text()='Reset Your Password']")
+	public WebElement buttonresetpassword;
 
 	@FindBy(id = "User_Password")
 	public WebElement newpasswordfield;
@@ -191,6 +191,7 @@ public class CarrierParentChildRelationships extends TestBase {
 		newemailidfield.clear();
 		newemailidfield.sendKeys(nemail);
 		wait.until(ExpectedConditions.elementToBeClickable(savebtn));
+		Thread.sleep(2000);
 		return nemail;
 
 	}
@@ -320,6 +321,34 @@ public class CarrierParentChildRelationships extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(logoffbutton));
 		// js.executeScript("arguments[0].click();", logoffbutton);
 		logoffbutton.click();
+	}
+
+	public void clickResetPasswordButton(String newwd, String confpwd) throws InterruptedException {
+
+		wait.until(ExpectedConditions.elementToBeClickable(emailid));
+		if (emailid.getText().equalsIgnoreCase(CarrierParentChildRelationshipsTest.nemail + ";")) {
+
+			List<WebElement> childrenElements = emailid.findElements(By.xpath(".//*"));
+
+			for (WebElement child : childrenElements) {
+
+				if (child.getText().contains("Reset")) {
+					System.out.println(child.getText());
+				}
+			}
+
+			// wait.until(ExpectedConditions.elementToBeClickable(buttonresetpassword));
+			// js.executeScript("arguments[0].click();", buttonresetpassword);
+			// buttonresetpassword.click();
+		}
+
+		ArrayList<String> newtab = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(newtab.get(2));
+		wait.until(ExpectedConditions.elementToBeClickable(newpasswordfield));
+		newpasswordfield.sendKeys(newwd);
+		confirmpassword.sendKeys(confpwd);
+		wait.until(ExpectedConditions.elementToBeClickable(submitbutton));
+		submitbutton.click();
 	}
 
 	public String resetPassword(String newwd, String confpwd) throws InterruptedException {

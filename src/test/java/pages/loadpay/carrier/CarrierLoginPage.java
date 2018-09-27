@@ -127,7 +127,7 @@ public class CarrierLoginPage extends TestBase {
 		return driver.getTitle();
 	}
 
-	public void Carrierlogin(String un, String pwd) {
+	public void Carrierlogin(String un, String pwd) throws InterruptedException {
 		cemail = un;
 		wait.until(ExpectedConditions.elementToBeClickable(UserName));
 		UserName.sendKeys(un);
@@ -136,6 +136,7 @@ public class CarrierLoginPage extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
 		loginBtn.click();
 		wait.until(ExpectedConditions.elementToBeClickable(btn_logout));
+		Thread.sleep(2000);
 	}
 
 	public void carrierVerificationLogin(String UserName, String NewPassword) {

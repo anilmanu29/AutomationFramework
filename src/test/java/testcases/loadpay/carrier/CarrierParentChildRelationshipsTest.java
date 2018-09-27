@@ -164,7 +164,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 	@Test(dataProvider = "getCarrierParentChildPasswordData", dependsOnMethods = { "verifyEmailAddress" })
 	public void verifyResetPassword(String nwpwd, String confmpwd, String forcepwd, String confirmforcepwd)
 			throws InterruptedException {
-		carrierchildrelation.resetPassword(nwpwd, confmpwd);
+		carrierchildrelation.clickResetPasswordButton(nwpwd, confmpwd);
 		pwd = nwpwd;
 
 	}

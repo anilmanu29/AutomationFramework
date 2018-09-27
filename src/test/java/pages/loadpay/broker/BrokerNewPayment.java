@@ -229,10 +229,10 @@ public class BrokerNewPayment extends TestBase {
 	}
 
 	/*-------schedule payment tab---------*/
-	public void clickShedulePaymenttab() {
+	public void clickShedulePaymenttab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(tab_shedulepayment));
+		Thread.sleep(1000);
 		tab_shedulepayment.click();
-		driver.navigate().refresh();
 		wait.until(ExpectedConditions.elementToBeClickable(field_searchbox));
 	}
 

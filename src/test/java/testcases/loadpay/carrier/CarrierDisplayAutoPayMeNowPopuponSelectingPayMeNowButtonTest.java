@@ -39,7 +39,7 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 
 	/*-------Login to Load Pay as Carrier---------*/
 	@Test(description = "LP-6802  Carrier_Display_Auto_PayMeNow_popup_on_selecting_PayMeNow_Button", dataProvider = "getCarrierLoginData")
-	public void carrierLoginTest(String un, String pwd) {
+	public void carrierLoginTest(String un, String pwd) throws InterruptedException {
 		carrierdisplayautopaymenowpopupobj.loginAsCarrier(un, pwd);
 	}
 

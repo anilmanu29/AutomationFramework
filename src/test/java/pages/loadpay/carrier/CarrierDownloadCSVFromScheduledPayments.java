@@ -26,7 +26,7 @@ public class CarrierDownloadCSVFromScheduledPayments extends TestBase {
 		wait = new WebDriverWait(driver, 30);
 	}
 
-	public void loginAsCarrier(String un, String pwd) {
+	public void loginAsCarrier(String un, String pwd) throws InterruptedException {
 		carrierLoginObj = new CarrierLoginPage();
 		carrierLoginObj.Carrierlogin(un, pwd);
 	}

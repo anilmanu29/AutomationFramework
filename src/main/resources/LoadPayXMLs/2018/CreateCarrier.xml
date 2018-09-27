@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Automation Test Suite">
+<suite name="Create New Carrier">
 
   <listeners>
    	<listener class-name = "extentreportlistener.ExtentReporterNG"/>
@@ -9,7 +9,7 @@
   </listeners>
    
 
-		<test name="Create New Carrier">
+		<test name="Create-Register-Verify-Activate Carrier">
 			<classes>
 	
 				<!-- Carrier Register -->

@@ -138,9 +138,8 @@ public class BrokerDisableCopyPasteConfirmBankAccountTest extends TestBase {
 
 		brokerdisablecopypasteconfirmbankaccountobj.verifyCopyPasteforTypeofAccount();
 
-		Assert.assertTrue(
-				brokerdisablecopypasteconfirmbankaccountobj.geterrorMessage().contains("Account Number do not match"),
-				"Validation NOT found");
+		Assert.assertTrue(brokerdisablecopypasteconfirmbankaccountobj.isErrorDisplayed(),
+				"Error message not found for confirmation account number");
 
 	}
 
