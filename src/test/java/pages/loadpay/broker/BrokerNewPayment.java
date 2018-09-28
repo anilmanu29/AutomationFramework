@@ -239,12 +239,16 @@ public class BrokerNewPayment extends TestBase {
 	/*-------Search Carrier---------*/
 	public void searchCarrier(String cemail) {
 		wait.until(ExpectedConditions.elementToBeClickable(field_searchbox));
+		field_searchbox.click();
+		field_searchbox.clear();
 		field_searchbox.sendKeys(cemail);
 	}
 
 	/*-------Search Invoice---------*/
 	public void searchInvoice(String invoiceNum) {
 		wait.until(ExpectedConditions.elementToBeClickable(field_searchbox));
+		field_searchbox.click();
+		field_searchbox.clear();
 		field_searchbox.sendKeys(invoiceNum);
 	}
 

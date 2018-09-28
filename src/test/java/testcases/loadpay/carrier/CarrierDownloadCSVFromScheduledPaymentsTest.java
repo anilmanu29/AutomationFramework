@@ -19,6 +19,7 @@ public class CarrierDownloadCSVFromScheduledPaymentsTest extends TestBase {
 
 	CarrierDownloadCSVFromScheduledPayments carrierdownloadcsvfromscheduledpaymentsbj;
 	String expectedFileName = "";
+	String carrierUsername, carrierPassword = "";
 
 	/*-------Initializing driver---------*/
 	public CarrierDownloadCSVFromScheduledPaymentsTest() {
@@ -34,7 +35,16 @@ public class CarrierDownloadCSVFromScheduledPaymentsTest extends TestBase {
 	/*-------Login to Load Pay as Carrier---------*/
 	@Test(description = "LP-6628 LoadPay Carrier_DownloadCSVfrom_ScheduledPayments", dataProvider = "getCarrierLoginData")
 	public void loginAsCarrierTest(String un, String pwd) throws InterruptedException {
-		carrierdownloadcsvfromscheduledpaymentsbj.loginAsCarrier(un, pwd);
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
+		} else {
+			carrierUsername = un;
+			carrierPassword = pwd;
+		}
+
+		carrierdownloadcsvfromscheduledpaymentsbj.loginAsCarrier(carrierUsername, carrierPassword);
 	}
 
 	/*-------Verify Scheduled Payments Tab---------*/

@@ -503,7 +503,7 @@ public class AdminLogin extends TestBase {
 	public void UpdateButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(updateButton));
 		updateButton.click();
-		waitForLoadingToComplete();
+		Thread.sleep(1000);
 	}
 
 	/**
