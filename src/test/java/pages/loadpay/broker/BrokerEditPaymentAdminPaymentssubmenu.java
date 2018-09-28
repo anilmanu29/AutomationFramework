@@ -36,7 +36,7 @@ public class BrokerEditPaymentAdminPaymentssubmenu extends TestBase {
 	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[4]/div/div[2]/div/div[2]/div/div/div[1]/div/div[9]/span")
 	private WebElement payment;
 
-	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[3]/div/div[2]/div/div[2]/div/div/div[1]/div/div[6]/span")
+	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[4]/div/div[2]/div/div[2]/div/div/div[1]/div/div[6]/span")
 	private WebElement carrierpayment;
 
 	@FindBy(xpath = ".//*[@class='carrierPayment'][@aria-expanded='true']")
@@ -88,6 +88,7 @@ public class BrokerEditPaymentAdminPaymentssubmenu extends TestBase {
 		brokerPaymentObj.clickSearchButton();
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)", "");
+		Thread.sleep(3000);
 		brokerPaymentObj.verifyInvoiceNumber(invoiceNum, paymentAmount);
 
 		// verify payment status
@@ -116,7 +117,7 @@ public class BrokerEditPaymentAdminPaymentssubmenu extends TestBase {
 	public void clickCarrierkPayment() throws InterruptedException {
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(carrierpayment));
-		js.executeScript("arguments[0].click();", carrierpayment);
+		carrierpayment.click();
 		Thread.sleep(1000);
 	}
 
@@ -126,8 +127,10 @@ public class BrokerEditPaymentAdminPaymentssubmenu extends TestBase {
 	}
 
 	public void verifyEditableFieldsEnabled() throws InterruptedException {
-		js.executeScript("arguments[0].click();", paymenteditbutton);
+		wait.until(ExpectedConditions.elementToBeClickable(paymenteditbutton));
 		Thread.sleep(1000);
+
+		paymenteditbutton.click();
 
 		// Verify all editable fields are enabled
 		SoftAssert softAssert = new SoftAssert();
