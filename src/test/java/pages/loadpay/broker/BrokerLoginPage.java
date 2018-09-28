@@ -1,7 +1,6 @@
 package pages.loadpay.broker;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -52,15 +51,7 @@ public class BrokerLoginPage extends TestBase {
 		UserName.sendKeys(un);
 		Password.sendKeys(pwd);
 		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", loginBtn);
-
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		loginBtn.click();
 	}
 
 	public void brokerVerificationLogin(String UserName, String NewPassword) {
@@ -69,8 +60,7 @@ public class BrokerLoginPage extends TestBase {
 		this.UserName.sendKeys(UserName);
 		Password.sendKeys(NewPassword);
 		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", loginBtn);
+		loginBtn.click();
 	}
 
 	public void BrokerLogout() throws InterruptedException {

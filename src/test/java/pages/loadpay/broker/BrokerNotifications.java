@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
 import pages.loadpay.admin.AdminPayByCheck;
+import testcases.loadpay.carrier.CarrierRegisterTest;
 import util.TestUtil;
 
 public class BrokerNotifications extends TestBase {
@@ -91,14 +92,13 @@ public class BrokerNotifications extends TestBase {
 		Thread.sleep(1000);
 	}
 
-	public void brokerCreateNewPayment(String cE, String iN, String lId, String pA) throws InterruptedException {
+	public void brokerCreateNewPayment() throws InterruptedException {
 
-		// Store data-provider elements into publicly-accessible strings
-		carrierEmail = cE;
-		iN = TestUtil.getCurrentDateTime();
-		newPaymentAmount = pA;
-		newPaymentInvoiceNum = iN;
-		newPaymentLoadId = iN;
+		carrierEmail = CarrierRegisterTest.carrierUsername;
+		newPaymentInvoiceNum = TestUtil.getCurrentDateTime();
+		newPaymentLoadId = newPaymentInvoiceNum;
+		Integer paymentAmount = TestUtil.getRandomNumber(100, 1000);
+		newPaymentAmount = paymentAmount.toString();
 
 		// create new payment
 		brokerPaymentObj = new BrokerNewPayment();

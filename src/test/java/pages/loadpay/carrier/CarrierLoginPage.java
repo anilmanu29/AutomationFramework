@@ -135,6 +135,7 @@ public class CarrierLoginPage extends TestBase {
 		// loginBtn.click();
 		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
 		loginBtn.click();
+		Thread.sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(btn_logout));
 		Thread.sleep(2000);
 	}

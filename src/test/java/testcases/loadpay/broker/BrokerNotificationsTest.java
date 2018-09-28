@@ -11,14 +11,17 @@ import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerNotifications;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierNextDAYACH;
+import testcases.loadpay.carrier.CarrierRegisterTest;
 
 public class BrokerNotificationsTest extends TestBase {
-	String brokeremailid = "";
 	BrokerNotifications brokernotificationsobj;
 	CarrierLoginPage carrierloginobj;
 	CarrierNextDAYACH carriernextdayachobj;
 	BrokerLoginPage brokerloginobj;
-	String invoicenumb = "";
+	String invoiceNumber = "";
+
+	String carrierUsername, carrierPassword = "";
+	String brokerUsername, brokerPassword = "";
 
 	/*-------Initializing driver---------*/
 	public BrokerNotificationsTest() {
@@ -37,17 +40,23 @@ public class BrokerNotificationsTest extends TestBase {
 	/*-------Login to Load Pay as Broker---------*/
 	@Test(description = "LP-6361 Broker Notifications", dataProvider = "getBrokerLoginData")
 	public void loginAsBrokerTest(String un, String pwd) throws InterruptedException {
-		brokeremailid = un;
-		brokernotificationsobj.loginAsBroker(un, pwd);
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = un;
+			brokerPassword = pwd;
+		}
+
+		brokernotificationsobj.loginAsBroker(brokerUsername, brokerPassword);
 		System.out.println("loginAsBrokerTest - Passed");
 	}
 
 	/*-------Scheduling New Payment as a Broker---------*/
-	@Test(description = "LP-6361 Broker Notifications", dependsOnMethods = {
-			"loginAsBrokerTest" }, dataProvider = "getPaymentData")
-	public void brokerCreateNewPaymentTest(String cE, String iN, String lId, String pA) throws InterruptedException {
-		invoicenumb = iN;
-		brokernotificationsobj.brokerCreateNewPayment(cE, iN, lId, pA);
+	@Test(description = "LP-6361 Broker Notifications", dependsOnMethods = { "loginAsBrokerTest" })
+	public void brokerCreateNewPaymentTest() throws InterruptedException {
+		brokernotificationsobj.brokerCreateNewPayment();
 		System.out.println("brokerCreateNewPaymentTest - Passed");
 	}
 
@@ -56,7 +65,16 @@ public class BrokerNotificationsTest extends TestBase {
 			"brokerCreateNewPaymentTest" }, dataProvider = "getCarrierLoginData")
 	public void loginAsCarrierTest(String username, String password) throws InterruptedException, AWTException {
 		brokerloginobj.BrokerLogout();
-		carrierloginobj.Carrierlogin(username, password);
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
+		} else {
+			carrierUsername = username;
+			carrierPassword = password;
+		}
+
+		carrierloginobj.Carrierlogin(carrierUsername, carrierPassword);
 	}
 
 	/*-------Verify Carrier Next Day ACH---------*/
@@ -68,15 +86,13 @@ public class BrokerNotificationsTest extends TestBase {
 		carriernextdayachobj.clickSelectButton();
 		carriernextdayachobj.clickConfirmButton();
 		// carriernextdayachobj.clickPaidTab();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		carrierloginobj.CarrierLogout();
 	}
 
-	@Test(description = "LP-6361 Broker Notifications", dependsOnMethods = {
-			"verifyCarrierPayMeNowNextDayACHTest" }, dataProvider = "getBrokerLoginData")
-	public void verifyBrokerNotificationsTest(String username, String password) throws InterruptedException {
-		brokernotificationsobj.loginAsBroker(username, password);
-		driver.navigate().refresh();
+	@Test(description = "LP-6361 Broker Notifications", dependsOnMethods = { "verifyCarrierPayMeNowNextDayACHTest" })
+	public void verifyBrokerNotificationsTest() throws InterruptedException {
+		brokernotificationsobj.loginAsBroker(brokerUsername, brokerPassword);
 		brokernotificationsobj.clickNotification();
 		brokernotificationsobj.clickPaymeNowPaymentNotification();
 	}

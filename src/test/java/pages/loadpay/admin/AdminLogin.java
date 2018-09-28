@@ -25,7 +25,7 @@ public class AdminLogin extends TestBase {
 	@FindBy(xpath = "html/body/div[1]/div/div/div[2]/form/div[4]/input")
 	WebElement loginBtn;
 
-	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[1]/div/nav/div[2]/ul/li[8]/a")
+	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[1]/div/nav/div[2]/ul/li[9]/a")
 	WebElement logOut;
 
 	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[1]/div/nav/div[2]/ul/li[3]/a")
@@ -67,7 +67,7 @@ public class AdminLogin extends TestBase {
 	@FindBy(xpath = (".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[14]/div/div/table/tbody/tr[1]/td[3]/button"))
 	WebElement forwardfile;
 
-	@FindBy(xpath = (".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[12]/div/div/table/tbody/tr[1]/td[3]/button"))
+	@FindBy(xpath = (".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[13]/div/div/table/tbody/tr[1]/td[3]/button"))
 	WebElement carrierforwardfile;
 
 	@FindBy(xpath = (".//*[@id='btnUpdatePaymentTermsGreaterThan45Days']"))
@@ -79,7 +79,7 @@ public class AdminLogin extends TestBase {
 	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[14]/div/div/table/tbody/tr[1]/td[3]/a")
 	public WebElement paymnt_Historydownload;
 
-	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[12]/div/div/table/tbody/tr[1]/td[3]/a")
+	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[13]/div/div/table/tbody/tr[1]/td[3]/a")
 	public WebElement paymnt_carrierHistorydownload;
 
 	@FindBy(xpath = ".//*[@id='formPMN']/div/div[3]/input[2]")
@@ -100,7 +100,7 @@ public class AdminLogin extends TestBase {
 	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[5]")
 	WebElement PayMeNowTm;
 
-	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[8]")
+	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[9]")
 	WebElement carrierPaymentHistory;
 
 	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[2]")
@@ -190,21 +190,15 @@ public class AdminLogin extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(logOut));
 	}
 
-	/*
-	 * public void AdminLogOut() throws InterruptedException {
-	 * wait.until(ExpectedConditions.elementToBeClickable(logOut)); logOut.click();
-	 * }
-	 */
-
 	public void AdminLogOut() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(logOut));
-		js.executeScript("arguments[0].click();", logOut);
-
+		logOut.click();
+		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
 	}
 
 	public void Banking_editbtnPayByInvoice() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(editbtnPayByInvoice));
-		js.executeScript("arguments[0].click();", editbtnPayByInvoice);
+		editbtnPayByInvoice.click();
 	}
 
 	public void Link_PayMeNowTm() throws InterruptedException {
@@ -214,8 +208,7 @@ public class AdminLogin extends TestBase {
 
 	public void Link_delaydebit() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(delaydebit));
-		js.executeScript("arguments[0].click();", delaydebit);
-		// delaydebit.click();
+		delaydebit.click();
 	}
 
 	public void Click_paymentterm45Submit() throws InterruptedException {
@@ -226,8 +219,7 @@ public class AdminLogin extends TestBase {
 
 	public void Clickverifysystemnote() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(verifysystemnote));
-		js.executeScript("arguments[0].click();", verifysystemnote);
-		// verifysystemnote.click();
+		verifysystemnote.click();
 
 	}
 
@@ -240,7 +232,7 @@ public class AdminLogin extends TestBase {
 
 	public void clickupdatebtnPayByInvoice() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(click_updatebtnPayByInvoice));
-		js.executeScript("arguments[0].click();", click_updatebtnPayByInvoice);
+		click_updatebtnPayByInvoice.click();
 	}
 
 	public void clickenrollpaymenow() throws InterruptedException {
@@ -511,6 +503,7 @@ public class AdminLogin extends TestBase {
 	public void UpdateButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(updateButton));
 		updateButton.click();
+		waitForLoadingToComplete();
 	}
 
 	/**

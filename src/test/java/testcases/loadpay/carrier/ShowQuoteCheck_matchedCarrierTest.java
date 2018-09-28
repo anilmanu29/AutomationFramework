@@ -2,7 +2,6 @@ package testcases.loadpay.carrier;
 
 import java.awt.AWTException;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
@@ -18,33 +17,26 @@ import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerNewPayment;
 import pages.loadpay.broker.BrokerPaymentforUnmatchedCarrier;
 import pages.loadpay.unmatched.UnmatchedCarrierAdminPayByCheck;
+import testcases.loadpay.broker.BrokerRegisterTest;
 import util.TestUtil;
 
 public class ShowQuoteCheck_matchedCarrierTest extends TestBase {
 
 	BrokerPaymentforUnmatchedCarrier brokerPaymentforUnmatchedCarrier;
-	BrokerLoginPage brokerlogin;
-	BrokerNewPayment brokerNewPayment;
-	String payment_status = "Unmatched";
-	String invoice;
-	String umemail;
-	String einno;
-	ArrayList<String> arraylistin;
-	int invoiceNum = 0;
-	BrokerLoginPage brokerloginobj;
-	BrokerNewPayment brokerpaymentobj;
+	BrokerLoginPage brokerLoginObj;
+	BrokerNewPayment brokerNewPaymentObj;
 	BrokerAdvancePaymenttoUnmatchedCarrier brokeradvancepaymentobj;
 	AdminHomePage homepage;
 	AdminLogin adminlogin;
 	AdminPayByCheck adminPayByCheck;
 	UnmatchedCarrierAdminPayByCheck UnCarrierAdminPBC;
-	ArrayList<String> invoicenumbers;
-	String cemail;
-	String email;
+
+	String payment_status = "Unmatched";
+	int invoiceNum = 0;
+
 	String brokerUsername;
 	String brokerPassword;
-	String invoicenumber = "";
-	public static String newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNum, carieremail = "";
+	public static String newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNum, carrierEmail = "";
 
 	/*-------Initializing driver---------*/
 	public ShowQuoteCheck_matchedCarrierTest() {
@@ -55,65 +47,56 @@ public class ShowQuoteCheck_matchedCarrierTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
-		brokerlogin = new BrokerLoginPage();
-		brokerNewPayment = new BrokerNewPayment();
+		brokerNewPaymentObj = new BrokerNewPayment();
 		brokerPaymentforUnmatchedCarrier = new BrokerPaymentforUnmatchedCarrier();
-		invoicenumbers = new ArrayList<String>();
-		brokerloginobj = new BrokerLoginPage();
-		brokerpaymentobj = new BrokerNewPayment();
+		brokerLoginObj = new BrokerLoginPage();
 		brokeradvancepaymentobj = new BrokerAdvancePaymenttoUnmatchedCarrier();
 		homepage = new AdminHomePage();
 		adminlogin = new AdminLogin();
-		// arraylist = new ArrayList<String>();
 		adminPayByCheck = new AdminPayByCheck();
 		UnCarrierAdminPBC = new UnmatchedCarrierAdminPayByCheck();
 	}
 
 	@Test(dataProvider = "getBrokerLoginData")
 	public void loginBroker(String un, String pwd) {
-		brokerlogin = new BrokerLoginPage();
-		brokerlogin.Brokerlogin(un, pwd);
+		brokerLoginObj = new BrokerLoginPage();
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = un;
+			brokerPassword = pwd;
+		}
+
+		brokerLoginObj.Brokerlogin(brokerUsername, brokerPassword);
 
 	}
 
 	/*-------Scheduling New Payment as a Broker---------*/
 
-	@Test(dataProvider = "getPaymentData", dependsOnMethods = "loginBroker")
-	public void brokernewPayment(String cemail, String invoiceno, String loadid, String amt)
-			throws InterruptedException {
+	@Test(dependsOnMethods = "loginBroker")
+	public void brokernewPayment() throws InterruptedException {
 
-		// int randomNumber = TestUtil.getRandomNumber(1, 999999);
-		// invoiceNum = randomNumber;
-		// invoicenumber = Integer.toString(invoiceNum);
-		// invoiceno = invoicenumber;
-		// loadid = invoicenumber;
+		carrierEmail = CarrierRegisterTest.carrierUsername;
+		newPaymentInvoiceNum = TestUtil.getCurrentDateTime();
+		newPaymentLoadId = newPaymentInvoiceNum;
+		Integer paymentAmount = TestUtil.getRandomNumber(100, 1000);
+		newPaymentAmount = paymentAmount.toString();
 
-		carieremail = cemail;
-		invoiceno = TestUtil.getCurrentDateTime();
-		newPaymentInvoiceNum = invoiceno;
-		newPaymentLoadId = invoiceno;
-		newPaymentAmount = amt;
-
-		brokerNewPayment = new BrokerNewPayment();
-		brokerNewPayment.newPayment();
-		email = brokerNewPayment.carrierEmail(carieremail);
-		brokerNewPayment.amount(newPaymentAmount);
-		invoice = brokerNewPayment.invoiceNumber(newPaymentInvoiceNum);
-		invoicenumbers.add(invoice);
-		brokerNewPayment.loadId(newPaymentLoadId);
-		// bp.advanceCheckbox();
-		/* brokerNewPayment.setField_PayTo(payTo); */
-		brokerNewPayment.clickShedulePayment();
-		brokerNewPayment.clickShedulePaymenttab();
-		brokerNewPayment.searchCarrier(carieremail);
-		// arraylist.add(umemail);
-		brokerNewPayment.clickSearchButton();
+		brokerNewPaymentObj = new BrokerNewPayment();
+		brokerNewPaymentObj.newPayment();
+		brokerNewPaymentObj.carrierEmail(carrierEmail);
+		brokerNewPaymentObj.amount(newPaymentAmount);
+		brokerNewPaymentObj.invoiceNumber(newPaymentInvoiceNum);
+		brokerNewPaymentObj.loadId(newPaymentLoadId);
+		brokerNewPaymentObj.clickShedulePayment();
+		brokerNewPaymentObj.clickShedulePaymenttab();
+		brokerNewPaymentObj.searchCarrier(carrierEmail);
+		brokerNewPaymentObj.clickSearchButton();
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)", "");
-		brokerNewPayment.verifyInvoiceNumber(newPaymentInvoiceNum, newPaymentAmount);
-		// Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
-		System.out.println(brokerNewPayment.verifyPaymentStatus());
-		// bp.logout();
+		brokerNewPaymentObj.verifyInvoiceNumber(newPaymentInvoiceNum, newPaymentAmount);
 	}
 
 	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = "brokernewPayment")
@@ -123,11 +106,8 @@ public class ShowQuoteCheck_matchedCarrierTest extends TestBase {
 		adminlogin.adminUserPass(Username, pass);
 		adminlogin.adminLogin();
 		adminlogin.ClickOnCustomersTab();
-		/*
-		 * System.out.println(brokerUsername);
-		 * adminlogin.ClickOnSearchBox(brokerUsername);
-		 */
-		adminlogin.ClickOnSearchBox(brokerloginobj.bemail);
+
+		adminlogin.ClickOnSearchBox(brokerUsername);
 		// Thread.sleep(1000);
 		adminlogin.ClickOnSearchButton();
 		// Thread.sleep(1000);
@@ -135,11 +115,11 @@ public class ShowQuoteCheck_matchedCarrierTest extends TestBase {
 		// Thread.sleep(1000);
 		adminPayByCheck.clickPayments();
 		Thread.sleep(1000);
-		adminPayByCheck.ClickOnsearchKeyword(invoicenumbers.get(1));
+		adminPayByCheck.ClickOnsearchKeyword(newPaymentInvoiceNum);
 		// System.out.println(UnCarrierAdminPBC.getPaymentId1().getText());
 		// adminPayByCheck.ClickOnsearchKeyword(UnCarrierAdminPBC.getPaymentId1().getText());
 		Thread.sleep(1000);
-		adminPayByCheck.getPaymentID(invoicenumbers.get(1));
+		adminPayByCheck.getPaymentID(newPaymentInvoiceNum);
 		adminPayByCheck.clickSearch();
 		adminPayByCheck.searchKeyword();
 		adminPayByCheck.clickSearch1();
@@ -154,8 +134,8 @@ public class ShowQuoteCheck_matchedCarrierTest extends TestBase {
 	public void verifyShowQuoteCheck_UnmatchedCarrierTestDisplayed() {
 
 		// Verify that the web elements for the Processed tab exist
-		Assert.assertTrue(brokerNewPayment.field_InvoiceNum.isDisplayed(), " invoicenum field not found");
-		Assert.assertTrue(brokerNewPayment.btn_search.isDisplayed(), "Search button not found");
+		Assert.assertTrue(brokerNewPaymentObj.field_InvoiceNum.isDisplayed(), " invoicenum field not found");
+		Assert.assertTrue(brokerNewPaymentObj.btn_search.isDisplayed(), "Search button not found");
 		Assert.assertTrue(adminPayByCheck.link_Payments.isDisplayed(), "Payment ID not found");
 		Assert.assertTrue(adminPayByCheck.select_Terms.isDisplayed(), "Payments Term & Term Payment not found");
 		Assert.assertTrue(adminPayByCheck.ShowQuoteClose.isDisplayed(), "ShowQuoteClose button not found");

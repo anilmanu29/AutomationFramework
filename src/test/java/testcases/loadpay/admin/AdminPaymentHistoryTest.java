@@ -123,8 +123,12 @@ public class AdminPaymentHistoryTest extends TestBase {
 	public void verifyAdminPaymentHistoryStatuscarrier(String Username, String pass)
 			throws InterruptedException, AWTException {
 		admHomePage.AdminURL();
-		admLogin.adminUserPass(Username, pass);
-		admLogin.adminLogin();
+
+		if (admLogin.getLoginBtn().isDisplayed()) {
+			admLogin.adminUserPass(Username, pass);
+			admLogin.adminLogin();
+		}
+
 		admLogin.ClickOnCustomersTab();
 		admLogin.ClickOnSearchBox(carrierUserName);
 		admLogin.ClickOnSearchButton();
