@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Automation Test Suite">
+<suite name="P Sprint Test Suite">
 
   <listeners>
    	<listener class-name = "extentreportlistener.ExtentReporterNG"/>
@@ -12,8 +12,8 @@
        <suite-file path="src/main/resources/LoadPayXMLs/2018/CreateNewBrokerAndCarrierWithPayments.xml"></suite-file>            
 	 </suite-files>
    
-	<test name="P Sprint Test Cases">
-    <classes>
+	<test name="P Sprint Test Cases" preserve-order="true">
+     <classes>
     
   
 <!--

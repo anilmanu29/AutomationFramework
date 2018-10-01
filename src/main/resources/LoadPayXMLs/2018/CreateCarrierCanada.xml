@@ -10,8 +10,8 @@
    
 
 		
-		<test name="Create New Canadian Carrier - Register-Verify-Activate">
-			<classes>
+		<test name="Create New Canadian Carrier - Register-Verify-Activate" preserve-order="true">
+			 <classes>
 				
 	  		<!-- Script for Jira Tickets LP-5409 LoadPay - Selenium Test - Carrier - Register Canada -->
 	

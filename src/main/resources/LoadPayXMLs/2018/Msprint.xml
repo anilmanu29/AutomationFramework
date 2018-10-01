@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Automation Test Suite">
+<suite name="M Sprint Test Suite">
 
   <listeners>
    	<listener class-name = "extentreportlistener.ExtentReporterNG"/>
@@ -8,8 +8,8 @@
     <listener class-name = "util.TestRetryAnalyzerListener"/>
   </listeners>
    
-	<test name="M Sprint Test Cases">
-    <classes>
+	<test name="M Sprint Test Cases" preserve-order="true">
+     <classes>
     
 <!-- Test data:< In config.properties file useDynamicBrokerData = true, useDynamicCarrierData = true, useDynamicUnmatchedData = true>
 1. BrokerNewPaymentData Sheet = Invoice and Load ID , make sure there are 2 payments are available.
