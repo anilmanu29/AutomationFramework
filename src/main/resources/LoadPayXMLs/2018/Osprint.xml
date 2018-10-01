@@ -40,8 +40,7 @@
 		<class name="testcases.loadpay.unmatched.ShowQuoteCheck_UnmatchedCarrierTest"></class>
     	
     <!-- Script for Jira Ticket LP-5428 - LoadPay - Selenium Test - Admin - Payment History-->
-		<class name="testcases.loadpay.admin.AdminPaymentHistoryTest"></class>
-		
+		<class name="testcases.loadpay.admin.AdminPaymentHistoryTest"></class>		
 		
     <!-- Script for Jira Ticket LP-6350 -LoadPay - Selenium Test - Admin - Show Quote For Check_Matched Carrier-->
     	<class name="testcases.loadpay.carrier.ShowQuoteCheck_matchedCarrierTest"></class>

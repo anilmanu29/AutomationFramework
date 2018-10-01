@@ -233,6 +233,8 @@ public class BrokerNewPayment extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(tab_shedulepayment));
 		Thread.sleep(1000);
 		tab_shedulepayment.click();
+		Thread.sleep(1000);
+		driver.navigate().refresh();
 		wait.until(ExpectedConditions.elementToBeClickable(field_searchbox));
 	}
 

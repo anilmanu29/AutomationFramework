@@ -14,16 +14,11 @@
    
 	<test name="X-missing Sprint Test Cases">
     <classes>
-		<class name="testcases.loadpay.admin.AdminCancelPayByCheckTest"></class>
-		<class name="testcases.loadpay.admin.AdminPayByCheckServiceBatchFileTest"></class>
-		
+	
 		<class name="testcases.loadpay.broker.AccountChangePasswordTest"></class>
-		<class name="testcases.loadpay.broker.BrokerAvailableCreditTabTest"></class>
 		<class name="testcases.loadpay.broker.BrokerBulkUploadPaymentErrorsTest"></class>
 		<class name="testcases.loadpay.broker.BrokerPaymentTermsChargeRecipientTest"></class>
 		<class name="testcases.loadpay.broker.LoginPageResetPasswordTest"></class>
-		<class name="testcases.loadpay.broker.ShipperCompleteAccountModuleTest"></class>
-		<class name="testcases.loadpay.broker.ShipperPaymentHistoryTest"></class>
 		
 		<class name="testcases.loadpay.carrier.CarrierAccountChangePasswordTest"></class>
 		<class name="testcases.loadpay.carrier.CarrierCompleteAccountModuleTest"></class>

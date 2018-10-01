@@ -26,22 +26,25 @@ import util.TestUtil;
 public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 
 	BrokerPaymentSheduledates brokerPaymentSheduledates;
+	BrokerLoginPage brokerlogin;
 	AdminHomePage admHomePage;
 	AdminLogin admLogin;
 	CarrierWireTransfer carrierwireframe;
 	WebElement checkbox;
+	CarrierLoginPage carrierloginPage;
+	CarrierSameDAYACH carriersamedayach;
+
 	String brokerUserName;
 	String brokerPassword;
-	BrokerLoginPage brokerlogin;
-	String greaterthan365invoice = "";
-	String greaterthan45invoice = "";
-	ArrayList<String> invoiceList;
-	String email;
-	CarrierLoginPage carrierloginPage;
 	String carrierUserName;
 	String carrierPassword;
+
+	String greaterthan365invoice = "";
+	String greaterthan45invoice = "";
+
+	ArrayList<String> invoiceList;
+	String email;
 	LocalDate today;
-	CarrierSameDAYACH carriersamedayach;
 	public static String newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNum, carrierEmail = "";
 
 	/*-------Initializing driver---------*/
@@ -86,14 +89,16 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 		admLogin.ClickOnSearchBox(brokerUserName);
 		admLogin.ClickOnSearchButton();
 		admLogin.DoubleClickID();
-		admLogin.StatusIDDropDown();
+
 		admLogin.ClickPaymentTerms();
 		admLogin.clickEditPaymnttermgraterthan45days();
 		admLogin.selectGreaterThan45daysId_Enabled();
 		admLogin.Click_paymentterm45Submit();
+
 		admLogin.Click_Notes();
 		admLogin.Clickverifysystemnote();
 		admLogin.Clickclosenotesbutton();
+
 		admLogin.Link_PayMeNowTm();
 		admLogin.AdminLogOut();
 		log.info("Verify Customer tab Link Passed");
@@ -169,19 +174,25 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 		Assert.assertTrue(brokerPaymentSheduledates.lnk_newpayment.isDisplayed(), "newPayment Link if NOT Found!");
 
 		// Store data-provider elements into publicly-accessible strings
-		carrierEmail = cemail;
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUserName = CarrierRegisterTest.carrierUsername;
+		} else {
+			carrierUserName = carrierEmail;
+		}
+
+		// carrierEmail = cemail;
 		invoiceno = TestUtil.getCurrentDateTime();
 		newPaymentAmount = amt;
 		newPaymentInvoiceNum = invoiceno;
 		newPaymentLoadId = invoiceno;
 
 		today = LocalDate.now();
-		Integer month = today.getMonthValue() + 2;
+		Integer month = today.getMonthValue() + 1;
 		String strDate = month.toString() + "/" + today.getDayOfMonth() + "/" + today.getYear();
 		System.out.println(strDate);
 
 		brokerPaymentSheduledates.newPayment();
-		email = brokerPaymentSheduledates.carrierEmail(carrierEmail);
+		email = brokerPaymentSheduledates.carrierEmail(carrierUserName);
 		brokerPaymentSheduledates.amount(newPaymentAmount);
 		greaterthan45invoice = brokerPaymentSheduledates.invoiceNumber(newPaymentInvoiceNum);
 		invoiceList.add(greaterthan45invoice);
@@ -204,18 +215,20 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 		admLogin.ClickOnSearchBox(brokerUserName);
 		admLogin.ClickOnSearchButton();
 		admLogin.DoubleClickID();
-		admLogin.StatusIDDropDown();
+
 		admLogin.ClickPaymentTerms();
 		admLogin.clickEditPaymnttermgraterthan45days();
 		admLogin.selectGreaterThan45daysId_Disabled();
 		admLogin.Click_paymentterm45Submit();
+		driver.navigate().refresh();
 		admLogin.Click_Notes();
 		admLogin.Clickverifysystemnote();
 		admLogin.Clickclosenotesbutton();
+
 		admLogin.Link_PayMeNowTm();
 		admLogin.clickuncheckpaymennow();
 		admLogin.ClickUpdatepaymenow();
-		admLogin.ClickCloseButon();
+
 		admLogin.AdminLogOut();
 		log.info("Verify Customer tab Link Passed");
 	}
@@ -264,16 +277,15 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 		admLogin.ClickOnSearchBox(brokerUserName);
 		admLogin.ClickOnSearchButton();
 		admLogin.DoubleClickID();
-		admLogin.StatusIDDropDown();
+
 		admLogin.ClickPaymentTerms();
 		admLogin.clickEditPaymnttermgraterthan45days();
 		admLogin.selectGreaterThan45daysId_Disabled();
 		admLogin.Click_paymentterm45Submit();
+
 		admLogin.Click_Notes();
 		admLogin.Clickverifysystemnote();
 		admLogin.Clickclosenotesbutton();
-		log.info("Verify Customer tab Link Passed");
-
 	}
 
 }

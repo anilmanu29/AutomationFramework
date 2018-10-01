@@ -160,8 +160,8 @@ public class CarrierWireTransfer extends TestBase {
 		for (int i = 0; i < List_payment.size(); i++) {
 			String invoiceno = List_payment.get(i).getText();
 			if (invoiceno.contains(iN)) {
-				// paymenowpayments.get(i).click();
-				act.moveToElement(paymenowpayments.get(i)).click().perform();
+				paymenowpayments.get(i).click();
+				break;
 			}
 		}
 	}

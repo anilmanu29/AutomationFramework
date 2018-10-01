@@ -220,6 +220,7 @@ public class AdminLogin extends TestBase {
 	public void Clickverifysystemnote() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(verifysystemnote));
 		verifysystemnote.click();
+		wait.until(ExpectedConditions.elementToBeClickable(closenotesbutton));
 
 	}
 
@@ -380,6 +381,7 @@ public class AdminLogin extends TestBase {
 	public void Click_Notes() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(clickNotes));
 		clickNotes.click();
+		wait.until(ExpectedConditions.elementToBeClickable(verifysystemnote));
 	}
 
 	public void Click_UpdateDelayDebit() throws InterruptedException {

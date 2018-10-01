@@ -8,7 +8,7 @@
     <listener class-name = "util.TestRetryAnalyzerListener"/>
   </listeners>
   
-    	<suite-files>
+    <suite-files>
        <suite-file path="src/main/resources/LoadPayXMLs/2018/CreateNewBrokerAndCarrierWithPayments.xml"></suite-file>            
 	 </suite-files>
    

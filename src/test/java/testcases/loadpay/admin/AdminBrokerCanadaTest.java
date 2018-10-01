@@ -68,6 +68,12 @@ public class AdminBrokerCanadaTest extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(a.updateButton));
 		Thread.sleep(2000);
 
+		a.ClickOnCreditTab();
+
+		a.EnterExtendedCredit("999999");
+
+		a.ClickOnCreditSubmitButton();
+
 		// go to banking tab and capture deposit amount
 		WebElement adminCustomerBankingTab = driver.findElement(By.xpath("//a[contains(text(),'Banking')]"));
 		adminCustomerBankingTab.click();

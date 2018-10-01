@@ -6,12 +6,8 @@
    	<listener class-name = "extentreportlistener.ExtentReporterNG"/>
    	<listener class-name = "testngcustomreportlistener.TestNGCustomReportListener"/>
   </listeners>
-   
 
-	
-
-    <suite-files>
-    
+    <suite-files> 
         <suite-file path="src/main/resources/LoadPayXMLs/2018/Hsprint.xml"></suite-file>
         <suite-file path="src/main/resources/LoadPayXMLs/2018/Isprint.xml"></suite-file>
         <suite-file path="src/main/resources/LoadPayXMLs/2018/Jsprint.xml"></suite-file>
@@ -20,7 +16,8 @@
         <suite-file path="src/main/resources/LoadPayXMLs/2018/Msprint.xml"></suite-file>
         <suite-file path="src/main/resources/LoadPayXMLs/2018/Nsprint.xml"></suite-file>
         <suite-file path="src/main/resources/LoadPayXMLs/2018/Osprint.xml"></suite-file>
-                   
+        <suite-file path="src/main/resources/LoadPayXMLs/2018/Psprint.xml"></suite-file>
+        <suite-file path="src/main/resources/LoadPayXMLs/2018/Xsprint.xml"></suite-file>    
     </suite-files>
 </suite>
 
