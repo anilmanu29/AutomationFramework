@@ -37,7 +37,9 @@
 		 	<class name="testcases.loadpay.unmatched.UnmatchedCarrierAdminPayByCheckTest"></class>
 		    
 		    <class name="testcases.loadpay.admin.AdminPayByCheckTest"></class>
-		    
+		    <class name="testcases.loadpay.admin.AdminCancelPayByCheckTest"></class>
+			<class name="testcases.loadpay.admin.AdminPayByCheckServiceBatchFileTest"></class>
+			
 		<!-- Script for Jira Tickets LP-3476  Carrier_Paid Tab  -->
 		 	 <!-- No Need to Update Test Data Sheet -->
 		 	<class name="testcases.loadpay.carrier.CarrierPaidTabTest"></class>

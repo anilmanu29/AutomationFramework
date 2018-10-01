@@ -16,7 +16,8 @@
     <classes>
     
   
-<!--1) BrokerLoginData sheet - Update Username and Password for Broker based on Environment.
+<!--
+   1) BrokerLoginData sheet - Update Username and Password for Broker based on Environment.
    2) CarrierLoginData sheet -Update Username and Password for Carrier based on Environment.
    3) AdminPaymentsGreaterthan45Days sheet - Make sure there is only one row.
    4) payementmorethan45daysData sheet - Make sure there is only one row.
@@ -28,15 +29,13 @@
 
 
     <!-- Script for Jira Ticket LP-6627-LoadPay-Broker-Download .CSV from Scheduled Payments -->
-		<class name="testcases.loadpay.broker.BrokerDownloadCSVFromScheduledPaymentsTest"></class>
-		
+		<class name="testcases.loadpay.broker.BrokerDownloadCSVFromScheduledPaymentsTest"></class>		
 		
 	<!-- Script for Jira Ticket LP-6628-LoadPay-Carrier-Download .CSV from Scheduled Payments -->
 		<class name="testcases.loadpay.carrier.CarrierDownloadCSVFromScheduledPaymentsTest"></class>
 		
 	<!-- Script for Jira Ticket LP-6621-LoadPay - Selenium Test - Admin - Payments Greater than 45 Days -->
-		<class name="testcases.loadpay.admin.AdminPaymentsGreaterthan45DaysTest"></class>
-		
+		<class name="testcases.loadpay.admin.AdminPaymentsGreaterthan45DaysTest"></class>		
 		
 	<!--Carrier without Bank Account login details needs to be updated in CarrierBankAccountDetails sheet. 
     	-->
@@ -48,9 +47,8 @@
 		
 	<!-- Script for Jira Ticket LP-6228-LoadPay-Admin-Customer Side Menu Search-->
 		<class name="testcases.loadpay.admin.AdminCustomersSideMenuSearchTest"></class>
-		
-		
-			<!-- Script for Jira Ticket LP-5427-LoadPay - Selenium Test - Admin - Delay Debit-->
+			
+	<!-- Script for Jira Ticket LP-5427-LoadPay - Selenium Test - Admin - Delay Debit-->
 		<class name="testcases.loadpay.admin.AdminDelayDebitTest"></class>
 	
     </classes>

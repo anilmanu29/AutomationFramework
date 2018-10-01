@@ -16,7 +16,8 @@
     <classes>
     
   
- <!--1. BrokerNewPaymentData Sheet = Invoice and Load ID , make sure there are 2 payments are available.
+ <!--
+ 	 1. BrokerNewPaymentData Sheet = Invoice and Load ID , make sure there are 2 payments are available.
      2. carrierresetpassworddata Sheet = New Password & Confirm Password,ForceNew Password,ForceConfirm Password data need to be updated  
      3. carrierparentchilddata sheet = NewEmailID should be updated.
      4.BrokerPaymentDataforUnmatchedCr = Invoice	LoadID	Amount should be updated
@@ -26,6 +27,8 @@
    
     	<!-- Script for Jira Ticket LP-5410 - LoadPay - LoadPay - Selenium Test - Carrier - parent/child relationships -->
 			 <class name="testcases.loadpay.carrier.CarrierParentChildRelationshipsTest"></class>	
+			 
+			 <class name="testcases.loadpay.broker.BrokerAvailableCreditTabTest"></class>
 		
 		<!-- Script for Jira Ticket LP-5405 - LoadPay - Selenium Test - Broker Processed Tab AdminPayByCheck -->
 		     <class name="testcases.loadpay.broker.BrokerProcessedTabTest"></class>
@@ -41,7 +44,8 @@
 		 	 
 		 <!-- Script for Jira Ticket   LoadPay - Selenium Test - Broker Available Credit Tab Test  JASON-->	 	 
 		 	 <class name="testcases.loadpay.broker.BrokerAvailableCreditTabTest"></class>
-		 	    <!-- < This Task is moved to next sprint for change in Functionality> -->
+		 	    
+		 <!-- < This Task is moved to next sprint for change in Functionality> -->
 		 	 	<!-- <class name="testcases.loadpay.broker.BrokerBulkUploadPaymentsmatchedCarrierTest"></class> 
 		 	 	<class name="testcases.loadpay.broker.BrokerBulkUploadPaymentsUnmatchedCarrierTest"></class> -->
 			 	

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Automation Test Suite">
+<suite name="Create New Canadian Carrier">
 
   <listeners>
    	<listener class-name = "extentreportlistener.ExtentReporterNG"/>
@@ -10,7 +10,7 @@
    
 
 		
-		<test name="Create New Canadaian Carrier">
+		<test name="Create New Canadian Carrier - Register-Verify-Activate">
 			<classes>
 				
 	  		<!-- Script for Jira Tickets LP-5409 LoadPay - Selenium Test - Carrier - Register Canada -->

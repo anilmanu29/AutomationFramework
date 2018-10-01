@@ -16,13 +16,14 @@
 	<test name="J Sprint Test Cases">
     <classes>
 
-		<!--   Script for Jira Tickets LP-3485 LoadPay - Selenium Test - Shipper- SchedulePaymentTest   -->
-	              
+		<!--   Script for Jira Tickets LP-3485 LoadPay - Selenium Test - Shipper- SchedulePaymentTest   -->            
 	        <class name="testcases.loadpay.broker.ShipperSchedulePaymentTest"></class> 
 				
-		
 		<!--   Script for Jira Tickets LP-5397 LoadPay - Selenium Test - Shipper - Advance Payment   -->
 	 		<class name="testcases.loadpay.broker.ShipperAdvancePaymentTest"></class>
+	 		
+	 		<class name="testcases.loadpay.broker.ShipperCompleteAccountModuleTest"></class>
+			<class name="testcases.loadpay.broker.ShipperPaymentHistoryTest"></class>
 	 		
 			<class name="testcases.loadpay.carrier.CarrierSchedulePaymentTest"></class>
 			

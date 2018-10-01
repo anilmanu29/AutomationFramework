@@ -17,7 +17,6 @@ import pages.loadpay.carrier.CarrierBanking;
 import pages.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccount;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierRegisterPage;
-import util.TestUtil;
 
 public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 
@@ -54,11 +53,9 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 			String NameonAccount, String RoutingNumber, String BankAccountNumber, String ConfirmbankAccountNumber)
 			throws IOException, InterruptedException {
 
-		if (Email.contains("[uniqueID]")) {
-			String uniqueEmail = Email.replace("[uniqueID]", TestUtil.getCurrentDateTime());
-			carrierUsername = uniqueEmail;
-			carrierPassword = Password;
-			companyname = CompanyName;
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
 		} else {
 			carrierUsername = Email;
 			carrierPassword = Password;
@@ -162,7 +159,16 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 	public void carrierLoginTest(String carrieremail, String password, String accname, String routingnum,
 			String accnumber, String confirmaccnumber) throws InterruptedException {
 		driver.get(prop.getProperty("url"));
-		carrierloginobj.Carrierlogin(carrieremail, password);
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
+		} else {
+			carrierUsername = carrieremail;
+			carrierPassword = password;
+		}
+
+		carrierloginobj.Carrierlogin(carrierUsername, carrierPassword);
 		log.info("carrierLoginTest - Passed");
 	}
 
@@ -194,7 +200,16 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 	/*-------carrier login test---------*/
 	@Test(description = "LP-6366 LoadPay Carrier_Disable_copy/paste_functionality_for_add_and_confirmbankaccount", dataProvider = "getCarrierLoginData", dependsOnMethods = "verifyCopyPasteConfirmBankAccountFieldforExistingCarrierTest")
 	public void carrierLogin(String username, String password) throws InterruptedException, IOException {
-		carrierloginobj.Carrierlogin(username, password);
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
+		} else {
+			carrierUsername = username;
+			carrierPassword = password;
+		}
+
+		carrierloginobj.Carrierlogin(carrierUsername, carrierPassword);
 		log.info("carrierLogin - Passed");
 	}
 
