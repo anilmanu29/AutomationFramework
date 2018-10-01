@@ -8,8 +8,8 @@
    	<listener class-name = "util.TestRetryAnalyzerListener"/>
   </listeners>
    
-		<test name="Create-Register-Verify-Activate Broker">
-			<classes>
+		<test name="Create-Register-Verify-Activate Broker" preserve-order="true">
+			 <classes>
 				
 			<!-- Broker Register -->
 				<class name="testcases.loadpay.broker.BrokerRegisterTest"></class>

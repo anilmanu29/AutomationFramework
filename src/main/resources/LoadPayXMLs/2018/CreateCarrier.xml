@@ -9,8 +9,8 @@
   </listeners>
    
 
-		<test name="Create-Register-Verify-Activate Carrier">
-			<classes>
+		<test name="Create-Register-Verify-Activate Carrier" preserve-order="true">
+			 <classes>
 	
 				<!-- Carrier Register -->
 			    	<class name="testcases.loadpay.carrier.CarrierRegisterTest"></class>
