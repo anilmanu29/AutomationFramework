@@ -19,6 +19,7 @@ public class BrokerDownloadCSVFromScheduledPaymentsTest extends TestBase {
 
 	BrokerDownloadCSVFromScheduledPayments brokerdownloadcsvfromscheduledpaymentsbj;
 	String expectedFileName = "";
+	String brokerUsername, brokerPassword = "";
 
 	/*-------Initializing driver---------*/
 	public BrokerDownloadCSVFromScheduledPaymentsTest() {
@@ -34,7 +35,16 @@ public class BrokerDownloadCSVFromScheduledPaymentsTest extends TestBase {
 	/*-------Login to Load Pay as Broker---------*/
 	@Test(description = "LP-6627 LoadPay Broker_DownloadCSVfrom_ScheduledPayments", dataProvider = "getBrokerLoginData")
 	public void loginAsBrokerTest(String un, String pwd) {
-		brokerdownloadcsvfromscheduledpaymentsbj.loginAsBroker(un, pwd);
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = un;
+			brokerPassword = pwd;
+		}
+
+		brokerdownloadcsvfromscheduledpaymentsbj.loginAsBroker(brokerUsername, brokerPassword);
 		System.out.println("loginAsBrokerTest - Passed");
 	}
 

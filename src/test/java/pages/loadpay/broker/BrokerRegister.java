@@ -179,9 +179,16 @@ public class BrokerRegister extends TestBase {
 
 	}
 
-	public void iCertifyClick() {
+	public void iCertifyClick() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(Icertify));
+		Thread.sleep(1000);
 		Icertify.click();
+		Thread.sleep(1000);
+
+		if (!Icertify.isSelected())
+			Icertify.click();
+
+		Assert.assertTrue(Icertify.isSelected(), "Certification checkbox not selected");
 	}
 
 	public void paymentTerm() throws InterruptedException {

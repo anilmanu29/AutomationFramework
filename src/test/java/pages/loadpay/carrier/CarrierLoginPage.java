@@ -152,11 +152,13 @@ public class CarrierLoginPage extends TestBase {
 	public void CarrierLogout() {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_logout));
 		btn_logout.click();
+		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
 	}
 
 	public void verificationCarrierLogout() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_logout));
 		btn_logout.click();
+		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
 	}
 
 	public void forgotPasswordButton() {
