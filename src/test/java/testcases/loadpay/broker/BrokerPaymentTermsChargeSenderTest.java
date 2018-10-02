@@ -2,6 +2,7 @@ package testcases.loadpay.broker;
 
 import java.awt.AWTException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -10,10 +11,14 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import pages.loadpay.broker.BrokerPaymentTermsChargeSender;
+import testcases.loadpay.carrier.CarrierRegisterTest;
+import util.TestUtil;
 
 public class BrokerPaymentTermsChargeSenderTest extends TestBase {
 	BrokerPaymentTermsChargeSender brokerPaymentTermsChargeSenderObj;
 	public static String brokeremailid = "";
+	String brokerUsername, brokerPassword = "";
+	public static ArrayList<String> newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNum;
 
 	/*-------Initializing driver---------*/
 	public BrokerPaymentTermsChargeSenderTest() {
@@ -31,8 +36,17 @@ public class BrokerPaymentTermsChargeSenderTest extends TestBase {
 	/*-------Login to Load Pay as Broker---------*/
 	@Test(dataProvider = "getBrokerLoginData")
 	public void loginAsBrokerTest(String un, String pwd) {
-		brokerPaymentTermsChargeSenderObj.loginAsBroker(un, pwd);
-		brokeremailid = un;
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = un;
+			brokerPassword = pwd;
+		}
+
+		brokerPaymentTermsChargeSenderObj.loginAsBroker(brokerUsername, brokerPassword);
+		brokeremailid = brokerUsername;
 	}
 
 	@Test(description = "LP-5399 Broker Payment Terms Charge Sender", dependsOnMethods = "loginAsBrokerTest")
@@ -40,13 +54,10 @@ public class BrokerPaymentTermsChargeSenderTest extends TestBase {
 		brokerPaymentTermsChargeSenderObj.activatePaymentTerms();
 		Assert.assertTrue(brokerPaymentTermsChargeSenderObj.paymenttermscheckbox.isDisplayed(),
 				"Enable Payment Term for less than 14 days check box NOT found");
-		;
 		Assert.assertTrue(brokerPaymentTermsChargeSenderObj.chargerecipientradiobutton.isDisplayed(),
 				"Charge Recipient radio button NOT found");
-		;
 		Assert.assertTrue(brokerPaymentTermsChargeSenderObj.chargesenderradiobutton.isDisplayed(),
 				"Charge Sender radio button NOT found");
-		;
 		Assert.assertTrue(brokerPaymentTermsChargeSenderObj.updatebutton.isDisplayed(), "Update button NOT found");
 	}
 
@@ -81,6 +92,13 @@ public class BrokerPaymentTermsChargeSenderTest extends TestBase {
 	@Test(dataProvider = "getPaymentData", dependsOnMethods = "verifyEditFlatFeePaymentterms")
 	public void verifybrokerNewPaymentforLessthanFourthteendays(String cE, String iN, String lId, String pA)
 			throws InterruptedException {
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			cE = CarrierRegisterTest.carrierUsername;
+			iN = "NP" + TestUtil.getCurrentDateTime();
+			lId = iN;
+		}
+
 		brokerPaymentTermsChargeSenderObj.brokerCreateNewPayment(cE, iN, lId, pA);
 		brokerPaymentTermsChargeSenderObj.uncheckEnablePaymentTerms();
 	}
