@@ -59,19 +59,16 @@ public class BrokerEmailLoginUsersPage extends TestBase {
 
 	public void goToEmailLoginUsers() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(emailLoginUsers));
-		js.executeScript("arguments[0].click();", emailLoginUsers);
 		emailLoginUsers.click();
 	}
 
 	public void openPasswordAccountSecurityLink() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(passwordAccountSecurityLink));
-		js.executeScript("arguments[0].click();", passwordAccountSecurityLink);
 		passwordAccountSecurityLink.click();
 	}
 
 	public void clickChangePasswordButton() {
 		wait.until(ExpectedConditions.elementToBeClickable(changePasswordButton));
-		js.executeScript("arguments[0].click();", changePasswordButton);
 		changePasswordButton.click();
 	}
 
@@ -104,6 +101,7 @@ public class BrokerEmailLoginUsersPage extends TestBase {
 
 	public void enterConfirmNewPasswordField(String ConfirmNewPassword) {
 		wait.until(ExpectedConditions.elementToBeClickable(confirmNewPasswordField));
+		confirmNewPasswordField.click();
 		confirmNewPasswordField.clear();
 		confirmNewPasswordField.sendKeys(ConfirmNewPassword);
 	}

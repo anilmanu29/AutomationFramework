@@ -22,6 +22,8 @@ public class RetryTest implements IRetryAnalyzer {
 				iTestResult.setStatus(ITestResult.FAILURE);
 
 				// Tells TestNG to re-run the test
+				// TestBase.driver.close();
+				// TestBase.initialization();
 				return true;
 			} else {
 				// If maxCount reached,test marked as failed

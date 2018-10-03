@@ -16,6 +16,7 @@ public class AccountChangePasswordTest extends TestBase {
 	WebDriverWait wait;
 	BrokerLoginPage brokerLoginPage;
 	BrokerEmailLoginUsersPage brokEmailLogUsePage;
+	String brokerUsername, brokerPassword = "";
 
 	public AccountChangePasswordTest() {
 		super();
@@ -33,27 +34,51 @@ public class AccountChangePasswordTest extends TestBase {
 
 	@Test(dataProvider = "getBrokerLoginData")
 	public void loginTest(String user, String pass) throws InterruptedException {
-		wait = new WebDriverWait(driver, 30);
-		brokerLoginPage.Brokerlogin(user, pass);
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = user;
+			brokerPassword = pass;
+		}
+
+		brokerLoginPage.Brokerlogin(brokerUsername, brokerPassword);
 
 	}
 
 	@Test(dataProvider = "getBrokerChangePasswordData", dependsOnMethods = "loginTest")
 	public void changePasswordVerification(String Username, String CurrentPassword, String NewPassword,
 			String ConfirmNewPassword) throws InterruptedException {
-		log.info(Username);
-		log.info(CurrentPassword);
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = Username;
+			brokerPassword = CurrentPassword;
+		}
+
+		log.info(brokerUsername);
+		log.info(brokerPassword);
 		log.info(NewPassword);
 		brokEmailLogUsePage.openAccountTab();
 		brokEmailLogUsePage.goToEmailLoginUsers();
 		brokEmailLogUsePage.openPasswordAccountSecurityLink();
 		brokEmailLogUsePage.clickChangePasswordButton();
+
 		brokEmailLogUsePage.clicCurrentPasswordField();
-		brokEmailLogUsePage.enterCurrentPassword(CurrentPassword);
+		brokEmailLogUsePage.enterCurrentPassword(brokerPassword);
+
+		brokerPassword = NewPassword;
+		BrokerRegisterTest.brokerPassword = brokerPassword;
+
 		brokEmailLogUsePage.clickNewPasswordField();
-		brokEmailLogUsePage.enterNewPassword(NewPassword);
+		brokEmailLogUsePage.enterNewPassword(brokerPassword);
+
 		brokEmailLogUsePage.clickConfirmNewPasswordField();
-		brokEmailLogUsePage.enterConfirmNewPasswordField(ConfirmNewPassword);
+		brokEmailLogUsePage.enterConfirmNewPasswordField(brokerPassword);
+
 		brokEmailLogUsePage.clickUpdateButton();
 		assertEquals(brokEmailLogUsePage.verificationMessage(), "Saved", "Password isn't saved");
 		brokerLoginPage.BrokerLogout();
@@ -63,8 +88,8 @@ public class AccountChangePasswordTest extends TestBase {
 	@Test(dataProvider = "getBrokerChangePasswordData", dependsOnMethods = "changePasswordVerification")
 	public void loginVerificationTest(String UserName, String CurrentPassword, String NewPassword,
 			String ConfirmNewPassword) throws InterruptedException {
-		wait = new WebDriverWait(driver, 30);
-		brokerLoginPage.brokerVerificationLogin(UserName, NewPassword);
+
+		brokerLoginPage.brokerVerificationLogin(brokerUsername, brokerPassword);
 		assertEquals(brokEmailLogUsePage.logOffButton(), true, "User is unable to login with New Password");
 	}
 }

@@ -7,7 +7,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Properties;
 import java.util.TimeZone;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,13 +22,11 @@ import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierOutlook;
 import pages.loadpay.carrier.CarrierPasswordSetupResetPage;
-import pages.loadpay.carrier.CarrierRegisterPage;
 import pages.loadpay.carrier.ResetPassword;
 import pages.loadpay.outlook.outlooklogin;
 
 public class CarrierLoginPageResetPasswordTest extends TestBase {
 	CarrierPasswordSetupResetPage CarrierPasswordSetupResetPage;
-	public static Properties prop;
 	ResetPassword resetPassword;
 	AdminHomePage adminHomePage;
 	AdminLogin adminLoginPage;
@@ -37,8 +34,10 @@ public class CarrierLoginPageResetPasswordTest extends TestBase {
 	outlooklogin outlookLoginObj;
 	CarrierLoginPage carrierLoginObj;
 	CarrierOutlook carrierOutlookObj;
-	CarrierRegisterPage carrierRegisterObj;
-	public static String emailid;
+	// CarrierRegisterPage carrierRegisterObj;
+	// public static String emailid;
+	// public static Properties prop;
+
 	Date currentTime;
 	String formattedDate = "";
 	Long longTime;
@@ -46,10 +45,13 @@ public class CarrierLoginPageResetPasswordTest extends TestBase {
 	String currentHour = "";
 	String currentMinutes = "";
 	String timeArray[] = new String[2];
+
 	String originalCarrierEmailAddress = "";
 	String updatedCarrierEmailAddress = "";
+
 	String originalCarrierPassword = "";
 	String updatedCarrierPassword = "";
+
 	String adminUN = "";
 	String adminPW = "";
 
@@ -65,9 +67,9 @@ public class CarrierLoginPageResetPasswordTest extends TestBase {
 		adminLoginPage = new AdminLogin();
 		adminEmailPage = new AdminEditEmailCarrier();
 		carrierLoginObj = new CarrierLoginPage();
+		carrierOutlookObj = new CarrierOutlook();
 		resetPassword = new ResetPassword();
 		outlookLoginObj = new outlooklogin();
-		carrierOutlookObj = new CarrierOutlook();
 		CarrierPasswordSetupResetPage = new CarrierPasswordSetupResetPage();
 		currentTime = new Date();
 		wait = new WebDriverWait(driver, 30);

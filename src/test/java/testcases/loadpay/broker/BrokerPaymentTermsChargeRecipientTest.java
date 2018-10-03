@@ -29,6 +29,7 @@ public class BrokerPaymentTermsChargeRecipientTest extends TestBase {
 	static String invoice;
 	String Dot = "1234567";
 	String EIN = "123456789";
+	String brokerUsername, brokerPassword = "";
 
 	/*-------Initiadminloginizing driver---------*/
 
@@ -52,8 +53,16 @@ public class BrokerPaymentTermsChargeRecipientTest extends TestBase {
 
 	@Test(dataProvider = "getBrokerLoginData")
 	public void VerifybrokerLogin(String un, String pwd) throws InterruptedException {
-		brokerlogin = new BrokerLoginPage();
-		brokerlogin.Brokerlogin(un, pwd);
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = un;
+			brokerPassword = pwd;
+		}
+
+		brokerlogin.Brokerlogin(brokerUsername, brokerPassword);
 
 		BrokerPaymentTermsChargeRecipient.clickAccountlink();
 
@@ -89,8 +98,7 @@ public class BrokerPaymentTermsChargeRecipientTest extends TestBase {
 
 		Assert.assertTrue(adminlogin.CustomerTab.isDisplayed());
 
-		log.info(BrokerLoginPage.bemail);
-		adminlogin.ClickOnSearchBox(BrokerLoginPage.bemail);
+		adminlogin.ClickOnSearchBox(brokerUsername);
 
 		adminlogin.ClickOnSearchButton();
 
@@ -106,21 +114,20 @@ public class BrokerPaymentTermsChargeRecipientTest extends TestBase {
 
 	}
 
-	@Test(dataProvider = "getPaymentData", dependsOnMethods = "verifyAdminPaymentTerm")
+	@Test(dependsOnMethods = "verifyAdminPaymentTerm")
 	public void brokernewPayment(String cemail, String invoiceno, String loadid, String amt)
 			throws InterruptedException {
 		driver.get(super.getProperties().getProperty("url"));
-		BrokerNewPayment = new BrokerNewPayment();
 		BrokerNewPayment.newPayment();
 
-		email = BrokerNewPayment.carrierEmail(cemail);
+		email = BrokerNewPayment.carrierEmail(BrokerNewPaymentTest.email);
 
-		BrokerNewPayment.amount(amt);
+		BrokerNewPayment.amount(BrokerNewPaymentTest.newPaymentAmount.get(0));
 
-		invoice = BrokerNewPayment.invoiceNumber(invoiceno);
+		invoice = BrokerNewPayment.invoiceNumber(BrokerNewPaymentTest.newPaymentInvoiceNum.get(0));
 		al.add(invoice);
 
-		BrokerNewPayment.loadId(loadid);
+		BrokerNewPayment.loadId(BrokerNewPaymentTest.newPaymentLoadId.get(0));
 
 		BrokerPaymentTermsChargeRecipient.clickpaymentdatelink();
 
@@ -141,7 +148,8 @@ public class BrokerPaymentTermsChargeRecipientTest extends TestBase {
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)", "");
 
-		BrokerNewPayment.verifyInvoiceNumber(invoiceno, amt);
+		BrokerNewPayment.verifyInvoiceNumber(BrokerNewPaymentTest.newPaymentInvoiceNum.get(0),
+				BrokerNewPaymentTest.newPaymentAmount.get(0));
 
 		// Assert.assertEquals(bp.verifyPaymentStatus(), payment_status);
 		log.info(BrokerNewPayment.verifyPaymentStatus());

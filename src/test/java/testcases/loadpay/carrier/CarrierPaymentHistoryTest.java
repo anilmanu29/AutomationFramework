@@ -22,6 +22,7 @@ public class CarrierPaymentHistoryTest extends TestBase {
 	outlooklogin outlookLoginObj;
 	CarrierLoginPage carrierloginobj;
 	ArrayList<String> tabs;
+	String carrierUsername, carrierPassword = "";
 
 	public CarrierPaymentHistoryTest() {
 		super();
@@ -40,7 +41,15 @@ public class CarrierPaymentHistoryTest extends TestBase {
 	@Test(description = "LP-3472 Carrier - Payment History", dataProvider = "getCarrierLoginData")
 	public void verifyCarrierLogin(String user, String pass) throws InterruptedException {
 
-		carrierloginobj.Carrierlogin(user, pass);
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
+		} else {
+			carrierUsername = user;
+			carrierPassword = pass;
+		}
+
+		carrierloginobj.Carrierlogin(carrierUsername, carrierPassword);
 
 	}
 
@@ -138,7 +147,8 @@ public class CarrierPaymentHistoryTest extends TestBase {
 		carrierpaymenthistory.clickArrowExportButton();
 
 		// sleep for 2 minute to allow time to verify csv files
-		Thread.sleep(120000);
+		// TODO need an automated approach (download csv test?)
+		// Thread.sleep(120000);
 	}
 
 }
