@@ -148,6 +148,28 @@ public class CarrierOutlook extends TestBase {
 		}
 	}
 
+	public void handleNewInbox(String searchText) throws InterruptedException {
+		Thread.sleep(2000);
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(1));
+		Thread.sleep(8000);
+
+		List<WebElement> list = driver
+				.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
+
+		for (WebElement e : list) {
+			wait.until(ExpectedConditions.elementToBeClickable(e));
+			e.click();
+			wait.until(ExpectedConditions.elementToBeClickable(emailid));
+			log.info(emailid.getText());
+			if (emailid.getText().equalsIgnoreCase(searchText + ";")) {
+				wait.until(ExpectedConditions.elementToBeClickable(linkVerify));
+				linkVerify.click();
+				break;
+			}
+		}
+	}
+
 	public void handleResetPasswordEmailInbox(String EmailAddress) throws InterruptedException {
 
 		Thread.sleep(2000);

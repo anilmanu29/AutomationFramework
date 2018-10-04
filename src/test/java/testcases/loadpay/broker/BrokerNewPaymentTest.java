@@ -29,6 +29,7 @@ public class BrokerNewPaymentTest extends TestBase {
 	String brokerUsername, brokerPassword = "";
 	String dateTime = "";
 	LocalDate today;
+	public static String strDate;
 	Boolean newDateUsed = false;
 
 	/*-------Initializing driver---------*/
@@ -111,7 +112,7 @@ public class BrokerNewPaymentTest extends TestBase {
 
 		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true") && !newDateUsed) {
 			Integer month = today.getMonthValue() + 1;
-			String strDate = month.toString() + "/" + today.getDayOfMonth() + "/" + today.getYear();
+			strDate = month.toString() + "/" + today.getDayOfMonth() + "/" + today.getYear();
 			bp.setField_ScheduleDate(strDate);
 			newDateUsed = true;
 		}

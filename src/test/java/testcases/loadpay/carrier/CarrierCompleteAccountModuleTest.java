@@ -14,6 +14,7 @@ import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.carrier.CarrierCompleteAccountModule;
 import pages.loadpay.carrier.CarrierLoginPage;
+import util.TestUtil;
 
 public class CarrierCompleteAccountModuleTest extends TestBase {
 
@@ -21,6 +22,7 @@ public class CarrierCompleteAccountModuleTest extends TestBase {
 	CarrierLoginPage loginPage;
 	AdminHomePage adminhomepage;
 	AdminLogin adminlogin;
+	String carrierUsername, carrierPassword = "";
 
 	/*-------Initializing driver---------*/
 
@@ -42,7 +44,16 @@ public class CarrierCompleteAccountModuleTest extends TestBase {
 
 	@Test(description = "LP-3473 Carrier - Complete Account module", dataProvider = "getCarrierLoginData")
 	public void VerifyCarrierLogin(String user, String pass) throws InterruptedException {
-		loginPage.Carrierlogin(user, pass);
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
+		} else {
+			carrierUsername = user;
+			carrierPassword = pass;
+		}
+
+		loginPage.Carrierlogin(carrierUsername, carrierPassword);
 
 		carriercompleteaccountmoduleObj.clickAccountlink();
 		Assert.assertTrue(carriercompleteaccountmoduleObj.lnk_account.isDisplayed());
@@ -71,7 +82,7 @@ public class CarrierCompleteAccountModuleTest extends TestBase {
 		adminlogin.ClickOnCustomersTab();
 
 		wait.until(ExpectedConditions.elementToBeClickable(adminlogin.getSearch()));
-		adminlogin.ClickOnSearchBox(loginPage.cemail);
+		adminlogin.ClickOnSearchBox(carrierUsername);
 
 		wait.until(ExpectedConditions.elementToBeClickable(adminlogin.getClickonSearchButton()));
 		adminlogin.ClickOnSearchButton();
@@ -96,7 +107,7 @@ public class CarrierCompleteAccountModuleTest extends TestBase {
 		carriercompleteaccountmoduleObj.enterContactlastName(ContactLN);
 		carriercompleteaccountmoduleObj.enterContactemail(contactemail);
 		carriercompleteaccountmoduleObj.enterContactphonenum(ContactPN);
-		carriercompleteaccountmoduleObj.enterContactExtension(Contactextension);
+		carriercompleteaccountmoduleObj.enterContactExtension(TestUtil.removeDecimalZeroFormat(Contactextension));
 		carriercompleteaccountmoduleObj.enterContactMobileNumber(ContactMobileNumber);
 		carriercompleteaccountmoduleObj.enterContactFax(ContactFax);
 		carriercompleteaccountmoduleObj.clicksavelink();
@@ -105,7 +116,6 @@ public class CarrierCompleteAccountModuleTest extends TestBase {
 
 	@Test(description = "LP-3473 Carrier - Complete Account module", dependsOnMethods = { "verifyContactDetails" })
 	public void verifyNotifications() throws InterruptedException {
-		driver.get(super.getProperties().getProperty("url"));
 		carriercompleteaccountmoduleObj.clickAccountlink();
 		carriercompleteaccountmoduleObj.clickNotificationlink();
 		carriercompleteaccountmoduleObj.clickNotifyByNewPaymentlink();

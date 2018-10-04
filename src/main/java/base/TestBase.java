@@ -22,7 +22,7 @@ import utility.ReadExcel;
 
 public class TestBase {
 
-	protected static WebDriver driver;
+	public static WebDriver driver;
 	protected static Properties prop = new Properties();
 	protected static EventFiringWebDriver eDriver;
 	protected static WebEventListener eventListener;
