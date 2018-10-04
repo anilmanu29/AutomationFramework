@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.TimeZone;
 import java.util.concurrent.ThreadLocalRandom;
@@ -18,6 +19,8 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
+import pages.loadpay.broker.BrokerLoginPage;
+import pages.loadpay.broker.BrokerNewPayment;
 import pages.loadpay.carrier.CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButton;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierNextDAYACH;
@@ -26,6 +29,7 @@ import pages.loadpay.carrier.CarrierRegisterPage;
 import pages.loadpay.carrier.CarrierSameDAYACH;
 import pages.loadpay.carrier.CarrierWireTransfer;
 import pages.loadpay.outlook.outlooklogin;
+import testcases.loadpay.broker.BrokerRegisterTest;
 import util.TestUtil;
 
 public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extends TestBase {
@@ -37,6 +41,7 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 	CarrierWireTransfer carrierwiretransferobj;
 	CarrierNextDAYACH carriernextdayachobj;
 	CarrierOutlook carrierOutlookObj;
+	BrokerLoginPage brokerLoginObj;
 	outlooklogin outlook;
 	AdminHomePage adminHomePage;
 	AdminLogin adminLoginPage;
@@ -44,11 +49,14 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 	Date currentTime;
 	String formattedDate = "";
 	Long longTime;
+	LocalDate today;
 	DateFormat formatter;
 	String currentHour = "";
 	String currentMinutes = "";
 	String timeArray[] = new String[2];
+
 	String carrierUsername, carrierPassword = "";
+	String brokerUsername, brokerPassword = "";
 
 	/*-------Initializing driver---------*/
 	public CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest() {
@@ -69,6 +77,7 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 		currentTime = new Date();
 		adminHomePage = new AdminHomePage();
 		adminLoginPage = new AdminLogin();
+		brokerLoginObj = new BrokerLoginPage();
 	}
 
 	@Test(description = "LP-6802  Register New Carrier", dataProvider = "getCarrierRegisterData")
@@ -192,17 +201,17 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 		// outlookk.clickOpen();
 		getTimestamp();
 		carrierOutlookObj.outlookSearchInbox(carrierUsername, currentHour, currentMinutes);
-		carrierOutlookObj.handleNewInbox();
+		carrierOutlookObj.handleNewInbox(carrierUsername);
 		carrierOutlookObj.verifyConfirmationMessage();
 
 	}
 
 	@Test(description = "LP-6802 Switch to admin URL", dependsOnMethods = "outlookloginTest")
-	public void Home() throws IOException, AWTException, InterruptedException {
+	public void switchToAdmin() throws IOException, AWTException, InterruptedException {
 		adminHomePage.AdminURL();
 	}
 
-	@Test(description = "LP-6802 Activate Carrier", dataProvider = "getAdminLoginData", dependsOnMethods = "Home")
+	@Test(description = "LP-6802 Activate Carrier", dataProvider = "getAdminLoginData", dependsOnMethods = "switchToAdmin")
 	public void adminLogin(String Username, String pass) throws IOException, InterruptedException, AWTException {
 		adminLoginPage.adminUserPass(Username, pass);
 
@@ -221,13 +230,12 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 		adminLoginPage.StatusIDDropDown();
 
 		adminLoginPage.UpdateButton();
-
-		adminLoginPage.AdminLogOut();
-
 	}
 
 	@Test(description = "LP-6802 First Login as Carrier", dependsOnMethods = "adminLogin")
-	public void loginTest(String user, String pass) throws InterruptedException {
+	public void loginTest() throws InterruptedException {
+
+		driver.get(super.getProperties().getProperty("url"));
 
 		String carrierEIN = "99-9999999";
 
@@ -251,6 +259,13 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 					"Registration success message not found");
 			carrierloginobj.clickConfirmationPopupCloseButton();
 		}
+
+		// log off
+		Thread.sleep(1000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(carrierloginobj.closePayMeNowNotification));
+		carrierloginobj.closePayMeNowNotification.click();
+		carrierloginobj.CarrierLogout();
 	}
 
 	/*-------Login to Load Pay as Carrier---------*/
@@ -274,12 +289,76 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 		Assert.assertTrue(carrierloginobj.getPayMeNowPopupSaveButton().isDisplayed(),
 				"PayMeNow pop up Save Button NOT Found!");
 		carrierdisplayautopaymenowpopupobj.clickPopupCloseButton();
+		carrierloginobj.CarrierLogout();
+	}
+
+	@Test(description = "LP-6802  Login as Broker", dependsOnMethods = "verifyAutoPayMeNowPopupTest", dataProvider = "getBrokerLoginData")
+	public void loginBroker(String email, String pwd) {
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			today = LocalDate.now();
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = email;
+			brokerPassword = pwd;
+		}
+
+		brokerLoginObj.Brokerlogin(brokerUsername, brokerPassword);
 
 	}
 
+	/*-------Scheduling New Payment as a Broker---------*/
+
+	@Test(description = "LP-6802  Make New Payment", dependsOnMethods = "loginBroker")
+	public void brokerNewPayment() throws InterruptedException {
+
+		String invoiceNum, loadID, paymentAmount = "";
+		BrokerNewPayment brokerPaymentObj = new BrokerNewPayment();
+		brokerPaymentObj.newPayment();
+
+		Integer month = today.getMonthValue() + 1;
+		String strDate = month.toString() + "/" + today.getDayOfMonth() + "/" + today.getYear();
+		Integer intPaymentAmount = 0;
+
+		for (int i = 0; i < 3; i++) {
+			invoiceNum = "NP" + TestUtil.getCurrentDateTime();
+			loadID = invoiceNum;
+			intPaymentAmount = TestUtil.getRandomNumber(100, 1000);
+			paymentAmount = intPaymentAmount.toString();
+
+			brokerPaymentObj.carrierEmail(carrierUsername);
+			brokerPaymentObj.amount(paymentAmount);
+			brokerPaymentObj.invoiceNumber(invoiceNum);
+			brokerPaymentObj.loadId(loadID);
+			brokerPaymentObj.setField_ScheduleDate(strDate);
+			brokerPaymentObj.clickShedulePayment();
+			brokerPaymentObj.clickShedulePaymenttab();
+			brokerPaymentObj.searchCarrier(carrierUsername);
+			brokerPaymentObj.clickSearchButton();
+			brokerPaymentObj.verifyInvoiceNumber(invoiceNum, paymentAmount);
+			brokerPaymentObj.newPayment();
+		}
+
+		brokerLoginObj.BrokerLogout();
+		carrierloginobj.Carrierlogin(carrierUsername, carrierPassword);
+		carrierdisplayautopaymenowpopupobj.clickPopupCloseButton();
+	}
+
+	/*-------Verify Auto PayMeNow popup for NextDay ACH---------*/
+	@Test(description = "LP-6802  Carrier_PayMeNow_NextDayACH", dependsOnMethods = { "brokerNewPayment" })
+	public void verifyPayMeNowPopupforNextDayACHTest() throws InterruptedException, AWTException {
+		carriernextdayachobj.clickPaymenow();
+		carriernextdayachobj.clickSelectButton();
+		carriernextdayachobj.clickConfirmButton();
+		Assert.assertTrue(carrierdisplayautopaymenowpopupobj.getAutoPayMeNowPopup().isDisplayed(),
+				"Auto PayMeNowPopup NOT Found!");
+		carrierdisplayautopaymenowpopupobj.clickPopupCloseButton();
+	}
+
 	/*-------Verify Auto PayMeNow pop up for SameDay ACH ---------*/
-	@Test(description = "LP-6802  Carrier_Display_Auto_PayMeNow_popup_on_selecting_PayMeNow_Button", dependsOnMethods = {
-			"verifyAutoPayMeNowPopupTest" })
+	@Test(description = "LP-6802  Carrier_PayMeNow_SameDayACH", dependsOnMethods = {
+			"verifyPayMeNowPopupforNextDayACHTest" })
 	public void verifyPayMeNowPopupforSameDayACHTest() throws InterruptedException {
 		carriersamedayachobj.clickPaymenow();
 		carriersamedayachobj.clickSelectButton();
@@ -290,24 +369,12 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 	}
 
 	/*-------Verify Auto PayMeNow popup for Wire Transfer---------*/
-	@Test(description = "LP-6802  Carrier_Display_Auto_PayMeNow_popup_on_selecting_PayMeNow_Button", dependsOnMethods = {
+	@Test(description = "LP-6802  Carrier_PayMeNow_WireTransfer", dependsOnMethods = {
 			"verifyPayMeNowPopupforSameDayACHTest" })
 	public void verifyPayMeNowPopupforWireTransferTest() throws InterruptedException {
 		carrierwiretransferobj.clickPaymenow();
 		carrierwiretransferobj.clickSelectButton();
 		carrierwiretransferobj.clickConfirmButton();
-		Assert.assertTrue(carrierdisplayautopaymenowpopupobj.getAutoPayMeNowPopup().isDisplayed(),
-				"Auto PayMeNowPopup NOT Found!");
-		carrierdisplayautopaymenowpopupobj.clickPopupCloseButton();
-	}
-
-	/*-------Verify Auto PayMeNow popup for NextDay ACH---------*/
-	@Test(description = "LP-6802  Carrier_Display_Auto_PayMeNow_popup_on_selecting_PayMeNow_Button", dependsOnMethods = {
-			"verifyPayMeNowPopupforWireTransferTest" })
-	public void verifyPayMeNowPopupforNextDayACHTest() throws InterruptedException, AWTException {
-		carriernextdayachobj.clickPaymenow();
-		carriernextdayachobj.clickSelectButton();
-		carriernextdayachobj.clickConfirmButton();
 		Assert.assertTrue(carrierdisplayautopaymenowpopupobj.getAutoPayMeNowPopup().isDisplayed(),
 				"Auto PayMeNowPopup NOT Found!");
 		carrierdisplayautopaymenowpopupobj.clickPopupCloseButton();

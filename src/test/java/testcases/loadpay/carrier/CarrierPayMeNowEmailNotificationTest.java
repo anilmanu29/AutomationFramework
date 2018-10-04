@@ -80,7 +80,7 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 	}
 
 	@Test(description = "LP-5422 Carrier - Send Carrier Email Notification When PayMeNow Selected", dataProvider = "getCarrierLoginData")
-	public void verifyCarrierLogin(String user, String pass) throws InterruptedException {
+	public void carrierLogin(String user, String pass) throws InterruptedException {
 
 		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
 			carrierUsername = CarrierRegisterTest.carrierUsername;
@@ -94,9 +94,8 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 	}
 
 	@Test(description = "LP-5422 Carrier - Send Carrier Email Notification When PayMeNow Selected", dependsOnMethods = {
-			"verifyCarrierLogin" }, dataProvider = "getoutlookLoginData")
-	public void verifyCarrierNextDayPaymenowEmailNotification(String un, String pwd)
-			throws InterruptedException, AWTException {
+			"carrierLogin" }, dataProvider = "getoutlookLoginData")
+	public void pmnNextDayEmailNotification(String un, String pwd) throws InterruptedException, AWTException {
 		// verify PayMeNow tab
 		wait.until(ExpectedConditions.elementToBeClickable(carrierpaymenowemailobj.getPaymenowtab()));
 		Assert.assertTrue(carrierpaymenowemailobj.paymenowtab.isDisplayed(), "PayMeNow tab is NOT available");
@@ -106,6 +105,7 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 		// verify Paid tab
 		Assert.assertTrue(carrierpaymenowemailobj.paidtab.isDisplayed(), "Paid tab is NOT available");
 
+		// Pay Me Now - Next Day
 		carriernexdayachobj.clickPaymenow();
 		carriernexdayachobj.clickSelectButton();
 		carriernexdayachobj.clickConfirmButton();
@@ -118,7 +118,7 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 		carrieroutlookobj.enterEmail(super.getProperties().getProperty("email"));
 		carrierpaymenowemailobj.switchToNewWindow(2);
 		carrierpaymenowemailobj.outlookSearchInbox(
-				"PayMeNow Payment Notification " + BrokerNewPaymentTest.newPaymentLoadId.get(0), carrierUsername,
+				"PayMeNow Payment Notification " + BrokerNewPaymentTest.newPaymentLoadId.get(1), carrierUsername,
 				"NextDayACH");
 		driver.close();
 		carrierpaymenowemailobj.switchToNewWindow(1);
@@ -128,9 +128,8 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 	}
 
 	@Test(description = "LP-5422 Carrier - Send Carrier Email Notification When PayMeNow Selected", dependsOnMethods = {
-			"verifyCarrierNextDayPaymenowEmailNotification" }, dataProvider = "getoutlookLoginData")
-	public void verifyCarrierSameDayPaymenowEmailNotification(String un, String pwd)
-			throws InterruptedException, AWTException {
+			"pmnNextDayEmailNotification" }, dataProvider = "getoutlookLoginData")
+	public void pmnSameDayEmailNotification(String un, String pwd) throws InterruptedException, AWTException {
 		// verify PayMeNow tab
 
 		Assert.assertTrue(carrierpaymenowemailobj.paymenowtab.isDisplayed(), "PayMeNow tab is NOT available");
@@ -140,9 +139,9 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 		// verify Paid tab
 		Assert.assertTrue(carrierpaymenowemailobj.paidtab.isDisplayed(), "Paid tab is NOT available");
 
+		// Pay Me Now - Same Day
 		carriersamedayachobj.clickPaymenow();
 		carriersamedayachobj.clickSelectButton();
-
 		carriersamedayachobj.clickConfirmButton();
 
 		// switch to new window
@@ -153,7 +152,7 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 		carrieroutlookobj.enterEmail(super.getProperties().getProperty("email"));
 		carrierpaymenowemailobj.switchToNewWindow(2);
 		carrierpaymenowemailobj.outlookSearchInbox(
-				"PayMeNow Payment Notification " + BrokerNewPaymentTest.newPaymentLoadId.get(0), carrierUsername,
+				"PayMeNow Payment Notification " + BrokerNewPaymentTest.newPaymentLoadId.get(2), carrierUsername,
 				"SameDayACH");
 		driver.close();
 		carrierpaymenowemailobj.switchToNewWindow(1);
@@ -163,9 +162,8 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 	}
 
 	@Test(description = "LP-5422 Carrier - Send Carrier Email Notification When PayMeNow Selected", dependsOnMethods = {
-			"verifyCarrierSameDayPaymenowEmailNotification" }, dataProvider = "getoutlookLoginData")
-	public void verifyCarrierWireTransferPaymenowEmailNotification(String un, String pwd)
-			throws InterruptedException, AWTException {
+			"pmnSameDayEmailNotification" }, dataProvider = "getoutlookLoginData")
+	public void pmnWireTransferEmailNotification(String un, String pwd) throws InterruptedException, AWTException {
 		// verify PayMeNow tab
 
 		Assert.assertTrue(carrierpaymenowemailobj.paymenowtab.isDisplayed(), "PayMeNow tab is NOT available");
@@ -175,9 +173,9 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 		// verify Paid tab
 		Assert.assertTrue(carrierpaymenowemailobj.paidtab.isDisplayed(), "Paid tab is NOT available");
 
+		// Pay Me Now Wire transfer
 		carrierwiretransferobj.clickPaymenow();
 		carrierwiretransferobj.clickSelectButton();
-
 		carrierwiretransferobj.clickConfirmButton();
 
 		// switch to new window
@@ -188,7 +186,7 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 		carrieroutlookobj.enterEmail(super.getProperties().getProperty("email"));
 		carrierpaymenowemailobj.switchToNewWindow(2);
 		carrierpaymenowemailobj.outlookSearchInbox(
-				"PayMeNow Payment Notification " + BrokerNewPaymentTest.newPaymentLoadId.get(0), carrierUsername,
+				"PayMeNow Payment Notification " + BrokerNewPaymentTest.newPaymentLoadId.get(3), carrierUsername,
 				"WireTransfer");
 		driver.close();
 		carrierpaymenowemailobj.switchToNewWindow(1);
@@ -198,8 +196,8 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 	}
 
 	@Test(description = "LP-5422 Carrier - Send Carrier Email Notification When PayMeNow Selected", dependsOnMethods = {
-			"verifyCarrierWireTransferPaymenowEmailNotification" }, dataProvider = "getCarrierFuelcardaccountNumbersData")
-	public void verifyCarrierFuelCardPaymenowEmailNotification(String fleet_accountnbr, String fts_accountnbr)
+			"pmnWireTransferEmailNotification" }, dataProvider = "getCarrierFuelcardaccountNumbersData")
+	public void pmnFuelCardEmailNotification(String fleet_accountnbr, String fts_accountnbr)
 			throws InterruptedException, AWTException {
 		// verify PayMeNow tab
 
@@ -210,41 +208,33 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 		// verify Paid tab
 		Assert.assertTrue(carrierpaymenowemailobj.paidtab.isDisplayed(), "Paid tab is NOT available");
 
+		// Pay Me Now - Fuel Card Fleet
 		carrierpaymenowfuelcardobj.clickPaymenow();
 		carrierpaymenowfuelcardobj.clickSelectButton();
 		carrierpaymenowfuelcardobj.clickaddnewcard();
 		carrierpaymenowfuelcardobj.clickfleetone();
 		carrierpaymenowfuelcardobj.input_accountnbr(fleet_accountnbr);
 		carrierpaymenowfuelcardobj.clicksubmit();
-
 		carrierpaymenowfuelcardobj.clickfuelcardsubmit();
-
 		carrierpaymenowfuelcardobj.clickConfirmButton();
 
 		carrierpaymenowfuelcardobj.clickPaidTab();
-
 		carrierpaymenowfuelcardobj.clickpaymenowtab();
 
+		// Pay Me Now - Fuel Card FTS
 		carrierpaymenowfuelcardobj.clickPaymenow();
-
 		carrierpaymenowfuelcardobj.clickSelectButton();
-
 		carrierpaymenowfuelcardobj.clickaddnewcard();
-
 		carrierpaymenowfuelcardobj.clickFTS();
-
 		carrierpaymenowfuelcardobj.input_accountnbr(fts_accountnbr);
-
 		carrierpaymenowfuelcardobj.clicksubmit();
-
 		carrierpaymenowfuelcardobj.clickfuelcardsubmit();
-
 		carrierpaymenowfuelcardobj.clickConfirmButton();
 
 	}
 
 	@Test(description = "LP-5422 Carrier - Send Carrier Email Notification When PayMeNow Selected", dependsOnMethods = {
-			"verifyCarrierFuelCardPaymenowEmailNotification" }, dataProvider = "getoutlookLoginData")
+			"pmnFuelCardEmailNotification" }, dataProvider = "getoutlookLoginData")
 	public void verifyCarrierPaymenowEmailNotification(String un, String pwd)
 			throws InterruptedException, AWTException {
 		{
@@ -256,7 +246,7 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 			carrieroutlookobj.enterEmail(super.getProperties().getProperty("email"));
 			carrierpaymenowemailobj.switchToNewWindow(2);
 			carrierpaymenowemailobj.outlookSearchInbox(
-					"PayMeNow Payment Notification " + BrokerNewPaymentTest.newPaymentLoadId.get(0), carrierUsername,
+					"PayMeNow Payment Notification " + BrokerNewPaymentTest.newPaymentLoadId.get(1), carrierUsername,
 					"FuelCard");
 			driver.close();
 			carrierpaymenowemailobj.switchToNewWindow(1);
@@ -289,9 +279,9 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 			throws InterruptedException {
 		brokernewpayobj.newPayment();
 		brokernewpayobj.carrierEmail(carrierUsername);
-		brokernewpayobj.amount(BrokerNewPaymentTest.newPaymentAmount.get(1));
-		brokernewpayobj.invoiceNumber(BrokerNewPaymentTest.newPaymentInvoiceNum.get(1));
-		brokernewpayobj.loadId(BrokerNewPaymentTest.newPaymentLoadId.get(1));
+		brokernewpayobj.amount(BrokerNewPaymentTest.newPaymentAmount.get(2));
+		brokernewpayobj.invoiceNumber(BrokerNewPaymentTest.newPaymentInvoiceNum.get(2));
+		brokernewpayobj.loadId(BrokerNewPaymentTest.newPaymentLoadId.get(2));
 		brokernewpayobj.clickShedulePayment();
 
 	}
@@ -310,8 +300,8 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 		adminloginobj.DoubleClickID();
 
 		adminPayByCheckObj.clickPayments();
-		adminPayByCheckObj.ClickOnsearchKeyword(BrokerNewPaymentTest.newPaymentInvoiceNum.get(1));
-		adminPayByCheckObj.getPaymentID(BrokerNewPaymentTest.newPaymentInvoiceNum.get(1));
+		adminPayByCheckObj.ClickOnsearchKeyword(BrokerNewPaymentTest.newPaymentInvoiceNum.get(3));
+		adminPayByCheckObj.getPaymentID(BrokerNewPaymentTest.newPaymentInvoiceNum.get(3));
 		adminPayByCheckObj.clickSearch();
 
 		adminPayByCheckObj.searchKeyword();

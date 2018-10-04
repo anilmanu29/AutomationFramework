@@ -39,6 +39,9 @@ public class CarrierLoginPage extends TestBase {
 	@FindBy(xpath = "//*[@id='angularScope']/div[3]/div/div/div[2]/button")
 	WebElement confirmationPopupCloseBtn;
 
+	@FindBy(xpath = "//*[@id='angularScope']/div[4]/div/div/div[1]/button")
+	public WebElement closePayMeNowNotification;
+
 	@FindBy(xpath = "//*[@id='EIN']")
 	WebElement einField;
 
@@ -118,7 +121,7 @@ public class CarrierLoginPage extends TestBase {
 		return confirmationPopup;
 	}
 
-	public void clickConfirmationPopupCloseButton() {
+	public void clickConfirmationPopupCloseButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(confirmationPopupCloseBtn));
 		confirmationPopupCloseBtn.click();
 	}

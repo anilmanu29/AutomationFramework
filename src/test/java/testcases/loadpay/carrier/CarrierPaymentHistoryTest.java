@@ -11,8 +11,11 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import pages.loadpay.carrier.CarrierLoginPage;
+import pages.loadpay.carrier.CarrierPayMeNowTab;
+import pages.loadpay.carrier.CarrierPaymeNowFuelCard;
 import pages.loadpay.carrier.CarrierPaymentHistory;
 import pages.loadpay.outlook.outlooklogin;
+import testcases.loadpay.broker.BrokerNewPaymentTest;
 import util.TestUtil;
 
 public class CarrierPaymentHistoryTest extends TestBase {
@@ -21,6 +24,9 @@ public class CarrierPaymentHistoryTest extends TestBase {
 	CarrierLoginPage loginPage;
 	outlooklogin outlookLoginObj;
 	CarrierLoginPage carrierloginobj;
+	CarrierPayMeNowTab carrierPayMeNowTab;
+	CarrierPaymeNowFuelCard carrierPmnFuelCardObj;
+
 	ArrayList<String> tabs;
 	String carrierUsername, carrierPassword = "";
 
@@ -35,6 +41,8 @@ public class CarrierPaymentHistoryTest extends TestBase {
 		initialization();
 		carrierpaymenthistory = new CarrierPaymentHistory();
 		carrierloginobj = new CarrierLoginPage();
+		carrierPayMeNowTab = new CarrierPayMeNowTab();
+		carrierPmnFuelCardObj = new CarrierPaymeNowFuelCard();
 		wait = new WebDriverWait(driver, 30);
 	}
 
@@ -50,7 +58,6 @@ public class CarrierPaymentHistoryTest extends TestBase {
 		}
 
 		carrierloginobj.Carrierlogin(carrierUsername, carrierPassword);
-
 	}
 
 	@Test(description = "LP-3472 Carrier - Payment History", dependsOnMethods = { "verifyCarrierLogin" })
@@ -61,6 +68,17 @@ public class CarrierPaymentHistoryTest extends TestBase {
 		Assert.assertTrue(carrierpaymenthistory.searchbutton.isDisplayed(), "Serch button NOT found");
 		Assert.assertTrue(carrierpaymenthistory.exportbutton.isDisplayed(), "Export button NOT found");
 		Assert.assertTrue(carrierpaymenthistory.filters.isDisplayed(), "Filters  NOT found");
+
+		carrierPayMeNowTab.clickPaymenow();
+		carrierPmnFuelCardObj.clickPaymenow();
+		carrierPmnFuelCardObj.clickSelectButton();
+		carrierPmnFuelCardObj.clickaddnewcard();
+		carrierPmnFuelCardObj.clickfleetone();
+		carrierPmnFuelCardObj.input_accountnbr("6542988");
+		carrierPmnFuelCardObj.clicksubmit();
+		carrierPmnFuelCardObj.clickfuelcardsubmit();
+		carrierPmnFuelCardObj.clickConfirmButton();
+		carrierpaymenthistory.clickPaymentHistorylink();
 		Assert.assertTrue(carrierpaymenthistory.currentmonth.isDisplayed(), "Current Month NOT found");
 	}
 
@@ -94,13 +112,24 @@ public class CarrierPaymentHistoryTest extends TestBase {
 
 	@Test(description = "LP-3472 Carrier - Payment History", dataProvider = "getCarrierPaymentHistoryData", dependsOnMethods = {
 			"verifyFiltersFunctionality" })
-	public void verifySearchFunctionality(String amount, String carrier, String loadid, String maxamt, String datefrom,
+	public void verifySearchFunctionality(String amount, String payer, String loadid, String maxamt, String datefrom,
 			String dateto) throws InterruptedException {
 
-		// clean up excel formatting if it exists
-		amount = TestUtil.removeDecimalZeroFormat(amount);
-		loadid = TestUtil.removeDecimalZeroFormat(loadid);
-		maxamt = TestUtil.removeDecimalZeroFormat(maxamt);
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			amount = BrokerNewPaymentTest.newPaymentAmount.get(0);
+			payer = BrokerNewPaymentTest.newPaymentPayer.get(0);
+			loadid = BrokerNewPaymentTest.newPaymentLoadId.get(0);
+			amount = TestUtil.removeDecimalZeroFormat(amount);
+			Integer tempAmt = Integer.parseInt(amount) + 100;
+			maxamt = tempAmt.toString();
+			datefrom = BrokerNewPaymentTest.strDate;
+			dateto = BrokerNewPaymentTest.strDate;
+		} else {
+			// clean up excel formatting if it exists
+			amount = TestUtil.removeDecimalZeroFormat(amount);
+			loadid = TestUtil.removeDecimalZeroFormat(loadid);
+			maxamt = TestUtil.removeDecimalZeroFormat(maxamt);
+		}
 
 		// click search button
 		carrierpaymenthistory.clickSearchButton();
@@ -113,7 +142,7 @@ public class CarrierPaymentHistoryTest extends TestBase {
 		// verify search for amount
 		carrierpaymenthistory.searchAction(amount);
 		// verify search for Broker
-		carrierpaymenthistory.searchAction(carrier);
+		carrierpaymenthistory.searchAction(payer);
 		// verify search for LoadID
 		carrierpaymenthistory.searchAction(loadid);
 		carrierpaymenthistory.searchfield.clear();
@@ -124,8 +153,27 @@ public class CarrierPaymentHistoryTest extends TestBase {
 
 	@Test(description = "LP-3472 Carrier - Payment History", dataProvider = "getCarrierPaymentHistoryData", dependsOnMethods = {
 			"verifySearchFunctionality" })
-	public void verifyExportFunctionality(String amount, String carrier, String loadid, String maxamt, String datefrom,
+	public void verifyExportFunctionality(String amount, String payer, String loadid, String maxamt, String datefrom,
 			String dateto) throws InterruptedException {
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			amount = BrokerNewPaymentTest.newPaymentAmount.get(0);
+			payer = BrokerNewPaymentTest.newPaymentPayer.get(0);
+			loadid = BrokerNewPaymentTest.newPaymentLoadId.get(0);
+
+			amount = TestUtil.removeDecimalZeroFormat(amount);
+			Integer tempAmt = Integer.parseInt(amount) + 100;
+
+			maxamt = tempAmt.toString();
+			datefrom = BrokerNewPaymentTest.strDate;
+			dateto = BrokerNewPaymentTest.strDate;
+		} else {
+			// clean up excel formatting if it exists
+			amount = TestUtil.removeDecimalZeroFormat(amount);
+			loadid = TestUtil.removeDecimalZeroFormat(loadid);
+			maxamt = TestUtil.removeDecimalZeroFormat(maxamt);
+		}
+
 		// verify Export with Basic (radio button) option
 		carrierpaymenthistory.clickExportButton();
 		Assert.assertTrue(carrierpaymenthistory.exportstartdate.isDisplayed(), "Export Start Date field NOT found");

@@ -136,12 +136,14 @@ public class CarrierCompleteAccountModule extends TestBase {
 	public void clickAccountlink() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_account));
 		lnk_account.click();
+
 	}
 
 	public void clickCompanylink() throws InterruptedException {
 
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_Company));
 		lnk_Company.click();
+
 	}
 
 	public void enterDotnumber(String Dot) {
@@ -160,65 +162,84 @@ public class CarrierCompleteAccountModule extends TestBase {
 
 		wait.until(ExpectedConditions.elementToBeClickable(companyupdate));
 		companyupdate.click();
+
 	}
 
 	public void clickContactlink() throws InterruptedException {
 
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_Contact));
 		lnk_Contact.click();
+
 	}
 
 	public void clickAddNewContact() throws InterruptedException {
 
 		wait.until(ExpectedConditions.elementToBeClickable(clcik_AddNewContact));
 		clcik_AddNewContact.click();
+
 	}
 
 	public void enterContactFirstName(String ContactFN) {
 		wait.until(ExpectedConditions.elementToBeClickable(ContactFirstName));
+		ContactFirstName.click();
+		ContactFirstName.clear();
 		ContactFirstName.sendKeys(ContactFN);
 	}
 
 	public void enterContactlastName(String ContactLN) {
 		wait.until(ExpectedConditions.elementToBeClickable(Contact_LastName));
+		Contact_LastName.click();
+		Contact_LastName.clear();
 		Contact_LastName.sendKeys(ContactLN);
 	}
 
 	public void enterContactemail(String contactemail) {
 		wait.until(ExpectedConditions.elementToBeClickable(Contact_Email));
+		Contact_Email.click();
+		Contact_Email.clear();
 		Contact_Email.sendKeys(contactemail);
 	}
 
 	public void enterContactphonenum(String ContactPN) {
 		wait.until(ExpectedConditions.elementToBeClickable(Contact_Phone));
+		Contact_Phone.click();
+		Contact_Phone.clear();
 		Contact_Phone.sendKeys(ContactPN);
 	}
 
 	public void enterContactExtension(String Contactextension) {
 		wait.until(ExpectedConditions.elementToBeClickable(Contact_Ext));
+		Contact_Ext.click();
+		Contact_Ext.clear();
 		Contact_Ext.sendKeys(Contactextension);
 	}
 
 	public void enterContactMobileNumber(String ContactMobileNumber) {
 		wait.until(ExpectedConditions.elementToBeClickable(Contact_Mobile));
+		Contact_Mobile.click();
+		Contact_Mobile.clear();
 		Contact_Mobile.sendKeys(ContactMobileNumber);
 	}
 
 	public void enterContactFax(String ContactFax) {
 		wait.until(ExpectedConditions.elementToBeClickable(Contact_Fax));
+		Contact_Fax.click();
+		Contact_Fax.clear();
 		Contact_Fax.sendKeys(ContactFax);
 	}
 
 	public void clicksavelink() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(click_Save));
 		click_Save.click();
+		Thread.sleep(2000);
 	}
 
 	public void clickContactUpdatelink() throws InterruptedException {
 
 		wait.until(ExpectedConditions.elementToBeClickable(click_ContactUpdate));
 		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,250)", "");
-		js.executeScript("arguments[0].click();", click_ContactUpdate);
+		click_ContactUpdate.click();
+		Thread.sleep(2000);
 
 	}
 
@@ -227,7 +248,7 @@ public class CarrierCompleteAccountModule extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(click_DeleteContact));
 		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,250)", "");
 		click_DeleteContact.click();
-
+		Thread.sleep(2000);
 		driver.switchTo().alert().accept();
 
 	}

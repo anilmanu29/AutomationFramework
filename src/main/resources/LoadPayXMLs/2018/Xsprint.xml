@@ -29,6 +29,8 @@
 		<class name="testcases.loadpay.broker.AccountChangePasswordTest"></class>		
 		<class name="testcases.loadpay.carrier.CarrierAccountChangePasswordTest"></class>
 		<class name="testcases.loadpay.carrier.CarrierLoginPageResetPasswordTest"></class>
+		
+		
 		<!--		REDUNDANT TEST - This is covered in CarrierFirstLoginTest		
 		<class name="testcases.loadpay.carrier.CarrierFirstLoginSameDayTest"></class> 
 		<class name="testcases.loadpay.carrier.CarrierNewPaymentFirstLoginTest"></class>
