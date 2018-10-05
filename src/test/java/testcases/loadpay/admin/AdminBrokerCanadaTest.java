@@ -85,7 +85,7 @@ public class AdminBrokerCanadaTest extends TestBase {
 				"//*[@id=\"angularScope\"]/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[2]/div/div/div[1]/div/div/div/p[9]/span"));
 		depositAmount = adminCustomerDepositAmount.getText();
 		depositAmount = depositAmount.substring(depositAmount.length() - 2, depositAmount.length());
-		depositAmount = "0" + depositAmount;
+		// depositAmount = "0" + depositAmount;
 		log.info("Captured deposit amount: " + depositAmount);
 
 		wait.until(ExpectedConditions.elementToBeClickable(a.getLogOut()));

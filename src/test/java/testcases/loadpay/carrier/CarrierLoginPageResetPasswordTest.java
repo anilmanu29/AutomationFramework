@@ -163,7 +163,7 @@ public class CarrierLoginPageResetPasswordTest extends TestBase {
 		adminLoginPage.DoubleClickID();
 
 		wait.until(ExpectedConditions.elementToBeClickable(adminLoginPage.getEditloginuser()));
-		adminLoginPage.clickeditloginuser();
+		adminLoginPage.clickEmailLoginUserTab();
 
 		wait.until(ExpectedConditions.elementToBeClickable(adminLoginPage.getClickAdmin_ResetPassword()));
 		adminLoginPage.click_AdminResetPassword();

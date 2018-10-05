@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
+import testcases.loadpay.admin.AdminBrokerCanadaTest;
 import testcases.loadpay.broker.BrokerRegisterCanadaTest;
 
 public class BrokerCanadaFirstLogin extends TestBase {
@@ -61,6 +62,25 @@ public class BrokerCanadaFirstLogin extends TestBase {
 		Password.sendKeys(BrokerRegisterCanadaTest.brokerPassword);
 		loginBtn.click();
 		wait.until(ExpectedConditions.elementToBeClickable(field_ein));
+		field_ein.clear();
+		field_ein.click();
+		field_ein.sendKeys("99-9999999");
+
+		field_loadpaydepositeamt.clear();
+		field_loadpaydepositeamt.click();
+		field_loadpaydepositeamt.sendKeys(AdminBrokerCanadaTest.depositAmount);
+
+		wait.until(ExpectedConditions.elementToBeClickable(button_next));
+		button_next.click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(checkboxaccept));
+		checkboxaccept.click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(btn_finish));
+		btn_finish.click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(btn_close));
+		btn_close.click();
 	}
 
 }

@@ -86,6 +86,9 @@ public class AdminPayByCheckServiceBatchFile extends TestBase {
 	@FindBy(xpath = "//div[@class='carrierPayment']//child::div[9]//child::span")
 	WebElement paymentid;
 
+	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[1]/div")
+	WebElement fileSentMessage;
+
 	// Initializing the Page Objects:
 	public AdminPayByCheckServiceBatchFile() {
 		PageFactory.initElements(driver, this);
@@ -122,5 +125,12 @@ public class AdminPayByCheckServiceBatchFile extends TestBase {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_Send);
 
+	}
+
+	public Boolean wasFileSent() {
+		if (fileSentMessage.isDisplayed())
+			return true;
+		else
+			return false;
 	}
 }

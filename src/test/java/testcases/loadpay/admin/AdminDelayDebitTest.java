@@ -30,6 +30,7 @@ import pages.loadpay.broker.BrokerPaymentSheduledates;
 import pages.loadpay.broker.SchpaymentwithoutBankAccountPayByInvoiceEnabled;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.outlook.outlooklogin;
+import testcases.loadpay.broker.BrokerRegisterTest;
 import util.TestUtil;
 
 public class AdminDelayDebitTest extends TestBase {
@@ -107,17 +108,14 @@ public class AdminDelayDebitTest extends TestBase {
 
 	@Test(description = "LP-5427 Admin - Delay Debit", dataProvider = "getBrokerLoginData")
 	public void getBrokerCredentials(String user, String pass) throws InterruptedException {
-		// driver.get(prop.getProperty("url"));
-		brokerUsername = user;
-		brokerPassword = pass;
 
-		/*
-		 * if
-		 * (super.getProperties().getProperty("useDynamicBrokerData").contains("true"))
-		 * { brokerUsername = BrokerRegisterTest.brokerUsername; brokerPassword =
-		 * BrokerRegisterTest.brokerPassword; } else { brokerUsername = user;
-		 * brokerPassword = pass; }
-		 */
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = user;
+			brokerPassword = pass;
+		}
 	}
 
 	/*-------Admin Login ---------*/

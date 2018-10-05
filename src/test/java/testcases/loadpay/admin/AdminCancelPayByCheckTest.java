@@ -14,6 +14,7 @@ import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.admin.AdminPayByCheck;
 import pages.loadpay.broker.BrokerLoginPage;
+import util.TestUtil;
 
 public class AdminCancelPayByCheckTest extends TestBase {
 
@@ -98,12 +99,19 @@ public class AdminCancelPayByCheckTest extends TestBase {
 	}
 
 	@Test(dataProvider = "getCcarrierMatchedPayByCheckPayMNWData", dependsOnMethods = "verifyAdminPayByCheckTermPayment")
-	public void carrierTermPaymentPayByCheck(String EnterDOTNnumber, String ContactName) throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(adminCancelPayByCheckObj.getTxt_DOT()));
-		adminCancelPayByCheckObj.EnterDOTNnumber(EnterDOTNnumber);
+	public void carrierTermPaymentPayByCheck(String EnterDOTNnumber, String companyName, String streetAddress,
+			String city, String state, String zip, String country, String phone, String contactName)
+			throws InterruptedException {
 
-		wait.until(ExpectedConditions.elementToBeClickable(adminCancelPayByCheckObj.getTxt_ContactName()));
-		adminCancelPayByCheckObj.ContactName(ContactName);
+		adminPayByCheckObj.setCarrierDOT(TestUtil.removeDecimalZeroFormat(EnterDOTNnumber));
+		adminPayByCheckObj.setCarrierStreet(streetAddress);
+		adminPayByCheckObj.setCarrierCity(city);
+		adminPayByCheckObj.setCarrierState(state);
+		adminPayByCheckObj.setCarrierZIP(TestUtil.removeDecimalZeroFormat(zip));
+		adminPayByCheckObj.setCarrierCountry(country);
+		adminPayByCheckObj.setCarrierPhone(phone);
+		adminPayByCheckObj.setCarrierContactName(contactName);
+		adminPayByCheckObj.setCarrierCompanyName(companyName);
 
 		wait.until(ExpectedConditions.elementToBeClickable(adminCancelPayByCheckObj.getBtn_paybychksubmit()));
 		adminCancelPayByCheckObj.clickPayByChecksubmit();

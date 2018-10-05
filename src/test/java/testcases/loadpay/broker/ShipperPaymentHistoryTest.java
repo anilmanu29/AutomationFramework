@@ -149,7 +149,7 @@ public class ShipperPaymentHistoryTest extends TestBase {
 		shipperpaymenthistoryobj.clickArrowExportButton();
 
 		// sleep for 2 minute to allow time to verify csv files
-		Thread.sleep(120000);
+		// Thread.sleep(120000);
 	}
 
 }

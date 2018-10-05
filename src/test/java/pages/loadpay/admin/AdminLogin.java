@@ -150,8 +150,9 @@ public class AdminLogin extends TestBase {
 	@FindBy(id = "CustomerStatusId")
 	WebElement CustomersatatusIdDropDown;
 
-	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[7]")
-	WebElement editloginuser;
+	// *[@id="angularScope"]/div[1]/div/div[2]/div/div/div[2]/div[1]/div[3]/div[1]/a[8]
+	@FindBy(xpath = "//*[@id=\"angularScope\"]/div[1]/div/div[2]/div/div/div[2]/div[1]/div[3]/div[1]/a[8]")
+	WebElement emailLoginUserLink;
 
 	@FindBy(xpath = ".//*[@id='TabList']/div/table/tbody/tr/td[6]/input")
 	WebElement CancelLockout;
@@ -408,9 +409,9 @@ public class AdminLogin extends TestBase {
 		CustomerId.click();
 	}
 
-	public void clickeditloginuser() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(editloginuser));
-		editloginuser.click();
+	public void clickEmailLoginUserTab() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(emailLoginUserLink));
+		emailLoginUserLink.click();
 	}
 
 	public void click_AdminResetPassword() throws InterruptedException {
@@ -600,7 +601,7 @@ public class AdminLogin extends TestBase {
 	 * @return the editloginuser
 	 */
 	public WebElement getEditloginuser() {
-		return editloginuser;
+		return emailLoginUserLink;
 	}
 
 	/**

@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.io.IOException;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -11,7 +12,7 @@ import base.TestBase;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.admin.AdminPayByCheckServiceBatchFile;
-import testcases.loadpay.broker.BrokerNewPaymentTest;
+import testcases.loadpay.broker.BrokerRegisterTest;
 
 public class AdminPayByCheckServiceBatchFileTest extends TestBase {
 
@@ -50,8 +51,9 @@ public class AdminPayByCheckServiceBatchFileTest extends TestBase {
 
 		apbcf.ClickShowPaymentsForBatch();
 
-		apbcf.EnterEmailID(BrokerNewPaymentTest.email);
+		apbcf.EnterEmailID(BrokerRegisterTest.brokerUsername);
 		apbcf.ClickSendButton();
+		Assert.assertTrue(apbcf.wasFileSent(), "File sent message not found");
 		al.AdminLogOut();
 
 	}
