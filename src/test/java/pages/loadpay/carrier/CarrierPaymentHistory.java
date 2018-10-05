@@ -186,6 +186,7 @@ public class CarrierPaymentHistory extends TestBase {
 		js.executeScript("arguments[0].click();", monthup);
 
 		for (WebElement monthstatus : currentmonthstatus) {
+
 			js.executeScript("arguments[0].click();", monthup);
 			wait.until(ExpectedConditions.elementToBeClickable(monthstatus));
 			js.executeScript("arguments[0].click();", monthup);

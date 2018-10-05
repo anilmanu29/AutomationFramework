@@ -14,6 +14,7 @@ import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.ShipperCompleteAccountModule;
+import util.TestUtil;
 
 public class ShipperCompleteAccountModuleTest extends TestBase {
 
@@ -23,6 +24,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 	AdminLogin adminlogin;
 	String Dot = "1234567";
 	String EIN = "123456789";
+	String brokerUsername, brokerPassword = "";
 
 	/*-------Initiadminloginizing driver---------*/
 
@@ -44,7 +46,16 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 
 	@Test(dataProvider = "getBrokerLoginData")
 	public void VerifybrokerLogin(String un, String pwd) throws InterruptedException {
-		brokerlogin.Brokerlogin(un, pwd);
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = un;
+			brokerPassword = pwd;
+		}
+
+		brokerlogin.Brokerlogin(brokerUsername, brokerPassword);
 
 		shippercompleteaccountmodule.clickAccountlink();
 
@@ -90,8 +101,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 
 		Assert.assertTrue(adminlogin.CustomerTab.isDisplayed());
 
-		log.info(BrokerLoginPage.bemail);
-		adminlogin.ClickOnSearchBox(BrokerLoginPage.bemail);
+		adminlogin.ClickOnSearchBox(brokerUsername);
 
 		adminlogin.ClickOnSearchButton();
 
@@ -107,11 +117,9 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 	public void verifyContactDetails(String un, String pwd, String ContactFN, String ContactLN, String contactemail,
 			String ContactPN, String Contactextension, String ContactMobileNumber, String ContactFax)
 			throws InterruptedException {
+
 		driver.get(super.getProperties().getProperty("url"));
-		/*
-		 * brokerlogin = new BrokerLoginPage(); brokerlogin.Brokerlogin(un, pwd);
-		 * 
-		 */
+
 		shippercompleteaccountmodule.clickAccountlink();
 
 		Assert.assertTrue(shippercompleteaccountmodule.lnk_account.isDisplayed());
@@ -134,20 +142,13 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 
 		shippercompleteaccountmodule.enterContactphonenum(ContactPN);
 
-		shippercompleteaccountmodule.enterContactExtension(Contactextension);
+		shippercompleteaccountmodule.enterContactExtension(TestUtil.removeDecimalZeroFormat(Contactextension));
 
 		shippercompleteaccountmodule.enterContactMobileNumber(ContactMobileNumber);
 
 		shippercompleteaccountmodule.enterContactFax(ContactFax);
 
 		shippercompleteaccountmodule.clicksavelink();
-
-		Assert.assertTrue(shippercompleteaccountmodule.click_Save.isDisplayed());
-
-		/*
-		 * shippercompleteaccountmodule.clickdeletecontactlink();
-		 * 
-		 */
 
 		shippercompleteaccountmodule.clickContactUpdatelink();
 
@@ -188,8 +189,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 
 		adminlogin.ClickOnCustomersTab();
 
-		log.info(BrokerLoginPage.bemail);
-		adminlogin.ClickOnSearchBox(BrokerLoginPage.bemail);
+		adminlogin.ClickOnSearchBox(brokerUsername);
 
 		adminlogin.ClickOnSearchButton();
 
@@ -199,7 +199,10 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 
 		Assert.assertTrue(shippercompleteaccountmodule.lnk_Credit.isDisplayed());
 
-		shippercompleteaccountmodule.enterExtendedCredit(ExtendedCredit);
+		// This gets covered in broker activation by Admin - don't want to overwrite
+		if (!super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			shippercompleteaccountmodule.enterExtendedCredit(ExtendedCredit);
+		}
 
 		Assert.assertTrue(shippercompleteaccountmodule.text_ExtendedCredit.isDisplayed());
 
@@ -233,7 +236,8 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 
 		Assert.assertTrue(shippercompleteaccountmodule.link_paymeNow.isDisplayed());
 
-		shippercompleteaccountmodule.checkpaymenowenroll();
+		if (!shippercompleteaccountmodule.check_PMNEnrolled.isSelected())
+			shippercompleteaccountmodule.checkpaymenowenroll();
 
 		Assert.assertTrue(shippercompleteaccountmodule.check_PMNEnrolled.isDisplayed());
 
@@ -255,8 +259,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 
 		adminlogin.ClickOnCustomersTab();
 
-		log.info(BrokerLoginPage.bemail);
-		adminlogin.ClickOnSearchBox(BrokerLoginPage.bemail);
+		adminlogin.ClickOnSearchBox(brokerUsername);
 
 		adminlogin.ClickOnSearchButton();
 

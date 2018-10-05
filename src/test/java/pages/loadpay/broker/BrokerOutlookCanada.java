@@ -84,10 +84,13 @@ public class BrokerOutlookCanada extends TestBase {
 	}
 
 	public void clickPopUp() throws InterruptedException {
+		Thread.sleep(4000);
 		wait.until(ExpectedConditions.elementToBeClickable(fieldSearchMail));
 		fieldSearchMail.click();
+		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(haspopup));
 		haspopup.click();
+		Thread.sleep(1000);
 	}
 
 	public void clickOpenMailBox() throws InterruptedException {
