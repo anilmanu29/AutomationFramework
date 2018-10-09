@@ -1,6 +1,5 @@
 package pages.loadpay.admin;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -102,28 +101,26 @@ public class AdminPayByCheckServiceBatchFile extends TestBase {
 
 	public void clickDailyCheckPaymentFiles() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_DailyCheckPaymentFiles));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", lnk_DailyCheckPaymentFiles);
+		lnk_DailyCheckPaymentFiles.click();
 
 	}
 
 	public void ClickShowPaymentsForBatch() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_ShowPaymentsForBatch));
-		Thread.sleep(1000);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", btn_ShowPaymentsForBatch);
+		btn_ShowPaymentsForBatch.click();
 
 	}
 
 	public void EnterEmailID(String email) {
 		wait.until(ExpectedConditions.visibilityOf(txt_email));
+		txt_email.click();
+		txt_email.clear();
 		txt_email.sendKeys(email);
 	}
 
 	public void ClickSendButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_Send));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", btn_Send);
+		btn_Send.click();
 
 	}
 

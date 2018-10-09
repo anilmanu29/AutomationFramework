@@ -79,7 +79,7 @@ public class AdminCancelPayByCheck extends TestBase {
 	// @FindBy(xpath = "//button[contains(@ng-click,'UpdateCheckNumber();')]")
 	// private WebElement btn_UpdateCheckNumber; // Button to click Add Check Number
 
-	@FindBy(xpath = "//button[contains(@ng-click,'CancelPayByCheck();')]")
+	@FindBy(xpath = "//button[contains(@ng-click,'CancelPayByCheck()')]")
 	private WebElement btn_CancelPayByCheck; // Button to click to cancel paybycheck - Term Payment Only
 
 	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[4]/div/div[2]/div/div[2]/div/div/div[1]/div/div[9]/span")
@@ -222,9 +222,8 @@ public class AdminCancelPayByCheck extends TestBase {
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", btn_CancelPayByCheck);
-		wait.until(ExpectedConditions.elementToBeClickable(btn_CancelPayByCheck));
+		Thread.sleep(1000);
 		driver.switchTo().alert().accept();
-		wait.until(ExpectedConditions.elementToBeClickable(btn_CancelPayByCheck));
 	}
 
 	/**

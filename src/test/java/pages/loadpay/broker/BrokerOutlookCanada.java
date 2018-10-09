@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -95,8 +94,7 @@ public class BrokerOutlookCanada extends TestBase {
 
 	public void clickOpenMailBox() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(lnkopenanothermail));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", lnkopenanothermail);
+		lnkopenanothermail.click();
 
 	}
 

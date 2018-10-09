@@ -1,6 +1,5 @@
 package pages.loadpay.broker;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -35,6 +34,18 @@ public class BrokerViewCreditLessThan1000 extends TestBase {
 	@FindBy(xpath = "//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div[3]/span")
 	WebElement AvailableCreditText;
 
+	@FindBy(xpath = "//a[text()='Account']")
+	WebElement AccountLink;
+
+	@FindBy(xpath = "//a[contains(text(),'PayMeNow')]")
+	WebElement PayMeNowLink;
+
+	@FindBy(xpath = "//*[@id='PMNEnrolled']")
+	WebElement EnrollInPayMeNow;
+
+	@FindBy(xpath = "//*[@id='formPMN']/div/div[3]/input[2]")
+	WebElement UpdatePayMeNowButton;
+
 	// Initializing the Page Objects:
 	public BrokerViewCreditLessThan1000() {
 
@@ -51,18 +62,15 @@ public class BrokerViewCreditLessThan1000 extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(UserName));
 		UserName.sendKeys(un);
 		Password.sendKeys(pwd);
-		// loginBtn.click();
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", loginBtn);
+		loginBtn.click();
+
 	}
 
 	public void brokerVerificationLogin(String UserName, String NewPassword) {
 		wait.until(ExpectedConditions.elementToBeClickable(Password));
 		this.UserName.sendKeys(UserName);
 		Password.sendKeys(NewPassword);
-		// loginBtn.click();
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", loginBtn);
+		loginBtn.click();
 	}
 
 	public void BrokerLogout() {
@@ -78,6 +86,30 @@ public class BrokerViewCreditLessThan1000 extends TestBase {
 	public void forgotPasswordButton() {
 		wait.until(ExpectedConditions.elementToBeClickable(forgotPassword));
 		forgotPassword.click();
+	}
+
+	public void clickAccountLink() {
+		wait.until(ExpectedConditions.elementToBeClickable(AccountLink));
+		AccountLink.click();
+	}
+
+	public void clickPayMeNowLink() {
+		wait.until(ExpectedConditions.elementToBeClickable(PayMeNowLink));
+		PayMeNowLink.click();
+	}
+
+	public void enrollInPayMeNow() {
+		wait.until(ExpectedConditions.elementToBeClickable(EnrollInPayMeNow));
+
+		if (!EnrollInPayMeNow.isSelected()) {
+			EnrollInPayMeNow.click();
+			clickUpdatePayMeNow();
+		}
+	}
+
+	public void clickUpdatePayMeNow() {
+		wait.until(ExpectedConditions.elementToBeClickable(UpdatePayMeNowButton));
+		UpdatePayMeNowButton.click();
 	}
 
 	public void AvailableCreditTab() throws InterruptedException {

@@ -159,7 +159,7 @@ public class ShipperPaymentHistory extends TestBase {
 
 	public void clickPaymentHistorylink() {
 		wait.until(ExpectedConditions.elementToBeClickable(paymenthistorylink));
-		js.executeScript("arguments[0].click();", paymenthistorylink);
+		paymenthistorylink.click();
 	}
 
 	public void clickCurrentMonth() throws InterruptedException {
@@ -167,31 +167,42 @@ public class ShipperPaymentHistory extends TestBase {
 		Assert.assertTrue(currentmonthstatus.getAttribute("aria-expanded").contains("true"),
 				"Month should be Expanded");
 		wait.until(ExpectedConditions.elementToBeClickable(monthup));
-		js.executeScript("arguments[0].click();", monthup);
+		monthup.click();
 
 	}
 
 	public void expandcollapsePayments() throws InterruptedException {
 
+		Integer mainLoopCount = 0;
+		Integer innerLoopCount = 0;
+
 		for (WebElement month : monthslist) {
 			Thread.sleep(2000);
 
-			js.executeScript("arguments[0].click();", month);
+			System.out.println("Main Loop: " + mainLoopCount);
+			mainLoopCount++;
+
+			month.click();
+
 			for (WebElement payment : payments) {
+				System.out.println("Inner Loop: " + innerLoopCount);
+				innerLoopCount++;
+
 				wait.until(ExpectedConditions.elementToBeClickable(payment));
-				js.executeScript("arguments[0].click();", payment);
-				Thread.sleep(2000);
-				// Assert.assertTrue(payment.getAttribute("aria-expanded").contains("true"),
-				// "Payment should be expanded");
+				payment.click();
+				Thread.sleep(3000);
+				Assert.assertTrue(payment.getAttribute("aria-expanded").contains("true"), "Payment should be expanded");
 				js.executeScript("window.scrollBy(0,40)", "");
-				js.executeScript("arguments[0].click();", payment);
-				// Assert.assertTrue(payment.getAttribute("aria-expanded").contains("false"),
-				// "Payment should be collapsed");
+				Thread.sleep(1000);
+				payment.click();
+				Thread.sleep(3000);
+				Assert.assertTrue(payment.getAttribute("aria-expanded").contains("false"),
+						"Payment should be collapsed");
 			}
 
 		}
 		if (monthup.isDisplayed()) {
-			js.executeScript("arguments[0].click();", monthup);
+			monthup.click();
 		}
 
 	}

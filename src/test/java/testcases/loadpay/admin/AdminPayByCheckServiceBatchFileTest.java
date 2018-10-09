@@ -53,6 +53,7 @@ public class AdminPayByCheckServiceBatchFileTest extends TestBase {
 
 		apbcf.EnterEmailID(BrokerRegisterTest.brokerUsername);
 		apbcf.ClickSendButton();
+		Thread.sleep(2000);
 		Assert.assertTrue(apbcf.wasFileSent(), "File sent message not found");
 		al.AdminLogOut();
 
