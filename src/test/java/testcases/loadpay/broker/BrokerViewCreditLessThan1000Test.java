@@ -99,6 +99,12 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 		}
 
 		CreditLessThan1000.Brokerlogin(brokerUsername, brokerPassword);
+
+		// make sure pay me now is enabled to view available credit
+		CreditLessThan1000.clickAccountLink();
+		CreditLessThan1000.clickPayMeNowLink();
+		CreditLessThan1000.enrollInPayMeNow();
+
 		CreditLessThan1000.AvailableCreditTab();
 		CreditLessThan1000.BrokerLogout();
 	}

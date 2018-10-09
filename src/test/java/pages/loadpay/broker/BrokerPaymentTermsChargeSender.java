@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -216,18 +217,23 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 		brokerPaymentObj.amount(paymentAmount);
 		brokerPaymentObj.invoiceNumber(invoiceNum);
 		brokerPaymentObj.loadId(loadId);
+
 		wait.until(ExpectedConditions.elementToBeClickable(scheduledate));
-		act.doubleClick(scheduledate).build().perform();
+		scheduledate.click();
 		wait.until(ExpectedConditions.elementToBeClickable(prevdatepicker));
-		js.executeScript("arguments[0].click();", prevdatepicker);
+		prevdatepicker.click();
 		wait.until(ExpectedConditions.elementToBeClickable(tomorrowdate));
-		js.executeScript("arguments[0].click();", tomorrowdate);
+		tomorrowdate.click();
+		tomorrowdate.sendKeys(Keys.TAB);
+
 		brokerPaymentObj.clickShedulePayment();
 		brokerPaymentObj.clickShedulePaymenttab();
 		brokerPaymentObj.searchCarrier(carrierEmail);
 		brokerPaymentObj.clickSearchButton();
+
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)", "");
+
 		brokerPaymentObj.verifyInvoiceNumber(invoiceNum, paymentAmount);
 		// verify payment status
 		Assert.assertTrue(brokerPaymentObj.verifyPaymentStatus().equals(paymentStatus), "Payment Status not equal!");
@@ -235,24 +241,28 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 
 	public void uncheckEnablePaymentTerms() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(accountlink));
-		js.executeScript("arguments[0].click();", accountlink);
+		accountlink.click();
+
 		wait.until(ExpectedConditions.elementToBeClickable(paymenttermslink));
-		js.executeScript("arguments[0].click();", paymenttermslink);
+		paymenttermslink.click();
+
 		wait.until(ExpectedConditions.elementToBeClickable(paymenttermscheckbox));
 
 		if (paymenttermscheckbox.isSelected()) {
 			wait.until(ExpectedConditions.elementToBeClickable(chargerecipientradiobutton));
-			js.executeScript("arguments[0].click();", chargerecipientradiobutton);
+			chargerecipientradiobutton.click();
+
 			wait.until(ExpectedConditions.elementToBeClickable(paymenttermscheckbox));
-			js.executeScript("arguments[0].click();", paymenttermscheckbox);
+			paymenttermscheckbox.click();
+
 			wait.until(ExpectedConditions.elementToBeClickable(updatebutton));
-			js.executeScript("arguments[0].click();", updatebutton);
+			updatebutton.click();
 
 		}
 
 		else {
 			wait.until(ExpectedConditions.elementToBeClickable(updatebutton));
-			js.executeScript("arguments[0].click();", updatebutton);
+			updatebutton.click();
 		}
 
 	}
