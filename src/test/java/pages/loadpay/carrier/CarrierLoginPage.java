@@ -51,7 +51,8 @@ public class CarrierLoginPage extends TestBase {
 	@FindBy(xpath = ("//a[contains(text(), 'Forgot Password?')]"))
 	WebElement forgotPassword;
 
-	@FindBy(xpath = "//input[contains(@ng-click, 'DoNotShowAutomaticPMNOptinChanged')]")
+	// *[@id="angularScope"]/div[4]/div/div/div[2]/div[5]/div/div/p/input
+	@FindBy(xpath = "//input[contains(@ng-model, 'settings.DismissedAutomaticPMNOptin')]")
 	WebElement donotshowagaincheckbox;
 
 	@FindBy(xpath = "//button[text()='Save']")

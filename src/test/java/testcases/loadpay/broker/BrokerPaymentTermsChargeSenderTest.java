@@ -35,7 +35,7 @@ public class BrokerPaymentTermsChargeSenderTest extends TestBase {
 
 	/*-------Login to Load Pay as Broker---------*/
 	@Test(dataProvider = "getBrokerLoginData")
-	public void loginAsBrokerTest(String un, String pwd) {
+	public void loginAsBrokerTest(String un, String pwd) throws InterruptedException {
 
 		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
 			brokerUsername = BrokerRegisterTest.brokerUsername;
@@ -47,11 +47,26 @@ public class BrokerPaymentTermsChargeSenderTest extends TestBase {
 
 		brokerPaymentTermsChargeSenderObj.loginAsBroker(brokerUsername, brokerPassword);
 		brokeremailid = brokerUsername;
+
+		brokerPaymentTermsChargeSenderObj.uncheckEnablePaymentTerms();
 	}
 
 	@Test(description = "LP-5399 Broker Payment Terms Charge Sender", dependsOnMethods = "loginAsBrokerTest")
+	public void verifyErrorForPaymentLessThanFourteenDays() throws InterruptedException {
+
+		String invoiceNum = "NP" + TestUtil.getCurrentDateTime();
+		String loadID = invoiceNum;
+		Integer paymentAmount = TestUtil.getRandomNumber(100, 999);
+
+		brokerPaymentTermsChargeSenderObj.brokerCreateNewPayment(CarrierRegisterTest.carrierUsername, invoiceNum,
+				loadID, paymentAmount.toString(), true);
+	}
+
+	@Test(description = "LP-5399 Broker Payment Terms Charge Sender", dependsOnMethods = "verifyErrorForPaymentLessThanFourteenDays")
 	public void verifyEnablePaymentTerms() throws InterruptedException {
+
 		brokerPaymentTermsChargeSenderObj.activatePaymentTerms();
+
 		Assert.assertTrue(brokerPaymentTermsChargeSenderObj.paymenttermscheckbox.isDisplayed(),
 				"Enable Payment Term for less than 14 days check box NOT found");
 		Assert.assertTrue(brokerPaymentTermsChargeSenderObj.chargerecipientradiobutton.isDisplayed(),
@@ -89,17 +104,16 @@ public class BrokerPaymentTermsChargeSenderTest extends TestBase {
 		brokerPaymentTermsChargeSenderObj.resetStatusFlatFeeValuse();
 	}
 
-	@Test(dataProvider = "getPaymentData", dependsOnMethods = "verifyEditFlatFeePaymentterms")
-	public void verifybrokerNewPaymentforLessthanFourthteendays(String cE, String iN, String lId, String pA)
-			throws InterruptedException {
+	@Test(dependsOnMethods = "verifyEditFlatFeePaymentterms")
+	public void verifybrokerNewPaymentforLessthanFourthteendays() throws InterruptedException {
 
-		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
-			cE = CarrierRegisterTest.carrierUsername;
-			iN = "NP" + TestUtil.getCurrentDateTime();
-			lId = iN;
-		}
+		String invoiceNum = "NP" + TestUtil.getCurrentDateTime();
+		String loadID = invoiceNum;
+		Integer paymentAmount = TestUtil.getRandomNumber(100, 999);
 
-		brokerPaymentTermsChargeSenderObj.brokerCreateNewPayment(cE, iN, lId, pA);
+		brokerPaymentTermsChargeSenderObj.brokerCreateNewPayment(CarrierRegisterTest.carrierUsername, invoiceNum,
+				loadID, paymentAmount.toString(), false);
+
 		brokerPaymentTermsChargeSenderObj.uncheckEnablePaymentTerms();
 	}
 

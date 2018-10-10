@@ -59,6 +59,9 @@ public class CarrierDisableCopyPasteConfirmBankAccount extends TestBase {
 	@FindBy(xpath = "//*[@id='formBanking']//child::input[@type='submit']")
 	private WebElement registrationbuttonsave;
 
+	@FindBy(xpath = "//input[@type='button'][@value='Add Later']")
+	WebElement addLaterButton;
+
 	/*-------PageFactory---------*/
 	public CarrierDisableCopyPasteConfirmBankAccount() throws AWTException, IOException {
 		PageFactory.initElements(driver, this);
@@ -109,6 +112,11 @@ public class CarrierDisableCopyPasteConfirmBankAccount extends TestBase {
 		return confirmaccnumberfield;
 	}
 
+	public void clickAddLaterButton() {
+		wait.until(ExpectedConditions.elementToBeClickable(addLaterButton));
+		addLaterButton.click();
+	}
+
 	public void setAccountNameField(String accname) {
 		wait.until(ExpectedConditions.elementToBeClickable(nameonaccountfield));
 		nameonaccountfield.clear();
@@ -130,10 +138,11 @@ public class CarrierDisableCopyPasteConfirmBankAccount extends TestBase {
 		accnumberfield.sendKeys(accnum);
 	}
 
-	public void setConfirmAccountNumberField() {
-		wait.until(ExpectedConditions.elementToBeClickable(accnumberfield));
-		accnumberfield.clear();
-		accnumberfield.click();
+	public void setConfirmAccountNumberField(String accnum) {
+		wait.until(ExpectedConditions.elementToBeClickable(confirmaccnumberfield));
+		confirmaccnumberfield.clear();
+		confirmaccnumberfield.click();
+		confirmaccnumberfield.sendKeys(accnum);
 	}
 
 	public void clearTextField(WebElement element) {
@@ -148,7 +157,7 @@ public class CarrierDisableCopyPasteConfirmBankAccount extends TestBase {
 
 	public void clickSubmitButton() {
 		wait.until(ExpectedConditions.visibilityOf(registrationbuttonsave));
-		js.executeScript("arguments[0].click();", registrationbuttonsave);
+		registrationbuttonsave.click();
 	}
 
 	public WebElement getNextButton() {
