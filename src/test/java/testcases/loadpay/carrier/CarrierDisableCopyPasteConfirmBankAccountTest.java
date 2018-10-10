@@ -2,10 +2,15 @@ package testcases.loadpay.carrier;
 
 import java.awt.AWTException;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -13,10 +18,14 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import pages.loadpay.admin.AdminHomePage;
+import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.carrier.CarrierBanking;
 import pages.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccount;
 import pages.loadpay.carrier.CarrierLoginPage;
+import pages.loadpay.carrier.CarrierOutlook;
 import pages.loadpay.carrier.CarrierRegisterPage;
+import pages.loadpay.outlook.outlooklogin;
 import util.TestUtil;
 
 public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
@@ -25,7 +34,22 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 	CarrierRegisterPage carrierRegistrationObj;
 	CarrierDisableCopyPasteConfirmBankAccount carrierdisablecopypasteconfirmbankaccountobj;
 	CarrierBanking carrierbankingobj;
+	CarrierOutlook carrierOutlookObj;
+	outlooklogin outlook;
+	AdminHomePage adminHomePage;
+	AdminLogin adminLoginPage;
+	Select selector;
+
 	JavascriptExecutor js;
+
+	Date currentTime;
+	String formattedDate = "";
+	Long longTime;
+	DateFormat formatter;
+	String currentHour = "";
+	String currentMinutes = "";
+	String timeArray[] = new String[2];
+
 	public static String carrierUsername;
 	public static String carrierPassword;
 	public static String companyname;
@@ -42,8 +66,13 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 		carrierRegistrationObj = new CarrierRegisterPage();
 		carrierdisablecopypasteconfirmbankaccountobj = new CarrierDisableCopyPasteConfirmBankAccount();
 		carrierbankingobj = new CarrierBanking();
-		js = (JavascriptExecutor) driver;
+		outlook = new outlooklogin();
+		carrierOutlookObj = new CarrierOutlook();
+		adminHomePage = new AdminHomePage();
+		adminLoginPage = new AdminLogin();
 		wait = new WebDriverWait(driver, 30);
+		js = (JavascriptExecutor) driver;
+		currentTime = new Date();
 	}
 
 	/*-------Verify Copy/Paste functionality for confirm bank account field while registration---------*/
@@ -147,19 +176,46 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 		carrierRegistrationObj.clickNextBtnOnContactForm();
 		carrierRegistrationObj.AccountName(NameonAccount);
 		carrierRegistrationObj.BankingRouting(RoutingNumber);
-
 		carrierRegistrationObj.BankingAccount(BankAccountNumber);
 
 		carrierdisablecopypasteconfirmbankaccountobj.verifyCopyPasteforTypeofAccount();
 		Assert.assertTrue(
 				carrierdisablecopypasteconfirmbankaccountobj.geterrorMessage().contains("Account Number do not match"),
 				"ValidationMessage NOT found");
-		log.info("verifyCopyPasteConfirmBankAccountFieldforRegisterTest - Passed");
+
+		carrierdisablecopypasteconfirmbankaccountobj.clickAddLaterButton();
+	}
+
+	@Test(dependsOnMethods = "verifyCopyPasteConfirmBankAccountFieldforRegisterTest", dataProvider = "getoutlookLoginData")
+	public void outlookloginTest(String un, String pwd) throws InterruptedException, AWTException {
+		outlook.outlookLogin(un, pwd);
+		carrierOutlookObj.clickPopUp();
+		carrierOutlookObj.clickOpenMailBox();
+		carrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
+		getTimestamp();
+		carrierOutlookObj.outlookSearchInbox(carrierUsername, currentHour, currentMinutes);
+		carrierOutlookObj.handleNewInbox(carrierUsername);
+		carrierOutlookObj.verifyConfirmationMessage();
+	}
+
+	@Test(dataProvider = "getAdminLoginData", dependsOnMethods = "outlookloginTest")
+	public void adminLogin(String Username, String pass) throws IOException, InterruptedException, AWTException {
+		adminHomePage.AdminURL();
+		adminLoginPage.adminUserPass(Username, pass);
+		adminLoginPage.adminLogin();
+		adminLoginPage.ClickOnCustomersTab();
+		adminLoginPage.Uncheck_Factor();
+		adminLoginPage.ClickOnSearchBox(carrierUsername);
+		adminLoginPage.ClickOnSearchButton();
+		adminLoginPage.DoubleClickID();
+		adminLoginPage.StatusIDDropDown();
+		adminLoginPage.UpdateButton();
+		adminLoginPage.AdminLogOut();
 
 	}
 
 	/*-------carrier login test---------*/
-	@Test(description = "LP-6366 LoadPay Carrier_Disable_copy/paste_functionality_for_add_and_confirmbankaccount", dataProvider = "getCarrierBankAccountData", dependsOnMethods = "verifyCopyPasteConfirmBankAccountFieldforRegisterTest")
+	@Test(description = "LP-6366 LoadPay Carrier_Disable_copy/paste_functionality_for_add_and_confirmbankaccount", dataProvider = "getCarrierBankAccountData", dependsOnMethods = "adminLogin")
 	public void carrierLoginTest(String carrieremail, String password, String accname, String routingnum,
 			String accnumber, String confirmaccnumber) throws InterruptedException {
 		driver.get(prop.getProperty("url"));
@@ -189,6 +245,34 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 				"Copy/paste is happening");
 		Assert.assertTrue(!carrierdisablecopypasteconfirmbankaccountobj.getNextButton().isEnabled(),
 				"Next button is enabled");
+
+		// complete bank account information
+		carrierdisablecopypasteconfirmbankaccountobj.setConfirmAccountNumberField(accnumber);
+		carrierdisablecopypasteconfirmbankaccountobj.getNextButton().click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(carrierloginobj.getEinField()));
+
+		// enter EIN and click Next if enabled
+		if (carrierloginobj.getEinField().isEnabled()) {
+			carrierloginobj.setEinField("99-9999999");
+			carrierloginobj.clickEinNextButton();
+		}
+
+		// accept terms and conditions
+		if (carrierloginobj.getTermsAndConditionsCheckBox().isEnabled()) {
+			carrierloginobj.clickTermsAndConditionsCheckBox();
+			carrierloginobj.clickFinishButton();
+			Assert.assertTrue(
+					carrierloginobj.getConfirmationPopup().getText()
+							.contains("Your LoadPay™ registration has been completed successfully."),
+					"Registration success message not found");
+			carrierloginobj.clickConfirmationPopupCloseButton();
+		}
+
+		if (carrierloginobj.getDonotshowagaincheckbox().isDisplayed()) {
+			carrierloginobj.closePaymeNowPopUp();
+		}
+
 		carrierloginobj.CarrierLogout();
 		log.info("verifyCopyPasteConfirmBankAccountFieldforExistingCarrierTest - Passed");
 	}
@@ -208,11 +292,29 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 		carrierbankingobj.clickBankingLink();
 		carrierbankingobj.clickAddNewBankAccountLink();
 		carrierdisablecopypasteconfirmbankaccountobj.verifyCopyPasteforTyesofAccount(accname, routingnum, accnum);
+
 		Assert.assertEquals(carrierdisablecopypasteconfirmbankaccountobj.getConfirmAccountNumber(), "",
 				"Copy/paste is happening");
 		Assert.assertTrue(!carrierdisablecopypasteconfirmbankaccountobj.getSavebuton().isEnabled(),
 				"Save button is enabled");
 		log.info("verifyCopyPasteBankAccountNumberinaddingBankAccountTest - Passed");
+	}
+
+	public void getTimestamp() {
+		formatter = new SimpleDateFormat("HH:mm");
+		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
+		longTime = currentTime.getTime();
+		formattedDate = formatter.format(longTime);
+		timeArray = formattedDate.split(":");
+		currentHour = timeArray[0];
+		currentMinutes = timeArray[1];
+
+		log.info("\n\n\n===============================");
+		log.info("Current date: " + longTime);
+		log.info("Formatted date: " + formattedDate);
+		log.info("Current Hour: " + currentHour);
+		log.info("Current Minutes: " + currentMinutes);
+		log.info("===============================");
 	}
 
 }

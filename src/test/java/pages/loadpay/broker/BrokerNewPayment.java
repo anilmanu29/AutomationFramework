@@ -2,7 +2,6 @@ package pages.loadpay.broker;
 
 import java.util.List;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -180,8 +179,7 @@ public class BrokerNewPayment extends TestBase {
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_newpayment));
 		Thread.sleep(1000);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", lnk_newpayment);
+		lnk_newpayment.click();
 
 	}
 

@@ -2,8 +2,10 @@ package pages.loadpay.broker;
 
 import java.awt.AWTException;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -51,6 +53,9 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 
 	@FindBy(xpath = "//label[text()='Charge Recipient:']//child::input[@name='PaymentTermChargeType']")
 	public WebElement chargerecipientradiobutton;
+
+	@FindBy(xpath = "//*[@id='formSingle']/div[2]/div/ul/li[2]/span")
+	public WebElement termDateErrorMessage;
 
 	@FindBy(xpath = "//*[@id='formPaymentTerms']/div/div/div[3]/input")
 	public WebElement updatebutton;
@@ -110,26 +115,30 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 
 	public void activatePaymentTerms() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(accountlink));
-		js.executeScript("arguments[0].click();", accountlink);
+		accountlink.click();
+
 		wait.until(ExpectedConditions.elementToBeClickable(paymenttermslink));
-		js.executeScript("arguments[0].click();", paymenttermslink);
+		paymenttermslink.click();
+
 		wait.until(ExpectedConditions.elementToBeClickable(paymenttermscheckbox));
 		log.info(paymenttermscheckbox.isSelected());
+
 		if (paymenttermscheckbox.isSelected()) {
 			wait.until(ExpectedConditions.elementToBeClickable(chargesenderradiobutton));
-			js.executeScript("arguments[0].click();", chargesenderradiobutton);
+			chargesenderradiobutton.click();
+
 			wait.until(ExpectedConditions.elementToBeClickable(updatebutton));
-			js.executeScript("arguments[0].click();", updatebutton);
+			updatebutton.click();
 
-		}
-
-		else {
+		} else {
 			wait.until(ExpectedConditions.elementToBeClickable(paymenttermscheckbox));
-			js.executeScript("arguments[0].click();", paymenttermscheckbox);
+			paymenttermscheckbox.click();
+
 			wait.until(ExpectedConditions.elementToBeClickable(chargesenderradiobutton));
-			js.executeScript("arguments[0].click();", chargesenderradiobutton);
+			chargesenderradiobutton.click();
+
 			wait.until(ExpectedConditions.elementToBeClickable(updatebutton));
-			js.executeScript("arguments[0].click();", updatebutton);
+			updatebutton.click();
 		}
 
 	}
@@ -203,40 +212,61 @@ public class BrokerPaymentTermsChargeSender extends TestBase {
 
 	}
 
-	public void brokerCreateNewPayment(String cE, String iN, String lId, String pA) throws InterruptedException {
+	public void brokerCreateNewPayment(String cE, String iN, String lId, String pA, Boolean checkForError)
+			throws InterruptedException {
 
 		// Store data-provider elements into publicly-accessible strings
 		carrierEmail = cE;
 		invoiceNum = iN;
 		loadId = lId;
 		paymentAmount = pA;
+
 		// create new payment
-		// brokerPaymentObj = new BrokerNewPayment();
+		brokerPaymentObj = new BrokerNewPayment();
 		brokerPaymentObj.newPayment();
 		brokerPaymentObj.carrierEmail(carrierEmail);
 		brokerPaymentObj.amount(paymentAmount);
 		brokerPaymentObj.invoiceNumber(invoiceNum);
 		brokerPaymentObj.loadId(loadId);
 
-		wait.until(ExpectedConditions.elementToBeClickable(scheduledate));
-		scheduledate.click();
-		wait.until(ExpectedConditions.elementToBeClickable(prevdatepicker));
-		prevdatepicker.click();
-		wait.until(ExpectedConditions.elementToBeClickable(tomorrowdate));
-		tomorrowdate.click();
-		tomorrowdate.sendKeys(Keys.TAB);
+		LocalDate today = LocalDate.now();
+		String strDate;
+
+		WebElement scheduledDate = wait.until(ExpectedConditions.elementToBeClickable(By.id("PaymentDate")));
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			Integer day = 0;
+			Integer month = 0;
+
+			if (today.getDayOfMonth() < 28) {
+				month = today.getMonthValue();
+				day = today.getDayOfMonth() + 1;
+			} else {
+				month = today.getMonthValue() + 1;
+				day = 1;
+			}
+
+			strDate = month.toString() + "/" + day.toString() + "/" + today.getYear();
+			scheduledDate.clear();
+			scheduledDate.click();
+			scheduledDate.sendKeys(strDate);
+			scheduledDate.sendKeys(Keys.TAB);
+
+		} else {
+
+			wait.until(ExpectedConditions.elementToBeClickable(scheduledate));
+			scheduledate.click();
+			wait.until(ExpectedConditions.elementToBeClickable(prevdatepicker));
+			prevdatepicker.click();
+			wait.until(ExpectedConditions.elementToBeClickable(tomorrowdate));
+			tomorrowdate.click();
+			tomorrowdate.sendKeys(Keys.TAB);
+		}
 
 		brokerPaymentObj.clickShedulePayment();
-		brokerPaymentObj.clickShedulePaymenttab();
-		brokerPaymentObj.searchCarrier(carrierEmail);
-		brokerPaymentObj.clickSearchButton();
 
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeScript("window.scrollBy(0,250)", "");
-
-		brokerPaymentObj.verifyInvoiceNumber(invoiceNum, paymentAmount);
-		// verify payment status
-		Assert.assertTrue(brokerPaymentObj.verifyPaymentStatus().equals(paymentStatus), "Payment Status not equal!");
+		if (checkForError)
+			Assert.assertTrue(termDateErrorMessage.isDisplayed(), "Term Date error message not found!");
 	}
 
 	public void uncheckEnablePaymentTerms() throws InterruptedException {

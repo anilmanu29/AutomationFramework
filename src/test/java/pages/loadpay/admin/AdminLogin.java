@@ -326,8 +326,10 @@ public class AdminLogin extends TestBase {
 
 	public void ClickEditDelayDebit() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(EditDelayDebit));
+		Thread.sleep(1000);
 		EditDelayDebit.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(UpdateDelayDebit));
 	}
 
 	public void ClickOnSearchBox(String keyword) throws InterruptedException {
@@ -501,6 +503,7 @@ public class AdminLogin extends TestBase {
 		delayedDebitStatusSelector.click();
 		s = new Select(delayedDebitStatusSelector);
 		s.selectByVisibleText("Enabled");
+		Thread.sleep(1000);
 	}
 
 	public void UpdateButton() throws InterruptedException {

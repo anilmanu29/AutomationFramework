@@ -31,18 +31,15 @@ import pages.loadpay.broker.SchpaymentwithoutBankAccountPayByInvoiceEnabled;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.outlook.outlooklogin;
 import testcases.loadpay.broker.BrokerRegisterTest;
+import testcases.loadpay.carrier.CarrierRegisterTest;
 import util.TestUtil;
 
 public class AdminDelayDebitTest extends TestBase {
 
 	SchpaymentwithoutBankAccountPayByInvoiceEnabled schpaymentwithoutBankAccountPayByInvoiceenabled;
-
 	CarrierLoginPage carrierloginPage;
-	public static String newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNum, carrierEmail = "";
-
 	BrokerPaymentSheduledates brokerPaymentSheduledates;
 	BrokerLoginPage brokerlogin;
-
 	BrokerOutlook brokerOutlookObj;
 	outlooklogin outlook;
 
@@ -62,8 +59,8 @@ public class AdminDelayDebitTest extends TestBase {
 	String emailid = "";
 	String carrierUserName;
 	String carrierPassword;
-	String invoice;
 	ArrayList<String> invoiceList;
+	String newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNum;
 
 	Date currentTime;
 	String formattedDate = "";
@@ -184,7 +181,13 @@ public class AdminDelayDebitTest extends TestBase {
 		Assert.assertFalse(payMeNowCheckbox.isSelected(), "Pay Me Now link is enabled - should be disabled!");
 
 		// Store data-provider elements into publicly-accessible strings
-		carrierEmail = cemail;
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUserName = CarrierRegisterTest.carrierUsername;
+		} else {
+			carrierUserName = cemail;
+		}
+
 		invoiceno = TestUtil.getCurrentDateTime();
 		newPaymentAmount = amt;
 		newPaymentInvoiceNum = invoiceno;
@@ -192,10 +195,9 @@ public class AdminDelayDebitTest extends TestBase {
 
 		brokerPaymentSheduledates.newPayment();
 
-		email = brokerPaymentSheduledates.carrierEmail(carrierEmail);
+		email = brokerPaymentSheduledates.carrierEmail(carrierUserName);
 		brokerPaymentSheduledates.amount(newPaymentAmount);
-		invoice = brokerPaymentSheduledates.invoiceNumber(newPaymentInvoiceNum);
-		invoiceList.add(invoice);
+		invoiceList.add(brokerPaymentSheduledates.invoiceNumber(newPaymentInvoiceNum));
 		brokerPaymentSheduledates.loadId(newPaymentLoadId);
 		brokerPaymentSheduledates.clickShedulePayment();
 		log.info("Verify New Payment Link Passed");
@@ -212,8 +214,7 @@ public class AdminDelayDebitTest extends TestBase {
 		admLogin.adminLogin();
 		Assert.assertTrue(admLogin.CustomerTab.isDisplayed(), "Customer Tab Link if NOT Found!");
 		admLogin.ClickOnCustomersTab();
-		log.info(BrokerLoginPage.bemail);
-		admLogin.ClickOnSearchBox(BrokerLoginPage.bemail);
+		admLogin.ClickOnSearchBox(brokerUsername);
 		admLogin.ClickOnSearchButton();
 		admLogin.DoubleClickID();
 		adminPayByCheckObj.clickPayments();
@@ -295,8 +296,7 @@ public class AdminDelayDebitTest extends TestBase {
 
 		// verify pay me now option is disabled (from admin action above)
 		payMeNowCheckbox = driver.findElement(By.xpath(".//*[@id='PMNEnrolled']"));
-		// Assert.assertTrue(payMeNowCheckbox.isSelected(), "Pay Me Now link is enabled
-		// - should be disabled!");
+		Assert.assertTrue(payMeNowCheckbox.isSelected(), "Pay Me Now link is enabled - should be disabled!");
 	}
 
 	public void getTimestamp() {

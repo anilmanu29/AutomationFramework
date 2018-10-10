@@ -173,34 +173,27 @@ public class ShipperPaymentHistory extends TestBase {
 
 	public void expandcollapsePayments() throws InterruptedException {
 
-		Integer mainLoopCount = 0;
-		Integer innerLoopCount = 0;
-
 		for (WebElement month : monthslist) {
-			Thread.sleep(2000);
-
-			System.out.println("Main Loop: " + mainLoopCount);
-			mainLoopCount++;
-
 			month.click();
 
 			for (WebElement payment : payments) {
-				System.out.println("Inner Loop: " + innerLoopCount);
-				innerLoopCount++;
-
 				wait.until(ExpectedConditions.elementToBeClickable(payment));
+
 				payment.click();
-				Thread.sleep(3000);
+				Thread.sleep(1000);
 				Assert.assertTrue(payment.getAttribute("aria-expanded").contains("true"), "Payment should be expanded");
+
 				js.executeScript("window.scrollBy(0,40)", "");
 				Thread.sleep(1000);
+
 				payment.click();
-				Thread.sleep(3000);
+				Thread.sleep(1000);
 				Assert.assertTrue(payment.getAttribute("aria-expanded").contains("false"),
 						"Payment should be collapsed");
 			}
 
 		}
+
 		if (monthup.isDisplayed()) {
 			monthup.click();
 		}
