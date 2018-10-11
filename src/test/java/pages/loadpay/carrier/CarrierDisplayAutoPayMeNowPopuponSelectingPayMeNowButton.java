@@ -16,11 +16,17 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButton extends Te
 	@FindBy(xpath = "//*[@id='angularScope']/div[4]/div/div/div[2]")
 	private WebElement autopaymenowpopup;
 
-	@FindBy(xpath = "//*[contains(text(), 'Same Day ACH* PayMeNow')]")
-	private WebElement paymenowsamedayachlabel;
+	@FindBy(xpath = "//*[contains(text(), 'SAME DAY ACH')]")
+	private WebElement payMeNowSameDayLabel;
 
-	@FindBy(xpath = ".//*[text()='Next Day ACH* PayMeNow']")
-	private WebElement paymenownextdayachlabel;
+	@FindBy(xpath = ".//*[text()='NEXT DAY ACH']")
+	private WebElement payMeNowNextDayLabel;
+
+	@FindBy(xpath = "//*[contains(text(), 'WIRE TRANSFER')]")
+	private WebElement payMeNowWireLabel;
+
+	@FindBy(xpath = "//*[contains(text(), 'FUEL CARD')]")
+	private WebElement payMeNowFuelLabel;
 
 	@FindBy(xpath = "//button[@aria-label='Close']")
 	private WebElement popupclosebutton;
@@ -43,13 +49,23 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButton extends Te
 	}
 
 	public WebElement getPayMeNowSameDayACHLabel() {
-		wait.until(ExpectedConditions.elementToBeClickable(paymenowsamedayachlabel));
-		return paymenowsamedayachlabel;
+		wait.until(ExpectedConditions.elementToBeClickable(payMeNowSameDayLabel));
+		return payMeNowSameDayLabel;
 	}
 
 	public WebElement getPayMeNowNextDayACHLabel() {
-		wait.until(ExpectedConditions.elementToBeClickable(paymenownextdayachlabel));
-		return paymenownextdayachlabel;
+		wait.until(ExpectedConditions.elementToBeClickable(payMeNowNextDayLabel));
+		return payMeNowNextDayLabel;
+	}
+
+	public WebElement getPayMeNowWireLabel() {
+		wait.until(ExpectedConditions.elementToBeClickable(payMeNowWireLabel));
+		return payMeNowWireLabel;
+	}
+
+	public WebElement getPayMeNowFuelLabel() {
+		wait.until(ExpectedConditions.elementToBeClickable(payMeNowFuelLabel));
+		return payMeNowFuelLabel;
 	}
 
 	public void clickPopupCloseButton() {
