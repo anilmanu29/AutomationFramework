@@ -66,7 +66,8 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 	}
 
 	@Test(dataProvider = "getCarrierLoginData", dependsOnMethods = "getAdminCredentials")
-	public void carrier(String user, String pass) throws InterruptedException, IOException, AWTException {
+	public void updateCarrierCreditAndPayMeNow(String user, String pass)
+			throws InterruptedException, IOException, AWTException {
 
 		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
 			carrierUsername = CarrierRegisterTest.carrierUsername;
@@ -84,11 +85,16 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 		carrierwiretransferobj.clickSelectButton();
 		carrierwiretransferobj.clickConfirmButton();
 		Thread.sleep(1000);
+
+		if (carrierloginobj.getDonotshowagaincheckbox().isDisplayed()) {
+			carrierloginobj.closePaymeNowPopUp();
+		}
+
 		carrierloginobj.CarrierLogout();
 	}
 
-	@Test(dataProvider = "getBrokerLoginData", dependsOnMethods = "carrier")
-	public void loginTest(String user, String pass) throws InterruptedException {
+	@Test(dataProvider = "getBrokerLoginData", dependsOnMethods = "updateCarrierCreditAndPayMeNow")
+	public void loginAsBrokerAndViewCredit(String user, String pass) throws InterruptedException {
 
 		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
 			brokerUsername = BrokerRegisterTest.brokerUsername;
@@ -109,7 +115,7 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 		CreditLessThan1000.BrokerLogout();
 	}
 
-	@Test(description = "Broker Sees 10% Notification Email in Outlook", dataProvider = "getoutlookLoginData", dependsOnMethods = "loginTest")
+	@Test(description = "Broker Sees 10% Notification Email in Outlook", dataProvider = "getoutlookLoginData", dependsOnMethods = "loginAsBrokerAndViewCredit")
 	public void BrokerOutlookTest(String un, String pwd) throws InterruptedException {
 
 		try {
@@ -124,45 +130,6 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 			e.printStackTrace();
 		}
 	}
-
-	// @Test(dependsOnMethods = "BrokerOutlookTest", dataProvider =
-	// "getCreditAmount")
-	// public void getCreditAmount(String creditamount) throws IOException,
-	// AWTException, InterruptedException {
-	// newcreditAmount = creditamount;
-	// }
-	//
-	// @Test(dataProvider = "getAdminLoginData", dependsOnMethods =
-	// "getCreditAmount")
-	// public void addCreditTest(String Username, String password) throws
-	// AWTException, InterruptedException {
-	//
-	// adminhomeobj.AdminURL();
-	// adminloginobj.adminUserPass(Username, password);
-	//
-	// adminloginobj.adminLogin();
-	//
-	// adminloginobj.ClickOnCustomersTab();
-	//
-	// adminloginobj.ClickOnSearchBox(brokerUsername);
-	//
-	// adminloginobj.ClickOnSearchButton();
-	//
-	// adminloginobj.DoubleClickID();
-	//
-	// adminloginobj.StatusIDDropDown();
-	//
-	// adminloginobj.UpdateButton();
-	//
-	// adminloginobj.ClickOnCreditTab();
-	//
-	// adminloginobj.EnterExtendedCredit(newcreditAmount);
-	//
-	// adminloginobj.ClickOnCreditSubmitButton();
-	//
-	// adminloginobj.AdminLogOut();
-	//
-	// }
 
 	public void SearchInbox(String SearchText) throws InterruptedException {
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
@@ -187,32 +154,18 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 
 	public void updateCreditAmount(String creditAmount) throws IOException, InterruptedException, AWTException {
 		adminhomeobj.AdminURL();
-
 		adminloginobj.adminUserPass(adminUsername, adminPassword);
-
 		adminloginobj.adminLogin();
-
 		adminloginobj.ClickOnCustomersTab();
-
 		adminloginobj.Uncheck_Factor();
-
 		adminloginobj.ClickOnSearchBox(BrokerRegisterTest.brokerUsername);
-
 		adminloginobj.ClickOnSearchButton();
-
 		adminloginobj.DoubleClickID();
-
 		adminloginobj.StatusIDDropDown();
-
 		adminloginobj.UpdateButton();
-
 		adminloginobj.ClickOnCreditTab();
-
 		adminloginobj.EnterExtendedCredit(creditAmount);
-
 		adminloginobj.ClickOnCreditSubmitButton();
-
 		adminloginobj.AdminLogOut();
-
 	}
 }
