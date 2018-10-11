@@ -25,6 +25,7 @@ import pages.loadpay.carrier.CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowB
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierNextDAYACH;
 import pages.loadpay.carrier.CarrierOutlook;
+import pages.loadpay.carrier.CarrierPaymeNowFuelCard;
 import pages.loadpay.carrier.CarrierRegisterPage;
 import pages.loadpay.carrier.CarrierSameDAYACH;
 import pages.loadpay.carrier.CarrierWireTransfer;
@@ -37,9 +38,10 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 	CarrierRegisterPage carrierRegistrationObj;
 	CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButton carrierdisplayautopaymenowpopupobj;
 	CarrierLoginPage carrierloginobj;
-	CarrierSameDAYACH carriersamedayachobj;
-	CarrierWireTransfer carrierwiretransferobj;
-	CarrierNextDAYACH carriernextdayachobj;
+	CarrierSameDAYACH carrierSameDayObj;
+	CarrierWireTransfer carrierWireTransferObj;
+	CarrierNextDAYACH carrierNextDayObj;
+	CarrierPaymeNowFuelCard carrierFuelCardObj;
 	CarrierOutlook carrierOutlookObj;
 	BrokerLoginPage brokerLoginObj;
 	outlooklogin outlook;
@@ -68,9 +70,10 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 		initialization();
 		carrierdisplayautopaymenowpopupobj = new CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButton();
 		carrierloginobj = new CarrierLoginPage();
-		carriersamedayachobj = new CarrierSameDAYACH();
-		carrierwiretransferobj = new CarrierWireTransfer();
-		carriernextdayachobj = new CarrierNextDAYACH();
+		carrierSameDayObj = new CarrierSameDAYACH();
+		carrierWireTransferObj = new CarrierWireTransfer();
+		carrierNextDayObj = new CarrierNextDAYACH();
+		carrierFuelCardObj = new CarrierPaymeNowFuelCard();
 		carrierRegistrationObj = new CarrierRegisterPage();
 		outlook = new outlooklogin();
 		carrierOutlookObj = new CarrierOutlook();
@@ -233,7 +236,7 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 	}
 
 	@Test(description = "LP-6802 First Login as Carrier", dependsOnMethods = "adminLogin")
-	public void loginTest() throws InterruptedException {
+	public void carrierFirstLogin() throws InterruptedException {
 
 		driver.get(super.getProperties().getProperty("url"));
 
@@ -264,35 +267,15 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 		Thread.sleep(1000);
 
 		wait.until(ExpectedConditions.elementToBeClickable(carrierloginobj.closePayMeNowNotification));
+
+		Assert.assertTrue(carrierdisplayautopaymenowpopupobj.getAutoPayMeNowPopup().isDisplayed(),
+				"Auto PayMeNowPopup NOT Found!");
+
 		carrierloginobj.closePayMeNowNotification.click();
 		carrierloginobj.CarrierLogout();
 	}
 
-	/*-------Login to Load Pay as Carrier---------*/
-	@Test(description = "LP-6802  Carrier_Display_Auto_PayMeNow_popup_on_selecting_PayMeNow_Button", dataProvider = "getCarrierLoginData", dependsOnMethods = "loginTest")
-	public void carrierLoginTest(String un, String pwd) throws InterruptedException {
-		carrierdisplayautopaymenowpopupobj.loginAsCarrier(carrierUsername, carrierPassword);
-	}
-
-	/*-------Verify Auto PayMeNow pop up---------*/
-	@Test(description = "LP-6802  Carrier_Display_Auto_PayMeNow_popup_on_selecting_PayMeNow_Button", dependsOnMethods = {
-			"carrierLoginTest" })
-	public void verifyAutoPayMeNowPopupTest() throws InterruptedException {
-		Assert.assertTrue(carrierdisplayautopaymenowpopupobj.getAutoPayMeNowPopup().isDisplayed(),
-				"Auto PayMeNowPopup NOT Found!");
-		Assert.assertTrue(carrierdisplayautopaymenowpopupobj.getPayMeNowSameDayACHLabel().isDisplayed(),
-				"PayMeNow Same Day ACH label NOT Found!");
-		Assert.assertTrue(carrierdisplayautopaymenowpopupobj.getPayMeNowNextDayACHLabel().isDisplayed(),
-				"PayMeNow Next Day ACH label NOT Found!");
-		Assert.assertTrue(carrierloginobj.getDonotshowagaincheckbox().isDisplayed(),
-				"Do Not Display this message again check box NOT Found!");
-		Assert.assertTrue(carrierloginobj.getPayMeNowPopupSaveButton().isDisplayed(),
-				"PayMeNow pop up Save Button NOT Found!");
-		carrierdisplayautopaymenowpopupobj.clickPopupCloseButton();
-		carrierloginobj.CarrierLogout();
-	}
-
-	@Test(description = "LP-6802  Login as Broker", dependsOnMethods = "verifyAutoPayMeNowPopupTest", dataProvider = "getBrokerLoginData")
+	@Test(description = "LP-6802  Login as Broker", dependsOnMethods = "carrierFirstLogin", dataProvider = "getBrokerLoginData")
 	public void loginBroker(String email, String pwd) {
 
 		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
@@ -321,7 +304,7 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 		String strDate = month.toString() + "/" + today.getDayOfMonth() + "/" + today.getYear();
 		Integer intPaymentAmount = 0;
 
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 4; i++) {
 			invoiceNum = "NP" + TestUtil.getCurrentDateTime();
 			loadID = invoiceNum;
 			intPaymentAmount = TestUtil.getRandomNumber(100, 1000);
@@ -342,15 +325,19 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 
 		brokerLoginObj.BrokerLogout();
 		carrierloginobj.Carrierlogin(carrierUsername, carrierPassword);
-		carrierdisplayautopaymenowpopupobj.clickPopupCloseButton();
 	}
 
 	/*-------Verify Auto PayMeNow popup for NextDay ACH---------*/
 	@Test(description = "LP-6802  Carrier_PayMeNow_NextDayACH", dependsOnMethods = { "brokerNewPayment" })
 	public void verifyPayMeNowPopupforNextDayACHTest() throws InterruptedException, AWTException {
-		carriernextdayachobj.clickPaymenow();
-		carriernextdayachobj.clickSelectButton();
-		carriernextdayachobj.clickConfirmButton();
+		carrierNextDayObj.clickPaymenow();
+
+		Assert.assertTrue(carrierdisplayautopaymenowpopupobj.getPayMeNowNextDayACHLabel().isDisplayed(),
+				"PayMeNow Next Day ACH label NOT Found!");
+
+		carrierNextDayObj.clickSelectButton();
+		carrierNextDayObj.clickConfirmButton();
+
 		Assert.assertTrue(carrierdisplayautopaymenowpopupobj.getAutoPayMeNowPopup().isDisplayed(),
 				"Auto PayMeNowPopup NOT Found!");
 		carrierdisplayautopaymenowpopupobj.clickPopupCloseButton();
@@ -360,9 +347,14 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 	@Test(description = "LP-6802  Carrier_PayMeNow_SameDayACH", dependsOnMethods = {
 			"verifyPayMeNowPopupforNextDayACHTest" })
 	public void verifyPayMeNowPopupforSameDayACHTest() throws InterruptedException {
-		carriersamedayachobj.clickPaymenow();
-		carriersamedayachobj.clickSelectButton();
-		carriersamedayachobj.clickConfirmButton();
+		carrierSameDayObj.clickPaymenow();
+
+		Assert.assertTrue(carrierdisplayautopaymenowpopupobj.getPayMeNowSameDayACHLabel().isDisplayed(),
+				"PayMeNow Same Day ACH label NOT Found!");
+
+		carrierSameDayObj.clickSelectButton();
+		carrierSameDayObj.clickConfirmButton();
+
 		Assert.assertTrue(carrierdisplayautopaymenowpopupobj.getAutoPayMeNowPopup().isDisplayed(),
 				"Auto PayMeNowPopup NOT Found!");
 		carrierdisplayautopaymenowpopupobj.clickPopupCloseButton();
@@ -372,12 +364,85 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 	@Test(description = "LP-6802  Carrier_PayMeNow_WireTransfer", dependsOnMethods = {
 			"verifyPayMeNowPopupforSameDayACHTest" })
 	public void verifyPayMeNowPopupforWireTransferTest() throws InterruptedException {
-		carrierwiretransferobj.clickPaymenow();
-		carrierwiretransferobj.clickSelectButton();
-		carrierwiretransferobj.clickConfirmButton();
+		carrierWireTransferObj.clickPaymenow();
+
+		Assert.assertTrue(carrierdisplayautopaymenowpopupobj.getPayMeNowWireLabel().isDisplayed(),
+				"PayMeNow Wire Transfer label NOT Found!");
+
+		carrierWireTransferObj.clickSelectButton();
+		carrierWireTransferObj.clickConfirmButton();
 		Assert.assertTrue(carrierdisplayautopaymenowpopupobj.getAutoPayMeNowPopup().isDisplayed(),
 				"Auto PayMeNowPopup NOT Found!");
 		carrierdisplayautopaymenowpopupobj.clickPopupCloseButton();
+	}
+
+	/*-------Verify Auto PayMeNow popup for Fuel Cards---------*/
+	@Test(description = "LP-6802  Carrier_PayMeNow_FuelCards", dataProvider = "getCarrierFuelcardaccountNumbersData", dependsOnMethods = {
+			"verifyPayMeNowPopupforWireTransferTest" })
+	public void verifyPayMeNowPopupforFuelCardsTest(String fleet_accountnbr, String fts_accountnbr)
+			throws InterruptedException {
+
+		carrierFuelCardObj.clickPaymenow();
+
+		Assert.assertTrue(carrierdisplayautopaymenowpopupobj.getPayMeNowFuelLabel().isDisplayed(),
+				"PayMeNow Fuel Card label NOT Found!");
+
+		carrierFuelCardObj.clickSelectButton();
+		carrierFuelCardObj.clickaddnewcard();
+		carrierFuelCardObj.clickfleetone();
+		carrierFuelCardObj.input_accountnbr(fleet_accountnbr);
+		carrierFuelCardObj.clicksubmit();
+		carrierFuelCardObj.clickfuelcardsubmit();
+		carrierFuelCardObj.clickConfirmButton();
+
+		Assert.assertTrue(carrierdisplayautopaymenowpopupobj.getAutoPayMeNowPopup().isDisplayed(),
+				"Auto PayMeNowPopup NOT Found!");
+		carrierdisplayautopaymenowpopupobj.clickPopupCloseButton();
+
+		carrierFuelCardObj.clickPaidTab();
+		carrierFuelCardObj.clickpaymenowtab();
+
+		carrierFuelCardObj.clickPaymenow();
+		carrierFuelCardObj.clickSelectButton();
+		carrierFuelCardObj.clickaddnewcard();
+		carrierFuelCardObj.clickFTS();
+		carrierFuelCardObj.input_accountnbr(fts_accountnbr);
+		carrierFuelCardObj.clicksubmit();
+		carrierFuelCardObj.clickfuelcardsubmit();
+		carrierFuelCardObj.clickConfirmButton();
+
+		Assert.assertTrue(carrierdisplayautopaymenowpopupobj.getAutoPayMeNowPopup().isDisplayed(),
+				"Auto PayMeNowPopup NOT Found!");
+		Assert.assertTrue(carrierloginobj.getDonotshowagaincheckbox().isDisplayed(),
+				"Do Not Display this message again check box NOT Found!");
+		Assert.assertTrue(carrierloginobj.getPayMeNowPopupSaveButton().isDisplayed(),
+				"PayMeNow pop up Save Button NOT Found!");
+		carrierdisplayautopaymenowpopupobj.clickPopupCloseButton();
+
+		carrierloginobj.CarrierLogout();
+	}
+
+	@Test(description = "LP-6802  Carrier_PayMeNow_FuelCards", dependsOnMethods = "verifyPayMeNowPopupforFuelCardsTest")
+	public void verifyPayMeNowPopupIsDisabled() throws InterruptedException {
+		carrierloginobj.Carrierlogin(carrierUsername, carrierPassword);
+
+		carrierNextDayObj.clickPaymenow();
+		Assert.assertFalse(carrierdisplayautopaymenowpopupobj.getAutoPayMeNowPopup().isDisplayed(),
+				"Auto PayMeNowPopup Found!");
+
+		carrierSameDayObj.clickPaymenow();
+		Assert.assertFalse(carrierdisplayautopaymenowpopupobj.getAutoPayMeNowPopup().isDisplayed(),
+				"Auto PayMeNowPopup Found!");
+
+		carrierWireTransferObj.clickPaymenow();
+		Assert.assertFalse(carrierdisplayautopaymenowpopupobj.getAutoPayMeNowPopup().isDisplayed(),
+				"Auto PayMeNowPopup Found!");
+
+		carrierFuelCardObj.clickPaymenow();
+		Assert.assertFalse(carrierdisplayautopaymenowpopupobj.getAutoPayMeNowPopup().isDisplayed(),
+				"Auto PayMeNowPopup Found!");
+
+		carrierloginobj.CarrierLogout();
 	}
 
 	public void getTimestamp() {
