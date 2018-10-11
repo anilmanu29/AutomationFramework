@@ -190,8 +190,11 @@ public class ShipperPaymentHistory extends TestBase {
 				Thread.sleep(1000);
 				Assert.assertTrue(payment.getAttribute("aria-expanded").contains("false"),
 						"Payment should be collapsed");
+
+				break;
 			}
 
+			break;
 		}
 
 		if (monthup.isDisplayed()) {
@@ -355,10 +358,12 @@ public class ShipperPaymentHistory extends TestBase {
 							"Payment should be expanded");
 					js.executeScript("window.scrollBy(0,80)", "");
 					js.executeScript("arguments[0].click();", payment);
+
+					break;
 				}
 				wait.until(ExpectedConditions.elementToBeClickable(month));
 				js.executeScript("window.scrollBy(0,200)", "");
-
+				break;
 			}
 		} else {
 			for (WebElement payment : payments) {
@@ -367,6 +372,7 @@ public class ShipperPaymentHistory extends TestBase {
 				Assert.assertTrue(payment.getAttribute("aria-expanded").contains("true"), "Payment should be expanded");
 				js.executeScript("window.scrollBy(0,80)", "");
 				js.executeScript("arguments[0].click();", payment);
+				break;
 			}
 		}
 	}

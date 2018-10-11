@@ -2,6 +2,7 @@ package testcases.loadpay.broker;
 
 import java.awt.AWTException;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -149,7 +150,9 @@ public class ShipperPaymentHistoryTest extends TestBase {
 		shipperpaymenthistoryobj.clickArrowExportButton();
 
 		// sleep for 2 minute to allow time to verify csv files
-		// Thread.sleep(120000);
+		LocalDate today = LocalDate.now();
+		String strDate = today.getMonthValue() + "-" + today.getDayOfMonth() + "-" + today.getYear();
+		TestUtil.verifyFileDownload("LoadPay_full_report_" + strDate);
 	}
 
 }

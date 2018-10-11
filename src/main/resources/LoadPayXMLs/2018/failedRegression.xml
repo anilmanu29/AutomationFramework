@@ -15,22 +15,7 @@
    
 	<test name="Failed Sprint Test Cases">
     <classes>
-        
-<!-- 		<class name="testcases.loadpay.broker.ShipperPaymentHistoryTest"></class> -->
-
-<!-- 		<class name="testcases.loadpay.broker.BrokerViewCreditLessThan1000Test"></class> -->
-		
-		<class name="testcases.loadpay.carrier.CarrierSameDayACHTest"></class>  
-		<class name="testcases.loadpay.broker.HandshakewithRTFBrokerTest"></class>
-		
-		<class name="testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest"></class>
-		<class name="testcases.loadpay.unmatched.UnmatchedCarrierRegistrationTest"></class> 
-		<class name="testcases.loadpay.unmatched.UnmatchedCariierEmailVerifyTest"></class>
-		<class name="testcases.loadpay.unmatched.UnmatchedCarrierAdminTest"></class>
-		<class name="testcases.loadpay.carrier.CarrierFirstLoginTest"></class>
-		<class name="testcases.loadpay.unmatched.UnmatchedCarrierSameDayACHTest"></class>
-
-		                                                
+                                             
     </classes>
   </test> 
 </suite> 
