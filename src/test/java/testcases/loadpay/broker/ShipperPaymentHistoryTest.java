@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -61,30 +60,6 @@ public class ShipperPaymentHistoryTest extends TestBase {
 		}
 
 		carrierLoginPage.Carrierlogin(carrierUsername, carrierPassword);
-
-		wait.until(ExpectedConditions.elementToBeClickable(carrierLoginPage.getEinField()));
-
-		// enter EIN and click Next if enabled
-		if (carrierLoginPage.getEinField().isEnabled()) {
-			carrierLoginPage.setEinField(carrierEIN);
-			carrierLoginPage.clickEinNextButton();
-		}
-
-		// accept terms and conditions
-		if (carrierLoginPage.getTermsAndConditionsCheckBox().isEnabled()) {
-			carrierLoginPage.clickTermsAndConditionsCheckBox();
-			carrierLoginPage.clickFinishButton();
-			Assert.assertTrue(
-					carrierLoginPage.getConfirmationPopup().getText()
-							.contains("Your LoadPay™ registration has been completed successfully."),
-					"Registration success message not found");
-			carrierLoginPage.clickConfirmationPopupCloseButton();
-		}
-
-		if (carrierLoginPage.getDonotshowagaincheckbox().isDisplayed()) {
-			carrierLoginPage.getDonotshowagaincheckbox().click();
-			carrierLoginPage.getPayMeNowPopupSaveButton().click();
-		}
 
 		carrierFuelTestObj.clickPaymenow();
 		carrierFuelTestObj.clickSelectButton();

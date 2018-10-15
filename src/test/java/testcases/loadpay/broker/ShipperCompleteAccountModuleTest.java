@@ -121,39 +121,17 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 		driver.get(super.getProperties().getProperty("url"));
 
 		shippercompleteaccountmodule.clickAccountlink();
-
-		Assert.assertTrue(shippercompleteaccountmodule.lnk_account.isDisplayed());
-
 		shippercompleteaccountmodule.clickContactlink();
-
-		Assert.assertTrue(shippercompleteaccountmodule.lnk_Contact.isDisplayed());
-
 		shippercompleteaccountmodule.clickAddNewContact();
-
-		Assert.assertTrue(shippercompleteaccountmodule.clickAddNewContact.isDisplayed());
-
 		shippercompleteaccountmodule.enterContactFirstName(ContactFN);
-
 		shippercompleteaccountmodule.enterContactlastName(ContactLN);
-
 		shippercompleteaccountmodule.enterContactemail(contactemail);
-
-		Assert.assertTrue(shippercompleteaccountmodule.Contact_Email.isDisplayed());
-
 		shippercompleteaccountmodule.enterContactphonenum(ContactPN);
-
 		shippercompleteaccountmodule.enterContactExtension(TestUtil.removeDecimalZeroFormat(Contactextension));
-
 		shippercompleteaccountmodule.enterContactMobileNumber(ContactMobileNumber);
-
 		shippercompleteaccountmodule.enterContactFax(ContactFax);
-
 		shippercompleteaccountmodule.clicksavelink();
-
 		shippercompleteaccountmodule.clickContactUpdatelink();
-
-		Assert.assertTrue(shippercompleteaccountmodule.click_ContactUpdate.isDisplayed());
-
 	}
 
 	@Test(dependsOnMethods = { "verifyContactDetails" })
