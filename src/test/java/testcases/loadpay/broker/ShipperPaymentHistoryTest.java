@@ -15,7 +15,7 @@ import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.ShipperPaymentHistory;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierPaymeNowFuelCard;
-import testcases.loadpay.carrier.CarrierRegisterTest;
+import testcases.loadpay.carrier.CarrierRegisterCanadaTest;
 import util.TestUtil;
 
 public class ShipperPaymentHistoryTest extends TestBase {
@@ -52,14 +52,36 @@ public class ShipperPaymentHistoryTest extends TestBase {
 	public void carrierPaymentTest(String user, String pass) throws InterruptedException {
 
 		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
-			carrierUsername = CarrierRegisterTest.carrierUsername;
-			carrierPassword = CarrierRegisterTest.carrierPassword;
+			carrierUsername = CarrierRegisterCanadaTest.carrierUsername;
+			carrierPassword = CarrierRegisterCanadaTest.carrierPassword;
 		} else {
 			carrierUsername = user;
 			carrierPassword = pass;
 		}
 
 		carrierLoginPage.Carrierlogin(carrierUsername, carrierPassword);
+
+		// enter EIN and click Next if enabled
+		if (carrierLoginPage.getEinField().isEnabled()) {
+			carrierLoginPage.setEinField(carrierEIN);
+			carrierLoginPage.clickEinNextButton();
+		}
+
+		// accept terms and conditions
+		if (carrierLoginPage.getTermsAndConditionsCheckBox().isEnabled()) {
+			carrierLoginPage.clickTermsAndConditionsCheckBox();
+			carrierLoginPage.clickFinishButton();
+			Assert.assertTrue(
+					carrierLoginPage.getConfirmationPopup().getText()
+							.contains("Your LoadPay™ registration has been completed successfully."),
+					"Registration success message not found");
+			carrierLoginPage.clickConfirmationPopupCloseButton();
+		}
+
+		if (carrierLoginPage.getDonotshowagaincheckbox().isDisplayed()) {
+			carrierLoginPage.getDonotshowagaincheckbox().click();
+			carrierLoginPage.getPayMeNowPopupSaveButton().click();
+		}
 
 		carrierFuelTestObj.clickPaymenow();
 		carrierFuelTestObj.clickSelectButton();
@@ -69,7 +91,23 @@ public class ShipperPaymentHistoryTest extends TestBase {
 		carrierFuelTestObj.clicksubmit();
 		carrierFuelTestObj.clickfuelcardsubmit();
 		carrierFuelTestObj.clickConfirmButton();
+
+		if (carrierLoginPage.getDonotshowagaincheckbox().isDisplayed()) {
+			carrierLoginPage.getDonotshowagaincheckbox().click();
+			carrierLoginPage.getPayMeNowPopupSaveButton().click();
+		}
+
+		carrierFuelTestObj.clickPaymenow();
+		carrierFuelTestObj.clickSelectButton();
+		carrierFuelTestObj.clickaddnewcard();
+		carrierFuelTestObj.clickfleetone();
+		carrierFuelTestObj.input_accountnbr("6542988");
+		carrierFuelTestObj.clicksubmit();
+		carrierFuelTestObj.clickfuelcardsubmit();
+		carrierFuelTestObj.clickConfirmButton();
+
 		carrierFuelTestObj.clickPaidTab();
+		carrierLoginPage.CarrierLogout();
 
 	}
 
