@@ -67,7 +67,6 @@ public class ShipperAdvancePaymentTest extends TestBase {
 
 		bl.Brokerlogin(brokerUsername, brokerPassword);
 		bl.isCanadaTest(true);
-		// bl.completeRegistration();
 	}
 
 	/*-------Scheduling New Payment as a Broker---------*/

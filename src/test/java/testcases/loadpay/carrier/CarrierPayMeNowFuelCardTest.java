@@ -51,52 +51,37 @@ public class CarrierPayMeNowFuelCardTest extends TestBase {
 	public void carrierPaymenowFuelCard(String fleet_accountnbr, String fts_accountnbr) throws InterruptedException {
 
 		cfot.clickPaymenow();
-
-		/*
-		 * cfot.clickPaymenowicon();
-		 * 
-		 */
 		cfot.clickSelectButton();
-
 		cfot.clickaddnewcard();
-
 		cfot.clickfleetone();
-
 		cfot.input_accountnbr(fleet_accountnbr);
-
 		cfot.clicksubmit();
-
 		cfot.clickfuelcardsubmit();
-
 		cfot.clickConfirmButton();
+
+		if (loginPage.getDonotshowagaincheckbox().isDisplayed()) {
+			loginPage.getDonotshowagaincheckbox().click();
+			loginPage.getPayMeNowPopupSaveButton().click();
+		}
 
 		cfot.clickPaidTab();
 
 		cfot.clickpaymenowtab();
-
 		cfot.clickPaymenow();
-
 		cfot.clickSelectButton();
-
 		cfot.clickaddnewcard();
-
 		cfot.clickFTS();
-
 		cfot.input_accountnbr(fts_accountnbr);
-
 		cfot.clicksubmit();
-
 		cfot.clickfuelcardsubmit();
-
 		cfot.clickConfirmButton();
 
-		cfot.clickPaidTab();
+		if (loginPage.getDonotshowagaincheckbox().isDisplayed()) {
+			loginPage.getDonotshowagaincheckbox().click();
+			loginPage.getPayMeNowPopupSaveButton().click();
+		}
 
-		/*
-		 * cw.gettotalpaiyAmount();
-		 * 
-		 * cw.verifywiretransfer();
-		 */
+		cfot.clickPaidTab();
 	}
 
 }

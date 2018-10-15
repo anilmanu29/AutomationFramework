@@ -25,7 +25,9 @@ public class AdminLogin extends TestBase {
 	@FindBy(xpath = "html/body/div[1]/div/div/div[2]/form/div[4]/input")
 	WebElement loginBtn;
 
-	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[1]/div/nav/div[2]/ul/li[9]/a")
+	// @FindBy(xpath =
+	// ".//*[@id='angularScope']/div[1]/div/div[1]/div/nav/div[2]/ul/li[8]/a")
+	@FindBy(xpath = "//a[@href='/Account/LogOff']")
 	WebElement logOut;
 
 	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[1]/div/nav/div[2]/ul/li[3]/a")
