@@ -60,7 +60,7 @@ public class ShipperSchedulePaymentTest extends TestBase {
 		bl = new BrokerLoginPage();
 		bl.Brokerlogin(brokerUsername, brokerPassword);
 		bl.isCanadaTest(true);
-		bl.completeRegistration();
+		// bl.completeRegistration();
 
 	}
 

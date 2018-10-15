@@ -44,28 +44,20 @@ public class AdminBrokerCanadaTest extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(a.getUserName()));
 		a.adminUserPass(Username, pass);
 
-		wait.until(ExpectedConditions.elementToBeClickable(a.getLoginBtn()));
 		a.adminLogin();
 
-		wait.until(ExpectedConditions.elementToBeClickable(a.getCustomerTab()));
 		a.ClickOnCustomersTab();
 
-		wait.until(ExpectedConditions.elementToBeClickable(a.getSearch()));
 		a.ClickOnSearchBox(BrokerRegisterCanadaTest.brokerUsername);
 
-		wait.until(ExpectedConditions.elementToBeClickable(a.getClickonSearchButton()));
 		a.ClickOnSearchButton();
 
-		wait.until(ExpectedConditions.elementToBeClickable(a.getDoubleClickID()));
 		a.DoubleClickID();
 
-		wait.until(ExpectedConditions.elementToBeClickable(a.getCustomersatatusIdDropDown()));
 		a.StatusIDDropDown();
 
-		wait.until(ExpectedConditions.elementToBeClickable(a.getUpdateButton()));
 		a.UpdateButton();
 
-		wait.until(ExpectedConditions.elementToBeClickable(a.updateButton));
 		Thread.sleep(2000);
 
 		a.ClickOnCreditTab();

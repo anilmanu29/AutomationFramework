@@ -160,25 +160,10 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 	public void verifyNotifications() throws InterruptedException {
 		driver.get(super.getProperties().getProperty("url"));
 		shippercompleteaccountmodule.clickAccountlink();
-
-		Assert.assertTrue(shippercompleteaccountmodule.lnk_account.isDisplayed());
-
 		shippercompleteaccountmodule.clickNotificationlink();
-
-		Assert.assertTrue(shippercompleteaccountmodule.lnk_Notifications.isDisplayed());
-
 		shippercompleteaccountmodule.checkNotifyByWithdrwallink();
-
-		Assert.assertTrue(shippercompleteaccountmodule.check_NotifyByWithdrawal.isDisplayed());
-
 		shippercompleteaccountmodule.clickUpdatebuttonlink();
-
-		Assert.assertTrue(shippercompleteaccountmodule.click_updatebtn.isDisplayed());
-
 		shippercompleteaccountmodule.uncheckNotifyByWithdrawallink();
-
-		Assert.assertTrue(shippercompleteaccountmodule.uncheck_NotifyByWithdrawal.isDisplayed());
-
 	}
 
 	@Test(dataProvider = "getAdminLoginshipperaccountmoduleData", dependsOnMethods = { "verifyNotifications" })

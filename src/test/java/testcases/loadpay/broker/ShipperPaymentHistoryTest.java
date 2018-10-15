@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -13,15 +14,24 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.ShipperPaymentHistory;
+import pages.loadpay.carrier.CarrierLoginPage;
+import pages.loadpay.carrier.CarrierPaymeNowFuelCard;
+import testcases.loadpay.carrier.CarrierRegisterTest;
 import util.TestUtil;
 
 public class ShipperPaymentHistoryTest extends TestBase {
 
 	ShipperPaymentHistory shipperpaymenthistoryobj;
 	BrokerLoginPage brokerloginobj;
+	CarrierLoginPage carrierLoginPage;
+	CarrierPaymeNowFuelCard carrierFuelTestObj;
 	ArrayList<String> tabs;
 	String brokerUN = "";
 	String brokerPWD = "";
+	String carrierUsername = "";
+	String carrierPassword = "";
+	String carrierDOT = "1234567";
+	String carrierEIN = "99-9999999";
 
 	public ShipperPaymentHistoryTest() {
 		super();
@@ -34,13 +44,71 @@ public class ShipperPaymentHistoryTest extends TestBase {
 		initialization();
 		shipperpaymenthistoryobj = new ShipperPaymentHistory();
 		brokerloginobj = new BrokerLoginPage();
+		carrierLoginPage = new CarrierLoginPage();
+		carrierFuelTestObj = new CarrierPaymeNowFuelCard();
 		wait = new WebDriverWait(driver, 30);
 	}
 
-	@Test(description = "LP-3481 Shipper - Payment History", dataProvider = "getBrokerLoginData")
+	@Test(dataProvider = "getCarrierLoginData")
+	public void carrierPaymentTest(String user, String pass) throws InterruptedException {
+
+		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+			carrierUsername = CarrierRegisterTest.carrierUsername;
+			carrierPassword = CarrierRegisterTest.carrierPassword;
+		} else {
+			carrierUsername = user;
+			carrierPassword = pass;
+		}
+
+		carrierLoginPage.Carrierlogin(carrierUsername, carrierPassword);
+
+		wait.until(ExpectedConditions.elementToBeClickable(carrierLoginPage.getEinField()));
+
+		// enter EIN and click Next if enabled
+		if (carrierLoginPage.getEinField().isEnabled()) {
+			carrierLoginPage.setEinField(carrierEIN);
+			carrierLoginPage.clickEinNextButton();
+		}
+
+		// accept terms and conditions
+		if (carrierLoginPage.getTermsAndConditionsCheckBox().isEnabled()) {
+			carrierLoginPage.clickTermsAndConditionsCheckBox();
+			carrierLoginPage.clickFinishButton();
+			Assert.assertTrue(
+					carrierLoginPage.getConfirmationPopup().getText()
+							.contains("Your LoadPay™ registration has been completed successfully."),
+					"Registration success message not found");
+			carrierLoginPage.clickConfirmationPopupCloseButton();
+		}
+
+		if (carrierLoginPage.getDonotshowagaincheckbox().isDisplayed()) {
+			carrierLoginPage.getDonotshowagaincheckbox().click();
+			carrierLoginPage.getPayMeNowPopupSaveButton().click();
+		}
+
+		carrierFuelTestObj.clickPaymenow();
+		carrierFuelTestObj.clickSelectButton();
+		carrierFuelTestObj.clickaddnewcard();
+		carrierFuelTestObj.clickfleetone();
+		carrierFuelTestObj.input_accountnbr("6542988");
+		carrierFuelTestObj.clicksubmit();
+		carrierFuelTestObj.clickfuelcardsubmit();
+		carrierFuelTestObj.clickConfirmButton();
+		carrierFuelTestObj.clickPaidTab();
+
+	}
+
+	@Test(description = "LP-3481 Shipper - Payment History", dataProvider = "getBrokerLoginData", dependsOnMethods = "carrierPaymentTest")
 	public void verifyCarrierLogin(String user, String pass) throws InterruptedException {
-		brokerUN = user;
-		brokerPWD = pass;
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUN = BrokerRegisterCanadaTest.brokerUsername;
+			brokerPWD = BrokerRegisterCanadaTest.brokerPassword;
+		} else {
+			brokerUN = user;
+			brokerPWD = pass;
+		}
+
 		brokerloginobj.Brokerlogin(brokerUN, brokerPWD);
 	}
 
