@@ -61,7 +61,9 @@ public class CarrierLoginTest extends TestBase {
 		}
 
 		if (loginPage.getDonotshowagaincheckbox().isDisplayed()) {
-			loginPage.closePaymeNowPopUp();
+			loginPage.getDonotshowagaincheckbox().click();
+			loginPage.getPayMeNowPopupSaveButton().click();
+			// loginPage.closePaymeNowPopUp();
 		}
 	}
 
