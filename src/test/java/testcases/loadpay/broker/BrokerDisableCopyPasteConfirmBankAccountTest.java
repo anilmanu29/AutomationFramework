@@ -175,7 +175,16 @@ public class BrokerDisableCopyPasteConfirmBankAccountTest extends TestBase {
 
 	@Test(dataProvider = "getBrokerLoginData", dependsOnMethods = "verifyCopyPasteConfirmBankAccountFieldforExistingBroker")
 	public void verifybrokerLogin(String username, String password) throws InterruptedException, IOException {
-		brokerloginobj.Brokerlogin(username, password);
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = username;
+			brokerPassword = password;
+		}
+
+		brokerloginobj.Brokerlogin(brokerUsername, brokerPassword);
 
 	}
 

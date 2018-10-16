@@ -21,6 +21,7 @@ import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierOutlook;
 import pages.loadpay.outlook.outlooklogin;
+import testcases.loadpay.broker.BrokerRegisterTest;
 
 public class AdminPaymentHistoryTest extends TestBase {
 
@@ -68,8 +69,13 @@ public class AdminPaymentHistoryTest extends TestBase {
 
 	@Test(dataProvider = "getBrokerLoginData")
 	public void getBrokerCredentials(String user, String pass) throws InterruptedException {
-		brokerUserName = user;
-		brokerPassword = pass;
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUserName = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUserName = user;
+			brokerPassword = pass;
+		}
 	}
 
 	@Test(description = "LP-4683 AdminPayMeNowLockTest_verifyLockPayMeNowStatus", dataProvider = "getAdminLoginData", dependsOnMethods = "getBrokerCredentials")

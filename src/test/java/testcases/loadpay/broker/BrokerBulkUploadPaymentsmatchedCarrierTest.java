@@ -22,6 +22,7 @@ public class BrokerBulkUploadPaymentsmatchedCarrierTest extends TestBase {
 	List<String> firstRowData = null;
 	List<String> lastRowData = null;
 	String searchForText = "";
+	String brokerUsername, brokerPassword = "";
 
 	/*-------Initializing driver---------*/
 	public BrokerBulkUploadPaymentsmatchedCarrierTest() {
@@ -43,7 +44,16 @@ public class BrokerBulkUploadPaymentsmatchedCarrierTest extends TestBase {
 
 	@Test(dataProvider = "getBrokerLoginData")
 	public void loginBroker(String un, String pwd) throws InterruptedException, IOException, AWTException {
-		loginPage.Brokerlogin(un, pwd);
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = un;
+			brokerPassword = pwd;
+		}
+
+		loginPage.Brokerlogin(brokerUsername, brokerPassword);
 	}
 
 	@Test(dependsOnMethods = "loginBroker")
