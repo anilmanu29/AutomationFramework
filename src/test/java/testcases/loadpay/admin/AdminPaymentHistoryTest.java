@@ -19,22 +19,25 @@ import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.carrier.CarrierLoginPage;
+import pages.loadpay.carrier.CarrierNextDAYACH;
 import pages.loadpay.carrier.CarrierOutlook;
 import pages.loadpay.outlook.outlooklogin;
 import testcases.loadpay.broker.BrokerRegisterTest;
+import testcases.loadpay.carrier.CarrierRegisterTest;
 
 public class AdminPaymentHistoryTest extends TestBase {
 
 	AdminHomePage admHomePage;
 	AdminLogin admLogin;
 	BrokerLoginPage brokLoginPage;
-	CarrierLoginPage loginPage;
+	CarrierNextDAYACH carrierNextDayObj;
+	CarrierLoginPage carrierloginPage;
 	WebElement checkbox;
-	String brokerUserName;
-	String brokerPassword;
+
 	BrokerOutlook brokerOutlookObj;
 	CarrierOutlook carierOutlookObj;
 	outlooklogin outlook;
+
 	Date currentTime;
 	String formattedDate = "";
 	Long longTime;
@@ -42,8 +45,9 @@ public class AdminPaymentHistoryTest extends TestBase {
 	String currentHour = "";
 	String currentMinutes = "";
 	String timeArray[] = new String[2];
-	CarrierLoginPage carrierloginPage;
 
+	String brokerUserName;
+	String brokerPassword;
 	String carrierUserName;
 	String carrierPassword;
 
@@ -65,6 +69,7 @@ public class AdminPaymentHistoryTest extends TestBase {
 		currentTime = new Date();
 		carrierloginPage = new CarrierLoginPage();
 		carierOutlookObj = new CarrierOutlook();
+		carrierNextDayObj = new CarrierNextDAYACH();
 	}
 
 	@Test(dataProvider = "getBrokerLoginData")
@@ -78,7 +83,25 @@ public class AdminPaymentHistoryTest extends TestBase {
 		}
 	}
 
-	@Test(description = "LP-4683 AdminPayMeNowLockTest_verifyLockPayMeNowStatus", dataProvider = "getAdminLoginData", dependsOnMethods = "getBrokerCredentials")
+	@Test(dependsOnMethods = "getBrokerCredentials")
+	public void carrierPayMeNowNextDayACH() throws InterruptedException, AWTException {
+		carrierloginPage.Carrierlogin(CarrierRegisterTest.carrierUsername, CarrierRegisterTest.carrierPassword);
+
+		carrierNextDayObj.clickPaymenow();
+		carrierNextDayObj.clickSelectButton();
+		carrierNextDayObj.clickConfirmButton();
+
+		if (carrierloginPage.getDonotshowagaincheckbox().isDisplayed()) {
+			carrierloginPage.getDonotshowagaincheckbox().click();
+			carrierloginPage.getPayMeNowPopupSaveButton().click();
+		}
+
+		driver.get(super.getProperties().getProperty("nachaPaymentURL"));
+
+		driver.get(super.getProperties().getProperty("emailBatchPaymentURL"));
+	}
+
+	@Test(description = "LP-5428 AdminPaymentHistory_PaymentStatusTest", dataProvider = "getAdminLoginData", dependsOnMethods = "carrierPayMeNowNextDayACH")
 	public void verifyAdminPaymentHistoryStatus(String Username, String pass)
 			throws InterruptedException, AWTException {
 		admHomePage.AdminURL();
