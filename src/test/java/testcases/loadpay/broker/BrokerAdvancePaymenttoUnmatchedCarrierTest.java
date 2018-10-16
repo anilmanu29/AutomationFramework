@@ -26,6 +26,7 @@ public class BrokerAdvancePaymenttoUnmatchedCarrierTest extends TestBase {
 	public static String unMatchedCarrierUsername;
 	public static String unMatchedCarrierPassword;
 	public static String loadID, invoiceNum = "";
+	String brokerUsername, brokerPassword = "";
 
 	/*-------Initializing driver---------*/
 	public BrokerAdvancePaymenttoUnmatchedCarrierTest() {
@@ -48,7 +49,16 @@ public class BrokerAdvancePaymenttoUnmatchedCarrierTest extends TestBase {
 	@Test(dataProvider = "getBrokerLoginData")
 	public void loginBroker(String un, String pwd) {
 		brokerloginobj = new BrokerLoginPage();
-		brokerloginobj.Brokerlogin(un, pwd);
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = un;
+			brokerPassword = pwd;
+		}
+
+		brokerloginobj.Brokerlogin(brokerUsername, brokerPassword);
 		dateTime = TestUtil.getCurrentDateTime();
 	}
 

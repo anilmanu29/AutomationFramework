@@ -17,6 +17,7 @@ import pages.loadpay.broker.BrokerAdvancePaymenttoUnmatchedCarrier;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerNewPayment;
 import pages.loadpay.broker.BrokerPaymentforUnmatchedCarrier;
+import testcases.loadpay.broker.BrokerRegisterTest;
 
 public class ShowQuoteCheck_UnmatchedCarrierTest extends TestBase {
 
@@ -68,8 +69,17 @@ public class ShowQuoteCheck_UnmatchedCarrierTest extends TestBase {
 
 	@Test(dataProvider = "getBrokerLoginData")
 	public void loginBroker(String un, String pwd) {
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = un;
+			brokerPassword = pwd;
+		}
+
 		brokerlogin = new BrokerLoginPage();
-		brokerlogin.Brokerlogin(un, pwd);
+		brokerlogin.Brokerlogin(brokerUsername, brokerPassword);
 
 	}
 

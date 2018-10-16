@@ -72,8 +72,14 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 	@Test(dataProvider = "getBrokerLoginData")
 	public void getBrokerCredentials(String user, String pass) throws InterruptedException {
 		driver.get(prop.getProperty("url"));
-		brokerUserName = user;
-		brokerPassword = pass;
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUserName = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUserName = user;
+			brokerPassword = pass;
+		}
 	}
 
 	/*-------Admin Login ---------*/
@@ -109,7 +115,7 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 	public void loginBroker(String un, String pwd) {
 		driver.get(prop.getProperty("url"));
 		brokerlogin = new BrokerLoginPage();
-		brokerlogin.Brokerlogin(un, pwd);
+		brokerlogin.Brokerlogin(brokerUserName, brokerPassword);
 
 	}
 
@@ -151,15 +157,6 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 	public void loginBrokernew(String un, String pwd) {
 		driver.get(prop.getProperty("url"));
 		brokerlogin = new BrokerLoginPage();
-
-		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
-			brokerUserName = BrokerRegisterTest.brokerUsername;
-			brokerPassword = BrokerRegisterTest.brokerPassword;
-		} else {
-			brokerUserName = un;
-			brokerPassword = pwd;
-		}
-
 		brokerlogin.Brokerlogin(brokerUserName, brokerPassword);
 
 	}

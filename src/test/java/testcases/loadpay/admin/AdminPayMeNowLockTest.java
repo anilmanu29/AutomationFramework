@@ -16,6 +16,7 @@ import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.admin.AdminPaymeNowTab;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerPayMeNowTab;
+import testcases.loadpay.broker.BrokerRegisterTest;
 
 public class AdminPayMeNowLockTest extends TestBase {
 	AdminHomePage admHomePage;
@@ -46,8 +47,14 @@ public class AdminPayMeNowLockTest extends TestBase {
 
 	@Test(dataProvider = "getBrokerLoginData")
 	public void getBrokerCredentials(String user, String pass) throws InterruptedException {
-		brokerUserName = user;
-		brokerPassword = pass;
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUserName = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUserName = user;
+			brokerPassword = pass;
+		}
 	}
 
 	@Test(description = "LP-4683 AdminPayMeNowLockTest_verifyLockPayMeNowStatus", dataProvider = "getAdminLoginData", dependsOnMethods = "getBrokerCredentials")
@@ -79,11 +86,11 @@ public class AdminPayMeNowLockTest extends TestBase {
 
 	}
 
-	@Test(description = "LP-4683 AdminPayMeNowLockTest_verifyBrokerCannotOptOutPayMeNow", dataProvider = "getBrokerLoginData", dependsOnMethods = "verifyLockPayMeNowStatus")
+	@Test(description = "LP-4683 AdminPayMeNowLockTest_verifyBrokerCannotOptOutPayMeNow", dependsOnMethods = "verifyLockPayMeNowStatus")
 	public void verifyBrokerCannotOptOutPayMeNow(String un, String pwd) throws InterruptedException, AWTException {
 
 		driver.get(super.getProperties().getProperty("url"));
-		brokLoginPage.Brokerlogin(un, pwd);
+		brokLoginPage.Brokerlogin(brokerUserName, brokerPassword);
 
 		brokerPayMeNowTab.openAccountTab();
 

@@ -25,6 +25,7 @@ public class BrokerAvailableCreditTabTest extends TestBase {
 	BrokerLoginPage brokerloginpage;
 	BrokerOutlook brokeroutlook;
 	outlooklogin outlooklog;
+	String brokerUsername, brokerPassword = "";
 
 	/*-------Initializing driver---------*/
 
@@ -45,8 +46,16 @@ public class BrokerAvailableCreditTabTest extends TestBase {
 	}
 
 	@Test(description = "LP-5398 Broker Request Additional Credit Login", dataProvider = "getBrokerLoginData")
-	public void loginBrokerTest(String un, String pwd) throws InterruptedException {
-		brokerloginpage.Brokerlogin(un, pwd);
+	public void loginBrokerTest(String user, String pass) throws InterruptedException {
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = user;
+			brokerPassword = pass;
+		}
+		brokerloginpage.Brokerlogin(brokerUsername, brokerPassword);
 
 	}
 

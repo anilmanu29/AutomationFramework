@@ -20,6 +20,7 @@ public class BrokerProcessedTabTest extends TestBase {
 	List<String> lastRowData = null;
 	JavascriptExecutor jse;
 	String searchForInvoice, searchforcompanyname, searchforLoadID, searchforAmount, searchforDate = "";
+	String brokerUsername, brokerPassword = "";
 
 	public BrokerProcessedTabTest() {
 		super();
@@ -53,7 +54,15 @@ public class BrokerProcessedTabTest extends TestBase {
 	@Test(dataProvider = "getBrokerLoginData", dependsOnMethods = { "loadBrokerSearchData" })
 	public void loginAsBroker(String un, String pwd) throws InterruptedException {
 		// login as broker
-		loginPage.Brokerlogin(un, pwd);
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = un;
+			brokerPassword = pwd;
+		}
+
+		loginPage.Brokerlogin(brokerUsername, brokerPassword);
 	}
 
 	@Test(dependsOnMethods = { "loginAsBroker" })

@@ -18,6 +18,7 @@ public class BrokerDiscountsTabTest extends TestBase {
 	List<String> firstRowData = null;
 	List<String> lastRowData = null;
 	String searchForInvoice, searchforcompanyname, searchforLoadID, searchforAmount, searchforDate = "";
+	String brokerUsername, brokerPassword = "";
 
 	public BrokerDiscountsTabTest() {
 		super();
@@ -50,7 +51,16 @@ public class BrokerDiscountsTabTest extends TestBase {
 	@Test(dataProvider = "getBrokerLoginData", dependsOnMethods = { "loadBrokerSearchData" })
 	public void loginAsBroker(String un, String pwd) throws InterruptedException {
 		// login as broker
-		loginPage.Brokerlogin(un, pwd);
+
+		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
+			brokerUsername = BrokerRegisterTest.brokerUsername;
+			brokerPassword = BrokerRegisterTest.brokerPassword;
+		} else {
+			brokerUsername = un;
+			brokerPassword = pwd;
+		}
+
+		loginPage.Brokerlogin(brokerUsername, brokerPassword);
 	}
 
 	@Test(dependsOnMethods = { "loginAsBroker" })
