@@ -198,7 +198,10 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabled extends TestBase {
 
 		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
 		loginBtn.click();
+
 		wait.until(ExpectedConditions.elementToBeClickable(field_ein));
+		field_ein.click();
+		field_ein.clear();
 		field_ein.sendKeys(SchpaymentwithoutBankAccountPayByInvoiceEnabledTest.EIN);
 
 		wait.until(ExpectedConditions.elementToBeClickable(nextButton));

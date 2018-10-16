@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.TimeZone;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -135,6 +136,7 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 	public void verifyResetPassword(String nwpwd, String confmpwd, String forcepwd, String confirmforcepwd)
 			throws InterruptedException {
 
+		wait.until(ExpectedConditions.elementToBeClickable(carrierparentchildobject.newpasswordfield));
 		Assert.assertTrue(carrierparentchildobject.newpasswordfield.isDisplayed(),
 				"New Password field is NOT Displayed");
 
