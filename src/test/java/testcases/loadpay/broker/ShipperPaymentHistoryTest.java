@@ -61,27 +61,27 @@ public class ShipperPaymentHistoryTest extends TestBase {
 
 		carrierLoginPage.Carrierlogin(carrierUsername, carrierPassword);
 
-		// enter EIN and click Next if enabled
-		if (carrierLoginPage.getEinField().isEnabled()) {
-			carrierLoginPage.setEinField(carrierEIN);
-			carrierLoginPage.clickEinNextButton();
-		}
-
-		// accept terms and conditions
-		if (carrierLoginPage.getTermsAndConditionsCheckBox().isEnabled()) {
-			carrierLoginPage.clickTermsAndConditionsCheckBox();
-			carrierLoginPage.clickFinishButton();
-			Assert.assertTrue(
-					carrierLoginPage.getConfirmationPopup().getText()
-							.contains("Your LoadPay™ registration has been completed successfully."),
-					"Registration success message not found");
-			carrierLoginPage.clickConfirmationPopupCloseButton();
-		}
-
-		if (carrierLoginPage.getDonotshowagaincheckbox().isDisplayed()) {
-			carrierLoginPage.getDonotshowagaincheckbox().click();
-			carrierLoginPage.getPayMeNowPopupSaveButton().click();
-		}
+		// // enter EIN and click Next if enabled
+		// if (carrierLoginPage.getEinField().isEnabled()) {
+		// carrierLoginPage.setEinField(carrierEIN);
+		// carrierLoginPage.clickEinNextButton();
+		// }
+		//
+		// // accept terms and conditions
+		// if (carrierLoginPage.getTermsAndConditionsCheckBox().isEnabled()) {
+		// carrierLoginPage.clickTermsAndConditionsCheckBox();
+		// carrierLoginPage.clickFinishButton();
+		// Assert.assertTrue(
+		// carrierLoginPage.getConfirmationPopup().getText()
+		// .contains("Your LoadPay™ registration has been completed successfully."),
+		// "Registration success message not found");
+		// carrierLoginPage.clickConfirmationPopupCloseButton();
+		// }
+		//
+		// if (carrierLoginPage.getDonotshowagaincheckbox().isDisplayed()) {
+		// carrierLoginPage.getDonotshowagaincheckbox().click();
+		// carrierLoginPage.getPayMeNowPopupSaveButton().click();
+		// }
 
 		carrierFuelTestObj.clickPaymenow();
 		carrierFuelTestObj.clickSelectButton();
