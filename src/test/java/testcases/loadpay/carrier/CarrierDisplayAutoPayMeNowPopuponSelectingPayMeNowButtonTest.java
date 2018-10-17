@@ -3,10 +3,8 @@ package testcases.loadpay.carrier;
 import java.awt.AWTException;
 import java.io.IOException;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
-import java.util.TimeZone;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.openqa.selenium.By;
@@ -202,7 +200,9 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 		carrierOutlookObj.clickOpenMailBox();
 		carrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
 		// outlookk.clickOpen();
-		getTimestamp();
+		String[] timeArray = TestUtil.getTimestamp();
+		currentHour = timeArray[0];
+		currentMinutes = timeArray[1];
 		carrierOutlookObj.outlookSearchInbox(carrierUsername, currentHour, currentMinutes);
 		carrierOutlookObj.handleNewInbox(carrierUsername);
 		carrierOutlookObj.verifyConfirmationMessage();
@@ -445,20 +445,4 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 		carrierloginobj.CarrierLogout();
 	}
 
-	public void getTimestamp() {
-		formatter = new SimpleDateFormat("HH:mm");
-		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
-		longTime = currentTime.getTime();
-		formattedDate = formatter.format(longTime);
-		timeArray = formattedDate.split(":");
-		currentHour = timeArray[0];
-		currentMinutes = timeArray[1];
-
-		log.info("\n\n\n===============================");
-		log.info("Current date: " + longTime);
-		log.info("Formatted date: " + formattedDate);
-		log.info("Current Hour: " + currentHour);
-		log.info("Current Minutes: " + currentMinutes);
-		log.info("===============================");
-	}
 }

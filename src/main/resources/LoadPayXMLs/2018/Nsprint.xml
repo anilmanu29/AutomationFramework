@@ -43,8 +43,7 @@
     	
     <!-- Script for Jira Ticket LP-6328-LoadPay - Selenium Test - Integration - Handshake with RTF_Carrier -->    
 		<class name="testcases.loadpay.carrier.HandshakewithRTFCarrierTest"></class>
-    	
-    	
+		
     <!-- Script for Jira Ticket LP-6327-LoadPay - Selenium Test - Integration - Handshake with RTF_Broker -->
 		<class name="testcases.loadpay.broker.HandshakewithRTFBrokerTest"></class>
     	

@@ -4,10 +4,7 @@ package testcases.loadpay.broker;
 import java.awt.AWTException;
 import java.io.IOException;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.TimeZone;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.openqa.selenium.By;
@@ -168,23 +165,13 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 		brokerOutlookObj.clickOpenMailBox();
 		brokerOutlookObj.enterEmail(super.prop.getProperty("email"));
 
-		getTimestamp();
+		String[] timeArray = TestUtil.getTimestamp();
+		currentHour = timeArray[0];
+		currentMinutes = timeArray[1];
 		brokerOutlookObj.outlookSearchInbox(emailid, currentHour, currentMinutes);
 		schpaymentwithoutBankAccountPayByInvoiceenabled.handleNewInbox(brokerUsername);
 		schpaymentwithoutBankAccountPayByInvoiceenabled.verifyConfirmationMessage();
 
-	}
-
-	public void getTimestamp() {
-		TimeZone tz = Calendar.getInstance().getTimeZone();
-
-		formatter = new SimpleDateFormat("HH:mm");
-		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
-		longTime = currentTime.getTime();
-		formattedDate = formatter.format(longTime);
-		timeArray = formattedDate.split(":");
-		currentHour = timeArray[0];
-		currentMinutes = timeArray[1];
 	}
 
 	@Test(description = "Switch to admin URL", dependsOnMethods = "outlookloginTest")

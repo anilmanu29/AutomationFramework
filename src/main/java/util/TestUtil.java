@@ -8,6 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -17,6 +18,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.TimeZone;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
@@ -267,5 +269,34 @@ public class TestUtil extends TestBase {
 
 	public static void killProcess(String process) throws IOException {
 		Runtime.getRuntime().exec("TASKKILL /F /IM " + process);
+	}
+
+	public static String[] getTimestamp() {
+
+		Date currentTime;
+		String formattedDate = "";
+		Long longTime;
+		DateFormat formatter;
+		String currentHour = "";
+		String currentMinutes = "";
+		String timeArray[] = new String[2];
+
+		currentTime = new Date();
+		formatter = new SimpleDateFormat("HH:mm");
+		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
+		longTime = currentTime.getTime();
+		formattedDate = formatter.format(longTime);
+		timeArray = formattedDate.split(":");
+		currentHour = timeArray[0];
+		currentMinutes = timeArray[1];
+
+		log.info("\n\n\n===============================");
+		log.info("Current date: " + longTime);
+		log.info("Formatted date: " + formattedDate);
+		log.info("Current Hour: " + currentHour);
+		log.info("Current Minutes: " + currentMinutes);
+		log.info("===============================");
+
+		return timeArray;
 	}
 }

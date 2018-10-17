@@ -6,9 +6,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.TimeZone;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -281,7 +279,9 @@ public class AdminDelayDebitTest extends TestBase {
 		brokerOutlookObj.clickPopUp();
 		brokerOutlookObj.clickOpenMailBox();
 		brokerOutlookObj.enterEmail(super.prop.getProperty("email"));
-		getTimestamp();
+		String[] timeArray = TestUtil.getTimestamp();
+		currentHour = timeArray[0];
+		currentMinutes = timeArray[1];
 		brokerOutlookObj.outlookSearchInbox(brokerUsername, currentHour, currentMinutes);
 		brokerOutlookObj.verifyEmailReceived("Your LoadPay account is now enrolled in PayMeNow.");
 
@@ -298,27 +298,4 @@ public class AdminDelayDebitTest extends TestBase {
 		payMeNowCheckbox = driver.findElement(By.xpath(".//*[@id='PMNEnrolled']"));
 		Assert.assertTrue(payMeNowCheckbox.isSelected(), "Pay Me Now link is enabled - should be disabled!");
 	}
-
-	public void getTimestamp() {
-		/////////////////////////////////////////////////////////////////
-		TimeZone tz = Calendar.getInstance().getTimeZone();
-		String currentTimeZone = tz.getDisplayName();
-		System.out.println(currentTimeZone);
-
-		formatter = new SimpleDateFormat("HH:mm");
-		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
-		longTime = currentTime.getTime();
-		formattedDate = formatter.format(longTime);
-		timeArray = formattedDate.split(":");
-		currentHour = timeArray[0];
-		currentMinutes = timeArray[1];
-
-		System.out.println("\n\n\n===============================");
-		System.out.println("Current date: " + longTime);
-		System.out.println("Formatted date: " + formattedDate);
-		System.out.println("Current Hour: " + currentHour);
-		System.out.println("Current Minutes: " + currentMinutes);
-		System.out.println("===============================");
-	}
-
 }
