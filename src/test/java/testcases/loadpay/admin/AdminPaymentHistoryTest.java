@@ -91,6 +91,8 @@ public class AdminPaymentHistoryTest extends TestBase {
 		carrierNextDayObj.clickSelectButton();
 		carrierNextDayObj.clickConfirmButton();
 
+		Thread.sleep(2000);
+
 		if (carrierloginPage.getDonotshowagaincheckbox().isDisplayed()) {
 			carrierloginPage.getDonotshowagaincheckbox().click();
 			carrierloginPage.getPayMeNowPopupSaveButton().click();

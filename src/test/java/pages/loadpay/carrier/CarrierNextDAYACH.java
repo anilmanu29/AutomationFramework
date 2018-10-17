@@ -2,7 +2,6 @@ package pages.loadpay.carrier;
 
 import java.awt.AWTException;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +10,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
-import util.TestUtil;
 
 public class CarrierNextDAYACH extends TestBase {
 
@@ -118,17 +116,16 @@ public class CarrierNextDAYACH extends TestBase {
 	}
 
 	public void clickConfirmButton() throws InterruptedException, AWTException {
-		TestUtil.zoomIN();
+		// TestUtil.zoomIN();
 		wait.until(ExpectedConditions.elementToBeClickable(btn_confirm));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(1000);
-		js.executeScript("arguments[0].click();", btn_confirm);
+		btn_confirm.click();
 		Thread.sleep(1000);
 	}
 
 	public void clickPaidTab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(tab_paid));
-		act.moveToElement(tab_paid).click().perform();
+		tab_paid.click();
 		Thread.sleep(1000);
 	}
 

@@ -1,6 +1,5 @@
 package extentreportlistener;
 
-import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -34,6 +33,8 @@ public class ExtentReporterNG implements IReporter {
 
 		if (currentMonth < 10)
 			strMonth = "0" + Integer.toString(currentMonth);
+		else
+			strMonth = Integer.toString(currentMonth);
 
 		// (1) get today's date
 		Date today = Calendar.getInstance().getTime();
@@ -47,8 +48,7 @@ public class ExtentReporterNG implements IReporter {
 		String currentDir = System.getProperty("user.dir");
 
 		extent = new ExtentReports(
-				currentDir + "/output/reports/" + strYear + "/" + strMonth + File.separator + fileName + "_Report.html",
-				false);
+				currentDir + "/output/reports/" + strYear + "/" + strMonth + "/" + fileName + "_Report.html", false);
 		for (ISuite suite : suites) {
 			Map<String, ISuiteResult> result = suite.getResults();
 

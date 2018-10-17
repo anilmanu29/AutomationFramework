@@ -216,7 +216,7 @@ public class HandshakewithRTFCarrier extends TestBase {
 		Click_Login.click();
 	}
 
-	public void click_alert() throws InterruptedException {
+	public void clickYesToUnlink() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(Click_accept));
 		Click_accept.click();
 	}

@@ -81,7 +81,7 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 
 		driver.get(super.getProperties().getProperty("url"));
 		carrierloginobj.Carrierlogin(carrierUsername, carrierPassword);
-		carrierwiretransferobj.clickPayMeNowPayment(BrokerNewPaymentTest.al.get(0));
+		carrierwiretransferobj.clickPaymenow();
 		carrierwiretransferobj.clickSelectButton();
 		carrierwiretransferobj.clickConfirmButton();
 		Thread.sleep(1000);
