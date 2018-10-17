@@ -3,12 +3,10 @@ package testcases.loadpay.carrier;
 import java.awt.AWTException;
 import java.io.IOException;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -157,7 +155,9 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		brokeroutlook.clickPopUp();
 		brokeroutlook.clickOpenMailBox();
 		brokeroutlook.enterEmail(super.getProperties().getProperty("email"));
-		getTimestamp();
+		String[] timeArray = TestUtil.getTimestamp();
+		currentHour = timeArray[0];
+		currentMinutes = timeArray[1];
 		brokeroutlook.outlookSearchInbox(nemail + " AND Reset", currentHour, currentMinutes);
 	}
 
@@ -420,22 +420,5 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 
 		}
 
-	}
-
-	public void getTimestamp() {
-		formatter = new SimpleDateFormat("HH:mm");
-		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
-		longTime = currentTime.getTime();
-		formattedDate = formatter.format(longTime);
-		timeArray = formattedDate.split(":");
-		currentHour = timeArray[0];
-		currentMinutes = timeArray[1];
-
-		log.info("\n\n\n===============================");
-		log.info("Current date: " + longTime);
-		log.info("Formatted date: " + formattedDate);
-		log.info("Current Hour: " + currentHour);
-		log.info("Current Minutes: " + currentMinutes);
-		log.info("===============================");
 	}
 }

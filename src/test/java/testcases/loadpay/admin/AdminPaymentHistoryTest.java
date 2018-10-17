@@ -3,10 +3,8 @@ package testcases.loadpay.admin;
 import java.awt.AWTException;
 import java.io.IOException;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.TimeZone;
 
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -24,6 +22,7 @@ import pages.loadpay.carrier.CarrierOutlook;
 import pages.loadpay.outlook.outlooklogin;
 import testcases.loadpay.broker.BrokerRegisterTest;
 import testcases.loadpay.carrier.CarrierRegisterTest;
+import util.TestUtil;
 
 public class AdminPaymentHistoryTest extends TestBase {
 
@@ -134,7 +133,9 @@ public class AdminPaymentHistoryTest extends TestBase {
 		brokerOutlookObj.clickPopUp();
 		brokerOutlookObj.clickOpenMailBox();
 		brokerOutlookObj.enterEmail(super.prop.getProperty("email"));
-		getTimestamp();
+		String[] timeArray = TestUtil.getTimestamp();
+		currentHour = timeArray[0];
+		currentMinutes = timeArray[1];
 		brokerOutlookObj.outlookSearchInbox(brokerUserName, currentHour, currentMinutes);
 
 		// TODO look through inbox for attachment
@@ -194,13 +195,4 @@ public class AdminPaymentHistoryTest extends TestBase {
 		Assert.assertTrue(carierOutlookObj.fieldTextbox.isDisplayed(), "Carrier OutLook Email should not be found");
 	}
 
-	public void getTimestamp() {
-		formatter = new SimpleDateFormat("HH:mm");
-		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
-		longTime = currentTime.getTime();
-		formattedDate = formatter.format(longTime);
-		timeArray = formattedDate.split(":");
-		currentHour = timeArray[0];
-		currentMinutes = timeArray[1];
-	}
 }

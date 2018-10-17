@@ -3,9 +3,7 @@ package testcases.loadpay.carrier;
 import java.awt.AWTException;
 import java.io.IOException;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.TimeZone;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.openqa.selenium.By;
@@ -192,7 +190,9 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 		carrierOutlookObj.clickPopUp();
 		carrierOutlookObj.clickOpenMailBox();
 		carrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
-		getTimestamp();
+		String[] timeArray = TestUtil.getTimestamp();
+		currentHour = timeArray[0];
+		currentMinutes = timeArray[1];
 		carrierOutlookObj.outlookSearchInbox(carrierUsername, currentHour, currentMinutes);
 		carrierOutlookObj.handleNewInbox(carrierUsername);
 		carrierOutlookObj.verifyConfirmationMessage();
@@ -299,22 +299,4 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 				"Save button is enabled");
 		log.info("verifyCopyPasteBankAccountNumberinaddingBankAccountTest - Passed");
 	}
-
-	public void getTimestamp() {
-		formatter = new SimpleDateFormat("HH:mm");
-		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
-		longTime = currentTime.getTime();
-		formattedDate = formatter.format(longTime);
-		timeArray = formattedDate.split(":");
-		currentHour = timeArray[0];
-		currentMinutes = timeArray[1];
-
-		log.info("\n\n\n===============================");
-		log.info("Current date: " + longTime);
-		log.info("Formatted date: " + formattedDate);
-		log.info("Current Hour: " + currentHour);
-		log.info("Current Minutes: " + currentMinutes);
-		log.info("===============================");
-	}
-
 }

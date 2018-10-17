@@ -3,9 +3,7 @@ package testcases.loadpay.unmatched;
 import java.awt.AWTException;
 import java.io.IOException;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.TimeZone;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
@@ -15,6 +13,7 @@ import base.TestBase;
 import pages.loadpay.outlook.outlooklogin;
 import pages.loadpay.unmatched.UnmatchedCariierEmailVerifyFuelCard;
 import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
+import util.TestUtil;
 
 public class UnmatchedCariierEmailVerifyFuelCardTest extends TestBase {
 	UnmatchedCariierEmailVerifyFuelCard outlookk;
@@ -53,29 +52,13 @@ public class UnmatchedCariierEmailVerifyFuelCardTest extends TestBase {
 		outlookk.clickPopUp();
 		outlookk.clickOpenMailBox();
 		outlookk.enterEmail(super.getProperties().getProperty("email"));
-		// outlookk.clickOpen();
-		getTimestamp();
+		String[] timeArray = TestUtil.getTimestamp();
+		currentHour = timeArray[0];
+		currentMinutes = timeArray[1];
 		outlookk.outlookSearchInbox(BrokerPaymentforUnmatchedCarrierTest.al.get(1) + " AND NOT broker", currentHour,
 				currentMinutes);
 		outlookk.handleNewInbox();
 		outlookk.verifyConfirmationMessage();
 
-	}
-
-	public void getTimestamp() {
-		formatter = new SimpleDateFormat("HH:mm");
-		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
-		longTime = currentTime.getTime();
-		formattedDate = formatter.format(longTime);
-		timeArray = formattedDate.split(":");
-		currentHour = timeArray[0];
-		currentMinutes = timeArray[1];
-
-		log.info("\n\n\n===============================");
-		log.info("Current date: " + longTime);
-		log.info("Formatted date: " + formattedDate);
-		log.info("Current Hour: " + currentHour);
-		log.info("Current Minutes: " + currentMinutes);
-		log.info("===============================");
 	}
 }

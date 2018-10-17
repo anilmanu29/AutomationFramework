@@ -3,9 +3,7 @@ package testcases.loadpay.carrier;
 import java.awt.AWTException;
 import java.io.IOException;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.TimeZone;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
@@ -14,6 +12,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.carrier.CarrierOutlookCanada;
 import pages.loadpay.outlook.outlooklogin;
+import util.TestUtil;
 
 public class CarrierOutlookCanadaTest extends TestBase {
 	CarrierOutlookCanada carrierCAOutlookObj;
@@ -53,28 +52,13 @@ public class CarrierOutlookCanadaTest extends TestBase {
 		carrierCAOutlookObj.clickOpenMailBox();
 		carrierCAOutlookObj.enterEmail(super.getProperties().getProperty("email"));
 		// outlookk.clickOpen();
-		getTimestamp();
+		String[] timeArray = TestUtil.getTimestamp();
+		currentHour = timeArray[0];
+		currentMinutes = timeArray[1];
 		carrierCAOutlookObj.outlookSearchInbox(CarrierRegisterCanadaTest.carrierUsername, currentHour, currentMinutes);
 		carrierCAOutlookObj.handleNewInbox();
 		carrierCAOutlookObj.verifyConfirmationMessage();
 
-	}
-
-	public void getTimestamp() {
-		formatter = new SimpleDateFormat("HH:mm");
-		formatter.setTimeZone(TimeZone.getTimeZone("MST"));
-		longTime = currentTime.getTime();
-		formattedDate = formatter.format(longTime);
-		timeArray = formattedDate.split(":");
-		currentHour = timeArray[0];
-		currentMinutes = timeArray[1];
-
-		log.info("\n\n\n===============================");
-		log.info("Current date: " + longTime);
-		log.info("Formatted date: " + formattedDate);
-		log.info("Current Hour: " + currentHour);
-		log.info("Current Minutes: " + currentMinutes);
-		log.info("===============================");
 	}
 
 }
