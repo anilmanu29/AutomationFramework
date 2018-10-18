@@ -87,7 +87,7 @@ public class AdminPayMeNowLockTest extends TestBase {
 	}
 
 	@Test(description = "LP-4683 AdminPayMeNowLockTest_verifyBrokerCannotOptOutPayMeNow", dependsOnMethods = "verifyLockPayMeNowStatus")
-	public void verifyBrokerCannotOptOutPayMeNow(String un, String pwd) throws InterruptedException, AWTException {
+	public void verifyBrokerCannotOptOutPayMeNow() throws InterruptedException, AWTException {
 
 		driver.get(super.getProperties().getProperty("url"));
 		brokLoginPage.Brokerlogin(brokerUserName, brokerPassword);

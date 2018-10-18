@@ -31,7 +31,6 @@
 			 <class name="testcases.loadpay.broker.BrokerAvailableCreditTabTest"></class>
 		
 		<!-- Script for Jira Ticket LP-5405 - LoadPay - Selenium Test - Broker Processed Tab AdminPayByCheck -->
-				 	<class name="testcases.loadpay.carrier.CarrierNextDAYACHTest"></class>
 		     <class name="testcases.loadpay.broker.BrokerProcessedTabTest"></class>
 	
 		<!-- Script for Jira Ticket LP-5404 - LoadPay - Selenium Test - Broker DiscountsTab --> 	
