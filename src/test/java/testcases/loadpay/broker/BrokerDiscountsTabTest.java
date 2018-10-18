@@ -34,8 +34,8 @@ public class BrokerDiscountsTabTest extends TestBase {
 	}
 
 	@Test(dataProvider = "getBrokerDiscountsTabSearchData")
-	public void loadBrokerSearchData(String companyName, String pullDate, String searchAmount, String invoiceNumber,
-			String loadID) throws InterruptedException {
+	public void loadBrokerSearchData(String userName, String passWord, String companyName, String pullDate,
+			String searchAmount, String invoiceNumber, String loadID) throws InterruptedException {
 
 		searchForInvoice = invoiceNumber;
 		searchForInvoice = TestUtil.removeDecimalZeroFormat(searchForInvoice);
@@ -46,20 +46,13 @@ public class BrokerDiscountsTabTest extends TestBase {
 		searchforAmount = TestUtil.removeDecimalZeroFormat(searchforAmount);
 		searchforDate = pullDate;
 		searchforDate = searchforDate.replace("'", "");
+		brokerUsername = userName;
+		brokerPassword = passWord;
 	}
 
-	@Test(dataProvider = "getBrokerLoginData", dependsOnMethods = { "loadBrokerSearchData" })
-	public void loginAsBroker(String un, String pwd) throws InterruptedException {
+	@Test(dependsOnMethods = { "loadBrokerSearchData" })
+	public void loginAsBroker() throws InterruptedException {
 		// login as broker
-
-		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
-			brokerUsername = BrokerRegisterTest.brokerUsername;
-			brokerPassword = BrokerRegisterTest.brokerPassword;
-		} else {
-			brokerUsername = un;
-			brokerPassword = pwd;
-		}
-
 		loginPage.Brokerlogin(brokerUsername, brokerPassword);
 	}
 
@@ -191,8 +184,8 @@ public class BrokerDiscountsTabTest extends TestBase {
 				"Profits Realized not found");
 		Assert.assertTrue(brokerdiscountsTab.carriercolumn.isDisplayed(), "Carrier column not found");
 		Assert.assertTrue(brokerdiscountsTab.loadIDColumn.isDisplayed(), "Load ID column not found");
-		Assert.assertNotNull(brokerdiscountsTab.searchInputField, "Search Input Field not found");
-		Assert.assertNotNull(brokerdiscountsTab.searchButton, "Search Button not found");
+		Assert.assertTrue(brokerdiscountsTab.searchInputField.isDisplayed(), "Search Input Field not found");
+		Assert.assertTrue(brokerdiscountsTab.searchButton.isDisplayed(), "Search Button not found");
 
 	}
 

@@ -38,8 +38,8 @@ public class BrokerScheduledPaymentsTabTest extends TestBase {
 	}
 
 	@Test(dataProvider = "getBrokerSchedPaymentTabSearchData")
-	public void loadBrokerSearchData(String companyName, String pullDate, String searchAmount, String invoiceNumber,
-			String loadID) throws InterruptedException {
+	public void loadBrokerSearchData(String userName, String passWord, String companyName, String pullDate,
+			String searchAmount, String invoiceNumber, String loadID) throws InterruptedException {
 
 		searchForInvoice = invoiceNumber;
 		searchForInvoice = TestUtil.removeDecimalZeroFormat(searchForInvoice);
@@ -50,19 +50,12 @@ public class BrokerScheduledPaymentsTabTest extends TestBase {
 		searchforAmount = TestUtil.removeDecimalZeroFormat(searchforAmount);
 		searchforDate = pullDate;
 		searchforDate = searchforDate.replace("'", "");
+		brokerUsername = userName;
+		brokerPassword = passWord;
 	}
 
-	@Test(dataProvider = "getBrokerLoginData", dependsOnMethods = { "loadBrokerSearchData" })
-	public void loginAsBroker(String un, String pwd) throws InterruptedException {
-		// login as broker
-		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
-			brokerUsername = BrokerRegisterTest.brokerUsername;
-			brokerPassword = BrokerRegisterTest.brokerPassword;
-		} else {
-			brokerUsername = un;
-			brokerPassword = pwd;
-		}
-
+	@Test(dependsOnMethods = { "loadBrokerSearchData" })
+	public void loginAsBroker() throws InterruptedException {
 		loginPage.Brokerlogin(brokerUsername, brokerPassword);
 	}
 
