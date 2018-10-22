@@ -21,7 +21,6 @@
 				
 		<!--   Script for Jira Tickets LP-5397 LoadPay - Selenium Test - Shipper - Advance Payment   -->
 	 		<class name="testcases.loadpay.broker.ShipperAdvancePaymentTest"></class>
-	 		
 	 		<class name="testcases.loadpay.broker.ShipperCompleteAccountModuleTest"></class>
 			<class name="testcases.loadpay.broker.ShipperPaymentHistoryTest"></class>
 	 		

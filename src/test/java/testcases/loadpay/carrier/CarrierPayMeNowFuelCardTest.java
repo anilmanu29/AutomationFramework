@@ -75,12 +75,6 @@ public class CarrierPayMeNowFuelCardTest extends TestBase {
 		cfot.clicksubmit();
 		cfot.clickfuelcardsubmit();
 		cfot.clickConfirmButton();
-
-		if (loginPage.getDonotshowagaincheckbox().isDisplayed()) {
-			loginPage.getDonotshowagaincheckbox().click();
-			loginPage.getPayMeNowPopupSaveButton().click();
-		}
-
 		cfot.clickPaidTab();
 	}
 
