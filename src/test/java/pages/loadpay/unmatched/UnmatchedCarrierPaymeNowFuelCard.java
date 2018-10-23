@@ -1,6 +1,5 @@
 package pages.loadpay.unmatched;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -116,26 +115,24 @@ public class UnmatchedCarrierPaymeNowFuelCard extends TestBase {
 	}
 
 	public void clickConfirmButton() throws InterruptedException {
-		act.pause(1000);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", btnConfirm);
+		wait.until(ExpectedConditions.elementToBeClickable(btnConfirm));
+		btnConfirm.click();
 	}
 
 	public void clickPaidTab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(tabPaid));
-		act.moveToElement(tabPaid).click().perform();
+		tabPaid.click();
 
 	}
 
 	public void clickpaymenowtab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(paymenowtab));
-		act.moveToElement(paymenowtab).click().perform();
-
+		paymenowtab.click();
 	}
 
 	public void clickFTS() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(rbtnFts));
-		act.moveToElement(rbtnFts).click().perform();
+		rbtnFts.click();
 
 	}
 

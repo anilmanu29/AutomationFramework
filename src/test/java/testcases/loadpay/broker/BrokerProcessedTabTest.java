@@ -221,6 +221,8 @@ public class BrokerProcessedTabTest extends TestBase {
 		// compare to the database when sorted by given column-Descending
 		// Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal
 		// when sorted by LoadID!");
+
+		brokerProcessedTab.clickLoadIDColumn();
 	}
 
 	@Test(dependsOnMethods = { "verifyLoadIDSortTest" })

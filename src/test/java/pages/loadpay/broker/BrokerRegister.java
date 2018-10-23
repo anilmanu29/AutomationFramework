@@ -121,6 +121,12 @@ public class BrokerRegister extends TestBase {
 	@FindBy(className = "close")
 	WebElement emailAddressAlreadyInUse;
 
+	@FindBy(xpath = "//*[@id='angularScope']/div[5]/div/div")
+	WebElement emailAlreadyLinkedMessage;
+
+	@FindBy(xpath = "//input[contains(@value,'Add Later')]")
+	WebElement addLaterButton;
+
 	public BrokerRegister() {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 30);
@@ -219,6 +225,12 @@ public class BrokerRegister extends TestBase {
 		BankingNextBtn.click();
 	}
 
+	public void clickAddLaterButton() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(addLaterButton));
+		Thread.sleep(1000);
+		addLaterButton.click();
+	}
+
 	public void ZipCode(String ZipCode1) {
 		wait.until(ExpectedConditions.visibilityOf(ZipCode));
 		ZipCode.sendKeys(ZipCode1);
@@ -292,9 +304,14 @@ public class BrokerRegister extends TestBase {
 		ConfirmBankingAccount.sendKeys(ConfirmBankAccountNumber);
 	}
 
-	public void verifyErrorMessage() {
+	public void verifyEmailInUseMessage() {
 		wait.until(ExpectedConditions.visibilityOf(emailAddressAlreadyInUse));
 		Assert.assertTrue(emailAddressAlreadyInUse.isDisplayed(), "No error message is present");
+	}
+
+	public void verifyEmailAlreadyLinkedMessage() {
+		wait.until(ExpectedConditions.visibilityOf(emailAlreadyLinkedMessage));
+		Assert.assertTrue(emailAlreadyLinkedMessage.isDisplayed(), "No error message is present");
 	}
 
 	public void verifyRegistrationConfirmationMessage() {

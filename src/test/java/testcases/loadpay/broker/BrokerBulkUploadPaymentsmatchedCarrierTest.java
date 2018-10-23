@@ -57,35 +57,16 @@ public class BrokerBulkUploadPaymentsmatchedCarrierTest extends TestBase {
 	}
 
 	@Test(dependsOnMethods = "loginBroker")
-	public void verifynewPayment() throws InterruptedException {
+	public void verifyImportAndNewPayment() throws InterruptedException, IOException, AWTException {
+		bbmp.newPayment();
+		bbmp.UploadFile();
+		bbmp.Clickimport();
+		bbmp.Clickschpayment();
+		bbmp.ClickGridDown();
 		bbmp.newPayment();
 	}
 
-	@Test(dependsOnMethods = "verifynewPayment")
-	public void verifyUploadFile() throws InterruptedException, IOException, AWTException {
-		bbmp.UploadFile();
-
-	}
-
-	@Test(dependsOnMethods = "verifyUploadFile")
-	public void verifyClickimport() throws InterruptedException, IOException {
-		bbmp.Clickimport();
-
-	}
-
-	@Test(dependsOnMethods = "verifyClickimport")
-	public void verifyClickschpayment() throws InterruptedException, IOException {
-		bbmp.Clickschpayment();
-
-	}
-
-	@Test(dependsOnMethods = "verifyClickschpayment")
-	public void verifyClickGridDown() throws InterruptedException, IOException {
-		bbmp.ClickGridDown();
-
-	}
-
-	@Test(dependsOnMethods = "verifyClickGridDown")
+	@Test(dependsOnMethods = "verifyImportAndNewPayment")
 	public void verifyclickAmountSortTest() throws InterruptedException {
 		// TEST - Paid to Carrier
 		// click Paid to Carrier to change sort from default to ascending

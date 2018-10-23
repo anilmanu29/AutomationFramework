@@ -4,21 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
 
 public class BrokerProcessedTab extends TestBase {
-
-	WebDriverWait wait = null;
-	Actions act = null;
-	JavascriptExecutor js;
 
 	@FindBy(xpath = "//a[@href='#/Payments/Processed']")
 	private WebElement processedtab;
@@ -73,75 +66,73 @@ public class BrokerProcessedTab extends TestBase {
 
 	public BrokerProcessedTab() {
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 30);
-		act = new Actions(driver);
-		js = (JavascriptExecutor) driver;
 	}
 
 	public void clickProcessedTab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(processedtab));
-		js.executeScript("arguments[0].click();", processedtab);
+		processedtab.click();
 	}
 
 	public void clickPaySelectionColumn() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(paySelectionColumn));
-		js.executeScript("arguments[0].click();", paySelectionColumn);
+		paySelectionColumn.click();
 	}
 
 	public void clickDiscountColumn() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(discountcolumn));
-		js.executeScript("arguments[0].click();", discountcolumn);
+		discountcolumn.click();
 	}
 
 	public void clickPulledfromBankdataColumnColumn() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(pulledfrombankdataColumn));
-		js.executeScript("arguments[0].click();", pulledfrombankdataColumn);
+		pulledfrombankdataColumn.click();
 
 	}
 
 	public void clickPaidToCarrierColumn() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(paidtocarrierDColumn));
-		js.executeScript("arguments[0].click();", paidtocarrierDColumn);
+		paidtocarrierDColumn.click();
 
 	}
 
 	public void clickAmountPulledColumn() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(amountpulledColumn));
-		js.executeScript("arguments[0].click();", amountpulledColumn);
+		amountpulledColumn.click();
 
 	}
 
 	public void clickAmountpaidToCarrierColumn() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(amountpaidtocarrierColumn));
-		js.executeScript("arguments[0].click();", amountpaidtocarrierColumn);
+		amountpaidtocarrierColumn.click();
 
 	}
 
 	public void clickCarrierColumn() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(carriercolumn));
-		js.executeScript("arguments[0].click();", carriercolumn);
+		carriercolumn.click();
 
 	}
 
 	public void clickLoadIDColumn() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(loadidColumn));
-		js.executeScript("arguments[0].click();", loadidColumn);
+		loadidColumn.click();
 	}
 
 	public void enterSearchText(String searchText) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(searchInputField));
+		searchInputField.click();
 		searchInputField.clear();
 		searchInputField.sendKeys(searchText);
 	}
 
 	public void clickSearchButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(searchButton));
-		js.executeScript("arguments[0].click();", searchButton);
+		searchButton.click();
 	}
 
 	public void clickFirstRow() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(expandCollapseFirstRow));
-		js.executeScript("arguments[0].click();", expandCollapseFirstRow);
+		expandCollapseFirstRow.click();
 	}
 
 	public List<String> getFirstRowData() throws InterruptedException {

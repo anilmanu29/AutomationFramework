@@ -14,24 +14,6 @@
    
 	<test name="N Sprint Test Cases" preserve-order="true">
      <classes>
-    
-    <!--
-   1) LoginHandshakewithRTF_CarrierDa sheet - Update valid Username and Password for RTF Carrier.
-   2) CarrierLoginData sheet - Update username and password for Carrier based on Environment.
-   3) RTFLogin sheet -  Update valid Username and Password for RTF.
-   4) BrokerLoginData sheet - Update username and password for Broker based on Environment.
-   5) BrokerPaymentDataforUnmatchedCr sheet - Make sure there are 2 payments.
-   6) BankAccountDetailsForCopyPaste sheet - Update broker Username and Password.Make sure Broker without Banak Account registered to LoadPay. 
-   7) AdminLogin sheet - Admin login details needs to be updated.
-   8) BrokerNewPaymentData sheet - Make sure there are 2 payments.Set Amount column as 930.
-   9) BrokerDuplicateEmail sheet - Make sure Email(Broker) and Confirm email are already registered and same.
-   10) CarrierDuplicateEmail sheet -  Make sure Email(Carrier) and Confirm email are already registered and same.
-   11) CreditAmount sheet - set 1000 as credit amount.
-   12) ExtendedCreditAmount sheet - update NewCreditAmount to 99999.
-   13) HandshakeCarrierLogindata sheet - Update Staging Carrier Login details.
-   14) HandshakeBrokerLogindata sheet - Update Staging Broker Login details.
-   -->
-    
 				
 	<!-- Script for Jira Tickets LP-6500  LoadPay - Selenium Test - Carrier_PayMeNow on Unmatched_Fuel Card -->
    			<class name="testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest"></class>
@@ -49,20 +31,14 @@
     	
 	<!-- Script for Jira Ticket LP-6363 LoadPay - Selenium Test - Broker - Cannot create advance payment to unmatched carrier-->
 		<class name="testcases.loadpay.broker.BrokerAdvancePaymenttoUnmatchedCarrierTest"></class>
-    	
-    	<!--Broker without Bank Account login details needs to be updated in BankAccountDetailsForCopyPaste sheet 
-    	Need to Update BrokerRegisterCanada sheet.
-    	-->
+		
     <!-- Script for Jira Ticket LP-6365 LoadPay - Selenium Test - Broker - Disable copy / paste functionality for add and confirm bank account--> 	
 		<class name="testcases.loadpay.broker.BrokerDisableCopyPasteConfirmBankAccountTest"></class>
-    
  
-    <!--  Script for Jira Ticket LP-6364 - LoadPay - Selenium Test - Broker - 10% Limit Email Alert	-->
-		<!-- LOG BROKER BACK IN TO SEE CREDIT AND VIEW 10% LIMIT EMAIL -->
+    <!-- Script for Jira Ticket LP-6364 - LoadPay - Selenium Test - Broker - 10% Limit Email Alert	-->
 			<class name="testcases.loadpay.broker.BrokerViewCreditLessThan1000Test"></class>
-				
-		 		 
-	<!-- Script for Jira Ticket LP-6369 LoadPay -Selenium Test- Broker - Cannot Register Duplicate Email-->
+			 
+	<!-- Script for Jira Ticket verifyAlertMessageverifyAlertMessage LoadPay -Selenium Test- Broker - Cannot Register Duplicate Email-->
 			<class name="testcases.loadpay.broker.BrokerCanNotRegisterDuplicateEmail"></class>
          
     <!-- Script for Jira Ticket LP-6367 LoadPay - Selenium Test - Carrier - Cannot Register Duplicate Email-->

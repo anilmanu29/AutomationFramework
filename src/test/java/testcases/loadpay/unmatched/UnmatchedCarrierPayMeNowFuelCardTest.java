@@ -11,7 +11,7 @@ import pages.loadpay.unmatched.UnmatchedCarrierPaymeNowFuelCard;
 public class UnmatchedCarrierPayMeNowFuelCardTest extends TestBase {
 
 	UnmatchedCarrierPaymeNowFuelCard UnmatchedCarrierFuelCard;
-	CarrierLoginPage carrierloginpageobj;
+	CarrierLoginPage carrierLoginPage;
 
 	/*-------Initializing driver---------*/
 	public UnmatchedCarrierPayMeNowFuelCardTest() {
@@ -25,7 +25,7 @@ public class UnmatchedCarrierPayMeNowFuelCardTest extends TestBase {
 		initialization();
 		UnmatchedCarrierFuelCard = new UnmatchedCarrierPaymeNowFuelCard();
 		wait = new WebDriverWait(driver, 30);
-		carrierloginpageobj = new CarrierLoginPage();
+		carrierLoginPage = new CarrierLoginPage();
 	}
 	/*-------Initializing driver---------*/
 
@@ -35,7 +35,7 @@ public class UnmatchedCarrierPayMeNowFuelCardTest extends TestBase {
 	public void carrierPaymenowFuelCard(String fleet_accountnbr, String fts_accountnbr) throws InterruptedException {
 
 		UnmatchedCarrierFuelCard.carrierLogin();
-		carrierloginpageobj.closePaymeNowPopUp();
+		carrierLoginPage.closePaymeNowPopUp();
 
 		UnmatchedCarrierFuelCard.clickPaymenow();
 
@@ -56,6 +56,10 @@ public class UnmatchedCarrierPayMeNowFuelCardTest extends TestBase {
 
 		UnmatchedCarrierFuelCard.clickConfirmButton();
 
+		if (carrierLoginPage.getDonotshowagaincheckbox().isDisplayed()) {
+			carrierLoginPage.closePaymeNowPopUp();
+		}
+
 		UnmatchedCarrierFuelCard.clickPaidTab();
 
 		UnmatchedCarrierFuelCard.clickpaymenowtab();
@@ -75,12 +79,6 @@ public class UnmatchedCarrierPayMeNowFuelCardTest extends TestBase {
 		UnmatchedCarrierFuelCard.clickfuelcardsubmit();
 
 		UnmatchedCarrierFuelCard.clickConfirmButton();
-
-		UnmatchedCarrierFuelCard.clickPaidTab();
-
-		/*
-		 * cw.gettotalpaiyAmount(); cw.verifywiretransfer();
-		 */
 	}
 
 }
