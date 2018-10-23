@@ -47,7 +47,8 @@ public class BrokerBulkUploadPaymentsmatchedCarrier extends TestBase {
 	@FindBy(xpath = "//*[@class='carrierPayment ng-scope']/div/div[5]/div")
 	List<WebElement> List_payment;
 
-	@FindBy(xpath = "//input[contains(@value,'Import')]")
+	// *[@id="dropzoneForm"]
+	@FindBy(xpath = "//*[@id='dropzoneForm']")
 	public WebElement btn_import;
 
 	@FindBy(xpath = ".//*[@id='angularScope']/div[2]/div/div[3]/ul/li[2]/a")
@@ -208,8 +209,7 @@ public class BrokerBulkUploadPaymentsmatchedCarrier extends TestBase {
 
 	public void Clickimport() throws InterruptedException, IOException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_import));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", btn_import);
+		btn_import.click();
 
 	}
 

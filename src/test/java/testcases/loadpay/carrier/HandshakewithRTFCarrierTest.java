@@ -27,7 +27,13 @@ public class HandshakewithRTFCarrierTest extends TestBase {
 		wait = new WebDriverWait(driver, 30);
 	}
 
-	@Test(dataProvider = "getLoginHandshakewithRTF_CarrierDa")
+	@Test(dataProvider = "getStagingCarrierLoginData")
+	public void getCarrierData(String user, String pass) throws InterruptedException {
+		carrierUserName = user;
+		carrierPassword = pass;
+	}
+
+	@Test(dataProvider = "getLoginHandshakewithRTF_CarrierDa", dependsOnMethods = "getCarrierData")
 	public void RTFLogin(String user, String pass) throws InterruptedException {
 		driver.get(prop.getProperty("RTFcarrier"));
 		rtfUsername = user;
@@ -35,15 +41,18 @@ public class HandshakewithRTFCarrierTest extends TestBase {
 
 		rtfcarrier.RTFCarrierlogin(rtfUsername, rtfPassword);
 		rtfcarrier.clickAccount();
+
+		// if not linked already, then link the account
+		if (rtfcarrier.Click_Login.isDisplayed()) {
+			rtfcarrier.click_LoginButton();
+			rtfcarrier.Carrierlogin(carrierUserName, carrierPassword);
+		}
+
+		// unlink account
 		rtfcarrier.clickUnlinkMyUploadAccount();
 		rtfcarrier.clickYesToUnlink();
 		rtfcarrier.click_LoginButton();
-	}
 
-	@Test(dataProvider = "getStagingCarrierLoginData", dependsOnMethods = "RTFLogin")
-	public void loginTest(String user, String pass) throws InterruptedException {
-		carrierUserName = user;
-		carrierPassword = pass;
 		rtfcarrier.Carrierlogin(carrierUserName, carrierPassword);
 
 		rtfcarrier.clickUnlinkMyUploadAccount();

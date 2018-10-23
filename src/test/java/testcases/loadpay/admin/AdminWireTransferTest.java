@@ -144,11 +144,6 @@ public class AdminWireTransferTest extends TestBase {
 		carrierWireTransfer.clickSelectButton();
 
 		carrierWireTransfer.clickConfirmButton();
-		log.info("Perform Carrier Wire Transfer");
-
-		if (carrierLoginPage.getDonotshowagaincheckbox().isDisplayed()) {
-			carrierLoginPage.closePaymeNowPopUp();
-		}
 
 		// carrierWireTransfer.clickPaymenow();
 		adminWireTransfer.clickPayMeNowPayment(invoiceNumber[1]);

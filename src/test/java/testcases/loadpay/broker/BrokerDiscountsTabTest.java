@@ -99,8 +99,9 @@ public class BrokerDiscountsTabTest extends TestBase {
 		// get the data elements from the first row displayed
 		lastRowData = brokerdiscountsTab.getFirstRowData();
 		// compare to the database when sorted by given column-Descending
-		// Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal
-		// when sorted by LoadID!");
+		Assert.assertNotEquals(firstRowData, lastRowData, "Data appears to be equal when sorted by LoadID!");
+
+		brokerdiscountsTab.clickLoadIDColumn();
 	}
 
 	@Test(dependsOnMethods = { "verifyLoadIDSortTest" })

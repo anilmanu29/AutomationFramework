@@ -19,7 +19,7 @@ import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.broker.BrokerViewCreditLessThan1000;
 import pages.loadpay.carrier.CarrierLoginPage;
-import pages.loadpay.carrier.CarrierWireTransfer;
+import pages.loadpay.carrier.CarrierNextDAYACH;
 import pages.loadpay.outlook.outlooklogin;
 import testcases.loadpay.carrier.CarrierRegisterTest;
 
@@ -29,7 +29,7 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 	BrokerOutlook brokeroutlook;
 	outlooklogin outlooklog;
 	CarrierLoginPage carrierloginobj;
-	CarrierWireTransfer carrierwiretransferobj;
+	CarrierNextDAYACH carrierNextDayObj;
 	AdminHomePage adminhomeobj;
 	AdminLogin adminloginobj;
 	String newcreditAmount = "";
@@ -48,7 +48,7 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 		brokeroutlook = new BrokerOutlook();
 		outlooklog = new outlooklogin();
 		carrierloginobj = new CarrierLoginPage();
-		carrierwiretransferobj = new CarrierWireTransfer();
+		carrierNextDayObj = new CarrierNextDAYACH();
 		wait = new WebDriverWait(driver, 30);
 		adminhomeobj = new AdminHomePage();
 		adminloginobj = new AdminLogin();
@@ -81,9 +81,9 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 
 		driver.get(super.getProperties().getProperty("url"));
 		carrierloginobj.Carrierlogin(carrierUsername, carrierPassword);
-		carrierwiretransferobj.clickPaymenow();
-		carrierwiretransferobj.clickSelectButton();
-		carrierwiretransferobj.clickConfirmButton();
+		carrierNextDayObj.clickPaymenow();
+		carrierNextDayObj.clickSelectButton();
+		carrierNextDayObj.clickConfirmButton();
 		Thread.sleep(1000);
 
 		if (carrierloginobj.getDonotshowagaincheckbox().isDisplayed()) {

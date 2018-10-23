@@ -44,8 +44,8 @@
 		 	 
 		 	    
 		 <!-- < This Task is moved to next sprint for change in Functionality> -->
-		 	 	<!-- <class name="testcases.loadpay.broker.BrokerBulkUploadPaymentsmatchedCarrierTest"></class> 
-		 	 	<class name="testcases.loadpay.broker.BrokerBulkUploadPaymentsUnmatchedCarrierTest"></class> -->
+		 	 <class name="testcases.loadpay.broker.BrokerBulkUploadPaymentsmatchedCarrierTest"></class> 
+		 	 <class name="testcases.loadpay.broker.BrokerBulkUploadPaymentsUnmatchedCarrierTest"></class>
 			 	
 			 <class name="testcases.loadpay.carrier.CarrierlockedaccountcanbeunlockedbyadminTest"></class>
 			 	

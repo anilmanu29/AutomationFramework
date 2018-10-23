@@ -156,19 +156,7 @@ public class HandshakewithRTFCarrier extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(UserName));
 		UserName.sendKeys(un);
 		Password.sendKeys(pwd);
-		// loginBtn.click();
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", loginBtn);
-	}
-
-	public void carrierVerificationLogin(String UserName, String NewPassword) {
-		wait.until(ExpectedConditions.elementToBeClickable(Password));
-		cemail = UserName;
-		this.UserName.sendKeys(UserName);
-		Password.sendKeys(NewPassword);
-		// loginBtn.click();
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", loginBtn);
+		loginBtn.click();
 	}
 
 	public void clickAccount() throws InterruptedException {
@@ -229,10 +217,7 @@ public class HandshakewithRTFCarrier extends TestBase {
 	public void clickUnlinkMyUploadAccount() throws InterruptedException {
 
 		wait.until(ExpectedConditions.elementToBeClickable(Click_UnlinkMyUploadAccount));
-
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", Click_UnlinkMyUploadAccount);
-
+		Click_UnlinkMyUploadAccount.click();
 	}
 
 	public void forgotPasswordButton() {
