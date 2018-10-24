@@ -70,6 +70,9 @@ public class BrokerScheduledPaymentsTab extends TestBase {
 	@FindBy(xpath = ".//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div/div/div[3]/div/div[1]/div/div[6]")
 	public WebElement LoadIDNum;
 
+	@FindBy(xpath = "//*[@id='angularScope']/div[2]/div/div[3]/ul/li[2]/a")
+	public WebElement scheduledPaymentsTab;
+
 	public BrokerScheduledPaymentsTab() {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 30);

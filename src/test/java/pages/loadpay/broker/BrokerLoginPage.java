@@ -52,6 +52,7 @@ public class BrokerLoginPage extends TestBase {
 		Password.sendKeys(pwd);
 		wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
 		loginBtn.click();
+		wait.until(ExpectedConditions.elementToBeClickable(btn_logout));
 	}
 
 	public void brokerVerificationLogin(String UserName, String NewPassword) {

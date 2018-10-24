@@ -23,10 +23,6 @@
      4.BrokerPaymentDataforUnmatchedCr = Invoice	LoadID	Amount should be updated
  
    -->
-    
-   
-    	<!-- Script for Jira Ticket LP-5410 - LoadPay - LoadPay - Selenium Test - Carrier - parent/child relationships -->
-			 <class name="testcases.loadpay.carrier.CarrierParentChildRelationshipsTest"></class>	
 			 
 			 <class name="testcases.loadpay.broker.BrokerAvailableCreditTabTest"></class>
 		
@@ -42,19 +38,21 @@
 		 <!-- Script for Jira Ticket   LoadPay - Selenium Test - Admin PayMeNow LockTest  Yurii-->		 	 
 		 	 <class name="testcases.loadpay.admin.AdminPayMeNowLockTest"></class>
 		 	 
-		 	    
+		 <!-- Script for Jira Ticket LP-5410 - LoadPay - LoadPay - Selenium Test - Carrier - parent/child relationships -->
+			 <class name="testcases.loadpay.carrier.CarrierParentChildRelationshipsTest"></class>	
+
 		 <!-- < This Task is moved to next sprint for change in Functionality> -->
 		 	 <class name="testcases.loadpay.broker.BrokerBulkUploadPaymentsmatchedCarrierTest"></class> 
 		 	 <class name="testcases.loadpay.broker.BrokerBulkUploadPaymentsUnmatchedCarrierTest"></class>
-			 	
+			
 			 <class name="testcases.loadpay.carrier.CarrierlockedaccountcanbeunlockedbyadminTest"></class>
 			 	
 			 <class name="testcases.loadpay.broker.BrokerEditPaymentMatchedCarrierTest"></class>
 		 	 <class name="testcases.loadpay.broker.BrokerEditPaymentUnmatchedCarrierTest"></class>
 		 	 	
+		 	 <class name="testcases.loadpay.admin.AdminPayMeNowUnlockTest"></class>
 			 <class name="testcases.loadpay.admin.AdminEditEmailBrokerTest"></class>
 		 	 <class name="testcases.loadpay.admin.AdminEditEmailCarrierTest"></class>
-		 	 <class name="testcases.loadpay.admin.AdminPayMeNowUnlockTest"></class>
 
     </classes>
   </test> 

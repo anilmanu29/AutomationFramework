@@ -152,8 +152,7 @@ public class AdminLogin extends TestBase {
 	@FindBy(id = "CustomerStatusId")
 	WebElement CustomersatatusIdDropDown;
 
-	// *[@id="angularScope"]/div[1]/div/div[2]/div/div/div[2]/div[1]/div[3]/div[1]/a[8]
-	@FindBy(xpath = "//*[@id=\"angularScope\"]/div[1]/div/div[2]/div/div/div[2]/div[1]/div[3]/div[1]/a[8]")
+	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[2]/div[1]/div[3]/div[1]/a[8]")
 	WebElement emailLoginUserLink;
 
 	@FindBy(xpath = ".//*[@id='TabList']/div/table/tbody/tr/td[6]/input")

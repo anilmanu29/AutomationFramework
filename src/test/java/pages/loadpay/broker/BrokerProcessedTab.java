@@ -69,8 +69,10 @@ public class BrokerProcessedTab extends TestBase {
 	}
 
 	public void clickProcessedTab() throws InterruptedException {
+		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(processedtab));
 		processedtab.click();
+		wait.until(ExpectedConditions.elementToBeClickable(paySelectionColumn));
 	}
 
 	public void clickPaySelectionColumn() throws InterruptedException {
