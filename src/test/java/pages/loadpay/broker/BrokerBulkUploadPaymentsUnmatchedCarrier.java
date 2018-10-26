@@ -164,13 +164,16 @@ public class BrokerBulkUploadPaymentsUnmatchedCarrier extends TestBase {
 		// Release Enter
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		Thread.sleep(2000);
-
 	}
 
 	public void Clickimport() throws InterruptedException, IOException {
+		// wait.until(ExpectedConditions.elementToBeClickable(btn_import));
+		// JavascriptExecutor js = (JavascriptExecutor) driver;
+		// js.executeScript("arguments[0].click();", btn_import);
+
+		WebElement btn_import = driver.findElement(By.xpath("//input[@ng-click='DoneImporting();']"));
 		wait.until(ExpectedConditions.elementToBeClickable(btn_import));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", btn_import);
+		btn_import.click();
 
 	}
 

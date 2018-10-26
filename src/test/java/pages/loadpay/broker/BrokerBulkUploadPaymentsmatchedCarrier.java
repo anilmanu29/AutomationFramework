@@ -47,10 +47,6 @@ public class BrokerBulkUploadPaymentsmatchedCarrier extends TestBase {
 	@FindBy(xpath = "//*[@class='carrierPayment ng-scope']/div/div[5]/div")
 	List<WebElement> List_payment;
 
-	// *[@id="dropzoneForm"]
-	@FindBy(xpath = "//*[@id='dropzoneForm']")
-	public WebElement btn_import;
-
 	@FindBy(xpath = ".//*[@id='angularScope']/div[2]/div/div[3]/ul/li[2]/a")
 	public WebElement link_schpaymnt;
 
@@ -132,19 +128,15 @@ public class BrokerBulkUploadPaymentsmatchedCarrier extends TestBase {
 
 		// Copy to clipboard
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(sel, null);
-		log.info("selection" + sel);
 
 		wait.until(ExpectedConditions.elementToBeClickable(link_Upload));
 		link_Upload.click();
 
+		Thread.sleep(1000);
+		driver.switchTo().activeElement();
+
 		// Create object of Robot class
 		Robot robot = new Robot();
-
-		// Press Enter
-		robot.keyPress(KeyEvent.VK_ENTER);
-
-		// Release Enter
-		robot.keyRelease(KeyEvent.VK_ENTER);
 
 		// Press CTRL+V
 		robot.keyPress(KeyEvent.VK_CONTROL);
@@ -154,19 +146,19 @@ public class BrokerBulkUploadPaymentsmatchedCarrier extends TestBase {
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		robot.keyRelease(KeyEvent.VK_V);
 
+		// press tab twice to focus on the Open button
+		robot.keyPress(KeyEvent.VK_TAB);
+		robot.keyRelease(KeyEvent.VK_TAB);
+
+		robot.keyPress(KeyEvent.VK_TAB);
+		robot.keyRelease(KeyEvent.VK_TAB);
+
 		// Press Enter
 		robot.keyPress(KeyEvent.VK_ENTER);
 
 		// Release Enter
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		Thread.sleep(2000);
-
-		/*
-		 * driver.findElement(By.xpath(".//*[@id='dropzoneForm']/div/div")).click();
-		 * Runtime.getRuntime().exec(System.getProperty("user.dir")+
-		 * "\\AutoItScripts\\FileUpload.exe"); //logger.debug("Bulk uploadfiles");
-		 */
-
 	}
 
 	public void UploadFileforError() throws IOException, InterruptedException, AWTException {
@@ -204,10 +196,11 @@ public class BrokerBulkUploadPaymentsmatchedCarrier extends TestBase {
 		// Release Enter
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		Thread.sleep(2000);
-
 	}
 
 	public void Clickimport() throws InterruptedException, IOException {
+
+		WebElement btn_import = driver.findElement(By.xpath("//input[@ng-click='DoneImporting();']"));
 		wait.until(ExpectedConditions.elementToBeClickable(btn_import));
 		btn_import.click();
 

@@ -63,7 +63,7 @@ public class BrokerBulkUploadPaymentsmatchedCarrierTest extends TestBase {
 		bbmp.Clickimport();
 		bbmp.Clickschpayment();
 		bbmp.ClickGridDown();
-		bbmp.newPayment();
+		// bbmp.newPayment();
 	}
 
 	@Test(dependsOnMethods = "verifyImportAndNewPayment")
@@ -137,7 +137,6 @@ public class BrokerBulkUploadPaymentsmatchedCarrierTest extends TestBase {
 		// Verify that the web elements for the Processed tab exist
 		Assert.assertTrue(bbmp.lnk_newpayment.isDisplayed(), "newpayment link  not found");
 		Assert.assertTrue(bbmp.link_Upload.isDisplayed(), "upload link not found");
-		Assert.assertTrue(bbmp.btn_import.isDisplayed(), "import button not found");
 		Assert.assertTrue(bbmp.link_schpaymnt.isDisplayed(), "schedule payment tile not found");
 		Assert.assertTrue(bbmp.link_griddown.isDisplayed(), "grid Pulled down column not found");
 		Assert.assertTrue(bbmp.click_pulldate.isDisplayed(), "pulldate Column not found");
