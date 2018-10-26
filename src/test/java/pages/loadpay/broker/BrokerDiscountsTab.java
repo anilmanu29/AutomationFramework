@@ -76,6 +76,7 @@ public class BrokerDiscountsTab extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(discountstab));
 		discountstab.click();
 		wait.until(ExpectedConditions.elementToBeClickable(carriercolumn));
+		Thread.sleep(1000);
 	}
 
 	public void clickCarrierColumn() throws InterruptedException {

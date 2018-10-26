@@ -63,7 +63,7 @@ public class BrokerBulkUploadPaymentErrorsTest extends TestBase {
 
 	@Test(dependsOnMethods = "loginBroker")
 	public void verifyBrokerBulkUploadPaymentErrors() throws InterruptedException {
-		// verifyBulkUploadPaymentsmatchedCarrierElementsDisplayed();
+		verifyBulkUploadPaymentsmatchedCarrierElementsDisplayed();
 
 	}
 
@@ -95,8 +95,6 @@ public class BrokerBulkUploadPaymentErrorsTest extends TestBase {
 		// Verify that the web elements for the Processed tab exist
 		Assert.assertTrue(BrokerBulkUploadPaymentErrors.lnk_newpayment.isDisplayed(), "newpayment link  not found");
 		Assert.assertTrue(BrokerBulkUploadPaymentErrors.link_Upload.isDisplayed(), "upload link not found");
-		Assert.assertTrue(BrokerBulkUploadPaymentErrors.btn_import.isDisplayed(), "import button not found");
-		Assert.assertTrue(BrokerBulkUploadPaymentErrors.btn_import.isDisplayed(), "button imported tile not found");
 		Assert.assertTrue(BrokerBulkUploadPaymentErrors.link_schpaymnt.isDisplayed(),
 				"schedule payment tile not found");
 

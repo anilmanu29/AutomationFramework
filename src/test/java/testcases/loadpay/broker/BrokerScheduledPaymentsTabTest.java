@@ -79,42 +79,40 @@ public class BrokerScheduledPaymentsTabTest extends TestBase {
 
 		String carrierUsername, invoiceNum, loadID, paymentAmt, paymentDate, companyName = "";
 
-		// if not enough payment data, add 2 payments
-		if (firstRowData.size() < 20) {
-			newPaymentObj.newPayment();
+		newPaymentObj.newPayment();
 
-			for (int x = 0; x < 2; x++) {
+		for (int x = 0; x < 2; x++) {
 
-				if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
-					carrierUsername = CarrierRegisterTest.carrierUsername;
-				} else {
-					carrierUsername = "testCarrier" + TestUtil.getCurrentDateTime() + "@loadpaytest.truckstop.com";
-					companyName = "Test Company";
-				}
-
-				invoiceNum = "NP" + TestUtil.getCurrentDateTime();
-				loadID = invoiceNum;
-				Integer intPaymentAmt = TestUtil.getRandomNumber(100, 999);
-				paymentAmt = intPaymentAmt.toString();
-				paymentDate = BrokerNewPaymentTest.strDate;
-
-				newPaymentObj.carrierEmail(carrierUsername);
-				newPaymentObj.amount(paymentAmt);
-				newPaymentObj.invoiceNumber(invoiceNum);
-				newPaymentObj.loadId(loadID);
-				newPaymentObj.clickShedulePayment();
-
-				searchForInvoice = invoiceNum;
-				searchForInvoice = TestUtil.removeDecimalZeroFormat(searchForInvoice);
-				searchForCompanyName = companyName;
-				searchForLoadID = loadID;
-				searchForLoadID = TestUtil.removeDecimalZeroFormat(searchForLoadID);
-				searchForAmount = paymentAmt;
-				searchForAmount = TestUtil.removeDecimalZeroFormat(searchForAmount);
-				searchForDate = paymentDate;
-				searchForDate = searchForDate.replace("'", "");
-				pullDate = searchForDate;// figure out how anticipate pull date is determined (always 1 day before?)
+			if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
+				carrierUsername = CarrierRegisterTest.carrierUsername;
+			} else {
+				carrierUsername = "testCarrier" + TestUtil.getCurrentDateTime() + "@loadpaytest.truckstop.com";
+				companyName = "Test Company";
 			}
+
+			invoiceNum = "NP" + TestUtil.getCurrentDateTime();
+			loadID = invoiceNum;
+			Integer intPaymentAmt = TestUtil.getRandomNumber(100, 999);
+			paymentAmt = intPaymentAmt.toString();
+			paymentDate = BrokerNewPaymentTest.strDate;
+
+			newPaymentObj.carrierEmail(carrierUsername);
+			newPaymentObj.amount(paymentAmt);
+			newPaymentObj.invoiceNumber(invoiceNum);
+			newPaymentObj.loadId(loadID);
+			newPaymentObj.setField_ScheduleDate(paymentDate);
+			newPaymentObj.clickShedulePayment();
+
+			searchForInvoice = invoiceNum;
+			searchForInvoice = TestUtil.removeDecimalZeroFormat(searchForInvoice);
+			searchForCompanyName = companyName;
+			searchForLoadID = loadID;
+			searchForLoadID = TestUtil.removeDecimalZeroFormat(searchForLoadID);
+			searchForAmount = paymentAmt;
+			searchForAmount = TestUtil.removeDecimalZeroFormat(searchForAmount);
+			searchForDate = paymentDate;
+			searchForDate = searchForDate.replace("'", "");
+			pullDate = searchForDate;// figure out how anticipate pull date is determined (always 1 day before?)
 		}
 	}
 
