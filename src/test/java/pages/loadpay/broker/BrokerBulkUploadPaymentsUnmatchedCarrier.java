@@ -47,6 +47,9 @@ public class BrokerBulkUploadPaymentsUnmatchedCarrier extends TestBase {
 	@FindBy(xpath = "//*[@class='carrierPayment ng-scope']/div/div[5]/div")
 	List<WebElement> List_payment;
 
+	@FindBy(xpath = "//input[@value='Close']")
+	public WebElement closeButton;
+
 	/*
 	 * @FindBy(name ="File Upload") private WebElement path_Upload;
 	 */
@@ -129,6 +132,11 @@ public class BrokerBulkUploadPaymentsUnmatchedCarrier extends TestBase {
 
 	}
 
+	public void ClickCloseButton() throws InterruptedException, IOException {
+		wait.until(ExpectedConditions.elementToBeClickable(closeButton));
+		closeButton.click();
+	}
+
 	public void UploadFile() throws IOException, InterruptedException, AWTException {
 
 		// Specify the file location with extension
@@ -141,14 +149,11 @@ public class BrokerBulkUploadPaymentsUnmatchedCarrier extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(link_Upload));
 		link_Upload.click();
 
+		Thread.sleep(1000);
+		driver.switchTo().activeElement();
+
 		// Create object of Robot class
 		Robot robot = new Robot();
-
-		// Press Enter
-		robot.keyPress(KeyEvent.VK_ENTER);
-
-		// Release Enter
-		robot.keyRelease(KeyEvent.VK_ENTER);
 
 		// Press CTRL+V
 		robot.keyPress(KeyEvent.VK_CONTROL);
@@ -157,6 +162,13 @@ public class BrokerBulkUploadPaymentsUnmatchedCarrier extends TestBase {
 		// Release CTRL+V
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		robot.keyRelease(KeyEvent.VK_V);
+
+		// press tab twice to focus on the Open button
+		robot.keyPress(KeyEvent.VK_TAB);
+		robot.keyRelease(KeyEvent.VK_TAB);
+
+		robot.keyPress(KeyEvent.VK_TAB);
+		robot.keyRelease(KeyEvent.VK_TAB);
 
 		// Press Enter
 		robot.keyPress(KeyEvent.VK_ENTER);
@@ -180,43 +192,50 @@ public class BrokerBulkUploadPaymentsUnmatchedCarrier extends TestBase {
 	public void Clickschpayment() throws InterruptedException, IOException {
 		wait.until(ExpectedConditions.elementToBeClickable(link_schpaymnt));
 		link_schpaymnt.click();
+		Thread.sleep(2000);
 
 	}
 
 	public void ClickGridDown() throws InterruptedException, IOException {
 		wait.until(ExpectedConditions.elementToBeClickable(link_griddown));
 		link_griddown.click();
-
+		Thread.sleep(2000);
 	}
 
 	public void clickAnticipatedPullDate() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(click_pulldate));
 		click_pulldate.click();
+		Thread.sleep(2000);
 	}
 
 	public void clickPayToDate() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(click_PayToDate));
 		click_PayToDate.click();
+		Thread.sleep(2000);
 	}
 
 	public void clickAmount() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(click_Amount));
 		click_Amount.click();
+		Thread.sleep(2000);
 	}
 
 	public void clickCarrier() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(click_Carrier));
 		click_Carrier.click();
+		Thread.sleep(2000);
 	}
 
 	public void clickinvoice() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(click_InvoiceID));
 		click_InvoiceID.click();
+		Thread.sleep(2000);
 	}
 
 	public void clickLoadID() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(Click_LoadID));
 		Click_LoadID.click();
+		Thread.sleep(2000);
 	}
 
 	public void enterSearchText(String searchText) throws InterruptedException {
@@ -232,7 +251,12 @@ public class BrokerBulkUploadPaymentsUnmatchedCarrier extends TestBase {
 
 	public void clickFirstRow() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(expandCollapseFirstRow));
-		js.executeScript("arguments[0].click();", expandCollapseFirstRow);
+		expandCollapseFirstRow.click();
+		Thread.sleep(1000);
+
+		while (expandCollapseFirstRow.getAttribute("class").contains("collapsed")) {
+			Thread.sleep(1000);
+		}
 	}
 
 	public List<String> getFirstRowData() throws InterruptedException {

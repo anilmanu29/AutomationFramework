@@ -105,6 +105,7 @@ public class CarrierOutlookCanada extends TestBase {
 			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
 			buttonOpen.click();
 		} catch (Exception e) {
+			wait.until(ExpectedConditions.elementToBeClickable(searchSuggestion));
 			searchSuggestion.click();
 			wait.until(ExpectedConditions.elementToBeClickable(buttonOpen));
 			buttonOpen.click();

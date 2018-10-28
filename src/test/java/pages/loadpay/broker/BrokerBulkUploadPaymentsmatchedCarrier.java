@@ -50,6 +50,9 @@ public class BrokerBulkUploadPaymentsmatchedCarrier extends TestBase {
 	@FindBy(xpath = ".//*[@id='angularScope']/div[2]/div/div[3]/ul/li[2]/a")
 	public WebElement link_schpaymnt;
 
+	@FindBy(xpath = "//input[@value='Close']")
+	public WebElement closeButton;
+
 	@FindBy(xpath = ".//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div/div/div[3]/div/div[1]")
 	public WebElement link_griddown;
 
@@ -77,7 +80,7 @@ public class BrokerBulkUploadPaymentsmatchedCarrier extends TestBase {
 	@FindBy(xpath = "//input[@value='Search']")
 	public WebElement searchButton;
 
-	@FindBy(xpath = ".//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div/div/div[3]/div/div[1]")
+	@FindBy(xpath = "//*[@id='angularScope']/div[2]/div/div[3]/div/div/div[1]/div/div[4]/div/div/div[3]/div/div[1]")
 	private WebElement expandCollapseFirstRow;
 
 	@FindBy(xpath = "//*[@aria-expanded='true']//child::div[6]/span")
@@ -119,6 +122,11 @@ public class BrokerBulkUploadPaymentsmatchedCarrier extends TestBase {
 	public void ClickUpload() throws InterruptedException, IOException {
 		wait.until(ExpectedConditions.elementToBeClickable(link_Upload));
 		link_Upload.click();
+	}
+
+	public void ClickCloseButton() throws InterruptedException, IOException {
+		wait.until(ExpectedConditions.elementToBeClickable(closeButton));
+		closeButton.click();
 	}
 
 	public void UploadFile() throws IOException, InterruptedException, AWTException {
@@ -209,42 +217,50 @@ public class BrokerBulkUploadPaymentsmatchedCarrier extends TestBase {
 	public void Clickschpayment() throws InterruptedException, IOException {
 		wait.until(ExpectedConditions.elementToBeClickable(link_schpaymnt));
 		link_schpaymnt.click();
+		Thread.sleep(2000);
 	}
 
 	public void ClickGridDown() throws InterruptedException, IOException {
 		wait.until(ExpectedConditions.elementToBeClickable(link_griddown));
 		link_griddown.click();
+		Thread.sleep(2000);
 
 	}
 
 	public void clickAnticipatedPullDate() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(click_pulldate));
 		click_pulldate.click();
+		Thread.sleep(2000);
 	}
 
 	public void clickPayToDate() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(click_PayToDate));
 		click_PayToDate.click();
+		Thread.sleep(2000);
 	}
 
 	public void clickAmount() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(click_Amount));
 		click_Amount.click();
+		Thread.sleep(2000);
 	}
 
 	public void clickCarrier() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(click_Carrier));
 		click_Carrier.click();
+		Thread.sleep(2000);
 	}
 
 	public void clickinvoice() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(click_InvoiceID));
 		click_InvoiceID.click();
+		Thread.sleep(2000);
 	}
 
 	public void clickLoadID() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(Click_LoadID));
 		Click_LoadID.click();
+		Thread.sleep(2000);
 	}
 
 	public void enterSearchText(String searchText) throws InterruptedException {
@@ -260,7 +276,12 @@ public class BrokerBulkUploadPaymentsmatchedCarrier extends TestBase {
 
 	public void clickFirstRow() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(expandCollapseFirstRow));
-		js.executeScript("arguments[0].click();", expandCollapseFirstRow);
+		expandCollapseFirstRow.click();
+		Thread.sleep(1000);
+
+		while (expandCollapseFirstRow.getAttribute("class").contains("collapsed")) {
+			Thread.sleep(1000);
+		}
 	}
 
 	public List<String> getFirstRowData() throws InterruptedException {

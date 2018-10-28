@@ -39,9 +39,6 @@ public class CarrierPaymeNowFuelCard extends TestBase {
 	@FindBy(xpath = "//div[@id='payMeNowQuoteDiv']//child::button[text()='CONFIRM']")
 	private WebElement btn_confirm;
 
-	@FindBy(xpath = ".//*[@class='title ng-binding'][text()='PAID']")
-	private WebElement tab_paid;
-
 	@FindBy(xpath = ".//button[text()='Add New Card']")
 	private WebElement btn_addnewcard;
 
@@ -75,8 +72,14 @@ public class CarrierPaymeNowFuelCard extends TestBase {
 	@FindBy(xpath = "//*[@id='angularScope']/div[2]/div/div[3]/ul/li[3]/a/div/div[1]/div[2]/span[1]")
 	private WebElement paidamt;
 
-	@FindBy(xpath = "//*[@class='PMN']")
-	WebElement paymenowtab;
+	@FindBy(xpath = "//a[contains(@href, 'PayMeNow')]")
+	WebElement payMeNowTab;
+
+	@FindBy(xpath = "//a[contains(@href, 'Paid')]")
+	WebElement paidTab;
+
+	@FindBy(xpath = "//a[contains(@href, 'ScheduledPayments')]")
+	WebElement scheduledPaymentsTab;
 
 	@FindBy(xpath = ".//input[@value='efs']")
 	WebElement rbtn_fts;
@@ -125,18 +128,19 @@ public class CarrierPaymeNowFuelCard extends TestBase {
 	public void clickConfirmButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_confirm));
 		btn_confirm.click();
+		wait.until(ExpectedConditions.elementToBeClickable(paidTab));
 	}
 
 	public void clickPaidTab() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(tab_paid));
-		tab_paid.click();
-
+		wait.until(ExpectedConditions.elementToBeClickable(paidTab));
+		paidTab.click();
+		Thread.sleep(1000);
 	}
 
 	public void clickpaymenowtab() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(paymenowtab));
-		paymenowtab.click();
-
+		wait.until(ExpectedConditions.elementToBeClickable(payMeNowTab));
+		payMeNowTab.click();
+		Thread.sleep(1000);
 	}
 
 	public void clickFTS() throws InterruptedException {

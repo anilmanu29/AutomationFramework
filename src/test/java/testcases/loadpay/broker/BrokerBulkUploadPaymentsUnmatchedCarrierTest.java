@@ -72,16 +72,15 @@ public class BrokerBulkUploadPaymentsUnmatchedCarrierTest extends TestBase {
 	@Test(dependsOnMethods = "verifyUploadFile")
 	public void verifyClickimport() throws InterruptedException, IOException {
 		bbmp.Clickimport();
-
 	}
 
 	@Test(dependsOnMethods = "verifyClickimport")
-	public void verifyClickschpayment() throws InterruptedException, IOException {
+	public void verifyClickCloseButton() throws InterruptedException, IOException {
+		bbmp.ClickCloseButton();
 		bbmp.Clickschpayment();
-
 	}
 
-	@Test(dependsOnMethods = "verifyClickschpayment")
+	@Test(dependsOnMethods = "verifyClickCloseButton")
 	public void verifyClickGridDown() throws InterruptedException, IOException {
 		bbmp.ClickGridDown();
 	}

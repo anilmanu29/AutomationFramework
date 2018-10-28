@@ -55,7 +55,7 @@ public class UnmatchedCariierEmailVerifyTest extends TestBase {
 		String[] timeArray = TestUtil.getTimestamp();
 		currentHour = timeArray[0];
 		currentMinutes = timeArray[1];
-		Thread.sleep(30000);
+		Thread.sleep(10000);
 		outlookk.outlookSearchInbox(BrokerPaymentforUnmatchedCarrierTest.al.get(0) + " AND NOT payments@loadpay.com",
 				currentHour, currentMinutes);
 		outlookk.handleNewInbox();
