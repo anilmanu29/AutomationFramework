@@ -61,6 +61,7 @@ public class BrokerBulkUploadPaymentsmatchedCarrierTest extends TestBase {
 		bbmp.newPayment();
 		bbmp.UploadFile();
 		bbmp.Clickimport();
+		bbmp.ClickCloseButton();
 		bbmp.Clickschpayment();
 		bbmp.ClickGridDown();
 		// bbmp.newPayment();

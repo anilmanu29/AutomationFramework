@@ -158,6 +158,7 @@ public class ShipperPaymentHistoryTest extends TestBase {
 	@Test(description = "LP-3481 Shipper - Payment History", dependsOnMethods = { "verifyMonthsExpandRolledup" })
 	public void verifyPaymentssExpandRolledup() throws InterruptedException {
 		// verifyng payments can be expanded/rolled up
+		driver.navigate().refresh();
 		shipperpaymenthistoryobj.expandcollapsePayments();
 	}
 
