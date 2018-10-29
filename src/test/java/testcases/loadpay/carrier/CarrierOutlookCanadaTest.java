@@ -55,7 +55,6 @@ public class CarrierOutlookCanadaTest extends TestBase {
 		String[] timeArray = TestUtil.getTimestamp();
 		currentHour = timeArray[0];
 		currentMinutes = timeArray[1];
-		Thread.sleep(10000);
 		carrierCAOutlookObj.outlookSearchInbox(CarrierRegisterCanadaTest.carrierUsername, currentHour, currentMinutes);
 		carrierCAOutlookObj.handleNewInbox(CarrierRegisterCanadaTest.carrierUsername);
 		carrierCAOutlookObj.verifyConfirmationMessage();
