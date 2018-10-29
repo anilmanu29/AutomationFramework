@@ -54,7 +54,6 @@ public class BrokerOutlookCanadaTest extends TestBase {
 		String[] timeArray = TestUtil.getTimestamp();
 		currentHour = timeArray[0];
 		currentMinutes = timeArray[1];
-		Thread.sleep(10000);
 		outlookk.outlookSearchInbox(BrokerRegisterCanadaTest.brokerUsername, currentHour, currentMinutes);
 		outlookk.handleNewInbox(BrokerRegisterCanadaTest.brokerUsername);
 		outlookk.verifyConfirmationMessage();

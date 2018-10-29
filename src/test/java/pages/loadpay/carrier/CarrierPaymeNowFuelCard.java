@@ -133,14 +133,14 @@ public class CarrierPaymeNowFuelCard extends TestBase {
 
 	public void clickPaidTab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(paidTab));
-		paidTab.click();
 		Thread.sleep(1000);
+		paidTab.click();
 	}
 
 	public void clickpaymenowtab() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(payMeNowTab));
-		payMeNowTab.click();
 		Thread.sleep(1000);
+		payMeNowTab.click();
 	}
 
 	public void clickFTS() throws InterruptedException {
