@@ -19,6 +19,10 @@ import testcases.loadpay.carrier.CarrierRegisterTest;
 public class CarrierOutlook extends TestBase {
 	WebDriverWait wait = null;
 	// Page Factory - OR:
+
+	@FindBy(xpath = "//button[@type='button' and span='No']")
+	WebElement noButtonForChangePassword;
+
 	@FindBy(id = "username")
 	WebElement UserName;
 
@@ -88,6 +92,11 @@ public class CarrierOutlook extends TestBase {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 30);
 
+	}
+
+	public void clickNoForPasswordChange() {
+		if (noButtonForChangePassword.isDisplayed() && noButtonForChangePassword.isEnabled())
+			noButtonForChangePassword.click();
 	}
 
 	public void clickPopUp() throws InterruptedException {

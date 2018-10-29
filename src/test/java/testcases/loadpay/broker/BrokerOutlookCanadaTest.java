@@ -10,12 +10,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import pages.loadpay.broker.BrokerOutlookCanada;
+import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.outlook.outlooklogin;
 import util.TestUtil;
 
 public class BrokerOutlookCanadaTest extends TestBase {
-	BrokerOutlookCanada outlookk;
+	BrokerOutlook outlookk;
 	outlooklogin outlook;
 	Date currentTime;
 	String formattedDate = "";
@@ -35,7 +35,7 @@ public class BrokerOutlookCanadaTest extends TestBase {
 
 		initialization();
 		outlook = new outlooklogin();
-		outlookk = new BrokerOutlookCanada();
+		outlookk = new BrokerOutlook();
 		wait = new WebDriverWait(driver, 30);
 		currentTime = new Date();
 	}
@@ -56,7 +56,7 @@ public class BrokerOutlookCanadaTest extends TestBase {
 		currentMinutes = timeArray[1];
 		Thread.sleep(10000);
 		outlookk.outlookSearchInbox(BrokerRegisterCanadaTest.brokerUsername, currentHour, currentMinutes);
-		outlookk.handleNewInbox();
+		outlookk.handleNewInbox(BrokerRegisterCanadaTest.brokerUsername);
 		outlookk.verifyConfirmationMessage();
 
 	}

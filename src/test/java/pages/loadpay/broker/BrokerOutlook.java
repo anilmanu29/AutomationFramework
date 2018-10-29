@@ -21,6 +21,10 @@ public class BrokerOutlook extends TestBase {
 	WebDriverWait wait = null;
 
 	// Page Factory - OR:
+
+	@FindBy(xpath = "//button[@type='button' and span='No']")
+	WebElement noButtonForChangePassword;
+
 	@FindBy(id = "username")
 	WebElement UserName;
 
@@ -89,6 +93,11 @@ public class BrokerOutlook extends TestBase {
 
 	}
 
+	public void clickNoForPasswordChange() {
+		if (noButtonForChangePassword.isDisplayed() && noButtonForChangePassword.isEnabled())
+			noButtonForChangePassword.click();
+	}
+
 	// public void clickPopUp() throws InterruptedException {
 	// wait.until(ExpectedConditions.elementToBeClickable(fieldSearchMail));
 	// fieldSearchMail.click();
@@ -111,10 +120,11 @@ public class BrokerOutlook extends TestBase {
 	// Thread.sleep(1000);
 	// }
 
-	public void clickOpenMailBox() {
+	public void clickOpenMailBox() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(lnkopenanothermail));
+		Thread.sleep(1000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", lnkopenanothermail);
-
 	}
 
 	// public void enterEmail(String email) throws InterruptedException {
@@ -167,6 +177,27 @@ public class BrokerOutlook extends TestBase {
 			wait.until(ExpectedConditions.elementToBeClickable(emailid));
 			log.info(emailid.getText());
 			if (emailid.getText().equalsIgnoreCase(BrokerRegisterTest.brokerUsername + ";")) {
+				wait.until(ExpectedConditions.elementToBeClickable(linkVerify));
+				linkVerify.click();
+				break;
+			}
+		}
+	}
+
+	public void handleNewInbox(String userName) throws InterruptedException {
+		Thread.sleep(3000);
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(1));
+		Thread.sleep(6000);
+
+		List<WebElement> list = driver
+				.findElements(By.xpath("//*[@class='ms-font-l lvHighlightSubjectClass lvHighlightAllClass']"));
+		for (WebElement e : list) {
+			wait.until(ExpectedConditions.elementToBeClickable(e));
+			e.click();
+			wait.until(ExpectedConditions.elementToBeClickable(emailid));
+			log.info(emailid.getText());
+			if (emailid.getText().equalsIgnoreCase(userName + ";")) {
 				wait.until(ExpectedConditions.elementToBeClickable(linkVerify));
 				linkVerify.click();
 				break;
