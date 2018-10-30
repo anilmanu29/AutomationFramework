@@ -1,5 +1,6 @@
 package testcases.loadpay.carrier;
 
+import java.awt.AWTException;
 import java.util.List;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -9,6 +10,7 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import pages.loadpay.carrier.CarrierLoginPage;
+import pages.loadpay.carrier.CarrierNextDAYACH;
 import pages.loadpay.carrier.CarrierPaidTab;
 import testcases.loadpay.broker.BrokerNewPaymentTest;
 import util.TestUtil;
@@ -16,6 +18,7 @@ import util.TestUtil;
 public class CarrierPaidTabTest extends TestBase {
 	CarrierLoginPage loginPage;
 	CarrierPaidTab carrierPaidTab;
+	CarrierNextDAYACH carriernextdayachobj;
 	List<String> firstRowData = null;
 	List<String> lastRowData = null;
 	String searchStatusText = "";
@@ -34,12 +37,13 @@ public class CarrierPaidTabTest extends TestBase {
 		initialization();
 		loginPage = new CarrierLoginPage();
 		carrierPaidTab = new CarrierPaidTab();
+		carriernextdayachobj = new CarrierNextDAYACH();
 		wait = new WebDriverWait(driver, 30);
 	}
 
 	@Test(description = "LP-3476 CarrierPaidTabTest_Login", dataProvider = "getCarrierPaidTabData")
 	public void loginAsCarrier(String carrierEmail, String carrierPW, String statusText, String amountText,
-			String payerText, String loadIdText) throws InterruptedException {
+			String payerText, String loadIdText) throws InterruptedException, AWTException {
 		// login as carrier
 
 		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
@@ -54,6 +58,10 @@ public class CarrierPaidTabTest extends TestBase {
 		}
 
 		loginPage.Carrierlogin(carrierUsername, carrierPassword);
+		carriernextdayachobj.clickPaymenow();
+		carriernextdayachobj.clickSelectButton();
+		carriernextdayachobj.clickConfirmButton();
+		loginPage.closePaymeNowPopUp();
 		searchStatusText = statusText;
 		searchAmountText = TestUtil.removeDecimalZeroFormat(amountText);
 		searchPayerText = payerText;
@@ -112,6 +120,7 @@ public class CarrierPaidTabTest extends TestBase {
 		// get the data elements from the first row displayed
 		lastRowData = carrierPaidTab.getFirstRowData();
 		// compare to the database when sorted by given column-Descending
+		Thread.sleep(2000);
 		if (carrierPaidTab.getRowCount() > 1)
 			Assert.assertNotEquals(firstRowData, lastRowData,
 					"First Row Data: \n" + firstRowData + "\nLast Row Data: \n" + lastRowData);
