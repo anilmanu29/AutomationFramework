@@ -57,6 +57,12 @@ public class CarrierNextDAYACHTest extends TestBase {
 		carrierNextDayObj.getnextdayAmount();
 		carrierNextDayObj.clickSelectButton();
 		carrierNextDayObj.clickConfirmButton();
+
+		if (loginPage.getDonotshowagaincheckbox().isDisplayed()) {
+			loginPage.getDonotshowagaincheckbox().click();
+			loginPage.getPayMeNowPopupSaveButton().click();
+		}
+
 		carrierNextDayObj.clickPaidTab();
 		carrierNextDayObj.gettotalpaiyAmount();
 		carrierNextDayObj.verifyNextDayach();

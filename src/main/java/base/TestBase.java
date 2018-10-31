@@ -33,7 +33,7 @@ public class TestBase {
 	protected static String userHome = "user.home";
 	public static Logger log;
 	public static WebDriverWait wait = null;
-	public static final String loadPayTestDataFilePath = System.getProperty(userDirectory)
+	public static String loadPayTestDataFilePath = System.getProperty(userDirectory)
 			+ "/src/main/java/testdata/LoadPay/LoadPayTestData.xlsx";
 
 	public TestBase() {
@@ -61,6 +61,12 @@ public class TestBase {
 		// } else {
 		// TestUtil.beginVideoCapture();
 		// }
+
+		String fullRegression = prop.getProperty("useFullRegressionData");
+
+		if (fullRegression.contains("true"))
+			loadPayTestDataFilePath = System.getProperty(userDirectory)
+					+ "/src/main/java/testdata/LoadPay/LoadPayTestData_FullRegression.xlsx";
 
 		String browserName = prop.getProperty("browser");
 
