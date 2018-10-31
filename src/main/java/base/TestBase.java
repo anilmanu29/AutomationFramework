@@ -2,6 +2,8 @@ package base;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -9,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
@@ -66,7 +69,18 @@ public class TestBase {
 		if (browserName.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver",
 					System.getProperty(userDirectory) + "/Drivers/chromedriver.exe");
-			driver = new ChromeDriver();
+			// driver = new ChromeDriver();
+
+			Map<String, Object> prefs = new HashMap<String, Object>();
+			// To Turns off multiple download warning
+			prefs.put("profile.default_content_settings.popups", 0);
+			prefs.put("profile.content_settings.pattern_pairs.*.multiple-automatic-downloads", 1);
+			// Turns off download prompt
+			prefs.put("download.prompt_for_download", false);
+			ChromeOptions options = new ChromeOptions();
+			options.setExperimentalOption("prefs", prefs);
+			driver = new ChromeDriver(options);
+
 		} else if (browserName.equals("FF")) {
 			System.setProperty("webdriver.gecko.driver",
 					System.getProperty(userDirectory) + "/Drivers/geckodriver.exe");

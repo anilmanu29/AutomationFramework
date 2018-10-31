@@ -369,10 +369,10 @@ public class ShipperPaymentHistory extends TestBase {
 			for (WebElement payment : payments) {
 				wait.until(ExpectedConditions.elementToBeClickable(payment));
 				js.executeScript("arguments[0].click();", payment);
-				Thread.sleep(1000);
+				Thread.sleep(3000);
 				Assert.assertTrue(payment.getAttribute("aria-expanded").contains("true"), "Payment should be expanded");
 				js.executeScript("arguments[0].click();", payment);
-				Thread.sleep(1000);
+				Thread.sleep(3000);
 				Assert.assertTrue(payment.getAttribute("aria-expanded").contains("false"),
 						"Payment should not be expanded");
 				break;
