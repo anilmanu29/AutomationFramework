@@ -12,7 +12,7 @@
        <suite-file path="src/main/resources/LoadPayXMLs/2018/CreateNewBrokerAndCarrierWithPayments.xml"></suite-file>            
 	 </suite-files>
    
-	<test name="Sprint I Test Cases" preserve-order="true">
+	<test name="I Sprint Test Cases" preserve-order="true">
 		 <classes>
 		    
 <!-- 		    Using dynamic data, we only need to setup data ONCE for the following: -->
