@@ -112,7 +112,13 @@ public class BrokerNewPaymentTest extends TestBase {
 
 		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true") && !newDateUsed) {
 			Integer month = today.getMonthValue() + 1;
-			strDate = month.toString() + "/" + today.getDayOfMonth() + "/" + today.getYear();
+			Integer day = today.getDayOfMonth();
+
+			// account for 28/30 day months
+			if (day > 28)
+				day = 28;
+
+			strDate = month.toString() + "/" + day.toString() + "/" + today.getYear();
 			bp.setField_ScheduleDate(strDate);
 			newDateUsed = true;
 		}

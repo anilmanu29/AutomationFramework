@@ -109,7 +109,12 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 
 		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true") && !newDateUsed) {
 			Integer month = today.getMonthValue() + 1;
-			String strDate = month.toString() + "/" + today.getDayOfMonth() + "/" + today.getYear();
+			Integer day = today.getDayOfMonth();
+
+			if (day > 28)
+				day = 28;
+
+			String strDate = month.toString() + "/" + day.toString() + "/" + today.getYear();
 			bp.setField_ScheduleDate(strDate);
 			newDateUsed = true;
 		}

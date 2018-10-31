@@ -71,10 +71,6 @@ public class ShipperPaymentHistoryTest extends TestBase {
 		if (carrierLoginPage.getTermsAndConditionsCheckBox().isEnabled()) {
 			carrierLoginPage.clickTermsAndConditionsCheckBox();
 			carrierLoginPage.clickFinishButton();
-			Assert.assertTrue(
-					carrierLoginPage.getConfirmationPopup().getText()
-							.contains("Your LoadPay™ registration has been completed successfully."),
-					"Registration success message not found");
 			carrierLoginPage.clickConfirmationPopupCloseButton();
 		}
 
