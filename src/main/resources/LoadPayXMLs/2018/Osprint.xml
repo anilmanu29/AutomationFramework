@@ -43,8 +43,8 @@
 		<class name="testcases.loadpay.admin.AdminPaymentHistoryTest"></class>		
 		
     <!-- Script for Jira Ticket LP-6350 -LoadPay - Selenium Test - Admin - Show Quote For Check_Matched Carrier-->
-    	<class name="testcases.loadpay.carrier.ShowQuoteCheck_matchedCarrierTest"></class>
-    
+<!--     	<class name="testcases.loadpay.carrier.ShowQuoteCheck_matchedCarrierTest"></class>
+ -->    
     <!-- Script for Jira Ticket LP-LP-6361 -LoadPay - Selenium Test - Broker - Notifications-->
     	<class name="testcases.loadpay.broker.BrokerNotificationsTest"></class>
     
