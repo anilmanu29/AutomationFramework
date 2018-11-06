@@ -125,7 +125,7 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 			outlookLoginObj.outlookLogin(un, pwd);
 			carrierOutlookObj.clickPopUp();
 			carrierOutlookObj.clickOpenMailBox();
-			carrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
+			carrierOutlookObj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 			carrierlockaccounrsetpwdtobj.outlookSearchInbox(aemail, currentHour, currentMinutes);
 			carrierlockaccounrsetpwdtobj.handleUpdatedEmailInbox(aemail);
 		} catch (AWTException e) {

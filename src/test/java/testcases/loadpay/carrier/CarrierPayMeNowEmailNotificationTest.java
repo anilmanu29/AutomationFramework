@@ -116,7 +116,7 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 		outloginobj.outlookLogin(un, pwd);
 		carrieroutlookobj.clickPopUp();
 		carrieroutlookobj.clickOpenMailBox();
-		carrieroutlookobj.enterEmail(super.getProperties().getProperty("email"));
+		carrieroutlookobj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 		carrierpaymenowemailobj.switchToNewWindow(2);
 		carrierpaymenowemailobj.outlookSearchInbox(
 				"PayMeNow Payment Notification " + BrokerNewPaymentTest.newPaymentLoadId.get(1), carrierUsername,
@@ -147,10 +147,10 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 
 		// switch to new window
 		carrierpaymenowemailobj.openandSwitchToNewWindow(1);
-		driver.get(super.getProperties().getProperty("outlookurl"));
+		driver.get(super.getProperties().getProperty("outlookURL"));
 		carrieroutlookobj.clickPopUp();
 		carrieroutlookobj.clickOpenMailBox();
-		carrieroutlookobj.enterEmail(super.getProperties().getProperty("email"));
+		carrieroutlookobj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 		carrierpaymenowemailobj.switchToNewWindow(2);
 		carrierpaymenowemailobj.outlookSearchInbox(
 				"PayMeNow Payment Notification " + BrokerNewPaymentTest.newPaymentLoadId.get(2), carrierUsername,
@@ -181,10 +181,10 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 
 		// switch to new window
 		carrierpaymenowemailobj.openandSwitchToNewWindow(1);
-		driver.get(super.getProperties().getProperty("outlookurl"));
+		driver.get(super.getProperties().getProperty("outlookURL"));
 		carrieroutlookobj.clickPopUp();
 		carrieroutlookobj.clickOpenMailBox();
-		carrieroutlookobj.enterEmail(super.getProperties().getProperty("email"));
+		carrieroutlookobj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 		carrierpaymenowemailobj.switchToNewWindow(2);
 		carrierpaymenowemailobj.outlookSearchInbox(
 				"PayMeNow Payment Notification " + BrokerNewPaymentTest.newPaymentLoadId.get(3), carrierUsername,
@@ -241,10 +241,10 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 		{
 			// switch to new window
 			carrierpaymenowemailobj.openandSwitchToNewWindow(1);
-			driver.get(super.getProperties().getProperty("outlookurl"));
+			driver.get(super.getProperties().getProperty("outlookURL"));
 			carrieroutlookobj.clickPopUp();
 			carrieroutlookobj.clickOpenMailBox();
-			carrieroutlookobj.enterEmail(super.getProperties().getProperty("email"));
+			carrieroutlookobj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 			carrierpaymenowemailobj.switchToNewWindow(2);
 			carrierpaymenowemailobj.outlookSearchInbox(
 					"PayMeNow Payment Notification " + BrokerNewPaymentTest.newPaymentLoadId.get(1), carrierUsername,
@@ -339,10 +339,10 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 		{
 			// switch to new window
 			carrierpaymenowemailobj.openandSwitchToNewWindow(2);
-			driver.get(super.getProperties().getProperty("outlookurl"));
+			driver.get(super.getProperties().getProperty("outlookURL"));
 			carrieroutlookobj.clickPopUp();
 			carrieroutlookobj.clickOpenMailBox();
-			carrieroutlookobj.enterEmail(super.getProperties().getProperty("email"));
+			carrieroutlookobj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 			carrierpaymenowemailobj.switchToNewWindow(3);
 			carrierpaymenowemailobj.outlookSearchInbox("PayMeNow Payment Notification", carrierUsername, "Check");
 

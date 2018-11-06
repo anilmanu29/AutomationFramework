@@ -85,7 +85,7 @@ public class BrokerAvailableCreditTabTest extends TestBase {
 			outlooklog.outlookLogin(un, pwd);
 			brokeroutlook.clickPopUp();
 			brokeroutlook.clickOpenMailBox();
-			brokeroutlook.enterEmail(super.getProperties().getProperty("email"));
+			brokeroutlook.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 			Assert.assertTrue(SearchInbox("Credit increase request"));
 			brokeroutlook.quit();
 		} catch (AWTException e) {

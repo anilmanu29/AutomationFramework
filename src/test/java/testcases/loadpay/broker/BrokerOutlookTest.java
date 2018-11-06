@@ -51,7 +51,7 @@ public class BrokerOutlookTest extends TestBase {
 	public void outlookloginTest() throws InterruptedException, AWTException {
 		brokerOutlookObj.clickPopUp();
 		brokerOutlookObj.clickOpenMailBox();
-		brokerOutlookObj.enterEmail(super.getProperties().getProperty("email"));
+		brokerOutlookObj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 		// outlookk.clickOpen();
 		String[] timeArray = TestUtil.getTimestamp();
 		currentHour = timeArray[0];

@@ -72,7 +72,7 @@ public class HandshakewithITSDispatch extends TestBase {
 	}
 
 	public void accesITSDispatchAplication() throws InterruptedException {
-		driver.navigate().to(prop.getProperty("ITSDispatchurl"));
+		driver.navigate().to(prop.getProperty("ITSDispatchURL"));
 		// Thread.sleep(1000);
 	}
 

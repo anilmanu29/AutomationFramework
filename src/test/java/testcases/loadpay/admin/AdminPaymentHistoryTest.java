@@ -133,7 +133,7 @@ public class AdminPaymentHistoryTest extends TestBase {
 	public void outlookloginTest() throws InterruptedException, AWTException {
 		brokerOutlookObj.clickPopUp();
 		brokerOutlookObj.clickOpenMailBox();
-		brokerOutlookObj.enterEmail(super.prop.getProperty("email"));
+		brokerOutlookObj.enterEmail(super.prop.getProperty("loadpaytestEmail"));
 		String[] timeArray = TestUtil.getTimestamp();
 		currentHour = timeArray[0];
 		currentMinutes = timeArray[1];
@@ -176,10 +176,10 @@ public class AdminPaymentHistoryTest extends TestBase {
 
 	@Test(dataProvider = "getoutlookLoginData", dependsOnMethods = "verifyAdminPaymentHistoryStatuscarrier")
 	public void outlookcarrierloginTest(String un, String pwd) throws InterruptedException, AWTException {
-		driver.get(prop.getProperty("outlookurl"));
+		driver.get(prop.getProperty("outlookURL"));
 		carierOutlookObj.clickPopUp();
 		carierOutlookObj.clickOpenMailBox();
-		carierOutlookObj.enterEmail(super.prop.getProperty("email"));
+		carierOutlookObj.enterEmail(super.prop.getProperty("loadpaytestEmail"));
 		carierOutlookObj.outlookSearchInbox(carrierUserName, currentHour, currentMinutes);
 
 		/* carrieroutlookk.handleNewInbox(); */

@@ -81,7 +81,7 @@ public class HandshakewithRTFBroker extends TestBase {
 	}
 
 	public void accesRTFAplication() throws InterruptedException {
-		driver.get(prop.getProperty("RTFBroker"));
+		driver.get(prop.getProperty("rtfBrokerURL"));
 		// Thread.sleep(1000);
 	}
 

@@ -54,11 +54,6 @@ public class TestBase {
 			TestUtil.beginVideoCapture();
 		}
 
-		if (prop.getProperty("useFullRegressionData").contains("true")) {
-			loadPayTestDataFilePath = System.getProperty(userDirectory)
-					+ "/src/main/java/testdata/LoadPay/LoadPayTestData_FullRegression.xlsx";
-		}
-
 		String browserName = prop.getProperty("browser");
 
 		log.info("Selecting browser type from configuration properties");
@@ -88,7 +83,35 @@ public class TestBase {
 			driver = new InternetExplorerDriver();
 		}
 
-		driver.get(prop.getProperty("url"));
+		String applicationUnderTest = prop.getProperty("AUT");
+
+		switch (applicationUnderTest) {
+		case "Loadpay":
+			driver.get(prop.getProperty("loadPayURL"));
+			break;
+		case "LoadpayAdmin":
+			driver.get(prop.getProperty("loadPayAdminURL"));
+			break;
+		case "FreightMatching":
+			driver.get(prop.getProperty(""));
+			break;
+		case "ITSDispatch":
+			driver.get(prop.getProperty("ITSDispatchURL"));
+			break;
+		case "Mobile":
+			driver.get(prop.getProperty(""));
+			break;
+		case "V5":
+			driver.get(prop.getProperty("v5_prototypeURL"));
+			break;
+		default:
+
+		}
+
+		if (prop.getProperty("useFullRegressionData").contains("true")) {
+			loadPayTestDataFilePath = System.getProperty(userDirectory)
+					+ "/src/main/java/testdata/LoadPay/LoadPayTestData_FullRegression.xlsx";
+		}
 
 		// Create object of EventListerHandler to register it with EventFiringWebDriver
 		eDriver = new EventFiringWebDriver(driver);

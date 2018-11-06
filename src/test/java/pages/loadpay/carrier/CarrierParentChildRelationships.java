@@ -241,7 +241,7 @@ public class CarrierParentChildRelationships extends TestBase {
 			outlooklog.outlookLogin(un, pwd);
 			brokeroutlook.clickPopUp();
 			brokeroutlook.clickOpenMailBox();
-			brokeroutlook.enterEmail(super.getProperties().getProperty("email"));
+			brokeroutlook.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 
 		} catch (AWTException e) {
 			// TODO Auto-generated catch block

@@ -37,7 +37,7 @@ public class HandshakewithRTFCarrierTest extends TestBase {
 
 	@Test(dataProvider = "getLoginHandshakewithRTF_CarrierDa", dependsOnMethods = "getCarrierData")
 	public void RTFLogin(String user, String pass) throws InterruptedException {
-		driver.get(prop.getProperty("RTFcarrier"));
+		driver.get(prop.getProperty("rtfCarrierURL"));
 		rtfUsername = user;
 		rtfPassword = pass;
 

@@ -148,7 +148,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 	@Test(dataProvider = "getAdminLoginshipperaccountmoduleData", dependsOnMethods = { "verifyNotifications" })
 	public void verifyCredit(String ExtendedCredit) throws InterruptedException, AWTException {
 
-		driver.get(super.getProperties().getProperty("AdminURL"));
+		driver.get(super.getProperties().getProperty("loadPayAdminURL"));
 		adminhomepage.AdminURL();
 
 		adminlogin.ClickOnCustomersTab();
@@ -218,7 +218,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 	@Test(dependsOnMethods = { "verifybrokerPayMeNow" })
 	public void verifyAdminPaymeNow() throws InterruptedException, AWTException {
 
-		driver.get(super.getProperties().getProperty("AdminURL"));
+		driver.get(super.getProperties().getProperty("loadPayAdminURL"));
 		adminhomepage.AdminURL();
 
 		adminlogin.ClickOnCustomersTab();

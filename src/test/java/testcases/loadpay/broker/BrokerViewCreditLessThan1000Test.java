@@ -124,7 +124,7 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 			outlooklog.outlookLogin(un, pwd);
 			brokeroutlook.clickPopUp();
 			brokeroutlook.clickOpenMailBox();
-			brokeroutlook.enterEmail(super.prop.getProperty("email"));
+			brokeroutlook.enterEmail(super.prop.getProperty("loadpaytestEmail"));
 			SearchInbox("Broker/Shipper Credit Limit 10% Notification");
 			// brokeroutlook.quit();
 		} catch (AWTException e) {

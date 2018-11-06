@@ -199,7 +199,7 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 	public void outlookloginTest() throws InterruptedException, AWTException {
 		carrierOutlookObj.clickPopUp();
 		carrierOutlookObj.clickOpenMailBox();
-		carrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
+		carrierOutlookObj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 		// outlookk.clickOpen();
 		String[] timeArray = TestUtil.getTimestamp();
 		currentHour = timeArray[0];

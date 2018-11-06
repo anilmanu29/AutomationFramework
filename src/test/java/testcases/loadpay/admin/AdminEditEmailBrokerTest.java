@@ -188,7 +188,7 @@ public class AdminEditEmailBrokerTest extends TestBase {
 			outlookLoginObj.outlookLogin(un, pwd);
 			brokerOutlookObj.clickPopUp();
 			brokerOutlookObj.clickOpenMailBox();
-			brokerOutlookObj.enterEmail(super.getProperties().getProperty("email"));
+			brokerOutlookObj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 			brokerOutlookObj.outlookSearchInbox(updatedBrokerEmailAddress, currentHour, currentMinutes);
 			brokerOutlookObj.handleUpdatedEmailInbox(updatedBrokerEmailAddress);
 		} catch (AWTException e) {

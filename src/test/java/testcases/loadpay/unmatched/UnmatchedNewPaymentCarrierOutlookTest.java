@@ -40,7 +40,7 @@ public class UnmatchedNewPaymentCarrierOutlookTest extends TestBase {
 	public void outlookloginTest() throws InterruptedException, AWTException {
 		outlookk.clickPopUp();
 		outlookk.clickOpenMailBox();
-		outlookk.enterEmail(super.getProperties().getProperty("email"));
+		outlookk.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 		// outlookk.clickOpen();
 		outlookk.handleNewInbox();
 		outlookk.verifyConfirmationMessage();

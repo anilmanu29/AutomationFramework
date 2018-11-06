@@ -51,7 +51,7 @@ public class CarrierOutlookCanadaTest extends TestBase {
 	public void outlookloginTest() throws InterruptedException, AWTException {
 		carrierCAOutlookObj.clickPopUp();
 		carrierCAOutlookObj.clickOpenMailBox();
-		carrierCAOutlookObj.enterEmail(super.getProperties().getProperty("email"));
+		carrierCAOutlookObj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 		// outlookk.clickOpen();
 		String[] timeArray = TestUtil.getTimestamp();
 		currentHour = timeArray[0];
