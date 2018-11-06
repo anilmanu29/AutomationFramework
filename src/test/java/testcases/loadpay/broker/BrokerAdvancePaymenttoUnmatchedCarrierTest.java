@@ -38,6 +38,7 @@ public class BrokerAdvancePaymenttoUnmatchedCarrierTest extends TestBase {
 	public void setUp() {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		brokerloginobj = new BrokerLoginPage();
 		brokerpaymentobj = new BrokerPaymentforUnmatchedCarrier();
 		brokeradvancepaymentobj = new BrokerAdvancePaymenttoUnmatchedCarrier();

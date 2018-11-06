@@ -58,6 +58,7 @@ public class ShowQuoteCheck_UnmatchedCarrierTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		brokerlogin = new BrokerLoginPage();
 		brokerPaymentforUnmatchedCarrier = new BrokerPaymentforUnmatchedCarrier();
 		al = new ArrayList<String>();

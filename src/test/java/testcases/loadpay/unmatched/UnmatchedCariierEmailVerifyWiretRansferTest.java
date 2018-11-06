@@ -36,6 +36,7 @@ public class UnmatchedCariierEmailVerifyWiretRansferTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		outlook = new outlooklogin();
 		outlookk = new UnmatchedCariierEmailVerifyWiretRansfer();
 		wait = new WebDriverWait(driver, 30);

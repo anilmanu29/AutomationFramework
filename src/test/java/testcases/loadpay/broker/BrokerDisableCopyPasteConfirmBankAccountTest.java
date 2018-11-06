@@ -39,6 +39,7 @@ public class BrokerDisableCopyPasteConfirmBankAccountTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws AWTException, IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		brokerloginobj = new BrokerLoginPage();
 		brokerRegistrationObj = new BrokerRegister();
 		brokerdisablecopypasteconfirmbankaccountobj = new BrokerDisableCopyPasteConfirmBankAccount();

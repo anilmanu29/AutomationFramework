@@ -34,6 +34,7 @@ public class AdminCancelPayByCheckTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		wait = new WebDriverWait(driver, 30);
 		adminLogObj = new AdminLogin();
 		adminHomePageObj = new AdminHomePage();

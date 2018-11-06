@@ -74,6 +74,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		loginPage = new CarrierLoginPage();
 		carrierchildrelation = new CarrierParentChildRelationships();
 		jse = (JavascriptExecutor) driver;

@@ -18,6 +18,7 @@ import pages.loadpay.broker.BrokerAvailableCreditTab;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.outlook.outlooklogin;
+import util.TestUtil;
 
 public class BrokerAvailableCreditTabTest extends TestBase {
 
@@ -38,6 +39,7 @@ public class BrokerAvailableCreditTabTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		brokeravailablecredittab = new BrokerAvailableCreditTab();
 		brokerloginpage = new BrokerLoginPage();
 		brokeroutlook = new BrokerOutlook();

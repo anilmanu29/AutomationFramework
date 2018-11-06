@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.carrier.CarrierEmailLoginUsersPage;
 import pages.loadpay.carrier.CarrierLoginPage;
+import util.TestUtil;
 
 public class CarrierAccountChangePasswordTest extends TestBase {
 	WebDriverWait wait;
@@ -27,6 +28,7 @@ public class CarrierAccountChangePasswordTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		CarrierLoginPage = new CarrierLoginPage();
 		CarrierEmailLoginUsersPage = new CarrierEmailLoginUsersPage();
 		wait = new WebDriverWait(driver, 30);

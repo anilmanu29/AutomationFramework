@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.HandshakewithRTFCarrier;
+import util.TestUtil;
 
 public class HandshakewithRTFCarrierTest extends TestBase {
 	CarrierLoginPage loginPage;
@@ -22,6 +23,7 @@ public class HandshakewithRTFCarrierTest extends TestBase {
 	public void setUp() {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		loginPage = new CarrierLoginPage();
 		rtfcarrier = new HandshakewithRTFCarrier();
 		wait = new WebDriverWait(driver, 30);

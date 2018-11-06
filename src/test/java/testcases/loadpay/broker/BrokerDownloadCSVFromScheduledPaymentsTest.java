@@ -29,6 +29,7 @@ public class BrokerDownloadCSVFromScheduledPaymentsTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		brokerdownloadcsvfromscheduledpaymentsbj = new BrokerDownloadCSVFromScheduledPayments();
 	}
 

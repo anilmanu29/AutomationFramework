@@ -15,6 +15,7 @@ import base.TestBase;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import testcases.loadpay.broker.BrokerRegisterCanadaTest;
+import util.TestUtil;
 
 public class AdminBrokerCanadaTest extends TestBase {
 	AdminHomePage h;
@@ -29,6 +30,7 @@ public class AdminBrokerCanadaTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException, AWTException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		h = new AdminHomePage();
 		a = new AdminLogin();
 		wait = new WebDriverWait(driver, 30);

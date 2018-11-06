@@ -43,6 +43,7 @@ public class UnmatchedCarrierOutlookTest extends TestBase {
 	public void setUp() throws IOException, AWTException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		umCarrierOutlookObj = new UnmatchedCarrierOutlook();
 		wait = new WebDriverWait(driver, 30);
 	}

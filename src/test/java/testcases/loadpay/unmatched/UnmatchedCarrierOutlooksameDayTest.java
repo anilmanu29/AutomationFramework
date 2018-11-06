@@ -42,6 +42,7 @@ public class UnmatchedCarrierOutlooksameDayTest extends TestBase {
 	public void setUp() throws IOException, AWTException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		outlook = new outlooklogin();
 		umCarrierOutlookObj = new UnmatchedCarrierOutlooksameDay();
 		wait = new WebDriverWait(driver, 30);

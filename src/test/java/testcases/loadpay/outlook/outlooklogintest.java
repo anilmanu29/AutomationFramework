@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import pages.loadpay.outlook.outlooklogin;
+import util.TestUtil;
 
 public class outlooklogintest extends TestBase {
 
@@ -23,6 +24,7 @@ public class outlooklogintest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		loginPage = new outlooklogin();
 		wait = new WebDriverWait(driver, 30);
 	}

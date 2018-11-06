@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierPayMeNowTab;
+import util.TestUtil;
 
 public class CarrierPayMeNowTabTest extends TestBase {
 
@@ -25,6 +26,7 @@ public class CarrierPayMeNowTabTest extends TestBase {
 	public void setUp() {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		lp = new CarrierLoginPage();
 		cp = new CarrierPayMeNowTab();
 		wait = new WebDriverWait(driver, 30);

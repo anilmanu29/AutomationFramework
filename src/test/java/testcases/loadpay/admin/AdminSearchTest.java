@@ -31,6 +31,7 @@ public class AdminSearchTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException, AWTException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		adminHomePage = new AdminHomePage();
 		adminLoginPage = new AdminLogin();
 		adminSearchPage = new AdminSearchPage();

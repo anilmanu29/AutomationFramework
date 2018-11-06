@@ -24,6 +24,7 @@ import pages.loadpay.carrier.CarrierOutlook;
 import pages.loadpay.carrier.CarrierPasswordSetupResetPage;
 import pages.loadpay.carrier.ResetPassword;
 import pages.loadpay.outlook.outlooklogin;
+import util.TestUtil;
 
 public class CarrierLoginPageResetPasswordTest extends TestBase {
 	CarrierPasswordSetupResetPage CarrierPasswordSetupResetPage;
@@ -63,6 +64,7 @@ public class CarrierLoginPageResetPasswordTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException, InterruptedException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		adminHomePage = new AdminHomePage();
 		adminLoginPage = new AdminLogin();
 		adminEmailPage = new AdminEditEmailCarrier();

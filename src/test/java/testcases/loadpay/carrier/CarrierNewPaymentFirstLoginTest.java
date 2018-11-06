@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.carrier.CarrierNewPaymentFirstLogin;
 import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
+import util.TestUtil;
 
 public class CarrierNewPaymentFirstLoginTest extends TestBase {
 	CarrierNewPaymentFirstLogin loginPage;
@@ -19,6 +20,7 @@ public class CarrierNewPaymentFirstLoginTest extends TestBase {
 	@BeforeClass
 	public void setUp() {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		loginPage = new CarrierNewPaymentFirstLogin();
 		wait = new WebDriverWait(driver, 30);
 	}

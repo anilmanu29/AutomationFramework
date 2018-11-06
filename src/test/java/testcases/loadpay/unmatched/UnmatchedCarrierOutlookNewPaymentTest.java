@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.outlook.outlooklogin;
 import pages.loadpay.unmatched.UnmatchedCarrierOutlookNewPayment;
+import util.TestUtil;
 
 public class UnmatchedCarrierOutlookNewPaymentTest extends TestBase {
 
@@ -29,6 +30,7 @@ public class UnmatchedCarrierOutlookNewPaymentTest extends TestBase {
 	public void setUp() throws IOException, AWTException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		outlook = new outlooklogin();
 		umCarrierOutlookObj = new UnmatchedCarrierOutlookNewPayment();
 		wait = new WebDriverWait(driver, 30);

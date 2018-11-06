@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import pages.loadpay.broker.BrokerCanadaFirstLogin;
+import util.TestUtil;
 
 public class BrokerCanadaFirstLoginTest extends TestBase {
 	BrokerCanadaFirstLogin loginPage;
@@ -18,6 +19,7 @@ public class BrokerCanadaFirstLoginTest extends TestBase {
 	@BeforeClass
 	public void setUp() {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		loginPage = new BrokerCanadaFirstLogin();
 		wait = new WebDriverWait(driver, 30);
 	}

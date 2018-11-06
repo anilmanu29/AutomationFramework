@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import pages.loadpay.unmatched.UnmatchedCarrierSameDAYACH;
+import util.TestUtil;
 
 public class UnmatchedCarrierSameDayACHTest extends TestBase {
 
@@ -21,6 +22,7 @@ public class UnmatchedCarrierSameDayACHTest extends TestBase {
 	public void setUp() {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		usdach = new UnmatchedCarrierSameDAYACH();
 		wait = new WebDriverWait(driver, 30);
 	}

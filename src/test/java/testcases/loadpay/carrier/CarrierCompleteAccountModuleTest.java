@@ -35,6 +35,7 @@ public class CarrierCompleteAccountModuleTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		carriercompleteaccountmoduleObj = new CarrierCompleteAccountModule();
 		loginPage = new CarrierLoginPage();
 		adminlogin = new AdminLogin();

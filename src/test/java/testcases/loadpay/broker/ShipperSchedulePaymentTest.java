@@ -32,6 +32,7 @@ public class ShipperSchedulePaymentTest extends TestBase {
 	public void setUp() {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		bl = new BrokerLoginPage();
 		bp = new BrokerNewPayment();
 		wait = new WebDriverWait(driver, 30);

@@ -35,6 +35,7 @@ public class CarrierOutlookTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		outlook = new outlooklogin();
 		carrierOutlookObj = new CarrierOutlook();
 		wait = new WebDriverWait(driver, 30);

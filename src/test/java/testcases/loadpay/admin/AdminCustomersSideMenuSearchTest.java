@@ -14,6 +14,7 @@ import pages.loadpay.admin.AdminCustomersSideMenuSearch;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.admin.AdminSearchPage;
+import util.TestUtil;
 
 public class AdminCustomersSideMenuSearchTest extends TestBase {
 	AdminHomePage adminHomePage;
@@ -32,6 +33,7 @@ public class AdminCustomersSideMenuSearchTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException, AWTException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		adminHomePage = new AdminHomePage();
 		adminLoginPage = new AdminLogin();
 		adminSearchPage = new AdminSearchPage();

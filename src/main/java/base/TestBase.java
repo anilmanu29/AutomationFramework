@@ -32,6 +32,7 @@ public class TestBase {
 	protected static String userDirectory = "user.dir";
 	protected static String userHome = "user.home";
 	public static Logger log;
+	public static String className = "";
 	public static WebDriverWait wait = null;
 	public static String loadPayTestDataFilePath = System.getProperty(userDirectory)
 			+ "/src/main/java/testdata/LoadPay/LoadPayTestData.xlsx";
@@ -49,24 +50,14 @@ public class TestBase {
 	public static void initialization() {
 		log = Logger.getLogger(Logger.class.getName());
 
-		// if (TestUtil.videoStarted) {
-		// try {
-		// TestUtil.endVideoCapture();
-		// } catch (IOException e) {
-		// log.info(e);
-		// }
-		//
-		// TestUtil.updateVideoFileName();
-		// TestUtil.beginVideoCapture();
-		// } else {
-		// TestUtil.beginVideoCapture();
-		// }
+		if (prop.getProperty("useVideoCapture").contains("true")) {
+			TestUtil.beginVideoCapture();
+		}
 
-		String fullRegression = prop.getProperty("useFullRegressionData");
-
-		if (fullRegression.contains("true"))
+		if (prop.getProperty("useFullRegressionData").contains("true")) {
 			loadPayTestDataFilePath = System.getProperty(userDirectory)
 					+ "/src/main/java/testdata/LoadPay/LoadPayTestData_FullRegression.xlsx";
+		}
 
 		String browserName = prop.getProperty("browser");
 
@@ -428,8 +419,19 @@ public class TestBase {
 	}
 
 	@AfterClass
-	public void quit() {
+	public void quit() throws InterruptedException {
 		log.info("END TEST\n\n");
+
+		if (TestUtil.videoStarted && prop.getProperty("useVideoCapture").contains("true")) {
+			try {
+				TestUtil.endVideoCapture();
+			} catch (IOException e) {
+				log.info(e);
+			}
+
+			TestUtil.updateVideoFileName();
+		}
+
 		driver.quit();
 	}
 }

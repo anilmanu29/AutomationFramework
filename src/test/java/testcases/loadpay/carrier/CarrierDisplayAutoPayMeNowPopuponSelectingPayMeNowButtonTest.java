@@ -66,6 +66,7 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 	@BeforeClass
 	public void setUp() throws IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		carrierdisplayautopaymenowpopupobj = new CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButton();
 		carrierloginobj = new CarrierLoginPage();
 		carrierSameDayObj = new CarrierSameDAYACH();

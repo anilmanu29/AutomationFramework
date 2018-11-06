@@ -59,6 +59,7 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		adminhomepage = new AdminHomePage();
 		adminlogin = new AdminLogin();
 		brokerregister = new BrokerRegister();

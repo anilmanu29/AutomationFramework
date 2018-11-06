@@ -42,6 +42,7 @@ public class UnmatchedCarrierOutlookFuelCardTest extends TestBase {
 	public void setUp() throws IOException, AWTException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		outlook = new outlooklogin();
 		umCarrierfuelcardObj = new UnmatchedCarrierFuelCard();
 		wait = new WebDriverWait(driver, 30);

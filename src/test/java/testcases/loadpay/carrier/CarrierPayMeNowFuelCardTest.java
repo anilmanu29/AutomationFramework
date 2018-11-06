@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierPaymeNowFuelCard;
+import util.TestUtil;
 
 public class CarrierPayMeNowFuelCardTest extends TestBase {
 
@@ -24,6 +25,7 @@ public class CarrierPayMeNowFuelCardTest extends TestBase {
 	public void setUp() {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		loginPage = new CarrierLoginPage();
 		cfot = new CarrierPaymeNowFuelCard();
 		wait = new WebDriverWait(driver, 30);

@@ -37,6 +37,7 @@ public class CarrierSchedulePaymentTest extends TestBase {
 	public void setUp() {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		loginPage = new CarrierLoginPage();
 		carrierschedulepayment = new CarrierSchedulePayment();
 		wait = new WebDriverWait(driver, 30);

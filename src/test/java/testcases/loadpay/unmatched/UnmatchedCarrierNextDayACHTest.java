@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.unmatched.UnmatchedCarrierNextDayACH;
+import util.TestUtil;
 
 public class UnmatchedCarrierNextDayACHTest extends TestBase {
 
@@ -25,6 +26,7 @@ public class UnmatchedCarrierNextDayACHTest extends TestBase {
 	public void setUp() {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		loginPage = new CarrierLoginPage();
 		umCarrierObj = new UnmatchedCarrierNextDayACH();
 		wait = new WebDriverWait(driver, 30);

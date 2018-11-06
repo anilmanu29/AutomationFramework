@@ -14,6 +14,7 @@ import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.carrier.CarrierAccountLockedafter10FailedLogins;
 import pages.loadpay.carrier.CarrierLoginPage;
+import util.TestUtil;
 
 public class CarrierAccountLockedafter10FailedLoginsTest extends TestBase {
 	CarrierAccountLockedafter10FailedLogins Calck;
@@ -31,6 +32,7 @@ public class CarrierAccountLockedafter10FailedLoginsTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException, AWTException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		h = new AdminHomePage();
 		a = new AdminLogin();
 		Calck = new CarrierAccountLockedafter10FailedLogins();

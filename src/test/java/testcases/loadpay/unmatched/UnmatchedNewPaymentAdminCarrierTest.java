@@ -13,6 +13,7 @@ import base.TestBase;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
+import util.TestUtil;
 
 public class UnmatchedNewPaymentAdminCarrierTest extends TestBase {
 	AdminHomePage adminHomePageObj;
@@ -27,6 +28,7 @@ public class UnmatchedNewPaymentAdminCarrierTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException, AWTException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		adminHomePageObj = new AdminHomePage();
 		adminLoginObj = new AdminLogin();
 		wait = new WebDriverWait(driver, 30);

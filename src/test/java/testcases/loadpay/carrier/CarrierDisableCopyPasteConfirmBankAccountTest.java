@@ -60,6 +60,7 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws AWTException, IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		carrierloginobj = new CarrierLoginPage();
 		carrierRegistrationObj = new CarrierRegisterPage();
 		carrierdisablecopypasteconfirmbankaccountobj = new CarrierDisableCopyPasteConfirmBankAccount();

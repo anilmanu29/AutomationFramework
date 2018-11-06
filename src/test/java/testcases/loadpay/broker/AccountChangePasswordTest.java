@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.broker.BrokerEmailLoginUsersPage;
 import pages.loadpay.broker.BrokerLoginPage;
+import util.TestUtil;
 
 public class AccountChangePasswordTest extends TestBase {
 	WebDriverWait wait;
@@ -27,6 +28,7 @@ public class AccountChangePasswordTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		brokerLoginPage = new BrokerLoginPage();
 		brokEmailLogUsePage = new BrokerEmailLoginUsersPage();
 		wait = new WebDriverWait(driver, 30);

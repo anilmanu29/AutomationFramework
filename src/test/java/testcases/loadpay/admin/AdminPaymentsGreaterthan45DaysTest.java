@@ -56,6 +56,7 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		admLogin = new AdminLogin();
 		admHomePage = new AdminHomePage();
 		brokerlogin = new BrokerLoginPage();

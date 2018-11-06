@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.HandshakewithRTFBroker;
+import util.TestUtil;
 
 public class HandshakewithRTFBrokerTest extends TestBase {
 
@@ -28,6 +29,7 @@ public class HandshakewithRTFBrokerTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws AWTException, IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		brokerloginobj = new BrokerLoginPage();
 		handshakertfbrokeobj = new HandshakewithRTFBroker();
 		wait = new WebDriverWait(driver, 30);

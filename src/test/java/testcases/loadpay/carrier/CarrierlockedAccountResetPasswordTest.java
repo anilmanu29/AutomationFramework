@@ -57,6 +57,7 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException, AWTException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		h = new AdminHomePage();
 		a = new AdminLogin();
 		carrierlockaccounrsetpwdtobj = new CarrierlockedAccountResetPassword();

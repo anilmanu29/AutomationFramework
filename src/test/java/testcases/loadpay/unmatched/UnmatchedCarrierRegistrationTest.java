@@ -30,6 +30,7 @@ public class UnmatchedCarrierRegistrationTest extends TestBase {
 	public void setUp() throws IOException, AWTException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		carrierRegistrationObj = new CarrierRegisterPage();
 		wait = new WebDriverWait(driver, 30);
 		dateTime = TestUtil.getCurrentDateTime();

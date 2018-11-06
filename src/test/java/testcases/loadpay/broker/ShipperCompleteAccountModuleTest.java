@@ -37,6 +37,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		shippercompleteaccountmodule = new ShipperCompleteAccountModule();
 		brokerlogin = new BrokerLoginPage();
 		adminlogin = new AdminLogin();

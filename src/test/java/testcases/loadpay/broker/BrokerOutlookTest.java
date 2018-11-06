@@ -35,6 +35,7 @@ public class BrokerOutlookTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		outlook = new outlooklogin();
 		brokerOutlookObj = new BrokerOutlook();
 		wait = new WebDriverWait(driver, 30);

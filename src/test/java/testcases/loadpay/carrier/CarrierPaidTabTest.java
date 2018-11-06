@@ -35,6 +35,7 @@ public class CarrierPaidTabTest extends TestBase {
 	@BeforeClass
 	public void setUp() {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		loginPage = new CarrierLoginPage();
 		carrierPaidTab = new CarrierPaidTab();
 		carriernextdayachobj = new CarrierNextDAYACH();

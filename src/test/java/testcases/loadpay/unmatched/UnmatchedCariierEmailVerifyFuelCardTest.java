@@ -36,6 +36,7 @@ public class UnmatchedCariierEmailVerifyFuelCardTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		outlook = new outlooklogin();
 		outlookk = new UnmatchedCariierEmailVerifyFuelCard();
 		wait = new WebDriverWait(driver, 30);

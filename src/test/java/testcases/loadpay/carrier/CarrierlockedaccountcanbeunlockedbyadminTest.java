@@ -12,6 +12,7 @@ import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.Carrierlockedaccountcanbeunlockedbyadmin;
+import util.TestUtil;
 
 public class CarrierlockedaccountcanbeunlockedbyadminTest extends TestBase {
 	Carrierlockedaccountcanbeunlockedbyadmin Claua;
@@ -28,6 +29,7 @@ public class CarrierlockedaccountcanbeunlockedbyadminTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		adminHomePage = new AdminHomePage();
 		adminLogin = new AdminLogin();
 		Claua = new Carrierlockedaccountcanbeunlockedbyadmin();

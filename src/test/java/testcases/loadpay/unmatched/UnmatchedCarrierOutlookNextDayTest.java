@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.outlook.outlooklogin;
 import pages.loadpay.unmatched.UnmatchedCarrierOutlookNextDay;
+import util.TestUtil;
 
 public class UnmatchedCarrierOutlookNextDayTest extends TestBase {
 
@@ -29,6 +30,7 @@ public class UnmatchedCarrierOutlookNextDayTest extends TestBase {
 	public void setUp() throws IOException, AWTException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		outlook = new outlooklogin();
 		umCarrierOutlookObj = new UnmatchedCarrierOutlookNextDay();
 		wait = new WebDriverWait(driver, 30);

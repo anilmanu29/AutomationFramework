@@ -46,6 +46,7 @@ public class BrokerRegisterTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		brokerRegistrationObj = new BrokerRegister();
 		adminLoginPage = new AdminLogin();
 		adminHomePage = new AdminHomePage();

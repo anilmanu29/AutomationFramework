@@ -37,6 +37,7 @@ public class UnmatchedCarrierAdminPayByCheckTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		wait = new WebDriverWait(driver, 30);
 		adminLoginObj = new AdminLogin();
 		adminHomePageObj = new AdminHomePage();

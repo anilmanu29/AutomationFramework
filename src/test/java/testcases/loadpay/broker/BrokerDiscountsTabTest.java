@@ -28,6 +28,7 @@ public class BrokerDiscountsTabTest extends TestBase {
 	@BeforeClass
 	public void setUp() {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		loginPage = new BrokerLoginPage();
 		brokerdiscountsTab = new BrokerDiscountsTab();
 		wait = new WebDriverWait(driver, 30);

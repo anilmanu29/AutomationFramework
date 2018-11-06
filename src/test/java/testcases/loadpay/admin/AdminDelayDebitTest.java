@@ -80,6 +80,7 @@ public class AdminDelayDebitTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		admLogin = new AdminLogin();
 		admHomePage = new AdminHomePage();
 		admPayMeNowTab = new AdminPaymeNowTab();

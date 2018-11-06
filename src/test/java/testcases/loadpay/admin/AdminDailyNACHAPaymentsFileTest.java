@@ -33,6 +33,7 @@ public class AdminDailyNACHAPaymentsFileTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		admindailynachapaymentsfileobj = new AdminDailyNACHAPaymentsFile();
 		adminhomepage = new AdminHomePage();
 		adminloginobj = new AdminLogin();

@@ -29,6 +29,7 @@ public class CarrierDownloadCSVFromScheduledPaymentsTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		carrierdownloadcsvfromscheduledpaymentsbj = new CarrierDownloadCSVFromScheduledPayments();
 	}
 

@@ -12,6 +12,7 @@ import base.TestBase;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import testcases.loadpay.carrier.CarrierRegisterCanadaTest;
+import util.TestUtil;
 
 public class AdminCarrierCanadaTest extends TestBase {
 	AdminHomePage h;
@@ -25,6 +26,7 @@ public class AdminCarrierCanadaTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException, AWTException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		h = new AdminHomePage();
 		a = new AdminLogin();
 		wait = new WebDriverWait(driver, 30);
