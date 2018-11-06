@@ -18,6 +18,8 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import util.TestUtil;
+
 public class ExtentReporterNG implements IReporter {
 	private ExtentReports extent;
 
@@ -43,7 +45,7 @@ public class ExtentReporterNG implements IReporter {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss_zzz");
 
 		// (3) create a new String using the date format we want
-		String fileName = formatter.format(today);
+		String fileName = TestUtil.className + "_" + formatter.format(today);
 
 		String currentDir = System.getProperty("user.dir");
 
