@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.broker.BrokerBankAccountUpdate;
 import pages.loadpay.broker.BrokerLoginPage;
+import util.TestUtil;
 
 public class BrokerBankAccountUpdateTest extends TestBase {
 
@@ -28,6 +29,7 @@ public class BrokerBankAccountUpdateTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		brokerBankAccountObj = new BrokerBankAccountUpdate();
 		brokerLoginPageObj = new BrokerLoginPage();
 		wait = new WebDriverWait(driver, 30);

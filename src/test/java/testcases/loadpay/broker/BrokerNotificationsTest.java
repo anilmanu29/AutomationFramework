@@ -12,6 +12,7 @@ import pages.loadpay.broker.BrokerNotifications;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierNextDAYACH;
 import testcases.loadpay.carrier.CarrierRegisterTest;
+import util.TestUtil;
 
 public class BrokerNotificationsTest extends TestBase {
 	BrokerNotifications brokernotificationsobj;
@@ -31,6 +32,7 @@ public class BrokerNotificationsTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		brokernotificationsobj = new BrokerNotifications();
 		carrierloginobj = new CarrierLoginPage();
 		carriernextdayachobj = new CarrierNextDAYACH();

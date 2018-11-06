@@ -29,6 +29,7 @@ public class BrokerPaymentTermsChargeSenderTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		brokerPaymentTermsChargeSenderObj = new BrokerPaymentTermsChargeSender();
 		wait = new WebDriverWait(driver, 30);
 	}

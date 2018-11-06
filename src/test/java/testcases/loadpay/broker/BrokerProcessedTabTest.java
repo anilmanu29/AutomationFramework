@@ -30,6 +30,7 @@ public class BrokerProcessedTabTest extends TestBase {
 	@BeforeClass
 	public void setUp() {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		loginPage = new BrokerLoginPage();
 		brokerProcessedTab = new BrokerProcessedTab();
 		jse = (JavascriptExecutor) driver;

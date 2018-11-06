@@ -24,6 +24,7 @@ import pages.loadpay.carrier.CarrierOutlook;
 import pages.loadpay.carrier.CarrierPasswordSetupResetPage;
 import pages.loadpay.carrier.ResetPassword;
 import pages.loadpay.outlook.outlooklogin;
+import util.TestUtil;
 
 public class CarrierLoginPageResetPasswordTest extends TestBase {
 	CarrierPasswordSetupResetPage CarrierPasswordSetupResetPage;
@@ -63,6 +64,7 @@ public class CarrierLoginPageResetPasswordTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException, InterruptedException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		adminHomePage = new AdminHomePage();
 		adminLoginPage = new AdminLogin();
 		adminEmailPage = new AdminEditEmailCarrier();
@@ -123,7 +125,7 @@ public class CarrierLoginPageResetPasswordTest extends TestBase {
 		carrierOutlookObj.clickPopUp();
 		EmailAddress = EmailAddress.trim();
 		carrierOutlookObj.clickOpenMailBox();
-		carrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
+		carrierOutlookObj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 		carrierOutlookObj.outlookSearchInbox(EmailAddress, currentHour, currentMinutes);
 		carrierOutlookObj.handleResetPasswordEmailInbox(EmailAddress);
 		CarrierPasswordSetupResetPage.enterNewPassword(NewPassword);
@@ -175,7 +177,7 @@ public class CarrierLoginPageResetPasswordTest extends TestBase {
 	@Test(dataProvider = "getoutlookLoginData", dependsOnMethods = "ResetPasswordEmail")
 	public void outlogin(String un, String pwd) throws InterruptedException, AWTException {
 		// outlookLogin.outlookLogin(un, pwd);
-		driver.get(super.getProperties().getProperty("outlookurl"));
+		driver.get(super.getProperties().getProperty("outlookURL"));
 	}
 
 	@Test(dataProvider = "getAdminforcepasswordData", dependsOnMethods = { "outlogin" })
@@ -184,7 +186,7 @@ public class CarrierLoginPageResetPasswordTest extends TestBase {
 		carrierOutlookObj.clickPopUp();
 		EmailAddress = EmailAddress.trim();
 		carrierOutlookObj.clickOpenMailBox();
-		carrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
+		carrierOutlookObj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 		carrierOutlookObj.outlookSearchInboxforcareer(EmailAddress, currentHour, currentMinutes);
 		carrierOutlookObj.handleResetPasswordEmailInbox(EmailAddress);
 

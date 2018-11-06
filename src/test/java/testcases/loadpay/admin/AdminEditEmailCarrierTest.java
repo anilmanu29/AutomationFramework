@@ -29,6 +29,7 @@ import pages.loadpay.carrier.CarrierOutlook;
 import pages.loadpay.carrier.CarrierRegisterPage;
 import pages.loadpay.outlook.outlooklogin;
 import testcases.loadpay.carrier.CarrierRegisterTest;
+import util.TestUtil;
 
 public class AdminEditEmailCarrierTest extends TestBase {
 	AdminHomePage adminHomePage;
@@ -62,6 +63,7 @@ public class AdminEditEmailCarrierTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException, AWTException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		adminHomePage = new AdminHomePage();
 		adminLoginPage = new AdminLogin();
 		adminEmailPage = new AdminEditEmailCarrier();
@@ -195,7 +197,7 @@ public class AdminEditEmailCarrierTest extends TestBase {
 			outlookLoginObj.outlookLogin(un, pwd);
 			carrierOutlookObj.clickPopUp();
 			carrierOutlookObj.clickOpenMailBox();
-			carrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
+			carrierOutlookObj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 			carrierOutlookObj.outlookSearchInbox(updatedCarrierEmailAddress, currentHour, currentMinutes);
 			carrierOutlookObj.handleUpdatedEmailInbox(updatedCarrierEmailAddress);
 		} catch (AWTException e) {

@@ -39,6 +39,7 @@ public class CarrierPaymentHistoryTest extends TestBase {
 	public void setUp() throws IOException, AWTException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		carrierpaymenthistory = new CarrierPaymentHistory();
 		carrierloginobj = new CarrierLoginPage();
 		carrierPayMeNowTab = new CarrierPayMeNowTab();

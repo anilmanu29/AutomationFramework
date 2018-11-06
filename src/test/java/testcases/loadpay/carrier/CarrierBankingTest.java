@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.carrier.CarrierBanking;
 import pages.loadpay.carrier.CarrierLoginPage;
+import util.TestUtil;
 
 public class CarrierBankingTest extends TestBase {
 
@@ -25,6 +26,7 @@ public class CarrierBankingTest extends TestBase {
 	public void setUp() {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		cb = new CarrierBanking();
 		cl = new CarrierLoginPage();
 		wait = new WebDriverWait(driver, 30);

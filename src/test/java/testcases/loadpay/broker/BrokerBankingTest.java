@@ -11,6 +11,7 @@ import base.TestBase;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.broker.BrokerBanking;
 import pages.loadpay.broker.BrokerLoginPage;
+import util.TestUtil;
 
 public class BrokerBankingTest extends TestBase {
 
@@ -31,6 +32,7 @@ public class BrokerBankingTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		brokerBankingObj = new BrokerBanking();
 		brokerLoginObj = new BrokerLoginPage();
 		adminLoginObj = new AdminLogin();

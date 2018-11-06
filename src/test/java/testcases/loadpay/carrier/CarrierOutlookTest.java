@@ -35,6 +35,7 @@ public class CarrierOutlookTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		outlook = new outlooklogin();
 		carrierOutlookObj = new CarrierOutlook();
 		wait = new WebDriverWait(driver, 30);
@@ -50,7 +51,7 @@ public class CarrierOutlookTest extends TestBase {
 	public void outlookloginTest() throws InterruptedException, AWTException {
 		carrierOutlookObj.clickPopUp();
 		carrierOutlookObj.clickOpenMailBox();
-		carrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
+		carrierOutlookObj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 		String[] timeArray = TestUtil.getTimestamp();
 		currentHour = timeArray[0];
 		currentMinutes = timeArray[1];

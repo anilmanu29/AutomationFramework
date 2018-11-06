@@ -32,6 +32,7 @@ public class TestBase {
 	protected static String userDirectory = "user.dir";
 	protected static String userHome = "user.home";
 	public static Logger log;
+	public static String className = "";
 	public static WebDriverWait wait = null;
 	public static String loadPayTestDataFilePath = System.getProperty(userDirectory)
 			+ "/src/main/java/testdata/LoadPay/LoadPayTestData.xlsx";
@@ -49,24 +50,9 @@ public class TestBase {
 	public static void initialization() {
 		log = Logger.getLogger(Logger.class.getName());
 
-		// if (TestUtil.videoStarted) {
-		// try {
-		// TestUtil.endVideoCapture();
-		// } catch (IOException e) {
-		// log.info(e);
-		// }
-		//
-		// TestUtil.updateVideoFileName();
-		// TestUtil.beginVideoCapture();
-		// } else {
-		// TestUtil.beginVideoCapture();
-		// }
-
-		String fullRegression = prop.getProperty("useFullRegressionData");
-
-		if (fullRegression.contains("true"))
-			loadPayTestDataFilePath = System.getProperty(userDirectory)
-					+ "/src/main/java/testdata/LoadPay/LoadPayTestData_FullRegression.xlsx";
+		if (prop.getProperty("useVideoCapture").contains("true")) {
+			TestUtil.beginVideoCapture();
+		}
 
 		String browserName = prop.getProperty("browser");
 
@@ -97,7 +83,35 @@ public class TestBase {
 			driver = new InternetExplorerDriver();
 		}
 
-		driver.get(prop.getProperty("url"));
+		String applicationUnderTest = prop.getProperty("AUT");
+
+		switch (applicationUnderTest) {
+		case "Loadpay":
+			driver.get(prop.getProperty("loadPayURL"));
+			break;
+		case "LoadpayAdmin":
+			driver.get(prop.getProperty("loadPayAdminURL"));
+			break;
+		case "FreightMatching":
+			driver.get(prop.getProperty(""));
+			break;
+		case "ITSDispatch":
+			driver.get(prop.getProperty("ITSDispatchURL"));
+			break;
+		case "Mobile":
+			driver.get(prop.getProperty(""));
+			break;
+		case "V5":
+			driver.get(prop.getProperty("v5_prototypeURL"));
+			break;
+		default:
+
+		}
+
+		if (prop.getProperty("useFullRegressionData").contains("true")) {
+			loadPayTestDataFilePath = System.getProperty(userDirectory)
+					+ "/src/main/java/testdata/LoadPay/LoadPayTestData_FullRegression.xlsx";
+		}
 
 		// Create object of EventListerHandler to register it with EventFiringWebDriver
 		eDriver = new EventFiringWebDriver(driver);
@@ -428,8 +442,19 @@ public class TestBase {
 	}
 
 	@AfterClass
-	public void quit() {
+	public void quit() throws InterruptedException {
 		log.info("END TEST\n\n");
+
+		if (TestUtil.videoStarted && prop.getProperty("useVideoCapture").contains("true")) {
+			try {
+				TestUtil.endVideoCapture();
+			} catch (IOException e) {
+				log.info(e);
+			}
+
+			TestUtil.updateVideoFileName();
+		}
+
 		driver.quit();
 	}
 }

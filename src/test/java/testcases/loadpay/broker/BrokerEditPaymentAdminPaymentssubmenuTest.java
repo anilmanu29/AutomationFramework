@@ -37,6 +37,7 @@ public class BrokerEditPaymentAdminPaymentssubmenuTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		brokereditpaymentadminpaymentssubmenuobj = new BrokerEditPaymentAdminPaymentssubmenu();
 		newBrokerPaymentObj = new BrokerNewPayment();
 		adminhomepageobj = new AdminHomePage();

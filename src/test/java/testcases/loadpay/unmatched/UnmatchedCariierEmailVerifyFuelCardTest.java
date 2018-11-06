@@ -36,6 +36,7 @@ public class UnmatchedCariierEmailVerifyFuelCardTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		outlook = new outlooklogin();
 		outlookk = new UnmatchedCariierEmailVerifyFuelCard();
 		wait = new WebDriverWait(driver, 30);
@@ -51,7 +52,7 @@ public class UnmatchedCariierEmailVerifyFuelCardTest extends TestBase {
 	public void outlookloginTest() throws InterruptedException, AWTException {
 		outlookk.clickPopUp();
 		outlookk.clickOpenMailBox();
-		outlookk.enterEmail(super.getProperties().getProperty("email"));
+		outlookk.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 		String[] timeArray = TestUtil.getTimestamp();
 		currentHour = timeArray[0];
 		currentMinutes = timeArray[1];

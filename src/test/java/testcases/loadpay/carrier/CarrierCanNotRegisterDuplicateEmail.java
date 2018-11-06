@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import pages.loadpay.carrier.CarrierRegisterPage;
+import util.TestUtil;
 
 public class CarrierCanNotRegisterDuplicateEmail extends TestBase {
 	CarrierRegisterPage carrierRegisterPage;
@@ -17,6 +18,7 @@ public class CarrierCanNotRegisterDuplicateEmail extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		wait = new WebDriverWait(driver, 30);
 		carrierRegisterPage = new CarrierRegisterPage();
 

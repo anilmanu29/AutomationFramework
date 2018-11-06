@@ -34,6 +34,7 @@ public class CarrierRegisterCanadaTest extends TestBase {
 	public void setUp() {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		canadaCarrierObj = new CarrierRegisterCanada();
 		wait = new WebDriverWait(driver, 30);
 	}

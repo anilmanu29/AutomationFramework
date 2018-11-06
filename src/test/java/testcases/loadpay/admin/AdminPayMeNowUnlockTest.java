@@ -16,6 +16,7 @@ import pages.loadpay.admin.AdminPayMeNowUnlockTab;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerPayMeNowTab;
 import testcases.loadpay.broker.BrokerRegisterTest;
+import util.TestUtil;
 
 public class AdminPayMeNowUnlockTest extends TestBase {
 	AdminHomePage admHomePage;
@@ -35,6 +36,7 @@ public class AdminPayMeNowUnlockTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		admLogin = new AdminLogin();
 		admHomePage = new AdminHomePage();
 		brokerPayMeNowTab = new BrokerPayMeNowTab();

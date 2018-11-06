@@ -35,6 +35,7 @@ public class BrokerRegisterCanadaTest extends TestBase {
 	public void setUp() {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		brc = new BrokerRegisterCanada();
 		wait = new WebDriverWait(driver, 30);
 	}

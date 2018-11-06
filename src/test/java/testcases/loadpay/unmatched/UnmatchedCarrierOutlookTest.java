@@ -43,6 +43,7 @@ public class UnmatchedCarrierOutlookTest extends TestBase {
 	public void setUp() throws IOException, AWTException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		umCarrierOutlookObj = new UnmatchedCarrierOutlook();
 		wait = new WebDriverWait(driver, 30);
 	}
@@ -68,7 +69,7 @@ public class UnmatchedCarrierOutlookTest extends TestBase {
 	public void outlookloginTest() throws InterruptedException, AWTException {
 		umCarrierOutlookObj.clickPopUp();
 		umCarrierOutlookObj.clickOpenMailBox();
-		umCarrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
+		umCarrierOutlookObj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 		String[] timeArray = TestUtil.getTimestamp();
 		currentHour = timeArray[0];
 		currentMinutes = timeArray[1];

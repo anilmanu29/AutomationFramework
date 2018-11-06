@@ -42,6 +42,7 @@ public class BrokerNewPaymentTest extends TestBase {
 	public void setUp() {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		bl = new BrokerLoginPage();
 		bp = new BrokerNewPayment();
 		al = new ArrayList<String>();

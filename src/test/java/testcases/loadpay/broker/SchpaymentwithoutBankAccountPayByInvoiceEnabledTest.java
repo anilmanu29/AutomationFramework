@@ -59,6 +59,7 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		adminhomepage = new AdminHomePage();
 		adminlogin = new AdminLogin();
 		brokerregister = new BrokerRegister();
@@ -163,7 +164,7 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 
 		brokerOutlookObj.clickPopUp();
 		brokerOutlookObj.clickOpenMailBox();
-		brokerOutlookObj.enterEmail(super.prop.getProperty("email"));
+		brokerOutlookObj.enterEmail(super.prop.getProperty("loadpaytestEmail"));
 
 		String[] timeArray = TestUtil.getTimestamp();
 		currentHour = timeArray[0];

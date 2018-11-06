@@ -22,6 +22,7 @@ import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierNextDAYACH;
 import pages.loadpay.outlook.outlooklogin;
 import testcases.loadpay.carrier.CarrierRegisterTest;
+import util.TestUtil;
 
 public class BrokerViewCreditLessThan1000Test extends TestBase {
 	// BrokerLoginPage loginPage;
@@ -44,6 +45,7 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		CreditLessThan1000 = new BrokerViewCreditLessThan1000();
 		brokeroutlook = new BrokerOutlook();
 		outlooklog = new outlooklogin();
@@ -122,7 +124,7 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 			outlooklog.outlookLogin(un, pwd);
 			brokeroutlook.clickPopUp();
 			brokeroutlook.clickOpenMailBox();
-			brokeroutlook.enterEmail(super.prop.getProperty("email"));
+			brokeroutlook.enterEmail(super.prop.getProperty("loadpaytestEmail"));
 			SearchInbox("Broker/Shipper Credit Limit 10% Notification");
 			// brokeroutlook.quit();
 		} catch (AWTException e) {

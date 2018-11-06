@@ -80,6 +80,7 @@ public class AdminDelayDebitTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		admLogin = new AdminLogin();
 		admHomePage = new AdminHomePage();
 		admPayMeNowTab = new AdminPaymeNowTab();
@@ -160,7 +161,7 @@ public class AdminDelayDebitTest extends TestBase {
 
 	@Test(description = "LP-5427 Admin - Delay Debit", dataProvider = "getBrokerLoginData", dependsOnMethods = "verifyDelayDebit")
 	public void loginBroker(String un, String pwd) throws InterruptedException {
-		driver.get(prop.getProperty("url"));
+		driver.get(prop.getProperty("loadPayURL"));
 		brokerlogin = new BrokerLoginPage();
 		brokerlogin.Brokerlogin(brokerUsername, brokerPassword);
 	}
@@ -278,7 +279,7 @@ public class AdminDelayDebitTest extends TestBase {
 	public void outlookloginTest() throws InterruptedException, AWTException {
 		brokerOutlookObj.clickPopUp();
 		brokerOutlookObj.clickOpenMailBox();
-		brokerOutlookObj.enterEmail(super.prop.getProperty("email"));
+		brokerOutlookObj.enterEmail(super.prop.getProperty("loadpaytestEmail"));
 		String[] timeArray = TestUtil.getTimestamp();
 		currentHour = timeArray[0];
 		currentMinutes = timeArray[1];
@@ -289,7 +290,7 @@ public class AdminDelayDebitTest extends TestBase {
 
 	@Test(description = "LP-5427 Admin - Delay Debit", dependsOnMethods = "outlookloginTest")
 	public void verifypaymenow() {
-		driver.get(prop.getProperty("url"));
+		driver.get(prop.getProperty("loadPayURL"));
 		brokerPaymentSheduledates.lnkMyAccount();
 		brokerPaymentSheduledates.clicklnk_PayMeNow();
 		Assert.assertTrue(brokerPaymentSheduledates.lnk_PayMeNow.isDisplayed(), "PayMeNow Link NOT Found!");

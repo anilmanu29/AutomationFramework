@@ -13,6 +13,7 @@ import base.TestBase;
 import pages.loadpay.broker.BrokerBulkUploadPaymentsmatchedCarrier;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerScheduledPaymentsTab;
+import util.TestUtil;
 
 public class BrokerBulkUploadPaymentsmatchedCarrierTest extends TestBase {
 
@@ -34,6 +35,7 @@ public class BrokerBulkUploadPaymentsmatchedCarrierTest extends TestBase {
 	public void setUp() {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		loginPage = new BrokerLoginPage();
 		bbmp = new BrokerBulkUploadPaymentsmatchedCarrier();
 		wait = new WebDriverWait(driver, 30);

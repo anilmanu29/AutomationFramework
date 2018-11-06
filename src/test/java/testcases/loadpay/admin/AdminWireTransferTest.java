@@ -46,6 +46,7 @@ public class AdminWireTransferTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		adminLogin = new AdminLogin();
 		adminHomePage = new AdminHomePage();
 		brokerloginPage = new BrokerLoginPage();

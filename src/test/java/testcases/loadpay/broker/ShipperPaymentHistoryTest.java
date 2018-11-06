@@ -41,6 +41,7 @@ public class ShipperPaymentHistoryTest extends TestBase {
 	public void setUp() throws IOException, AWTException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		shipperpaymenthistoryobj = new ShipperPaymentHistory();
 		brokerloginobj = new BrokerLoginPage();
 		carrierLoginPage = new CarrierLoginPage();

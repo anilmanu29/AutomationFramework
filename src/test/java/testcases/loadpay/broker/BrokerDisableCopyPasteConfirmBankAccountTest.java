@@ -39,6 +39,7 @@ public class BrokerDisableCopyPasteConfirmBankAccountTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws AWTException, IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		brokerloginobj = new BrokerLoginPage();
 		brokerRegistrationObj = new BrokerRegister();
 		brokerdisablecopypasteconfirmbankaccountobj = new BrokerDisableCopyPasteConfirmBankAccount();
@@ -146,7 +147,7 @@ public class BrokerDisableCopyPasteConfirmBankAccountTest extends TestBase {
 	@Test(dataProvider = "getBrokerBankAccountData", dependsOnMethods = "verifyCopyPasteConfirmBankAccountFieldforRegister")
 	public void brokerLogin(String brokeremail, String password, String accname, String routingnum, String accnumber,
 			String confirmaccnumber) throws InterruptedException {
-		driver.get(prop.getProperty("url"));
+		driver.get(prop.getProperty("loadPayURL"));
 		brokerloginobj.Brokerlogin(brokeremail, password);
 	}
 

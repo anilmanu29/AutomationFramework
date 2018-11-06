@@ -57,6 +57,7 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException, AWTException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		h = new AdminHomePage();
 		a = new AdminLogin();
 		carrierlockaccounrsetpwdtobj = new CarrierlockedAccountResetPassword();
@@ -124,7 +125,7 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 			outlookLoginObj.outlookLogin(un, pwd);
 			carrierOutlookObj.clickPopUp();
 			carrierOutlookObj.clickOpenMailBox();
-			carrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
+			carrierOutlookObj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 			carrierlockaccounrsetpwdtobj.outlookSearchInbox(aemail, currentHour, currentMinutes);
 			carrierlockaccounrsetpwdtobj.handleUpdatedEmailInbox(aemail);
 		} catch (AWTException e) {

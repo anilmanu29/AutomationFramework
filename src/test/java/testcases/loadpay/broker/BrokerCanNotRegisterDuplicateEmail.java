@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerRegister;
+import util.TestUtil;
 
 public class BrokerCanNotRegisterDuplicateEmail extends TestBase {
 
@@ -23,6 +24,7 @@ public class BrokerCanNotRegisterDuplicateEmail extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		wait = new WebDriverWait(driver, 30);
 		brokerRegistrationObj = new BrokerRegister();
 		brokerLoginPage = new BrokerLoginPage();

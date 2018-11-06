@@ -74,6 +74,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		loginPage = new CarrierLoginPage();
 		carrierchildrelation = new CarrierParentChildRelationships();
 		jse = (JavascriptExecutor) driver;
@@ -151,10 +152,10 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		driver.switchTo().window(tabs.get(0));
 		driver.close();
 		driver.switchTo().window(tabs.get(1));
-		driver.get(super.getProperties().getProperty("outlookurl"));
+		driver.get(super.getProperties().getProperty("outlookURL"));
 		brokeroutlook.clickPopUp();
 		brokeroutlook.clickOpenMailBox();
-		brokeroutlook.enterEmail(super.getProperties().getProperty("email"));
+		brokeroutlook.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 		String[] timeArray = TestUtil.getTimestamp();
 		currentHour = timeArray[0];
 		currentMinutes = timeArray[1];
@@ -231,10 +232,10 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		Thread.sleep(1000);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		driver.get(super.getProperties().getProperty("outlookurl"));
+		driver.get(super.getProperties().getProperty("outlookURL"));
 		brokeroutlook.clickPopUp();
 		brokeroutlook.clickOpenMailBox();
-		brokeroutlook.enterEmail(super.getProperties().getProperty("email"));
+		brokeroutlook.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 		carrierchildrelation.resetPassword(forcepwd, confirmforcepwd);
 
 	}

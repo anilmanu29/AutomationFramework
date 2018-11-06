@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import pages.loadpay.unmatched.UnmatchedCarrierWireTransfer;
+import util.TestUtil;
 
 public class UnmatchedCarrierWireTransferTest extends TestBase {
 
@@ -21,6 +22,7 @@ public class UnmatchedCarrierWireTransferTest extends TestBase {
 	public void setUp() {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		uct = new UnmatchedCarrierWireTransfer();
 		wait = new WebDriverWait(driver, 30);
 	}

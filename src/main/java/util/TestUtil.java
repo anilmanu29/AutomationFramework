@@ -92,6 +92,8 @@ public class TestUtil extends TestBase {
 
 		if (currentMonth < 10)
 			strMonth = "0" + Integer.toString(currentMonth);
+		else
+			strMonth = Integer.toString(currentMonth);
 
 		// (1) get today's date
 		Date today = Calendar.getInstance().getTime();
@@ -100,7 +102,7 @@ public class TestUtil extends TestBase {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss_zzz");
 
 		// (3) create a new String using the date format we want
-		String fileName = formatter.format(today);
+		String fileName = className + "_" + formatter.format(today);
 
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		String currentDir = System.getProperty("user.dir");
@@ -254,11 +256,17 @@ public class TestUtil extends TestBase {
 		videoStarted = false;
 	}
 
-	public static void updateVideoFileName() {
-		String newFilePath = finalVideoFilePath + TestUtil.getCurrentDateTime() + "_TestVideo.mkv";
+	public static void updateVideoFileName() throws InterruptedException {
+
+		if (TestUtil.className.contains("testcases."))
+			TestUtil.className = TestUtil.className.replaceAll("testcases.", "");
+
+		String newFilePath = finalVideoFilePath + TestUtil.className + "_" + TestUtil.getCurrentDateTime() + "_.mkv";
 
 		File file = new File(initialVideoFilePath);
 		File newFile = new File(newFilePath);
+
+		Thread.sleep(5000);
 
 		if (file.renameTo(newFile)) {
 			log.info("File rename success");

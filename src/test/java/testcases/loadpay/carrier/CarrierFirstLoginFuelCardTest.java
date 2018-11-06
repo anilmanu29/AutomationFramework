@@ -8,6 +8,7 @@ import base.TestBase;
 import pages.loadpay.carrier.CarrierFirstLoginFuelCard;
 import pages.loadpay.carrier.CarrierLoginPage;
 import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
+import util.TestUtil;
 
 public class CarrierFirstLoginFuelCardTest extends TestBase {
 	CarrierFirstLoginFuelCard loginPage;
@@ -21,6 +22,7 @@ public class CarrierFirstLoginFuelCardTest extends TestBase {
 	@BeforeClass
 	public void setUp() {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		loginPage = new CarrierFirstLoginFuelCard();
 		carrierLoginPage = new CarrierLoginPage();
 		wait = new WebDriverWait(driver, 30);

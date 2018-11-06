@@ -16,6 +16,7 @@ import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerNewPayment;
 import pages.loadpay.broker.BrokerPaymentTermsChargeRecipient;
+import util.TestUtil;
 
 public class BrokerPaymentTermsChargeRecipientTest extends TestBase {
 
@@ -42,6 +43,7 @@ public class BrokerPaymentTermsChargeRecipientTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		BrokerPaymentTermsChargeRecipient = new BrokerPaymentTermsChargeRecipient();
 		brokerlogin = new BrokerLoginPage();
 		adminlogin = new AdminLogin();

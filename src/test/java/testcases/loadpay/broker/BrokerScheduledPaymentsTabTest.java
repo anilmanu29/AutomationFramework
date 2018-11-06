@@ -35,6 +35,7 @@ public class BrokerScheduledPaymentsTabTest extends TestBase {
 	public void setUp() {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		loginPage = new BrokerLoginPage();
 		brokerschedulepaymentstab = new BrokerScheduledPaymentsTab();
 		newPaymentObj = new BrokerNewPayment();

@@ -43,6 +43,7 @@ public class BrokerPaymentforUnmatchedCarrierTest extends TestBase {
 	public void setUp() {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		bl = new BrokerLoginPage();
 		bp = new BrokerPaymentforUnmatchedCarrier();
 		al = new ArrayList<String>();

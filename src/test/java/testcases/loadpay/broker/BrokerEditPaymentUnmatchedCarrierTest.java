@@ -25,6 +25,7 @@ public class BrokerEditPaymentUnmatchedCarrierTest extends TestBase {
 	@BeforeClass
 	public void setUp() {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		wait = new WebDriverWait(driver, 30);
 		brokerEditPaymentUnmatchedCarrierObj = new BrokerEditPaymentUnmatchedCarrier();
 		brokerEditPaymentUnmatchedCarrierObj.setUp();

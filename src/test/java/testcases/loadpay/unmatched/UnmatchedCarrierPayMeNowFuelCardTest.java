@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.unmatched.UnmatchedCarrierPaymeNowFuelCard;
+import util.TestUtil;
 
 public class UnmatchedCarrierPayMeNowFuelCardTest extends TestBase {
 
@@ -23,6 +24,7 @@ public class UnmatchedCarrierPayMeNowFuelCardTest extends TestBase {
 	public void setUp() {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		UnmatchedCarrierFuelCard = new UnmatchedCarrierPaymeNowFuelCard();
 		wait = new WebDriverWait(driver, 30);
 		carrierLoginPage = new CarrierLoginPage();

@@ -14,6 +14,7 @@ import pages.loadpay.admin.AdminPayByCheck;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.unmatched.UnmatchedCarrierAdminCancelPayByCheck;
 import pages.loadpay.unmatched.UnmatchedCarrierAdminPayByCheck;
+import util.TestUtil;
 
 public class UnmatchedCarrierAdminCancelPayByCheckTest extends TestBase {
 
@@ -35,6 +36,7 @@ public class UnmatchedCarrierAdminCancelPayByCheckTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		wait = new WebDriverWait(driver, 30);
 		adminLoginPageObj = new AdminLogin();
 		adminHomePageObj = new AdminHomePage();

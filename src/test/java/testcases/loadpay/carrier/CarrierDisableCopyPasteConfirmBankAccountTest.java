@@ -60,6 +60,7 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws AWTException, IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		carrierloginobj = new CarrierLoginPage();
 		carrierRegistrationObj = new CarrierRegisterPage();
 		carrierdisablecopypasteconfirmbankaccountobj = new CarrierDisableCopyPasteConfirmBankAccount();
@@ -189,7 +190,7 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 		outlook.outlookLogin(un, pwd);
 		carrierOutlookObj.clickPopUp();
 		carrierOutlookObj.clickOpenMailBox();
-		carrierOutlookObj.enterEmail(super.getProperties().getProperty("email"));
+		carrierOutlookObj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 		String[] timeArray = TestUtil.getTimestamp();
 		currentHour = timeArray[0];
 		currentMinutes = timeArray[1];
@@ -218,7 +219,7 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 	@Test(description = "LP-6366 LoadPay Carrier_Disable_copy/paste_functionality_for_add_and_confirmbankaccount", dataProvider = "getCarrierBankAccountData", dependsOnMethods = "adminLogin")
 	public void carrierLoginTest(String carrieremail, String password, String accname, String routingnum,
 			String accnumber, String confirmaccnumber) throws InterruptedException {
-		driver.get(prop.getProperty("url"));
+		driver.get(prop.getProperty("loadPayURL"));
 
 		carrierloginobj.Carrierlogin(carrierUsername, carrierPassword);
 		log.info("carrierLoginTest - Passed");

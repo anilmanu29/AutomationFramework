@@ -56,6 +56,7 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		admLogin = new AdminLogin();
 		admHomePage = new AdminHomePage();
 		brokerlogin = new BrokerLoginPage();
@@ -71,7 +72,7 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 
 	@Test(dataProvider = "getBrokerLoginData")
 	public void getBrokerCredentials(String user, String pass) throws InterruptedException {
-		driver.get(prop.getProperty("url"));
+		driver.get(prop.getProperty("loadPayURL"));
 
 		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true")) {
 			brokerUserName = BrokerRegisterTest.brokerUsername;
@@ -113,7 +114,7 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 
 	@Test(description = "LP-6621 LoadPay - Selenium Test - Admin - Payments Greater than 45 Days", dataProvider = "getBrokerLoginData", dependsOnMethods = "verifyAdminPaymentHistoryStatus")
 	public void loginBroker(String un, String pwd) {
-		driver.get(prop.getProperty("url"));
+		driver.get(prop.getProperty("loadPayURL"));
 		brokerlogin = new BrokerLoginPage();
 		brokerlogin.Brokerlogin(brokerUserName, brokerPassword);
 
@@ -155,7 +156,7 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 
 	@Test(description = "LP-6621 LoadPay - Selenium Test - Admin - Payments Greater than 45 Days", dataProvider = "getBrokerLoginData", dependsOnMethods = "brokernewPaymentmorethan365")
 	public void loginBrokernew(String un, String pwd) {
-		driver.get(prop.getProperty("url"));
+		driver.get(prop.getProperty("loadPayURL"));
 		brokerlogin = new BrokerLoginPage();
 		brokerlogin.Brokerlogin(brokerUserName, brokerPassword);
 
@@ -241,7 +242,7 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 			carrierPassword = pass;
 		}
 
-		driver.get(prop.getProperty("url"));
+		driver.get(prop.getProperty("loadPayURL"));
 		carrierloginPage = new CarrierLoginPage();
 		carrierloginPage.Carrierlogin(carrierUserName, carrierPassword);
 

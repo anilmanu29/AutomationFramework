@@ -26,6 +26,7 @@ import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.broker.BrokerRegister;
 import pages.loadpay.outlook.outlooklogin;
 import testcases.loadpay.broker.BrokerRegisterTest;
+import util.TestUtil;
 
 public class AdminEditEmailBrokerTest extends TestBase {
 	AdminHomePage adminHomePage;
@@ -59,6 +60,7 @@ public class AdminEditEmailBrokerTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException, AWTException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		adminHomePage = new AdminHomePage();
 		adminLoginPage = new AdminLogin();
 		adminEmailPage = new AdminEditEmailBroker();
@@ -186,7 +188,7 @@ public class AdminEditEmailBrokerTest extends TestBase {
 			outlookLoginObj.outlookLogin(un, pwd);
 			brokerOutlookObj.clickPopUp();
 			brokerOutlookObj.clickOpenMailBox();
-			brokerOutlookObj.enterEmail(super.getProperties().getProperty("email"));
+			brokerOutlookObj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 			brokerOutlookObj.outlookSearchInbox(updatedBrokerEmailAddress, currentHour, currentMinutes);
 			brokerOutlookObj.handleUpdatedEmailInbox(updatedBrokerEmailAddress);
 		} catch (AWTException e) {

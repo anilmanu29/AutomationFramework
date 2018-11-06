@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.outlook.outlooklogin;
 import pages.loadpay.unmatched.UnmatchedCariierEmailVerifyNextDay;
+import util.TestUtil;
 
 public class UnmatchedCariierEmailVerifyNextDayTest extends TestBase {
 
@@ -25,6 +26,7 @@ public class UnmatchedCariierEmailVerifyNextDayTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		outlook = new outlooklogin();
 		outlookk = new UnmatchedCariierEmailVerifyNextDay();
 		wait = new WebDriverWait(driver, 30);
@@ -39,7 +41,7 @@ public class UnmatchedCariierEmailVerifyNextDayTest extends TestBase {
 	public void outlookloginTest() throws InterruptedException, AWTException {
 		outlookk.clickPopUp();
 		outlookk.clickOpenMailBox();
-		outlookk.enterEmail(super.getProperties().getProperty("email"));
+		outlookk.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 		// outlookk.clickOpen();
 		outlookk.handleNewInbox();
 		outlookk.verifyConfirmationMessage();

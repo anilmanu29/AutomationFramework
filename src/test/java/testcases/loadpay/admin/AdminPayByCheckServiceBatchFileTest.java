@@ -13,6 +13,7 @@ import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.admin.AdminPayByCheckServiceBatchFile;
 import testcases.loadpay.broker.BrokerRegisterTest;
+import util.TestUtil;
 
 public class AdminPayByCheckServiceBatchFileTest extends TestBase {
 
@@ -31,7 +32,7 @@ public class AdminPayByCheckServiceBatchFileTest extends TestBase {
 	public void setUp() throws IOException {
 
 		initialization();
-
+		TestUtil.className = this.getClass().getName();
 		al = new AdminLogin();
 		ahp = new AdminHomePage();
 		apbcf = new AdminPayByCheckServiceBatchFile();

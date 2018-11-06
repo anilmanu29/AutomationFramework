@@ -34,7 +34,7 @@ public class outlooklogin extends TestBase {
 
 	public void outlookLogin(String un, String pwd) throws AWTException, InterruptedException {
 
-		driver.get(super.getProperties().getProperty("outlookurl"));
+		driver.get(super.getProperties().getProperty("outlookURL"));
 		wait.until(ExpectedConditions.elementToBeClickable(UserName));
 		UserName.sendKeys(un);
 		Password.sendKeys(pwd);

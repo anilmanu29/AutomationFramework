@@ -13,6 +13,7 @@ import pages.loadpay.broker.BrokerDisableCopyPasteConfirmBankAccount;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerRegisterCanada;
 import pages.loadpay.broker.HandshakewithITSDispatch;
+import util.TestUtil;
 
 public class HandshakewithITSDispatchTest extends TestBase {
 
@@ -30,6 +31,7 @@ public class HandshakewithITSDispatchTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws AWTException, IOException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		brokerloginobj = new BrokerLoginPage();
 		brokerregisterobj = new BrokerRegisterCanada();
 		brokerdisablecopypasteconfirmbankaccountobj = new BrokerDisableCopyPasteConfirmBankAccount();

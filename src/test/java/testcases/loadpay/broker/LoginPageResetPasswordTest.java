@@ -19,6 +19,7 @@ import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.broker.BrokerPasswordSetupResetPage;
 import pages.loadpay.carrier.ResetPassword;
 import pages.loadpay.outlook.outlooklogin;
+import util.TestUtil;
 
 public class LoginPageResetPasswordTest extends TestBase {
 	BrokerPasswordSetupResetPage brokerPasswordSetupResetPage;
@@ -43,6 +44,7 @@ public class LoginPageResetPasswordTest extends TestBase {
 	@BeforeClass
 	public void setUp() throws IOException, InterruptedException {
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		brokerLoginPage = new BrokerLoginPage();
 		resetPassword = new ResetPassword();
 		outlookLogin = new outlooklogin();
@@ -100,7 +102,7 @@ public class LoginPageResetPasswordTest extends TestBase {
 		brokerOutlook.clickPopUp();
 		EmailAddress = EmailAddress.trim();
 		brokerOutlook.clickOpenMailBox();
-		brokerOutlook.enterEmail(super.getProperties().getProperty("email"));
+		brokerOutlook.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
 		brokerOutlook.outlookSearchInbox(EmailAddress, currentHour, currentMinutes);
 		brokerOutlook.handleResetPasswordEmailInbox(EmailAddress);
 		brokerPasswordSetupResetPage.enterNewPassword(NewPassword);

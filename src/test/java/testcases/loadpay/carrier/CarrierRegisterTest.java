@@ -36,6 +36,7 @@ public class CarrierRegisterTest extends TestBase {
 	public void setUp() {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		carrierRegistrationObj = new CarrierRegisterPage();
 		wait = new WebDriverWait(driver, 30);
 	}

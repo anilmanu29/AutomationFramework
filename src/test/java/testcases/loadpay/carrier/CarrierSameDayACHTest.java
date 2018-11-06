@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierSameDAYACH;
+import util.TestUtil;
 
 public class CarrierSameDayACHTest extends TestBase {
 
@@ -24,6 +25,7 @@ public class CarrierSameDayACHTest extends TestBase {
 	public void setUp() {
 
 		initialization();
+		TestUtil.className = this.getClass().getName();
 		loginPage = new CarrierLoginPage();
 		cs = new CarrierSameDAYACH();
 		wait = new WebDriverWait(driver, 30);
