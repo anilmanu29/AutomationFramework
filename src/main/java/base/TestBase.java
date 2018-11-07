@@ -89,9 +89,6 @@ public class TestBase {
 		case "Loadpay":
 			driver.get(prop.getProperty("loadPayURL"));
 			break;
-		case "LoadpayAdmin":
-			driver.get(prop.getProperty("loadPayAdminURL"));
-			break;
 		case "FreightMatching":
 			driver.get(prop.getProperty(""));
 			break;
