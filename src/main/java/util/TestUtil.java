@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -31,6 +32,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
 
 import base.TestBase;
 
@@ -205,6 +207,39 @@ public class TestUtil extends TestBase {
 		}
 
 		return list;
+	}
+
+	/*
+	 * EXAMPLE CODE FOR WRITING TO CSV List<String[]> myList = new ArrayList<>();
+	 * myList.add(new String[] { "Name", "Class", "Marks" }); myList.add(new
+	 * String[] { "Aman", "10", "620" }); myList.add(new String[] { "Suraj", "10",
+	 * "630" });
+	 * 
+	 * TestUtil.writeDataForCustomSeperatorCSV( TestUtil.basePath +
+	 * "\\output\\csv files\\testFile " + TestUtil.getCurrentDateTime() + ".csv",
+	 * myList);
+	 */
+	public static void writeDataForCustomSeperatorCSV(String filePath, List<String[]> dataList) {
+
+		// first create file object for file placed at location specified by filepath
+		File file = new File(filePath);
+
+		try {
+			// create FileWriter object with file as parameter
+			FileWriter outputfile = new FileWriter(file);
+
+			// create CSVWriter with '|' as separator
+			CSVWriter writer = new CSVWriter(outputfile, '|', CSVWriter.NO_QUOTE_CHARACTER,
+					CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
+
+			writer.writeAll(dataList);
+
+			// closing writer connection
+			writer.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static long getDifferenceBetweenDates(String startDate, String endDate) throws ParseException {
