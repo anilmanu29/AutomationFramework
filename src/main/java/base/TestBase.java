@@ -83,28 +83,21 @@ public class TestBase {
 			driver = new InternetExplorerDriver();
 		}
 
+		// DETERMINE APPLICATION UNDER TEST FROM CONFIG.PROPERTIES FILE
 		String applicationUnderTest = prop.getProperty("AUT");
 
-		switch (applicationUnderTest) {
-		case "Loadpay":
+		if (applicationUnderTest.contains("Loadpay"))
 			driver.get(prop.getProperty("loadPayURL"));
-			break;
-		case "FreightMatching":
+		else if (applicationUnderTest.contains("FreightMatching"))
 			driver.get(prop.getProperty(""));
-			break;
-		case "ITSDispatch":
+		else if (applicationUnderTest.contains("ITSDispatch"))
 			driver.get(prop.getProperty("ITSDispatchURL"));
-			break;
-		case "Mobile":
-			driver.get(prop.getProperty(""));
-			break;
-		case "V5":
+		else if (applicationUnderTest.contains("Mobile"))
+			driver.get(prop.getProperty("mobileURL"));
+		else if (applicationUnderTest.contains("V5"))
 			driver.get(prop.getProperty("v5_prototypeURL"));
-			break;
-		default:
 
-		}
-
+		// USE FULL LOADPAY REGRESSION INPUT DATA - HAS MORE NEW PAYMENT LINES
 		if (prop.getProperty("useFullRegressionData").contains("true")) {
 			loadPayTestDataFilePath = System.getProperty(userDirectory)
 					+ "/src/main/java/testdata/LoadPay/LoadPayTestData_FullRegression.xlsx";
