@@ -95,7 +95,8 @@ public class v5_prototype_LoginPage extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(rememberMe));
 
 		if (!rememberMe.isSelected()) {
-			rememberMe.click();
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();", rememberMe);
 		}
 	}
 
