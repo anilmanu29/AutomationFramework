@@ -1,0 +1,42 @@
+suite: 
+ listeners: 
+  listener: 
+   - 
+   "_class-name": "extentreportlistener.ExtentReporterNG"
+   - 
+   "_class-name": "testngcustomreportlistener.TestNGCustomReportListener"
+   - 
+   "_class-name": "util.TestRetryAnalyzerListener"
+ "suite-files": 
+  "suite-file": 
+   _path: "src/main/resources/LoadPayXMLs/2018/CreateNewBrokerAndCarrierWithPayments.xml"
+ test: 
+  classes: 
+   class: 
+    - 
+   _name: "testcases.loadpay.carrier.CarrierNotificationTest"
+    - 
+   _name: "testcases.loadpay.carrier.CarrierWireTransferTest"
+    - 
+   _name: "testcases.loadpay.carrier.CarrierSameDayACHTest"
+    - 
+   _name: "testcases.loadpay.carrier.CarrierNextDAYACHTest"
+    - 
+   _name: "testcases.loadpay.carrier.CarrierPayMeNowTabTest"
+    - 
+   _name: "testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest"
+    - 
+   _name: "testcases.loadpay.unmatched.UnmatchedCarrierRegistrationTest"
+    - 
+   _name: "testcases.loadpay.unmatched.UnmatchedCariierEmailVerifyTest"
+    - 
+   _name: "testcases.loadpay.unmatched.UnmatchedCarrierAdminTest"
+    - 
+   _name: "testcases.loadpay.carrier.CarrierFirstLoginTest"
+    - 
+   _name: "testcases.loadpay.unmatched.UnmatchedCarrierSameDayACHTest"
+    - 
+   _name: "testcases.loadpay.unmatched.UnmatchedCarrierWireTransferTest"
+  _name: "I Sprint Test Cases"
+  "_preserve-order": true
+ _name: "Sprint I Test Suite"
