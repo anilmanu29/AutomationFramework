@@ -6,7 +6,7 @@ listeners:
   - util.TestRetryAnalyzerListener
 
 tests:
-  - name: I Sprint Test Cases
+    name: I Sprint Test Cases
     classes:
     - testcases.loadpay.broker.BrokerRegisterTest
     - testcases.loadpay.broker.BrokerOutlookTest
