@@ -1,17 +1,16 @@
 package testcases.loadpay.admin;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.testng.Assert.assertEquals;
 
 import java.awt.AWTException;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -20,7 +19,6 @@ import base.TestBase;
 import pages.loadpay.admin.AdminCustomersPaymentsPage;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
-import pages.loadpay.broker.BrokerEditPaymentAdminPaymentssubmenu;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerNewPayment;
 import testcases.loadpay.broker.BrokerRegisterTest;
@@ -45,15 +43,22 @@ public class AdminPayByCheckFileUploadTest extends TestBase {
 	AdminLogin adminLogin;
 	BrokerNewPayment brokerNewPayment;
 	BrokerLoginPage brokerLoginPage;
-	String brokerUsername = "";
-	String brokerPassword = "";
-	public String email;
-	public ArrayList<String> newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNumber;
-	public String strDate;
+
 	String carrierUsername = "";
 	String dateTime = "";
+	String brokerUsername = "";
+	String brokerPassword = "";
+
+	String filePath = super.getProperties().getProperty("CheckProcessImportTemplatePath");
+	String updatedFilePath = super.getProperties().getProperty("CheckProcessImportTemplateUpdatedPath");
+
+	public String email;
+	public ArrayList<String> newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNumber;
+
+	public String strDate;
 	LocalDate today;
 	Boolean newDateUsed = false;
+
 	int beforeCount = 0;
 	int afterCount = 0;
 
@@ -113,6 +118,7 @@ public class AdminPayByCheckFileUploadTest extends TestBase {
 		} else {
 			carrierUsername = cemail;
 		}
+
 		invoiceNumber = "NP" + TestUtil.getCurrentDateTime();
 		loadid = invoiceNumber;
 		newPaymentAmount.add(intPaymentAmount.toString());
@@ -179,11 +185,26 @@ public class AdminPayByCheckFileUploadTest extends TestBase {
 			paymentIds.add(adminCustomersPaymentsPage.getPaymentIdAndStoreItInVariable());
 
 		}
+
+		// write paymentIDs to a CSV file
+		String[] csvData;
+		LocalDateTime now = LocalDateTime.now();
+		String todaysDate = now.getMonthValue() + "/" + now.getDayOfMonth() + "/" + now.getYear();
+
+		for (int i = 0; i < paymentIds.size(); i++) {
+			// myList.add(new String[] { "Name", "Class", "Marks" });
+			csvData = new String[] { paymentIds.get(i), "PayMeNow", todaysDate, "Yes", "Ryan Carrier Company",
+					"645 E. Missouri, Suite 119", "Phoenix", "AZ", "85012", "480-773-9907", "MC123456", "54283",
+					"Ryan Hill", "543312" };
+
+			TestUtil.writeDataForCustomSeperatorCSV(filePath, csvData);
+		}
+
 		adminCustomersPaymentsPage.payByCheckFileUploadMenu();
 		beforeCount = adminCustomersPaymentsPage.listPayByCheckUpload();
 		adminCustomersPaymentsPage.uploadFile();
-		//afterCount = adminCustomersPaymentsPage.listPayByCheckUpload();
-		//assertEquals(beforeCount, afterCount - 2);
+		afterCount = adminCustomersPaymentsPage.listPayByCheckUpload();
+		assertEquals(beforeCount, afterCount - 2);
 
 	}
 
