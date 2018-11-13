@@ -25,7 +25,7 @@ public class BrokerEditPaymentMatchedCarrier extends TestBase {
 	}
 
 	public void setUp() {
-		initialization();
+		// initialization();
 		brokerLoginObj = new BrokerLoginPage();
 		brokerPaymentObj = new BrokerNewPayment();
 		wait = new WebDriverWait(driver, 30);

@@ -33,7 +33,7 @@ public class BrokerEditPaymentUnmatchedCarrier extends TestBase {
 	}
 
 	public void setUp() {
-		initialization();
+		// initialization();
 		brokerLoginObj = new BrokerLoginPage();
 		brokerPaymentObj = new BrokerNewPayment();
 		newPaymentAmount = new ArrayList<String>();
