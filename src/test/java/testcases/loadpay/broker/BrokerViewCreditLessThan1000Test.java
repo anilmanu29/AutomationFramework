@@ -81,7 +81,7 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 
 		updateCreditAmount("1000");
 
-		driver.get(super.getProperties().getProperty("url"));
+		driver.get(super.getProperties().getProperty("loadPayURL"));
 		carrierloginobj.Carrierlogin(carrierUsername, carrierPassword);
 		carrierNextDayObj.clickPaymenow();
 		carrierNextDayObj.clickSelectButton();
