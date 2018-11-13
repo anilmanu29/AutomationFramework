@@ -219,7 +219,7 @@ public class TestUtil extends TestBase {
 	 * "\\output\\csv files\\testFile " + TestUtil.getCurrentDateTime() + ".csv",
 	 * myList);
 	 */
-	public static void writeDataForCustomSeperatorCSV(String filePath, List<String[]> dataList) {
+	public static void writeDataForCustomSeperatorCSV(String filePath, String[] dataList) {
 
 		// first create file object for file placed at location specified by filepath
 		File file = new File(filePath);
@@ -232,7 +232,7 @@ public class TestUtil extends TestBase {
 			CSVWriter writer = new CSVWriter(outputfile, '|', CSVWriter.NO_QUOTE_CHARACTER,
 					CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
 
-			writer.writeAll(dataList);
+			writer.writeNext(dataList);
 
 			// closing writer connection
 			writer.close();
