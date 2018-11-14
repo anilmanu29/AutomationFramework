@@ -3,6 +3,7 @@ package util;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -32,7 +33,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 import com.opencsv.CSVReader;
-import com.opencsv.CSVWriter;
 
 import base.TestBase;
 
@@ -219,27 +219,30 @@ public class TestUtil extends TestBase {
 	 * "\\output\\csv files\\testFile " + TestUtil.getCurrentDateTime() + ".csv",
 	 * myList);
 	 */
-	public static void writeDataForCustomSeperatorCSV(String filePath, String[] dataList) {
+	public static void writeDataForCustomSeperatorCSV(String filePath, String[][] dataList, String seperator)
+			throws IOException {
+		StringBuilder builder = new StringBuilder();
 
-		// first create file object for file placed at location specified by filepath
-		File file = new File(filePath);
+		int rowCount = dataList.length;
+		int colCount = dataList[0].length;
 
-		try {
-			// create FileWriter object with file as parameter
-			FileWriter outputfile = new FileWriter(file);
+		for (int i = 0; i < rowCount; i++)// for each row
+		{
+			for (int j = 0; j < colCount; j++)// for each column
+			{
+				if (j != (colCount - 1))
+					builder.append(dataList[i][j] + seperator);// append to the output string
+				else
+					builder.append(dataList[i][j]);// append to the output string
+			}
 
-			// create CSVWriter with '|' as separator
-			CSVWriter writer = new CSVWriter(outputfile, '|', CSVWriter.NO_QUOTE_CHARACTER,
-					CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
-
-			writer.writeNext(dataList);
-
-			// closing writer connection
-			writer.close();
-
-		} catch (IOException e) {
-			e.printStackTrace();
+			builder.append("\n");// append new line at the end of the row
 		}
+
+		BufferedWriter writer;
+		writer = new BufferedWriter(new FileWriter(filePath));
+		writer.write(builder.toString());// save the string representation of the board
+		writer.close();
 	}
 
 	public static long getDifferenceBetweenDates(String startDate, String endDate) throws ParseException {

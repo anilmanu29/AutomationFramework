@@ -9,13 +9,12 @@
   </listeners>
   
       <suite-files>
-<!--        <suite-file path="src/main/resources/LoadPayXMLs/2018/CreateNewBrokerAndCarrierCanada.xml"></suite-file> -->
-       <suite-file path="src/main/resources/LoadPayXMLs/2018/CreateNewBrokerAndCarrierWithPayments.xml"></suite-file>            
+       <suite-file path="src/main/resources/LoadPayXMLs/2018/CreateNewBrokerAndCarrier.xml"></suite-file>            
 	 </suite-files>
    
-	<test name="Failed Sprint Test Cases">
+	<test name="Test Template">
     <classes>
-                                             
+        <class name="testcases.loadpay.admin.AdminPayByCheckFileUploadTest"></class>
     </classes>
   </test> 
 </suite> 

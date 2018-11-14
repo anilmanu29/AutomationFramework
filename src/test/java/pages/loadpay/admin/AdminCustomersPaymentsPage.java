@@ -6,7 +6,6 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,18 +17,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import base.TestBase;
-import pages.loadpay.broker.BrokerEditPaymentAdminPaymentssubmenu;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerNewPayment;
-import testcases.loadpay.broker.BrokerRegisterTest;
-import testcases.loadpay.carrier.CarrierRegisterTest;
-import util.TestUtil;
 
 public class AdminCustomersPaymentsPage extends TestBase {
 
@@ -101,38 +92,6 @@ public class AdminCustomersPaymentsPage extends TestBase {
 		brokerLoginObj.Brokerlogin(un, pwd);
 	}
 
-	public void brokerCreateNewPayment(String cE, String iN, String lId, String pA) throws InterruptedException {
-
-		if (super.getProperties().getProperty("useDynamicCarrierData").contains("true")) {
-			carrierEmail = CarrierRegisterTest.carrierUsername;
-		} else {
-			carrierEmail = cE;
-		}
-
-		iN = "NP" + TestUtil.getCurrentDateTime();
-		lId = iN;
-
-		// create new payment
-		brokerPaymentObj = new BrokerNewPayment();
-		brokerPaymentObj.newPayment();
-		brokerPaymentObj.carrierEmail(carrierEmail);
-		brokerPaymentObj.amount(pA);
-		invoiceNum = brokerPaymentObj.invoiceNumber(iN);
-		arraylist.add(invoiceNum);
-		brokerPaymentObj.loadId(lId);
-		brokerPaymentObj.clickShedulePayment();
-		brokerPaymentObj.clickShedulePaymenttab();
-		brokerPaymentObj.searchInvoice(invoiceNum);
-		brokerPaymentObj.clickSearchButton();
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeScript("window.scrollBy(0,250)", "");
-		Thread.sleep(3000);
-		brokerPaymentObj.verifyInvoiceNumber(invoiceNum, paymentAmount);
-
-		// verify payment status
-		Assert.assertTrue(brokerPaymentObj.verifyPaymentStatus().equals(paymentStatus), "Payment Status not equal!");
-	}
-
 	public void openandSwitchtoNewTab() throws InterruptedException {
 		((JavascriptExecutor) driver).executeScript("window.open();");
 		Thread.sleep(1000);
@@ -192,10 +151,10 @@ public class AdminCustomersPaymentsPage extends TestBase {
 		payByCheckFileUploadMenu.click();
 	}
 
-//	public void uploadSelectedCheckFile() {
-//		wait.until(ExpectedConditions.elementToBeClickable(uploadSelectedCheckFile));
-//		uploadSelectedCheckFile.click();
-//	}
+	// public void uploadSelectedCheckFile() {
+	// wait.until(ExpectedConditions.elementToBeClickable(uploadSelectedCheckFile));
+	// uploadSelectedCheckFile.click();
+	// }
 
 	public int listPayByCheckUpload() {
 		wait.until(ExpectedConditions.visibilityOfAllElements(listPayByCheckUploadRecords));
@@ -203,19 +162,17 @@ public class AdminCustomersPaymentsPage extends TestBase {
 		return listPayByCheckUploadRecords.size();
 
 	}
-	
 
 	public void clickUploadFile() {
 		wait.until(ExpectedConditions.visibilityOf(downloadPayByCheckFileUploadTemplate));
 		downloadPayByCheckFileUploadTemplate.click();
 	}
-	
 
 	public void downloadPayByCheckFileUploadTemplate() {
 		wait.until(ExpectedConditions.visibilityOf(downloadPayByCheckFileUploadTemplate));
 		downloadPayByCheckFileUploadTemplate.click();
 	}
-	
+
 	public void uploadFile() throws IOException, InterruptedException, AWTException {
 
 		// Specify the file location with extension
@@ -224,8 +181,8 @@ public class AdminCustomersPaymentsPage extends TestBase {
 		// Copy to clipboard
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(sel, null);
 
-		//JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", uploadSelectedCheckFile); 
+		// JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", uploadSelectedCheckFile);
 
 		wait.until(ExpectedConditions.elementToBeClickable(uploadSelectedCheckFile));
 		uploadSelectedCheckFile.click();
@@ -258,43 +215,4 @@ public class AdminCustomersPaymentsPage extends TestBase {
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		Thread.sleep(2000);
 	}
-
-	public void verifyEditableFieldsEnabled() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(paymenteditbutton));
-		Thread.sleep(1000);
-		paymenteditbutton.click();
-
-		// Verify all editable fields are enabled
-		SoftAssert softAssert = new SoftAssert();
-
-		softAssert.assertTrue(brokerPaymentObj.getField_CarrierEmail().isEnabled(), "Carrier Email Field Disabled!");
-		softAssert.assertTrue(brokerPaymentObj.getField_PayTo().isEnabled(), "Pay-To Field Disabled!");
-		softAssert.assertTrue(brokerPaymentObj.getField_CarrierDOT().isEnabled(), "Carrier DOT Field Disabled!");
-		softAssert.assertTrue(brokerPaymentObj.getField_ScheduleDate().isEnabled(), "Schedule Date Field Disabled!");
-		softAssert.assertTrue(!brokerPaymentObj.getField_PaymentAmount().isEnabled(), "Payment Amount Field Enabled!");
-
-		softAssert.assertTrue(brokerPaymentObj.getField_InvoiceNum().isEnabled(), "Invoice # Field Disabled!");
-		softAssert.assertTrue(brokerPaymentObj.getField_LoadID().isEnabled(), "Load ID Field Disabled!");
-		softAssert.assertTrue(brokerPaymentObj.getField_InvoiceRecd().isEnabled(), "Invoice Received Field Disabled!");
-		softAssert.assertTrue(brokerPaymentObj.getField_Memo().isEnabled(), "Memo Field Disabled!");
-
-		softAssert.assertAll();
-	}
-
-	public void updatePaymentDetails(String updatedCarrierEmail, String updatedInvoiceNumber, String updatedPayTo,
-			String updatedLoadID, String updatedCarrierDOT, String updatedScheduleDate, String updatedInvoiceRecd,
-			String updatedMemo) throws InterruptedException {
-		brokerPaymentObj.setField_CarrierEmail(updatedCarrierEmail);
-		brokerPaymentObj.setField_PayTo(updatedPayTo);
-		brokerPaymentObj.setField_CarrierDOT(updatedCarrierDOT);
-		brokerPaymentObj.setField_InvoiceRecd(updatedInvoiceRecd);
-		brokerPaymentObj.setField_ScheduleDate(updatedScheduleDate);
-		brokerPaymentObj.setField_InvoiceNum(updatedInvoiceNumber);
-		brokerPaymentObj.setField_LoadID(updatedLoadID);
-		brokerPaymentObj.setField_Memo(updatedMemo);
-		brokerPaymentObj.clickShedulePayment();
-		wait.until(ExpectedConditions.elementToBeClickable(alertmessage));
-		Assert.assertTrue(alertmessage.getText().contains("Updated Successfully!"), "Alert message NOT Displayed");
-	}
-
 }
