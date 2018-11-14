@@ -49,8 +49,7 @@ public class AdminPayByCheckFileUploadTest extends TestBase {
 	String brokerUsername = "";
 	String brokerPassword = "";
 
-	String filePath = super.getProperties().getProperty("CheckProcessImportTemplatePath");
-	String updatedFilePath = super.getProperties().getProperty("CheckProcessImportTemplateUpdatedPath");
+	String csvFilePath = super.getProperties().getProperty("PayByCheckCsvUploadPath");
 
 	public String email;
 	public ArrayList<String> newPaymentAmount, newPaymentLoadId, newPaymentPayer, newPaymentInvoiceNumber;
@@ -187,18 +186,44 @@ public class AdminPayByCheckFileUploadTest extends TestBase {
 		}
 
 		// write paymentIDs to a CSV file
-		String[] csvData;
+		String[][] csvData = new String[paymentIds.size() + 1][14];
+		csvData[0][0] = "LOADPAY PAYMENT ID#*";
+		csvData[0][1] = "TERMS*";
+		csvData[0][2] = "CARRIER PAYMENT DATE*";
+		csvData[0][3] = "CHECK FEE*";
+		csvData[0][4] = "COMPANY NAME (MAKE CHECK PAYABLE TO)*";
+		csvData[0][5] = "STREET ADDRESS*";
+		csvData[0][6] = "CITY*";
+		csvData[0][7] = "ST*";
+		csvData[0][8] = "ZIP*";
+		csvData[0][9] = "PHONE*";
+		csvData[0][10] = "MC";
+		csvData[0][11] = "DOT";
+		csvData[0][12] = "CONTACT NAME*";
+		csvData[0][13] = "CHECK NUMBER*";
+
 		LocalDateTime now = LocalDateTime.now();
 		String todaysDate = now.getMonthValue() + "/" + now.getDayOfMonth() + "/" + now.getYear();
 
 		for (int i = 0; i < paymentIds.size(); i++) {
 			// myList.add(new String[] { "Name", "Class", "Marks" });
-			csvData = new String[] { paymentIds.get(i), "PayMeNow", todaysDate, "Yes", "Ryan Carrier Company",
-					"645 E. Missouri, Suite 119", "Phoenix", "AZ", "85012", "480-773-9907", "MC123456", "54283",
-					"Ryan Hill", "543312" };
-
-			TestUtil.writeDataForCustomSeperatorCSV(filePath, csvData);
+			csvData[i + 1][0] = paymentIds.get(i);
+			csvData[i + 1][1] = "PayMeNow";
+			csvData[i + 1][2] = todaysDate;
+			csvData[i + 1][3] = "Yes";
+			csvData[i + 1][4] = "Ryan Carrier Company";
+			csvData[i + 1][5] = "645 E. Missouri Suite 119";
+			csvData[i + 1][6] = "Phoenix";
+			csvData[i + 1][7] = "AZ";
+			csvData[i + 1][8] = "85012";
+			csvData[i + 1][9] = "480-773-9907";
+			csvData[i + 1][10] = "MC123456";
+			csvData[i + 1][11] = "54283";
+			csvData[i + 1][12] = "Ryan Hill";
+			csvData[i + 1][13] = "543312";
 		}
+
+		TestUtil.writeDataForCustomSeperatorCSV(csvFilePath, csvData, ",");
 
 		adminCustomersPaymentsPage.payByCheckFileUploadMenu();
 		beforeCount = adminCustomersPaymentsPage.listPayByCheckUpload();
