@@ -110,6 +110,7 @@ public class BrokerDiscountsTabTest extends TestBase {
 		// TEST - SEARCH VERIFICATION
 		brokerdiscountsTab.enterSearchText(searchforcompanyname);
 		brokerdiscountsTab.clickSearchButton();
+		brokerdiscountsTab.clickCarrierColumn();
 		// click first row to expand
 		brokerdiscountsTab.clickFirstRow();
 		// get the data elements from the first row displayed

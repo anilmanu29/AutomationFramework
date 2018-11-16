@@ -82,7 +82,7 @@ public class CarrierlockedaccountcanbeunlockedbyadminTest extends TestBase {
 	@Test(dataProvider = "getCarrierlockedaccountAdminUnlockData", dependsOnMethods = { "adminCancelLockout" })
 	public void loginAsCarrierUnlockedloginAsCarrierUnlocked(String user, String pass, String wrongpass)
 			throws InterruptedException {
-		driver.get(super.getProperties().getProperty("url"));
+		driver.get(super.getProperties().getProperty("loadPayURL"));
 		loginPage.Carrierlogin(carrierEmail, carrierPassword);
 		Thread.sleep(3000);
 		loginPage.CarrierLogout();

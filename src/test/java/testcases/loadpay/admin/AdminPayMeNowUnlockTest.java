@@ -88,7 +88,7 @@ public class AdminPayMeNowUnlockTest extends TestBase {
 	@Test(description = "LP-4683 AdminPayMeNowLockTest_verifyBrokerCannotOptOutPayMeNow", dataProvider = "getBrokerLoginData", dependsOnMethods = "verifyLockPayMeNowStatus")
 	public void verifyBrokerCannotOptOutPayMeNow(String un, String pwd) throws InterruptedException, AWTException {
 
-		driver.get(super.getProperties().getProperty("url"));
+		driver.get(super.getProperties().getProperty("loadPayURL"));
 		brokLoginPage.Brokerlogin(brokerUserName, brokerPassword);
 
 		brokerPayMeNowTab.openAccountTab();
@@ -134,7 +134,7 @@ public class AdminPayMeNowUnlockTest extends TestBase {
 	@Test(dataProvider = "getBrokerLoginData", dependsOnMethods = "verifyAdminUnlockPayMeNowStatus")
 	public void verifyBrokerCanEnrollInPayMeNow(String un, String pwd) throws InterruptedException, AWTException {
 
-		driver.get(super.getProperties().getProperty("url"));
+		driver.get(super.getProperties().getProperty("loadPayURL"));
 		brokLoginPage.Brokerlogin(brokerUserName, brokerPassword);
 
 		brokerPayMeNowTab.openAccountTab();
