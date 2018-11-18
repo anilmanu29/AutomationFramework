@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Automation Test Suite">
+
+  <listeners>
+   	<listener class-name = "extentreportlistener.ExtentReporterNG"/>
+   	<listener class-name = "testngcustomreportlistener.TestNGCustomReportListener"/>
+    <listener class-name = "util.TestRetryAnalyzerListener"/>
+  </listeners>
+
+	<test name="Test Template">
+    <classes>
+        <class name="testcases.v5prototype.v5LoginTest.java"></class>
+    </classes>
+  </test> 
+</suite> 

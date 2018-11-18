@@ -1,4 +1,4 @@
-package testcases.v5_prototype;
+package testcases.v5prototype;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -9,13 +9,13 @@ import base.TestBase;
 import pages.v5_prototype.v5_prototype_LoginPage;
 import util.TestUtil;
 
-public class v5_prototype_LoginPageTest extends TestBase {
+public class v5LoginTest extends TestBase {
 	v5_prototype_LoginPage v5LoginPage;
 
 	String userName = "jason1016@mailinator.truckstop.com";
 	String passWord = "Password@3";
 
-	public v5_prototype_LoginPageTest() {
+	public v5LoginTest() {
 		super();
 
 	}
