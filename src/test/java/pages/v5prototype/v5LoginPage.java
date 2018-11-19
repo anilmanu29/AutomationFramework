@@ -1,4 +1,4 @@
-package pages.v5_prototype;
+package pages.v5prototype;
 
 import java.util.Map;
 
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
 
-public class v5_prototype_LoginPage extends TestBase {
+public class v5LoginPage extends TestBase {
 	public Map<String, String> data;
 	WebDriverWait wait;
 	public int timeout = 15;
@@ -41,7 +41,7 @@ public class v5_prototype_LoginPage extends TestBase {
 
 	public final String pageUrl = "/login";
 
-	public v5_prototype_LoginPage() {
+	public v5LoginPage() {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 30);
 	}
