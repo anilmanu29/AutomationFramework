@@ -10,7 +10,7 @@
 
 	<test name="v5 Login Test">
 	    <classes>
-	        <class name="testcases.v5prototype.v5LoginTest.java"></class>
+	        <class name="testcases.v5prototype.v5LoginTest"></class>
 	    </classes>
 	</test> 
 </suite> 
