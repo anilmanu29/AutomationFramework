@@ -55,15 +55,13 @@ public class CarrierLoginTest extends TestBase {
 		if (loginPage.getTermsAndConditionsCheckBox().isEnabled()) {
 			loginPage.clickTermsAndConditionsCheckBox();
 			loginPage.clickFinishButton();
-<<<<<<< Upstream, based on automation-framework-master
-			Assert.assertTrue(
-					loginPage.getConfirmationPopup().getText()
-							.contains("registration has been completed successfully."),
-					"Registration success message not found");
-=======
+
 			Assert.assertTrue(loginPage.getConfirmationPopup().getText().contains(
 					"registration has been completed successfully."), "Registration success message not found");
->>>>>>> c41478f Updated loadPay URL property usage
+
+			Assert.assertTrue(loginPage.getConfirmationPopup().getText().contains(
+					"registration has been completed successfully."), "Registration success message not found");
+
 			loginPage.clickConfirmationPopupCloseButton();
 		}
 
