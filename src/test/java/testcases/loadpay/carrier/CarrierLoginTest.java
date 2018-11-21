@@ -57,7 +57,7 @@ public class CarrierLoginTest extends TestBase {
 			loginPage.clickFinishButton();
 			Assert.assertTrue(
 					loginPage.getConfirmationPopup().getText()
-							.contains("Your LoadPay™ registration has been completed successfully."),
+							.contains("registration has been completed successfully."),
 					"Registration success message not found");
 			loginPage.clickConfirmationPopupCloseButton();
 		}

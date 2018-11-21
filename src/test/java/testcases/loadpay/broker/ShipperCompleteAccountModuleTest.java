@@ -119,7 +119,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 			String ContactPN, String Contactextension, String ContactMobileNumber, String ContactFax)
 			throws InterruptedException {
 
-		driver.get(super.getProperties().getProperty("url"));
+		driver.get(super.getProperties().getProperty("loadPayURL"));
 
 		shippercompleteaccountmodule.clickAccountlink();
 		shippercompleteaccountmodule.clickContactlink();

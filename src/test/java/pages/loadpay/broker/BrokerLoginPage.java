@@ -147,7 +147,7 @@ public class BrokerLoginPage extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(confirmationPopup));
 		log.info("Confirmation message: " + confirmationPopup.getText());
 		Assert.assertTrue(
-				confirmationPopup.getText().contains("Your LoadPay™ registration has been completed successfully."),
+				confirmationPopup.getText().contains("registration has been completed successfully."),
 				"Registration success message not found");
 
 		WebElement confirmationPopupClose = driver
