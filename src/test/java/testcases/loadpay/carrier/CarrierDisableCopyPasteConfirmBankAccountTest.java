@@ -263,10 +263,8 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 		if (carrierloginobj.getTermsAndConditionsCheckBox().isEnabled()) {
 			carrierloginobj.clickTermsAndConditionsCheckBox();
 			carrierloginobj.clickFinishButton();
-			Assert.assertTrue(
-					carrierloginobj.getConfirmationPopup().getText()
-							.contains("Your LoadPay™ registration has been completed successfully."),
-					"Registration success message not found");
+			Assert.assertTrue(carrierloginobj.getConfirmationPopup().getText().contains(
+					"registration has been completed successfully."), "Registration success message not found");
 			carrierloginobj.clickConfirmationPopupCloseButton();
 		}
 

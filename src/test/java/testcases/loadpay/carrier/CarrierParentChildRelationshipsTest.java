@@ -400,7 +400,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 
 	@Test(dataProvider = "getCarrierLoginData", dependsOnMethods = { "carrierTermPaymentPayByCheck" })
 	public void verifyDeleteChildAccountTest(String un, String password) throws InterruptedException {
-		driver.get(super.getProperties().getProperty("url"));
+		driver.get(super.getProperties().getProperty("loadPayURL"));
 		loginPage.Carrierlogin(carrierUsername, carrierPassword);
 		carrierchildrelation.clickAccountLink();
 		carrierchildrelation.clickEmailLink();

@@ -99,7 +99,7 @@ public class CarrierCompleteAccountModuleTest extends TestBase {
 	public void verifyContactDetails(String un, String pwd, String ContactFN, String ContactLN, String contactemail,
 			String ContactPN, String Contactextension, String ContactMobileNumber, String ContactFax)
 			throws InterruptedException {
-		driver.get(super.getProperties().getProperty("url"));
+		driver.get(super.getProperties().getProperty("loadPayURL"));
 
 		carriercompleteaccountmoduleObj.clickAccountlink();
 		carriercompleteaccountmoduleObj.clickContactlink();
