@@ -146,8 +146,8 @@ public class BrokerLoginPage extends TestBase {
 				.findElement(By.xpath("//*[@id='angularScope']/div[3]/div/div/div[1]/div/p"));
 		wait.until(ExpectedConditions.elementToBeClickable(confirmationPopup));
 		log.info("Confirmation message: " + confirmationPopup.getText());
-		Assert.assertTrue(
-				confirmationPopup.getText().contains("registration has been completed successfully."),
+
+		Assert.assertTrue(confirmationPopup.getText().contains("registration has been completed successfully."),
 				"Registration success message not found");
 
 		WebElement confirmationPopupClose = driver

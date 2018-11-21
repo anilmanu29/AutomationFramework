@@ -199,7 +199,7 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 
 	@Test(dependsOnMethods = "adminLogin")
 	public void BrokerFirstloginTest() throws InterruptedException {
-		driver.get(super.prop.getProperty("url"));
+		driver.get(super.prop.getProperty("loadPayURL"));
 		schpaymentwithoutBankAccountPayByInvoiceenabled.brokerfirstLogin();
 		schpaymentwithoutBankAccountPayByInvoiceenabled.clickAcceptedTerms();
 		schpaymentwithoutBankAccountPayByInvoiceenabled.clicksubmit();
@@ -229,7 +229,7 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 
 	@Test(dependsOnMethods = "adminDisablePayByInvoice")
 	public void BrokerSecondloginTest() throws InterruptedException {
-		driver.get(super.prop.getProperty("url"));
+		driver.get(super.prop.getProperty("loadPayURL"));
 		schpaymentwithoutBankAccountPayByInvoiceenabled.brokerSecondLogin();
 	}
 

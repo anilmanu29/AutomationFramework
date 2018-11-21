@@ -73,7 +73,7 @@ public class AdminBrokerCanadaTest extends TestBase {
 		adminCustomerBankingTab.click();
 
 		wait.until(ExpectedConditions.elementToBeClickable(adminCustomerBankingTab));
-		Thread.sleep(2000);
+		Thread.sleep(10000);
 
 		WebElement adminCustomerDepositAmount = driver.findElement(By.xpath(
 				"//*[@id=\"angularScope\"]/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[2]/div/div/div[1]/div/div/div/p[9]/span"));

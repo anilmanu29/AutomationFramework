@@ -239,7 +239,7 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 	@Test(description = "LP-6802 First Login as Carrier", dependsOnMethods = "adminLogin")
 	public void carrierFirstLogin() throws InterruptedException {
 
-		driver.get(super.getProperties().getProperty("url"));
+		driver.get(super.getProperties().getProperty("loadPayURL"));
 
 		String carrierEIN = "99-9999999";
 
@@ -257,10 +257,8 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 		if (carrierloginobj.getTermsAndConditionsCheckBox().isEnabled()) {
 			carrierloginobj.clickTermsAndConditionsCheckBox();
 			carrierloginobj.clickFinishButton();
-			Assert.assertTrue(
-					carrierloginobj.getConfirmationPopup().getText()
-							.contains("Your LoadPay™ registration has been completed successfully."),
-					"Registration success message not found");
+			Assert.assertTrue(carrierloginobj.getConfirmationPopup().getText().contains(
+					"registration has been completed successfully."), "Registration success message not found");
 			carrierloginobj.clickConfirmationPopupCloseButton();
 		}
 

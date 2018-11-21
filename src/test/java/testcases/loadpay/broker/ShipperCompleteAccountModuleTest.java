@@ -137,7 +137,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 
 	@Test(dependsOnMethods = { "verifyContactDetails" })
 	public void verifyNotifications() throws InterruptedException {
-		driver.get(super.getProperties().getProperty("url"));
+		driver.get(super.getProperties().getProperty("loadPayURL"));
 		shippercompleteaccountmodule.clickAccountlink();
 		shippercompleteaccountmodule.clickNotificationlink();
 		shippercompleteaccountmodule.checkNotifyByWithdrwallink();
@@ -178,7 +178,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 
 	@Test(dependsOnMethods = { "verifyCredit" })
 	public void verifybrokercredit() throws InterruptedException {
-		driver.get(super.getProperties().getProperty("url"));
+		driver.get(super.getProperties().getProperty("loadPayURL"));
 		shippercompleteaccountmodule.clickAccountlink();
 
 		Assert.assertTrue(shippercompleteaccountmodule.lnk_account.isDisplayed());
@@ -191,7 +191,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 
 	@Test(dependsOnMethods = { "verifybrokercredit" })
 	public void verifybrokerPayMeNow() throws InterruptedException {
-		driver.get(super.getProperties().getProperty("url"));
+		driver.get(super.getProperties().getProperty("loadPayURL"));
 		shippercompleteaccountmodule.clickAccountlink();
 
 		Assert.assertTrue(shippercompleteaccountmodule.lnk_account.isDisplayed());
@@ -249,7 +249,7 @@ public class ShipperCompleteAccountModuleTest extends TestBase {
 
 	@Test(dependsOnMethods = { "verifyAdminPaymeNow" })
 	public void verifybrokerPayMeNowupdate() throws InterruptedException {
-		driver.get(super.getProperties().getProperty("url"));
+		driver.get(super.getProperties().getProperty("loadPayURL"));
 		shippercompleteaccountmodule.clickAccountlink();
 
 		shippercompleteaccountmodule.clickpaymenowlink();

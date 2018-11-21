@@ -55,10 +55,13 @@ public class CarrierLoginTest extends TestBase {
 		if (loginPage.getTermsAndConditionsCheckBox().isEnabled()) {
 			loginPage.clickTermsAndConditionsCheckBox();
 			loginPage.clickFinishButton();
-			Assert.assertTrue(
-					loginPage.getConfirmationPopup().getText()
-							.contains("registration has been completed successfully."),
-					"Registration success message not found");
+
+			Assert.assertTrue(loginPage.getConfirmationPopup().getText().contains(
+					"registration has been completed successfully."), "Registration success message not found");
+
+			Assert.assertTrue(loginPage.getConfirmationPopup().getText().contains(
+					"registration has been completed successfully."), "Registration success message not found");
+
 			loginPage.clickConfirmationPopupCloseButton();
 		}
 
