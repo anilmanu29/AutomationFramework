@@ -27,8 +27,14 @@ public class CarrierPaidTab extends TestBase {
 	@FindBy(xpath = "//a[@href='#/Payments/PayMeNow']")
 	public WebElement payMeNowTab;
 
-	@FindBy(xpath = "//*[@class='row ng-scope']//child::a[contains(text(),'Status')]")
-	public WebElement statusColumn;
+	/*
+	 * @FindBy(xpath =
+	 * "//*[@class='row ng-scope']//child::a[contains(text(),'Status')]") public
+	 * WebElement statusColumn;
+	 */
+
+	@FindBy(xpath = "//*[@class='row ng-scope']//child::a[contains(text(),'Selection Method')]")
+	public WebElement selectionmethodColumn;
 
 	@FindBy(xpath = "//*[@class='row ng-scope']//child::a[contains(text(),'Amount')]")
 	public WebElement amountColumn;
@@ -59,9 +65,9 @@ public class CarrierPaidTab extends TestBase {
 		paidTab.click();
 	}
 
-	public void clickStatusColumn() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(statusColumn));
-		statusColumn.click();
+	public void clickselectionmethodColumn() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(selectionmethodColumn));
+		selectionmethodColumn.click();
 	}
 
 	public void clickAmountColumn() throws InterruptedException {
