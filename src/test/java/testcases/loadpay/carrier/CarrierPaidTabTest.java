@@ -84,7 +84,7 @@ public class CarrierPaidTabTest extends TestBase {
 	}
 
 	@Test(description = "LP-3476 CarrierPaidTabTest_VerifyStatusSort", dependsOnMethods = { "verifyPaidTabTest" })
-	public void verifyStatusSortTest() throws InterruptedException {
+	public void verifySelectionMethodSortTest() throws InterruptedException {
 		// TEST - STATUS SORT
 		// click Status Column to change sort from default to ascending
 		carrierPaidTab.clickselectionmethodColumn();
@@ -109,7 +109,8 @@ public class CarrierPaidTabTest extends TestBase {
 
 	}
 
-	@Test(description = "LP-3476 CarrierPaidTabTest_VerifyAmountSort", dependsOnMethods = { "verifyStatusSortTest" })
+	@Test(description = "LP-3476 CarrierPaidTabTest_VerifyAmountSort", dependsOnMethods = {
+			"verifySelectionMethodSortTest" })
 	public void verifyAmountSortTest() throws InterruptedException {
 		// TEST - AMOUNT SORT
 		// click Amount Column to change sort from default to ascending
