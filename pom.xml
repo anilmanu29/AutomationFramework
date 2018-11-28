@@ -140,7 +140,7 @@
                 <version>2.19.1</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>LoadpayRegressionSuite.xml</suiteXmlFile>
+                        <suiteXmlFile>LoadpayPOC.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>

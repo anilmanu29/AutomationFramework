@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Loadpay POC Test Suite">
+   
+   <test name="Create-Register-Verify-Activate Broker" preserve-order="true">
+		 <classes>	
+			<class name="testcases.loadpay.broker.BrokerRegisterTest"></class>
+			<class name="testcases.loadpay.broker.BrokerOutlookTest"></class>
+			<class name="testcases.loadpay.admin.AdminBrokerTest"></class>
+			<class name="testcases.loadpay.broker.BrokerLoginTest"></class>
+		</classes>
+	</test>
+	
+	<test name="Create-Register-Verify-Activate Carrier" preserve-order="true">
+		 <classes>
+	    	<class name="testcases.loadpay.carrier.CarrierRegisterTest"></class>
+			<class name="testcases.loadpay.carrier.CarrierOutlookTest"></class>
+			<class name="testcases.loadpay.admin.AdminCarrierTest"></class>
+			<class name="testcases.loadpay.carrier.CarrierLoginTest"></class>
+		</classes>
+	</test>
+	
+	<test name="Create New Broker Payments" preserve-order="true">
+		 <classes>
+ 			<class name="testcases.loadpay.broker.BrokerNewPaymentTest"></class>
+		</classes>
+	</test>
+</suite>
+
+
