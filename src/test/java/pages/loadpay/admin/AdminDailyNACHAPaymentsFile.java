@@ -33,7 +33,7 @@ public class AdminDailyNACHAPaymentsFile extends TestBase {
 	@FindBy(xpath = "//*[contains(text(), 'Select a file from the left to see its content')]")
 	private WebElement dailynachalabel;
 
-	@FindBy(xpath = "//img[@src='/content/images/spinner.gif']")
+	@FindBy(xpath = "//img[@src='/Content/images/spinner.gif']")
 	private WebElement spinnerimage;
 
 	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div[1]/div/button[1]")
@@ -65,7 +65,7 @@ public class AdminDailyNACHAPaymentsFile extends TestBase {
 	}
 
 	public WebElement getNACHAFilesLabel() {
-		wait.until(ExpectedConditions.elementToBeClickable(dailynachalabel));
+		// wait.until(ExpectedConditions.elementToBeClickable(dailynachalabel));
 		return dailynachalabel;
 	}
 
@@ -81,7 +81,7 @@ public class AdminDailyNACHAPaymentsFile extends TestBase {
 
 	public String getNACHAID() {
 		nachaname = filebutton.getText();
-		nachaid = nachaname.substring(3, 7);
+		nachaid = nachaname.substring(3, 6);
 		return nachaid;
 	}
 

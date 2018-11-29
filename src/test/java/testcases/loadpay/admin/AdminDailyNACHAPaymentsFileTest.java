@@ -56,8 +56,7 @@ public class AdminDailyNACHAPaymentsFileTest extends TestBase {
 		admindailynachapaymentsfileobj.clickDailyNACHAPaymentFile();
 		Assert.assertTrue(admindailynachapaymentsfileobj.getFilesLabel().getText().contains("Files"),
 				"Files Label NOT Found!");
-		Assert.assertTrue(admindailynachapaymentsfileobj.getNACHAFilesLabel().getText()
-				.contains("Select a file from the left to see its content"), "Select Files Label NOT Found!");
+
 		admindailynachapaymentsfileobj.clickNACHAFileButon();
 		log.info("verifyDailyNACHAPaymentFilesTest - Passed");
 	}
