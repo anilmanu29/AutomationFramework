@@ -25,6 +25,7 @@
  			<class name="testcases.loadpay.broker.BrokerNewPaymentTest"></class>
 		</classes>
 	</test>
+	
 </suite>
 
 
