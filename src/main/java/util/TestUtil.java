@@ -66,8 +66,6 @@ public class TestUtil extends TestBase {
 		}
 		try {
 			book = WorkbookFactory.create(file);
-		} catch (InvalidFormatException e) {
-			log.info(e);
 		} catch (IOException e) {
 			log.info(e);
 		}

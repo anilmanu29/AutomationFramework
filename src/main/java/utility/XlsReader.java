@@ -5,10 +5,13 @@ import java.util.Calendar;
 
 import org.apache.log4j.Logger;
 import org.apache.poi.common.usermodel.Hyperlink;
+import org.apache.poi.common.usermodel.HyperlinkType;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DateUtil;
+import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -92,9 +95,9 @@ public class XlsReader
 				if(cell==null)
 					return "";
 		
-				if(cell.getCellType()==Cell.CELL_TYPE_STRING)
+				if(cell.getCellType()==CellType.STRING)
 					return cell.getStringCellValue();
-				else if(cell.getCellType()==Cell.CELL_TYPE_NUMERIC || cell.getCellType()==Cell.CELL_TYPE_FORMULA )
+				else if(cell.getCellType()==CellType.NUMERIC || cell.getCellType()==CellType.FORMULA )
 				{  
 					String cellText  = String.valueOf(cell.getNumericCellValue());
 			  
@@ -111,7 +114,7 @@ public class XlsReader
  
 						return cellText;
 				}
-				else if(cell.getCellType()==Cell.CELL_TYPE_BLANK)
+				else if(cell.getCellType()== CellType.BLANK)
 					return ""; 
 				else 
 					return String.valueOf(cell.getBooleanCellValue());
@@ -145,9 +148,9 @@ public class XlsReader
 			if(cell==null)
 				return "";
 			
-		  if(cell.getCellType()==Cell.CELL_TYPE_STRING)
+		  if(cell.getCellType()==CellType.STRING)
 			  return cell.getStringCellValue();
-		  else if(cell.getCellType()==Cell.CELL_TYPE_NUMERIC || cell.getCellType()==Cell.CELL_TYPE_FORMULA ){
+		  else if(cell.getCellType()==CellType.NUMERIC || cell.getCellType()==CellType.FORMULA ){
 			  
 			  String cellText  = String.valueOf(cell.getNumericCellValue());
 			  if (DateUtil.isCellDateFormatted(cell)) {
@@ -166,7 +169,7 @@ public class XlsReader
 			  
 			  
 			  return cellText;
-		  }else if(cell.getCellType()==Cell.CELL_TYPE_BLANK)
+		  }else if(cell.getCellType()==CellType.BLANK)
 		      return "";
 		  else 
 			  return String.valueOf(cell.getBooleanCellValue());
@@ -275,7 +278,7 @@ public class XlsReader
 		    hyperLinkFont.setColor(IndexedColors.BLUE.getIndex());
 		    hyperLinkStyle.setFont(hyperLinkFont);
 
-		    XSSFHyperlink link = createHelper.createHyperlink(Hyperlink.LINK_FILE);
+		    XSSFHyperlink link = createHelper.createHyperlink(HyperlinkType.FILE);
 		    link.setAddress(url);
 		    cell.setHyperlink(link);
 		    cell.setCellStyle(hyperLinkStyle);
@@ -337,8 +340,8 @@ public class XlsReader
 					return false;
 				
 			XSSFCellStyle style = workbook.createCellStyle();
-			style.setFillForegroundColor(HSSFColor.GREY_40_PERCENT.index);
-			style.setFillPattern(CellStyle.SOLID_FOREGROUND);
+			style.setFillForegroundColor(HSSFColor.HSSFColorPredefined.GREY_40_PERCENT.getIndex());
+			style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 			
 			sheet=workbook.getSheetAt(index);
 			
@@ -376,8 +379,8 @@ public class XlsReader
 			workbook = new XSSFWorkbook(fis);
 			sheet=workbook.getSheet(sheetName);
 			XSSFCellStyle style = workbook.createCellStyle();
-			style.setFillForegroundColor(HSSFColor.GREY_40_PERCENT.index);
-			style.setFillPattern(CellStyle.NO_FILL);
+			style.setFillForegroundColor(HSSFColor.HSSFColorPredefined.GREY_40_PERCENT.getIndex());
+			style.setFillPattern(FillPatternType.NO_FILL);
 			for(int i =0;i<getRowCount(sheetName);i++){
 				row=sheet.getRow(i);	
 				if(row!=null){

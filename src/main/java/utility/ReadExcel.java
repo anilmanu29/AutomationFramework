@@ -7,6 +7,7 @@ import org.apache.commons.logging.Log;
 import org.apache.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -38,25 +39,20 @@ public class ReadExcel
 					  {
 						  switch(c.getCellType())
 						  {
-						  	case Cell.CELL_TYPE_BOOLEAN:
-	                    
+						  	case BOOLEAN:
 						  		data[i-1][j]=String.valueOf(c.getBooleanCellValue());
 						  		break;
-						  	case Cell.CELL_TYPE_NUMERIC:
-	                    
+						  	case NUMERIC:
 						  		data[i-1][j]=BigDecimal.valueOf(
 						  				c.getNumericCellValue()).toPlainString();
 						  		break;
-						  	case Cell.CELL_TYPE_STRING:
+						  	case STRING:
 						  		data[i-1][j]=String.valueOf(c.getStringCellValue());
-	               
 						  		break;
-						  	case Cell.CELL_TYPE_FORMULA:
+						  	case FORMULA:
 						  		data[i-1][j]=String.valueOf(c.getCellFormula());
-	
 						  		break;
-						  	case Cell.CELL_TYPE_BLANK:
-	                    
+						  	case BLANK:
 						  		break;
 						  	
 						  	default:
