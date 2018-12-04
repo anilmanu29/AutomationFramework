@@ -137,10 +137,16 @@ public class AdminPaymentsGreaterthan45DaysTest extends TestBase {
 		newPaymentLoadId = invoiceno;
 
 		today = LocalDate.now();
-		Integer year = today.getYear() + 1;
-		Integer day = today.getDayOfMonth() + 1;
-		String strDate = today.getMonthValue() + "/" + day.toString() + "/" + year.toString();
+//		Integer year = today.getYear() + 1;
+//		Integer day = today.getDayOfMonth() + 1;
+//		String strDate = today.getMonthValue() + "/" + day.toString() + "/" + year.toString();
+		
+		Integer month = today.getMonthValue() < 12 ? (today.getMonthValue() + 1) : (today.getMonthValue() - 11);
+		Integer year = today.getMonthValue() == 12 ? (today.getYear() + 1) : (today.getYear());
 
+		String strDate = month.toString() + "/" + today.getDayOfMonth() + "/" + year.toString();
+		System.out.println(strDate);
+	
 		brokerPaymentSheduledates.newPayment();
 		email = brokerPaymentSheduledates.carrierEmail(carrierEmail);
 		brokerPaymentSheduledates.amount(newPaymentAmount);

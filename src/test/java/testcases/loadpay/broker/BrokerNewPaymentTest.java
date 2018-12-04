@@ -112,16 +112,35 @@ public class BrokerNewPaymentTest extends TestBase {
 		bp.loadId(loadid);
 
 		if (super.getProperties().getProperty("useDynamicBrokerData").contains("true") && !newDateUsed) {
-			Integer month = today.getMonthValue() + 1;
+//			Integer month = today.getMonthValue() + 1;
+//			Integer day = today.getDayOfMonth();
+//
+//			// account for 28/30 day months
+//			if (day > 28)
+//				day = 28;
+//
+//			strDate = month.toString() + "/" + day.toString() + "/" + today.getYear();
+//			bp.setField_ScheduleDate(strDate);
+//			newDateUsed = true;
+			
+			
+			Integer month = today.getMonthValue() < 12 ? (today.getMonthValue() + 1) : (today.getMonthValue() - 11);
+			Integer year = today.getMonthValue() == 12 ? (today.getYear() + 1) : (today.getYear());
+			
 			Integer day = today.getDayOfMonth();
+			log.info(month);
+			log.info(year);
+			log.info(day);
 
 			// account for 28/30 day months
 			if (day > 28)
 				day = 28;
 
-			strDate = month.toString() + "/" + day.toString() + "/" + today.getYear();
+			strDate = month.toString() + "/" + day.toString() + "/" + year.toString();
+			System.out.println(strDate);
 			bp.setField_ScheduleDate(strDate);
 			newDateUsed = true;
+				
 		}
 
 		// bp.advanceCheckbox();

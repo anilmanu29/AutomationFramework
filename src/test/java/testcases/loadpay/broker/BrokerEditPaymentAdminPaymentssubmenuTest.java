@@ -75,9 +75,28 @@ public class BrokerEditPaymentAdminPaymentssubmenuTest extends TestBase {
 		newBrokerPaymentObj.invoiceNumber(invoiceNumber);
 
 		today = LocalDate.now();
-		Integer month = today.getMonthValue() + 1;
-		String strDate = month.toString() + "/" + today.getDayOfMonth() + "/" + today.getYear();
+		
+		Integer month = today.getMonthValue() < 12 ? (today.getMonthValue() + 1) : (today.getMonthValue() - 11);
+		Integer year = today.getMonthValue() == 12 ? (today.getYear() + 1) : (today.getYear());
+		
+		Integer day = today.getDayOfMonth();
+		System.out.println(month);
+		System.out.println(year);
+		System.out.println(day);
+
+		// account for 28/30 day months
+		if (day > 28)
+			day = 28;
+
+		String strDate = month.toString() + "/" + day.toString() + "/" + year.toString();
+		System.out.println(strDate);
 		newBrokerPaymentObj.setField_ScheduleDate(strDate);
+		
+	
+//		
+//		Integer month = today.getMonthValue() + 1;
+//		String strDate = month.toString() + "/" + today.getDayOfMonth() + "/" + today.getYear();
+//		newBrokerPaymentObj.setField_ScheduleDate(strDate);
 
 		// bp.advanceCheckbox();
 		//
@@ -134,16 +153,33 @@ public class BrokerEditPaymentAdminPaymentssubmenuTest extends TestBase {
 	public void updatePaymentDetailsTest() throws InterruptedException {
 		loadID = "UD" + TestUtil.getCurrentDateTime();
 		invoiceNumber = loadID;
+		
+		
+		Integer month = today.getMonthValue() < 12 ? (today.getMonthValue() + 1) : (today.getMonthValue() - 11);
+		Integer year = today.getMonthValue() == 12 ? (today.getYear() + 1) : (today.getYear());
+		
+		Integer day = today.getDayOfMonth();
+		System.out.println(month);
+		System.out.println(year);
+		System.out.println(day);
 
-		today = LocalDate.now();
-		Integer invoiceRecdMonth = today.getMonthValue();
-		String invoiceDate = invoiceRecdMonth.toString() + "/" + today.getDayOfMonth() + "/" + today.getYear();
+		// account for 28/30 day months
+		if (day > 28)
+			day = 28;
 
-		Integer scheduledMonth = today.getMonthValue() + 1;
-		String schedDate = scheduledMonth.toString() + "/" + today.getDayOfMonth() + "/" + today.getYear();
+		String strDate = month.toString() + "/" + day.toString() + "/" + year.toString();
+		//System.out.println(strDate);
+		
+		
+//		today = LocalDate.now();
+//		Integer invoiceRecdMonth = today.getMonthValue();
+//		String invoiceDate = invoiceRecdMonth.toString() + "/" + today.getDayOfMonth() + "/" + today.getYear();
+//
+//		Integer scheduledMonth = today.getMonthValue() + 1;
+//		String schedDate = scheduledMonth.toString() + "/" + today.getDayOfMonth() + "/" + today.getYear();
 
 		brokereditpaymentadminpaymentssubmenuobj.updatePaymentDetails(CarrierRegisterTest.carrierUsername,
-				invoiceNumber, "updated carrier", loadID, "987654", schedDate, invoiceDate, "Updated Memo");
+				invoiceNumber, "updated carrier", loadID, "987654", strDate, strDate, "Updated Memo");
 
 		System.out.println("updatePaymentDetailsTest - Passed");
 		// brokereditpaymentadminpaymentssubmenuobj.SwitchtoTab(0);
