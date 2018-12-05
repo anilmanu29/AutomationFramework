@@ -12,6 +12,7 @@ import org.testng.ISuite;
 import org.testng.ISuiteResult;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
+import org.testng.annotations.Test;
 import org.testng.xml.XmlSuite;
 
 import com.relevantcodes.extentreports.ExtentReports;
@@ -45,25 +46,25 @@ public class ExtentReporterNG implements IReporter {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss_zzz");
 
 		// (3) create a new String using the date format we want
-		String fileName = TestUtil.className + "_" + formatter.format(today);
-
+		String fileName = "";
 		String currentDir = System.getProperty("user.dir");
-
-		extent = new ExtentReports(
-				currentDir + "/output/reports/" + strYear + "/" + strMonth + "/" + fileName + "_Report.html", false);
+	
 		for (ISuite suite : suites) {
 			Map<String, ISuiteResult> result = suite.getResults();
 
 			for (ISuiteResult r : result.values()) {
 				ITestContext context = r.getTestContext();
-
+				fileName = context.getCurrentXmlTest().getSuite().getName() + "_" + formatter.format(today);
+				extent = new ExtentReports(currentDir + "/output/reports/" + strYear + "/" + strMonth + "/" + fileName + "_Report.html", false);
+				
 				buildTestNodes(context.getPassedTests(), LogStatus.PASS);
 				buildTestNodes(context.getFailedTests(), LogStatus.FAIL);
 				buildTestNodes(context.getSkippedTests(), LogStatus.SKIP);
+				
+				extent.flush();
 			}
 		}
-
-		extent.flush();
+		
 		extent.close();
 	}
 
