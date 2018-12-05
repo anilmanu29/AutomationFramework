@@ -52,8 +52,7 @@
 		 	 <class name="testcases.loadpay.broker.BrokerEditPaymentUnmatchedCarrierTest"></class>
 		 	 	
 		 	 <class name="testcases.loadpay.admin.AdminPayMeNowUnlockTest"></class>
-			 <class name="testcases.loadpay.admin.AdminEditEmailBrokerTest"></class>
-		 	 <class name="testcases.loadpay.admin.AdminEditEmailCarrierTest"></class>
+		
 
     </classes>
   </test> 

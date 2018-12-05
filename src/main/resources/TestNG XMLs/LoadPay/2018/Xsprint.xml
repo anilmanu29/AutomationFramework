@@ -35,6 +35,9 @@
 		<class name="testcases.loadpay.carrier.CarrierAccountChangePasswordTest"></class>
 		<class name="testcases.loadpay.carrier.CarrierLoginPageResetPasswordTest"></class>
 		
+			 <class name="testcases.loadpay.admin.AdminEditEmailBrokerTest"></class>
+		 	 <class name="testcases.loadpay.admin.AdminEditEmailCarrierTest"></class>
+		
 		
 		<!--		REDUNDANT TEST - This is covered in CarrierFirstLoginTest		
 		<class name="testcases.loadpay.carrier.CarrierFirstLoginSameDayTest"></class> 
