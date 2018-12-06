@@ -20,7 +20,6 @@ maven_build:
     - maven
   # Here you can execute arbitrate terminal commands.
   # If any of the commands returns a non zero exit code the job fails.
-  v5:
-    script: cd C:\AUTOMATION\SELENIUM\_Project\testing\SeleniumFramework & mvn clean compile package test -DsuiteFile=v5LoginTest.xml & allure serve C:\AUTOMATION\SELENIUM\_Project\testing\SeleniumFramework\target\surefire-reports\junitreports
-  loadpay:
-    script: cd C:\AUTOMATION\SELENIUM\_Project\testing\SeleniumFramework & mvn clean compile package test -DsuiteFile=LoadpayPOC.xml & allure serve C:\AUTOMATION\SELENIUM\_Project\testing\SeleniumFramework\target\surefire-reports\junitreports
+  script:
+    - echo "Building project with maven"
+    - cd C:\AUTOMATION\SELENIUM\_Project\testing\SeleniumFramework & mvn clean compile package test -DsuiteFile=LoadpayPOC.xml & allure serve C:\AUTOMATION\SELENIUM\_Project\testing\SeleniumFramework\target\surefire-reports\junitreports
