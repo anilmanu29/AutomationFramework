@@ -59,9 +59,6 @@ public class CarrierLoginTest extends TestBase {
 			Assert.assertTrue(loginPage.getConfirmationPopup().getText().contains(
 					"registration has been completed successfully."), "Registration success message not found");
 
-			Assert.assertTrue(loginPage.getConfirmationPopup().getText().contains(
-					"registration has been completed successfully."), "Registration success message not found");
-
 			loginPage.clickConfirmationPopupCloseButton();
 		}
 
