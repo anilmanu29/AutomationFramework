@@ -8,8 +8,8 @@
 	  	<listener class-name = "util.TestRetryAnalyzerListener"/>
 	 </listeners>
 
-			 <suite-files>
-		       <suite-file path="com.truckstop.seleniumframework/auto_Loadpay_CreateNewBrokerAndCarrierWithPayments.xml"></suite-file>            
-			 </suite-files>
+    <suite-files>
+       <suite-file path="src/main/resources/TestNG XMLs/LoadPay/2018/CreateNewBrokerAndCarrierWithPayments.xml"></suite-file>            
+	 </suite-files>
 		
 </suite>
