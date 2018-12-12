@@ -22,5 +22,5 @@ Maven-Build:
   # If any of the commands returns a non zero exit code the job fails.
   script:
     - echo "Building project with maven"
-    - cd C:\AUTOMATION\SELENIUM\_Project\testing\SeleniumFramework && mvn clean compile package test -DsuiteFile=auto_LoadpayPOC.xml
-    - cd C:\AUTOMATION\SELENIUM\_Project\testing\SeleniumFramework && mvn clean compile package test -DsuiteFile=auto_v5LoginTest.xml
+    #- cd C:\AUTOMATION\SELENIUM\_Project\testing\SeleniumFramework && mvn clean compile package test -DsuiteFile=auto_LoadpayPOC.xml
+    #- cd C:\AUTOMATION\SELENIUM\_Project\testing\SeleniumFramework && mvn clean compile package test -DsuiteFile=auto_v5LoginTest.xml
