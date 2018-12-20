@@ -2,6 +2,7 @@ package pages.loadpay.admin;
 
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import base.TestBase;
 
@@ -16,6 +18,10 @@ public class AdminLogin extends TestBase {
 	Select s;
 	JavascriptExecutor js;
 
+	@FindBy(xpath = "//span[class='error ng-binding'] ")
+	By termDateMustBeBetween14And45DaysError;
+	
+	
 	@FindBy(xpath = ".//*[@id='UserName']")
 	WebElement UserName;
 
@@ -25,12 +31,19 @@ public class AdminLogin extends TestBase {
 	@FindBy(xpath = "html/body/div[1]/div/div/div[2]/form/div[4]/input")
 	WebElement loginBtn;
 
-	// @FindBy(xpath =
-	// ".//*[@id='angularScope']/div[1]/div/div[1]/div/nav/div[2]/ul/li[8]/a")
+	@FindBy(id = "btnEditPaymentTerms")
+	WebElement selectEditLessThan14days;
+
+	@FindBy(id = "lessThan14Days")
+	WebElement selectLessThan14Days;
+
+	@FindBy(id = "btnUpdatePaymentTerms")
+	WebElement submitLessThan14Days;
+
 	@FindBy(xpath = "//a[@href='/Account/LogOff']")
 	WebElement logOut;
 
-	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[1]/div/nav/div[2]/ul/li[3]/a")
+	@FindBy(xpath = "//a[@href='#/Customers']")
 	public WebElement CustomerTab;
 
 	@FindBy(xpath = ".//*[@id='PMNEnrolled']")
@@ -56,6 +69,13 @@ public class AdminLogin extends TestBase {
 
 	@FindBy(xpath = (".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[6]/div[2]/div/div/div[3]/div[2]"))
 	WebElement verifysystemnote;
+	
+	@FindBy(css = "div[title='SYSTEM GENERATED NOTE: PAYMENT SETTINGS MODIFIED, \"Enable Payment Terms for Less Than 14 Days\" - ENABLED']")
+	WebElement verifySystemNoteLessThan14DaysEnabled;
+	
+	@FindBy(css = "div[title='SYSTEM GENERATED NOTE: PAYMENT SETTINGS MODIFIED, \"Enable Payment Terms for Less Than 14 Days\" - DISABLED']" )
+	WebElement verifySystemNoteLessThan14DaysDisabled;
+	
 
 	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[5]")
 	public WebElement lnk_AdminPayMeNow;
@@ -99,13 +119,13 @@ public class AdminLogin extends TestBase {
 	@FindBy(xpath = ".//*[@id='angularScope']/div[3]/div/div/div[2]/button[2]")
 	WebElement unenrolldelaydebit;
 
-	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[5]")
+	@FindBy(css = "a[ng-class^='!Buttons.CustomerNotes']")
 	WebElement PayMeNowTm;
 
-	@FindBy(xpath = ".//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[9]")
+	@FindBy(css = "a[ng-class^='!Buttons.PaymentHistory']")
 	WebElement carrierPaymentHistory;
 
-	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[1]/a[2]")
+	@FindBy(css = "a[ng-class^='!Buttons.Banking']")
 	WebElement AdminBanking;
 
 	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr/td[1]/a")
@@ -132,11 +152,9 @@ public class AdminLogin extends TestBase {
 	@FindBy(xpath = ".//*[@id='angularScope']/div[3]/div/div/div[2]/button[2]")
 	WebElement okbtn;
 
-	@FindBy(xpath = "//input[@value='Search']")
-	public WebElement ClickonSearchButton;
+	@FindBy(xpath = "//input[@value='Search']") public WebElement ClickonSearchButton;
 
-	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[2]/img")
-	WebElement loadingSpinner;
+	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div[2]/img") 	WebElement loadingSpinner;
 
 	public @FindBy(xpath = ".//*[@id='emailTo']") WebElement emailTo;
 
@@ -219,13 +237,40 @@ public class AdminLogin extends TestBase {
 		Clickpaymentterm45Submit.click();
 
 	}
+	
+	public void submitLessThan14Days() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(submitLessThan14Days));
+		submitLessThan14Days.click();
 
+	}
+	
+	public void paymentBetween14And45Days() throws InterruptedException {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(termDateMustBeBetween14And45DaysError));
+        Assert.assertEquals(termDateMustBeBetween14And45DaysError, "Error is not happening, user scheduled the payment!");
+	}
+	
+	
 	public void Clickverifysystemnote() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(verifysystemnote));
 		verifysystemnote.click();
 		wait.until(ExpectedConditions.elementToBeClickable(closenotesbutton));
 
 	}
+	
+	public void systemGeneratedNoteEnabledLessThan14Days() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(verifySystemNoteLessThan14DaysEnabled));
+		verifySystemNoteLessThan14DaysEnabled.click();
+		wait.until(ExpectedConditions.elementToBeClickable(closenotesbutton));
+
+	}
+	
+	public void systemGeneratedNoteDisabledLessThan14Days() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(verifySystemNoteLessThan14DaysDisabled));
+		verifySystemNoteLessThan14DaysDisabled.click();
+		wait.until(ExpectedConditions.elementToBeClickable(closenotesbutton));
+
+	}
+	
 
 	public void Clickclosenotesbutton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(closenotesbutton));
@@ -295,6 +340,20 @@ public class AdminLogin extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(selectgreaterThan45daysId));
 		selectgreaterThan45daysId.click();
 		Select pay = new Select(selectgreaterThan45daysId);
+		pay.selectByVisibleText("Disabled");
+	}
+	
+	public void selectLessThan14Days_Enabled() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(selectLessThan14Days));
+		selectgreaterThan45daysId.click();
+		Select pay = new Select(selectLessThan14Days);
+		pay.selectByVisibleText("Enabled");
+	}
+
+	public void selectLessThan14Days_Disabled() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(selectLessThan14Days));
+		selectgreaterThan45daysId.click();
+		Select pay = new Select(selectLessThan14Days);
 		pay.selectByVisibleText("Disabled");
 	}
 
@@ -432,6 +491,13 @@ public class AdminLogin extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(Paymnttermgraterthan45days));
 		Paymnttermgraterthan45days.click();
 	}
+	
+	public void clickEditLessThan14Days() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(selectEditLessThan14days));
+		selectEditLessThan14days.click();
+	}
+	
+	
 
 	public void clickCancelLockout() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CancelLockout));
@@ -639,6 +705,15 @@ public class AdminLogin extends TestBase {
 		// TODO Auto-generated method stub
 		return Paymnttermgraterthan45days;
 	}
+	
+	public WebElement editLessThan14Days() {
+		// TODO Auto-generated method stub
+		return selectEditLessThan14days;
+	}
+	
+	
+	
+	
 
 	public void Uncheck_Factor() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(Factoruncheck));

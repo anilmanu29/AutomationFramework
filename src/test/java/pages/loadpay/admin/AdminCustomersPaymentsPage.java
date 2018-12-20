@@ -17,6 +17,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import base.TestBase;
 import pages.loadpay.broker.BrokerLoginPage;
@@ -38,6 +39,8 @@ public class AdminCustomersPaymentsPage extends TestBase {
 	WebDriverWait wait = null;
 	public ArrayList<String> arraylist;
 	Actions act = null;
+	String recordsUploaded;
+	String checkField;
 
 	//// PayByCheckFileUpload
 	@FindBy(xpath = "//a[contains(@href, '#/PayByCheckFileUpload' )]")
@@ -58,7 +61,7 @@ public class AdminCustomersPaymentsPage extends TestBase {
 	@FindBy(xpath = "//*[@id='angularScope']/div[1]/div/div[2]/div/div/div/div[1]/div[3]/div[2]/div[4]/div/div[2]/div/div[2]/div/div/div[1]/div/div[9]/span")
 	private WebElement carrierpayment;
 
-	@FindBy(xpath = ".//*[@class='carrierPayment'][@aria-expanded='true']")
+	@FindBy(css = "div[ng-click='ExpandingPayment(model);']")
 	private WebElement expandedpayment;
 
 	@FindBy(xpath = "//i[text()='mode_edit']")
@@ -75,6 +78,12 @@ public class AdminCustomersPaymentsPage extends TestBase {
 
 	@FindBy(xpath = "//a[@target='_blank']")
 	private WebElement paymentId;
+
+	@FindBy(css = "div[class^=alert]")
+	public WebElement sucessfulUploadMessage;
+
+	@FindBy(css = "span[class='ng-scope'] b")
+	public WebElement checkNumberField;
 
 	/*-------Initializing driver---------*/
 	public AdminCustomersPaymentsPage() {
@@ -136,6 +145,7 @@ public class AdminCustomersPaymentsPage extends TestBase {
 
 	public WebElement getExpandedPayment() {
 		wait.until(ExpectedConditions.elementToBeClickable(expandedpayment));
+		expandedpayment.click();
 		return expandedpayment;
 	}
 
@@ -150,11 +160,6 @@ public class AdminCustomersPaymentsPage extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(payByCheckFileUploadMenu));
 		payByCheckFileUploadMenu.click();
 	}
-
-	// public void uploadSelectedCheckFile() {
-	// wait.until(ExpectedConditions.elementToBeClickable(uploadSelectedCheckFile));
-	// uploadSelectedCheckFile.click();
-	// }
 
 	public int listPayByCheckUpload() {
 		wait.until(ExpectedConditions.visibilityOfAllElements(listPayByCheckUploadRecords));
@@ -214,5 +219,17 @@ public class AdminCustomersPaymentsPage extends TestBase {
 		// Release Enter
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		Thread.sleep(2000);
+	}
+
+	public void sucessfulCheckUpload() {
+		recordsUploaded = wait.until(ExpectedConditions.visibilityOf(sucessfulUploadMessage))
+				.getAttribute("textContent");
+		Assert.assertTrue(recordsUploaded.contains("All records have been successfully uploaded."));
+	}
+
+	public void getCheckNumberField() {
+		checkField = checkNumberField.getAttribute("textContent");
+		Assert.assertTrue(checkField.contains("(# 543312)"));
+
 	}
 }
