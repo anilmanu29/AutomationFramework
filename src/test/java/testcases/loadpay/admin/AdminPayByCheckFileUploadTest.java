@@ -1,16 +1,14 @@
 package testcases.loadpay.admin;
 
-import static org.testng.Assert.assertEquals;
-
 import java.awt.AWTException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -30,11 +28,9 @@ import util.TestUtil;
  *  3.  Login as an Admin
  *  4   Do to Payments and Get Payments ID and Parse it to CSV file
  *  5.  Go to PayByCheckFile Upload Menu 
- *  6.  Get number of Check File Upload records before
- *  7.  Upload Check File
- *  8.  Verify successfully uploaded message
- *  9.  Get number of Check File Upload records after
- *  10. Click PayByCheck Download template link 
+ *  6.  Upload Check File
+ *  7.  Verify successfully uploaded message
+ *  8.  Verify check number present on payment id field
 */
 
 public class AdminPayByCheckFileUploadTest extends TestBase {
@@ -225,11 +221,40 @@ public class AdminPayByCheckFileUploadTest extends TestBase {
 
 		TestUtil.writeDataForCustomSeperatorCSV(csvFilePath, csvData, ",");
 
+		// click paybyCheckFileUplaod
 		adminCustomersPaymentsPage.payByCheckFileUploadMenu();
-		beforeCount = adminCustomersPaymentsPage.listPayByCheckUpload();
+		// Click Upload selected file
 		adminCustomersPaymentsPage.uploadFile();
-		afterCount = adminCustomersPaymentsPage.listPayByCheckUpload();
-		assertEquals(beforeCount, afterCount - 2);
+		// Verify successful upload messsage
+		adminCustomersPaymentsPage.sucessfulCheckUpload();
+		
+		//store payment Id
+		List<String> paymentIdsSecond = new ArrayList<String>();
+
+		for (int i = 0; i < newPaymentInvoiceNumber.size(); i++) {
+			// open Customres Tab
+			adminLogin.ClickOnCustomersTab();
+			// enter customer name
+			adminLogin.ClickOnSearchBox(brokerUsername);
+			// click search
+			adminLogin.ClickOnSearchButton();
+			// open customer id
+			adminLogin.DoubleClickID();
+			// click payments
+			adminCustomersPaymentsPage.clickPayments();
+			//Search for invoice number
+			adminCustomersPaymentsPage.ClickOnsearchKeyword(newPaymentInvoiceNumber.get(i));
+			//click Payment id
+			adminCustomersPaymentsPage.clickCarrierkPayment();
+			// switch to new Tab
+			adminCustomersPaymentsPage.SwitchtoTab(2);
+			//Expand Payment id
+			adminCustomersPaymentsPage.getExpandedPayment();
+			//GetCheckNumber field
+			adminCustomersPaymentsPage.getCheckNumberField();
+			adminCustomersPaymentsPage.SwitchtoTab(1);
+            
+		}
 
 	}
 

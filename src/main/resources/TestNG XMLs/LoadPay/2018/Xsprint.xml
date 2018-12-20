@@ -37,7 +37,11 @@
 		
 			 <class name="testcases.loadpay.admin.AdminEditEmailBrokerTest"></class>
 		 	 <class name="testcases.loadpay.admin.AdminEditEmailCarrierTest"></class>
-		
+		 	
+		 	<!-- LP-7857 LoadPay - Selenium Test - Admin user to be able to enable or disable < 14 Days-->
+		<class name="testcases.loadpay.admin.AdminEnableDisableLessThan14_DaysPaymentTerms"></class>
+		 
+
 		
 		<!--		REDUNDANT TEST - This is covered in CarrierFirstLoginTest		
 		<class name="testcases.loadpay.carrier.CarrierFirstLoginSameDayTest"></class> 

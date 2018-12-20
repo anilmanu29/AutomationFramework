@@ -2,12 +2,14 @@ package pages.loadpay.broker;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import base.TestBase;
 
@@ -21,6 +23,9 @@ public class BrokerPaymentSheduledates extends TestBase {
 	String scheduleamt;
 	String anticipatedwidrawlDate = "";
 
+	@FindBy(css = "span[class='error ng-binding']")
+	WebElement termDateMustBeBetween14And45DaysError;
+	
 	@FindBy(xpath = "//a[text()='New Payment']")
 	public WebElement lnk_newpayment;
 
@@ -192,6 +197,18 @@ public class BrokerPaymentSheduledates extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(lnk_newpayment));
 		lnk_newpayment.click();
 	}
+	
+
+	public void paymentBetween14And45DaysSucessful() throws InterruptedException {
+		Assert.assertFalse(termDateMustBeBetween14And45DaysError.isDisplayed());
+	}
+	
+	public void paymentBetween14And45DaysNotHappening() throws InterruptedException {
+		wait.until(ExpectedConditions.visibilityOf(termDateMustBeBetween14And45DaysError));
+        Assert.assertTrue(termDateMustBeBetween14And45DaysError.isDisplayed(), "User able to schedule, error!");
+	}
+	
+	
 
 	/*-------Carrier email---------*/
 	public String carrierEmail(String cemail) throws InterruptedException {
@@ -272,6 +289,11 @@ public class BrokerPaymentSheduledates extends TestBase {
 	/*-------Edit Icon Enabled---------*/
 	public Boolean isEditIconEnabled() {
 		return editPaymentIcon.isEnabled();
+	}
+	
+	public boolean isElementVisible(By termDateMustBeBetween14And45DaysError){
+	    return ((WebElement) termDateMustBeBetween14And45DaysError).isDisplayed();
+	    
 	}
 
 	/*-------Search button---------*/

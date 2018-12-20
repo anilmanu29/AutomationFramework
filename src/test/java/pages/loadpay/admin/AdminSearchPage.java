@@ -1,6 +1,7 @@
 package pages.loadpay.admin;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -9,13 +10,23 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import base.TestBase;
 
 public class AdminSearchPage extends TestBase {
 
 	WebDriverWait wait;
-
+	
+	@FindBy(css = "div[class^='alert ']")
+	List<WebElement> noPaymentIdEntered;
+	
+	@FindBy(css = "div[ng-click='ExpandingPayment(model);']")
+	List<WebElement> paymentIdRecords;
+	
+	@FindBy(css = "input[ng-click='SearchByPaymentId();']")
+	WebElement searchPaymentByPaymentIdButton;
+	
 	@FindBy(xpath = "//a[@href='#/Search']")
 	WebElement searchPageLink;
 
@@ -71,8 +82,52 @@ public class AdminSearchPage extends TestBase {
 	}
 
 	/**
+	 * click the search by payment id and verify 1 search result is present
+	 * @throws InterruptedException 
+	 */
+
+	public void paymentIdRecordsResult() throws InterruptedException {
+		
+		wait.until(ExpectedConditions.elementToBeClickable(searchPaymentByPaymentIdButton));
+		searchPaymentByPaymentIdButton.click();
+		
+		wait.until(ExpectedConditions.visibilityOfAllElements(paymentIdRecords));
+		List<WebElement>allSearchResults = paymentIdRecords;
+		
+		Assert.assertFalse((allSearchResults.size() > 1 || allSearchResults.size() < 1 ), "search results return wrong number of records");
+		Thread.sleep(2000);
+		}
+    
+	/**
+	 * click the search dy Payment id and verify No Payment ID entered
+	 */
+       public void searchResultWithEmptyField() {
+		
+		wait.until(ExpectedConditions.elementToBeClickable(searchPaymentByPaymentIdButton));
+		searchPaymentByPaymentIdButton.click();
+		
+		wait.until(ExpectedConditions.visibilityOfAllElements(noPaymentIdEntered));
+		
+	   List<WebElement> searchResult = noPaymentIdEntered;
+		
+		Assert.assertFalse(searchResult==null, "Wrong text search result");
+		}
+	
+	
+	/**
+	 * click the search by payment id
+	 */
+	
+	public void clickSearchBypaymentId() {
+		wait.until(ExpectedConditions.elementToBeClickable(searchPaymentByPaymentIdButton));
+		searchPaymentByPaymentIdButton.click();
+	}
+	
+	
+	/**
 	 * click the searchPageLink
 	 */
+	
 	public void clickSearchPageLink() {
 		wait.until(ExpectedConditions.elementToBeClickable(searchPageLink));
 		searchPageLink.click();
@@ -96,6 +151,17 @@ public class AdminSearchPage extends TestBase {
 		searchInputField.sendKeys(searchText);
 		searchInputField.sendKeys(Keys.TAB);
 	}
+	
+
+	/**
+	 * @param searchInputField
+	 *            the searchInputField without Parameters
+	 */
+	public void setSearchInputFieldWithoutParameters() {
+		wait.until(ExpectedConditions.elementToBeClickable(searchInputField));
+		searchInputField.clear();
+	}
+	
 
 	/**
 	 * @param amountFromInputField
@@ -383,4 +449,11 @@ public class AdminSearchPage extends TestBase {
 	public void resetFields() {
 		driver.navigate().refresh();
 	}
+
+	public void setSearchInputField() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
 }
