@@ -9,8 +9,8 @@
   </listeners>
   
      <suite-files>
-       <suite-file path="src/main/resources/TestNG XMLs/LoadPay/2018/CreateNewBrokerAndCarrierCanada.xml"></suite-file> 
-       <suite-file path="src/main/resources/TestNG XMLs/LoadPay/2018/CreateNewBrokerAndCarrierWithPayments.xml"></suite-file>             
+       <suite-file path="src/main/resources/TestNG_XMLs/LoadPay/2018/CreateNewBrokerAndCarrierCanada.xml"></suite-file> 
+       <suite-file path="src/main/resources/TestNG_XMLs/LoadPay/2018/CreateNewBrokerAndCarrierWithPayments.xml"></suite-file>             
 	 </suite-files>
    
 	<test name="J Sprint Test Cases" preserve-order="true">
