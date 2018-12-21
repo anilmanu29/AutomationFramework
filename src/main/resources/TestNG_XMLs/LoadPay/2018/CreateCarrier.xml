@@ -14,7 +14,7 @@
 	
 				<!-- Carrier Register -->
 			    	<class name="testcases.loadpay.carrier.CarrierRegisterTest"></class>
-					<class name="testcases.loadpay.carrier.OutlookFunctionsTest"></class>
+					<class name="testcases.loadpay.carrier.CarrierOutlookTest"></class>
 					<class name="testcases.loadpay.admin.AdminCarrierTest"></class>
 		 			<class name="testcases.loadpay.carrier.CarrierLoginTest"></class>
 			  

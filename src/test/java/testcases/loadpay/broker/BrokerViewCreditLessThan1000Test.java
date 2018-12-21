@@ -117,7 +117,7 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 	}
 
 	@Test(description = "Broker Sees 10% Notification Email in Outlook", dataProvider = "getoutlookLoginData", dependsOnMethods = "loginAsBrokerAndViewCredit")
-	public void OutlookFunctionsTest(String un, String pwd) throws InterruptedException {
+	public void BrokerOutlookTest(String un, String pwd) throws InterruptedException {
 
 		try {
 			outlooklog.outlookLogin(un, pwd);

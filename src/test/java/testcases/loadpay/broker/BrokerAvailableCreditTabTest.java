@@ -78,7 +78,7 @@ public class BrokerAvailableCreditTabTest extends TestBase {
 	}
 
 	@Test(description = "LP-5398 Broker Request Additional Credit Outlook Login", dataProvider = "getoutlookLoginData", dependsOnMethods = "RequestAdditionalCreditPopUpTest")
-	public void OutlookFunctionsTest(String un, String pwd) throws InterruptedException {
+	public void BrokerOutlookTest(String un, String pwd) throws InterruptedException {
 
 		try {
 			outlooklog.outlookLogin(un, pwd);
