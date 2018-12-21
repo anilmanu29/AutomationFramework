@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
+import outlook.OutlookFunctions;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierPayMeNowTab;
 import pages.loadpay.carrier.CarrierPaymeNowFuelCard;
@@ -22,7 +22,7 @@ public class CarrierPaymentHistoryTest extends TestBase {
 
 	CarrierPaymentHistory carrierpaymenthistory;
 	CarrierLoginPage loginPage;
-	outlooklogin outlookLoginObj;
+	OutlookFunctions outlookLoginObj;
 	CarrierLoginPage carrierloginobj;
 	CarrierPayMeNowTab carrierPayMeNowTab;
 	CarrierPaymeNowFuelCard carrierPmnFuelCardObj;

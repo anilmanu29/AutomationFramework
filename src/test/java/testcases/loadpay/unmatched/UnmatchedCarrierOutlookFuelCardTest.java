@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
+import outlook.OutlookFunctions;
 import pages.loadpay.unmatched.UnmatchedCarrierFuelCard;
 import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
 import util.TestUtil;
@@ -21,7 +21,7 @@ import util.TestUtil;
 public class UnmatchedCarrierOutlookFuelCardTest extends TestBase {
 
 	UnmatchedCarrierFuelCard umCarrierfuelcardObj;
-	outlooklogin outlook;
+	OutlookFunctions outlook;
 	public static String umEmailAddress;
 	public static String pwd;
 
@@ -43,7 +43,7 @@ public class UnmatchedCarrierOutlookFuelCardTest extends TestBase {
 
 		initialization();
 		TestUtil.className = this.getClass().getName();
-		outlook = new outlooklogin();
+		outlook = new OutlookFunctions();
 		umCarrierfuelcardObj = new UnmatchedCarrierFuelCard();
 		wait = new WebDriverWait(driver, 30);
 		currentTime = new Date();

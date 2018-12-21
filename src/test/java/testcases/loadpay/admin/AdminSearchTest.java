@@ -51,37 +51,37 @@ public class AdminSearchTest extends TestBase {
 
 	}
 
-	
 	@Test(description = "LP-7958 Add new Button- Search By Payment id with empty field", dependsOnMethods = {
-	"adminLogin" })
-     public void searchPaymentByPaymentIdEmptyField() {
-		//click search page link on left pane
+			"adminLogin" })
+	public void searchPaymentByPaymentIdEmptyField() {
+		// click search page link on left pane
 		adminSearchPage.clickSearchPageLink();
-		//go to search menu 
+		// go to search menu
 		adminSearchPage.setSearchInputFieldWithoutParameters();
-		//clikc search by payment id button 
+		// clikc search by payment id button
 		adminSearchPage.searchResultWithEmptyField();
-		
+
 	}
-	
+
 	@Test(description = "LP-7958 Add new Button - Search By Payment id", dependsOnMethods = {
-	"searchPaymentByPaymentIdEmptyField" }, dataProvider = "getAdminSearchData")
-     public void searchPaymentByPaymentId(String paymentId, String invoiceAmountFrom, String invoiceAmountTo, String dateFrom,
- 			String dateTo, String filterByAll, String filterByUnmatched, String filterByNotScheduled,
- 			String filterByScheduled, String filterByPaid, String filterByError, String filterByCanceled) throws InterruptedException {
-		
-		//click search page link on left pane
+			"searchPaymentByPaymentIdEmptyField" }, dataProvider = "getAdminSearchData")
+	public void searchPaymentByPaymentId(String paymentId, String invoiceAmountFrom, String invoiceAmountTo,
+			String dateFrom, String dateTo, String filterByAll, String filterByUnmatched, String filterByNotScheduled,
+			String filterByScheduled, String filterByPaid, String filterByError, String filterByCanceled)
+			throws InterruptedException {
+
+		// click search page link on left pane
 		adminSearchPage.clickSearchPageLink();
-		//go to search menu and enter payment id
+		// go to search menu and enter payment id
 		adminSearchPage.setSearchInputField(TestUtil.removeDecimalZeroFormat(paymentId));
-		//clikc search by payment id button 
+		// clikc search by payment id button
 		adminSearchPage.paymentIdRecordsResult();
-		
+
 	}
-	
-	
+
 	// click search tab on left pane
-	@Test(description = "LP-5423 Admin_Search_goToSearchPage", dependsOnMethods = { "searchPaymentByPaymentIdEmptyField" })
+	@Test(description = "LP-5423 Admin_Search_goToSearchPage", dependsOnMethods = {
+			"searchPaymentByPaymentIdEmptyField" })
 	public void goToSearchPage() {
 		adminSearchPage.clickSearchPageLink();
 	}
@@ -367,6 +367,5 @@ public class AdminSearchTest extends TestBase {
 			Assert.assertTrue(adminSearchPage.getTotalRecordCount() <= maxRecordCount,
 					"Filter by CANCELED not found in the first row of data returned");
 	}
-
 
 }

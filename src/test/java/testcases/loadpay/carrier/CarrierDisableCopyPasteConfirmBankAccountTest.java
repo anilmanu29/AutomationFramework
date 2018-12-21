@@ -16,13 +16,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
+import outlook.OutlookFunctions;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.carrier.CarrierBanking;
 import pages.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccount;
 import pages.loadpay.carrier.CarrierLoginPage;
-import pages.loadpay.carrier.CarrierOutlook;
 import pages.loadpay.carrier.CarrierRegisterPage;
 import util.TestUtil;
 
@@ -32,8 +31,8 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 	CarrierRegisterPage carrierRegistrationObj;
 	CarrierDisableCopyPasteConfirmBankAccount carrierdisablecopypasteconfirmbankaccountobj;
 	CarrierBanking carrierbankingobj;
-	CarrierOutlook carrierOutlookObj;
-	outlooklogin outlook;
+	OutlookFunctions carrierOutlookObj;
+	OutlookFunctions outlook;
 	AdminHomePage adminHomePage;
 	AdminLogin adminLoginPage;
 	Select selector;
@@ -65,8 +64,8 @@ public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {
 		carrierRegistrationObj = new CarrierRegisterPage();
 		carrierdisablecopypasteconfirmbankaccountobj = new CarrierDisableCopyPasteConfirmBankAccount();
 		carrierbankingobj = new CarrierBanking();
-		outlook = new outlooklogin();
-		carrierOutlookObj = new CarrierOutlook();
+		outlook = new OutlookFunctions();
+		carrierOutlookObj = new OutlookFunctions();
 		adminHomePage = new AdminHomePage();
 		adminLoginPage = new AdminLogin();
 		wait = new WebDriverWait(driver, 30);

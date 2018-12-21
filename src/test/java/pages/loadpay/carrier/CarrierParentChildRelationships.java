@@ -14,8 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
-import outlook.outlooklogin;
-import pages.loadpay.broker.BrokerOutlook;
+import outlook.OutlookFunctions;
 import testcases.loadpay.carrier.CarrierParentChildRelationshipsTest;
 
 public class CarrierParentChildRelationships extends TestBase {
@@ -23,8 +22,8 @@ public class CarrierParentChildRelationships extends TestBase {
 	WebDriverWait wait = null;
 	// Actions act = null;
 	// JavascriptExecutor js;
-	BrokerOutlook brokeroutlook;
-	outlooklogin outlooklog;
+	OutlookFunctions brokeroutlook;
+	OutlookFunctions outlooklog;
 	List<String> dataElements = new ArrayList<String>();
 	String code;
 	// Actions actions = new Actions(driver);
@@ -148,8 +147,8 @@ public class CarrierParentChildRelationships extends TestBase {
 		wait = new WebDriverWait(driver, 30);
 		// act = new Actions(driver);
 		// js = (JavascriptExecutor) driver;
-		brokeroutlook = new BrokerOutlook();
-		outlooklog = new outlooklogin();
+		brokeroutlook = new OutlookFunctions();
+		outlooklog = new OutlookFunctions();
 	}
 
 	public void clickAccountLink() throws InterruptedException {

@@ -21,12 +21,11 @@ import org.testng.annotations.Test;
 import com.relevantcodes.extentreports.model.Log;
 
 import base.TestBase;
-import outlook.outlooklogin;
+import outlook.OutlookFunctions;
 import pages.loadpay.admin.AdminEditEmailCarrier;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.carrier.CarrierLoginPage;
-import pages.loadpay.carrier.CarrierOutlook;
 import pages.loadpay.carrier.CarrierRegisterPage;
 import testcases.loadpay.carrier.CarrierRegisterTest;
 import util.TestUtil;
@@ -35,9 +34,9 @@ public class AdminEditEmailCarrierTest extends TestBase {
 	AdminHomePage adminHomePage;
 	AdminLogin adminLoginPage;
 	AdminEditEmailCarrier adminEmailPage;
-	outlooklogin outlookLoginObj;
+	OutlookFunctions outlookLoginObj;
 	CarrierLoginPage carrierLoginObj;
-	CarrierOutlook carrierOutlookObj;
+	OutlookFunctions carrierOutlookObj;
 	CarrierRegisterPage carrierRegisterObj;
 
 	String originalCarrierEmailAddress = "";
@@ -67,9 +66,9 @@ public class AdminEditEmailCarrierTest extends TestBase {
 		adminHomePage = new AdminHomePage();
 		adminLoginPage = new AdminLogin();
 		adminEmailPage = new AdminEditEmailCarrier();
-		outlookLoginObj = new outlooklogin();
+		outlookLoginObj = new OutlookFunctions();
 		carrierLoginObj = new CarrierLoginPage();
-		carrierOutlookObj = new CarrierOutlook();
+		carrierOutlookObj = new OutlookFunctions();
 		carrierRegisterObj = new CarrierRegisterPage();
 		currentTime = new Date();
 		log = Logger.getLogger(Log.class.getName());

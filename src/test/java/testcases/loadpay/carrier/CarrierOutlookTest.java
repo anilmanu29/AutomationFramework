@@ -10,13 +10,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
-import pages.loadpay.carrier.CarrierOutlook;
+import outlook.OutlookFunctions;
 import util.TestUtil;
 
 public class CarrierOutlookTest extends TestBase {
-	CarrierOutlook carrierOutlookObj;
-	outlooklogin outlook;
+	OutlookFunctions carrierOutlookObj;
+	OutlookFunctions outlook;
 
 	Date currentTime;
 	String formattedDate = "";
@@ -36,8 +35,8 @@ public class CarrierOutlookTest extends TestBase {
 
 		initialization();
 		TestUtil.className = this.getClass().getName();
-		outlook = new outlooklogin();
-		carrierOutlookObj = new CarrierOutlook();
+		outlook = new OutlookFunctions();
+		carrierOutlookObj = new OutlookFunctions();
 		wait = new WebDriverWait(driver, 30);
 		currentTime = new Date();
 	}
@@ -56,7 +55,7 @@ public class CarrierOutlookTest extends TestBase {
 		currentHour = timeArray[0];
 		currentMinutes = timeArray[1];
 		carrierOutlookObj.outlookSearchInbox(CarrierRegisterTest.carrierUsername, currentHour, currentMinutes);
-		carrierOutlookObj.handleNewInbox();
+		carrierOutlookObj.handleNewInbox(CarrierRegisterTest.carrierUsername);
 		carrierOutlookObj.verifyConfirmationMessage();
 
 	}

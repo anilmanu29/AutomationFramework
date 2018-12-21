@@ -14,9 +14,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
+import outlook.OutlookFunctions;
 import pages.loadpay.broker.BrokerLoginPage;
-import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.broker.BrokerPasswordSetupResetPage;
 import pages.loadpay.carrier.ResetPassword;
 import util.TestUtil;
@@ -25,8 +24,8 @@ public class LoginPageResetPasswordTest extends TestBase {
 	BrokerPasswordSetupResetPage brokerPasswordSetupResetPage;
 	BrokerLoginPage brokerLoginPage;
 	ResetPassword resetPassword;
-	BrokerOutlook brokerOutlook;
-	outlooklogin outlookLogin;
+	OutlookFunctions brokerOutlook;
+	OutlookFunctions outlookLogin;
 	public static String emailid;
 	Date currentTime;
 	String formattedDate = "";
@@ -47,8 +46,8 @@ public class LoginPageResetPasswordTest extends TestBase {
 		TestUtil.className = this.getClass().getName();
 		brokerLoginPage = new BrokerLoginPage();
 		resetPassword = new ResetPassword();
-		outlookLogin = new outlooklogin();
-		brokerOutlook = new BrokerOutlook();
+		outlookLogin = new OutlookFunctions();
+		brokerOutlook = new OutlookFunctions();
 		brokerPasswordSetupResetPage = new BrokerPasswordSetupResetPage();
 		currentTime = new Date();
 		wait = new WebDriverWait(driver, 30);

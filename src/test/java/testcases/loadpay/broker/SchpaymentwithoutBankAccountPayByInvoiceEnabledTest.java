@@ -15,10 +15,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
+import outlook.OutlookFunctions;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
-import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.broker.BrokerRegister;
 import pages.loadpay.broker.SchpaymentwithoutBankAccountPayByInvoiceEnabled;
 import util.TestUtil;
@@ -30,8 +29,8 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 	AdminHomePage adminhomepage;
 	AdminLogin adminlogin;
 	BrokerRegister brokerregister;
-	BrokerOutlook brokerOutlookObj;
-	outlooklogin outlookLoginObj;
+	OutlookFunctions brokerOutlookObj;
+	OutlookFunctions outlookLoginObj;
 
 	public static String emailid;
 	public static String EIN = "99-9999999";
@@ -63,8 +62,8 @@ public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBas
 		adminhomepage = new AdminHomePage();
 		adminlogin = new AdminLogin();
 		brokerregister = new BrokerRegister();
-		brokerOutlookObj = new BrokerOutlook();
-		outlookLoginObj = new outlooklogin();
+		brokerOutlookObj = new OutlookFunctions();
+		outlookLoginObj = new OutlookFunctions();
 		currentTime = new Date();
 		schpaymentwithoutBankAccountPayByInvoiceenabled = new SchpaymentwithoutBankAccountPayByInvoiceEnabled();
 	}

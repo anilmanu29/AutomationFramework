@@ -16,12 +16,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
+import outlook.OutlookFunctions;
 import pages.loadpay.admin.AdminEditEmailCarrier;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.carrier.CarrierLoginPage;
-import pages.loadpay.carrier.CarrierOutlook;
 import pages.loadpay.carrier.CarrierPasswordSetupResetPage;
 import pages.loadpay.carrier.ResetPassword;
 import util.TestUtil;
@@ -32,9 +31,9 @@ public class CarrierLoginPageResetPasswordTest extends TestBase {
 	AdminHomePage adminHomePage;
 	AdminLogin adminLoginPage;
 	AdminEditEmailCarrier adminEmailPage;
-	outlooklogin outlookLoginObj;
+	OutlookFunctions outlookLoginObj;
 	CarrierLoginPage carrierLoginObj;
-	CarrierOutlook carrierOutlookObj;
+	OutlookFunctions carrierOutlookObj;
 	// CarrierRegisterPage carrierRegisterObj;
 	// public static String emailid;
 	// public static Properties prop;
@@ -69,9 +68,9 @@ public class CarrierLoginPageResetPasswordTest extends TestBase {
 		adminLoginPage = new AdminLogin();
 		adminEmailPage = new AdminEditEmailCarrier();
 		carrierLoginObj = new CarrierLoginPage();
-		carrierOutlookObj = new CarrierOutlook();
+		carrierOutlookObj = new OutlookFunctions();
 		resetPassword = new ResetPassword();
-		outlookLoginObj = new outlooklogin();
+		outlookLoginObj = new OutlookFunctions();
 		CarrierPasswordSetupResetPage = new CarrierPasswordSetupResetPage();
 		currentTime = new Date();
 		wait = new WebDriverWait(driver, 30);

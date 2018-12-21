@@ -10,14 +10,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
-import pages.loadpay.broker.BrokerOutlook;
+import outlook.OutlookFunctions;
 import util.RetryTest;
 import util.TestUtil;
 
 public class BrokerOutlookTest extends TestBase {
-	BrokerOutlook brokerOutlookObj;
-	outlooklogin outlook;
+	OutlookFunctions brokerOutlookObj;
+	OutlookFunctions outlook;
 	Date currentTime;
 	String formattedDate = "";
 	Long longTime;
@@ -36,8 +35,8 @@ public class BrokerOutlookTest extends TestBase {
 
 		initialization();
 		TestUtil.className = this.getClass().getName();
-		outlook = new outlooklogin();
-		brokerOutlookObj = new BrokerOutlook();
+		outlook = new OutlookFunctions();
+		brokerOutlookObj = new OutlookFunctions();
 		wait = new WebDriverWait(driver, 30);
 		currentTime = new Date();
 	}
@@ -57,7 +56,7 @@ public class BrokerOutlookTest extends TestBase {
 		currentHour = timeArray[0];
 		currentMinutes = timeArray[1];
 		brokerOutlookObj.outlookSearchInbox(BrokerRegisterTest.brokerUsername, currentHour, currentMinutes);
-		brokerOutlookObj.handleNewInbox();
+		brokerOutlookObj.handleNewInbox(BrokerRegisterTest.brokerUsername);
 		brokerOutlookObj.verifyConfirmationMessage();
 
 	}

@@ -13,15 +13,15 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
+import outlook.OutlookFunctions;
 import pages.loadpay.unmatched.UnmatchedCarrierOutlooksameDay;
 import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
 import util.TestUtil;
 
 public class UnmatchedCarrierOutlooksameDayTest extends TestBase {
 
-	UnmatchedCarrierOutlooksameDay umCarrierOutlookObj;
-	outlooklogin outlook;
+	UnmatchedCarrierOutlooksameDay umOutlookFunctionsObj;
+	OutlookFunctions outlook;
 	public static String umEmailAddress;
 	public static String pwd;
 
@@ -43,8 +43,8 @@ public class UnmatchedCarrierOutlooksameDayTest extends TestBase {
 
 		initialization();
 		TestUtil.className = this.getClass().getName();
-		outlook = new outlooklogin();
-		umCarrierOutlookObj = new UnmatchedCarrierOutlooksameDay();
+		outlook = new OutlookFunctions();
+		umOutlookFunctionsObj = new UnmatchedCarrierOutlooksameDay();
 		wait = new WebDriverWait(driver, 30);
 		currentTime = new Date();
 	}
@@ -56,18 +56,18 @@ public class UnmatchedCarrierOutlooksameDayTest extends TestBase {
 
 	@Test(dependsOnMethods = "login")
 	public void outlookloginTest() throws InterruptedException, AWTException {
-		umCarrierOutlookObj.clickPopUp();
-		umCarrierOutlookObj.clickOpenMailBox();
-		umCarrierOutlookObj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
-		// umCarrierOutlookObj.clickOpen();
+		umOutlookFunctionsObj.clickPopUp();
+		umOutlookFunctionsObj.clickOpenMailBox();
+		umOutlookFunctionsObj.enterEmail(super.getProperties().getProperty("loadpaytestEmail"));
+		// umOutlookFunctionsObj.clickOpen();
 		String[] timeArray = TestUtil.getTimestamp();
 		currentHour = timeArray[0];
 		currentMinutes = timeArray[1];
-		umCarrierOutlookObj.outlookSearchInbox(BrokerPaymentforUnmatchedCarrierTest.al.get(0), currentHour,
+		umOutlookFunctionsObj.outlookSearchInbox(BrokerPaymentforUnmatchedCarrierTest.al.get(0), currentHour,
 				currentMinutes);
-		umCarrierOutlookObj.handleNewInbox();
-		umCarrierOutlookObj.switchtoCarrieregistration();
-		umCarrierOutlookObj.unmatchedCarrierRegistration();
+		umOutlookFunctionsObj.handleNewInbox();
+		umOutlookFunctionsObj.switchtoCarrieregistration();
+		umOutlookFunctionsObj.unmatchedCarrierRegistration();
 
 	}
 
@@ -77,88 +77,88 @@ public class UnmatchedCarrierOutlooksameDayTest extends TestBase {
 			String PhoneNumber, String Password, String ConfirmPassword, String NameonAccount, String RoutingNumber,
 			String BankAccountNumber, String ConfirmbankAccountNumber) throws IOException, InterruptedException {
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getCompanyName()));
-		umCarrierOutlookObj.companyname(CompanyName);
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getCompanyName()));
+		umOutlookFunctionsObj.companyname(CompanyName);
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getDoingbussiness()));
-		umCarrierOutlookObj.doingbussiness(DoingBussinessAS);
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getDoingbussiness()));
+		umOutlookFunctionsObj.doingbussiness(DoingBussinessAS);
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getTypeofEntity()));
-		umCarrierOutlookObj.selectType();
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getTypeofEntity()));
+		umOutlookFunctionsObj.selectType();
 		Select type = new Select(driver.findElement(By.xpath(".//*[@id='EntityType']")));
 		type.selectByVisibleText("C Corporation");
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getCountryIncorporation()));
-		umCarrierOutlookObj.countryofincorporation();
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getCountryIncorporation()));
+		umOutlookFunctionsObj.countryofincorporation();
 
 		Select countryof = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationCountry']")));
 		countryof.selectByIndex(0);
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getStateIncorporation()));
-		umCarrierOutlookObj.stateofincorporation();
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getStateIncorporation()));
+		umOutlookFunctionsObj.stateofincorporation();
 
 		Select stateof = new Select(driver.findElement(By.xpath(".//*[@id='IncorporationState']")));
 		stateof.selectByVisibleText("California");
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getIcertify()));
-		umCarrierOutlookObj.iCertifyClick();
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getIcertify()));
+		umOutlookFunctionsObj.iCertifyClick();
 
-		umCarrierOutlookObj.clickNextBtnOnCompanyForm();
+		umOutlookFunctionsObj.clickNextBtnOnCompanyForm();
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getZipCode()));
-		umCarrierOutlookObj.ZipCode(ZipCode1);
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getZipCode()));
+		umOutlookFunctionsObj.ZipCode(ZipCode1);
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getCountry()));
-		umCarrierOutlookObj.country();
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getCountry()));
+		umOutlookFunctionsObj.country();
 
 		Select country = new Select(driver.findElement(By.xpath(".//*[@id='OriginCountry']")));
 		country.selectByVisibleText("USA");
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getAddress()));
-		umCarrierOutlookObj.address(Address);
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getAddress()));
+		umOutlookFunctionsObj.address(Address);
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getCity()));
-		umCarrierOutlookObj.city(City);
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getCity()));
+		umOutlookFunctionsObj.city(City);
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getState()));
-		umCarrierOutlookObj.State();
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getState()));
+		umOutlookFunctionsObj.State();
 
 		Select state = new Select(driver.findElement(By.xpath(".//*[@id='State']")));
 		state.selectByVisibleText("CA");
 
-		umCarrierOutlookObj.clickNextBtnOnAddressForm();
+		umOutlookFunctionsObj.clickNextBtnOnAddressForm();
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getContactFirstName()));
-		umCarrierOutlookObj.ContactFirstName(FirstNames);
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getContactFirstName()));
+		umOutlookFunctionsObj.ContactFirstName(FirstNames);
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getLastName()));
-		umCarrierOutlookObj.LastName(LastName);
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getLastName()));
+		umOutlookFunctionsObj.LastName(LastName);
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getPhone()));
-		umCarrierOutlookObj.Phone(PhoneNumber);
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getPhone()));
+		umOutlookFunctionsObj.Phone(PhoneNumber);
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getPasswordd()));
-		pwd = umCarrierOutlookObj.Password(Password);
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getPasswordd()));
+		pwd = umOutlookFunctionsObj.Password(Password);
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getConfirmPassword()));
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getConfirmPassword()));
 		driver.findElement(By.xpath(".//*[@id='Registration_User_Password']"));
-		umCarrierOutlookObj.ConfirmPassword(ConfirmPassword);
+		umOutlookFunctionsObj.ConfirmPassword(ConfirmPassword);
 
-		umCarrierOutlookObj.clickNextBtnOnContactForm();
+		umOutlookFunctionsObj.clickNextBtnOnContactForm();
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getAccountName()));
-		umCarrierOutlookObj.AccountName(NameonAccount);
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getAccountName()));
+		umOutlookFunctionsObj.AccountName(NameonAccount);
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getBankingAccount()));
-		umCarrierOutlookObj.BankingAccount(BankAccountNumber);
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getBankingAccount()));
+		umOutlookFunctionsObj.BankingAccount(BankAccountNumber);
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getBankingRouting()));
-		umCarrierOutlookObj.BankingRouting(RoutingNumber);
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getBankingRouting()));
+		umOutlookFunctionsObj.BankingRouting(RoutingNumber);
 
-		wait.until(ExpectedConditions.elementToBeClickable(umCarrierOutlookObj.getConfirmBankingAccount()));
-		umCarrierOutlookObj.ConfirmBankingAccount(ConfirmbankAccountNumber);
+		wait.until(ExpectedConditions.elementToBeClickable(umOutlookFunctionsObj.getConfirmBankingAccount()));
+		umOutlookFunctionsObj.ConfirmBankingAccount(ConfirmbankAccountNumber);
 
-		umCarrierOutlookObj.clickNextBtnOnBankingForm();
+		umOutlookFunctionsObj.clickNextBtnOnBankingForm();
 
 	}
 

@@ -18,12 +18,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
+import outlook.OutlookFunctions;
 import pages.loadpay.admin.AdminEditEmailBroker;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.broker.BrokerLoginPage;
-import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.broker.BrokerRegister;
 import testcases.loadpay.broker.BrokerRegisterTest;
 import util.TestUtil;
@@ -32,10 +31,10 @@ public class AdminEditEmailBrokerTest extends TestBase {
 	AdminHomePage adminHomePage;
 	AdminLogin adminLoginPage;
 	AdminEditEmailBroker adminEmailPage;
-	outlooklogin outlookLoginObj;
+	OutlookFunctions outlookLoginObj;
 	BrokerLoginPage brokerLoginObj;
 	BrokerRegister brokerRegisterObj;
-	BrokerOutlook brokerOutlookObj;
+	OutlookFunctions brokerOutlookObj;
 
 	String originalBrokerEmailAddress = "";
 	String originalBrokerPassword = "";
@@ -64,10 +63,10 @@ public class AdminEditEmailBrokerTest extends TestBase {
 		adminHomePage = new AdminHomePage();
 		adminLoginPage = new AdminLogin();
 		adminEmailPage = new AdminEditEmailBroker();
-		outlookLoginObj = new outlooklogin();
+		outlookLoginObj = new OutlookFunctions();
 		brokerLoginObj = new BrokerLoginPage();
 		brokerRegisterObj = new BrokerRegister();
-		brokerOutlookObj = new BrokerOutlook();
+		brokerOutlookObj = new OutlookFunctions();
 		currentTime = new Date();
 		wait = new WebDriverWait(driver, 30);
 	}
