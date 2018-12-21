@@ -14,11 +14,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import outlook.outlooklogin;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.broker.BrokerPasswordSetupResetPage;
 import pages.loadpay.carrier.ResetPassword;
-import pages.loadpay.outlook.outlooklogin;
 import util.TestUtil;
 
 public class LoginPageResetPasswordTest extends TestBase {

@@ -16,6 +16,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import outlook.outlooklogin;
 import pages.loadpay.admin.AdminCancelPayByCheck;
 import pages.loadpay.admin.AdminCustomersSideMenuSearch;
 import pages.loadpay.admin.AdminHomePage;
@@ -27,7 +28,6 @@ import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.broker.BrokerPaymentSheduledates;
 import pages.loadpay.broker.SchpaymentwithoutBankAccountPayByInvoiceEnabled;
 import pages.loadpay.carrier.CarrierLoginPage;
-import pages.loadpay.outlook.outlooklogin;
 import testcases.loadpay.broker.BrokerRegisterTest;
 import testcases.loadpay.carrier.CarrierRegisterTest;
 import util.TestUtil;

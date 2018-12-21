@@ -1,4 +1,4 @@
-package pages.loadpay.outlook;
+package outlook;
 
 import java.awt.AWTException;
 import java.awt.Robot;

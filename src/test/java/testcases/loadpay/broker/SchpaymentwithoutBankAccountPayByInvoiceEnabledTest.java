@@ -15,12 +15,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import outlook.outlooklogin;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.broker.BrokerRegister;
 import pages.loadpay.broker.SchpaymentwithoutBankAccountPayByInvoiceEnabled;
-import pages.loadpay.outlook.outlooklogin;
 import util.TestUtil;
 
 public class SchpaymentwithoutBankAccountPayByInvoiceEnabledTest extends TestBase {

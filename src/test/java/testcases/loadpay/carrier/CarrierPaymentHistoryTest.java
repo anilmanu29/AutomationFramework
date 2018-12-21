@@ -10,11 +10,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import outlook.outlooklogin;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierPayMeNowTab;
 import pages.loadpay.carrier.CarrierPaymeNowFuelCard;
 import pages.loadpay.carrier.CarrierPaymentHistory;
-import pages.loadpay.outlook.outlooklogin;
 import testcases.loadpay.broker.BrokerNewPaymentTest;
 import util.TestUtil;
 
