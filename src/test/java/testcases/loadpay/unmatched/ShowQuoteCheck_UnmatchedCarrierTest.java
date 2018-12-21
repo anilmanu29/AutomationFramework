@@ -148,7 +148,7 @@ public class ShowQuoteCheck_UnmatchedCarrierTest extends TestBase {
 		 * System.out.println(brokerUsername);
 		 * adminlogin.ClickOnSearchBox(brokerUsername); Thread.sleep(1000);
 		 */
-		adminlogin.ClickOnSearchBox(brokerloginobj.bemail);
+		adminlogin.ClickOnSearchBox(BrokerLoginPage.bemail);
 		adminlogin.ClickOnSearchButton();
 		adminlogin.DoubleClickID();
 		adminPayByCheck.clickPayments();

@@ -6,9 +6,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -227,8 +227,8 @@ public class AdminPayByCheckFileUploadTest extends TestBase {
 		adminCustomersPaymentsPage.uploadFile();
 		// Verify successful upload messsage
 		adminCustomersPaymentsPage.sucessfulCheckUpload();
-		
-		//store payment Id
+
+		// store payment Id
 		List<String> paymentIdsSecond = new ArrayList<String>();
 
 		for (int i = 0; i < newPaymentInvoiceNumber.size(); i++) {
@@ -242,18 +242,18 @@ public class AdminPayByCheckFileUploadTest extends TestBase {
 			adminLogin.DoubleClickID();
 			// click payments
 			adminCustomersPaymentsPage.clickPayments();
-			//Search for invoice number
+			// Search for invoice number
 			adminCustomersPaymentsPage.ClickOnsearchKeyword(newPaymentInvoiceNumber.get(i));
-			//click Payment id
+			// click Payment id
 			adminCustomersPaymentsPage.clickCarrierkPayment();
 			// switch to new Tab
 			adminCustomersPaymentsPage.SwitchtoTab(2);
-			//Expand Payment id
+			// Expand Payment id
 			adminCustomersPaymentsPage.getExpandedPayment();
-			//GetCheckNumber field
+			// GetCheckNumber field
 			adminCustomersPaymentsPage.getCheckNumberField();
 			adminCustomersPaymentsPage.SwitchtoTab(1);
-            
+
 		}
 
 	}

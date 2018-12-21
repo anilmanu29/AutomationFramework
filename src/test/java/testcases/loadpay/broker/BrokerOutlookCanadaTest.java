@@ -10,13 +10,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
-import pages.loadpay.broker.BrokerOutlook;
+import outlook.OutlookFunctions;
 import util.TestUtil;
 
 public class BrokerOutlookCanadaTest extends TestBase {
-	BrokerOutlook outlookk;
-	outlooklogin outlook;
+	OutlookFunctions outlookk;
+	OutlookFunctions outlook;
 	Date currentTime;
 	String formattedDate = "";
 	Long longTime;
@@ -35,8 +34,8 @@ public class BrokerOutlookCanadaTest extends TestBase {
 
 		initialization();
 		TestUtil.className = this.getClass().getName();
-		outlook = new outlooklogin();
-		outlookk = new BrokerOutlook();
+		outlook = new OutlookFunctions();
+		outlookk = new OutlookFunctions();
 		wait = new WebDriverWait(driver, 30);
 		currentTime = new Date();
 	}

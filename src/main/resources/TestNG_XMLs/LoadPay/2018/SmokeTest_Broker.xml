@@ -21,7 +21,7 @@
     
     <!-- Script for Jira Ticket LP-4269 - LoadPay - Selenium Test - Verify Email in Mailinator_Broker -->
     	<class name="testcases.loadpay.broker.BrokerRegisterTest"></class>
-		<class name="testcases.loadpay.broker.BrokerOutlookTest"></class>
+		<class name="testcases.loadpay.broker.OutlookFunctionsTest"></class>
 		<class name="testcases.loadpay.admin.AdminBrokerTest"></class>
 		<class name="testcases.loadpay.broker.BrokerLoginTest"></class>
 		

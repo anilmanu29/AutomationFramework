@@ -8,14 +8,14 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
+import outlook.OutlookFunctions;
 import pages.loadpay.unmatched.UnmatchedCariierEmailVerifyNextDay;
 import util.TestUtil;
 
 public class UnmatchedCariierEmailVerifyNextDayTest extends TestBase {
 
 	UnmatchedCariierEmailVerifyNextDay outlookk;
-	outlooklogin outlook;
+	OutlookFunctions outlook;
 
 	public UnmatchedCariierEmailVerifyNextDayTest() {
 		super();
@@ -27,7 +27,7 @@ public class UnmatchedCariierEmailVerifyNextDayTest extends TestBase {
 
 		initialization();
 		TestUtil.className = this.getClass().getName();
-		outlook = new outlooklogin();
+		outlook = new OutlookFunctions();
 		outlookk = new UnmatchedCariierEmailVerifyNextDay();
 		wait = new WebDriverWait(driver, 30);
 	}

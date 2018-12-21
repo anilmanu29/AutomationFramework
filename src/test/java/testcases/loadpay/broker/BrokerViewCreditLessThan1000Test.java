@@ -14,10 +14,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
+import outlook.OutlookFunctions;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
-import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.broker.BrokerViewCreditLessThan1000;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierNextDAYACH;
@@ -27,8 +26,8 @@ import util.TestUtil;
 public class BrokerViewCreditLessThan1000Test extends TestBase {
 	// BrokerLoginPage loginPage;
 	BrokerViewCreditLessThan1000 CreditLessThan1000;
-	BrokerOutlook brokeroutlook;
-	outlooklogin outlooklog;
+	OutlookFunctions brokeroutlook;
+	OutlookFunctions outlooklog;
 	CarrierLoginPage carrierloginobj;
 	CarrierNextDAYACH carrierNextDayObj;
 	AdminHomePage adminhomeobj;
@@ -47,8 +46,8 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 		initialization();
 		TestUtil.className = this.getClass().getName();
 		CreditLessThan1000 = new BrokerViewCreditLessThan1000();
-		brokeroutlook = new BrokerOutlook();
-		outlooklog = new outlooklogin();
+		brokeroutlook = new OutlookFunctions();
+		outlooklog = new OutlookFunctions();
 		carrierloginobj = new CarrierLoginPage();
 		carrierNextDayObj = new CarrierNextDAYACH();
 		wait = new WebDriverWait(driver, 30);
@@ -118,7 +117,7 @@ public class BrokerViewCreditLessThan1000Test extends TestBase {
 	}
 
 	@Test(description = "Broker Sees 10% Notification Email in Outlook", dataProvider = "getoutlookLoginData", dependsOnMethods = "loginAsBrokerAndViewCredit")
-	public void BrokerOutlookTest(String un, String pwd) throws InterruptedException {
+	public void OutlookFunctionsTest(String un, String pwd) throws InterruptedException {
 
 		try {
 			outlooklog.outlookLogin(un, pwd);

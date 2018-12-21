@@ -15,7 +15,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
+import outlook.OutlookFunctions;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.broker.BrokerLoginPage;
@@ -23,7 +23,6 @@ import pages.loadpay.broker.BrokerNewPayment;
 import pages.loadpay.carrier.CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButton;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierNextDAYACH;
-import pages.loadpay.carrier.CarrierOutlook;
 import pages.loadpay.carrier.CarrierPaymeNowFuelCard;
 import pages.loadpay.carrier.CarrierRegisterPage;
 import pages.loadpay.carrier.CarrierSameDAYACH;
@@ -40,9 +39,9 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 	CarrierWireTransfer carrierWireTransferObj;
 	CarrierNextDAYACH carrierNextDayObj;
 	CarrierPaymeNowFuelCard carrierFuelCardObj;
-	CarrierOutlook carrierOutlookObj;
+	OutlookFunctions carrierOutlookObj;
 	BrokerLoginPage brokerLoginObj;
-	outlooklogin outlook;
+	OutlookFunctions outlook;
 	AdminHomePage adminHomePage;
 	AdminLogin adminLoginPage;
 
@@ -74,8 +73,8 @@ public class CarrierDisplayAutoPayMeNowPopuponSelectingPayMeNowButtonTest extend
 		carrierNextDayObj = new CarrierNextDAYACH();
 		carrierFuelCardObj = new CarrierPaymeNowFuelCard();
 		carrierRegistrationObj = new CarrierRegisterPage();
-		outlook = new outlooklogin();
-		carrierOutlookObj = new CarrierOutlook();
+		outlook = new OutlookFunctions();
+		carrierOutlookObj = new OutlookFunctions();
 		currentTime = new Date();
 		adminHomePage = new AdminHomePage();
 		adminLoginPage = new AdminLogin();

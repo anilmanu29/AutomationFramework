@@ -12,14 +12,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
+import outlook.OutlookFunctions;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.broker.BrokerLoginPage;
-import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierNextDAYACH;
-import pages.loadpay.carrier.CarrierOutlook;
 import testcases.loadpay.broker.BrokerRegisterTest;
 import testcases.loadpay.carrier.CarrierRegisterTest;
 import util.TestUtil;
@@ -33,9 +31,9 @@ public class AdminPaymentHistoryTest extends TestBase {
 	CarrierLoginPage carrierloginPage;
 	WebElement checkbox;
 
-	BrokerOutlook brokerOutlookObj;
-	CarrierOutlook carierOutlookObj;
-	outlooklogin outlook;
+	OutlookFunctions brokerOutlookObj;
+	OutlookFunctions carierOutlookObj;
+	OutlookFunctions outlook;
 
 	Date currentTime;
 	String formattedDate = "";
@@ -64,11 +62,11 @@ public class AdminPaymentHistoryTest extends TestBase {
 		admHomePage = new AdminHomePage();
 		brokLoginPage = new BrokerLoginPage();
 		currentTime = new Date();
-		outlook = new outlooklogin();
-		brokerOutlookObj = new BrokerOutlook();
+		outlook = new OutlookFunctions();
+		brokerOutlookObj = new OutlookFunctions();
 		currentTime = new Date();
 		carrierloginPage = new CarrierLoginPage();
-		carierOutlookObj = new CarrierOutlook();
+		carierOutlookObj = new OutlookFunctions();
 		carrierNextDayObj = new CarrierNextDAYACH();
 	}
 

@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
+import outlook.OutlookFunctions;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.admin.AdminPayByCheck;
@@ -18,7 +18,6 @@ import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerNewPayment;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierNextDAYACH;
-import pages.loadpay.carrier.CarrierOutlook;
 import pages.loadpay.carrier.CarrierPayMeNowEmailNotification;
 import pages.loadpay.carrier.CarrierPaymeNowFuelCard;
 import pages.loadpay.carrier.CarrierSameDAYACH;
@@ -33,11 +32,11 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 	CarrierLoginPage carrierloginobj;
 	CarrierNextDAYACH carriernexdayachobj;
 	CarrierSameDAYACH carriersamedayachobj;
-	CarrierOutlook carrieroutlookobj;
+	OutlookFunctions carrieroutlookobj;
 	CarrierWireTransfer carrierwiretransferobj;
 	CarrierPaymeNowFuelCard carrierpaymenowfuelcardobj;
 
-	outlooklogin outloginobj;
+	OutlookFunctions outloginobj;
 
 	BrokerLoginPage brokerloginobj;
 	BrokerNewPayment brokernewpayobj;
@@ -65,12 +64,12 @@ public class CarrierPayMeNowEmailNotificationTest extends TestBase {
 		carrierpaymenowemailobj = new CarrierPayMeNowEmailNotification();
 		carrierloginobj = new CarrierLoginPage();
 		carriernexdayachobj = new CarrierNextDAYACH();
-		carrieroutlookobj = new CarrierOutlook();
+		carrieroutlookobj = new OutlookFunctions();
 		carriersamedayachobj = new CarrierSameDAYACH();
 		carrierwiretransferobj = new CarrierWireTransfer();
 		carrierpaymenowfuelcardobj = new CarrierPaymeNowFuelCard();
 
-		outloginobj = new outlooklogin();
+		outloginobj = new OutlookFunctions();
 
 		brokerloginobj = new BrokerLoginPage();
 		brokernewpayobj = new BrokerNewPayment();

@@ -10,14 +10,14 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
+import outlook.OutlookFunctions;
 import pages.loadpay.unmatched.UnmatchedCariierEmailVerify;
 import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
 import util.TestUtil;
 
 public class UnmatchedCariierEmailVerifyTest extends TestBase {
 	UnmatchedCariierEmailVerify outlookk;
-	outlooklogin outlook;
+	OutlookFunctions outlook;
 
 	Date currentTime;
 	String formattedDate = "";
@@ -37,7 +37,7 @@ public class UnmatchedCariierEmailVerifyTest extends TestBase {
 
 		initialization();
 		TestUtil.className = this.getClass().getName();
-		outlook = new outlooklogin();
+		outlook = new OutlookFunctions();
 		outlookk = new UnmatchedCariierEmailVerify();
 		wait = new WebDriverWait(driver, 30);
 		currentTime = new Date();

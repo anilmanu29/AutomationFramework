@@ -8,13 +8,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
+import outlook.OutlookFunctions;
 import pages.loadpay.unmatched.UnmatchedNewPaymentCarrierOutlook;
 import util.TestUtil;
 
 public class UnmatchedNewPaymentCarrierOutlookTest extends TestBase {
 	UnmatchedNewPaymentCarrierOutlook outlookk;
-	outlooklogin outlook;
+	OutlookFunctions outlook;
 
 	public UnmatchedNewPaymentCarrierOutlookTest() {
 		super();
@@ -26,7 +26,7 @@ public class UnmatchedNewPaymentCarrierOutlookTest extends TestBase {
 
 		initialization();
 		TestUtil.className = this.getClass().getName();
-		outlook = new outlooklogin();
+		outlook = new OutlookFunctions();
 		outlookk = new UnmatchedNewPaymentCarrierOutlook();
 		wait = new WebDriverWait(driver, 30);
 	}

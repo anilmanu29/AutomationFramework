@@ -16,7 +16,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
+import outlook.OutlookFunctions;
 import pages.loadpay.admin.AdminCancelPayByCheck;
 import pages.loadpay.admin.AdminCustomersSideMenuSearch;
 import pages.loadpay.admin.AdminHomePage;
@@ -24,7 +24,6 @@ import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.admin.AdminPayByCheck;
 import pages.loadpay.admin.AdminPaymeNowTab;
 import pages.loadpay.broker.BrokerLoginPage;
-import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.broker.BrokerPaymentSheduledates;
 import pages.loadpay.broker.SchpaymentwithoutBankAccountPayByInvoiceEnabled;
 import pages.loadpay.carrier.CarrierLoginPage;
@@ -38,8 +37,8 @@ public class AdminDelayDebitTest extends TestBase {
 	CarrierLoginPage carrierloginPage;
 	BrokerPaymentSheduledates brokerPaymentSheduledates;
 	BrokerLoginPage brokerlogin;
-	BrokerOutlook brokerOutlookObj;
-	outlooklogin outlook;
+	OutlookFunctions brokerOutlookObj;
+	OutlookFunctions outlook;
 
 	AdminCustomersSideMenuSearch adminCustomersSideMenuSearch;
 	AdminCancelPayByCheck adminPayByCheckObj;
@@ -94,8 +93,8 @@ public class AdminDelayDebitTest extends TestBase {
 
 		adminCustomersSideMenuSearch = new AdminCustomersSideMenuSearch();
 		schpaymentwithoutBankAccountPayByInvoiceenabled = new SchpaymentwithoutBankAccountPayByInvoiceEnabled();
-		outlook = new outlooklogin();
-		brokerOutlookObj = new BrokerOutlook();
+		outlook = new OutlookFunctions();
+		brokerOutlookObj = new OutlookFunctions();
 
 		invoiceList = new ArrayList<String>();
 		wait = new WebDriverWait(driver, 30);

@@ -18,12 +18,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import outlook.OutlookFunctions;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.admin.AdminPayByCheck;
 import pages.loadpay.broker.BrokerLoginPage;
 import pages.loadpay.broker.BrokerNewPayment;
-import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierNextDAYACH;
 import pages.loadpay.carrier.CarrierParentChildRelationships;
@@ -43,7 +43,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 	CarrierNextDAYACH carriernextdayach;
 	CarrierWireTransfer carrierwiretransferach;
 	CarrierPaymeNowFuelCard carrierpaymenowfuelcard;
-	BrokerOutlook brokeroutlook;
+	OutlookFunctions brokeroutlook;
 	AdminHomePage adminHomePageObj;
 	AdminLogin adminLoginObj;
 	AdminPayByCheck adminPayByCheckObj;
@@ -78,7 +78,7 @@ public class CarrierParentChildRelationshipsTest extends TestBase {
 		loginPage = new CarrierLoginPage();
 		carrierchildrelation = new CarrierParentChildRelationships();
 		jse = (JavascriptExecutor) driver;
-		brokeroutlook = new BrokerOutlook();
+		brokeroutlook = new OutlookFunctions();
 		carriersamedayach = new CarrierSameDAYACH();
 		carriernextdayach = new CarrierNextDAYACH();
 		carrierwiretransferach = new CarrierWireTransfer();

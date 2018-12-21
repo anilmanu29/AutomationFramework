@@ -18,11 +18,10 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
+import outlook.OutlookFunctions;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.carrier.CarrierLoginPage;
-import pages.loadpay.carrier.CarrierOutlook;
 import pages.loadpay.carrier.CarrierParentChildRelationships;
 import pages.loadpay.carrier.CarrierlockedAccountResetPassword;
 import util.TestUtil;
@@ -35,8 +34,8 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 	public String aemail = "";
 	String newpwd = "";
 	CarrierLoginPage loginPage;
-	outlooklogin outlookLoginObj;
-	CarrierOutlook carrierOutlookObj;
+	OutlookFunctions outlookLoginObj;
+	OutlookFunctions carrierOutlookObj;
 	CarrierParentChildRelationships carrierparentchildobject;
 	CarrierLoginPage carrierloginobj;
 	ArrayList<String> tabs;
@@ -62,8 +61,8 @@ public class CarrierlockedAccountResetPasswordTest extends TestBase {
 		a = new AdminLogin();
 		carrierlockaccounrsetpwdtobj = new CarrierlockedAccountResetPassword();
 		loginPage = new CarrierLoginPage();
-		outlookLoginObj = new outlooklogin();
-		carrierOutlookObj = new CarrierOutlook();
+		outlookLoginObj = new OutlookFunctions();
+		carrierOutlookObj = new OutlookFunctions();
 		carrierparentchildobject = new CarrierParentChildRelationships();
 		carrierloginobj = new CarrierLoginPage();
 		currentTime = new Date();

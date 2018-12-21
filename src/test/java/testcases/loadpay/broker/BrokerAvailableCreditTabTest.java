@@ -14,18 +14,17 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import outlook.outlooklogin;
+import outlook.OutlookFunctions;
 import pages.loadpay.broker.BrokerAvailableCreditTab;
 import pages.loadpay.broker.BrokerLoginPage;
-import pages.loadpay.broker.BrokerOutlook;
 import util.TestUtil;
 
 public class BrokerAvailableCreditTabTest extends TestBase {
 
 	BrokerAvailableCreditTab brokeravailablecredittab;
 	BrokerLoginPage brokerloginpage;
-	BrokerOutlook brokeroutlook;
-	outlooklogin outlooklog;
+	OutlookFunctions brokeroutlook;
+	OutlookFunctions outlooklog;
 	String brokerUsername, brokerPassword = "";
 
 	/*-------Initializing driver---------*/
@@ -42,8 +41,8 @@ public class BrokerAvailableCreditTabTest extends TestBase {
 		TestUtil.className = this.getClass().getName();
 		brokeravailablecredittab = new BrokerAvailableCreditTab();
 		brokerloginpage = new BrokerLoginPage();
-		brokeroutlook = new BrokerOutlook();
-		outlooklog = new outlooklogin();
+		brokeroutlook = new OutlookFunctions();
+		outlooklog = new OutlookFunctions();
 		wait = new WebDriverWait(driver, 30);
 	}
 
@@ -79,7 +78,7 @@ public class BrokerAvailableCreditTabTest extends TestBase {
 	}
 
 	@Test(description = "LP-5398 Broker Request Additional Credit Outlook Login", dataProvider = "getoutlookLoginData", dependsOnMethods = "RequestAdditionalCreditPopUpTest")
-	public void BrokerOutlookTest(String un, String pwd) throws InterruptedException {
+	public void OutlookFunctionsTest(String un, String pwd) throws InterruptedException {
 
 		try {
 			outlooklog.outlookLogin(un, pwd);

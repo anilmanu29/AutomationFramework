@@ -53,10 +53,10 @@
 <!-- 		<class name="testcases.loadpay.unmatched.UnmatchedCariierEmailVerifyFuelCardTest"></class> -->
 <!-- 		<class name="testcases.loadpay.unmatched.UnmatchedCariierEmailVerifyWiretRansferTest"></class> -->
 <!-- 		<class name="testcases.loadpay.unmatched.UnmatchedCarrierAdminSameDayTest"></class> -->
-<!-- 		<class name="testcases.loadpay.unmatched.UnmatchedCarrierOutlookFuelCardTest"></class> -->
-<!-- 		<class name="testcases.loadpay.unmatched.UnmatchedCarrierOutlookNextDayTest"></class> -->
-<!-- 		<class name="testcases.loadpay.unmatched.UnmatchedCarrierOutlooksameDayTest"></class> -->
-<!-- 		<class name="testcases.loadpay.unmatched.UnmatchedCarrierOutlookTest"></class> -->
+<!-- 		<class name="testcases.loadpay.unmatched.UnmatchedOutlookFunctionsFuelCardTest"></class> -->
+<!-- 		<class name="testcases.loadpay.unmatched.UnmatchedOutlookFunctionsNextDayTest"></class> -->
+<!-- 		<class name="testcases.loadpay.unmatched.UnmatchedOutlookFunctionssameDayTest"></class> -->
+<!-- 		<class name="testcases.loadpay.unmatched.UnmatchedOutlookFunctionsTest"></class> -->
 
     </classes>
   </test> 
