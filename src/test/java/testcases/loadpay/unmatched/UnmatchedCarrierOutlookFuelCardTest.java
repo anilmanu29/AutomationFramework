@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import pages.loadpay.outlook.outlooklogin;
+import outlook.outlooklogin;
 import pages.loadpay.unmatched.UnmatchedCarrierFuelCard;
 import testcases.loadpay.broker.BrokerPaymentforUnmatchedCarrierTest;
 import util.TestUtil;

@@ -21,13 +21,13 @@ import org.testng.annotations.Test;
 import com.relevantcodes.extentreports.model.Log;
 
 import base.TestBase;
+import outlook.outlooklogin;
 import pages.loadpay.admin.AdminEditEmailCarrier;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierOutlook;
 import pages.loadpay.carrier.CarrierRegisterPage;
-import pages.loadpay.outlook.outlooklogin;
 import testcases.loadpay.carrier.CarrierRegisterTest;
 import util.TestUtil;
 

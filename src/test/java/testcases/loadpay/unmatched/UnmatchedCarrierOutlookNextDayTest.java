@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import pages.loadpay.outlook.outlooklogin;
+import outlook.outlooklogin;
 import pages.loadpay.unmatched.UnmatchedCarrierOutlookNextDay;
 import util.TestUtil;
 

@@ -16,6 +16,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import outlook.outlooklogin;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.carrier.CarrierBanking;
@@ -23,7 +24,6 @@ import pages.loadpay.carrier.CarrierDisableCopyPasteConfirmBankAccount;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierOutlook;
 import pages.loadpay.carrier.CarrierRegisterPage;
-import pages.loadpay.outlook.outlooklogin;
 import util.TestUtil;
 
 public class CarrierDisableCopyPasteConfirmBankAccountTest extends TestBase {

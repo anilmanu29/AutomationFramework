@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import outlook.outlooklogin;
 import pages.loadpay.admin.AdminHomePage;
 import pages.loadpay.admin.AdminLogin;
 import pages.loadpay.broker.BrokerLoginPage;
@@ -19,7 +20,6 @@ import pages.loadpay.broker.BrokerOutlook;
 import pages.loadpay.carrier.CarrierLoginPage;
 import pages.loadpay.carrier.CarrierNextDAYACH;
 import pages.loadpay.carrier.CarrierOutlook;
-import pages.loadpay.outlook.outlooklogin;
 import testcases.loadpay.broker.BrokerRegisterTest;
 import testcases.loadpay.carrier.CarrierRegisterTest;
 import util.TestUtil;

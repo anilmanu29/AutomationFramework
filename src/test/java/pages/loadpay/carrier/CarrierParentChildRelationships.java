@@ -14,8 +14,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
+import outlook.outlooklogin;
 import pages.loadpay.broker.BrokerOutlook;
-import pages.loadpay.outlook.outlooklogin;
 import testcases.loadpay.carrier.CarrierParentChildRelationshipsTest;
 
 public class CarrierParentChildRelationships extends TestBase {
