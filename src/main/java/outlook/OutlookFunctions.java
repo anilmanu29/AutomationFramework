@@ -3,6 +3,7 @@ package outlook;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import base.TestBase;
+import microsoft.exchange.webservices.data.core.ExchangeService;
+import microsoft.exchange.webservices.data.core.PropertySet;
+import microsoft.exchange.webservices.data.core.enumeration.misc.ExchangeVersion;
+import microsoft.exchange.webservices.data.core.enumeration.property.BasePropertySet;
+import microsoft.exchange.webservices.data.core.enumeration.property.WellKnownFolderName;
+import microsoft.exchange.webservices.data.core.service.item.Item;
+import microsoft.exchange.webservices.data.core.service.schema.ItemSchema;
+import microsoft.exchange.webservices.data.credential.ExchangeCredentials;
+import microsoft.exchange.webservices.data.credential.WebCredentials;
+import microsoft.exchange.webservices.data.property.complex.FolderId;
+import microsoft.exchange.webservices.data.property.complex.Mailbox;
+import microsoft.exchange.webservices.data.search.FindItemsResults;
+import microsoft.exchange.webservices.data.search.ItemView;
 
 public class OutlookFunctions extends TestBase {
 
@@ -986,6 +1000,44 @@ public class OutlookFunctions extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(BankingNextBtn));
 		Thread.sleep(1000);
 		BankingNextBtn.click();
+	}
+
+	public static boolean checkEmail(String username, String password, Integer numberOfResultsToParse,
+			String subjectText, String bodyText) {
+		Boolean flag = false;
+
+		try {
+			ExchangeService service = new ExchangeService(ExchangeVersion.Exchange2007_SP1);
+			ExchangeCredentials credentials = new WebCredentials(username, password);
+			service.setCredentials(credentials);
+			service.setUrl(new URI("https://webmail.truckstop.com/ews/exchange.asmx"));
+
+			Mailbox userMailbox = new Mailbox(prop.getProperty("loadpaytestEmail"));
+			FolderId folderId = new FolderId(WellKnownFolderName.Inbox, userMailbox);
+
+			ItemView view = new ItemView(numberOfResultsToParse);
+			FindItemsResults<Item> findResults = service.findItems(folderId, view);
+
+			for (Item item : findResults.getItems()) {
+				item.load(new PropertySet(BasePropertySet.FirstClassProperties, ItemSchema.MimeContent));
+				System.out.println("Subject [" + item.getSubject() + "]");
+				System.out.println("Body [" + item.getBody() + "]");
+
+				// TODO check for email contents here
+				if (item.getSubject().toString().contains(subjectText)
+						&& item.getBody().toString().contains(bodyText)) {
+					// get link text and "browse to" URL to verify email
+				}
+
+			}
+
+			service.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return flag;
+
 	}
 
 }

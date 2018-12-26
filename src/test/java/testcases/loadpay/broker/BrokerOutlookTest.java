@@ -43,6 +43,8 @@ public class BrokerOutlookTest extends TestBase {
 
 	@Test(dataProvider = "getoutlookLoginData")
 	public void login(String un, String pwd) throws InterruptedException, AWTException {
+		// OutlookFunctions.checkEmail(un, pwd, 10, "Verify your email address",
+		// BrokerRegisterTest.brokerUsername);
 		outlook.outlookLogin(un, pwd);
 	}
 
