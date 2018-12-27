@@ -1004,7 +1004,7 @@ public class OutlookFunctions extends TestBase {
 
 	public static boolean checkEmail(String username, String password, String mailBoxConfigProperty,
 			Integer numberOfResultsToParse, String subjectText, String bodyText) {
-		Boolean flag = false;
+		Boolean emailFound = false;
 
 		try {
 			ExchangeService service = new ExchangeService(ExchangeVersion.Exchange2007_SP1);
@@ -1026,7 +1026,10 @@ public class OutlookFunctions extends TestBase {
 				// TODO check for email contents here
 				if (item.getSubject().toString().contains(subjectText)
 						&& item.getBody().toString().contains(bodyText)) {
-					// get link text and "browse to" URL to verify email
+
+					System.out.println("Email found!");
+					emailFound = true;
+					break;
 				}
 
 			}
@@ -1036,7 +1039,7 @@ public class OutlookFunctions extends TestBase {
 			e.printStackTrace();
 		}
 
-		return flag;
+		return emailFound;
 
 	}
 
