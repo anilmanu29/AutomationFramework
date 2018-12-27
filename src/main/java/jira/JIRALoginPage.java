@@ -1,46 +1,45 @@
 package jira;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
 
 public class JIRALoginPage extends TestBase {
-	private WebDriver driver;
-	JavascriptExecutor js;
 
 	@FindBy(id = "login-form-cancel")
-	private WebElement cantAccessYourAccountButton;
+	public static WebElement cantAccessYourAccountButton;
 
 	@FindBy(id = "login-form-submit")
-	private WebElement logInButton;
+	public static WebElement logInButton;
 
 	@FindBy(id = "login-form-password")
-	private WebElement passwordField;
+	public static WebElement passwordField;
 
 	@FindBy(id = "login-form-remember-me")
-	private WebElement rememberMyLoginCheckbox;
+	public static WebElement rememberMyLoginCheckbox;
 
 	@FindBy(id = "login-form-username")
-	private WebElement usernameField;
+	public static WebElement usernameField;
 
 	public JIRALoginPage() {
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 30);
-		js = (JavascriptExecutor) driver;
 	}
 
-	public void clickCantAccessYourAccountButton() {
+	public static void goToJiraLoginPage() {
+		String url = prop.getProperty("JiraURL");
+		driver.navigate().to(url);
+		wait.until(ExpectedConditions.urlToBe(url));
+	}
+
+	public static void clickCantAccessYourAccountButton() {
 		wait.until(ExpectedConditions.elementToBeClickable(cantAccessYourAccountButton));
 		cantAccessYourAccountButton.click();
 	}
 
-	public void clicklogInButton() {
+	public static void clicklogInButton() {
 		wait.until(ExpectedConditions.elementToBeClickable(logInButton));
 		logInButton.click();
 	}
@@ -49,17 +48,17 @@ public class JIRALoginPage extends TestBase {
 	 * @param passwordField
 	 *            the passwordField to set
 	 */
-	public void setPasswordField(String password) {
+	public static void setPasswordField(String password) {
 		wait.until(ExpectedConditions.elementToBeClickable(passwordField));
-		this.passwordField.click();
-		this.passwordField.clear();
-		this.passwordField.sendKeys(password);
+		passwordField.click();
+		passwordField.clear();
+		passwordField.sendKeys(password);
 	}
 
 	/**
 	 * @return the rememberMyLoginCheckbox
 	 */
-	public Boolean getRememberMyLoginCheckbox() {
+	public static Boolean getRememberMyLoginCheckbox() {
 		wait.until(ExpectedConditions.elementToBeClickable(rememberMyLoginCheckbox));
 		return rememberMyLoginCheckbox.isSelected();
 	}
@@ -68,16 +67,16 @@ public class JIRALoginPage extends TestBase {
 	 * @param rememberMyLoginCheckbox
 	 *            the rememberMyLoginCheckbox to set
 	 */
-	public void setRememberMyLoginCheckbox(Boolean rememberLogin) {
+	public static void setRememberMyLoginCheckbox(Boolean rememberLogin) {
 
 		wait.until(ExpectedConditions.elementToBeClickable(rememberMyLoginCheckbox));
 
 		if (rememberLogin) {
 			if (!getRememberMyLoginCheckbox())
-				this.rememberMyLoginCheckbox.click();
+				rememberMyLoginCheckbox.click();
 		} else {
 			if (getRememberMyLoginCheckbox())
-				this.rememberMyLoginCheckbox.click();
+				rememberMyLoginCheckbox.click();
 		}
 	}
 
@@ -85,11 +84,11 @@ public class JIRALoginPage extends TestBase {
 	 * @param usernameField
 	 *            the usernameField to set
 	 */
-	public void setUsernameField(String username) {
+	public static void setUsernameField(String username) {
 		wait.until(ExpectedConditions.elementToBeClickable(usernameField));
-		this.usernameField.click();
-		this.usernameField.clear();
-		this.usernameField.sendKeys(username);
+		usernameField.click();
+		usernameField.clear();
+		usernameField.sendKeys(username);
 	}
 
 }
