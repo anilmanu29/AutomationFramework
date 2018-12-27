@@ -1002,8 +1002,8 @@ public class OutlookFunctions extends TestBase {
 		BankingNextBtn.click();
 	}
 
-	public static boolean checkEmail(String username, String password, Integer numberOfResultsToParse,
-			String subjectText, String bodyText) {
+	public static boolean checkEmail(String username, String password, String mailBoxConfigProperty,
+			Integer numberOfResultsToParse, String subjectText, String bodyText) {
 		Boolean flag = false;
 
 		try {
@@ -1012,7 +1012,7 @@ public class OutlookFunctions extends TestBase {
 			service.setCredentials(credentials);
 			service.setUrl(new URI("https://webmail.truckstop.com/ews/exchange.asmx"));
 
-			Mailbox userMailbox = new Mailbox(prop.getProperty("loadpaytestEmail"));
+			Mailbox userMailbox = new Mailbox(prop.getProperty(mailBoxConfigProperty));
 			FolderId folderId = new FolderId(WellKnownFolderName.Inbox, userMailbox);
 
 			ItemView view = new ItemView(numberOfResultsToParse);
