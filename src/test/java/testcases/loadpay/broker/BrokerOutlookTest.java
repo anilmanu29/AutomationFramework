@@ -43,8 +43,18 @@ public class BrokerOutlookTest extends TestBase {
 
 	@Test(dataProvider = "getoutlookLoginData")
 	public void login(String un, String pwd) throws InterruptedException, AWTException {
-		// OutlookFunctions.checkEmail(un, pwd, 10, "Verify your email address",
-		// BrokerRegisterTest.brokerUsername);
+		// Assert.assertTrue(OutlookFunctions.checkEmail(un, pwd, "loadpaytestEmail",
+		// 10, "Verify your email address",
+		// BrokerRegisterTest.brokerUsername), "Verification email not found!");
+		//
+		// JIRALoginPage.goToJiraLoginPage();
+		// JIRALoginPage.setUsernameField("ChristopherVonKaenel");
+		// JIRALoginPage.setPasswordField("Joshua05#");
+		// JIRALoginPage.setRememberMyLoginCheckbox(true);
+		//
+		// JIRAIssuePage.goToJiraIssuePage("LP-6483");
+		// JIRAIssuePage.updateExecutionStatus("PASS");
+
 		outlook.outlookLogin(un, pwd);
 	}
 
