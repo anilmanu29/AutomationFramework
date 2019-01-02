@@ -15,7 +15,7 @@
 	 		<!-- Script for Jira Tickets LP-5390 LoadPay - Selenium Test - Broker - Register Canada  Shantesh  -->
 	
 				<class name="testcases.loadpay.broker.BrokerRegisterCanadaTest"></class>
-			 	<class name="testcases.loadpay.broker.OutlookFunctionsCanadaTest"></class>
+			 	<class name="testcases.loadpay.broker.BrokerOutlookCanadaTest"></class>
 				<class name="testcases.loadpay.admin.AdminBrokerCanadaTest"></class>
 				<class name="testcases.loadpay.broker.BrokerCanadaFirstLoginTest"></class>
 			</classes>
