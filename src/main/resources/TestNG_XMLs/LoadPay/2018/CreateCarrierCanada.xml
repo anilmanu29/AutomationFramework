@@ -16,7 +16,7 @@
 	  		<!-- Script for Jira Tickets LP-5409 LoadPay - Selenium Test - Carrier - Register Canada -->
 	
 			 	<class name="testcases.loadpay.carrier.CarrierRegisterCanadaTest"></class>
-				<class name="testcases.loadpay.carrier.OutlookFunctionsCanadaTest"></class>
+				<class name="testcases.loadpay.carrier.CarrierOutlookCanadaTest"></class>
 				<class name="testcases.loadpay.admin.AdminCarrierCanadaTest"></class>
 				<class name="testcases.loadpay.carrier.CarrierCanadaFirstLoginTest"></class>
 			</classes>
